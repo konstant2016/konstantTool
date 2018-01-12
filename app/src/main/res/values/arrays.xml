@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="source_name">
+        <item>通用解析源一(可用)</item>
+        <item>通用解析源二(可用)</item>
+        <item>备用解析源（有广告）</item>
+        <item>腾讯接口</item>
+        <item>腾讯超清</item>
+        <item>优酷接口</item>
+        <item>爱奇艺接口</item>
+    </array>
+    
+    
+    <array name="source_link">
+        <item>https://api.47ks.com/webcloud/?v=</item>
+        <item>http://api.47ks.com/webcloud/?v=</item>
+        <item>http://v.72du.com/api/?url=</item>
+        <item>http://47.89.49.245/video.php?url=</item>
+        <item>http://www.wmxz.wang/video.php?url=</item>
+        <item>http://v.rpsofts.com/v.php?url=</item>
+        <item>http://yyygwz.com/index.php?url=</item>
+    </array>
+
+
+    <array name="live_name">
+        <item>广西卫视HD</item>
+        <item>北京卫视</item>
+        <item>东方卫视</item>
+        <item>天津卫视</item>
+        <item>江苏卫视</item>
+        <item>浙江卫视</item>
+        <item>四川卫视</item>
+        <item>重庆卫视</item>
+        <item>湖北卫视</item>
+        <item>贵州卫视</item>
+        <item>安徽卫视</item>
+        <item>山东卫视</item>
+        <item>辽宁卫视</item>
+        <item>黑龙江卫视</item>
+        <item>广东卫视</item>
+        <item>深圳卫视</item>
+        <item>湖南卫视</item>
+        <item>湖南国际</item>
+        <item>湖南经视</item>
+
+        <item>CCTV-1</item>
+        <item>CCTV-2</item>
+        <item>CCTV-3</item>
+        <item>CCTV-4</item>
+        <item>CCTV-5</item>
+        <item>CCTV-6</item>
+        <item>CCTV-7</item>
+        <item>CCTV-8</item>
+        <item>CCTV-9</item>
+        <item>CCTV-10</item>
+        <item>CCTV-11</item>
+        <item>CCTV-12</item>
+        <item>CCTV-13</item>
+        <item>CCTV-14</item>
+        <item>CCTV-15</item>
+    </array>
+
+    <array name="live_link">
+        <item>http://player.pptvyun.com/svc/m3u8player/pl/0a2dnq6boaalnq-L4K2eoqmVp-ydoa2ZpaCd.m3u8</item>
+        <item>http://112.89.38.22/PLTV/88888894/224/3221225531/2.m3u8</item>
+        <item>http://112.89.38.22/PLTV/88888894/224/3221225508/1.m3u8</item>
+        <item>http://112.89.38.22/PLTV/88888894/224/3221225530/1.m3u8</item>
+        <item>http://112.89.38.22/PLTV/88888894/224/3221225488/2.m3u8</item>
+        <item>http://112.89.38.25/PLTV/88888894/224/3221225487/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225825/2.m3u8</item>
+        <item>http://112.89.38.22/PLTV/88888894/224/3221225507/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225509/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225830/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225504/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225528/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225529/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225525/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225519/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225521/2.m3u8</item>
+        <item>http://112.89.38.21/PLTV/88888894/224/3221225486/2.m3u8</item>
+        <item>http://phoneliveal.mgtv.com/nn_live/nn_x64/aWQ9SE5HSk1QUDM2MCZjZG5leF9pZD1hbF9waG9uZV9saXZlMyZuZnQ9dHMz/HNGJMPP360.m3u8</item>
+        <item>http://phoneliveal.mgtv.com/nn_live/nn_x64/aWQ9SE5KU01QUDM2MCZjZG5leF9pZD1hbF9waG9uZV9saXZlMyZuZnQ9dHMz/HNJSMPP360.m3u8</item>
+
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-1/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-2/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-3/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-4/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-5/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-6/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-7/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-8/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-9/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-10/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-11/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-12/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-13/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-14/dujuejiami.m3u8</item>
+        <item>http://223.82.250.94:8080/ysten-businessmobile/live/cctv-15/dujuejiami.m3u8</item>
+    </array>
+
+    <array name="translate_type_name">
+        <item>自动检测</item>
+        <item>中文</item>
+        <item>英文</item>
+        <item>粤语</item>
+        <item>文言文</item>
+        <item>日语</item>
+        <item>韩语</item>
+        <item>法语</item>
+        <item>西班牙语</item>
+        <item>泰语</item>
+        <item>阿拉伯语</item>
+        <item>俄语</item>
+        <item>葡萄牙语</item>
+        <item>德语</item>
+        <item>意大利语</item>
+        <item>希腊语</item>
+        <item>荷兰语</item>
+        <item>波兰语</item>
+        <item>保加利亚语</item>
+        <item>爱沙尼亚语</item>
+        <item>丹麦语</item>
+        <item>芬兰语</item>
+        <item>捷克语</item>
+        <item>罗马尼亚语</item>
+        <item>斯洛文尼亚语</item>
+        <item>瑞典语</item>
+        <item>匈牙利语</item>
+        <item>繁体中文</item>
+        <item>越南语</item>
+    </array>
+
+    <array name="translate_type_short">
+        <item>auto</item>
+        <item>zh</item>
+        <item>en</item>
+        <item>yue</item>
+        <item>wyw</item>
+        <item>jp</item>
+        <item>kor</item>
+        <item>fra</item>
+        <item>spa</item>
+        <item>th</item>
+        <item>ara</item>
+        <item>ru</item>
+        <item>pt</item>
+        <item>de</item>
+        <item>it</item>
+        <item>el</item>
+        <item>nl</item>
+        <item>pl</item>
+        <item>bul</item>
+        <item>est</item>
+        <item>dan</item>
+        <item>fin</item>
+        <item>cs</item>
+        <item>rom</item>
+        <item>slo</item>
+        <item>swe</item>
+        <item>hu</item>
+        <item>cht</item>
+        <item>vie</item>
+    </array>
+
+</resources>

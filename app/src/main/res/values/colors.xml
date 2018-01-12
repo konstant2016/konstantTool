@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#3853a9</color>
+    <color name="common_white_list_bg_pressed_color">#efeff0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#333333</color>
+    <color name="main_color">#3853a9</color>
+    <color name="gray">#EBEBEB</color>
+    <color name="black_20_transparent">#30000000</color>
+    <color name="black_60_transparent">#60000000</color>
+    <color name="class_S">#3fb57d</color>
+
+    <color name="btn_register_normal">#EBEBEB</color>
+    <color name="btn_register_pressed">#30000000</color>
+
+    <color name="btn_login_normal">#00acff</color>
+    <color name="btn_login_pressed">#46678d</color>
+
+</resources>

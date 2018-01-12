@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.konstant.konstanttools"
+        minSdkVersion 23
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '26.0.2'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:design:25.3.1'
+    implementation 'com.android.support:cardview-v7:25.3.1'
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+
+    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'         //  滑动返回
+    implementation 'com.alibaba:fastjson:1.2.44'                       // FAST JSON
+    implementation 'com.7heaven.widgets:segmentcontrol:1.17'           // segmentcontrol分段控制控件
+    implementation 'fm.jiecao:jiecaovideoplayer:5.5.4'                 // 节操播放器
+    implementation 'com.amap.api:location:latest.integration'          // 高德定位
+    implementation 'com.mylhyl:zxingscanner:2.1.0'                     // 二维码扫描
+    implementation 'com.bm.photoview:library:1.4.1'                    // 图片查看控件
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'                  // 网络访问工具
+    implementation 'com.google.android.gms:play-services-gcm:9.4.0'    // 环信
+    implementation 'com.hyphenate:hyphenate-sdk:3.3.0'                 // 环信
+    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'       // 新的滚轮选择器
+    implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'            // superRecyclerView
+    implementation 'com.squareup.picasso:picasso:2.5.2'                 // picasso图片加载控件
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'               // 下拉刷新库
+
+
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.konstant.konstanttools.views.KonstantTextview
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="当地时间11月27日，印尼巴厘岛民众从阿贡火山脚下撤离。当日，巴厘岛阿贡火山喷发警戒升至最高级，大规模爆发可能迫近，火山附近的22个村庄被列为首波撤离区，当地政府陆续撤离火山口周围10公里约10万名民众。
+印尼国家灾害管理局今天将阿贡火山喷发警戒升至最高级别第4级。撤离区从火山周围的6至7.5公里，扩大到10公里。" />
+    </ScrollView>
+</LinearLayout>

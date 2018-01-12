@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:text="取消" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="确定" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/picker_province_new"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            app:wheel_indicator="true"
+            app:wheel_indicator_color="@color/black_20_transparent"
+            app:wheel_indicator_size="2px"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_position="1"
+            app:wheel_selected_item_text_color="@color/class_S"
+            app:wheel_visible_item_count="3" />
+
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/picker_city_new"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            app:wheel_indicator="true"
+            app:wheel_indicator_color="@color/black_20_transparent"
+            app:wheel_indicator_size="2px"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_position="1"
+            app:wheel_selected_item_text_color="@color/class_S"
+            app:wheel_visible_item_count="3" />
+
+        <com.aigestudio.wheelpicker.WheelPicker
+            android:id="@+id/picker_direct_new"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            app:wheel_indicator="true"
+            app:wheel_indicator_color="@color/black_20_transparent"
+            app:wheel_indicator_size="2px"
+            app:wheel_item_text_size="18sp"
+            app:wheel_selected_item_position="1"
+            app:wheel_selected_item_text_color="@color/class_S"
+            app:wheel_visible_item_count="3" />
+    </LinearLayout>
+
+</LinearLayout>
