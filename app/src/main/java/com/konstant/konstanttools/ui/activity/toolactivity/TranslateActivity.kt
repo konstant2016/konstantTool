@@ -105,7 +105,7 @@ class TranslateActivity : BaseActivity() {
         btn_clean.setOnClickListener {
             hideSoftKeyboard()
             et_query.setText("")
-            et_result.setText("")
+            tv_result.setText("")
         }
     }
 
@@ -121,7 +121,7 @@ class TranslateActivity : BaseActivity() {
     private fun showTranslateResult(string: String) {
         runOnUiThread {
             val result = JSON.parseObject(string, TranslateResult::class.java)
-            et_result.setText(result.trans_result[0].dst)
+            tv_result.setText(result.trans_result[0].dst)
         }
     }
 }

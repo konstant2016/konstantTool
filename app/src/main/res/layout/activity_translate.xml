@@ -61,16 +61,18 @@
                 android:gravity="center" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/et_result"
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_result"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
             android:background="@android:drawable/editbox_background"
             android:editable="false"
-            android:hint="这里展示翻译结果" />
+            android:hint="这里展示翻译结果"
+            android:textIsSelectable="true" />
 
         <LinearLayout
             android:layout_width="match_parent"

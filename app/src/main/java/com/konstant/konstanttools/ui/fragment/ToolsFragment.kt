@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.konstanttools.R
 import com.konstant.konstanttools.base.BaseFragment
+import com.konstant.konstanttools.ui.activity.SMSFakeActivity
 import com.konstant.konstanttools.ui.activity.testactivity.DeviceInfoActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.CompassActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.PhoneLocationActivity
@@ -58,6 +59,9 @@ class ToolsFragment : BaseFragment() {
 
         // 获取设备信息
         deviceInfo.setOnClickListener { startActivity(Intent(mActivity, DeviceInfoActivity::class.java)) }
+
+        // 短信伪造
+        layout_sms.setOnClickListener { startActivity(Intent(mActivity, SMSFakeActivity::class.java)) }
     }
 
 }

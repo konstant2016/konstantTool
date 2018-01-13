@@ -85,9 +85,7 @@ class QRCodeActivity : BaseActivity() {
                 outputStream.flush()
                 outputStream.close()
                 Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show()
-            } catch (e: FileNotFoundException) {
-                e.printStackTrace()
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
     }
