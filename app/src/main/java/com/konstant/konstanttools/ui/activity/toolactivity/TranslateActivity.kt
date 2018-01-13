@@ -93,6 +93,7 @@ class TranslateActivity : BaseActivity() {
 
         // 翻译按钮按下后
         btn_translate.setOnClickListener {
+            hideSoftKeyboard()
             if (TextUtils.isEmpty(et_query.text)) {
                 Toast.makeText(this, "你想翻译啥？", Toast.LENGTH_SHORT).show()
             } else {
@@ -102,6 +103,7 @@ class TranslateActivity : BaseActivity() {
 
         // 清空键按下后
         btn_clean.setOnClickListener {
+            hideSoftKeyboard()
             et_query.setText("")
             et_result.setText("")
         }
