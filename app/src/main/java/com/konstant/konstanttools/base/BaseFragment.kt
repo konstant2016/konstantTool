@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.PermissionChecker.checkSelfPermission
 import android.view.WindowManager
@@ -23,9 +24,33 @@ open class BaseFragment : Fragment() {
     private lateinit var mPermission: String
     protected lateinit var mActivity: Activity
 
+    private var isCreated = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        isCreated = true
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(isVisibleToUser and isCreated){
+            onFragmentResume()
+        }else{
+            onFragmentPause()
+        }
+    }
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         mActivity = context as Activity
+    }
+
+    protected fun onFragmentResume(){
+
+    }
+
+    protected fun onFragmentPause(){
+
     }
 
     // 申请权限

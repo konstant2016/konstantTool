@@ -39,6 +39,7 @@
                 android:text="输入发送方:" />
 
             <EditText
+                android:inputType="number"
                 android:id="@+id/et_sender"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

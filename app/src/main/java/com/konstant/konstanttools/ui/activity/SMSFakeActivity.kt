@@ -87,7 +87,7 @@ class SMSFakeActivity : BaseActivity() {
         values.put("date", date)
         values.put("body", body)
         contentResolver.insert(Uri.parse("content://sms"), values)
-        Toast.makeText(this, "写入成功", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "伪造成功，去系统收件箱查看吧", Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {

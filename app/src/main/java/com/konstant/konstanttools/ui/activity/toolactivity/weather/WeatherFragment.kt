@@ -1,7 +1,6 @@
 package com.konstant.konstanttools.ui.activity.toolactivity.weather
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -122,6 +121,7 @@ class WeatherFragment : BaseFragment() {
 
     // 更新界面
     private fun updateViews(data: WeatherResponse.HeWeather) {
+        if(this.isDetached) return
         mActivity.runOnUiThread {
             list.clear()
             list.addAll(data.daily_forecast)
