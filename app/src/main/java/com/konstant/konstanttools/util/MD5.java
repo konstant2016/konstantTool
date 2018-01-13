@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -39,10 +38,8 @@ public class MD5 {
             byte[] resultByteArray = messageDigest.digest();
             // 字符数组转换成字符串返回
             return byteArrayToHex(resultByteArray);
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }catch (UnsupportedEncodingException e){
-            return null;
+        } catch (Exception e) {
+            return "";
         }
     }
 
