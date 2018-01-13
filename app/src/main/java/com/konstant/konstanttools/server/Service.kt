@@ -34,7 +34,7 @@ object Service {
     }
 
     // 翻译
-    fun translate(url: String, originString: String, originType: String, resultType: String, appid: Int,
+    fun translate(url: String, originString: String, originType: String, resultType: String, appid: String,
                   secret: String, callback: (state: Boolean, data: String) -> Unit) {
         val md5 = MD5.md5("$appid" + originString + System.currentTimeMillis() / 1000 + secret)
         val request = TranslateRequest(originString, originType,

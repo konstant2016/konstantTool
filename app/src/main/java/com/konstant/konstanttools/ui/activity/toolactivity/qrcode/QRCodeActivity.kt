@@ -33,6 +33,8 @@ class QRCodeActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
 
+        root_layout_qrcode.setOnClickListener { hideSoftKeyboard() }
+
         // 生成二维码
         btn_create.setOnClickListener {
 

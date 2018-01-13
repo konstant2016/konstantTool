@@ -17,4 +17,4 @@ data class IDNumber(val cardno: String, val key: String)
 data class WeatherRequest(val location: String, val key: String)
 
 // 翻译
-data class TranslateRequest(val q: String, val from: String, val to: String, val appid: Int, val salt: Int, val sign: String)
+data class TranslateRequest(val q: String, val from: String, val to: String, val appid: String, val salt: Int, val sign: String)

@@ -1,14 +1,21 @@
 package com.konstant.konstanttools.ui.activity.toolactivity
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import android.widget.Toast
+import com.alibaba.fastjson.JSON
 import com.konstant.konstanttools.R
 import com.konstant.konstanttools.base.BaseActivity
+import com.konstant.konstanttools.server.Service
+import com.konstant.konstanttools.server.response.TranslateResult
+import com.konstant.konstanttools.util.KeyConstant
+import com.konstant.konstanttools.util.UrlConstant
 import kotlinx.android.synthetic.main.activity_translate.*
 
 class TranslateActivity : BaseActivity() {
@@ -16,8 +23,8 @@ class TranslateActivity : BaseActivity() {
     private val languageNames by lazy { resources.getStringArray(R.array.translate_type_name) }
     private val languageShorts by lazy { resources.getStringArray(R.array.translate_type_short) }
 
-    private var typeFrom = ""
-    private var typeTo = ""
+    private var typeFrom = "auto"
+    private var typeTo = "zh"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +35,12 @@ class TranslateActivity : BaseActivity() {
 
     override fun initBaseViews() {
         super.initBaseViews()
+
+        // 隐藏键盘
         layout_bg.setOnClickListener { hideSoftKeyboard() }
+
+        // 防止键盘遮挡布局
+        addLayoutListener(layout_bg, btn_translate)
 
         // 初始化左边的spinner
         val adapterOrigin = object : ArrayAdapter<String>(this, R.layout.item_spinner_bg, languageNames) {
@@ -65,10 +77,49 @@ class TranslateActivity : BaseActivity() {
                 return root
             }
         }
-
         adapterResult.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_result.adapter = adapterResult
         spinner_result.setSelection(0)
+        spinner_result.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
 
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                typeTo = languageShorts[position + 1]
+                hideSoftKeyboard()
+            }
+        }
+
+        // 翻译按钮按下后
+        btn_translate.setOnClickListener {
+            if (TextUtils.isEmpty(et_query.text)) {
+                Toast.makeText(this, "你想翻译啥？", Toast.LENGTH_SHORT).show()
+            } else {
+                doTranslate(et_query.text.toString())
+            }
+        }
+
+        // 清空键按下后
+        btn_clean.setOnClickListener {
+            et_query.setText("")
+            et_result.setText("")
+        }
+    }
+
+    // 调用接口进行翻译
+    private fun doTranslate(string: String) {
+        Service.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
+                KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { state, data ->
+            showTranslateResult(data)
+        }
+    }
+
+    // 展示翻译结果
+    private fun showTranslateResult(string: String) {
+        runOnUiThread {
+            val result = JSON.parseObject(string, TranslateResult::class.java)
+            et_result.setText(result.trans_result[0].dst)
+        }
     }
 }

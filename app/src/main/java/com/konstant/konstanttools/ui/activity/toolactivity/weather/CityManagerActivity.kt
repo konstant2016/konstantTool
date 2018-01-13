@@ -19,6 +19,7 @@ import com.konstant.konstanttools.ui.adapter.AdapterGridView
 import kotlinx.android.synthetic.main.activity_city_manager.*
 import kotlinx.android.synthetic.main.title_layout.*
 import java.io.ByteArrayOutputStream
+import java.io.FileNotFoundException
 
 class CityManagerActivity : BaseActivity() {
 
@@ -183,6 +184,7 @@ class CityManagerActivity : BaseActivity() {
             }
         }
         return String(stream.toByteArray())
+
     }
 
     // 获取本地保存的用户手动添加的城市信息列表
