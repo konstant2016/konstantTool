@@ -41,8 +41,8 @@ public class MD5 {
             byte[] resultByteArray = messageDigest.digest();
             // 字符数组转换成字符串返回
             return byteArrayToHex(resultByteArray);
-        } catch (NoSuchAlgorithmException e) {
-            return null;
+        } catch (Exception e) {
+            return "";
         }
     }
 
