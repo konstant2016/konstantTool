@@ -1,5 +1,6 @@
 package com.konstant.konstanttools.ui.activity.toolactivity.beauty;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import com.bm.library.PhotoView;
 import com.konstant.konstanttools.R;
 import com.konstant.konstanttools.base.BaseActivity;
-import com.konstant.konstanttools.util.NetworkUtil;
 import com.konstant.konstanttools.util.Utils;
 import com.squareup.picasso.Picasso;
 
@@ -33,6 +33,8 @@ import java.util.List;
 public class LookPicActivity extends BaseActivity {
 
     private ViewPager mViewPager;
+    private ViewPagerAdapter mAdapter;
+    private ArrayList<String> urlList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class LookPicActivity extends BaseActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
         Intent intent = getIntent();
-        ArrayList<String> urlList = intent.getStringArrayListExtra("urlList");
+        urlList.addAll(intent.getStringArrayListExtra("urlList"));
         Log.i("连接集合", urlList.toString());
 
         List<ImageView> imageViewList = new ArrayList<>();
@@ -61,24 +63,62 @@ public class LookPicActivity extends BaseActivity {
             imageViewList.add(photoView);
         }
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(imageViewList, urlList, this);
-        mViewPager.setAdapter(adapter);
+
+        mAdapter = new ViewPagerAdapter(imageViewList, this);
+        mViewPager.setAdapter(mAdapter);
 
         int index = intent.getIntExtra("index", 0);
         mViewPager.setCurrentItem(index);
+
     }
 
+    @Override
+    protected void onPermissionResult(boolean result) {
+        super.onPermissionResult(result);
+        if (result) {
+            writeToStorage(urlList.get(mViewPager.getCurrentItem()));
+        } else {
+            Toast.makeText(this, "您拒绝了SD卡读写权限", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //写出文件到本地
+    public void writeToStorage(String urlString) {
+        new Thread(() -> {
+            byte[] byteArray = Utils.getByteArray(urlString);
+            File fileParent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            String name = urlString.substring(urlString.lastIndexOf("/") + 1);
+            File file = new File(fileParent, name);
+            try {
+                FileOutputStream outputStream = new FileOutputStream(file);
+                outputStream.write(byteArray, 0, byteArray.length);
+                outputStream.flush();
+                outputStream.close();
+                showToast("保存成功");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                showToast("保存失败");
+            } catch (IOException e) {
+                e.printStackTrace();
+                showToast("保存失败");
+            }
+        }).start();
+    }
+
+    // 更新界面提示
+    private void showToast(String text) {
+        runOnUiThread(() ->
+                Toast.makeText(this, text, Toast.LENGTH_SHORT).show());
+    }
 
     // viewpager的适配器
     static class ViewPagerAdapter extends PagerAdapter {
 
         private List<ImageView> imageViewList;
-        private List<String> urlList;
         private Context context;
 
-        public ViewPagerAdapter(List<ImageView> imageViewList, List<String> urlList, Context context) {
+        public ViewPagerAdapter(List<ImageView> imageViewList, Context context) {
             this.imageViewList = imageViewList;
-            this.urlList = urlList;
             this.context = context;
         }
 
@@ -102,7 +142,7 @@ public class LookPicActivity extends BaseActivity {
             imageView.setOnClickListener((v) -> ((Activity) context).finish());
 
             imageView.setOnLongClickListener(v -> {
-                showDialog(urlList.get(position));
+                showDialog();
                 return true;
             });
 
@@ -115,46 +155,19 @@ public class LookPicActivity extends BaseActivity {
             container.removeView((View) object);
         }
 
-        private void showDialog(String urlString) {
+        private void showDialog() {
             new AlertDialog.Builder(context).setMessage("是否要保存到本地?")
                     .setNegativeButton("取消", (dialog, whitch) -> {
                         dialog.dismiss();
                     })
                     .setPositiveButton("确定", (dialog, whitch) -> {
                         dialog.dismiss();
-                        writeToStroage(urlString);
+                        ((LookPicActivity) context).requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, "需要手机读写权限用以保存图片");
                     })
                     .create().show();
         }
 
 
-        //写出文件到本地
-        public void writeToStroage(String urlString) {
-            new Thread(() -> {
-                byte[] byteArray = Utils.getByteArray(urlString);
-                File fileParent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                String name = urlString.substring(urlString.lastIndexOf("/") + 1);
-                File file = new File(fileParent, name);
-                try {
-                    FileOutputStream outputStream = new FileOutputStream(file);
-                    outputStream.write(byteArray, 0, byteArray.length);
-                    outputStream.flush();
-                    outputStream.close();
-                    shoeToast("保存成功");
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        }
-
-        // 更新界面提示
-        private void shoeToast(String text) {
-            ((Activity) context).runOnUiThread(() -> {
-                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-            });
-        }
     }
 
 }
