@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.PermissionChecker.checkSelfPermission
+import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 
@@ -25,17 +27,22 @@ open class BaseFragment : Fragment() {
     protected lateinit var mActivity: Activity
 
     private var isCreated = false
+    private var mIsVisibleToUser = false
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         isCreated = true
+        if (mIsVisibleToUser) {
+            onFragmentResume()
+        }
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        if(isVisibleToUser and isCreated){
+        mIsVisibleToUser = isVisibleToUser
+        if (isVisibleToUser and isCreated) {
             onFragmentResume()
-        }else{
+        } else {
             onFragmentPause()
         }
     }
@@ -45,13 +52,15 @@ open class BaseFragment : Fragment() {
         mActivity = context as Activity
     }
 
-    protected fun onFragmentResume(){
+    open protected fun onFragmentResume() {
 
     }
 
-    protected fun onFragmentPause(){
+    open protected fun onFragmentPause() {
 
     }
+
+    open protected fun isFragmentResume(): Boolean = isCreated and mIsVisibleToUser
 
     // 申请权限
     protected fun requestPermission(permission: String, reason: String) {

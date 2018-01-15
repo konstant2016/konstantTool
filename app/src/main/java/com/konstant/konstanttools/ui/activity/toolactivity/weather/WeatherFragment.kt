@@ -3,7 +3,6 @@ package com.konstant.konstanttools.ui.activity.toolactivity.weather
 import android.Manifest
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +37,7 @@ class WeatherFragment : BaseFragment() {
 
     companion object {
         private val PARAM = "param"
-        fun newInstance(direct: String) : Fragment {
+        fun newInstance(direct: String): Fragment {
             val fragment = WeatherFragment()
             val bundle = Bundle()
             bundle.putString(PARAM, direct)
@@ -56,8 +55,22 @@ class WeatherFragment : BaseFragment() {
         return inflater?.inflate(R.layout.fragment_weather, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+//    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//            weather_list_view.adapter = adapter
+//            addHeaderView()
+//            swipe_layout.isRefreshing = true
+//            swipe_layout.setOnRefreshListener { requestData(mDistrict) }
+//            if (mDistrict.isNullOrEmpty()) {
+//                initLocationClient()
+//                requestPermission(Manifest.permission.ACCESS_FINE_LOCATION, "需要获取定位权限来确定您当前的位置")
+//            } else {
+//                requestData(mDistrict)
+//            }
+//    }
+
+    override fun onFragmentResume() {
+        super.onFragmentResume()
         weather_list_view.adapter = adapter
         addHeaderView()
         swipe_layout.isRefreshing = true
@@ -69,7 +82,6 @@ class WeatherFragment : BaseFragment() {
             requestData(mDistrict)
         }
     }
-
 
     override fun onPermissionResult(result: Boolean) {
         super.onPermissionResult(result)
@@ -122,7 +134,6 @@ class WeatherFragment : BaseFragment() {
 
     // 更新界面
     private fun updateViews(data: WeatherResponse.HeWeather) {
-        if(this.isDetached) return
         mActivity.runOnUiThread {
             list.clear()
             list.addAll(data.daily_forecast)
@@ -132,4 +143,5 @@ class WeatherFragment : BaseFragment() {
             tv_update_time.text = "更新时间：${data.update.loc}"
         }
     }
+
 }
