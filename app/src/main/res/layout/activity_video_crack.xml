@@ -8,18 +8,25 @@
 
     <include layout="@layout/title_layout"></include>
 
-    <EditText
-        android:id="@+id/edit_text"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="请输入要解析的视频地址" />
+        android:layout_height="120dp"
+        android:gravity="center">
 
-    <TextView
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:drawable/editbox_background"
+            android:hint="请输入要解析的视频地址" />
+    </android.support.design.widget.TextInputLayout>
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/black_20_transparent" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,26 +35,29 @@
         android:text="选择解析源:" />
 
     <Spinner
+        android:layout_marginTop="10dp"
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/button_height"></Spinner>
+        android:layout_height="45dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="#06000000"></Spinner>
 
-    <TextView
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
+    <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/black_20_transparent"  />
 
     <Button
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@android:drawable/editbox_background"
         android:id="@+id/btn_creak"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:gravity="center"
         android:text="解析(会跳转到浏览器播放)" />
 
-    <!--<WebView-->
-    <!--android:id="@+id/tt_webview"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"></WebView>-->
 </LinearLayout>

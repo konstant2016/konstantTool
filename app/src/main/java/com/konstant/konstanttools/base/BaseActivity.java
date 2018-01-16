@@ -58,6 +58,8 @@ public class BaseActivity extends SwipeBackActivity {
         findViewById(R.id.img_back).setOnClickListener((view) -> {
             finish();
         });
+
+
     }
 
     protected void setTitle(String s) {
@@ -188,3 +190,9 @@ public class BaseActivity extends SwipeBackActivity {
         super.onDestroy();
     }
 }
+
+
+
+
+
+

@@ -7,10 +7,10 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.PermissionChecker.checkSelfPermission
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+
 
 /**
  * 描述:所有fragment的父类，用于封装一下常用方法
@@ -26,13 +26,17 @@ open class BaseFragment : Fragment() {
     private lateinit var mPermission: String
     protected lateinit var mActivity: Activity
 
-    private var isCreated = false
+    private var isViewCreated = false
     private var mIsVisibleToUser = false
+    private var isFirstVisible = true
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        isCreated = true
+        isViewCreated = true
+        // onViewCreated只会调用一次，当调用此方法时，判断是否对用户可见，如果可见，调用懒加载方法
         if (mIsVisibleToUser) {
+            onLazyLoad()
+            isFirstVisible = false
             onFragmentResume()
         }
     }
@@ -40,16 +44,20 @@ open class BaseFragment : Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         mIsVisibleToUser = isVisibleToUser
-        if (isVisibleToUser and isCreated) {
+        if (!isViewCreated) return  // 如果视图未创建完成，返回
+        if (isVisibleToUser) {      // 如果对用户可见
             onFragmentResume()
+            if (isFirstVisible) {   // 如果是第一次对用户可见，则调用懒加载
+                onLazyLoad()
+                isFirstVisible = false
+            }
         } else {
             onFragmentPause()
         }
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        mActivity = context as Activity
+    open protected fun onLazyLoad() {
+
     }
 
     open protected fun onFragmentResume() {
@@ -60,7 +68,13 @@ open class BaseFragment : Fragment() {
 
     }
 
-    open protected fun isFragmentResume(): Boolean = isCreated and mIsVisibleToUser
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        mActivity = context as Activity
+    }
+
+
+    open protected fun isFragmentResume(): Boolean = isViewCreated and mIsVisibleToUser
 
     // 申请权限
     protected fun requestPermission(permission: String, reason: String) {
@@ -124,3 +138,4 @@ open class BaseFragment : Fragment() {
                         InputMethodManager.HIDE_NOT_ALWAYS)
     }
 }
+

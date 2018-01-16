@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.konstant.konstanttools.R;
 import com.konstant.konstanttools.base.BaseActivity;
 
+import java.util.ArrayList;
+
 public class VideoCrackActivity extends BaseActivity {
 
     private EditText mEditText;
@@ -48,24 +50,22 @@ public class VideoCrackActivity extends BaseActivity {
         mButton = (Button) findViewById(R.id.btn_creak);
         mSpinner = (Spinner) findViewById(R.id.spinner);
 
-        findViewById(R.id.img_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        findViewById(R.id.img_back).setOnClickListener((v) -> finish());
     }
 
     private void initSpinner() {
         String[] items = getResources().getStringArray(R.array.source_name);
         final String[] links = getResources().getStringArray(R.array.source_link);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_spinner_bg, items){
             @Override
             public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                return super.getDropDownView(position, convertView, parent);
+                View root = LayoutInflater.from(VideoCrackActivity.this).inflate(R.layout.item_spinner_pull_down_bg, parent, false);
+                TextView tv =  (TextView) root.findViewById(R.id.text_label);
+                tv.setText(items[position]);
+                return root;
             }
         };
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         mSpinner.setAdapter(adapter);
         mSpinner.setSelection(0);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -82,9 +82,8 @@ public class VideoCrackActivity extends BaseActivity {
     }
 
     private void initButton() {
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mButton.setOnClickListener(
+            view -> {
                 if ((mEditText.getText() == null) || TextUtils.isEmpty(mEditText.getText())) {
                     Toast.makeText(VideoCrackActivity.this, "记得输入地址哦", Toast.LENGTH_SHORT).show();
                     return;
@@ -93,6 +92,6 @@ public class VideoCrackActivity extends BaseActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
-        });
+        );
     }
 }

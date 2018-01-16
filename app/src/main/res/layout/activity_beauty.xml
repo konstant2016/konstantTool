@@ -11,8 +11,8 @@
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:tr_head_height="100dp"
-        app:tr_bottom_height="100dp">
+        app:tr_bottom_height="100dp"
+        app:tr_head_height="100dp">
 
         <ListView
             android:id="@+id/layout_listview"
@@ -20,5 +20,7 @@
             android:layout_height="match_parent" />
     </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 </LinearLayout>
+
+
 
 

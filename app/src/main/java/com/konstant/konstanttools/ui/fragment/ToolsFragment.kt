@@ -30,7 +30,8 @@ import kotlinx.android.synthetic.main.fragment_tools.*
 class ToolsFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_tools, container, false)
+        val view =  inflater.inflate(R.layout.fragment_tools, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

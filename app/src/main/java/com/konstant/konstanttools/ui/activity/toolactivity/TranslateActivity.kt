@@ -51,7 +51,6 @@ class TranslateActivity : BaseActivity() {
                 return root
             }
         }
-        adapterOrigin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_origin.adapter = adapterOrigin
         spinner_origin.setSelection(0)
         spinner_origin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -77,7 +76,6 @@ class TranslateActivity : BaseActivity() {
                 return root
             }
         }
-        adapterResult.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_result.adapter = adapterResult
         spinner_result.setSelection(0)
         spinner_result.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

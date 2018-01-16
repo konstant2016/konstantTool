@@ -55,22 +55,7 @@ class WeatherFragment : BaseFragment() {
         return inflater?.inflate(R.layout.fragment_weather, container, false)
     }
 
-//    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//            weather_list_view.adapter = adapter
-//            addHeaderView()
-//            swipe_layout.isRefreshing = true
-//            swipe_layout.setOnRefreshListener { requestData(mDistrict) }
-//            if (mDistrict.isNullOrEmpty()) {
-//                initLocationClient()
-//                requestPermission(Manifest.permission.ACCESS_FINE_LOCATION, "需要获取定位权限来确定您当前的位置")
-//            } else {
-//                requestData(mDistrict)
-//            }
-//    }
-
-    override fun onFragmentResume() {
-        super.onFragmentResume()
+    override fun onLazyLoad() {
         weather_list_view.adapter = adapter
         addHeaderView()
         swipe_layout.isRefreshing = true
