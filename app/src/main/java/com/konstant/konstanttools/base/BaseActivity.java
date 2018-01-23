@@ -55,11 +55,7 @@ public class BaseActivity extends SwipeBackActivity {
 
 
     protected void initBaseViews() {
-        findViewById(R.id.img_back).setOnClickListener((view) -> {
-            finish();
-        });
-
-
+        findViewById(R.id.img_back).setOnClickListener((view) -> finish());
     }
 
     protected void setTitle(String s) {
