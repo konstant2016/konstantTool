@@ -106,7 +106,7 @@ class WeatherFragment : BaseFragment() {
             if (mActivity.isDestroyed) return@queryWeather
             stopRefreshAnim()
             if (!state) return@queryWeather
-            val response = JSON.parseObject(data, WeatherResponse::class.java)
+            val response = JSON.parseObject(data.replace("$",""), WeatherResponse::class.java)
             if (response.heWeather6[0].status != "ok") return@queryWeather
             updateViews(response.heWeather6[0])
         }

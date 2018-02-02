@@ -20,14 +20,15 @@ public class WeatherResponse {
 
     public static class HeWeather {
         /**
-         * basic : {"cid":"CN101010100","location":"北京","parent_city":"北京","admin_area":"北京","cnty":"中国","lat":"39.90498734","lon":"116.4052887","tz":"+8.0"}
-         * update : {"loc":"2017-12-29 15:50","utc":"2017-12-29 07:50"}
+         * basic : {"cid":"CN101010300","location":"朝阳","parent_city":"北京","admin_area":"北京","cnty":"中国","lat":"39.92148972","lon":"116.48641205","tz":"+8.0"}
+         * update : {"loc":"2018-02-02 14:51","utc":"2018-02-02 06:51"}
          * status : ok
-         * daily_forecast : [{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2017-12-29","hum":"58","mr":"13:58","ms":"02:41","pcpn":"0.0","pop":"0","pres":"1030","sr":"07:34","ss":"16:59","tmp_max":"2","tmp_min":"-4","uv_index":"1","vis":"20","wind_deg":"177","wind_dir":"南风","wind_sc":"微风","wind_spd":"6"},{"cond_code_d":"101","cond_code_n":"100","cond_txt_d":"多云","cond_txt_n":"晴","date":"2017-12-30","hum":"24","mr":"14:39","ms":"03:51","pcpn":"0.0","pop":"0","pres":"1031","sr":"07:34","ss":"17:00","tmp_max":"5","tmp_min":"-6","uv_index":"1","vis":"20","wind_deg":"297","wind_dir":"西北风","wind_sc":"3-4","wind_spd":"13"},{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2017-12-31","hum":"16","mr":"15:27","ms":"05:02","pcpn":"0.0","pop":"0","pres":"1030","sr":"07:34","ss":"17:00","tmp_max":"4","tmp_min":"-7","uv_index":"1","vis":"20","wind_deg":"203","wind_dir":"西南风","wind_sc":"微风","wind_spd":"8"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-01-01","hum":"17","mr":"16:22","ms":"06:13","pcpn":"0.0","pop":"0","pres":"1030","sr":"07:35","ss":"17:01","tmp_max":"3","tmp_min":"-6","uv_index":"1","vis":"20","wind_deg":"84","wind_dir":"东风","wind_sc":"微风","wind_spd":"3"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-01-02","hum":"26","mr":"17:26","ms":"07:20","pcpn":"0.0","pop":"0","pres":"1032","sr":"07:35","ss":"17:02","tmp_max":"2","tmp_min":"-4","uv_index":"1","vis":"20","wind_deg":"70","wind_dir":"东北风","wind_sc":"微风","wind_spd":"3"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-01-03","hum":"26","mr":"18:34","ms":"08:20","pcpn":"0.0","pop":"0","pres":"1040","sr":"07:35","ss":"17:03","tmp_max":"2","tmp_min":"-5","uv_index":"2","vis":"20","wind_deg":"30","wind_dir":"东北风","wind_sc":"微风","wind_spd":"6"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-01-04","hum":"18","mr":"19:45","ms":"09:13","pcpn":"0.0","pop":"0","pres":"1041","sr":"07:35","ss":"17:04","tmp_max":"2","tmp_min":"-7","uv_index":"2","vis":"20","wind_deg":"27","wind_dir":"东北风","wind_sc":"微风","wind_spd":"4"}]
+         * daily_forecast : [{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2018-02-02","hum":"19","mr":"19:40","ms":"08:27","pcpn":"0.0","pop":"0","pres":"1039","sr":"07:21","ss":"17:35","tmp_max":"-1","tmp_min":"-9","uv_index":"2","vis":"20","wind_deg":"349","wind_dir":"北风","wind_sc":"3-4","wind_spd":"16"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-02-03","hum":"19","mr":"20:48","ms":"09:05","pcpn":"0.0","pop":"0","pres":"1038","sr":"07:20","ss":"17:36","tmp_max":"0","tmp_min":"-10","uv_index":"2","vis":"20","wind_deg":"356","wind_dir":"北风","wind_sc":"微风","wind_spd":"4"},{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2018-02-04","hum":"24","mr":"21:55","ms":"09:40","pcpn":"0.0","pop":"0","pres":"1035","sr":"07:19","ss":"17:37","tmp_max":"2","tmp_min":"-8","uv_index":"2","vis":"20","wind_deg":"222","wind_dir":"西南风","wind_sc":"微风","wind_spd":"3"},{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2018-02-05","hum":"23","mr":"22:58","ms":"10:11","pcpn":"0.0","pop":"0","pres":"1036","sr":"07:18","ss":"17:39","tmp_max":"1","tmp_min":"-10","uv_index":"2","vis":"20","wind_deg":"29","wind_dir":"东北风","wind_sc":"微风","wind_spd":"8"},{"cond_code_d":"101","cond_code_n":"101","cond_txt_d":"多云","cond_txt_n":"多云","date":"2018-02-06","hum":"24","mr":"00:00","ms":"10:42","pcpn":"0.0","pop":"0","pres":"1030","sr":"07:17","ss":"17:40","tmp_max":"3","tmp_min":"-7","uv_index":"2","vis":"20","wind_deg":"253","wind_dir":"西南风","wind_sc":"微风","wind_spd":"6"},{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2018-02-07","hum":"21","mr":"06:45","ms":"11:14","pcpn":"0.0","pop":"0","pres":"1029","sr":"07:16","ss":"17:41","tmp_max":"3","tmp_min":"-8","uv_index":"2","vis":"20","wind_deg":"350","wind_dir":"北风","wind_sc":"3-4","wind_spd":"10"},{"cond_code_d":"100","cond_code_n":"100","cond_txt_d":"晴","cond_txt_n":"晴","date":"2018-02-08","hum":"23","mr":"00:59","ms":"11:48","pcpn":"0.0","pop":"0","pres":"1028","sr":"07:15","ss":"17:42","tmp_max":"3","tmp_min":"-7","uv_index":"2","vis":"20","wind_deg":"219","wind_dir":"西南风","wind_sc":"微风","wind_spd":"5"}]
+         * sunrise_sunset : [{"$ref":"$[0].daily_forecast[0]"},{"$ref":"$[0].daily_forecast[1]"},{"$ref":"$[0].daily_forecast[2]"},{"$ref":"$[0].daily_forecast[3]"},{"$ref":"$[0].daily_forecast[4]"},{"$ref":"$[0].daily_forecast[5]"},{"$ref":"$[0].daily_forecast[6]"}]
          */
 
         private Basic basic;
-        private Update update;
+        private UpdateBean update;
         private String status;
         private List<DailyForecast> daily_forecast;
 
@@ -39,11 +40,11 @@ public class WeatherResponse {
             this.basic = basic;
         }
 
-        public Update getUpdate() {
+        public UpdateBean getUpdate() {
             return update;
         }
 
-        public void setUpdate(Update update) {
+        public void setUpdate(UpdateBean update) {
             this.update = update;
         }
 
@@ -63,15 +64,16 @@ public class WeatherResponse {
             this.daily_forecast = daily_forecast;
         }
 
+
         public static class Basic {
             /**
-             * cid : CN101010100
-             * location : 北京
+             * cid : CN101010300
+             * location : 朝阳
              * parent_city : 北京
              * admin_area : 北京
              * cnty : 中国
-             * lat : 39.90498734
-             * lon : 116.4052887
+             * lat : 39.92148972
+             * lon : 116.48641205
              * tz : +8.0
              */
 
@@ -149,10 +151,10 @@ public class WeatherResponse {
             }
         }
 
-        public static class Update {
+        public static class UpdateBean {
             /**
-             * loc : 2017-12-29 15:50
-             * utc : 2017-12-29 07:50
+             * loc : 2018-02-02 14:51
+             * utc : 2018-02-02 06:51
              */
 
             private String loc;
@@ -177,27 +179,27 @@ public class WeatherResponse {
 
         public static class DailyForecast {
             /**
-             * cond_code_d : 101
-             * cond_code_n : 101
-             * cond_txt_d : 多云
-             * cond_txt_n : 多云
-             * date : 2017-12-29
-             * hum : 58
-             * mr : 13:58
-             * ms : 02:41
+             * cond_code_d : 100
+             * cond_code_n : 100
+             * cond_txt_d : 晴
+             * cond_txt_n : 晴
+             * date : 2018-02-02
+             * hum : 19
+             * mr : 19:40
+             * ms : 08:27
              * pcpn : 0.0
              * pop : 0
-             * pres : 1030
-             * sr : 07:34
-             * ss : 16:59
-             * tmp_max : 2
-             * tmp_min : -4
-             * uv_index : 1
+             * pres : 1039
+             * sr : 07:21
+             * ss : 17:35
+             * tmp_max : -1
+             * tmp_min : -9
+             * uv_index : 2
              * vis : 20
-             * wind_deg : 177
-             * wind_dir : 南风
-             * wind_sc : 微风
-             * wind_spd : 6
+             * wind_deg : 349
+             * wind_dir : 北风
+             * wind_sc : 3-4
+             * wind_spd : 16
              */
 
             private String cond_code_d;

@@ -59,6 +59,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/AppTheme">
 
         <!-- 以下为高德定位相关 -->
@@ -180,6 +181,7 @@
         <activity
             android:name=".ui.activity.SMSFakeActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.opengl.OpenGlActivity"></activity>
     </application>
 
 </manifest>
