@@ -19,10 +19,14 @@
         <CheckBox
             android:id="@+id/checkbox_light"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:theme="@style/My_CheckBox"
+            android:textSize="12sp"
+            android:textStyle="bold"
             android:text="开灯" />
 
         <LinearLayout

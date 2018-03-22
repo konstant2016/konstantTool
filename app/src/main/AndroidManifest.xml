@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
 
+    <!-- 开机自启权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <!-- 以下为高德定位所要求的权限 -->
     <!-- 用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -141,7 +144,7 @@
             android:name=".ui.activity.testactivity.ScaleCircleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.DeviceInfoActivity"
+            android:name=".ui.activity.toolactivity.DeviceInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.testactivity.GestureActivity"
@@ -181,7 +184,36 @@
         <activity
             android:name=".ui.activity.SMSFakeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.opengl.OpenGlActivity"></activity>
+        <activity android:name=".ui.activity.opengl.OpenGlActivity" />
+
+        <receiver android:name=".test.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".test.ForegroundService" />
+
+        <activity android:name=".ui.activity.toolactivity.traffic.TrafficActivity" />
+
+        <service
+            android:name=".ui.activity.toolactivity.traffic.TrafficCountService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <service
+            android:name=".ui.activity.toolactivity.traffic.TrafficUploadService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <service
+            android:name=".ui.activity.toolactivity.traffic.TrafficService"
+            android:enabled="true"
+            android:exported="true"></service>
+
     </application>
 
 </manifest>

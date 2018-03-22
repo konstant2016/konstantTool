@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.konstanttools.R
 import com.konstant.konstanttools.base.BaseFragment
+import com.konstant.konstanttools.ui.activity.opengl.OpenGlActivity
 import com.konstant.konstanttools.ui.activity.testactivity.*
 import com.konstant.konstanttools.ui.activity.toolactivity.im.activity.LoginActivity
 import kotlinx.android.synthetic.main.fragment_local_test.*
@@ -56,7 +57,9 @@ class LocalTestFragment : BaseFragment() {
         apk_checkout.setOnClickListener { startActivity(Intent(mActivity, ICVActivity::class.java)) }
 
         // 打印所有服务
-        layout_print_service.setOnClickListener { startActivity(Intent(mActivity,PrintServiceActivity::class.java)) }
+        layout_print_service.setOnClickListener { startActivity(Intent(mActivity, PrintServiceActivity::class.java)) }
 
+        // OpenGL实战
+        layout_open_gl.setOnClickListener { startActivity(Intent(mActivity, OpenGlActivity::class.java)) }
     }
 }

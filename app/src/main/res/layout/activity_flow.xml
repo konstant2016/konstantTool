@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title_layout"/>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:text="开启流量监测服务"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height" />
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:text="关闭流量监测服务"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="发送到服务器的测试"
+        android:id="@+id/btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="数据压缩测试"
+        android:id="@+id/btn_snappy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height" />
+
+</LinearLayout>

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.konstant.konstanttools.R
 import com.konstant.konstanttools.base.BaseFragment
 import com.konstant.konstanttools.ui.activity.SMSFakeActivity
-import com.konstant.konstanttools.ui.activity.testactivity.DeviceInfoActivity
+import com.konstant.konstanttools.ui.activity.toolactivity.DeviceInfoActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.CompassActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.PhoneLocationActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.TranslateActivity
@@ -16,6 +16,8 @@ import com.konstant.konstanttools.ui.activity.toolactivity.beauty.BeautyActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.im.activity.IMActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.im.activity.LoginActivity
 import com.konstant.konstanttools.ui.activity.toolactivity.qrcode.QRCodeActivity
+import com.konstant.konstanttools.ui.activity.toolactivity.traffic.TrafficActivity
+import com.konstant.konstanttools.ui.activity.toolactivity.traffic.TrafficCountService
 import com.konstant.konstanttools.ui.activity.toolactivity.weather.WeatherActivity
 import kotlinx.android.synthetic.main.fragment_tools.*
 
@@ -63,6 +65,9 @@ class ToolsFragment : BaseFragment() {
 
         // 短信伪造
         layout_sms.setOnClickListener { startActivity(Intent(mActivity, SMSFakeActivity::class.java)) }
+
+        // 流量统计服务
+        traffic_count.setOnClickListener { startActivity(Intent(mActivity,TrafficActivity::class.java)) }
     }
 
 }

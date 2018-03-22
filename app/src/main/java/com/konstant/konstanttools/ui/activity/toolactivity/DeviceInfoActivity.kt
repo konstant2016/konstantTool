@@ -1,4 +1,4 @@
-package com.konstant.konstanttools.ui.activity.testactivity
+package com.konstant.konstanttools.ui.activity.toolactivity
 
 import android.Manifest
 import android.os.Bundle
@@ -22,14 +22,14 @@ class DeviceInfoActivity : BaseActivity() {
 
 
     private fun judgePermission() {
-        requestPermission(READ_PHONE_STATE,"需要电话权限以获取手机串号等信息")
+        requestPermission(READ_PHONE_STATE, "需要电话权限以获取手机串号等信息")
     }
 
     override fun onPermissionResult(result: Boolean) {
         super.onPermissionResult(result)
-        if(result){
+        if (result) {
             readDeviceInfo()
-        }else{
+        } else {
             Toast.makeText(this, "权限申请已被拒绝", Toast.LENGTH_SHORT).show()
         }
     }
@@ -63,6 +63,8 @@ class DeviceInfoActivity : BaseActivity() {
 //        device_info.append("\n\nROM类型：" + DeviceInfoUtil.getROMType())
 //
 //        device_info.append("\n\nMIUI版本(如果为MIUI)：" + DeviceInfoUtil.getDeviceMIUIVersion())
+
+        device_info.append("\n\n当前ICCID：${DeviceInfoUtil.getCurrentIccid(this)}")
 
         device_info.append("\n\nIMEI(卡一)：" + DeviceInfoUtil.getDeviceMEIBySlotId(this, 0))
 

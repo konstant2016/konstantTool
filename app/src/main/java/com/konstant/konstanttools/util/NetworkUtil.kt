@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit
  * 创建时间:2017/12/29 上午11:44
  * 备注:
  */
+
 object NetworkUtil {
 
     val GET = 0;

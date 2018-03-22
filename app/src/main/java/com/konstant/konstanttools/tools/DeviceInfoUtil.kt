@@ -48,6 +48,12 @@ object DeviceInfoUtil {
         return android.os.Build.VERSION.RELEASE
     }
 
+    // 获取ICCID
+    fun getCurrentIccid(context: Context):String{
+        val service = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        return service.simSerialNumber
+    }
+
     // 获取主机地址
     fun getDeviceHost(): String {
         return android.os.Build.HOST

@@ -130,11 +130,11 @@ open class BaseFragment : Fragment() {
 
     // 隐藏软键盘
     protected fun hideSoftKeyboard() {
-        if (mActivity?.window?.attributes?.softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+        if (mActivity.window?.attributes?.softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
             return
         }
-        (mActivity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-                ?.hideSoftInputFromWindow(mActivity?.currentFocus?.windowToken,
+        (mActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .hideSoftInputFromWindow(mActivity.currentFocus?.windowToken,
                         InputMethodManager.HIDE_NOT_ALWAYS)
     }
 }

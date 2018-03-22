@@ -1,9 +1,12 @@
 package com.konstant.konstanttools.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.util.Log
 import com.konstant.konstanttools.R
 import com.konstant.konstanttools.base.BaseActivity
+import com.konstant.konstanttools.test.ForegroundService
 import com.konstant.konstanttools.ui.adapter.AdapterViewpager
 import com.konstant.konstanttools.ui.fragment.LocalTestFragment
 import com.konstant.konstanttools.ui.fragment.ToolsFragment
@@ -25,6 +28,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
+//        startService()
     }
 
     override fun initBaseViews() {
@@ -50,5 +54,11 @@ class MainActivity : BaseActivity() {
                 segment_main_activity.setSelectedIndex(position)
             }
         })
+    }
+
+     fun startService() {
+         Log.i(this.localClassName,"开启Service")
+        val intentService = Intent(this, ForegroundService::class.java)
+        startService(intentService)
     }
 }
