@@ -66,6 +66,8 @@ class DeviceInfoActivity : BaseActivity() {
 
         device_info.append("\n\n当前ICCID：${DeviceInfoUtil.getCurrentIccid(this)}")
 
+        device_info.append("\n\n是否存在实体SIM卡：${DeviceInfoUtil.isSimExist(this)}")
+
         device_info.append("\n\nIMEI(卡一)：" + DeviceInfoUtil.getDeviceMEIBySlotId(this, 0))
 
         device_info.append("\n\nIMEI(卡二)：" + DeviceInfoUtil.getDeviceMEIBySlotId(this, 1))

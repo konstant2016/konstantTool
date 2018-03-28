@@ -202,18 +202,20 @@
         <service
             android:name=".ui.activity.toolactivity.traffic.TrafficCountService"
             android:enabled="true"
-            android:exported="true"></service>
-
+            android:exported="true" />
         <service
             android:name=".ui.activity.toolactivity.traffic.TrafficUploadService"
             android:enabled="true"
-            android:exported="true"></service>
-
+            android:exported="true" />
         <service
             android:name=".ui.activity.toolactivity.traffic.TrafficService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
+        <activity
+            android:name=".ui.activity.testactivity.TouchActivity"
+            android:label="@string/title_activity_touch"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

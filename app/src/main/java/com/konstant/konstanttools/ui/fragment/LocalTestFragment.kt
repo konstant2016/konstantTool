@@ -61,5 +61,8 @@ class LocalTestFragment : BaseFragment() {
 
         // OpenGL实战
         layout_open_gl.setOnClickListener { startActivity(Intent(mActivity, OpenGlActivity::class.java)) }
+
+        // 自定义的触摸控件
+        layout_touch_view.setOnClickListener { startActivity(Intent(mActivity, TouchActivity::class.java)) }
     }
 }

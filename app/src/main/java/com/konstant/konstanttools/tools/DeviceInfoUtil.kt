@@ -49,9 +49,17 @@ object DeviceInfoUtil {
     }
 
     // 获取ICCID
-    fun getCurrentIccid(context: Context):String{
+    fun getCurrentIccid(context: Context): String {
         val service = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        return service.simSerialNumber
+        return service.simSerialNumber?:""
+    }
+
+
+    // 获取SIM卡状态
+    @SuppressLint("ServiceCast")
+    fun isSimExist(context: Context): Boolean {
+        val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        return manager.simState != (TelephonyManager.SIM_STATE_ABSENT or TelephonyManager.SIM_STATE_UNKNOWN)
     }
 
     // 获取主机地址

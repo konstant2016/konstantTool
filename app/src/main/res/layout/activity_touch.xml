@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <com.konstant.konstanttools.views.CustomTouchView
+        android:layout_marginTop="20dp"
+        android:id="@+id/touch"
+        android:layout_width="150dp"
+        android:layout_height="80dp" />
+
+    <Button
+        android:id="@+id/btn_2"
+        android:text="显示俩"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:text="显示仨"
+        android:id="@+id/btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:text="黄色"
+        android:id="@+id/btn_yellow"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:text="红色"
+        android:id="@+id/btn_red"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>
