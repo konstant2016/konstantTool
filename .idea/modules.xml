@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KonstantTools.iml" filepath="$PROJECT_DIR$/KonstantTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/card-protocol/card-protocol.iml" filepath="$PROJECT_DIR$/card-protocol/card-protocol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin/kotlin.iml" filepath="$PROJECT_DIR$/kotlin/kotlin.iml" />
     </modules>
   </component>
 </project>

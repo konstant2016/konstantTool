@@ -21,7 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -58,7 +58,7 @@ dependencies {
     // 图片查看控件
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
     // 网络访问工具
-    compile('com.google.android.gms:play-services-plus:11.8.0', {
+    implementation('com.google.android.gms:play-services-plus:11.8.0', {
         exclude group: 'org.apache.http'
     })
     // 环信
@@ -72,9 +72,6 @@ dependencies {
     // picasso图片加载控件
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     // 下拉刷新库
-//    compile 'com.xiaomi.infra.galaxy:galaxy-emq-client:1.3-SNAPSHOT'
-    // 小米推送队列
-//    compile group: 'org.xerial.snappy', name: 'snappy-java', version: '1.1.7.1-SNAPSHOT'
-    compile 'com.jiechic.android.library:snappy-android:1.1.7'
+    implementation 'com.jiechic.android.library:snappy-android:1.1.7'
     // Snappy压缩库
 }
