@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        applicationId "com.konstant.toollite"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // 二维码扫描
+    implementation 'com.mylhyl:zxingscanner:2.1.0'
+    // 图片查看控件
+    implementation 'com.bm.photoview:library:1.4.1'
+    // 网络访问框架
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    // 新的滚轮选择器
+    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
+    // 滑动返回
+    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
+    // picasso图片加载控件
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    // FAST JSON
+    implementation 'com.alibaba:fastjson:1.2.44'
+    // 下拉刷新
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    // eventbus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+}

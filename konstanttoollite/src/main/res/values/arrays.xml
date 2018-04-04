@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="translate_type_name">
+        <item>自动检测</item>
+        <item>中文</item>
+        <item>英文</item>
+        <item>粤语</item>
+        <item>文言文</item>
+        <item>日语</item>
+        <item>韩语</item>
+        <item>法语</item>
+        <item>西班牙语</item>
+        <item>泰语</item>
+        <item>阿拉伯语</item>
+        <item>俄语</item>
+        <item>葡萄牙语</item>
+        <item>德语</item>
+        <item>意大利语</item>
+        <item>希腊语</item>
+        <item>荷兰语</item>
+        <item>波兰语</item>
+        <item>保加利亚语</item>
+        <item>爱沙尼亚语</item>
+        <item>丹麦语</item>
+        <item>芬兰语</item>
+        <item>捷克语</item>
+        <item>罗马尼亚语</item>
+        <item>斯洛文尼亚语</item>
+        <item>瑞典语</item>
+        <item>匈牙利语</item>
+        <item>繁体中文</item>
+        <item>越南语</item>
+    </array>
+
+    <array name="translate_type_short">
+        <item>auto</item>
+        <item>zh</item>
+        <item>en</item>
+        <item>yue</item>
+        <item>wyw</item>
+        <item>jp</item>
+        <item>kor</item>
+        <item>fra</item>
+        <item>spa</item>
+        <item>th</item>
+        <item>ara</item>
+        <item>ru</item>
+        <item>pt</item>
+        <item>de</item>
+        <item>it</item>
+        <item>el</item>
+        <item>nl</item>
+        <item>pl</item>
+        <item>bul</item>
+        <item>est</item>
+        <item>dan</item>
+        <item>fin</item>
+        <item>cs</item>
+        <item>rom</item>
+        <item>slo</item>
+        <item>swe</item>
+        <item>hu</item>
+        <item>cht</item>
+        <item>vie</item>
+    </array>
+</resources>

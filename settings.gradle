@@ -1,1 +1,1 @@
-include ':app', ':card-protocol', ':kotlin'
+include ':app', ':card-protocol', ':kotlin', ':konstanttoollite'
