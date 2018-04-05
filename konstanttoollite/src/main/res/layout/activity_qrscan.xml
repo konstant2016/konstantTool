@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,7 +49,8 @@
                 android:layout_height="2px"
                 android:background="@color/gray" />
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
+                android:background="@drawable/layout_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="20dp">
@@ -63,7 +64,7 @@
                     android:textColor="@color/black"
                     android:textIsSelectable="true"
                     android:textSize="14sp" />
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
