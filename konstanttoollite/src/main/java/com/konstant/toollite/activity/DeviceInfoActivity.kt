@@ -1,11 +1,11 @@
-package com.konstant.konstanttools.ui.activity.toolactivity
+package com.konstant.toollite.activity
 
 import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
-import com.konstant.konstanttools.R
-import com.konstant.konstanttools.base.BaseActivity
-import com.konstant.konstanttools.tools.DeviceInfoUtil
+import com.konstant.toollite.R
+import com.konstant.toollite.base.BaseActivity
+import com.konstant.toollite.util.DeviceInfoUtil
 import kotlinx.android.synthetic.main.activity_device_info.*
 
 class DeviceInfoActivity : BaseActivity() {
@@ -74,5 +74,4 @@ class DeviceInfoActivity : BaseActivity() {
 
         device_info.append("\n\n")
     }
-
 }

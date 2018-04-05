@@ -63,4 +63,24 @@
         <item>cht</item>
         <item>vie</item>
     </array>
+
+    <array name="express_company">
+        <item>顺丰速运</item>
+        <item>邮政快递</item>
+        <item>申通快递</item>
+        <item>圆通快递</item>
+        <item>中通快递</item>
+        <item>韵达快递</item>
+        <item>天天快递</item>
+    </array>
+
+    <array name="express_company_id">
+        <item>shunfeng</item>
+        <item>ems</item>
+        <item>shentong</item>
+        <item>yuantong</item>
+        <item>zhongtong</item>
+        <item>yunda</item>
+        <item>tiantian</item>
+    </array>
 </resources>

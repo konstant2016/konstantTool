@@ -18,4 +18,7 @@ object UrlConstant {
     // 百度翻译提供的接口
     val TRANSLATE_URL = "http://api.fanyi.baidu.com/api/trans/vip/translate"
 
+    // 快递物流查询接口
+    val EXPRESS_URL = "http://www.kuaidi100.com/query"
+
 }

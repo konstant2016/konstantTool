@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:text="我也不知道关于界面应该写点啥，没有美工帮我，界面都比较丑，等我找个美工先，如果要支持我，多点点主页的支付宝领红包吧~" />
+
+        <TextView
+            android:layout_marginBottom="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="版本号：1.0" />
+    </RelativeLayout>
+</LinearLayout>

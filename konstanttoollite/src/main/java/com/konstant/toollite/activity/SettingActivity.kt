@@ -47,5 +47,7 @@ class SettingActivity : BaseActivity() {
                 FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)
             }
         }
+
+        layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }
     }
 }

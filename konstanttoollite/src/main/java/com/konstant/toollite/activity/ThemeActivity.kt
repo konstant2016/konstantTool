@@ -8,6 +8,7 @@ import com.konstant.toollite.util.Constant
 import com.konstant.toollite.util.FileUtils
 import kotlinx.android.synthetic.main.activity_theme.*
 import com.konstant.toollite.eventbusparam.ThemeChanged
+import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 
 

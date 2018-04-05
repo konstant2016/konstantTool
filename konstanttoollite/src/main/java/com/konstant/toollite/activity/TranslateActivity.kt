@@ -16,6 +16,7 @@ import com.konstant.toollite.server.Service
 import com.konstant.toollite.server.response.TranslateResponse
 import com.konstant.toollite.util.KeyConstant
 import com.konstant.toollite.util.UrlConstant
+import com.konstant.toollite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 
 class TranslateActivity : BaseActivity() {
@@ -43,14 +44,7 @@ class TranslateActivity : BaseActivity() {
         addLayoutListener(layout_bg, btn_translate)
 
         // 初始化左边的spinner
-        val adapterOrigin = object : ArrayAdapter<String>(this, R.layout.item_spinner_bg, languageNames) {
-            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
-                val root = LayoutInflater.from(context).inflate(R.layout.item_spinner_pull_down_bg, parent, false)
-                val tv = root.findViewById(R.id.text_label) as TextView
-                tv.text = languageNames[position]
-                return root
-            }
-        }
+        val adapterOrigin = KonstantArrayAdapter(this,R.layout.item_spinner_bg,languageNames)
         spinner_origin.adapter = adapterOrigin
         spinner_origin.setSelection(0)
         spinner_origin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -66,16 +60,8 @@ class TranslateActivity : BaseActivity() {
 
 
         // 初始化右边的spinner
-        val typeName = mutableListOf<String>()
-        (1 until languageNames.size).forEach { typeName.add(languageNames[it]) }
-        val adapterResult = object : ArrayAdapter<String>(this, R.layout.item_spinner_bg, typeName) {
-            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
-                val root = LayoutInflater.from(context).inflate(R.layout.item_spinner_pull_down_bg, parent, false)
-                val tv = root.findViewById(R.id.text_label) as TextView
-                tv.text = typeName[position]
-                return root
-            }
-        }
+        val typeName = languageNames.copyOfRange(1,languageNames.size)
+        val adapterResult = KonstantArrayAdapter(this, R.layout.item_spinner_bg, typeName)
         spinner_result.adapter = adapterResult
         spinner_result.setSelection(0)
         spinner_result.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

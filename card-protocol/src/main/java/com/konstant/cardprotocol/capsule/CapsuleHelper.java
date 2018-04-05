@@ -11,10 +11,10 @@ import com.konstant.cardprotocol.info.Info;
 
 public class CapsuleHelper {
 
-    // 构建密文的capsule
-    public static Capsule buildCommandCapsule(){
-
-    }
+//    // 构建密文的capsule
+//    public static Capsule buildCommandCapsule(){
+//        //TODO()
+//    }
 
     // 解析密文的capsule
 

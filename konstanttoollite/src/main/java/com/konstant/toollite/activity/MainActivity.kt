@@ -1,6 +1,8 @@
 package com.konstant.toollite.activity
 
+import android.content.ClipboardManager
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.konstant.toollite.R
@@ -23,14 +25,40 @@ class MainActivity : BaseActivity() {
         layout_beauty.setOnClickListener { startActivity(Intent(this@MainActivity,BeautyActivity::class.java)) }
 
         layout_compass.setOnClickListener { startActivity(Intent(this@MainActivity,CompassActivity::class.java)) }
+
+        layout_qrcode.setOnClickListener { startActivity(Intent(this@MainActivity,QRCodeActivity::class.java)) }
+
+        layout_express.setOnClickListener { startActivity(Intent(this@MainActivity,ExpressActivity::class.java)) }
+
+        layout_device_info.setOnClickListener { startActivity(Intent(this@MainActivity,DeviceInfoActivity::class.java)) }
+
+        layout_zfb.setOnClickListener { zfb() }
+
     }
 
     override fun initBaseViews() {
         img_back.visibility = View.GONE
+        img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { startActivity(Intent(this,SettingActivity::class.java)) }
     }
 
     override fun SwipeBackChanged(msg: SwipeBackState) {
+
+    }
+
+    fun zfb(){
+        val clipBoard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        clipBoard.text = "i4B6BP11Xt"
+        try {
+            val packageManager = this.applicationContext.packageManager
+            val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")
+            startActivity(intent)
+        } catch (e: Exception) {
+            val url = "https://ds.alipay.com/?from=mobileweb"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
 
     }
 
