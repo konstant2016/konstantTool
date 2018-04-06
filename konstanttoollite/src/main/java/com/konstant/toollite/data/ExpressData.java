@@ -1,7 +1,10 @@
-package com.konstant.toollite.server.other;
+package com.konstant.toollite.data;
 
 /**
- * Created by konstant on 2018/4/5.
+ * 描述:本地保存的物流信息的实体类
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:09
+ * 备注:
  */
 
 public class ExpressData {

@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical">
 
     <EditText
+        android:inputType="number"
+        android:textSize="13sp"
+        android:padding="5dp"
         android:layout_marginTop="10dp"
         android:id="@+id/et_num"
         android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:drawable/editbox_background"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_bg"
         android:hint="输入运单号" />
 
     <EditText
+        android:textSize="13sp"
+        android:padding="5dp"
         android:id="@+id/et_remark"
         android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="@android:drawable/editbox_background"
+        android:background="@drawable/edit_bg"
         android:hint="货物名称(非必填)" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
@@ -32,6 +37,7 @@
         android:id="@+id/spinner_company"
         android:layout_width="280dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="#0f000000"></Spinner>
 

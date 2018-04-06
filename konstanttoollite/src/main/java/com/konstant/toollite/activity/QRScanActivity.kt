@@ -14,6 +14,12 @@ import com.mylhyl.zxing.scanner.decode.QRDecode
 import kotlinx.android.synthetic.main.activity_qrscan.*
 import kotlinx.android.synthetic.main.title_layout.*
 
+/**
+ * 描述:二维码扫描
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
 
 class QRScanActivity : BaseActivity() {
 

@@ -66,12 +66,16 @@
 
     <array name="express_company">
         <item>顺丰速运</item>
-        <item>邮政快递</item>
+        <item>中国邮政</item>
         <item>申通快递</item>
-        <item>圆通快递</item>
+        <item>圆通速递</item>
         <item>中通快递</item>
+        <item>百世汇通</item>
         <item>韵达快递</item>
         <item>天天快递</item>
+        <item>全峰快递</item>
+        <item>德邦物流</item>
+        <item>宅急送</item>
     </array>
 
     <array name="express_company_id">
@@ -80,7 +84,11 @@
         <item>shentong</item>
         <item>yuantong</item>
         <item>zhongtong</item>
+        <item>huitongkuaidi</item>
         <item>yunda</item>
         <item>tiantian</item>
+        <item>quanfengkuaidi</item>
+        <item>debangwuliu</item>
+        <item>zhaijisong</item>
     </array>
 </resources>

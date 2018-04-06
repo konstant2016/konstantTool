@@ -20,12 +20,20 @@ import com.bm.library.PhotoView
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.util.Utils
+import com.konstant.toollite.view.KonstantConfirmtDialog
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.ArrayList
+
+/**
+ * 描述:看图的详情页
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
 
 class LookPictureActivity : BaseActivity() {
 
@@ -139,13 +147,14 @@ class LookPictureActivity : BaseActivity() {
 
         @TargetApi(Build.VERSION_CODES.M)
         private fun showDialog() {
-            AlertDialog.Builder(context).setMessage("是否要保存到本地?")
-                    .setNegativeButton("取消") { dialog, _ -> dialog.dismiss() }
-                    .setPositiveButton("确定") { dialog, _ ->
-                        dialog.dismiss()
+            KonstantConfirmtDialog(context as Activity)
+                    .setMessage("是否要保存到本地?")
+                    .setPositiveListener {
+                        it.dismiss()
                         (context as LookPictureActivity).requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, "需要手机读写权限用以保存图片")
                     }
-                    .create().show()
+                    .setNegativeListener {  }
+                    .show()
         }
 
 

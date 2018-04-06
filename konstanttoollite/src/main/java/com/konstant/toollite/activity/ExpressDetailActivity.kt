@@ -3,17 +3,30 @@ package com.konstant.toollite.activity
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
+import android.widget.*
 import com.alibaba.fastjson.JSON
 import com.konstant.toollite.R
 import com.konstant.toollite.adapter.AdapterExpressDetail
 import com.konstant.toollite.base.BaseActivity
+import com.konstant.toollite.data.ExpressManager
 import com.konstant.toollite.server.Service
-import com.konstant.toollite.server.other.ExpressData
 import com.konstant.toollite.server.response.ExpressResponse
-import com.konstant.toollite.util.Constant
-import com.konstant.toollite.util.FileUtils
+import com.konstant.toollite.view.KonstantConfirmtDialog
+import com.konstant.toollite.view.KonstantArrayAdapter
+import com.konstant.toollite.view.KonstantInputDialog
+import com.konstant.toollite.view.KonstantViewDialog
 import kotlinx.android.synthetic.main.activity_express_detail.*
+import kotlinx.android.synthetic.main.title_layout.*
+
+/**
+ * 描述:物流详情页
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
 
 class ExpressDetailActivity : BaseActivity() {
 
@@ -21,7 +34,12 @@ class ExpressDetailActivity : BaseActivity() {
 
     var mCompanyId = ""
     var mOrderNo = ""
-    var mRemark = "保密物件"
+    var mRemark = ""
+
+    val coms by lazy { resources.getStringArray(R.array.express_company) }
+    val ids by lazy { resources.getStringArray(R.array.express_company_id) }
+
+    lateinit var mPop: PopupWindow
 
     val mDatas = ArrayList<ExpressResponse.DataBean>()
     val mAdapter by lazy { AdapterExpressDetail(this, mDatas) }
@@ -41,32 +59,60 @@ class ExpressDetailActivity : BaseActivity() {
         super.initBaseViews()
         mCompanyId = intent.getStringExtra("mCompanyId")
         mOrderNo = intent.getStringExtra("mOrderNo")
-        val mark = intent.getStringExtra("remark")
-        if (mark != null) mRemark = mark
+        mRemark = intent.getStringExtra("mRemark") ?: "保密物件"
+
+        updateUI()
+
+        ExpressManager.addExpress(this, mOrderNo, mCompanyId, mRemark, "暂无信息")
 
         listview_detail.adapter = mAdapter
+
+        btn_retry.setOnClickListener { queryExpress() }
+
+        img_more.visibility = View.VISIBLE
+        img_more.setOnClickListener { onMorePressed() }
     }
 
-    fun queryExpress() {
+    // 开始查询物流信息
+    private fun queryExpress() {
+        onLoading()
         Service.expressQuery(mCompanyId, mOrderNo) { state, data ->
-            changeLoadingState(false)
             if (!state) {
-                showAlertDialog()
+                onError()
                 return@expressQuery
             }
             val response = JSON.parseObject(data, ExpressResponse::class.java)
+            Log.d(this.localClassName,data)
             if (response.status != "200") {
-                showAlertDialog()
+                onError()
                 return@expressQuery
             }
 
+            onSuccess()
             updateData(response)
 
         }
     }
 
+    // 更新界面
+    private fun updateUI() {
+
+        tv_state.text = mState
+
+        tv_remark.text = mRemark
+
+
+        var com = ""
+        ids.forEachIndexed { index, s ->
+            if (mCompanyId == ids[index]) {
+                com = coms[index]
+            }
+        }
+        tv_num.text = "$com:$mOrderNo"
+    }
+
     // 刷新数据
-    fun updateData(response: ExpressResponse) {
+    private fun updateData(response: ExpressResponse) {
         runOnUiThread {
             mDatas.addAll(response.data)
             mAdapter.notifyDataSetChanged()
@@ -80,7 +126,6 @@ class ExpressDetailActivity : BaseActivity() {
                     com = comName[index]
                 }
             }
-            tv_num.text = "$com:${response.nu}"
 
             when (response.state) {
                 0 -> mState = "在途中"
@@ -92,57 +137,129 @@ class ExpressDetailActivity : BaseActivity() {
                 6 -> mState = "退回中"
             }
 
-            tv_state.text = mState
+            updateUI()
 
-            tv_remark.text = mRemark
-
-            updateLocalData()
+            updateLocalData(mOrderNo, mCompanyId, mRemark, mState)
         }
     }
 
     // 更新本地缓存数据
-    fun updateLocalData() {
-        Log.d(this.localClassName, "开始更新本地物流数据")
-        val s = FileUtils.readDataWithSharedPreference(this, Constant.NAME_LOCAL_EXPRESS)
-        val list = JSON.parseArray(s, ExpressData::class.java)
-        list.forEachIndexed { index, expressData ->
-            if (list[index].orderNo == mOrderNo) {
-                Log.d(this.localClassName, "单号相同:" + mState)
-                expressData.state = mState
-            }
-        }
-        FileUtils.saveDataWithSharedPreference(this, Constant.NAME_LOCAL_EXPRESS, JSON.toJSONString(list))
-        Log.d(this.localClassName, "本地物流数据" + JSON.toJSONString(list))
+    private fun updateLocalData(orderNo: String, companyId: String, remark: String, state: String) {
+        Log.d(this.localClassName,"状态："+state)
+        ExpressManager.updateExpress(this, orderNo, companyId, remark, state)
     }
 
-    // 隐藏加载中的界面
-    fun changeLoadingState(boolean: Boolean) {
+    // 正在加载中
+    private fun onLoading() {
         runOnUiThread {
-            if (boolean) {
-                layout_loading.visibility = View.VISIBLE
-                layout_detail.visibility = View.GONE
-            } else {
-                layout_loading.visibility = View.GONE
-                layout_detail.visibility = View.VISIBLE
-            }
+            layout_loading.visibility = View.VISIBLE
+            layout_erroe.visibility = View.GONE
+            listview_detail.visibility = View.GONE
+        }
+
+    }
+
+    // 加载失败
+    private fun onError() {
+        runOnUiThread {
+            layout_loading.visibility = View.GONE
+            layout_erroe.visibility = View.VISIBLE
+            listview_detail.visibility = View.GONE
+        }
+
+    }
+
+    // 加载成功
+    private fun onSuccess() {
+        runOnUiThread {
+            layout_loading.visibility = View.GONE
+            layout_erroe.visibility = View.GONE
+            listview_detail.visibility = View.VISIBLE
         }
     }
 
-    // 展示重新加载的弹窗
-    fun showAlertDialog() {
-        runOnUiThread {
-            AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("查询失败，是否重试？")
-                    .setPositiveButton("确定") { dialog, _ ->
-                        changeLoadingState(true)
-                        queryExpress()
-                        dialog.dismiss()
-                    }
-                    .setNegativeButton("取消") { dialog, _ ->
-                        this.finish()
-                    }
-                    .create().show()
-        }
+    // 右上角的更多按钮按下后
+    private fun onMorePressed() {
+        val view = LayoutInflater.from(this).inflate(R.layout.pop_express, null)
+        view.findViewById<TextView>(R.id.tv_change_order).setOnClickListener { changeOrderNo() }
+        view.findViewById<TextView>(R.id.tv_change_company).setOnClickListener { changeCompany() }
+        view.findViewById<TextView>(R.id.tv_change_remark).setOnClickListener { changeRemark() }
+        view.findViewById<TextView>(R.id.tv_delete).setOnClickListener { deleteOrder() }
+
+        mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
+        mPop.showAsDropDown(title_bar)
+
     }
+
+    // 修改物流单号
+    private fun changeOrderNo() {
+        mPop.dismiss()
+        KonstantInputDialog(this)
+                .setMessage("输入运单号")
+                .setPositiveListener {
+                    ExpressManager.deleteExpress(this, mOrderNo)
+                    mOrderNo = it
+                    updateUI()
+                    ExpressManager.addExpress(this, mOrderNo, mCompanyId, mRemark, mState)
+                    queryExpress()
+                }
+                .show()
+    }
+
+    // 修改物流公司
+    private fun changeCompany() {
+        mPop.dismiss()
+        val view = LayoutInflater.from(this).inflate(R.layout.layout_spinner, null)
+
+        val spinner = view.findViewById<Spinner>(R.id.spinner_company)
+        spinner.adapter = KonstantArrayAdapter(this, R.layout.item_spinner_bg, coms)
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                mCompanyId = ids[position]
+            }
+        }
+
+        KonstantViewDialog(this)
+                .setMessage("选择物流公司：")
+                .addView(view)
+                .setPositiveListener {
+                    it.dismiss()
+                    updateUI()
+                    queryExpress()
+                    ExpressManager.updateExpress(this, mOrderNo, mCompanyId, null, null)
+                }
+                .show()
+    }
+
+    // 修改备注
+    private fun changeRemark() {
+        mPop.dismiss()
+        KonstantInputDialog(this)
+                .setMessage("输入备注")
+                .setPositiveListener {
+                    mRemark = it
+                    updateUI()
+                    ExpressManager.updateExpress(this, mOrderNo, null, mRemark, null)
+                }
+                .show()
+    }
+
+    // 删除运单
+    private fun deleteOrder() {
+        mPop.dismiss()
+        KonstantConfirmtDialog(this)
+                .setMessage("确定要删除此运单号？")
+                .setPositiveListener {
+                    it.dismiss()
+                    ExpressManager.deleteExpress(this, mOrderNo)
+                    this.finish()
+                }
+                .setNegativeListener {  }
+                .show()
+    }
+
 }

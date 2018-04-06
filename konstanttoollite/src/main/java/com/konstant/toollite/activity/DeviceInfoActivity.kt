@@ -8,6 +8,13 @@ import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.util.DeviceInfoUtil
 import kotlinx.android.synthetic.main.activity_device_info.*
 
+/**
+ * 描述:设备信息页面
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:11
+ * 备注:
+ */
+
 class DeviceInfoActivity : BaseActivity() {
 
     private val READ_PHONE_STATE = Manifest.permission.READ_PHONE_STATE

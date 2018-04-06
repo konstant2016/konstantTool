@@ -16,6 +16,13 @@ import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
 import kotlinx.android.synthetic.main.activity_beauty.*
 import org.json.JSONObject
 
+/**
+ * 描述:美图列表页
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:11
+ * 备注:
+ */
+
 class BeautyActivity : BaseActivity() {
 
     private val mUrlList = ArrayList<String>()

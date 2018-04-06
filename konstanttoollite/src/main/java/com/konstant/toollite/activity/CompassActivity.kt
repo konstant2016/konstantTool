@@ -13,6 +13,14 @@ import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_compass.*
 
+/**
+ * 描述:指南针页面
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:11
+ * 备注:
+ */
+
+
 @SuppressLint("MissingSuperCall")
 class CompassActivity : BaseActivity() {
 

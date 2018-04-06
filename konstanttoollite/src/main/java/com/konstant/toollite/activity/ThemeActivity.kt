@@ -11,6 +11,12 @@ import com.konstant.toollite.eventbusparam.ThemeChanged
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 
+/**
+ * 描述:主题设置
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:09
+ * 备注:
+ */
 
 class ThemeActivity : BaseActivity(), View.OnClickListener {
 

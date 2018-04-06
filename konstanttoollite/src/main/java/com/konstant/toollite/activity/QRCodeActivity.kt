@@ -1,21 +1,27 @@
 package com.konstant.toollite.activity
 
 import android.Manifest
-import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
 import android.widget.Toast
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
+import com.konstant.toollite.view.KonstantConfirmtDialog
 import com.mylhyl.zxing.scanner.encode.QREncode
 import kotlinx.android.synthetic.main.activity_qrcode.*
 import java.io.File
 import java.io.FileOutputStream
+
+/**
+ * 描述:二维码生成
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
 
 class QRCodeActivity : BaseActivity() {
 
@@ -57,19 +63,15 @@ class QRCodeActivity : BaseActivity() {
         img_result.setOnLongClickListener {
             if(mBitmap == null) return@setOnLongClickListener true
 
-            AlertDialog.Builder(this)
+            KonstantConfirmtDialog(this)
                     .setMessage("是否要保存到本地？")
-                    .setNegativeButton("取消"){dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    .setPositiveButton("确定"){dialog, _ ->
-                        dialog.dismiss()
-                        requestWritePermission()
-                    }
-                    .create().show()
+                    .setPositiveListener {
+                        it.dismiss()
+                        requestWritePermission() }
+                    .setNegativeListener {  }
+                    .show()
             true
         }
-
     }
 
     // 写出文件到本地

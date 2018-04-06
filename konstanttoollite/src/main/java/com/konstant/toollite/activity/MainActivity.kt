@@ -11,6 +11,13 @@ import com.konstant.toollite.eventbusparam.SwipeBackState
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.title_layout.*
 
+/**
+ * 描述:主页
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
+
 class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

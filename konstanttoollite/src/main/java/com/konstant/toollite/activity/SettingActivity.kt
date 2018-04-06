@@ -8,8 +8,16 @@ import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.eventbusparam.SwipeBackState
 import com.konstant.toollite.util.Constant
 import com.konstant.toollite.util.FileUtils
+import com.konstant.toollite.view.KonstantConfirmtDialog
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
+
+/**
+ * 描述:APP设置
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:10
+ * 备注:
+ */
 
 class SettingActivity : BaseActivity() {
 
@@ -30,18 +38,17 @@ class SettingActivity : BaseActivity() {
 
         btn_switch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                AlertDialog.Builder(this)
-                        .setTitle("注意")
+                KonstantConfirmtDialog(this)
                         .setMessage("开启滑动返回后，切换主题时，可能会有闪屏情况出现,确认开启？")
-                        .setPositiveButton("确定") { dialog, _ ->
+                        .setPositiveListener {
+                            it.dismiss()
                             EventBus.getDefault().post(SwipeBackState(true))
                             FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, true)
-                            dialog.dismiss()
                         }
-                        .setNegativeButton("取消") { dialog, _ ->
-                            dialog.dismiss()
+                        .setNegativeListener {
                             btn_switch.isChecked = false
-                        }.create().show()
+                        }
+                        .show()
             } else {
                 EventBus.getDefault().post(SwipeBackState(false))
                 FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)

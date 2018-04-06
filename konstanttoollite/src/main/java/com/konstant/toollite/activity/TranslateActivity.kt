@@ -19,6 +19,13 @@ import com.konstant.toollite.util.UrlConstant
 import com.konstant.toollite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 
+/**
+ * 描述:翻译
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:09
+ * 备注:
+ */
+
 class TranslateActivity : BaseActivity() {
 
     private val languageNames by lazy { resources.getStringArray(R.array.translate_type_name) }
