@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/tv_weather_info"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:gravity="center"
@@ -45,24 +45,27 @@
         android:textSize="15sp" />
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/tv_weather_temperature"
-        android:layout_width="100dp"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="1~10℃"
         android:textSize="15sp" />
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/tv_weather_direct"
-        android:layout_width="50dp"
+        android:layout_width="45dp"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="南风"
+        android:text="西南风"
         android:textSize="15sp" />
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/tv_weather_power"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="3~5级"

@@ -33,6 +33,7 @@ import kotlinx.android.synthetic.main.layout_weather_15_daily.*
 import kotlinx.android.synthetic.main.layout_weather_24_hour.*
 import kotlinx.android.synthetic.main.layout_weather_current.*
 import org.greenrobot.eventbus.EventBus
+import java.text.SimpleDateFormat
 
 /**
  * 描述:天气展示页
@@ -177,7 +178,8 @@ class WeatherFragment() : BaseFragment() {
             tv_weather_describe.text = "天气：${realtime.weather.info}"
             tv_temperature.text = realtime.weather.temperature
 
-            tv_weather_update_time.text = "更新时间：${realtime.time}"
+            val time = SimpleDateFormat("MM-dd HH:mm").format(realtime.dataUptime.toLong() * 1000)
+            tv_weather_update_time.text = "更新时间：${time}"
 
             // 逐小时预报
             mAdapterHour.notifyDataSetChanged()

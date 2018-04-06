@@ -59,7 +59,7 @@ class AdapterWeatherDaily(private val context: Context, private val datas: List<
         }
 
         // 设置温度
-        tTemp.text = "${data.info.day[2]}~${data.info.night[2]}"
+        tTemp.text = "${data.info.day[2]}~${data.info.night[2]}℃"
 
         // 设置风向
         tDriect.text = data.info.day[3]
