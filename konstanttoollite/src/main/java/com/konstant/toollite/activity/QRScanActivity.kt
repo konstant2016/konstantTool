@@ -1,6 +1,7 @@
 package com.konstant.toollite.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.Toast
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import com.mylhyl.zxing.scanner.decode.QRDecode
+import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_qrscan.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -21,9 +23,11 @@ import kotlinx.android.synthetic.main.title_layout.*
  * 备注:
  */
 
+@SuppressLint("MissingSuperCall")
 class QRScanActivity : BaseActivity() {
 
     private val PHOTO_PICK_CODE = 12
+    private val mRequestCode = 18
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,14 +68,13 @@ class QRScanActivity : BaseActivity() {
 
     // 请求权限
     private fun requestPermission() {
-        requestPermission(Manifest.permission.CAMERA, "需要拍照权限以扫描二维码")
+        AndPermission.with(this)
+                .permission(Manifest.permission.CAMERA)
+                .onGranted { layout_scan.restartPreviewAfterDelay(500) }
+                .onDenied { Toast.makeText(this, "需要摄像头权限用以扫描二维码", Toast.LENGTH_SHORT).show() }
+                .start()
     }
 
-    // 权限申请结果
-    override fun onPermissionResult(result: Boolean) {
-        super.onPermissionResult(result)
-        layout_scan.restartPreviewAfterDelay(500)
-    }
 
     // 扫描结果弹窗
     private fun onScanResult(content: String) {
@@ -106,6 +109,7 @@ class QRScanActivity : BaseActivity() {
             }
         }
     }
+
 
     override fun onPause() {
         super.onPause()

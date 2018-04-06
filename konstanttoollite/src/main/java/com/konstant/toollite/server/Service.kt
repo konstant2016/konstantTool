@@ -3,14 +3,19 @@ package com.konstant.toollite.server
 import com.alibaba.fastjson.JSON
 import com.konstant.toollite.server.request.ExpressRequest
 import com.konstant.toollite.server.request.TranslateRequest
+import com.konstant.toollite.server.request.WeatherRequest
 import com.konstant.toollite.util.Constant
 import com.konstant.toollite.util.MD5
 import com.konstant.toollite.util.NetworkUtil
 import com.konstant.toollite.util.UrlConstant
 
 /**
- * Created by konstant on 2018/4/4.
+ * 描述:统一的访问服务器工具
+ * 创建人:菜籽
+ * 创建时间:2018/4/6 下午8:01
+ * 备注:
  */
+
 object Service {
 
     // 翻译
@@ -28,6 +33,20 @@ object Service {
         val url = UrlConstant.EXPRESS_URL
         val request = ExpressRequest(commanyId, num).toString()
         NetworkUtil.get(url, request, callback)
+    }
+
+    // 查询指定地址的天气
+    fun locationToCID(url: String, location: String, key: String, callback: (state: Boolean, data: String) -> Unit) {
+        val request = WeatherRequest(location, key)
+        val param = request.toString()
+        NetworkUtil.get(url, param, callback)
+    }
+
+    // 查询天气
+    fun queryWeather(directNo: String, callback: (state: Boolean, data: String) -> Unit) {
+        "http://tqapi.mobile.360.cn/v4/101010600.json"
+        val url = "${UrlConstant.WEATHER_URL}$directNo.json"
+        NetworkUtil.get(url, "", callback)
     }
 
 }

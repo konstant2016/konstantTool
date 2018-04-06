@@ -3,9 +3,11 @@ package com.konstant.konstanttools.ui.activity.testactivity
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.konstant.konstanttools.R
 import kotlinx.android.synthetic.main.activity_coording.*
+import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 
 class CoordinatorActivity : SwipeBackActivity() {
@@ -25,13 +27,14 @@ class CoordinatorActivity : SwipeBackActivity() {
             window.statusBarColor = Color.TRANSPARENT
         }
 
-        setSupportActionBar(tool_bar)
+//        setSupportActionBar(tool_bar)
         supportActionBar?.setHomeAsUpIndicator(android.R.drawable.ic_input_add)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         app_bar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            if (verticalOffset == 0) {
-
+            Log.d("移动高度",""+verticalOffset)
+            if (Math.abs(verticalOffset) >= 200) {
+            }else{
             }
             if (Math.abs(verticalOffset) >= appBarLayout.totalScrollRange) {
 

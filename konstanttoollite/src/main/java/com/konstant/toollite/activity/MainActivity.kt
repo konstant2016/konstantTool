@@ -39,6 +39,8 @@ class MainActivity : BaseActivity() {
 
         layout_device_info.setOnClickListener { startActivity(Intent(this@MainActivity,DeviceInfoActivity::class.java)) }
 
+        layout_weather.setOnClickListener { startActivity(Intent(this@MainActivity,WeatherActivity::class.java)) }
+
         layout_zfb.setOnClickListener { zfb() }
 
     }

@@ -22,6 +22,7 @@ import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.util.Utils
 import com.konstant.toollite.view.KonstantConfirmtDialog
 import com.squareup.picasso.Picasso
+import com.yanzhenjie.permission.AndPermission
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -40,6 +41,8 @@ class LookPictureActivity : BaseActivity() {
     private var mViewPager: ViewPager? = null
     private var mAdapter: ViewPagerAdapter? = null
     private val urlList = ArrayList<String>()
+
+    private val mRequestCode = 16
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,13 +78,17 @@ class LookPictureActivity : BaseActivity() {
 
     }
 
-    override fun onPermissionResult(result: Boolean) {
-        super.onPermissionResult(result)
-        if (result) {
-            writeToStorage(urlList[mViewPager!!.currentItem])
-        } else {
-            Toast.makeText(this, "您拒绝了SD卡读写权限", Toast.LENGTH_SHORT).show()
-        }
+
+    // 保存到本地
+    private fun savePicture(){
+        AndPermission.with(this)
+                .onDenied {
+                    Toast.makeText(this, "您拒绝了本地读取权限", Toast.LENGTH_SHORT).show()
+                }
+                .onGranted {
+                    writeToStorage(urlList[mViewPager!!.currentItem])
+                }
+                .start()
     }
 
     //写出文件到本地
@@ -151,7 +158,8 @@ class LookPictureActivity : BaseActivity() {
                     .setMessage("是否要保存到本地?")
                     .setPositiveListener {
                         it.dismiss()
-                        (context as LookPictureActivity).requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, "需要手机读写权限用以保存图片")
+                        (context as LookPictureActivity).savePicture()
+
                     }
                     .setNegativeListener {  }
                     .show()

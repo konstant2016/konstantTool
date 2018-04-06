@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="tool_main_color" format="color"/>
+
+    <declare-styleable name="WeatherLineView">
+        <!-- 文字大小 -->
+        <attr name="temperTextSize" format="dimension"/>
+        <!-- 文字的颜色 -->
+        <attr name="weatextColor" format="color"/>
+        <!-- 绘制的线的宽度 -->
+        <attr name="weaLineWidth" format="dimension"/>
+        <!-- 绘制的圆点的半径 -->
+        <attr name="weadotRadius" format="dimension"/>
+        <!-- 文字离圆点的距离 -->
+        <attr name="textDotDistance" format="dimension"/>
+    </declare-styleable>
+
 </resources>

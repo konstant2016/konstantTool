@@ -1,5 +1,6 @@
 package com.konstant.toollite.base
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
@@ -8,6 +9,7 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -29,10 +31,11 @@ import org.greenrobot.eventbus.Subscribe
  * 备注:
  */
 
+@SuppressLint("MissingSuperCall")
 open class BaseActivity : SwipeBackActivity() {
 
     private val mSwipeBackLayout: SwipeBackLayout by lazy { swipeBackLayout }
-    private val mRequestCode = 12
+    private var mRequestCode = 12
     private var mReason: String = ""
     private var mPermission: String = ""
 
@@ -79,7 +82,7 @@ open class BaseActivity : SwipeBackActivity() {
     }
 
     // 读取保存的swipeback状态
-    private fun readSwipeBackState(){
+    private fun readSwipeBackState() {
         val state = FileUtils.readDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)
         mSwipeBackLayout.setEnableGesture(state)
     }
@@ -100,6 +103,7 @@ open class BaseActivity : SwipeBackActivity() {
         findViewById(R.id.img_back).setOnClickListener { finish() }
     }
 
+    // 设置主标题
     protected fun setTitle(s: String) {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.title) as TextView
@@ -126,61 +130,6 @@ open class BaseActivity : SwipeBackActivity() {
         textView.text = getText(stringId)
     }
 
-
-    // 申请权限
-    @RequiresApi(Build.VERSION_CODES.M)
-    protected fun requestPermission(permission: String, reason: String) {
-        mReason = reason
-        mPermission = permission
-        // 判断自身是否拥有此权限
-        if (PackageManager.PERMISSION_DENIED == checkSelfPermission(permission)) {
-            // 如果没有，就去申请权限
-            requestPermissions(arrayOf(permission), mRequestCode)
-        } else {
-            // 如果有，则返回给子类调用
-            onPermissionResult(true)
-        }
-    }
-
-    // 系统activity回调的权限申请结果
-    @RequiresApi(Build.VERSION_CODES.M)
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == mRequestCode && grantResults[0] != PackageManager.PERMISSION_DENIED) {
-            // 权限申请成功
-            onPermissionResult(true)
-        } else {
-            // 权限申请失败，判断是否需要弹窗解释原因
-            if (shouldShowRequestPermissionRationale(permissions[0])) {
-                // 如果需要弹窗，则弹窗解释原因
-                showReasonDialog()
-            } else {
-                // 否则，告诉子类权限申请失败
-                onPermissionResult(false)
-            }
-        }
-    }
-
-    // 展示给用户说明权限申请原因
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun showReasonDialog() {
-        AlertDialog.Builder(this)
-                .setMessage(mReason)
-                .setNegativeButton("取消") { dialog, _ ->
-                    dialog.dismiss()
-                    onPermissionResult(false)
-                }
-                .setPositiveButton("确定") { dialog, _ ->
-                    dialog.dismiss()
-                    requestPermissions(arrayOf(mPermission), mRequestCode)
-                }
-                .create().show()
-    }
-
-    // 需要子类实现的权限申请结果，不写成接口是因为并不是所有的activity都需要申请权限
-    open protected fun onPermissionResult(result: Boolean) {
-
-    }
 
     // 隐藏软键盘
     protected fun hideSoftKeyboard() {

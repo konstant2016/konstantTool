@@ -53,11 +53,13 @@ object ExpressManager {
         val s = FileUtils.readDataWithSharedPreference(context, Constant.NAME_LOCAL_EXPRESS)
                 ?: return
         val list = JSON.parseArray(s, ExpressData::class.java)
+        var expre: ExpressData? = null
         list.forEach {
             if (it.orderNo == orderNo) {
-                list.remove(it)
+                expre = it
             }
         }
+        list.remove(expre)
         val json = JSON.toJSONString(list)
         FileUtils.saveDataWithSharedPreference(context, Constant.NAME_LOCAL_EXPRESS, json)
     }

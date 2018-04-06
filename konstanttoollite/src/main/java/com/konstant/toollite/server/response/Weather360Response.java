@@ -710,18 +710,18 @@ public class Weather360Response {
     }
 
     public static class HourlyForecastBean {
-        private String img;
+        private int img;
         private String wind_speed;
         private String hour;
         private String wind_direct;
         private String temperature;
         private String info;
 
-        public String getImg() {
+        public int getImg() {
             return img;
         }
 
-        public void setImg(String img) {
+        public void setImg(int img) {
             this.img = img;
         }
 

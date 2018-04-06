@@ -31,6 +31,9 @@
                     android:src="@drawable/cooldinatorbg"
                     app:layout_collapseMode="parallax" />
 
+
+                <!--<include layout="@layout/title_layout"-->
+                    <!--app:layout_collapseMode="pin"/>-->
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/tool_bar"
                     android:layout_width="match_parent"
@@ -44,12 +47,13 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="自定义TOOL_BAR里面的文字"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
 
                 </android.support.v7.widget.Toolbar>
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
+        <!--下面的文字-->
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.util.DeviceInfoUtil
+import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_device_info.*
 
 /**
@@ -19,6 +20,8 @@ class DeviceInfoActivity : BaseActivity() {
 
     private val READ_PHONE_STATE = Manifest.permission.READ_PHONE_STATE
 
+    private val mRequestCode = 15
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device_info)
@@ -29,17 +32,12 @@ class DeviceInfoActivity : BaseActivity() {
 
 
     private fun judgePermission() {
-        requestPermission(READ_PHONE_STATE, "需要电话权限以获取手机串号等信息")
+        AndPermission.with(this)
+                .permission(READ_PHONE_STATE)
+                .onDenied { Toast.makeText(this, "权限申请已被拒绝", Toast.LENGTH_SHORT).show() }
+                .onGranted { readDeviceInfo() }
     }
 
-    override fun onPermissionResult(result: Boolean) {
-        super.onPermissionResult(result)
-        if (result) {
-            readDeviceInfo()
-        } else {
-            Toast.makeText(this, "权限申请已被拒绝", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     private fun readDeviceInfo() {
         val wifiInfo = DeviceInfoUtil.getWIFIInfo(this)

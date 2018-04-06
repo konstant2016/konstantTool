@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_weather_week"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center|bottom"
+            android:text="周日"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_weather_date"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center|top"
+            android:text="01/01"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_weather_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:src="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_weather_info"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="多云转晴"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_weather_temperature"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="1~10℃"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_weather_direct"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="南风"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_weather_power"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="3~5级"
+        android:textSize="15sp" />
+
+</LinearLayout>

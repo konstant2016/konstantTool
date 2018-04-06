@@ -12,6 +12,7 @@ import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.view.KonstantConfirmtDialog
 import com.mylhyl.zxing.scanner.encode.QREncode
+import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_qrcode.*
 import java.io.File
 import java.io.FileOutputStream
@@ -26,6 +27,7 @@ import java.io.FileOutputStream
 class QRCodeActivity : BaseActivity() {
 
     private var mBitmap: Bitmap? = null
+    private val mRequestCode = 17
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +44,7 @@ class QRCodeActivity : BaseActivity() {
         // 生成二维码
         btn_create.setOnClickListener {
 
-            if(TextUtils.isEmpty(et_qr.text)){
+            if (TextUtils.isEmpty(et_qr.text)) {
                 Toast.makeText(this, "记得输入内容哦", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -57,18 +59,19 @@ class QRCodeActivity : BaseActivity() {
         }
 
         // 跳转到二维码扫描界面
-        btn_scane.setOnClickListener { startActivity(Intent(this,QRScanActivity::class.java)) }
+        btn_scane.setOnClickListener { startActivity(Intent(this, QRScanActivity::class.java)) }
 
         // 长按二维码，弹窗询问是否保存到本地
         img_result.setOnLongClickListener {
-            if(mBitmap == null) return@setOnLongClickListener true
+            if (mBitmap == null) return@setOnLongClickListener true
 
             KonstantConfirmtDialog(this)
                     .setMessage("是否要保存到本地？")
                     .setPositiveListener {
                         it.dismiss()
-                        requestWritePermission() }
-                    .setNegativeListener {  }
+                        requestWritePermission()
+                    }
+                    .setNegativeListener { }
                     .show()
             true
         }
@@ -81,7 +84,7 @@ class QRCodeActivity : BaseActivity() {
         val file = File(fileParent, name)
         try {
             val outputStream = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.flush()
             outputStream.close()
             Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show()
@@ -91,13 +94,12 @@ class QRCodeActivity : BaseActivity() {
     }
 
     // 请求权限
-    private fun requestWritePermission(){
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,"需要存储权限以保存二维码图片")
+    private fun requestWritePermission() {
+        AndPermission.with(this)
+                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .onGranted { writeToStroage(mBitmap!!) }
+                .onDenied { Toast.makeText(this, "您拒绝了权限申请", Toast.LENGTH_SHORT).show() }
+                .start()
     }
 
-    // 权限申请结果
-    override fun onPermissionResult(result: Boolean) {
-        super.onPermissionResult(result)
-        if(result) writeToStroage(mBitmap!!) else Toast.makeText(this, "您拒绝了权限申请", Toast.LENGTH_SHORT).show()
-    }
 }
