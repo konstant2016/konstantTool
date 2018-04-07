@@ -36,6 +36,7 @@ class DeviceInfoActivity : BaseActivity() {
                 .permission(READ_PHONE_STATE)
                 .onDenied { Toast.makeText(this, "权限申请已被拒绝", Toast.LENGTH_SHORT).show() }
                 .onGranted { readDeviceInfo() }
+                .start()
     }
 
 

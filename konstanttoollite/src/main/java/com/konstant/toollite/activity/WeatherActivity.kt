@@ -54,8 +54,10 @@ class WeatherActivity : BaseActivity() {
         super.onResume()
 
         val weatherCodeList = LocalDirectManager.readCityList(this)
-        if (weatherCodeList.size > 1) {
+        if (weatherCodeList.size > 0) {
             setSubTitle("左右滑动可切换城市")
+        }else{
+            hideSubTitle()
         }
 
         mFragmentList.clear()

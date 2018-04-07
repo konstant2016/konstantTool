@@ -13,12 +13,14 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.TextView
 import com.konstant.toollite.R
 import com.konstant.toollite.eventbusparam.SwipeBackState
 import com.konstant.toollite.eventbusparam.ThemeChanged
 import com.konstant.toollite.util.Constant
 import com.konstant.toollite.util.FileUtils
+import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
@@ -121,6 +123,10 @@ open class BaseActivity : SwipeBackActivity() {
         val textView = view.findViewById(R.id.sub_title) as TextView
         textView.visibility = View.VISIBLE
         textView.text = s
+    }
+
+    protected fun hideSubTitle(){
+        sub_title.visibility = View.GONE
     }
 
     protected fun setSubTitle(stringId: Int) {
