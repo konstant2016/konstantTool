@@ -14,10 +14,10 @@
         android:orientation="vertical">
 
         <EditText
-            android:layout_margin="10dp"
             android:id="@+id/et_query"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_margin="10dp"
             android:background="@drawable/edit_bg"
             android:hint="在这里输入要翻译的内容，支持单词和句子"
             android:textColorHint="?attr/tool_main_color"
@@ -31,13 +31,29 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/spinner_origin"
+            <RelativeLayout
+                android:background="@drawable/layout_bg_spinner"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#06000000"
-                android:gravity="center" />
+                android:layout_weight="1">
+
+                <Spinner
+                    android:id="@+id/spinner_origin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white_transport"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
+                    android:rotation="270"
+                    android:src="@drawable/icon_arrows" />
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="80dp"
@@ -45,17 +61,33 @@
                 android:gravity="center"
                 android:text="翻译成" />
 
-            <Spinner
-                android:id="@+id/spinner_result"
+            <RelativeLayout
+                android:background="@drawable/layout_bg_spinner"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#06000000"
-                android:gravity="center" />
+                android:layout_weight="1">
+
+                <Spinner
+                    android:id="@+id/spinner_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white_transport"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:rotation="270"
+                    android:src="@drawable/icon_arrows" />
+            </RelativeLayout>
+
         </LinearLayout>
 
         <TextView
-            android:textColorHint="?attr/tool_main_color"
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -66,6 +98,7 @@
             android:editable="false"
             android:gravity="center"
             android:hint="这里展示翻译结果"
+            android:textColorHint="?attr/tool_main_color"
             android:textIsSelectable="true" />
 
         <LinearLayout
@@ -78,8 +111,8 @@
             android:orientation="horizontal">
 
             <Button
-                style="?android:attr/borderlessButtonStyle"
                 android:id="@+id/btn_clean"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -87,8 +120,8 @@
                 android:text="清空" />
 
             <Button
-                style="?android:attr/borderlessButtonStyle"
                 android:id="@+id/btn_translate"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"

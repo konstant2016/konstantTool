@@ -52,7 +52,7 @@ class KonstantViewDialog(private val context: Activity) : PopupWindow() {
     }
 
     fun addView(view:View):KonstantViewDialog{
-        mLayout.addView(view)
+        mLayout.addView(view,WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT)
         return this
     }
 

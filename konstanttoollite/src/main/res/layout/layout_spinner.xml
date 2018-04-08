@@ -2,14 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/spinner_company"
-        android:layout_width="280dp"
+    <RelativeLayout
+        android:layout_width="320dp"
         android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="#0f000000"></Spinner>
+        android:background="@drawable/layout_bg_spinner"
+        android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:rotation="270"
+            android:src="@drawable/icon_arrows" />
+
+        <Spinner
+            android:id="@+id/spinner_company"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:background="@color/white_transport" />
+    </RelativeLayout>
 </LinearLayout>
