@@ -35,7 +35,7 @@ dependencies {
     // 图片查看控件
     implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问框架
-    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     // 新的滚轮选择器
     implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     // 滑动返回

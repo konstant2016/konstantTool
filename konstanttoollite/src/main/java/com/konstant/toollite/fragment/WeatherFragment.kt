@@ -140,7 +140,7 @@ class WeatherFragment() : BaseFragment() {
 
     // 转为城市CID
     private fun changeCid(string: String) {
-        Service.locationToCID(UrlConstant.WEATHER_HEFENG_URL, string, KeyConstant.WEATHER_KEY) { state, data ->
+        Service.locationToCID(mActivity,UrlConstant.WEATHER_HEFENG_URL, string, KeyConstant.WEATHER_KEY) { state, data ->
             stopRefreshAnim()
             if (!state) return@locationToCID
             val response = JSON.parseObject(data.replace("$", ""), LocationCIDrResponse::class.java)
@@ -153,7 +153,7 @@ class WeatherFragment() : BaseFragment() {
 
     // 向服务器请求数据
     private fun requestData(location: String) {
-        Service.queryWeather(location) { state, data ->
+        Service.queryWeather(mActivity,location) { state, data ->
             stopRefreshAnim()
             if (mActivity.isDestroyed or !state) return@queryWeather
             setData(data)

@@ -68,7 +68,7 @@ class BeautyActivity : BaseActivity() {
 
     // 获取网络数据
     private fun getData() {
-        NetworkUtil.get(mBaseUrl + mPageIndex, "") { state, data ->
+        NetworkUtil.getInstance(this).get(mBaseUrl + mPageIndex, "") { state, data ->
             Log.i("MIUI图片", data)
             if (data.isNullOrEmpty() or (data.length < 150)) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()

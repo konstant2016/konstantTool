@@ -102,7 +102,7 @@ class TranslateActivity : BaseActivity() {
 
     // 调用接口进行翻译
     private fun doTranslate(string: String) {
-        Service.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
+        Service.translate(this,UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
                 KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { _, data ->
             showTranslateResult(data)
         }

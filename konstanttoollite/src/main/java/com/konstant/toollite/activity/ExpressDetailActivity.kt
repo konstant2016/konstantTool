@@ -76,7 +76,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 开始查询物流信息
     private fun queryExpress() {
         onLoading()
-        Service.expressQuery(mCompanyId, mOrderNo) { state, data ->
+        Service.expressQuery(this,mCompanyId, mOrderNo) { state, data ->
             if (!state) {
                 onError()
                 return@expressQuery
