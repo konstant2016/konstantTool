@@ -15,7 +15,7 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
 
-        Log.d("网络是否可用", "" + isNetworkAvailable())
+        Log.d("网络是否可用:", "" + isNetworkAvailable())
 
         var request = chain.request()
         if(!isNetworkAvailable()){
