@@ -41,6 +41,8 @@ class MainActivity : BaseActivity() {
 
         layout_weather.setOnClickListener { startActivity(Intent(this@MainActivity,WeatherActivity::class.java)) }
 
+        layout_movie.setOnClickListener { startActivity(Intent(this@MainActivity,MovieActivity::class.java)) }
+
         layout_zfb.setOnClickListener { zfb() }
 
     }

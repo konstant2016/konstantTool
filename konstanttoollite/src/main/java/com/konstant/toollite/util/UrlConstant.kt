@@ -23,4 +23,7 @@ object UrlConstant {
     // 快递物流查询接口
     val EXPRESS_URL = "http://www.kuaidi100.com/query"
 
+    // 查看电影列表的接口
+    val MOVIE_LIST = "http://10.144.111.240:3000/api/v0/movies"
+
 }

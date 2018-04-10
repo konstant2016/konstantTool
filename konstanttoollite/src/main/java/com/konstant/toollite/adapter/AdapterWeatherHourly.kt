@@ -100,7 +100,7 @@ class AdapterWeatherHourly(private val context: Context, private val datas: List
             15 -> {
                 Picasso.with(context).load(R.drawable.weather_img_16).into(img)
             }
-            16 -> {
+            30 -> {
                 Picasso.with(context).load(R.drawable.weather_img_17).into(img)
             }
             17 -> {
