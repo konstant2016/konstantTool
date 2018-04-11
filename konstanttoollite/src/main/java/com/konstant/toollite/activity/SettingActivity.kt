@@ -1,12 +1,11 @@
 package com.konstant.toollite.activity
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.eventbusparam.SwipeBackState
-import com.konstant.toollite.util.Constant
+import com.konstant.toollite.util.NameConstant
 import com.konstant.toollite.util.FileUtils
 import com.konstant.toollite.view.KonstantConfirmtDialog
 import kotlinx.android.synthetic.main.activity_setting.*
@@ -33,7 +32,7 @@ class SettingActivity : BaseActivity() {
 
         layout_theme.setOnClickListener { startActivity(Intent(this, ThemeActivity::class.java)) }
 
-        val state = FileUtils.readDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)
+        val state = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
         btn_switch.isChecked = state
 
         btn_switch.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -43,7 +42,7 @@ class SettingActivity : BaseActivity() {
                         .setPositiveListener {
                             it.dismiss()
                             EventBus.getDefault().post(SwipeBackState(true))
-                            FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, true)
+                            FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, true)
                         }
                         .setNegativeListener {
                             btn_switch.isChecked = false
@@ -51,7 +50,7 @@ class SettingActivity : BaseActivity() {
                         .show()
             } else {
                 EventBus.getDefault().post(SwipeBackState(false))
-                FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)
+                FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
             }
         }
 

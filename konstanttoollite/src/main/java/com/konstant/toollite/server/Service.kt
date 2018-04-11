@@ -6,7 +6,6 @@ import com.konstant.toollite.server.request.ExpressRequest
 import com.konstant.toollite.server.request.MovieListRequest
 import com.konstant.toollite.server.request.TranslateRequest
 import com.konstant.toollite.server.request.WeatherRequest
-import com.konstant.toollite.util.Constant
 import com.konstant.toollite.util.MD5
 import com.konstant.toollite.util.NetworkUtil
 import com.konstant.toollite.util.UrlConstant

@@ -2,7 +2,7 @@ package com.konstant.toollite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.toollite.util.Constant
+import com.konstant.toollite.util.NameConstant
 import com.konstant.toollite.util.FileUtils
 
 /**
@@ -17,7 +17,7 @@ object LocalDirectManager {
     // 添加城市
     fun addCity(context: Context, cityCode: String, cityName: String) {
         val list = ArrayList<LocalDirectData>()
-        val s = FileUtils.readDataWithSharedPreference(context, Constant.NAME_LOCAL_CITY)
+        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY)
         if (s != null) {
             val array = JSON.parseArray(s, LocalDirectData::class.java)
             list.addAll(array)
@@ -27,12 +27,12 @@ object LocalDirectManager {
         }
         list.add(LocalDirectData(cityCode, cityName))
         val s1 = JSON.toJSONString(list)
-        FileUtils.saveDataWithSharedPreference(context, Constant.NAME_LOCAL_CITY, s1)
+        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY, s1)
     }
 
     // 删除城市
     fun deleteCity(context: Context, direct: LocalDirectData) {
-        val s = FileUtils.readDataWithSharedPreference(context, Constant.NAME_LOCAL_CITY) ?: return
+        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY) ?: return
 
         val array = JSON.parseArray(s, LocalDirectData::class.java)
         var dir: LocalDirectData? = null
@@ -45,13 +45,13 @@ object LocalDirectManager {
             array.remove(dir)
         }
         val s1 = JSON.toJSONString(array)
-        FileUtils.saveDataWithSharedPreference(context, Constant.NAME_LOCAL_CITY, s1)
+        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY, s1)
     }
 
     // 读取城市列表
     fun readCityList(context: Context): ArrayList<LocalDirectData> {
         val list = ArrayList<LocalDirectData>()
-        val s = FileUtils.readDataWithSharedPreference(context, Constant.NAME_LOCAL_CITY)
+        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY)
         if (s != null) {
             val array = JSON.parseArray(s, LocalDirectData::class.java)
             list.addAll(array)

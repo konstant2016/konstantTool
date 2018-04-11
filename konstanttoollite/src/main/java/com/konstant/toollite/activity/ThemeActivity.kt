@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.View
 import com.konstant.toollite.R
 import com.konstant.toollite.base.BaseActivity
-import com.konstant.toollite.util.Constant
+import com.konstant.toollite.util.NameConstant
 import com.konstant.toollite.util.FileUtils
 import kotlinx.android.synthetic.main.activity_theme.*
 import com.konstant.toollite.eventbusparam.ThemeChanged
-import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -35,16 +34,16 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var thme = Constant.THEME_BLUE
+        var thme = NameConstant.THEME_BLUE
         when (v.id) {
             R.id.selector_red -> {
-                thme = Constant.THEME_RED
+                thme = NameConstant.THEME_RED
             }
             R.id.selector_class -> {
-                thme = Constant.THEME_CLASS
+                thme = NameConstant.THEME_CLASS
             }
             R.id.selector_blue -> {
-                thme = Constant.THEME_BLUE
+                thme = NameConstant.THEME_BLUE
             }
         }
         saveSelectedTheme(thme)
@@ -54,6 +53,6 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
 
 
     private fun saveSelectedTheme(theme: String) {
-        FileUtils.saveDataWithSharedPreference(this, Constant.NAME_SELECTED_THEME, theme)
+        FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SELECTED_THEME, theme)
     }
 }

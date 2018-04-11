@@ -22,7 +22,9 @@ import com.konstant.toollite.eventbusparam.TitleChanged
 import com.konstant.toollite.server.Service
 import com.konstant.toollite.server.response.LocationCIDrResponse
 import com.konstant.toollite.server.response.Weather360Response
+import com.konstant.toollite.util.FileUtils
 import com.konstant.toollite.util.KeyConstant
+import com.konstant.toollite.util.NameConstant
 import com.konstant.toollite.util.UrlConstant
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
@@ -54,6 +56,7 @@ class WeatherFragment() : BaseFragment() {
     private val mAdapterDay by lazy { AdapterWeatherDaily(mActivity, mListDaily) }
 
     private var mCurrentCity = "加载中"
+    private var needLocation = false
 
     private val mRequestCode = 11
 
@@ -93,25 +96,31 @@ class WeatherFragment() : BaseFragment() {
         refresh_layout.setOnRefreshListener(object : RefreshListenerAdapter() {
             override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
                 if (mDirectCode.isNullOrEmpty()) {
-                    mLocationClient.startLocation()
+                    needLocation = true
+                    // 进来后判断是否为空，如果为空，则说明是第一个定位页面，去读取本地值
+                    mDirectCode = FileUtils.readDataWithSharedPreference(mActivity, NameConstant.NAME_LOCAL_CITY_ID) ?: ""
+                    // 读取到本地值后，如果为空，则进行定位
+                    if (mDirectCode.isNullOrEmpty()) {
+                        mLocationClient.startLocation()
+                    } else {
+                        // 如果不为空，则直接请求数据
+                        requestData(mDirectCode)
+                    }
                 } else {
                     requestData(mDirectCode)
                 }
             }
         })
-
-        if (mDirectCode.isNullOrEmpty()) {
-            initLocationClient()
-            requestPermission()
-        } else {
-            refresh_layout.startRefresh()
-        }
+        requestPermission()
     }
 
     private fun requestPermission() {
         AndPermission.with(mActivity)
                 .permission(Manifest.permission.ACCESS_FINE_LOCATION)
-                .onGranted { mLocationClient.startLocation() }
+                .onGranted {
+                    initLocationClient()
+                    refresh_layout.startRefresh()
+                }
                 .onDenied { Toast.makeText(mActivity, "您拒绝了定位权限", Toast.LENGTH_SHORT).show() }
                 .start()
     }
@@ -140,20 +149,21 @@ class WeatherFragment() : BaseFragment() {
 
     // 转为城市CID
     private fun changeCid(string: String) {
-        Service.locationToCID(mActivity,UrlConstant.WEATHER_HEFENG_URL, string, KeyConstant.WEATHER_KEY) { state, data ->
-            stopRefreshAnim()
-            if (!state) return@locationToCID
+        Service.locationToCID(mActivity, UrlConstant.WEATHER_HEFENG_URL, string, KeyConstant.WEATHER_KEY) { state, data ->
+            if (!state) {
+                stopRefreshAnim();return@locationToCID
+            }
             val response = JSON.parseObject(data.replace("$", ""), LocationCIDrResponse::class.java)
             mDirectCode = response.heWeather6[0].basic.cid.replace("CN", "")
             Log.d("地区编号", mDirectCode)
-            refresh_layout?.startRefresh()
-
+            FileUtils.saveDataWithSharedPreference(mActivity, NameConstant.NAME_LOCAL_CITY_ID, mDirectCode)
+            requestData(mDirectCode)
         }
     }
 
     // 向服务器请求数据
     private fun requestData(location: String) {
-        Service.queryWeather(mActivity,location) { state, data ->
+        Service.queryWeather(mActivity, location) { state, data ->
             stopRefreshAnim()
             if (mActivity.isDestroyed or !state) return@queryWeather
             setData(data)
@@ -192,7 +202,10 @@ class WeatherFragment() : BaseFragment() {
             if (isFragmentResume()) {
                 setActivityTitle(mCurrentCity)
             }
-
+        }
+        if (needLocation){
+            mLocationClient.startLocation()
+            needLocation = false
         }
     }
 

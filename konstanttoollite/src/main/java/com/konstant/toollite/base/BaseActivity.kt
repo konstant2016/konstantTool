@@ -1,24 +1,19 @@
 package com.konstant.toollite.base
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.FrameLayout
 import android.widget.TextView
 import com.konstant.toollite.R
 import com.konstant.toollite.eventbusparam.SwipeBackState
 import com.konstant.toollite.eventbusparam.ThemeChanged
-import com.konstant.toollite.util.Constant
+import com.konstant.toollite.util.NameConstant
 import com.konstant.toollite.util.FileUtils
 import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
@@ -66,17 +61,17 @@ open class BaseActivity : SwipeBackActivity() {
 
     // 读取保存的主题状态
     private fun readTheme(): Int {
-        val theme = FileUtils.readDataWithSharedPreference(this, Constant.NAME_SELECTED_THEME)
-        theme ?: Constant.THEME_BLUE
+        val theme = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SELECTED_THEME)
+        theme ?: NameConstant.THEME_BLUE
         var themeId = 0
         when (theme) {
-            Constant.THEME_RED -> {
+            NameConstant.THEME_RED -> {
                 themeId = R.style.tool_lite_red
             }
-            Constant.THEME_CLASS -> {
+            NameConstant.THEME_CLASS -> {
                 themeId = R.style.tool_lite_class
             }
-            Constant.THEME_BLUE -> {
+            NameConstant.THEME_BLUE -> {
                 themeId = R.style.tool_lite_blue
             }
         }
@@ -85,7 +80,7 @@ open class BaseActivity : SwipeBackActivity() {
 
     // 读取保存的swipeback状态
     private fun readSwipeBackState() {
-        val state = FileUtils.readDataWithSharedPreference(this, Constant.NAME_SWIPEBACK_STATE, false)
+        val state = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
         mSwipeBackLayout.setEnableGesture(state)
     }
 
