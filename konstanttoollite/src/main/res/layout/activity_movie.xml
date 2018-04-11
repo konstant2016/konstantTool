@@ -14,11 +14,14 @@
         app:tr_bottom_height="100dp"
         app:tr_head_height="100dp">
 
-        <android.support.v7.widget.RecyclerView
+        <GridView
+            android:horizontalSpacing="16dp"
+            android:verticalSpacing="10dp"
+            android:numColumns="2"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/recycler_movie"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/grid_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>

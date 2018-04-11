@@ -27,14 +27,14 @@ class MovieActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie)
         initBaseViews()
+        setTitle("电影预告片")
         layout_refresh.startRefresh()
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
 
-        recycler_movie.layoutManager = GridLayoutManager(this, 2)
-        recycler_movie.adapter = mAdapter
+        grid_movie.adapter = mAdapter
 
         layout_refresh.setHeaderView(BezierLayout(this))
         layout_refresh.setEnableLoadmore(true)
@@ -56,9 +56,21 @@ class MovieActivity : BaseActivity() {
     // 请求数据
     private fun requestData() {
         Service.queryMovieList(this, mPage) { state, data ->
+            stopRefreshing()
             if (state) {
                 val response = JSON.parseObject(data, MovieListResponse::class.java)
                 updateUI(response)
+            }
+        }
+    }
+
+    // 停止刷新
+    private fun stopRefreshing(){
+        runOnUiThread {
+            if (!isLoadMore) {
+                layout_refresh.finishRefreshing()
+            }else{
+                layout_refresh.finishLoadmore()
             }
         }
     }
@@ -67,7 +79,6 @@ class MovieActivity : BaseActivity() {
     private fun updateUI(response: MovieListResponse) {
         if (response.code != 200) return
         runOnUiThread {
-            layout_refresh.finishRefreshing()
             if (!isLoadMore) {
                 mMovieList.clear()
             }

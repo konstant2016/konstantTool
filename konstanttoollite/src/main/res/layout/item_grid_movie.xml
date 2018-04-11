@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
-    android:layout_height="270dp"
+    android:layout_height="290dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/img_pic"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="240dp"
             android:scaleType="fitXY"
             android:src="@drawable/p2516430244" />
 

@@ -1,10 +1,10 @@
 package com.konstant.toollite.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.konstant.toollite.R
@@ -18,32 +18,47 @@ import com.squareup.picasso.Picasso
  * 备注:
  */
 
-class AdapterMovieList(val context: Context,val list: List<MovieListResponse.Data.Movie>) : RecyclerView.Adapter<AdapterMovieList.Holder>() {
+class AdapterMovieList(val context: Context, val list: List<MovieListResponse.Data.Movie>) : BaseAdapter() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): AdapterMovieList.Holder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_recycler_movie, parent, false)
-        return Holder(view)
-    }
+    private var inflater: LayoutInflater = LayoutInflater.from(context)
 
-    override fun getItemCount(): Int = list.size
+    override fun getItem(position: Int): Any = list[position]
 
-    override fun onBindViewHolder(holder: AdapterMovieList.Holder, position: Int) {
-        val img = holder.view.findViewById<ImageView>(R.id.img_pic)
-        val name = holder.view.findViewById<TextView>(R.id.tv_name)
-        val dir = holder.view.findViewById<TextView>(R.id.tv_dir)
-        val type = holder.view.findViewById<TextView>(R.id.tv_type)
-        val rate = holder.view.findViewById<TextView>(R.id.tv_rate)
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getCount(): Int = list.size
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        var root = convertView
+        lateinit var holder: Holder
+        if (root == null) {
+            root = inflater.inflate(R.layout.item_grid_movie, null)
+            val img = root.findViewById<ImageView>(R.id.img_pic)
+            val name = root.findViewById<TextView>(R.id.tv_name)
+            val dir = root.findViewById<TextView>(R.id.tv_dir)
+            val type = root.findViewById<TextView>(R.id.tv_type)
+            val rate = root.findViewById<TextView>(R.id.tv_rate)
+            holder = Holder(img, name, dir, type, rate)
+            root.tag = holder
+        } else {
+            holder = root.tag as Holder
+        }
 
         val movie = list[position]
 
-        Picasso.with(context).load(movie.cover).into(img)
-        name.text = movie.title
-        dir.text = if (movie.directors.size==0) "未知" else movie.directors[0]
-        type.text = movie.movieTypes[0]
-        rate.text = movie.rate.rate
+        Picasso.with(context).load(movie.cover).into(holder.img)
+        holder.name.text = movie.title
+        holder.dir.text = if (movie.directors.size == 0) "未知" else movie.directors[0]
+        holder.type.text = movie.movieTypes[0]
+        holder.rate.text = movie.rate.rate
 
+        return root!!
     }
 
-    class Holder(val view: View) : RecyclerView.ViewHolder(view)
+    class Holder(val img: ImageView,
+                 val name: TextView,
+                 val dir: TextView,
+                 val type: TextView,
+                 val rate: TextView)
 
 }
