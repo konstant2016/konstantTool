@@ -18,6 +18,7 @@ import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.data.LocalDirectData
 import com.konstant.toollite.data.LocalDirectManager
 import com.konstant.toollite.eventbusparam.IndexChanged
+import com.konstant.toollite.eventbusparam.LocationSizeChanged
 import kotlinx.android.synthetic.main.activity_city_manager.*
 import kotlinx.android.synthetic.main.title_layout.*
 import java.io.ByteArrayOutputStream
@@ -87,6 +88,7 @@ class CityManagerActivity : BaseActivity() {
                     mCityList.remove(direct)
                     LocalDirectManager.deleteCity(this, direct)
                     mAdapter.notifyDataSetChanged()
+                    EventBus.getDefault().post(LocationSizeChanged())
                 }
                 .setNegativeListener { }
                 .show()
@@ -105,6 +107,7 @@ class CityManagerActivity : BaseActivity() {
         mConfirm.setOnClickListener {
             mPop.dismiss()
             saveLocalCityLost(mSelectedDirect)
+            EventBus.getDefault().post(LocationSizeChanged())
         }
         mCancel.setOnClickListener { mPop.dismiss() }
 

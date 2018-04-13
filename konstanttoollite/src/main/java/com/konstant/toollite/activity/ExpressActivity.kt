@@ -67,6 +67,7 @@ class ExpressActivity : BaseActivity() {
                         expressList.remove(data)
                         mAdapter.notifyDataSetChanged()
                         updateUI()
+
                         ExpressManager.deleteExpress(this, data.orderNo)
                     }
                     .setNegativeListener {  }
@@ -147,5 +148,8 @@ class ExpressActivity : BaseActivity() {
         super.onResume()
         readLocalExpress()
         updateUI()
+
+
+
     }
 }

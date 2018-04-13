@@ -41,7 +41,8 @@ class AdapterWeatherDaily(private val context: Context, private val datas: List<
         val tPower = holder.view.findViewById<TextView>(R.id.tv_weather_power)
         val img = holder.view.findViewById<ImageView>(R.id.img_weather_icon)
 
-        val date = Date()
+        val date = SimpleDateFormat("yyyy-MM-dd").parse(data.date)
+//        val date = Date()
         val week = SimpleDateFormat("E").format(date)
 
         // 设置周几

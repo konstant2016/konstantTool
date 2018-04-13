@@ -11,6 +11,7 @@ import com.konstant.toollite.adapter.AdapterWeatherFragment
 import com.konstant.toollite.base.BaseActivity
 import com.konstant.toollite.data.LocalDirectManager
 import com.konstant.toollite.eventbusparam.IndexChanged
+import com.konstant.toollite.eventbusparam.LocationSizeChanged
 import com.konstant.toollite.eventbusparam.TitleChanged
 import com.konstant.toollite.fragment.WeatherFragment
 import kotlinx.android.synthetic.main.activity_weather.*
@@ -47,11 +48,11 @@ class WeatherActivity : BaseActivity() {
         img_more.setOnClickListener { startActivity(Intent(this, CityManagerActivity::class.java)) }
         layout_viewpager.offscreenPageLimit = 50
         layout_viewpager.adapter = mAdapter
+
+        addFragment()
     }
 
-
-    override fun onResume() {
-        super.onResume()
+    private fun addFragment(){
 
         val weatherCodeList = LocalDirectManager.readCityList(this)
         if (weatherCodeList.size > 0) {
@@ -67,9 +68,7 @@ class WeatherActivity : BaseActivity() {
         }
         mAdapter.updateFragmentList(mFragmentList)
         Log.i("mFragmentList size", "${mFragmentList.size}")
-
     }
-
 
     @Subscribe
     fun onTitleChanged(msg: TitleChanged) {
@@ -79,6 +78,11 @@ class WeatherActivity : BaseActivity() {
     @Subscribe
     fun onIndexChanged(msg:IndexChanged){
         layout_viewpager.currentItem = msg.index
+    }
+
+    @Subscribe
+    fun onLocationSizeChanged(msg: LocationSizeChanged){
+        addFragment()
     }
 
 }
