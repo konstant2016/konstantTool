@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion 26
 
     defaultConfig {
-        applicationId "com.konstant.toollite"
+        applicationId "com.konstant.tool.lite"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -27,7 +28,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
@@ -36,7 +36,7 @@ dependencies {
     // 图片查看控件
     implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问框架
-    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     // 新的滚轮选择器
     implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     // 滑动返回
@@ -50,7 +50,7 @@ dependencies {
     // eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
-    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:location:3.8.0'
     // 权限申请工具
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
 

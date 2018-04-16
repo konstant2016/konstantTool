@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.konstant.toollite">
+    package="com.konstant.tool.lite">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -97,7 +97,9 @@
         <activity
             android:name=".activity.CityManagerActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.MovieActivity"></activity>
+        <activity
+            android:name=".activity.MovieActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
