@@ -56,7 +56,7 @@ class BeautyActivity : BaseActivity() {
         })
 
         recycler_beauty.layoutManager = LinearLayoutManager(this)
-        recycler_beauty.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recycler_beauty.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         recycler_beauty.adapter = mAdapter
 
         // 进来时就刷新
@@ -66,9 +66,9 @@ class BeautyActivity : BaseActivity() {
 
     // 获取网络数据
     private fun getData() {
-        NetworkUtil.getInstance(this).get(mBaseUrl + mPageIndex, "") { state, data ->
+        NetworkUtil.getInstance(this).get(mBaseUrl + mPageIndex, "") { _, data ->
             Log.i("MIUI图片", data)
-            if (data.isNullOrEmpty() or (data.length < 150)) {
+            if ((data.isNullOrEmpty() or (data.length < 150)) and !isDestroyed) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()
                 getData()
                 return@get
@@ -92,7 +92,7 @@ class BeautyActivity : BaseActivity() {
 
     // 刷新界面
     private fun refreshUI(urlList: ArrayList<String>) {
-        Log.i("beauey","开始刷新界面")
+        Log.i("beauey", "开始刷新界面")
         runOnUiThread {
             if (isPullDown) {
                 mUrlList.clear()

@@ -13,7 +13,10 @@ import android.view.View;
 import com.konstant.konstanttools.R;
 
 /**
- * Created by konstant on 2017/9/26.
+ * 描述:自定义控件，刻度圆
+ * 创建人:菜籽
+ * 创建时间:2018/4/16 下午1:19
+ * 备注:
  */
 
 public class ScaleCircleProgress extends View {
