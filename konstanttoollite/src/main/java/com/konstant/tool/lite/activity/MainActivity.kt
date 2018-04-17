@@ -43,6 +43,8 @@ class MainActivity : BaseActivity() {
 
         layout_movie.setOnClickListener { startActivity(Intent(this@MainActivity,MovieActivity::class.java)) }
 
+        layout_ruler.setOnClickListener { startActivity(Intent(this@MainActivity,RulerActivity::class.java)) }
+
         layout_zfb.setOnClickListener { zfb() }
 
     }

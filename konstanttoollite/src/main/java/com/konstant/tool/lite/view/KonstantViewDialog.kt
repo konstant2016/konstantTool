@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.view
 
 import android.app.Activity
+import android.support.v7.app.AppCompatActivity
 import android.view.*
 import android.widget.Button
 import android.widget.PopupWindow
@@ -8,7 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.konstant.tool.lite.R
 
-class KonstantViewDialog(private val context: Activity) : PopupWindow() {
+class KonstantViewDialog(private val context: AppCompatActivity) : PopupWindow() {
 
     private var mMessage: TextView
     private lateinit var mPop: PopupWindow

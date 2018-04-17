@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
@@ -97,7 +98,7 @@ class ExpressActivity : BaseActivity() {
 
 
     // 添加物流查询
-    fun addExpress() {
+    private fun addExpress() {
         val view = layoutInflater.inflate(R.layout.layout_pop_express, null)
         val et_num = view.findViewById(R.id.et_num) as EditText
         val et_remark = view.findViewById(R.id.et_remark) as EditText

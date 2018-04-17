@@ -15,4 +15,8 @@
         <attr name="textDotDistance" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="KonstantRulerView">
+        <attr name="color_line" format="color"/>
+    </declare-styleable>
+
 </resources>
