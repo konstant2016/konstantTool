@@ -27,6 +27,7 @@
             android:text="我也不知道关于界面应该写点啥，没有美工帮我，界面都比较丑，等我找个美工先，如果要支持我，多点点主页的支付宝领红包吧~" />
 
         <TextView
+            android:id="@+id/tv_version"
             android:layout_marginBottom="100dp"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"

@@ -41,6 +41,7 @@
         android:background="@drawable/layout_bg_spinner">
 
         <Spinner
+            android:spinnerMode="dialog"
             android:background="@color/white_transport"
             android:id="@+id/spinner_company"
             android:layout_width="320dp"
