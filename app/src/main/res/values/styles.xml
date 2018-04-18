@@ -42,4 +42,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_bottom_to_top</item>
+        <item name="android:windowExitAnimation">@anim/anim_top_to_bottom</item>
+    </style>
+
 </resources>

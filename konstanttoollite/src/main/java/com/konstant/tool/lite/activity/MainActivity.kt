@@ -5,9 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -52,12 +54,11 @@ class MainActivity : BaseActivity() {
     override fun initBaseViews() {
         img_back.visibility = View.GONE
         img_more.visibility = View.VISIBLE
-        img_more.setOnClickListener { startActivity(Intent(this,SettingActivity::class.java)) }
+        img_more.setOnClickListener {
+            startActivity(Intent(this,SettingActivity::class.java))
+        }
     }
 
-    override fun SwipeBackChanged(msg: SwipeBackState) {
-
-    }
 
     fun zfb(){
         val clipBoard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager

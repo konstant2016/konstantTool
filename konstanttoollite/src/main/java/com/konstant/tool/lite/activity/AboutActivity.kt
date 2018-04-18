@@ -17,5 +17,6 @@ class AboutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         setTitle("关于")
+        initBaseViews()
     }
 }

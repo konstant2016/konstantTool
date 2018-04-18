@@ -18,14 +18,14 @@ import com.bm.library.PhotoView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.Utils
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
+import com.konstant.tool.lite.view.KonstantDialog
 import com.squareup.picasso.Picasso
 import com.yanzhenjie.permission.AndPermission
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
-import java.util.ArrayList
+import java.util.*
 
 /**
  * 描述:看图的详情页
@@ -90,7 +90,7 @@ class LookPictureActivity : BaseActivity() {
     }
 
     //写出文件到本地
-    fun writeToStorage(urlString: String) {
+    private fun writeToStorage(urlString: String) {
         Thread {
             val byteArray = Utils.getByteArray(urlString)
             val fileParent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
@@ -98,7 +98,7 @@ class LookPictureActivity : BaseActivity() {
             val file = File(fileParent, name)
             try {
                 val outputStream = FileOutputStream(file)
-                outputStream.write(byteArray!!, 0, byteArray!!.size)
+                outputStream.write(byteArray, 0, byteArray.size)
                 outputStream.flush()
                 outputStream.close()
                 showToast("保存成功")
@@ -152,17 +152,13 @@ class LookPictureActivity : BaseActivity() {
 
         @TargetApi(Build.VERSION_CODES.M)
         private fun showDialog() {
-            KonstantConfirmtDialog(context as Activity)
+            KonstantDialog(context as Activity)
                     .setMessage("是否要保存到本地?")
                     .setPositiveListener {
                         it.dismiss()
                         (context as LookPictureActivity).savePicture()
-
                     }
-                    .setNegativeListener {  }
-                    .show()
+                    .createDialog()
         }
-
-
     }
 }

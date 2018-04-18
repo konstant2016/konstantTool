@@ -42,7 +42,7 @@ class QRScanActivity : BaseActivity() {
         initScanStyle()
         requestPermission()
         // 二维码扫描结果
-        layout_scan.setOnScannerCompletionListener { rawResult, parsedResult, barcode ->
+        layout_scan.setOnScannerCompletionListener { rawResult, parsedResult, _ ->
             if (rawResult == null) {
                 Toast.makeText(this, "未发现二维码", Toast.LENGTH_SHORT).show()
                 return@setOnScannerCompletionListener

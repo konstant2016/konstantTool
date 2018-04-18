@@ -10,7 +10,7 @@ import android.text.TextUtils
 import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
+import com.konstant.tool.lite.view.KonstantDialog
 import com.mylhyl.zxing.scanner.encode.QREncode
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_qrcode.*
@@ -65,14 +65,13 @@ class QRCodeActivity : BaseActivity() {
         img_result.setOnLongClickListener {
             if (mBitmap == null) return@setOnLongClickListener true
 
-            KonstantConfirmtDialog(this)
+            KonstantDialog(this)
                     .setMessage("是否要保存到本地？")
                     .setPositiveListener {
                         it.dismiss()
                         requestWritePermission()
                     }
-                    .setNegativeListener { }
-                    .show()
+                    .createDialog()
             true
         }
     }

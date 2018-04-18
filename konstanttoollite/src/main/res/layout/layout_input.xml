@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+
+    <EditText
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:id="@+id/edit_input"
+        android:background="@drawable/edit_bg"
+        android:textSize="13sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+</LinearLayout>

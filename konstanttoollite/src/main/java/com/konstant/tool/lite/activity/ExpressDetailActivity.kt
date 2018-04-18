@@ -1,14 +1,13 @@
 package com.konstant.tool.lite.activity
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.AdapterView
-import android.widget.PopupWindow
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterExpressDetail
@@ -16,10 +15,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.ExpressManager
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.ExpressResponse
-import com.konstant.tool.lite.view.KonstantArrayAdapter
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
-import com.konstant.tool.lite.view.KonstantInputDialog
-import com.konstant.tool.lite.view.KonstantViewDialog
+import com.konstant.tool.lite.view.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -103,9 +99,8 @@ class ExpressDetailActivity : BaseActivity() {
 
         tv_remark.text = mRemark
 
-
         var com = ""
-        ids.forEachIndexed { index, s ->
+        ids.forEachIndexed { index, _ ->
             if (mCompanyId == ids[index]) {
                 com = coms[index]
             }
@@ -118,16 +113,6 @@ class ExpressDetailActivity : BaseActivity() {
         runOnUiThread {
             mDatas.addAll(response.data)
             mAdapter.notifyDataSetChanged()
-
-            var com = ""
-            val comName = resources.getStringArray(R.array.express_company)
-            val comID = resources.getStringArray(R.array.express_company_id)
-
-            comID.forEachIndexed { index, s ->
-                if (s == response.com) {
-                    com = comName[index]
-                }
-            }
 
             when (response.state) {
                 0 -> mState = "在途中"
@@ -196,16 +181,25 @@ class ExpressDetailActivity : BaseActivity() {
     // 修改物流单号
     private fun changeOrderNo() {
         mPop.dismiss()
-        KonstantInputDialog(this)
+        val view = layoutInflater.inflate(R.layout.layout_input, null)
+        val edit = view.findViewById(R.id.edit_input) as EditText
+        edit.setText(mOrderNo)
+        KonstantDialog(this)
                 .setMessage("输入运单号")
+                .addView(view)
                 .setPositiveListener {
+                    if (TextUtils.isEmpty(edit.text)){
+                        Toast.makeText(this, "记得输入运单号哦", Toast.LENGTH_SHORT).show()
+                        return@setPositiveListener
+                    }
+                    it.dismiss()
                     ExpressManager.deleteExpress(this, mOrderNo)
-                    mOrderNo = it
+                    mOrderNo = edit.text.toString()
                     updateUI()
                     ExpressManager.addExpress(this, mOrderNo, mCompanyId, mRemark, mState)
                     queryExpress()
                 }
-                .show()
+                .createDialog()
     }
 
     // 修改物流公司
@@ -225,7 +219,7 @@ class ExpressDetailActivity : BaseActivity() {
             }
         }
 
-        KonstantViewDialog(this)
+        KonstantDialog(this)
                 .setMessage("选择物流公司：")
                 .addView(view)
                 .setPositiveListener {
@@ -234,34 +228,42 @@ class ExpressDetailActivity : BaseActivity() {
                     queryExpress()
                     ExpressManager.updateExpress(this, mOrderNo, mCompanyId, null, null)
                 }
-                .show()
+                .createDialog()
     }
 
     // 修改备注
     private fun changeRemark() {
         mPop.dismiss()
-        KonstantInputDialog(this)
+        val view = layoutInflater.inflate(R.layout.layout_input, null)
+        val edit = view.findViewById(R.id.edit_input) as EditText
+        edit.setText(mRemark)
+        KonstantDialog(this)
                 .setMessage("输入备注")
+                .addView(view)
                 .setPositiveListener {
-                    mRemark = it
+                    it.dismiss()
+                    if (TextUtils.isEmpty(edit.text)){
+                        Toast.makeText(this, "记得输入备注哦", Toast.LENGTH_SHORT).show()
+                        return@setPositiveListener
+                    }
+                    mRemark = edit.text.toString()
                     updateUI()
                     ExpressManager.updateExpress(this, mOrderNo, null, mRemark, null)
                 }
-                .show()
+                .createDialog()
     }
 
     // 删除运单
     private fun deleteOrder() {
         mPop.dismiss()
-        KonstantConfirmtDialog(this)
+        KonstantDialog(this)
                 .setMessage("确定要删除此运单号？")
                 .setPositiveListener {
                     it.dismiss()
                     ExpressManager.deleteExpress(this, mOrderNo)
                     this.finish()
                 }
-                .setNegativeListener {  }
-                .show()
+                .createDialog()
     }
 
 }

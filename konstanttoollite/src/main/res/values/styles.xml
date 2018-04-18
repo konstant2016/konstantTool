@@ -40,4 +40,12 @@
         <item name="android:windowExitAnimation">@anim/anim_top_to_bottom</item>
     </style>
 
+
+    <style name="KonstantDialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
 </resources>

@@ -1,13 +1,10 @@
-package com.konstant.tool.lite.view
+package com.konstant.konstanttools
 
-import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.view.*
-import android.widget.Button
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.konstant.tool.lite.R
 
 class KonstantViewDialog(private val context: AppCompatActivity) : PopupWindow() {
 
@@ -19,12 +16,12 @@ class KonstantViewDialog(private val context: AppCompatActivity) : PopupWindow()
 
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_konstant_dialog_view, null)
-        mMessage = view.findViewById(R.id.tv_message)
-        mLayout = view.findViewById(R.id.layout_view)
-        view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
+        mMessage = view.findViewById(R.id.tv_message) as TextView
+        mLayout = view.findViewById(R.id.layout_view) as RelativeLayout
+        view.findViewById(R.id.btn_confirm).setOnClickListener {
             listener(this)
         }
-        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
+        view.findViewById(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.animationStyle = R.style.popwin_anim_style
         mPop.setOnDismissListener { backgroundAlpha(1.0f) }

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
@@ -16,9 +15,8 @@ import com.konstant.tool.lite.adapter.AdapterExpress
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.ExpressData
 import com.konstant.tool.lite.data.ExpressManager
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
 import com.konstant.tool.lite.view.KonstantArrayAdapter
-import com.konstant.tool.lite.view.KonstantViewDialog
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -58,8 +56,8 @@ class ExpressActivity : BaseActivity() {
             expressQuery(data.company, data.orderNo, data.remark)
         }
 
-        listview_express.setOnItemLongClickListener { parent, view, position, id ->
-            KonstantConfirmtDialog(this)
+        listview_express.setOnItemLongClickListener { _, _, position, _ ->
+            KonstantDialog(this)
                     .setMessage("是否删除此记录？")
                     .setPositiveListener {
                         it.dismiss()
@@ -67,11 +65,9 @@ class ExpressActivity : BaseActivity() {
                         expressList.remove(data)
                         mAdapter.notifyDataSetChanged()
                         updateUI()
-
                         ExpressManager.deleteExpress(this, data.orderNo)
                     }
-                    .setNegativeListener {  }
-                    .show()
+                    .createDialog()
             true
         }
     }
@@ -117,8 +113,9 @@ class ExpressActivity : BaseActivity() {
             }
         }
 
-        KonstantViewDialog(this)
+        KonstantDialog(this)
                 .setMessage("添加物流信息")
+                .addView(view)
                 .setPositiveListener {
                     var remark = "保密物件"
                     if (!TextUtils.isEmpty(et_remark.text)) {
@@ -131,8 +128,7 @@ class ExpressActivity : BaseActivity() {
                     it.dismiss()
                     expressQuery(companyId, et_num.text.toString(), remark)
                 }
-                .addView(view)
-                .show()
+                .createDialog()
     }
 
     // 跳转到快递查询页面
@@ -148,8 +144,5 @@ class ExpressActivity : BaseActivity() {
         super.onResume()
         readLocalExpress()
         updateUI()
-
-
-
     }
 }

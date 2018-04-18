@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.konstant.tool.lite"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 3
         versionName "1.0.2"

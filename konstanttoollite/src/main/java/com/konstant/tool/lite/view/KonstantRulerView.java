@@ -3,13 +3,13 @@ package com.konstant.tool.lite.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
@@ -73,55 +73,9 @@ public class KonstantRulerView extends SurfaceView implements Callback {
 
 	public KonstantRulerView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.KonstantRulerView);
+		mColor = array.getInt(R.styleable.KonstantRulerView_color_line, Color.BLUE);
 		init(context);
-	}
-
-	// 触摸按下时
-	private void onTouchBegain(float x, float y) {
-		lineOffset = Math.abs(x - lineX);
-		if (lineOffset <= PADDING * 2) {
-			startX = x;
-			unlockLineCanvas = true;
-		}
-	}
-
-	// 触摸移动时
-	private void onTouchMove(float x, float y) {
-		if (unlockLineCanvas) {
-			lineX += x - startX;
-			if (lineX < PADDING) {
-				lineX = PADDING;
-			} else if (lineX > lastX) {
-				lineX = lastX;
-			}
-			kedu = Math.round((lineX - PADDING) / UNIT_MM);
-			startX = x;
-			draw();
-		}
-	}
-
-	// 触摸结束时
-	private void onTouchDone(float x, float y) {
-		unlockLineCanvas = false;
-		startX = -1;
-		draw();
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_CANCEL:
-		case MotionEvent.ACTION_UP:
-			onTouchDone(event.getX(), event.getY());
-			break;
-		case MotionEvent.ACTION_DOWN:
-			onTouchBegain(event.getX(), event.getY());
-			break;
-		case MotionEvent.ACTION_MOVE:
-			onTouchMove(event.getX(), event.getY());
-			break;
-		}
-		return true;
 	}
 
 	private void init(Context context) {
@@ -152,64 +106,20 @@ public class KonstantRulerView extends SurfaceView implements Callback {
 		holder = getHolder();
 		holder.addCallback(this);
 		paint = new Paint();
-		paint.setColor(0xff1eb8f8);
+		paint.setColor(mColor);
 		linePaint = new Paint();
-		linePaint.setColor(0xff1eb8f8);
+		linePaint.setColor(mColor);
 		linePaint.setStrokeWidth(4);
 		fontPaint = new Paint();
 		fontPaint.setTextSize(FONT_SIZE);
 		fontPaint.setAntiAlias(true);
-		fontPaint.setColor(0xff1eb8f8);
+		fontPaint.setColor(mColor);
 		lineX = PADDING;
 		kedu = 0;
 	}
 
-	private void drawDisplay(Canvas canvas) {
-		String cm = String.valueOf(kedu / 10);
-		String mm = String.valueOf(kedu % 10);
-		Paint displayPaint1 = new Paint();
-		displayPaint1.setAntiAlias(true);
-		displayPaint1.setColor(0xff1eb8f8);
-		displayPaint1.setTextSize(DISPLAY_SIZE_BIG);
-		float cmWidth = displayPaint1.measureText(cm);
-		Rect bounds1 = new Rect();
-		displayPaint1.getTextBounds(cm, 0, cm.length(), bounds1);
-		Paint displayPaint2 = new Paint();
-		displayPaint2.setAntiAlias(true);
-		displayPaint2.setColor(0xff666666);
-		displayPaint2.setTextSize(DISPLAY_SIZE_SMALL);
-		float mmWidth = displayPaint2.measureText(mm);
-		Rect bounds2 = new Rect();
-		displayPaint2.getTextBounds(mm, 0, mm.length(), bounds2);
-		canvas.drawLine(lineX, 0, lineX, SCREEN_H, linePaint);
-		// canvas.drawText(
-		// String.valueOf(kedu / 10) + "cm, " + String.valueOf(kedu % 10)
-		// + "mm", PADDING, SCREEN_H - PADDING, fontPaint);
-		Paint cyclePaint = new Paint();
-		cyclePaint.setColor(0xffffffff);
-		cyclePaint.setAntiAlias(true);
-		cyclePaint.setStyle(Paint.Style.FILL);
-		Paint strokPaint = new Paint();
-		strokPaint.setAntiAlias(true);
-		strokPaint.setColor(0xff999999);
-		strokPaint.setStyle(Paint.Style.STROKE);
-		strokPaint.setStrokeWidth(CYCLE_WIDTH);
-		canvas.drawCircle(SCREEN_W / 2, SCREEN_H / 2, RADIUS_BIG, cyclePaint);
-		canvas.drawCircle(SCREEN_W / 2, SCREEN_H / 2, RADIUS_MEDIUM, cyclePaint);
-		canvas.drawCircle(SCREEN_W / 2, SCREEN_H / 2, RADIUS_BIG, strokPaint);
-		strokPaint.setColor(0xff666666);
-		canvas.drawCircle(SCREEN_W / 2, SCREEN_H / 2, RADIUS_MEDIUM, strokPaint);
-		strokPaint.setColor(0xff999999);
-		canvas.drawCircle(SCREEN_W / 2 + RADIUS_BIG, SCREEN_H / 2,
-				RADIUS_SMALL, cyclePaint);
-		canvas.drawCircle(SCREEN_W / 2 + RADIUS_BIG, SCREEN_H / 2,
-				RADIUS_SMALL, strokPaint);
-		canvas.drawText(cm, SCREEN_W / 2 - cmWidth / 2,
-				SCREEN_H / 2 + bounds1.height() / 2, displayPaint1);
-		canvas.drawText(mm, SCREEN_W / 2 + RADIUS_BIG - mmWidth / 2, SCREEN_H
-				/ 2 + bounds2.height() / 2, displayPaint2);
-	}
 
+	// 画刻度
 	private void draw() {
 		Canvas canvas = null;
 		try {
@@ -242,7 +152,6 @@ public class KonstantRulerView extends SurfaceView implements Callback {
 				left += UNIT_MM;
 			}
 			lastX = left - UNIT_MM;
-			drawDisplay(canvas);
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
@@ -251,7 +160,6 @@ public class KonstantRulerView extends SurfaceView implements Callback {
 			}
 		}
 	}
-
 
 
 	@Override

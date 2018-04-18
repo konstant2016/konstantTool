@@ -7,7 +7,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.util.NameConstant
 import com.konstant.tool.lite.util.FileUtils
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
 
@@ -35,23 +35,9 @@ class SettingActivity : BaseActivity() {
         val state = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
         btn_switch.isChecked = state
 
-        btn_switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                KonstantConfirmtDialog(this)
-                        .setMessage("开启滑动返回后，切换主题时，可能会有闪屏情况出现,确认开启？")
-                        .setPositiveListener {
-                            it.dismiss()
-                            EventBus.getDefault().post(SwipeBackState(true))
-                            FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, true)
-                        }
-                        .setNegativeListener {
-                            btn_switch.isChecked = false
-                        }
-                        .show()
-            } else {
-                EventBus.getDefault().post(SwipeBackState(false))
-                FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
-            }
+        btn_switch.setOnCheckedChangeListener { _, isChecked ->
+            EventBus.getDefault().post(SwipeBackState(isChecked))
+            FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, isChecked)
         }
 
         layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }

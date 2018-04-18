@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.view
+package com.konstant.konstanttools
 
 import android.app.Activity
 import android.content.Context
@@ -12,7 +12,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupWindow
 import android.widget.TextView
-import com.konstant.tool.lite.R
 
 /**
  * 描述:带有输入框的dialog
@@ -32,15 +31,15 @@ class KonstantInputDialog(private val context: Activity) : PopupWindow() {
 
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_konstant_dialog_input, null)
-        mMessage = view.findViewById(R.id.tv_message)
-        mEdit = view.findViewById(R.id.et_input)
-        view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
+        mMessage = view.findViewById(R.id.tv_message) as TextView
+        mEdit = view.findViewById(R.id.et_input) as EditText
+        view.findViewById(R.id.btn_confirm).setOnClickListener {
             mPop.dismiss()
             if (!TextUtils.isEmpty(mEdit.text)){
                 listener(mEdit.text.toString())
             }
         }
-        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
+        view.findViewById(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.animationStyle = R.style.popwin_anim_style
         mPop.setOnDismissListener { backgroundAlpha(1.0f) }
