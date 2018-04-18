@@ -3,6 +3,7 @@ package com.konstant.tool.lite.activity
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_about.*
 
 /**
  * 描述:关于页面
@@ -18,5 +19,7 @@ class AboutActivity : BaseActivity() {
         setContentView(R.layout.activity_about)
         setTitle("关于")
         initBaseViews()
+        val info = packageManager.getPackageInfo(this.packageName, 0)
+        tv_version.text = "版本号：${info.versionName}"
     }
 }

@@ -2,6 +2,7 @@ package com.konstant.tool.lite.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -69,7 +70,7 @@ class CityManagerActivity : BaseActivity() {
         // 弹起城市选择页
         img_more.setOnClickListener {
             if (!mPop.isShowing) {
-                backgroundAlpha(this, 0.85f)
+                layout_city_mamger.visibility = View.VISIBLE
                 mPop.showAtLocation(layout_city_mamger, Gravity.BOTTOM, 0, 0)
             } else {
                 mPop.dismiss()
@@ -115,9 +116,7 @@ class CityManagerActivity : BaseActivity() {
         mPop.isOutsideTouchable = true
         mPop.isTouchable = true
 
-        mPop.setOnDismissListener {
-            backgroundAlpha(this, 1.0f)
-        }
+        mPop.setOnDismissListener { layout_city_mamger.visibility = View.GONE }
 
         readyDirectData()
     }
