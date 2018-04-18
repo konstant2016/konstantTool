@@ -19,12 +19,12 @@ import com.konstant.tool.lite.data.LocalDirectData
 import com.konstant.tool.lite.data.LocalDirectManager
 import com.konstant.tool.lite.eventbusparam.IndexChanged
 import com.konstant.tool.lite.eventbusparam.LocationSizeChanged
+import com.konstant.tool.lite.server.other.DirectData
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_city_manager.*
 import kotlinx.android.synthetic.main.title_layout.*
-import java.io.ByteArrayOutputStream
-import com.konstant.tool.lite.server.other.DirectData
-import com.konstant.tool.lite.view.KonstantConfirmtDialog
 import org.greenrobot.eventbus.EventBus
+import java.io.ByteArrayOutputStream
 
 
 @SuppressLint("MissingSuperCall")
@@ -81,7 +81,7 @@ class CityManagerActivity : BaseActivity() {
 
     // 长按城市块后弹窗
     private fun onItemLongClick(direct: LocalDirectData): Boolean {
-        KonstantConfirmtDialog(this)
+        KonstantDialog(this)
                 .setMessage("是否要删除${direct.cityName}?")
                 .setPositiveListener {
                     it.dismiss()
@@ -90,8 +90,7 @@ class CityManagerActivity : BaseActivity() {
                     mAdapter.notifyDataSetChanged()
                     EventBus.getDefault().post(LocationSizeChanged())
                 }
-                .setNegativeListener { }
-                .show()
+                .createDialog()
         return true
     }
 
