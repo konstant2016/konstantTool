@@ -48,9 +48,9 @@
             android:value="9c866158ed7b1cd4e907518c13588c0b" />
 
         <activity
-            android:theme="@style/SplashActivity"
             android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -105,6 +105,9 @@
         <activity
             android:name=".activity.RulerActivity"
             android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activity.ScanFileActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

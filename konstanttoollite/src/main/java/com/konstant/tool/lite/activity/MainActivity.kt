@@ -4,14 +4,13 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.View
-import android.widget.TextView
+import android.view.WindowManager
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.eventbusparam.SwipeBackState
-import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.title_layout.*
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 
 /**
  * 描述:主页
@@ -20,46 +19,43 @@ import kotlinx.android.synthetic.main.title_layout.*
  * 备注:
  */
 
-class MainActivity : BaseActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setTitle("菜籽工具箱-轻量版")
-        setSwipeBackEnable(false)
+        supportActionBar!!.hide()
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)   // 透明状态栏
         initBaseViews()
+    }
 
-        layout_translate.setOnClickListener { startActivity(Intent(this@MainActivity,TranslateActivity::class.java)) }
+    private fun initBaseViews() {
 
-        layout_beauty.setOnClickListener { startActivity(Intent(this@MainActivity,BeautyActivity::class.java)) }
+        layout_translate.setOnClickListener { startActivity(Intent(this, TranslateActivity::class.java)) }
 
-        layout_compass.setOnClickListener { startActivity(Intent(this@MainActivity,CompassActivity::class.java)) }
+        layout_beauty.setOnClickListener { startActivity(Intent(this, BeautyActivity::class.java)) }
 
-        layout_qrcode.setOnClickListener { startActivity(Intent(this@MainActivity,QRCodeActivity::class.java)) }
+        layout_compass.setOnClickListener { startActivity(Intent(this, CompassActivity::class.java)) }
 
-        layout_express.setOnClickListener { startActivity(Intent(this@MainActivity,ExpressActivity::class.java)) }
+        layout_qrcode.setOnClickListener { startActivity(Intent(this, QRCodeActivity::class.java)) }
 
-        layout_device_info.setOnClickListener { startActivity(Intent(this@MainActivity,DeviceInfoActivity::class.java)) }
+        layout_express.setOnClickListener { startActivity(Intent(this, ExpressActivity::class.java)) }
 
-        layout_weather.setOnClickListener { startActivity(Intent(this@MainActivity,WeatherActivity::class.java)) }
+        layout_device_info.setOnClickListener { startActivity(Intent(this, DeviceInfoActivity::class.java)) }
 
-        layout_ruler.setOnClickListener { startActivity(Intent(this@MainActivity,RulerActivity::class.java)) }
+        layout_weather.setOnClickListener { startActivity(Intent(this, WeatherActivity::class.java)) }
+
+        layout_ruler.setOnClickListener { startActivity(Intent(this, RulerActivity::class.java)) }
 
         layout_zfb.setOnClickListener { zfb() }
 
+        layout_side.setOnClickListener { layout_drawer.openDrawer(Gravity.LEFT) }
+
+        layout_more.setOnClickListener { startActivity(Intent(this, SettingActivity::class.java)) }
     }
 
-    override fun initBaseViews() {
-        img_back.visibility = View.GONE
-        img_more.visibility = View.VISIBLE
-        img_more.setOnClickListener {
-            startActivity(Intent(this,SettingActivity::class.java))
-        }
-    }
-
-
-    fun zfb(){
-        val clipBoard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+    private fun zfb() {
+        val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
         clipBoard.text = "i4B6BP11Xt"
         try {
             val packageManager = this.applicationContext.packageManager
@@ -73,7 +69,4 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun onSwipeBackChanged(msg: SwipeBackState) {
-
-    }
 }

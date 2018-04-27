@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
     // 位置指示器
     implementation 'me.relex:circleindicator:1.2.2@aar'
+    // 分段开关
+    implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     // 内存泄漏检测
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
 //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
