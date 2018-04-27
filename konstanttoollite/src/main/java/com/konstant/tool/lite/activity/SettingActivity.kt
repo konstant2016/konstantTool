@@ -37,6 +37,10 @@ class SettingActivity : BaseActivity() {
             SettingManager.setSwipeBackState(this,isChecked)
         }
 
+        layout_swipe.setOnClickListener {
+            btn_switch.isChecked = !btn_switch.isChecked
+        }
+
         layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }
     }
 }

@@ -27,7 +27,6 @@ import kotlinx.android.synthetic.main.title_layout.*
 class QRScanActivity : BaseActivity() {
 
     private val PHOTO_PICK_CODE = 12
-    private val mRequestCode = 18
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +52,7 @@ class QRScanActivity : BaseActivity() {
         // 从本地选择图片
         img_more.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*")
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
             startActivityForResult(intent, PHOTO_PICK_CODE)
         }
 
@@ -70,7 +69,10 @@ class QRScanActivity : BaseActivity() {
     private fun requestPermission() {
         AndPermission.with(this)
                 .permission(Manifest.permission.CAMERA)
-                .onGranted { layout_scan.restartPreviewAfterDelay(500) }
+                .onGranted {
+                    layout_scan.restartPreviewAfterDelay(500)
+                    layout_scan.onResume()
+                }
                 .onDenied { Toast.makeText(this, "需要摄像头权限用以扫描二维码", Toast.LENGTH_SHORT).show() }
                 .start()
     }
@@ -98,9 +100,9 @@ class QRScanActivity : BaseActivity() {
     // 读取本地图片返回结果
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == PHOTO_PICK_CODE){
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,data?.data)
-            QRDecode.decodeQR(bitmap){rawResult, parsedResult, _ ->
+        if (resultCode == Activity.RESULT_OK && requestCode == PHOTO_PICK_CODE) {
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, data?.data)
+            QRDecode.decodeQR(bitmap) { rawResult, parsedResult, _ ->
                 if (rawResult == null) {
                     Toast.makeText(this, "未发现二维码", Toast.LENGTH_SHORT).show()
                     return@decodeQR

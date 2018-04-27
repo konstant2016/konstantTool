@@ -7,7 +7,7 @@
 
     <include layout="@layout/title_layout" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_translate"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -15,14 +15,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="翻译"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_beauty"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -30,14 +47,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="美女图片"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_compass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -45,14 +79,32 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="指南针"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
         android:id="@+id/layout_qrcode"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -60,14 +112,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="二维码扫描与解析"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_express"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -75,14 +144,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="物流查询"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_device_info"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -90,14 +176,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="查看设备信息"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_weather"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -105,14 +208,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="天气查询"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_ruler"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -120,14 +240,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="直尺"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/layout_zfb"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -135,12 +272,28 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="领取支付宝红包"
             android:textColor="@color/black" />
-    </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
 </LinearLayout>

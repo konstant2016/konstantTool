@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.view;
+package com.konstant.konstanttools.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.konstant.tool.lite.R;
+import com.konstant.konstanttools.R;
+
 
 public class WeatherLineView extends View {
 

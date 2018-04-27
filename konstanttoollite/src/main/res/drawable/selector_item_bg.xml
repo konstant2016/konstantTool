@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" android:drawable="@drawable/lauout_item_bg_pressed"></item>
-    <item android:state_pressed="false" android:drawable="@drawable/lauout_item_bg_normal"></item>
+    <item android:state_pressed="true" android:drawable="@color/common_white_list_bg_pressed_color"/>
+    <item android:state_pressed="false" android:drawable="@color/white"/>
 </selector>

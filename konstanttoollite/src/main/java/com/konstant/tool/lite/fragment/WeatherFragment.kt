@@ -223,4 +223,9 @@ class WeatherFragment : BaseFragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mLocationClient.onDestroy()
+    }
+
 }

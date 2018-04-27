@@ -6,7 +6,7 @@
 
     <include layout="@layout/title_layout" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_theme"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -14,24 +14,42 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="主题设置"
             android:textColor="@color/black" />
-    </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+
 
     <RelativeLayout
+        android:id="@+id/layout_swipe"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/white">
+        android:background="@drawable/selector_item_bg">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="开启滑动返回功能"
             android:textColor="@color/black" />
 
@@ -48,10 +66,12 @@
             android:layout_height="1px"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
-            android:background="#c6c6c6" />
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
     </RelativeLayout>
 
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@+id/layout_about"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -59,11 +79,28 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:gravity="center_vertical"
             android:text="关于"
             android:textColor="@color/black" />
-    </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
 </LinearLayout>

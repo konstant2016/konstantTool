@@ -47,7 +47,7 @@ class TranslateActivity : BaseActivity() {
         addLayoutListener(layout_bg, btn_translate)
 
         // 初始化左边的spinner
-        val adapterOrigin = KonstantArrayAdapter(this,R.layout.item_spinner_bg,languageNames)
+        val adapterOrigin = KonstantArrayAdapter(this, R.layout.item_spinner_bg, languageNames)
         spinner_origin.adapter = adapterOrigin
         spinner_origin.setSelection(0)
         spinner_origin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -63,7 +63,7 @@ class TranslateActivity : BaseActivity() {
 
 
         // 初始化右边的spinner
-        val typeName = languageNames.copyOfRange(1,languageNames.size)
+        val typeName = languageNames.copyOfRange(1, languageNames.size)
         val adapterResult = KonstantArrayAdapter(this, R.layout.item_spinner_bg, typeName)
         spinner_result.adapter = adapterResult
         spinner_result.setSelection(0)
@@ -92,7 +92,7 @@ class TranslateActivity : BaseActivity() {
         btn_clean.setOnClickListener {
             hideSoftKeyboard()
             et_query.setText("")
-            tv_result.setText("")
+            tv_result.text = ""
         }
     }
 
@@ -108,6 +108,10 @@ class TranslateActivity : BaseActivity() {
     private fun showTranslateResult(string: String) {
         runOnUiThread {
             val result = JSON.parseObject(string, TranslateResponse::class.java)
+            if (result == null || result.trans_result.isEmpty()) {
+                tv_result.text = "翻译出错"
+                return@runOnUiThread
+            }
             tv_result.text = result.trans_result[0].dst
         }
     }

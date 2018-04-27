@@ -130,6 +130,7 @@ class ExpressDetailActivity : BaseActivity() {
             updateUI()
 
             ExpressManager.updateExpress(mOrderNo, mCompanyId, mRemark, mState)
+            sendExpressChanged()
         }
     }
 

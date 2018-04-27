@@ -13,6 +13,9 @@
     <style name="tool_lite_blue" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
         <item name="tool_main_color">@color/colorPrimary</item>
         <item name="android:listDivider">@color/colorPrimary</item>
     </style>
@@ -20,6 +23,9 @@
     <style name="tool_lite_class" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/class_S</item>
+        <item name="colorPrimaryDark">@color/class_S</item>
+        <item name="colorAccent">@color/class_S</item>
         <item name="tool_main_color">@color/class_S</item>
         <item name="android:listDivider">@color/class_S</item>
     </style>
@@ -27,6 +33,9 @@
     <style name="tool_lite_red" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorAccent">@color/red</item>
         <item name="tool_main_color">@color/red</item>
         <item name="android:listDivider">@color/red</item>
     </style>
@@ -52,6 +61,9 @@
     <style name="SplashActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/class_S</item>
+        <item name="colorPrimaryDark">@color/class_S</item>
+        <item name="colorAccent">@color/class_S</item>
         <item name="tool_main_color">@color/class_S</item>
         <item name="android:listDivider">@color/class_S</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>

@@ -42,6 +42,8 @@ class ExpressActivity : BaseActivity() {
         initBaseViews()
 
         readLocalExpress()
+
+        updateUI()
     }
 
     // 初始化基础控件
