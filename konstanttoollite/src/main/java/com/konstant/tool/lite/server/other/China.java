@@ -3,10 +3,13 @@ package com.konstant.tool.lite.server.other;
 import java.util.List;
 
 /**
- * Created by konstant on 2018/4/6.
+ * 描述:城市cityID 的解析体
+ * 创建人:菜籽
+ * 创建时间:2018/4/27 上午11:07
+ * 备注:
  */
 
-public class DirectData {
+public class China {
     /**
      * id : 01
      * name : 北京

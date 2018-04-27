@@ -15,10 +15,12 @@ import com.konstant.tool.lite.adapter.AdapterExpress
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.ExpressData
 import com.konstant.tool.lite.data.ExpressManager
+import com.konstant.tool.lite.eventbusparam.ExpressChanged
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
 import kotlinx.android.synthetic.main.title_layout.*
+import org.greenrobot.eventbus.Subscribe
 
 /**
  * 描述:物流列表页
@@ -65,7 +67,7 @@ class ExpressActivity : BaseActivity() {
                         expressList.remove(data)
                         mAdapter.notifyDataSetChanged()
                         updateUI()
-                        ExpressManager.deleteExpress(this, data.orderNo)
+                        ExpressManager.deleteExpress(data)
                     }
                     .createDialog()
             true
@@ -85,8 +87,8 @@ class ExpressActivity : BaseActivity() {
 
     // 读取本地保存的物流信息
     private fun readLocalExpress() {
-        val list = ExpressManager.readExpress(this)
-        Log.d(this.localClassName,list.toString())
+        val list = ExpressManager.readExpress()
+        Log.d(this.localClassName, list.toString())
         expressList.clear()
         expressList.addAll(list)
         mAdapter.notifyDataSetChanged()
@@ -132,7 +134,7 @@ class ExpressActivity : BaseActivity() {
     }
 
     // 跳转到快递查询页面
-    fun expressQuery(companyId: String, num: String, remark: String) {
+    private fun expressQuery(companyId: String, num: String, remark: String) {
         val intent = Intent(this, ExpressDetailActivity::class.java)
         intent.putExtra("mCompanyId", companyId)
         intent.putExtra("mOrderNo", num)
@@ -140,9 +142,16 @@ class ExpressActivity : BaseActivity() {
         startActivity(intent)
     }
 
-    override fun onResume() {
-        super.onResume()
+
+    // 物流状态发生了变化
+    @Subscribe
+    fun onExpressChanged(msg: ExpressChanged){
         readLocalExpress()
         updateUI()
+    }
+
+    override fun onDestroy() {
+        ExpressManager.onDestroy(this)
+        super.onDestroy()
     }
 }

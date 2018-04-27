@@ -28,7 +28,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
-//        startService()
+        startService()
     }
 
     override fun initBaseViews() {

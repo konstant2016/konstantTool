@@ -43,8 +43,6 @@ class MainActivity : BaseActivity() {
 
         layout_weather.setOnClickListener { startActivity(Intent(this@MainActivity,WeatherActivity::class.java)) }
 
-        layout_movie.setOnClickListener { startActivity(Intent(this@MainActivity,MovieActivity::class.java)) }
-
         layout_ruler.setOnClickListener { startActivity(Intent(this@MainActivity,RulerActivity::class.java)) }
 
         layout_zfb.setOnClickListener { zfb() }
@@ -73,7 +71,9 @@ class MainActivity : BaseActivity() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
-
     }
 
+    override fun onSwipeBackChanged(msg: SwipeBackState) {
+
+    }
 }

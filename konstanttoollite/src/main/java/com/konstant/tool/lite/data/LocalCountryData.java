@@ -4,15 +4,15 @@ package com.konstant.tool.lite.data;
  * Created by konstant on 2018/4/7.
  */
 
-public class LocalDirectData {
+public class LocalCountryData {
 
     private String cityCode;
     private String cityName;
 
-    public LocalDirectData() {
+    public LocalCountryData() {
     }
 
-    public LocalDirectData(String cityCode, String cityName) {
+    public LocalCountryData(String cityCode, String cityName) {
         this.cityCode = cityCode;
         this.cityName = cityName;
     }

@@ -29,7 +29,7 @@
             android:layout_height="10dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ring" />
+            android:src="@drawable/express_detail_ring" />
 
         <View
             android:id="@+id/line_bottom"

@@ -20,16 +20,16 @@ class AdapterExpressDetail(val context: Context, val datas: List<ExpressResponse
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.item_express_detail, parent, false)
-        val time = view.findViewById<TextView>(R.id.tv_time)
-        val location = view.findViewById<TextView>(R.id.tv_location)
+        val time = view.findViewById(R.id.tv_time) as TextView
+        val location = view.findViewById(R.id.tv_location) as TextView
         time.text = datas[position].ftime
         location.text = datas[position].context
 
         if (position == datas.size - 1) {
-            view.findViewById<View>(R.id.line_bottom).visibility = View.GONE
+            view.findViewById(R.id.line_bottom).visibility = View.GONE
         }
         if (position == 0) {
-            view.findViewById<View>(R.id.line_top).visibility = View.GONE
+            view.findViewById(R.id.line_top).visibility = View.GONE
         }
         return view
     }

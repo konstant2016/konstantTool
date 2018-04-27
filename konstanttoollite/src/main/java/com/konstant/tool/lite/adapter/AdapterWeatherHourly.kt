@@ -31,9 +31,9 @@ class AdapterWeatherHourly(private val context: Context, private val datas: List
     override fun onBindViewHolder(holder: AdapterWeatherHourly.Holder, position: Int) {
         val data = datas[position]
 
-        val tTime = holder.view.findViewById<TextView>(R.id.tv_time)
-        val img = holder.view.findViewById<ImageView>(R.id.img_weather)
-        val tTem = holder.view.findViewById<TextView>(R.id.tv_temperature)
+        val tTime = holder.view.findViewById(R.id.tv_time) as TextView
+        val img = holder.view.findViewById(R.id.img_weather) as ImageView
+        val tTem = holder.view.findViewById(R.id.tv_temperature) as TextView
 
         tTime.text = "${data.hour}:00"
         tTem.text = "${data.temperature}℃"

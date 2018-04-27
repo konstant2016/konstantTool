@@ -1,10 +1,7 @@
 package com.konstant.tool.lite.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -16,11 +13,10 @@ import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterCityList
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.LocalDirectData
-import com.konstant.tool.lite.data.LocalDirectManager
-import com.konstant.tool.lite.eventbusparam.IndexChanged
-import com.konstant.tool.lite.eventbusparam.LocationSizeChanged
-import com.konstant.tool.lite.server.other.DirectData
+import com.konstant.tool.lite.data.LocalCountryData
+import com.konstant.tool.lite.data.LocalCountryManager
+import com.konstant.tool.lite.eventbusparam.WeatherStateChanged
+import com.konstant.tool.lite.server.other.China
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_city_manager.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -31,27 +27,26 @@ import java.io.ByteArrayOutputStream
 @SuppressLint("MissingSuperCall")
 class CityManagerActivity : BaseActivity() {
 
-    private val mCityList = ArrayList<LocalDirectData>()
+    private val mCityList = ArrayList<LocalCountryData>()
+    private lateinit var mChina: China
 
     private val mAdapter by lazy { AdapterCityList(this, mCityList) }
-    private var mSelectedDirect = LocalDirectData("101010100", "朝阳")
+    private var mSelectedCountry = LocalCountryData("101010100", "朝阳")
 
     private lateinit var mPickerProvince: WheelPicker
     private lateinit var mPickerCity: WheelPicker
-    private lateinit var mPickerDirect: WheelPicker
+    private lateinit var mPickerCountry: WheelPicker
 
     private lateinit var mPop: PopupWindow
     private lateinit var mConfirm: Button
     private lateinit var mCancel: Button
 
-    val directList = mutableListOf<String>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_manager)
         setTitle("城市管理")
-        initPopWindow()
         initBaseViews()
+        initCitySelector()
     }
 
     override fun initBaseViews() {
@@ -64,14 +59,14 @@ class CityManagerActivity : BaseActivity() {
         }
 
         grid_city.setOnItemClickListener { _, _, position, _ ->
-            EventBus.getDefault().post(IndexChanged(position))
+            EventBus.getDefault().post(WeatherStateChanged(false, position))
             this.finish()
         }
         // 弹起城市选择页
         img_more.setOnClickListener {
             if (!mPop.isShowing) {
-                layout_city_mamger.visibility = View.VISIBLE
                 mPop.showAtLocation(layout_city_mamger, Gravity.BOTTOM, 0, 0)
+                layout_city_mamger.visibility = View.VISIBLE
             } else {
                 mPop.dismiss()
             }
@@ -81,18 +76,28 @@ class CityManagerActivity : BaseActivity() {
     }
 
     // 长按城市块后弹窗
-    private fun onItemLongClick(direct: LocalDirectData): Boolean {
+    private fun onItemLongClick(direct: LocalCountryData): Boolean {
         KonstantDialog(this)
                 .setMessage("是否要删除${direct.cityName}?")
                 .setPositiveListener {
                     it.dismiss()
                     mCityList.remove(direct)
-                    LocalDirectManager.deleteCity(this, direct)
+                    LocalCountryManager.deleteCity(direct)
                     mAdapter.notifyDataSetChanged()
-                    EventBus.getDefault().post(LocationSizeChanged())
+                    EventBus.getDefault().post(WeatherStateChanged(true, 0))
                 }
                 .createDialog()
         return true
+    }
+
+    // 初始化城市选择器
+    private fun initCitySelector() {
+        // 初始化弹窗布局
+        initPopWindow()
+        // 准备城市列表数据
+        readChinaInformation()
+        // 给选择器添加数据，并设置监听
+        readyPickerData()
     }
 
     // 初始化添加城市的弹窗
@@ -100,14 +105,14 @@ class CityManagerActivity : BaseActivity() {
         val view = LayoutInflater.from(this).inflate(R.layout.pop_window_menu_weather, null)
         mPickerProvince = view.findViewById(R.id.picker_province_new) as WheelPicker
         mPickerCity = view.findViewById(R.id.picker_city_new) as WheelPicker
-        mPickerDirect = view.findViewById(R.id.picker_direct_new) as WheelPicker
+        mPickerCountry = view.findViewById(R.id.picker_direct_new) as WheelPicker
         mConfirm = view.findViewById(R.id.btn_confirm) as Button
         mCancel = view.findViewById(R.id.btn_cancel) as Button
 
         mConfirm.setOnClickListener {
             mPop.dismiss()
-            saveLocalCityLost(mSelectedDirect)
-            EventBus.getDefault().post(LocationSizeChanged())
+            saveLocalCityList(mSelectedCountry)
+            EventBus.getDefault().post(WeatherStateChanged(true, 0))
         }
         mCancel.setOnClickListener { mPop.dismiss() }
 
@@ -118,81 +123,77 @@ class CityManagerActivity : BaseActivity() {
 
         mPop.setOnDismissListener { layout_city_mamger.visibility = View.GONE }
 
-        readyDirectData()
     }
 
     // 初始化城市的相关数据
-    private fun readyDirectData() {
-        val data = readCityJSON()
-        val china = JSON.parseObject(data, DirectData::class.java)
-        val provinceNameList = mutableListOf<String>()
-        val cityNameList = mutableListOf<String>()
+    private fun readyPickerData() {
+        // 初始化省市区的列表
+        val provNames = mutableListOf<String>()
+        val cityNames = mutableListOf<String>()
+        val countryNames = mutableListOf<String>()
 
-        china.province.map { provinceNameList.add(it.name) }
-        china.province[0].city.map { cityNameList.add(it.name) }
-        china.province[0].city[0].county.map { directList.add(it.name) }
+        mChina.province.map { provNames.add(it.name) }
+        mChina.province[0].city.map { cityNames.add(it.name) }
+        mChina.province[0].city[0].county.map { countryNames.add(it.name) }
 
-        mPickerProvince.data = provinceNameList
-        mPickerCity.data = cityNameList
-        mPickerDirect.data = directList
+        mPickerProvince.data = provNames
+        mPickerCity.data = cityNames
+        mPickerCountry.data = countryNames
 
-        var selectedProvince: DirectData.ProvinceBean = china.province[0] // 选中的省份
-        var selectedCity: DirectData.ProvinceBean.CityBean = china.province[0].city[0] // 选中的城市
-        val county = china.province[0].city[0].county[0]
-        mSelectedDirect = LocalDirectData(county.weatherCode, county.name) // 选中的地区
-
-        provinceNameList.clear()
-        china.province.map { provinceNameList.add(it.name) }
-        Log.i("provinceList size", "${provinceNameList.size}")
-        mPickerProvince.data = provinceNameList
+        var selectedProvince: China.ProvinceBean = mChina.province[0] // 默认选中的省
+        var selectedCity: China.ProvinceBean.CityBean = mChina.province[0].city[0] // 默认选中的市
+        var country = mChina.province[0].city[0].county[0]
+        mSelectedCountry = LocalCountryData(country.weatherCode, country.name) // 默认选中的区
 
         mPickerProvince.setOnItemSelectedListener { _, _, position ->
+            // 选中的省变化后，市列表和区列表都需要重新设置
 
             // 保存选中的省
-            selectedProvince = china.province[position]
+            selectedProvince = mChina.province[position]
 
-            // 城市列表清空，并重新设置
-            cityNameList.clear()
-            selectedProvince.city.map { cityNameList.add(it.name) }
-            mPickerCity.data = cityNameList
+            // 市列表清空，重新添加市列表，并默认选中第一位
+            cityNames.clear()
+            selectedProvince.city.map { cityNames.add(it.name) }
+            mPickerCity.data = cityNames
             mPickerCity.selectedItemPosition = 0
 
-            // 地区列表清空，并重新设置
-            directList.clear()
-            selectedProvince.city[0].county.map { directList.add(it.name) }
-            mPickerDirect.data = directList
+            // 地区列表清空，并重新添加区列表，并默认选中第一位
+            countryNames.clear()
+            selectedProvince.city[0].county.map { countryNames.add(it.name) }
+            mPickerCountry.data = countryNames
+            mPickerCountry.selectedItemPosition = 0
 
             // 保存默认选中的地区
-            val county = selectedProvince.city[0].county[0]
-            mSelectedDirect = LocalDirectData(county.weatherCode, county.name)
+            country = selectedProvince.city[0].county[0]
+            mSelectedCountry = LocalCountryData(country.weatherCode, country.name)
         }
 
         mPickerCity.setOnItemSelectedListener { _, _, position ->
 
-            // 保存选中的城市
+            // 保存选中的市
             selectedCity = selectedProvince.city[position]
 
-            // 地区列表清空，并重新设置
-            directList.clear()
-            selectedCity.county.map { directList.add(it.name) }
-            mPickerDirect.data = directList
-            mPickerDirect.selectedItemPosition = 0
+            // 地区列表清空，并重新添加区列表，并默认选中第一位
+            countryNames.clear()
+            selectedCity.county.map { countryNames.add(it.name) }
+            mPickerCountry.data = countryNames
+            mPickerCountry.selectedItemPosition = 0
 
-            // 保存默认选中的地区
-            val county  = selectedCity.county[0]
-            mSelectedDirect = LocalDirectData(county.weatherCode, county.name)
+            // 保存默认选中的区
+            country = selectedCity.county[0]
+            mSelectedCountry = LocalCountryData(country.weatherCode, country.name)
         }
 
-        mPickerDirect.setOnItemSelectedListener { _, _, position ->
+        mPickerCountry.setOnItemSelectedListener { _, _, position ->
 
             // 保存选中的地区
-            val county  =  selectedCity.county[position]
-            mSelectedDirect = LocalDirectData(county.weatherCode, county.name)
+            country = selectedCity.county[position]
+            mSelectedCountry = LocalCountryData(country.weatherCode, country.name)
         }
     }
 
-    // 读取城市信息列表JSON
-    private fun readCityJSON(): String {
+    // 读取城市信息列表
+    private fun readChinaInformation() {
         val inputStream = assets.open("directdata.json")
         val stream = ByteArrayOutputStream()
         val bytes = ByteArray(4096)
@@ -203,21 +204,22 @@ class CityManagerActivity : BaseActivity() {
                 stream.write(bytes, 0, len)
             }
         }
-        return String(stream.toByteArray())
+        val data = String(stream.toByteArray())
+        mChina = JSON.parseObject(data, China::class.java)
     }
 
     // 获取本地保存的用户手动添加的城市信息列表
     private fun readLocalCityList() {
-        val list = LocalDirectManager.readCityList(this)
+        val list = LocalCountryManager.readCityList()
         mCityList.clear()
-        mCityList.add(LocalDirectData("","当前位置"))
+        mCityList.add(LocalCountryData("", "当前位置"))
         mCityList.addAll(list)
         mAdapter.notifyDataSetChanged()
     }
 
     // 新添加的城市保存到本地
-    private fun saveLocalCityLost(city: LocalDirectData) {
-        LocalDirectManager.addCity(this, city.cityCode, city.cityName)
+    private fun saveLocalCityList(city: LocalCountryData) {
+        LocalCountryManager.addCity(city.cityCode, city.cityName)
         mCityList.forEach {
             if (it.cityCode == city.cityCode)
                 return
@@ -226,11 +228,8 @@ class CityManagerActivity : BaseActivity() {
         mAdapter.notifyDataSetChanged()
     }
 
-    private fun backgroundAlpha(context: Activity, bgAlpha: Float) {
-        val lp = context.window.attributes
-        lp.alpha = bgAlpha //0.0-1.0
-        context.window.attributes = lp
-        context.window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+    override fun onDestroy() {
+        LocalCountryManager.onDestroy(this)
+        super.onDestroy()
     }
-
 }

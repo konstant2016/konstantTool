@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Map;
 
 public class FileUtils {
 
@@ -21,23 +22,22 @@ public class FileUtils {
      * 如果要长久保存，则放在getExternalFilesDir(null)中
      * 如果是作为缓存，则放在getExternalCacheDir()中
      * 保存到私有存储的话，不需要申请额外权限
-     *
+     * <p>
      * context.getExternalFilesDir(null)————/storage/emulated/0/Android/包名/files
-     *
+     * <p>
      * context.getExternalCacheDir()————————/storage/emulated/0/Android/包名/cache
-     *
+     * <p>
      * context.getFilesDir()————————————————/data/data/包名/files
-     *
+     * <p>
      * context.getCacheDir()————————————————/data/data/包名/cache
-     *
+     * <p>
      * context.getExternalFilesDir(null)————共有存储目录，跟SD卡中Android目录同级，需要申请读写权限
-     *
+     * <p>
      * 注意：调用以上接口保存的数据，在APP下载之后，数据会随之删除，不留垃圾
      * 注意：data 分区十分有限，不建议把大型数据保存在 data 分区下
      * 注意：Google建议把数据保存在/storage/emulated/0/Android/包名/files下
      * 注意：上面方法中需要填写参数的接口，内部的参数可以指定子文件夹，参数可以放Environment.DIRECTORY_PICTURES之类的
-     *      比如context.getExternalFilesDir(Environment.DIRECTORY_DCIM)
-     *
+     * 比如context.getExternalFilesDir(Environment.DIRECTORY_DCIM)
      *
      * @param fileName ： 保存之后的文件名字
      * @param bytes    ： 要保存的文件的字节流
@@ -55,8 +55,7 @@ public class FileUtils {
             outputStream.flush();
             outputStream.close();
             return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,14 +79,11 @@ public class FileUtils {
             while ((len = inputStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, len);
             }
-            byte[] array = outputStream.toByteArray();
-            return array;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            return outputStream.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return new byte[0];
     }
 
 
@@ -116,20 +112,17 @@ public class FileUtils {
     //*******通过SharedPreference读取数据
     public static String readDataWithSharedPreference(Context context, String key) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
-        String value = sharedPreferences.getString(key, null);
-        return value;
+        return sharedPreferences.getString(key, null);
     }
 
     public static int readDataWithSharedPreference(Context context, String key, int defaultValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
-        int value = sharedPreferences.getInt(key, defaultValue);
-        return value;
+        return sharedPreferences.getInt(key, defaultValue);
     }
 
     public static boolean readDataWithSharedPreference(Context context, String key, boolean flag) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
-        boolean value = sharedPreferences.getBoolean(key, flag);
-        return value;
+        return sharedPreferences.getBoolean(key, flag);
     }
 
 }

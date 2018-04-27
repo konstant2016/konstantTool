@@ -3,10 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="tool_main_color">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/class_S</item>
+        <item name="colorPrimaryDark">@color/class_S</item>
+        <item name="colorAccent">@color/class_S</item>
+        <item name="tool_main_color">@color/class_S</item>
+        <item name="android:listDivider">@color/class_S</item>
     </style>
 
     <style name="tool_lite_blue" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -46,6 +47,14 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="SplashActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="tool_main_color">@color/class_S</item>
+        <item name="android:listDivider">@color/class_S</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
 </resources>

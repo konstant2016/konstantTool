@@ -3,7 +3,6 @@ package com.konstant.tool.lite.view
 import android.app.Dialog
 import android.content.Context
 import android.view.*
-import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.konstant.tool.lite.R
@@ -53,21 +52,21 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     // 根据builder创建dialog
     fun createDialog() {
         root = LayoutInflater.from(context).inflate(R.layout.layout_dialog_konstant, null)
-        child = root.findViewById<RelativeLayout>(R.id.layout_view)
+        child = root.findViewById(R.id.layout_view) as RelativeLayout
 
-        root.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
+        root.findViewById(R.id.btn_confirm).setOnClickListener {
             positiveListener?.invoke(this)
         }
 
-        root.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+        root.findViewById(R.id.btn_cancel).setOnClickListener {
             negativeListener?.invoke(this)
             this.dismiss()
         }
 
         if (message.isNotEmpty()) {
-            root.findViewById<TextView>(R.id.tv_message).text = message
+            (root.findViewById(R.id.tv_message) as TextView).text = message
         } else {
-            root.findViewById<TextView>(R.id.tv_message).visibility = View.GONE
+            root.findViewById(R.id.tv_message).visibility = View.GONE
         }
 
         if (view != null) {

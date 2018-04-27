@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,10 +8,9 @@ import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterWeatherFragment
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.LocalDirectManager
-import com.konstant.tool.lite.eventbusparam.IndexChanged
-import com.konstant.tool.lite.eventbusparam.LocationSizeChanged
+import com.konstant.tool.lite.data.LocalCountryManager
 import com.konstant.tool.lite.eventbusparam.TitleChanged
+import com.konstant.tool.lite.eventbusparam.WeatherStateChanged
 import com.konstant.tool.lite.fragment.WeatherFragment
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -26,7 +24,6 @@ import org.greenrobot.eventbus.Subscribe
  */
 
 
-@SuppressLint("MissingSuperCall")
 class WeatherActivity : BaseActivity() {
 
     private val mFragmentList = mutableListOf<Fragment>()
@@ -42,29 +39,33 @@ class WeatherActivity : BaseActivity() {
     }
 
 
+    override fun onSaveInstanceState(outState: Bundle?) {}
+
+
     override fun initBaseViews() {
         super.initBaseViews()
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { startActivity(Intent(this, CityManagerActivity::class.java)) }
         layout_viewpager.offscreenPageLimit = 50
         layout_viewpager.adapter = mAdapter
+        title_indicator.setViewPager(layout_viewpager)
 
-        addFragment()
+        readyFragment()
     }
 
-    private fun addFragment(){
+    private fun readyFragment() {
 
-        val weatherCodeList = LocalDirectManager.readCityList(this)
+        val weatherCodeList = LocalCountryManager.readCityList()
         if (weatherCodeList.size > 0) {
-            setSubTitle("左右滑动可切换城市")
-        }else{
-            hideSubTitle()
+            title_indicator.visibility = View.VISIBLE
+        } else {
+            title_indicator.visibility = View.GONE
         }
 
         mFragmentList.clear()
         mFragmentList.add(WeatherFragment.newInstance(""))
         weatherCodeList.forEach {
-            mFragmentList.add(WeatherFragment.newInstance("${it.cityCode}"))
+            mFragmentList.add(WeatherFragment.newInstance(it.cityCode))
         }
         mAdapter.updateFragmentList(mFragmentList)
         Log.i("mFragmentList size", "${mFragmentList.size}")
@@ -76,13 +77,11 @@ class WeatherActivity : BaseActivity() {
     }
 
     @Subscribe
-    fun onIndexChanged(msg:IndexChanged){
+    fun onStateChanged(msg:WeatherStateChanged){
+        if (msg.cityNumChange){
+            readyFragment()
+        }
         layout_viewpager.currentItem = msg.index
-    }
-
-    @Subscribe
-    fun onLocationSizeChanged(msg: LocationSizeChanged){
-        addFragment()
     }
 
 }

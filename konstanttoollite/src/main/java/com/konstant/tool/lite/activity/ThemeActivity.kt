@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.util.NameConstant
-import com.konstant.tool.lite.util.FileUtils
-import kotlinx.android.synthetic.main.activity_theme.*
+import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
+import kotlinx.android.synthetic.main.activity_theme.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -18,7 +17,6 @@ import org.greenrobot.eventbus.EventBus
  */
 
 class ThemeActivity : BaseActivity(), View.OnClickListener {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,25 +32,19 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var thme = NameConstant.THEME_BLUE
+        var thme = R.style.tool_lite_class
         when (v.id) {
             R.id.selector_red -> {
-                thme = NameConstant.THEME_RED
+                thme = R.style.tool_lite_red
             }
             R.id.selector_class -> {
-                thme = NameConstant.THEME_CLASS
+                thme = R.style.tool_lite_class
             }
             R.id.selector_blue -> {
-                thme = NameConstant.THEME_BLUE
+                thme = R.style.tool_lite_blue
             }
         }
-        saveSelectedTheme(thme)
+        SettingManager.saveTheme(this,thme)
         EventBus.getDefault().post(ThemeChanged())
-
-    }
-
-
-    private fun saveSelectedTheme(theme: String) {
-        FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SELECTED_THEME, theme)
     }
 }

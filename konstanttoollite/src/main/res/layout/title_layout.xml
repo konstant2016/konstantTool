@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/title_bar"
     android:layout_width="match_parent"
     android:layout_height="70dp"
@@ -37,15 +38,27 @@
             android:textSize="12sp"
             android:visibility="gone" />
 
+        <com.konstant.tool.lite.view.KonstantPagerIndicator
+            android:id="@+id/title_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="1dp"
+            app:animationDuration="0"
+            app:currentPageIndicatorColor="@color/white"
+            app:dotDiameter="5dp"
+            app:dotGap="5dp"
+            app:pageIndicatorColor="@color/white_60_transparent" />
+
         <ImageView
-            android:visibility="gone"
             android:id="@+id/img_more"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="14dp"
             android:clickable="true"
-            android:src="@drawable/std_tittlebar_main_device_more_white" />
+            android:src="@drawable/std_tittlebar_main_device_more_white"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/title"

@@ -1,8 +1,12 @@
-package com.konstant.tool.lite.util
+package com.konstant.tool.lite.data
 
 /**
- * Created by konstant on 2018/4/4.
+ * 描述:利用sharedPreference保存一些设置的key
+ * 创建人:菜籽
+ * 创建时间:2018/4/26 下午3:40
+ * 备注:
  */
+
 object NameConstant{
 
     val NAME_SELECTED_THEME = "selectedTheme"
@@ -12,8 +16,5 @@ object NameConstant{
 
     val NAME_LOCAL_CITY_ID = "local_city_id"
 
-    val THEME_RED = "red"
-    val THEME_CLASS = "class"
-    val THEME_BLUE = "blue"
 
 }

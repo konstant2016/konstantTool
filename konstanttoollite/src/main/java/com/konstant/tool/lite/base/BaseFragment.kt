@@ -17,9 +17,6 @@ import android.view.inputmethod.InputMethodManager
 
 open class BaseFragment : Fragment() {
 
-    private var mRequestCode = 19
-    private lateinit var mReason: String
-    private lateinit var mPermission: String
     protected lateinit var mActivity: Activity
 
     private var isViewCreated = false
@@ -52,15 +49,15 @@ open class BaseFragment : Fragment() {
         }
     }
 
-    open protected fun onLazyLoad() {
+    protected open fun onLazyLoad() {
 
     }
 
-    open protected fun onFragmentResume() {
+    protected open fun onFragmentResume() {
 
     }
 
-    open protected fun onFragmentPause() {
+    protected open fun onFragmentPause() {
 
     }
 
@@ -70,7 +67,7 @@ open class BaseFragment : Fragment() {
     }
 
 
-    open protected fun isFragmentResume(): Boolean = isViewCreated and mIsVisibleToUser
+    protected open fun isFragmentResume(): Boolean = isViewCreated and mIsVisibleToUser
 
 
     // 隐藏软键盘

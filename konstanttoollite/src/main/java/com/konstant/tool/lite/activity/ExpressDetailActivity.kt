@@ -5,7 +5,6 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
 import com.alibaba.fastjson.JSON
@@ -13,11 +12,14 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterExpressDetail
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.ExpressManager
+import com.konstant.tool.lite.eventbusparam.ExpressChanged
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.ExpressResponse
-import com.konstant.tool.lite.view.*
+import com.konstant.tool.lite.view.KonstantArrayAdapter
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
+import org.greenrobot.eventbus.EventBus
 
 /**
  * 描述:物流详情页
@@ -61,7 +63,8 @@ class ExpressDetailActivity : BaseActivity() {
 
         updateUI()
 
-        ExpressManager.addExpress(this, mOrderNo, mCompanyId, mRemark, "暂无信息")
+        ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, "暂无信息")
+        sendExpressChanged()
 
         listview_detail.adapter = mAdapter
 
@@ -74,13 +77,13 @@ class ExpressDetailActivity : BaseActivity() {
     // 开始查询物流信息
     private fun queryExpress() {
         onLoading()
-        Service.expressQuery(this,mCompanyId, mOrderNo) { state, data ->
+        Service.expressQuery(mCompanyId, mOrderNo) { state, data ->
             if (!state) {
                 onError()
                 return@expressQuery
             }
-            val response = JSON.parseObject(data, ExpressResponse::class.java)
-            Log.d(this.localClassName,data)
+            val response = JSON.parseObject(String(data), ExpressResponse::class.java)
+            Log.d(this.localClassName, String(data))
             if (response.status != "200") {
                 onError()
                 return@expressQuery
@@ -126,14 +129,8 @@ class ExpressDetailActivity : BaseActivity() {
 
             updateUI()
 
-            updateLocalData(mOrderNo, mCompanyId, mRemark, mState)
+            ExpressManager.updateExpress(mOrderNo, mCompanyId, mRemark, mState)
         }
-    }
-
-    // 更新本地缓存数据
-    private fun updateLocalData(orderNo: String, companyId: String, remark: String, state: String) {
-        Log.d(this.localClassName,"状态："+state)
-        ExpressManager.updateExpress(this, orderNo, companyId, remark, state)
     }
 
     // 正在加载中
@@ -168,10 +165,10 @@ class ExpressDetailActivity : BaseActivity() {
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
         val view = LayoutInflater.from(this).inflate(R.layout.pop_express, null)
-        view.findViewById<TextView>(R.id.tv_change_order).setOnClickListener { changeOrderNo() }
-        view.findViewById<TextView>(R.id.tv_change_company).setOnClickListener { changeCompany() }
-        view.findViewById<TextView>(R.id.tv_change_remark).setOnClickListener { changeRemark() }
-        view.findViewById<TextView>(R.id.tv_delete).setOnClickListener { deleteOrder() }
+        view.findViewById(R.id.tv_change_order).setOnClickListener { changeOrderNo() }
+        view.findViewById(R.id.tv_change_company).setOnClickListener { changeCompany() }
+        view.findViewById(R.id.tv_change_remark).setOnClickListener { changeRemark() }
+        view.findViewById(R.id.tv_delete).setOnClickListener { deleteOrder() }
 
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.showAsDropDown(title_bar)
@@ -188,15 +185,16 @@ class ExpressDetailActivity : BaseActivity() {
                 .setMessage("输入运单号")
                 .addView(view)
                 .setPositiveListener {
-                    if (TextUtils.isEmpty(edit.text)){
+                    if (TextUtils.isEmpty(edit.text)) {
                         Toast.makeText(this, "记得输入运单号哦", Toast.LENGTH_SHORT).show()
                         return@setPositiveListener
                     }
                     it.dismiss()
-                    ExpressManager.deleteExpress(this, mOrderNo)
+                    ExpressManager.deleteExpress(mOrderNo)
                     mOrderNo = edit.text.toString()
                     updateUI()
-                    ExpressManager.addExpress(this, mOrderNo, mCompanyId, mRemark, mState)
+                    ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, mState)
+                    sendExpressChanged()
                     queryExpress()
                 }
                 .createDialog()
@@ -207,7 +205,7 @@ class ExpressDetailActivity : BaseActivity() {
         mPop.dismiss()
         val view = LayoutInflater.from(this).inflate(R.layout.layout_spinner, null)
 
-        val spinner = view.findViewById<Spinner>(R.id.spinner_company)
+        val spinner = view.findViewById(R.id.spinner_company) as Spinner
         spinner.adapter = KonstantArrayAdapter(this, R.layout.item_spinner_bg, coms)
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -226,7 +224,8 @@ class ExpressDetailActivity : BaseActivity() {
                     it.dismiss()
                     updateUI()
                     queryExpress()
-                    ExpressManager.updateExpress(this, mOrderNo, mCompanyId, null, null)
+                    ExpressManager.updateExpress(mOrderNo, mCompanyId, null, null)
+                    sendExpressChanged()
                 }
                 .createDialog()
     }
@@ -242,13 +241,14 @@ class ExpressDetailActivity : BaseActivity() {
                 .addView(view)
                 .setPositiveListener {
                     it.dismiss()
-                    if (TextUtils.isEmpty(edit.text)){
+                    if (TextUtils.isEmpty(edit.text)) {
                         Toast.makeText(this, "记得输入备注哦", Toast.LENGTH_SHORT).show()
                         return@setPositiveListener
                     }
                     mRemark = edit.text.toString()
                     updateUI()
-                    ExpressManager.updateExpress(this, mOrderNo, null, mRemark, null)
+                    ExpressManager.updateExpress(mOrderNo, null, mRemark, null)
+                    sendExpressChanged()
                 }
                 .createDialog()
     }
@@ -260,10 +260,16 @@ class ExpressDetailActivity : BaseActivity() {
                 .setMessage("确定要删除此运单号？")
                 .setPositiveListener {
                     it.dismiss()
-                    ExpressManager.deleteExpress(this, mOrderNo)
+                    ExpressManager.deleteExpress(mOrderNo)
+                    sendExpressChanged()
                     this.finish()
                 }
                 .createDialog()
+    }
+
+    // 发送物流信息变化的广播
+    private fun sendExpressChanged() {
+        EventBus.getDefault().post(ExpressChanged())
     }
 
 }

@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
-import com.konstant.tool.lite.util.NameConstant
-import com.konstant.tool.lite.util.FileUtils
-import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
 
@@ -32,12 +30,11 @@ class SettingActivity : BaseActivity() {
 
         layout_theme.setOnClickListener { startActivity(Intent(this, ThemeActivity::class.java)) }
 
-        val state = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
-        btn_switch.isChecked = state
+        btn_switch.isChecked = SettingManager.getSwipeBackState(this)
 
         btn_switch.setOnCheckedChangeListener { _, isChecked ->
             EventBus.getDefault().post(SwipeBackState(isChecked))
-            FileUtils.saveDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, isChecked)
+            SettingManager.setSwipeBackState(this,isChecked)
         }
 
         layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }

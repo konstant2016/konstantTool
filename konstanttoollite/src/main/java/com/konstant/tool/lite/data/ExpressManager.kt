@@ -2,8 +2,8 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.util.NameConstant
 import com.konstant.tool.lite.util.FileUtils
+import java.util.concurrent.Executors
 
 /**
  * 描述:本地物流信息的管理工具
@@ -15,23 +15,32 @@ import com.konstant.tool.lite.util.FileUtils
 
 object ExpressManager {
 
-    // 读取本地保存的物流数据
-    fun readExpress(context: Context): List<ExpressData> {
-        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS)
-        val list = ArrayList<ExpressData>()
-        if (s != null) {
-            val array = JSON.parseArray(s, ExpressData::class.java)
-            list.addAll(array)
+    private val mExpressList = ArrayList<ExpressData>()
+
+    // 初始化的时候，读取本地保存的数据
+    fun onCreate(context: Context) {
+        val temp = FileUtils.readFileFromInnerStorage(context, NameConstant.NAME_LOCAL_EXPRESS)
+        if (temp.isNotEmpty()) {
+            val array = JSON.parseArray(String(temp), ExpressData::class.java)
+            mExpressList.addAll(array)
         }
-        return list
     }
 
+    // APP退出的时候，把数据保存到本地
+    fun onDestroy(context: Context) {
+        val json = JSON.toJSONString(mExpressList)
+        Executors.newSingleThreadExecutor().execute {
+            FileUtils.saveFileToInnerStorage(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
+        }
+    }
+
+    // 对外提供的接口
+    fun readExpress(): List<ExpressData> = mExpressList
+
+
     //更新物流数据
-    fun updateExpress(context: Context, orderNo: String, company: String?, remark: String?, state: String?) {
-        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS)
-                ?: return
-        val list = JSON.parseArray(s, ExpressData::class.java)
-        list.forEach {
+    fun updateExpress(orderNo: String, company: String?, remark: String?, state: String?) {
+        mExpressList.forEach {
             if (it.orderNo == orderNo) {
                 if ((company != null)) {
                     it.company = company
@@ -44,38 +53,27 @@ object ExpressManager {
                 }
             }
         }
-        val json = JSON.toJSONString(list)
-        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS, json)
     }
 
     // 删除物流数据
-    fun deleteExpress(context: Context, orderNo: String) {
-        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS)
-                ?: return
-        val list = JSON.parseArray(s, ExpressData::class.java)
-        var expre: ExpressData? = null
-        list.forEach {
-            if (it.orderNo == orderNo) {
-                expre = it
-            }
+    fun deleteExpress(data: ExpressData) {
+        mExpressList.remove(data)
+    }
+
+    // 删除物流数据
+    fun deleteExpress(orderNo: String) {
+        var exp: ExpressData? = null
+        mExpressList.forEach {
+            if (orderNo == it.orderNo)
+                exp = it
         }
-        list.remove(expre)
-        val json = JSON.toJSONString(list)
-        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS, json)
+        mExpressList.remove(exp)
     }
 
     // 添加新的物流
-    fun addExpress(context: Context, orderNo: String, company: String?, remark: String?, state: String?) {
-        val list = ArrayList<ExpressData>()
-        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS)
-        if (s != null) {
-            val array = JSON.parseArray(s, ExpressData::class.java)
-            list.addAll(array)
-        }
-        list.forEach { if (it.orderNo == orderNo) return }
-        list.add(ExpressData(company, orderNo, remark ?: "保密物件", state ?: "暂无信息"))
-        val json = JSON.toJSONString(list)
-        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_EXPRESS, json)
+    fun addExpress(orderNo: String, company: String?, remark: String?, state: String?) {
+        mExpressList.forEach { if (it.orderNo == orderNo) return }
+        mExpressList.add(ExpressData(company, orderNo, remark ?: "保密物件", state ?: "暂无信息"))
     }
 
 }

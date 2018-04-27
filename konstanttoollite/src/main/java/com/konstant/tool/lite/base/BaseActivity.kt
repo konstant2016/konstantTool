@@ -11,10 +11,9 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
-import com.konstant.tool.lite.util.NameConstant
-import com.konstant.tool.lite.util.FileUtils
 import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
@@ -29,16 +28,11 @@ import org.greenrobot.eventbus.Subscribe
  */
 
 @SuppressLint("MissingSuperCall")
-open class BaseActivity : SwipeBackActivity() {
-
-    private val mSwipeBackLayout: SwipeBackLayout by lazy { swipeBackLayout }
-    private var mRequestCode = 12
-    private var mReason: String = ""
-    private var mPermission: String = ""
+abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(readTheme())
+        setTheme(SettingManager.getTheme(this))
         EventBus.getDefault().register(this)
         // 沉浸状态栏
         supportActionBar?.hide()
@@ -54,35 +48,12 @@ open class BaseActivity : SwipeBackActivity() {
         }
 
         // 滑动返回
-        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
 
-        readSwipeBackState()
+        // 是否启用滑动返回
+        swipeBackLayout.setEnableGesture(SettingManager.getSwipeBackState(this))
     }
 
-    // 读取保存的主题状态
-    private fun readTheme(): Int {
-        val theme = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SELECTED_THEME)
-        theme ?: NameConstant.THEME_BLUE
-        var themeId = 0
-        when (theme) {
-            NameConstant.THEME_RED -> {
-                themeId = R.style.tool_lite_red
-            }
-            NameConstant.THEME_CLASS -> {
-                themeId = R.style.tool_lite_class
-            }
-            NameConstant.THEME_BLUE -> {
-                themeId = R.style.tool_lite_blue
-            }
-        }
-        return themeId
-    }
-
-    // 读取保存的swipeback状态
-    private fun readSwipeBackState() {
-        val state = FileUtils.readDataWithSharedPreference(this, NameConstant.NAME_SWIPEBACK_STATE, false)
-        mSwipeBackLayout.setEnableGesture(state)
-    }
 
     // 更换主题
     @Subscribe
@@ -92,11 +63,11 @@ open class BaseActivity : SwipeBackActivity() {
 
     // 是否启用滑动返回
     @Subscribe
-    open fun SwipeBackChanged(msg: SwipeBackState) {
-        setSwipeBackEnable(msg.isState)
+    open fun onSwipeBackChanged(msg: SwipeBackState) {
+        setSwipeBackEnable(msg.state)
     }
 
-    open protected fun initBaseViews() {
+    protected open fun initBaseViews() {
         findViewById(R.id.img_back).setOnClickListener { finish() }
     }
 
@@ -107,12 +78,7 @@ open class BaseActivity : SwipeBackActivity() {
         textView.text = s
     }
 
-    override fun setTitle(stringId: Int) {
-        val view = findViewById(R.id.title_bar)
-        val textView = view.findViewById(R.id.title) as TextView
-        textView.text = getText(stringId)
-    }
-
+    // 设置副标题
     protected fun setSubTitle(s: String) {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.sub_title) as TextView
@@ -120,17 +86,10 @@ open class BaseActivity : SwipeBackActivity() {
         textView.text = s
     }
 
+    // 隐藏副标题
     protected fun hideSubTitle(){
         sub_title.visibility = View.GONE
     }
-
-    protected fun setSubTitle(stringId: Int) {
-        val view = findViewById(R.id.title_bar)
-        val textView = view.findViewById(R.id.sub_title) as TextView
-        textView.visibility = View.VISIBLE
-        textView.text = getText(stringId)
-    }
-
 
     // 隐藏软键盘
     protected fun hideSoftKeyboard() {
@@ -146,7 +105,7 @@ open class BaseActivity : SwipeBackActivity() {
     }
 
     // 滚动界面，防止输入法遮挡视图
-    fun addLayoutListener(main: View, scroll: View) {
+    protected fun addLayoutListener(main: View, scroll: View) {
         main.viewTreeObserver.addOnGlobalLayoutListener {
             val rect = Rect()
             //1、获取main在窗体的可视区域

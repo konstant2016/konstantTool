@@ -11,6 +11,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.data.ExpressData
 import com.konstant.tool.lite.util.CircleTransform
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 /**
  * 描述:快递列表的适配器
@@ -25,10 +26,10 @@ class AdapterExpress(val context: Context, val expresses: ArrayList<ExpressData>
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.item_express_list, parent, false)
 
-        val img = view.findViewById<ImageView>(R.id.img_company)
-        val remark = view.findViewById<TextView>(R.id.tv_remark)
-        val company = view.findViewById<TextView>(R.id.tv_express_num)
-        val state = view.findViewById<TextView>(R.id.tv_state)
+        val img = view.findViewById(R.id.img_company) as ImageView
+        val remark = view.findViewById(R.id.tv_remark) as TextView
+        val company = view.findViewById(R.id.tv_express_num) as TextView
+        val state = view.findViewById(R.id.tv_state) as TextView
 
         when (expresses[position].company) {
             "shunfeng" -> {

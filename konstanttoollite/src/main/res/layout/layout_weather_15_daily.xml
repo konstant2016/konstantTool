@@ -11,6 +11,7 @@
         android:text="未来15天天气预报：" />
 
     <android.support.v7.widget.RecyclerView
+        android:overScrollMode="never"
         android:id="@+id/recycler_weather_day"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
