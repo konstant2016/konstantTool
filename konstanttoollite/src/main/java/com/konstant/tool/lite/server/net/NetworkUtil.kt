@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.util
+package com.konstant.tool.lite.server.net
 
 import android.content.Context
 import android.util.Log

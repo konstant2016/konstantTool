@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
-import android.view.View
 import android.view.WindowManager
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.activity_main.*

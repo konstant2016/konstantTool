@@ -23,8 +23,8 @@ import com.konstant.tool.lite.eventbusparam.TitleChanged
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.LocationCIDrResponse
 import com.konstant.tool.lite.server.response.Weather360Response
-import com.konstant.tool.lite.util.KeyConstant
-import com.konstant.tool.lite.util.UrlConstant
+import com.konstant.tool.lite.server.net.KeyConstant
+import com.konstant.tool.lite.server.net.UrlConstant
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout

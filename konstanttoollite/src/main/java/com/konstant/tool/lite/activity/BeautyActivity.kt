@@ -7,7 +7,7 @@ import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterBeauty
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.util.NetworkUtil
+import com.konstant.tool.lite.server.net.NetworkUtil
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout

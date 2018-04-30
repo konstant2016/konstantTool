@@ -10,8 +10,8 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.TranslateResponse
-import com.konstant.tool.lite.util.KeyConstant
-import com.konstant.tool.lite.util.UrlConstant
+import com.konstant.tool.lite.server.net.KeyConstant
+import com.konstant.tool.lite.server.net.UrlConstant
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 

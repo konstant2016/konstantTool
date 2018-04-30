@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bm.library.PhotoView
 import com.konstant.tool.lite.activity.LookPictureActivity
-import com.konstant.tool.lite.util.NetworkUtil
+import com.konstant.tool.lite.server.net.NetworkUtil
 import com.konstant.tool.lite.view.KonstantDialog
 import com.squareup.picasso.Picasso
 import com.yanzhenjie.permission.AndPermission

@@ -20,8 +20,6 @@ class DeviceInfoActivity : BaseActivity() {
 
     private val READ_PHONE_STATE = Manifest.permission.READ_PHONE_STATE
 
-    private val mRequestCode = 15
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device_info)
