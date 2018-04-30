@@ -28,7 +28,7 @@ class WeatherActivity : BaseActivity() {
 
     private val mFragmentList = mutableListOf<Fragment>()
     private var mSavedInstanceState: Bundle? = null
-    private val mAdapter by lazy { AdapterWeatherFragment(supportFragmentManager) }
+    private val mAdapter by lazy { AdapterWeatherFragment(mFragmentList,supportFragmentManager) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +67,7 @@ class WeatherActivity : BaseActivity() {
         weatherCodeList.forEach {
             mFragmentList.add(WeatherFragment.newInstance(it.cityCode))
         }
-        mAdapter.updateFragmentList(mFragmentList)
+        mAdapter.notifyDataSetChanged()
         Log.i("mFragmentList size", "${mFragmentList.size}")
     }
 

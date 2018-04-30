@@ -59,7 +59,7 @@ class CityManagerActivity : BaseActivity() {
         }
 
         grid_city.setOnItemClickListener { _, _, position, _ ->
-            EventBus.getDefault().post(WeatherStateChanged(false, position))
+            EventBus.getDefault().post(WeatherStateChanged(true, position))
             this.finish()
         }
         // 弹起城市选择页
@@ -81,9 +81,10 @@ class CityManagerActivity : BaseActivity() {
                 .setMessage("是否要删除${direct.cityName}?")
                 .setPositiveListener {
                     it.dismiss()
-                    mCityList.remove(direct)
-                    LocalCountryManager.deleteCity(direct)
-                    mAdapter.notifyDataSetChanged()
+                    if (!LocalCountryManager.deleteCity(direct)){
+                        return@setPositiveListener
+                    }
+                    readLocalCityList()
                     EventBus.getDefault().post(WeatherStateChanged(true, 0))
                 }
                 .createDialog()
@@ -220,12 +221,7 @@ class CityManagerActivity : BaseActivity() {
     // 新添加的城市保存到本地
     private fun saveLocalCityList(city: LocalCountryData) {
         LocalCountryManager.addCity(city.cityCode, city.cityName)
-        mCityList.forEach {
-            if (it.cityCode == city.cityCode)
-                return
-        }
-        mCityList.add(city)
-        mAdapter.notifyDataSetChanged()
+        readLocalCityList()
     }
 
     override fun onDestroy() {

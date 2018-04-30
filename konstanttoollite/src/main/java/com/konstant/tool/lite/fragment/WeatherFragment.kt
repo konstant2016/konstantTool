@@ -45,7 +45,7 @@ import java.text.SimpleDateFormat
 
 class WeatherFragment : BaseFragment() {
 
-    private lateinit var mLocationClient: AMapLocationClient
+    private val mLocationClient by lazy { AMapLocationClient(activity) }
     private var mDirectCode: String = ""
 
     private val mListHour = ArrayList<Weather360Response.HourlyForecastBean>()
@@ -124,7 +124,7 @@ class WeatherFragment : BaseFragment() {
 
     // 初始化获取当前位置的相关控件
     private fun initLocationClient() {
-        mLocationClient = AMapLocationClient(activity)
+
         val option = AMapLocationClientOption()
         option.locationPurpose = AMapLocationClientOption.AMapLocationPurpose.SignIn
         mLocationClient.setLocationOption(option)

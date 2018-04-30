@@ -40,15 +40,14 @@ object LocalCountryManager {
 
     // 添加城市
     fun addCity(cityCode: String, cityName: String) {
-        mCityList.forEach {
-            if (it.cityCode == cityCode) return
-        }
-        mCityList.add(LocalCountryData(cityCode, cityName))
+        val countryData = LocalCountryData(cityCode, cityName);
+        if (mCityList.contains(countryData)) return
+        mCityList.add(countryData)
     }
 
     // 删除城市
-    fun deleteCity(direct: LocalCountryData) {
-        mCityList.remove(direct)
+    fun deleteCity(direct: LocalCountryData): Boolean {
+        return mCityList.remove(direct)
     }
 
     // 读取城市列表

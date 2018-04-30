@@ -12,25 +12,15 @@ import android.support.v4.view.PagerAdapter
  * 备注:
  */
 
-class AdapterWeatherFragment(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class AdapterWeatherFragment(val fragmentList: List<Fragment>,fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
 
-    private val mFragmentList = mutableListOf<Fragment>()
 
 
-    override fun getItem(position: Int): Fragment = mFragmentList[position]
+    override fun getItem(position: Int): Fragment = fragmentList[position]
 
 
-    override fun getCount(): Int = mFragmentList.size
+    override fun getCount(): Int = fragmentList.size
 
-
-    override fun getItemPosition(any: Any?): Int = PagerAdapter.POSITION_NONE
-
-
-    fun updateFragmentList(fragmentList: List<Fragment>){
-        mFragmentList.clear()
-        mFragmentList.addAll(fragmentList)
-        notifyDataSetChanged()
-    }
 
 }
