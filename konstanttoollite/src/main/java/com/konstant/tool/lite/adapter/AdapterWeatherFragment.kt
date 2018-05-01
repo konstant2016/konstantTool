@@ -15,8 +15,6 @@ import android.support.v4.view.PagerAdapter
 class AdapterWeatherFragment(val fragmentList: List<Fragment>,fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
 
-
-
     override fun getItem(position: Int): Fragment = fragmentList[position]
 
 
