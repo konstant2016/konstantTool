@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.LocalCountryData
+import com.konstant.tool.lite.data.LocalCountry
 
 /**
  * 描述:城市管理页面的适配器
@@ -16,7 +16,7 @@ import com.konstant.tool.lite.data.LocalCountryData
  * 备注:
  */
 
-class AdapterCityList(val context: Context, val list: List<LocalCountryData>) : BaseAdapter() {
+class AdapterCityList(val context: Context, val list: List<LocalCountry>) : BaseAdapter() {
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 

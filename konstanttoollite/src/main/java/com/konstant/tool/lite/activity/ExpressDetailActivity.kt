@@ -191,7 +191,7 @@ class ExpressDetailActivity : BaseActivity() {
                         return@setPositiveListener
                     }
                     it.dismiss()
-                    ExpressManager.deleteExpress(mOrderNo)
+                    ExpressManager.deleteExpress(orderNo = mOrderNo)
                     mOrderNo = edit.text.toString()
                     updateUI()
                     ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, mState)
@@ -261,7 +261,7 @@ class ExpressDetailActivity : BaseActivity() {
                 .setMessage("确定要删除此运单号？")
                 .setPositiveListener {
                     it.dismiss()
-                    ExpressManager.deleteExpress(mOrderNo)
+                    ExpressManager.deleteExpress(orderNo = mOrderNo)
                     sendExpressChanged()
                     this.finish()
                 }

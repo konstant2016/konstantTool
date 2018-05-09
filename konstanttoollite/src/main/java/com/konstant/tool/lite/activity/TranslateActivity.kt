@@ -48,33 +48,36 @@ class TranslateActivity : BaseActivity() {
 
         // 初始化左边的spinner
         val adapterOrigin = KonstantArrayAdapter(this, R.layout.item_spinner_bg, languageNames)
-        spinner_origin.adapter = adapterOrigin
-        spinner_origin.setSelection(0)
-        spinner_origin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+        spinner_origin.apply {
+            adapter = adapterOrigin
+            setSelection(0)
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
+                }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                typeFrom = languageShorts[position]
-                hideSoftKeyboard()
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    typeFrom = languageShorts[position]
+                    hideSoftKeyboard()
+                }
             }
         }
-
 
         // 初始化右边的spinner
         val typeName = languageNames.copyOfRange(1, languageNames.size)
         val adapterResult = KonstantArrayAdapter(this, R.layout.item_spinner_bg, typeName)
-        spinner_result.adapter = adapterResult
-        spinner_result.setSelection(0)
-        spinner_result.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+        spinner_result.apply {
+            adapter = adapterResult
+            setSelection(0)
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
+                }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                typeTo = languageShorts[position + 1]
-                hideSoftKeyboard()
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    typeTo = languageShorts[position + 1]
+                    hideSoftKeyboard()
+                }
             }
         }
 

@@ -27,7 +27,6 @@ import java.io.FileOutputStream
 class QRCodeActivity : BaseActivity() {
 
     private var mBitmap: Bitmap? = null
-    private val mRequestCode = 17
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +88,7 @@ class QRCodeActivity : BaseActivity() {
             Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             e.printStackTrace()
+            Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -32,19 +32,19 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <com.konstant.konstanttools.views.PickerView
+        <com.konstant.tool.views.PickerView
             android:id="@+id/picker_province"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.konstant.konstanttools.views.PickerView
+        <com.konstant.tool.views.PickerView
             android:id="@+id/picker_city"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.konstant.konstanttools.views.PickerView
+        <com.konstant.tool.views.PickerView
             android:id="@+id/picker_direct"
             android:layout_width="0dp"
             android:layout_height="match_parent"

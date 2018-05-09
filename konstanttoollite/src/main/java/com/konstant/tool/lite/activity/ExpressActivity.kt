@@ -66,10 +66,9 @@ class ExpressActivity : BaseActivity() {
                     .setPositiveListener {
                         it.dismiss()
                         val data = expressList[position]
-                        expressList.remove(data)
-                        mAdapter.notifyDataSetChanged()
-                        updateUI()
                         ExpressManager.deleteExpress(data)
+                        readLocalExpress()
+                        updateUI()
                     }
                     .createDialog()
             true
@@ -89,11 +88,11 @@ class ExpressActivity : BaseActivity() {
 
     // 读取本地保存的物流信息
     private fun readLocalExpress() {
-        val list = ExpressManager.readExpress()
-        Log.d(this.localClassName, list.toString())
-        expressList.clear()
-        expressList.addAll(list)
-        mAdapter.notifyDataSetChanged()
+        expressList.apply {
+            clear()
+            addAll(ExpressManager.readExpress())
+            mAdapter.notifyDataSetChanged()
+        }
     }
 
 
@@ -106,14 +105,16 @@ class ExpressActivity : BaseActivity() {
         val commanyArr = this.resources.getStringArray(R.array.express_company)
         val companyIds = this.resources.getStringArray(R.array.express_company_id)
         var companyId = "shunfeng"
-        spinner.adapter = KonstantArrayAdapter(this, R.layout.item_spinner_bg, commanyArr)
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+        spinner.apply {
+            adapter = KonstantArrayAdapter(this@ExpressActivity, R.layout.item_spinner_bg, commanyArr)
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
+                }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                companyId = companyIds[position]
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    companyId = companyIds[position]
+                }
             }
         }
 
@@ -147,7 +148,7 @@ class ExpressActivity : BaseActivity() {
 
     // 物流状态发生了变化
     @Subscribe
-    fun onExpressChanged(msg: ExpressChanged){
+    fun onExpressChanged(msg: ExpressChanged) {
         readLocalExpress()
         updateUI()
     }

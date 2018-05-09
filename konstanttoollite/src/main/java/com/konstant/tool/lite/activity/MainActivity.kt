@@ -4,10 +4,9 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
-import android.view.WindowManager
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 
@@ -18,17 +17,16 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity
  * 备注:
  */
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar!!.hide()
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)   // 透明状态栏
+        swipeBackLayout.setEnableGesture(false)
         initBaseViews()
     }
 
-    private fun initBaseViews() {
+    override fun initBaseViews() {
 
         layout_translate.setOnClickListener { startActivity(Intent(this, TranslateActivity::class.java)) }
 

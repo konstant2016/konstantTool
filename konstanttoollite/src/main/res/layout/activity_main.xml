@@ -5,7 +5,6 @@
     android:id="@+id/layout_drawer"
     android:background="@color/white">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
