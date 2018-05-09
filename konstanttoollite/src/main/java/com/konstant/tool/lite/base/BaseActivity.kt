@@ -1,9 +1,12 @@
 package com.konstant.tool.lite.base
 
 import android.annotation.SuppressLint
+import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -11,9 +14,12 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.activity.*
 import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
+import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
@@ -33,6 +39,8 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(SettingManager.getTheme(this))
+        super.setContentView(R.layout.activity_base)
+
         EventBus.getDefault().register(this)
         // 沉浸状态栏
         supportActionBar?.hide()
@@ -51,9 +59,16 @@ abstract class BaseActivity : SwipeBackActivity() {
         swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
 
         // 是否启用滑动返回
-        swipeBackLayout.setEnableGesture(SettingManager.getSwipeBackState(this))
+        val state = SettingManager.getSwipeBackState(this)
+        swipeBackLayout.setEnableGesture(state)
+
+        initDrawLayout()
+
     }
 
+    override fun setContentView(layoutResID: Int) {
+        layoutInflater.inflate(layoutResID, base_content, true)
+    }
 
     // 更换主题
     @Subscribe
@@ -78,17 +93,9 @@ abstract class BaseActivity : SwipeBackActivity() {
         textView.text = s
     }
 
-    // 设置副标题
-    protected fun setSubTitle(s: String) {
-        val view = findViewById(R.id.title_bar)
-        val textView = view.findViewById(R.id.sub_title) as TextView
-        textView.visibility = View.VISIBLE
-        textView.text = s
-    }
-
-    // 隐藏副标题
-    protected fun hideSubTitle(){
-        sub_title.visibility = View.GONE
+    // 隐藏主标题
+    protected fun hideTitleBar() {
+        title_bar.visibility = View.GONE
     }
 
     // 隐藏软键盘
@@ -131,6 +138,54 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onDestroy() {
         super.onDestroy()
         EventBus.getDefault().unregister(this)
+    }
+
+    protected fun startActivity(cls: Class<*>) {
+        draw_layout.closeDrawers()
+        startActivity(Intent(this, cls))
+    }
+
+    // 初始化侧边栏的点击事件
+    private fun initDrawLayout(){
+
+        text_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
+
+        text_beauty.setOnClickListener { startActivity(BeautyActivity::class.java) }
+
+        text_compass.setOnClickListener { startActivity(CompassActivity::class.java) }
+
+        text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
+
+        text_express.setOnClickListener { startActivity(ExpressActivity::class.java) }
+
+        text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
+
+        text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
+
+        text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
+
+        text_zfb.setOnClickListener { zfb() }
+
+        text_mian.setOnClickListener { startActivity(MainActivity::class.java) }
+
+        text_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
+
+    }
+
+    // 跳转到支付宝红包页面
+    fun zfb() {
+        val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
+        clipBoard.text = "i4B6BP11Xt"
+        try {
+            val packageManager = this.applicationContext.packageManager
+            val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")
+            startActivity(intent)
+        } catch (e: Exception) {
+            val url = "https://ds.alipay.com/?from=mobileweb"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
     }
 
 }

@@ -16,5 +16,8 @@ object NameConstant{
 
     val NAME_LOCAL_CITY_ID = "local_city_id"
 
+    val NAME_USER_HEADER_PIC_NAME = "header_big.jpg"
+    val NAME_USER_HEADER_PIC_NAME_THUMB = "header_small.jpg"
+
 
 }

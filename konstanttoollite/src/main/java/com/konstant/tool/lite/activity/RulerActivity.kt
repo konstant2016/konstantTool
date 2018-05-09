@@ -19,5 +19,6 @@ class RulerActivity : BaseActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ruler)
         setSwipeBackEnable(false)
+        hideTitleBar()
     }
 }

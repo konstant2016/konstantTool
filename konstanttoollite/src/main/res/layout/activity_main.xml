@@ -1,354 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_drawer"
-    android:background="@color/white">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="70dp"
+        android:background="?attr/tool_main_color">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="?attr/tool_main_color">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="菜籽工具箱"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <RelativeLayout
-                android:id="@+id/layout_more"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:clickable="true">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/setting" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout_side"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:clickable="true">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/category" />
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_translate"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="菜籽工具箱"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="翻译"
-                android:textColor="@color/black" />
+        <RelativeLayout
+            android:id="@+id/layout_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/setting" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/layout_beauty"
-            android:layout_width="match_parent"
+            android:id="@+id/layout_side"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="美女图片"
-                android:textColor="@color/black" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:clickable="true">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/category" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/layout_compass"
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_translate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="翻译"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="指南针"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_beauty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="美女图片"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-
-        <RelativeLayout
-            android:id="@+id/layout_qrcode"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="二维码扫描与解析"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_compass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="指南针"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-        <RelativeLayout
-            android:id="@+id/layout_express"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="物流查询"
-                android:textColor="@color/black" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+    <RelativeLayout
+        android:id="@+id/layout_qrcode"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="二维码扫描与解析"
+            android:textColor="@color/black" />
 
-        <RelativeLayout
-            android:id="@+id/layout_device_info"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="查看设备信息"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_express"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="物流查询"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-        <RelativeLayout
-            android:id="@+id/layout_weather"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="天气查询"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="查看设备信息"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-        <RelativeLayout
-            android:id="@+id/layout_ruler"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="直尺"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_weather"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="天气查询"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-        <RelativeLayout
-            android:id="@+id/layout_zfb"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_item_bg">
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="领取支付宝红包"
-                android:textColor="@color/black" />
+    <RelativeLayout
+        android:id="@+id/layout_ruler"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:rotation="180"
-                android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="直尺"
+            android:textColor="@color/black" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@color/black_20_transparent" />
-        </RelativeLayout>
-    </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
 
-    <include
-        android:id="@+id/layout_left"
-        layout="@layout/layout_drawer_left" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
-</android.support.v4.widget.DrawerLayout>
+    <RelativeLayout
+        android:id="@+id/layout_zfb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="领取支付宝红包"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:rotation="180"
+            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
+</LinearLayout>
+
