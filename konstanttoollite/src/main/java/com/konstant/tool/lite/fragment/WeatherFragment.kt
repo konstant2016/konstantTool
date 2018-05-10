@@ -151,7 +151,7 @@ class WeatherFragment : BaseFragment() {
                 stopRefreshAnim();return@locationToCID
             }
             val response = JSON.parseObject(String(data).replace("$", ""), LocationCIDrResponse::class.java)
-            mDirectCode = response.heWeather6[0].basic.cid.replace("CN", "")
+            mDirectCode = response.heWeather6[0]?.basic?.cid?.replace("CN", "")?:""
             Log.d("地区编号", mDirectCode)
             LocalCountryManager.setCityCode(mDirectCode)
             requestData(mDirectCode)

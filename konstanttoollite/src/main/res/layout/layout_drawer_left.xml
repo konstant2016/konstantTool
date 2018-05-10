@@ -11,17 +11,18 @@
 
     <LinearLayout
         android:id="@+id/layout_header"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="20dp"
         android:background="?attr/tool_main_color"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/drawer_header"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:clickable="true"
             android:src="@drawable/ic_launcher" />
 
@@ -35,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:text="行成于思毁于随"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -51,11 +52,11 @@
             android:background="?attr/tool_main_color" />
 
         <TextView
-            android:layout_marginTop="1px"
             android:id="@+id/text_mian"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
+            android:layout_marginTop="1px"
             android:background="@drawable/selector_item_bg"
             android:clickable="true"
             android:focusable="true"
@@ -63,11 +64,11 @@
             android:text="主页" />
 
         <TextView
-            android:layout_marginTop="1px"
             android:id="@+id/text_setting"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="1px"
             android:background="@drawable/selector_item_bg"
             android:clickable="true"
             android:focusable="true"
@@ -76,10 +77,10 @@
     </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_marginBottom="50dp"
-        android:layout_below="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_header"
+        android:layout_marginBottom="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,11 +91,11 @@
                 android:id="@+id/text_translate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="翻译"
                 android:textColor="@color/black" />
 
@@ -102,11 +103,11 @@
                 android:id="@+id/text_beauty"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="美女图片"
                 android:textColor="@color/black" />
 
@@ -114,11 +115,11 @@
                 android:id="@+id/text_compass"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="指南针"
                 android:textColor="@color/black" />
 
@@ -126,11 +127,11 @@
                 android:id="@+id/text_qrcode"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="二维码扫描与解析"
                 android:textColor="@color/black" />
 
@@ -138,11 +139,11 @@
                 android:id="@+id/text_express"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="物流查询"
                 android:textColor="@color/black" />
 
@@ -150,11 +151,11 @@
                 android:id="@+id/text_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="查看设备信息"
                 android:textColor="@color/black" />
 
@@ -162,11 +163,11 @@
                 android:id="@+id/text_weather"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="天气查询"
                 android:textColor="@color/black" />
 
@@ -174,11 +175,11 @@
                 android:id="@+id/text_ruler"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="直尺"
                 android:textColor="@color/black" />
 
@@ -187,11 +188,11 @@
                 android:id="@+id/text_zfb"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="40dp"
                 android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
                 android:text="领取支付宝红包"
                 android:textColor="@color/black" />
 

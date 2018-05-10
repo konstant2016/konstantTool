@@ -4,9 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
+import android.support.v4.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.NameConstant
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.IOException
 
 
 /**
@@ -88,17 +90,24 @@ class SettingActivity : BaseActivity() {
         // 拍照
         view.findViewById(R.id.text_camera).setOnClickListener {
             dialog.dismiss()
-            camera()
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
+            val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+            startActivityForResult(intent, CAMERA_REQUEST)
         }
         // 相册
         view.findViewById(R.id.text_photo).setOnClickListener {
             dialog.dismiss()
-            photo()
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+            startActivityForResult(intent, PHOTO_REQUEST)
         }
         // 恢复默认
         view.findViewById(R.id.text_default).setOnClickListener {
             dialog.dismiss()
-            default()
+            File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB).delete()
+            EventBus.getDefault().post(UserHeaderChanged())
         }
 
         dialog.hideNavigation()
@@ -107,42 +116,21 @@ class SettingActivity : BaseActivity() {
     }
 
 
-    private fun camera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), NameConstant.NAME_USER_HEADER_PIC_NAME)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file))
-        startActivityForResult(intent, CAMERA_REQUEST)
-    }
-
-    private fun photo() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-        startActivityForResult(intent, PHOTO_REQUEST)
-    }
-
-    private fun default() {
-        File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME).delete()
-        EventBus.getDefault().post(UserHeaderChanged())
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_OK) return
         when (requestCode) {
             CAMERA_REQUEST -> {
-                val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), NameConstant.NAME_USER_HEADER_PIC_NAME)
+                val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
                 if (!file.exists()) return
-                clipPhoto(Uri.fromFile(file))
+                val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+                clipPhoto(uri)
             }
             PHOTO_REQUEST -> {
-                data?.let { clipPhoto(data.data) }
+                data?.let {
+                    clipPhoto(it.data)
+                }
             }
             PHOTO_CLIP -> {
-                if (data?.extras == null) return
-                val bitmap = data.extras.getParcelable<Bitmap>("data")
-                val stream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                FileUtils.saveFileToInnerStorage(this, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB, stream.toByteArray())
                 EventBus.getDefault().post(UserHeaderChanged())
             }
         }
@@ -150,14 +138,37 @@ class SettingActivity : BaseActivity() {
 
     // 调用系统中自带的图片剪裁
     private fun clipPhoto(uri: Uri) {
+        val cropPhoto = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB)
+        try {
+            if (cropPhoto.exists()) {
+                cropPhoto.delete()
+            }
+            cropPhoto.createNewFile()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        val cropImageUri = Uri.fromFile(cropPhoto)
         val intent = Intent("com.android.camera.action.CROP")
         intent.setDataAndType(uri, "image/*")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) //添加这一句表示对目标应用临时授权该Uri所代表的文件
+        }
+        // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
         intent.putExtra("crop", "true")
+        intent.putExtra("scale", true)
+
         intent.putExtra("aspectX", 1)
         intent.putExtra("aspectY", 1)
-        intent.putExtra("outputX", 250)
-        intent.putExtra("outputY", 250)
-        intent.putExtra("return-data", true)
+
+        //输出的宽高
+
+        intent.putExtra("outputX", 300)
+        intent.putExtra("outputY", 300)
+
+        intent.putExtra("return-data", false)
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, cropImageUri)
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString())
+        intent.putExtra("noFaceDetection", true) // no face detection
         startActivityForResult(intent, PHOTO_CLIP)
     }
 }

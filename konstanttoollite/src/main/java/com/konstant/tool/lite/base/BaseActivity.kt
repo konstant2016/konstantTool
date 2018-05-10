@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
@@ -15,9 +17,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.activity.*
+import com.konstant.tool.lite.data.NameConstant
 import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
+import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
+import com.konstant.tool.lite.util.CircleTransform
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -25,6 +31,13 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import java.io.File
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.widget.ImageView
+
 
 /**
  * 描述:所有activity的基类
@@ -64,6 +77,8 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         initDrawLayout()
 
+        onUserHeaderChanged(UserHeaderChanged())
+
     }
 
     override fun setContentView(layoutResID: Int) {
@@ -80,6 +95,26 @@ abstract class BaseActivity : SwipeBackActivity() {
     @Subscribe
     open fun onSwipeBackChanged(msg: SwipeBackState) {
         setSwipeBackEnable(msg.state)
+    }
+
+    // 用户头像发生了变化
+    @Subscribe
+    open fun onUserHeaderChanged(msg: UserHeaderChanged) {
+        val path = "$externalCacheDir/${NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB}"
+        if (File(path).exists()) {
+            val bitmap = BitmapFactory.decodeFile(path)
+            val circleDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
+            circleDrawable.paint.isAntiAlias = true
+            circleDrawable.cornerRadius = Math.max(bitmap.width.toFloat(), bitmap.height.toFloat())
+            drawer_header.setImageDrawable(circleDrawable)
+        } else {
+            val bitmap = BitmapFactory.decodeResource (resources, R.drawable.ic_launcher);
+            val circleDrawable = RoundedBitmapDrawableFactory.create (getResources(), bitmap);
+            circleDrawable.getPaint().setAntiAlias(true);
+            circleDrawable.setCornerRadius(Math.max(bitmap.getWidth().toFloat(), bitmap.getHeight().toFloat()));
+            drawer_header.setImageDrawable(circleDrawable);
+        }
+
     }
 
     protected open fun initBaseViews() {
@@ -145,8 +180,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         startActivity(Intent(this, cls))
     }
 
-    // 初始化侧边栏的点击事件
-    private fun initDrawLayout(){
+    // 初始化侧边栏
+    private fun initDrawLayout() {
 
         text_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
 

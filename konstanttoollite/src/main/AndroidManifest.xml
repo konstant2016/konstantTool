@@ -58,73 +58,83 @@
             </intent-filter>
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.TranslateActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.BeautyActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.LookPictureActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.SettingActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.ThemeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.CompassActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.QRCodeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.QRScanActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.ExpressActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.ExpressDetailActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.DeviceInfoActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.AboutActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.WeatherActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.CityManagerActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.RulerActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:launchMode="singleTask"
             android:name=".activity.ScanFileActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>
