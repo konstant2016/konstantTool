@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/title_layout" />
-
     <!--最上面的单号，状态、公司等信息-->
     <RelativeLayout
         android:layout_width="match_parent"

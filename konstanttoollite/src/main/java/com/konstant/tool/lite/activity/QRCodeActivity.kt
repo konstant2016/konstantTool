@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
-import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.view.KonstantDialog
@@ -27,7 +26,6 @@ import java.io.FileOutputStream
 class QRCodeActivity : BaseActivity() {
 
     private var mBitmap: Bitmap? = null
-    private val mRequestCode = 17
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +43,7 @@ class QRCodeActivity : BaseActivity() {
         btn_create.setOnClickListener {
 
             if (TextUtils.isEmpty(et_qr.text)) {
-                Toast.makeText(this, "记得输入内容哦", Toast.LENGTH_SHORT).show()
+                showToast("记得输入内容哦")
                 return@setOnClickListener
             }
 
@@ -86,9 +84,10 @@ class QRCodeActivity : BaseActivity() {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.flush()
             outputStream.close()
-            Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show()
+            showToast("保存成功")
         } catch (e: Exception) {
             e.printStackTrace()
+            showToast("保存失败")
         }
     }
 
@@ -97,7 +96,7 @@ class QRCodeActivity : BaseActivity() {
         AndPermission.with(this)
                 .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .onGranted { writeToStroage(mBitmap!!) }
-                .onDenied { Toast.makeText(this, "您拒绝了权限申请", Toast.LENGTH_SHORT).show() }
+                .onDenied { showToast("您拒绝了权限申请") }
                 .start()
     }
 

@@ -4,7 +4,7 @@
     android:gravity="center"
     android:layout_height="match_parent">
 
-    <com.konstant.konstanttools.views.CustomTouchView
+    <com.konstant.tool.views.CustomTouchView
         android:id="@+id/touch"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

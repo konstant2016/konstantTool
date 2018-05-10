@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.konstant.konstanttools">
+    package="com.konstant.tool">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -101,7 +101,7 @@
 
         <!-- 以下为app中的属性 -->
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.konstant.tool.ui.activity.MainActivity"
             android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -110,83 +110,83 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.toolactivity.im.activity.LoginActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.im.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.ICVActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.ICVActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.PrintServiceActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.PrintServiceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.beauty.LookPicActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.beauty.LookPicActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.FirstClockActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.FirstClockActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.SecondClockActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.SecondClockActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".base.BaseActivity"
+            android:name="com.konstant.tool.base.BaseActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".ui.activity.testactivity.VideoCrackActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.VideoCrackActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.beauty.BeautyActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.beauty.BeautyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.CircleActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.CircleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.ScaleCircleActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.ScaleCircleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.DeviceInfoActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.DeviceInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.GestureActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.GestureActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.testactivity.CoordinatorActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.CoordinatorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ui.activity.testactivity.DrawerlayoutActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.DrawerlayoutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.CompassActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.CompassActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.PhoneLocationActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.PhoneLocationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.weather.WeatherActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.weather.WeatherActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.weather.CityManagerActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.weather.CityManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.qrcode.QRCodeActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.qrcode.QRCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.qrcode.QRScanActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.qrcode.QRScanActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.im.activity.IMActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.im.activity.IMActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.toolactivity.TranslateActivity"
+            android:name="com.konstant.tool.ui.activity.toolactivity.TranslateActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible" />
         <activity
-            android:name=".ui.activity.SMSFakeActivity"
+            android:name="com.konstant.tool.ui.activity.SMSFakeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.opengl.OpenGlActivity" />
+        <activity android:name="com.konstant.tool.ui.activity.opengl.OpenGlActivity" />
 
-        <receiver android:name=".test.BootReceiver">
+        <receiver android:name="com.konstant.tool.test.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -195,25 +195,25 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".test.ForegroundService" />
+        <service android:name="com.konstant.tool.test.ForegroundService" />
 
-        <activity android:name=".ui.activity.toolactivity.traffic.TrafficActivity" />
+        <activity android:name="com.konstant.tool.ui.activity.toolactivity.traffic.TrafficActivity" />
 
         <service
-            android:name=".ui.activity.toolactivity.traffic.TrafficCountService"
+            android:name="com.konstant.tool.ui.activity.toolactivity.traffic.TrafficCountService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".ui.activity.toolactivity.traffic.TrafficUploadService"
+            android:name="com.konstant.tool.ui.activity.toolactivity.traffic.TrafficUploadService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".ui.activity.toolactivity.traffic.TrafficService"
+            android:name="com.konstant.tool.ui.activity.toolactivity.traffic.TrafficService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".ui.activity.testactivity.TouchActivity"
+            android:name="com.konstant.tool.ui.activity.testactivity.TouchActivity"
             android:label="@string/title_activity_touch"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

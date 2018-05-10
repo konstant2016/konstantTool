@@ -57,6 +57,11 @@ public class ExpressData {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return obj != null && obj instanceof ExpressData && orderNo.equals(((ExpressData) obj).orderNo);
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("{");
         sb.append("\"company\":\"")

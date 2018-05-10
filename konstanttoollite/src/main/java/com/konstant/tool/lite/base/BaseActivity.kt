@@ -1,24 +1,38 @@
 package com.konstant.tool.lite.base
 
 import android.annotation.SuppressLint
+import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Rect
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.activity.*
+import com.konstant.tool.lite.data.NameConstant
 import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
+import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
+import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import java.io.File
+
 
 /**
  * 描述:所有activity的基类
@@ -33,27 +47,42 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(SettingManager.getTheme(this))
+        super.setContentView(R.layout.activity_base)
+
         EventBus.getDefault().register(this)
         // 沉浸状态栏
         supportActionBar?.hide()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window = window
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
+            window.apply {
+                clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+                decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // 隐藏导航栏
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+                addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                statusBarColor = Color.TRANSPARENT
+                navigationBarColor = run {
+                    val value = TypedValue()
+                    theme.resolveAttribute(R.attr.colorPrimary,value,true)
+                    value.data
+                }
+            }
         }
 
         // 滑动返回
-        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+        swipeBackLayout.apply {
+            setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+            setEnableGesture(SettingManager.getSwipeBackState(this@BaseActivity))
+        }
 
-        // 是否启用滑动返回
-        swipeBackLayout.setEnableGesture(SettingManager.getSwipeBackState(this))
+        initDrawLayout()
+
+        onUserHeaderChanged(UserHeaderChanged())
+
     }
 
+    override fun setContentView(layoutResID: Int) {
+        layoutInflater.inflate(layoutResID, base_content, true)
+    }
 
     // 更换主题
     @Subscribe
@@ -67,6 +96,22 @@ abstract class BaseActivity : SwipeBackActivity() {
         setSwipeBackEnable(msg.state)
     }
 
+    // 用户头像发生了变化
+    @Subscribe
+    open fun onUserHeaderChanged(msg: UserHeaderChanged) {
+        val path = "$externalCacheDir${File.separator}${NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB}"
+        val bitmap = if (File(path).exists()) {
+            BitmapFactory.decodeFile(path)
+        } else {
+            BitmapFactory.decodeResource(resources, R.drawable.ic_launcher)
+        }
+        with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
+            paint.isAntiAlias = true
+            cornerRadius = Math.max(bitmap.width.toFloat(), bitmap.height.toFloat())
+            drawer_header.setImageDrawable(this)
+        }
+    }
+
     protected open fun initBaseViews() {
         findViewById(R.id.img_back).setOnClickListener { finish() }
     }
@@ -78,17 +123,9 @@ abstract class BaseActivity : SwipeBackActivity() {
         textView.text = s
     }
 
-    // 设置副标题
-    protected fun setSubTitle(s: String) {
-        val view = findViewById(R.id.title_bar)
-        val textView = view.findViewById(R.id.sub_title) as TextView
-        textView.visibility = View.VISIBLE
-        textView.text = s
-    }
-
-    // 隐藏副标题
-    protected fun hideSubTitle(){
-        sub_title.visibility = View.GONE
+    // 隐藏主标题
+    protected fun hideTitleBar() {
+        title_bar.visibility = View.GONE
     }
 
     // 隐藏软键盘
@@ -128,9 +165,64 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
     }
 
+    // 展示吐司
+    protected fun showToast(msg:String){
+        runOnUiThread {
+            Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         EventBus.getDefault().unregister(this)
+    }
+
+    protected fun startActivity(cls: Class<*>) {
+        draw_layout.closeDrawers()
+        startActivity(Intent(this, cls))
+    }
+
+    // 初始化侧边栏
+    private fun initDrawLayout() {
+
+        text_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
+
+        text_beauty.setOnClickListener { startActivity(BeautyActivity::class.java) }
+
+        text_compass.setOnClickListener { startActivity(CompassActivity::class.java) }
+
+        text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
+
+        text_express.setOnClickListener { startActivity(ExpressActivity::class.java) }
+
+        text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
+
+        text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
+
+        text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
+
+        text_zfb.setOnClickListener { zfb() }
+
+        text_mian.setOnClickListener { startActivity(MainActivity::class.java) }
+
+        text_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
+
+    }
+
+    // 跳转到支付宝红包页面
+    fun zfb() {
+        val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
+        clipBoard.text = "i4B6BP11Xt"
+        try {
+            val packageManager = this.applicationContext.packageManager
+            val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")
+            startActivity(intent)
+        } catch (e: Exception) {
+            val url = "https://ds.alipay.com/?from=mobileweb"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
     }
 
 }

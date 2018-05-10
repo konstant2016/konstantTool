@@ -40,40 +40,31 @@ object ExpressManager {
 
     //更新物流数据
     fun updateExpress(orderNo: String, company: String?, remark: String?, state: String?) {
-        mExpressList.forEach {
-            if (it.orderNo == orderNo) {
-                if ((company != null)) {
-                    it.company = company
-                }
-                if (remark != null) {
-                    it.remark = remark
-                }
-                if ((state != null)) {
-                    it.state = state
-                }
+        mExpressList.forEach { express ->
+            if (express.orderNo == orderNo) {
+                company?.let { express.company = company }
+                remark?.let { express.remark = remark }
+                state?.let { express.state = state }
             }
         }
     }
 
     // 删除物流数据
-    fun deleteExpress(data: ExpressData) {
-        mExpressList.remove(data)
-    }
-
-    // 删除物流数据
-    fun deleteExpress(orderNo: String) {
-        var exp: ExpressData? = null
-        mExpressList.forEach {
-            if (orderNo == it.orderNo)
-                exp = it
+    fun deleteExpress(data: ExpressData? = null, orderNo: String = "") {
+        var exp = ExpressData()
+        if (data != null) {
+            exp = data
+        }
+        if (orderNo != ""){
+            exp.orderNo = orderNo
         }
         mExpressList.remove(exp)
     }
 
     // 添加新的物流
     fun addExpress(orderNo: String, company: String?, remark: String?, state: String?) {
-        mExpressList.forEach { if (it.orderNo == orderNo) return }
-        mExpressList.add(ExpressData(company, orderNo, remark ?: "保密物件", state ?: "暂无信息"))
+        val expressData = ExpressData(company, orderNo, remark ?: "保密物件", state ?: "暂无信息")
+        if (!mExpressList.contains(expressData)) mExpressList.add(expressData)
     }
 
 }

@@ -28,9 +28,10 @@ class LookPictureActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         mViewPager = ViewPager(this)
-        val params = ViewGroup.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
-        mViewPager.layoutParams = params
-        mViewPager.setBackgroundColor(Color.BLACK)
+                .apply {
+                    layoutParams = ViewGroup.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+                    setBackgroundColor(Color.BLACK)
+                }
         setContentView(mViewPager)
 
         swipeBackLayout.setEnableGesture(false)

@@ -1,14 +1,12 @@
 package com.konstant.tool.lite.server
 
-import android.content.Context
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.server.request.ExpressRequest
-import com.konstant.tool.lite.server.request.MovieListRequest
 import com.konstant.tool.lite.server.request.TranslateRequest
 import com.konstant.tool.lite.server.request.WeatherRequest
 import com.konstant.tool.lite.util.MD5
-import com.konstant.tool.lite.util.NetworkUtil
-import com.konstant.tool.lite.util.UrlConstant
+import com.konstant.tool.lite.server.net.NetworkUtil
+import com.konstant.tool.lite.server.net.UrlConstant
 
 /**
  * 描述:统一的访问服务器工具

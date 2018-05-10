@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/title_layout" />
-
     <ListView
         android:divider="@null"
         android:id="@+id/listview_express"

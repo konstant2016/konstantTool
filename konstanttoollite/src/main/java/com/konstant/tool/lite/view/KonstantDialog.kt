@@ -16,6 +16,7 @@ import com.konstant.tool.lite.R
 
 class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog) {
 
+    private var hideNavigation = false
     private var message: String = ""
     private var view: View? = null           // 内部填充的布局
 
@@ -52,6 +53,9 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     // 根据builder创建dialog
     fun createDialog() {
         root = LayoutInflater.from(context).inflate(R.layout.layout_dialog_konstant, null)
+        if (hideNavigation){
+            root.findViewById(R.id.layout_navigation).visibility = View.GONE
+        }
         child = root.findViewById(R.id.layout_view) as RelativeLayout
 
         root.findViewById(R.id.btn_confirm).setOnClickListener {
@@ -79,15 +83,21 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
         showDialog()
     }
 
+    // 隐藏确认和取消按钮
+    fun hideNavigation():KonstantDialog{
+        hideNavigation = true
+        return this
+    }
+
     private fun showDialog() {
-        window.setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL)
-        window.decorView.setPadding(0, 0, 0, 0)
-        val params = window.attributes
-        params.width = WindowManager.LayoutParams.MATCH_PARENT
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT
-        window.attributes = params
-        window.setWindowAnimations(R.style.popwin_anim_style)
-        show()
+        window.apply {
+            setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL)
+            decorView.setPadding(0, 0, 0, 0)
+            attributes.width = WindowManager.LayoutParams.MATCH_PARENT
+            attributes.height = WindowManager.LayoutParams.WRAP_CONTENT
+            setWindowAnimations(R.style.popwin_anim_style)
+            show()
+        }
     }
 
     override fun dismiss() {

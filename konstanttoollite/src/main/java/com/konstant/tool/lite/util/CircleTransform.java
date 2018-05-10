@@ -8,7 +8,10 @@ import android.graphics.Paint;
 import com.squareup.picasso.Transformation;
 
 /**
- * Created by konstant on 2018/4/5.
+ * 描述:裁剪圆形图片
+ * 创建人:菜籽
+ * 创建时间:2018/4/30 上午1:52
+ * 备注:
  */
 
 public class CircleTransform implements Transformation {

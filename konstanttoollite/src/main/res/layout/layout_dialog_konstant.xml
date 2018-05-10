@@ -16,9 +16,9 @@
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="这是message"
+        android:text="这是message这是message"
         android:textSize="15sp" />
 
     <RelativeLayout
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"/>
 
     <LinearLayout
+        android:id="@+id/layout_navigation"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"

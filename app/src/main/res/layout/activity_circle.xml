@@ -13,7 +13,7 @@
         android:layout_height="330dp"
         android:orientation="vertical">
 
-        <com.konstant.konstanttools.views.CircleProgress
+        <com.konstant.tool.views.CircleProgress
             android:id="@+id/mProgress"
             app:shadowColor="#30000000"
             app:shadowLineWidth="30dp"

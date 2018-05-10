@@ -14,3 +14,6 @@ class ThemeChanged
 
 // 物流状态发生变化
 class ExpressChanged
+
+// 用户头像发生变化
+class UserHeaderChanged

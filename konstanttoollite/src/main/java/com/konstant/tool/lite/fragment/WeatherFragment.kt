@@ -23,8 +23,8 @@ import com.konstant.tool.lite.eventbusparam.TitleChanged
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.LocationCIDrResponse
 import com.konstant.tool.lite.server.response.Weather360Response
-import com.konstant.tool.lite.util.KeyConstant
-import com.konstant.tool.lite.util.UrlConstant
+import com.konstant.tool.lite.server.net.KeyConstant
+import com.konstant.tool.lite.server.net.UrlConstant
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
@@ -151,7 +151,7 @@ class WeatherFragment : BaseFragment() {
                 stopRefreshAnim();return@locationToCID
             }
             val response = JSON.parseObject(String(data).replace("$", ""), LocationCIDrResponse::class.java)
-            mDirectCode = response.heWeather6[0].basic.cid.replace("CN", "")
+            mDirectCode = response.heWeather6[0]?.basic?.cid?.replace("CN", "")?:""
             Log.d("地区编号", mDirectCode)
             LocalCountryManager.setCityCode(mDirectCode)
             requestData(mDirectCode)

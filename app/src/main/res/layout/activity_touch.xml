@@ -5,7 +5,7 @@
     android:gravity="center_horizontal"
     android:layout_height="match_parent">
 
-    <com.konstant.konstanttools.views.CustomTouchView
+    <com.konstant.tool.views.CustomTouchView
         android:layout_marginTop="20dp"
         android:id="@+id/touch"
         android:layout_width="150dp"

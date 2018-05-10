@@ -15,7 +15,7 @@ import java.util.concurrent.Executors
 object LocalCountryManager {
 
     // 本地保存的城市列表
-    private val mCityList = ArrayList<LocalCountryData>()
+    private val mCityList = ArrayList<LocalCountry>()
 
     // 当前位置的cityCode
     private var mCityCode = ""
@@ -25,7 +25,7 @@ object LocalCountryManager {
         mCityCode = code ?: ""
         val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY)
         if (s != null) {
-            val array = JSON.parseArray(s, LocalCountryData::class.java)
+            val array = JSON.parseArray(s, LocalCountry::class.java)
             mCityList.addAll(array)
         }
     }
@@ -39,19 +39,19 @@ object LocalCountryManager {
     }
 
     // 添加城市
-    fun addCity(cityCode: String, cityName: String) {
-        val countryData = LocalCountryData(cityCode, cityName);
-        if (mCityList.contains(countryData)) return
-        mCityList.add(countryData)
+    fun addCity(country: LocalCountry) {
+        if (!mCityList.contains(country)) {
+            mCityList.add(country)
+        }
     }
 
     // 删除城市
-    fun deleteCity(direct: LocalCountryData): Boolean {
-        return mCityList.remove(direct)
+    fun deleteCity(country: LocalCountry) {
+        mCityList.remove(country)
     }
 
     // 读取城市列表
-    fun readCityList(): ArrayList<LocalCountryData> = mCityList
+    fun readCityList(): ArrayList<LocalCountry> = mCityList
 
     // 保存cityCode
     fun setCityCode(cityCode: String) {
@@ -60,5 +60,6 @@ object LocalCountryManager {
 
     // 读取cityCode
     fun getCityCode() = mCityCode
+
 
 }

@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.mylhyl.zxing.scanner.decode.QRDecode
@@ -43,7 +42,7 @@ class QRScanActivity : BaseActivity() {
         // 二维码扫描结果
         layout_scan.setOnScannerCompletionListener { rawResult, parsedResult, _ ->
             if (rawResult == null) {
-                Toast.makeText(this, "未发现二维码", Toast.LENGTH_SHORT).show()
+                showToast("未发现二维码")
                 return@setOnScannerCompletionListener
             }
             onScanResult(parsedResult.toString())
@@ -73,7 +72,7 @@ class QRScanActivity : BaseActivity() {
                     layout_scan.restartPreviewAfterDelay(500)
                     layout_scan.onResume()
                 }
-                .onDenied { Toast.makeText(this, "需要摄像头权限用以扫描二维码", Toast.LENGTH_SHORT).show() }
+                .onDenied { showToast("需要摄像头权限用以扫描二维码") }
                 .start()
     }
 
@@ -104,7 +103,7 @@ class QRScanActivity : BaseActivity() {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, data?.data)
             QRDecode.decodeQR(bitmap) { rawResult, parsedResult, _ ->
                 if (rawResult == null) {
-                    Toast.makeText(this, "未发现二维码", Toast.LENGTH_SHORT).show()
+                    showToast("未发现二维码")
                     return@decodeQR
                 }
                 onScanResult(parsedResult.toString())
