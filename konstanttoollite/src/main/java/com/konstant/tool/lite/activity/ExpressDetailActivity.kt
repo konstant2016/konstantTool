@@ -6,7 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.EditText
+import android.widget.PopupWindow
+import android.widget.Spinner
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterExpressDetail
@@ -187,7 +190,7 @@ class ExpressDetailActivity : BaseActivity() {
                 .addView(view)
                 .setPositiveListener {
                     if (TextUtils.isEmpty(edit.text)) {
-                        Toast.makeText(this, "记得输入运单号哦", Toast.LENGTH_SHORT).show()
+                        showToast("记得输入运单号哦")
                         return@setPositiveListener
                     }
                     it.dismiss()
@@ -243,7 +246,7 @@ class ExpressDetailActivity : BaseActivity() {
                 .setPositiveListener {
                     it.dismiss()
                     if (TextUtils.isEmpty(edit.text)) {
-                        Toast.makeText(this, "记得输入备注哦", Toast.LENGTH_SHORT).show()
+                        showToast("记得输入备注哦")
                         return@setPositiveListener
                     }
                     mRemark = edit.text.toString()

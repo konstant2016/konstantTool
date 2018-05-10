@@ -4,17 +4,19 @@ import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.activity.*
 import com.konstant.tool.lite.data.NameConstant
@@ -22,8 +24,6 @@ import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.ThemeChanged
 import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
-import com.konstant.tool.lite.util.CircleTransform
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -32,11 +32,6 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import java.io.File
-import android.opengl.ETC1.getHeight
-import android.opengl.ETC1.getWidth
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
-import android.widget.ImageView
 
 
 /**
@@ -58,22 +53,26 @@ abstract class BaseActivity : SwipeBackActivity() {
         // 沉浸状态栏
         supportActionBar?.hide()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window = window
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
+            window.apply {
+                clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+                decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // 隐藏导航栏
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+                addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                statusBarColor = Color.TRANSPARENT
+                navigationBarColor = run {
+                    val value = TypedValue()
+                    theme.resolveAttribute(R.attr.colorPrimary,value,true)
+                    value.data
+                }
+            }
         }
 
         // 滑动返回
-        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
-
-        // 是否启用滑动返回
-        val state = SettingManager.getSwipeBackState(this)
-        swipeBackLayout.setEnableGesture(state)
+        swipeBackLayout.apply {
+            setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+            setEnableGesture(SettingManager.getSwipeBackState(this@BaseActivity))
+        }
 
         initDrawLayout()
 
@@ -100,21 +99,17 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 用户头像发生了变化
     @Subscribe
     open fun onUserHeaderChanged(msg: UserHeaderChanged) {
-        val path = "$externalCacheDir/${NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB}"
-        if (File(path).exists()) {
-            val bitmap = BitmapFactory.decodeFile(path)
-            val circleDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
-            circleDrawable.paint.isAntiAlias = true
-            circleDrawable.cornerRadius = Math.max(bitmap.width.toFloat(), bitmap.height.toFloat())
-            drawer_header.setImageDrawable(circleDrawable)
+        val path = "$externalCacheDir${File.separator}${NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB}"
+        val bitmap = if (File(path).exists()) {
+            BitmapFactory.decodeFile(path)
         } else {
-            val bitmap = BitmapFactory.decodeResource (resources, R.drawable.ic_launcher);
-            val circleDrawable = RoundedBitmapDrawableFactory.create (getResources(), bitmap);
-            circleDrawable.getPaint().setAntiAlias(true);
-            circleDrawable.setCornerRadius(Math.max(bitmap.getWidth().toFloat(), bitmap.getHeight().toFloat()));
-            drawer_header.setImageDrawable(circleDrawable);
+            BitmapFactory.decodeResource(resources, R.drawable.ic_launcher)
         }
-
+        with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
+            paint.isAntiAlias = true
+            cornerRadius = Math.max(bitmap.width.toFloat(), bitmap.height.toFloat())
+            drawer_header.setImageDrawable(this)
+        }
     }
 
     protected open fun initBaseViews() {
@@ -167,6 +162,13 @@ abstract class BaseActivity : SwipeBackActivity() {
                 //3、不可见区域小于屏幕高度1/4时,说明键盘隐藏了，把界面下移，移回到原有高度
                 main.scrollTo(0, 0)
             }
+        }
+    }
+
+    // 展示吐司
+    protected fun showToast(msg:String){
+        runOnUiThread {
+            Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
     }
 

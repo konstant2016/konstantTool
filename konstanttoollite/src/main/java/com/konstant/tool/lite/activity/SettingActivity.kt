@@ -59,7 +59,7 @@ class SettingActivity : BaseActivity() {
         }
 
         layout_swipe.setOnClickListener {
-            btn_switch.isChecked = !btn_switch.isChecked
+            btn_switch?.isChecked = !btn_switch.isChecked
         }
 
         layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }
@@ -68,19 +68,22 @@ class SettingActivity : BaseActivity() {
     }
 
     private fun onSwitchEnable() {
-        KonstantDialog(this)
-                .setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
-                // 取消
-                .setNegativeListener {
-                    it.dismiss()
-                    btn_switch.isChecked = false
-                }
-                // 确认
-                .setPositiveListener {
-                    it.dismiss()
-                    btn_switch.isChecked = true
-                }
-                .createDialog()
+        with(KonstantDialog(this)) {
+            setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
+            // 取消
+            setNegativeListener {
+                it.dismiss()
+                btn_switch?.isChecked = false
+            }
+            // 确认
+            setPositiveListener {
+                it.dismiss()
+                btn_switch?.isChecked = true
+            }
+            setCanceledOnTouchOutside(false)
+            createDialog()
+        }
+
     }
 
     // 头像选择
@@ -99,9 +102,10 @@ class SettingActivity : BaseActivity() {
         // 相册
         view.findViewById(R.id.text_photo).setOnClickListener {
             dialog.dismiss()
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-            startActivityForResult(intent, PHOTO_REQUEST)
+            with(Intent(Intent.ACTION_PICK)) {
+                setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+                startActivityForResult(this, PHOTO_REQUEST)
+            }
         }
         // 恢复默认
         view.findViewById(R.id.text_default).setOnClickListener {
@@ -109,7 +113,7 @@ class SettingActivity : BaseActivity() {
             File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB).delete()
             EventBus.getDefault().post(UserHeaderChanged())
         }
-
+        // 显示dialog
         dialog.hideNavigation()
                 .addView(view)
                 .createDialog()
@@ -139,36 +143,29 @@ class SettingActivity : BaseActivity() {
     // 调用系统中自带的图片剪裁
     private fun clipPhoto(uri: Uri) {
         val cropPhoto = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB)
-        try {
-            if (cropPhoto.exists()) {
-                cropPhoto.delete()
-            }
+        if (cropPhoto.exists()) {
+            cropPhoto.delete()
             cropPhoto.createNewFile()
-        } catch (e: IOException) {
-            e.printStackTrace()
         }
-        val cropImageUri = Uri.fromFile(cropPhoto)
-        val intent = Intent("com.android.camera.action.CROP")
-        intent.setDataAndType(uri, "image/*")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) //添加这一句表示对目标应用临时授权该Uri所代表的文件
+        with(Intent("com.android.camera.action.CROP")) {
+            setDataAndType(uri, "image/*")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
+            putExtra("crop", "true")
+            putExtra("scale", true)
+
+            putExtra("aspectX", 1)
+            putExtra("aspectY", 1)
+
+            //输出的宽高
+            putExtra("outputX", 300)
+            putExtra("outputY", 300)
+
+            putExtra("return-data", false)
+            putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cropPhoto))
+            putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString())
+            putExtra("noFaceDetection", true) // no face detection
+            startActivityForResult(this, PHOTO_CLIP)
         }
-        // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
-        intent.putExtra("crop", "true")
-        intent.putExtra("scale", true)
-
-        intent.putExtra("aspectX", 1)
-        intent.putExtra("aspectY", 1)
-
-        //输出的宽高
-
-        intent.putExtra("outputX", 300)
-        intent.putExtra("outputY", 300)
-
-        intent.putExtra("return-data", false)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, cropImageUri)
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString())
-        intent.putExtra("noFaceDetection", true) // no face detection
-        startActivityForResult(intent, PHOTO_CLIP)
     }
 }

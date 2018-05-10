@@ -2,7 +2,6 @@ package com.konstant.tool.lite.activity
 
 import android.Manifest
 import android.os.Bundle
-import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.DeviceInfoUtil
@@ -31,7 +30,7 @@ class DeviceInfoActivity : BaseActivity() {
     private fun judgePermission() {
         AndPermission.with(this)
                 .permission(Manifest.permission.READ_PHONE_STATE)
-                .onDenied { Toast.makeText(this, "权限申请已被拒绝", Toast.LENGTH_SHORT).show() }
+                .onDenied { showToast("权限申请已被拒绝") }
                 .onGranted { readDeviceInfo() }
                 .start()
     }

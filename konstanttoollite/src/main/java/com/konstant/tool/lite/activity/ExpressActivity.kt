@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterExpress
 import com.konstant.tool.lite.base.BaseActivity
@@ -127,7 +125,7 @@ class ExpressActivity : BaseActivity() {
                         remark = et_remark.text.toString()
                     }
                     if (TextUtils.isEmpty(et_num.text)) {
-                        Toast.makeText(this, "记得输入运单号哦", Toast.LENGTH_SHORT).show()
+                        showToast("记得输入运单号哦")
                         return@setPositiveListener
                     }
                     it.dismiss()

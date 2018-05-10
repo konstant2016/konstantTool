@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Toast
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.server.Service
-import com.konstant.tool.lite.server.response.TranslateResponse
 import com.konstant.tool.lite.server.net.KeyConstant
 import com.konstant.tool.lite.server.net.UrlConstant
+import com.konstant.tool.lite.server.response.TranslateResponse
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 
@@ -85,7 +84,7 @@ class TranslateActivity : BaseActivity() {
         btn_translate.setOnClickListener {
             hideSoftKeyboard()
             if (TextUtils.isEmpty(et_query.text)) {
-                Toast.makeText(this, "你想翻译啥？", Toast.LENGTH_SHORT).show()
+                showToast("你想翻译啥？")
             } else {
                 doTranslate(et_query.text.toString())
             }

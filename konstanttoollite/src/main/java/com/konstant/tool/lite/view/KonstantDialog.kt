@@ -90,14 +90,14 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     }
 
     private fun showDialog() {
-        window.setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL)
-        window.decorView.setPadding(0, 0, 0, 0)
-        val params = window.attributes
-        params.width = WindowManager.LayoutParams.MATCH_PARENT
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT
-        window.attributes = params
-        window.setWindowAnimations(R.style.popwin_anim_style)
-        show()
+        window.apply {
+            setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL)
+            decorView.setPadding(0, 0, 0, 0)
+            attributes.width = WindowManager.LayoutParams.MATCH_PARENT
+            attributes.height = WindowManager.LayoutParams.WRAP_CONTENT
+            setWindowAnimations(R.style.popwin_anim_style)
+            show()
+        }
     }
 
     override fun dismiss() {
