@@ -52,14 +52,14 @@ class SettingActivity : BaseActivity() {
 
         btn_switch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                onSwitchEnable()
+                onSwitchEnable(isChecked)
             }
             EventBus.getDefault().post(SwipeBackState(isChecked))
             SettingManager.setSwipeBackState(this, isChecked)
         }
 
         layout_swipe.setOnClickListener {
-            btn_switch?.isChecked = !btn_switch.isChecked
+            btn_switch.isChecked = !btn_switch.isChecked
         }
 
         layout_about.setOnClickListener { startActivity(Intent(this, AboutActivity::class.java)) }
@@ -67,23 +67,23 @@ class SettingActivity : BaseActivity() {
         layout_header.setOnClickListener { headerSelector() }
     }
 
-    private fun onSwitchEnable() {
-        with(KonstantDialog(this)) {
-            setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
-            // 取消
-            setNegativeListener {
-                it.dismiss()
-                btn_switch?.isChecked = false
-            }
-            // 确认
-            setPositiveListener {
-                it.dismiss()
-                btn_switch?.isChecked = true
-            }
-            setCanceledOnTouchOutside(false)
-            createDialog()
+    private fun onSwitchEnable(isChecked: Boolean) {
+        val dialog = KonstantDialog(this)
+        dialog.setOnDismissListener {
+            if (isChecked) btn_switch.isChecked = false
         }
-
+        dialog.setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
+                // 取消
+                .setNegativeListener {
+                    it.dismiss()
+                    btn_switch.isChecked = false
+                }
+                // 确认
+                .setPositiveListener {
+                    it.dismiss()
+                    btn_switch.isChecked = true
+                }
+                .createDialog()
     }
 
     // 头像选择
