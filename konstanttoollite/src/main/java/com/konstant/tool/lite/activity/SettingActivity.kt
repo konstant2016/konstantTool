@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
@@ -15,14 +14,11 @@ import com.konstant.tool.lite.data.NameConstant
 import com.konstant.tool.lite.data.SettingManager
 import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
-import com.konstant.tool.lite.util.FileUtils
 import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
-import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.IOException
 
 
 /**
@@ -126,6 +122,7 @@ class SettingActivity : BaseActivity() {
             dialog.dismiss()
             File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB).delete()
             EventBus.getDefault().post(UserHeaderChanged())
+            showToast("已恢复默认")
         }
         // 显示dialog
         dialog.hideNavigation()
@@ -150,6 +147,7 @@ class SettingActivity : BaseActivity() {
             }
             PHOTO_CLIP -> {
                 EventBus.getDefault().post(UserHeaderChanged())
+                showToast("设置成功")
             }
         }
     }

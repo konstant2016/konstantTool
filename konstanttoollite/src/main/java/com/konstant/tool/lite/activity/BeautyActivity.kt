@@ -39,37 +39,40 @@ class BeautyActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
 
+        recycler_beauty.apply {
+            layoutManager = LinearLayoutManager(this@BeautyActivity)
+            addItemDecoration(DividerItemDecoration(this@BeautyActivity, DividerItemDecoration.VERTICAL))
+            adapter = mAdapter
+        }
+
         // 刷新监听
-        refresh_layout.setHeaderView(BezierLayout(this))
-        refresh_layout.setOnRefreshListener(object : RefreshListenerAdapter() {
-            override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
-                isPullDown = true
-                mPageIndex -= 2
-                getData()
-            }
+        refresh_layout.apply {
+            setHeaderView(BezierLayout(this@BeautyActivity))
+            setOnRefreshListener(object : RefreshListenerAdapter() {
+                override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
+                    isPullDown = true
+                    mPageIndex -= 2
+                    getData()
+                }
 
-            override fun onLoadMore(refreshLayout: TwinklingRefreshLayout?) {
-                isPullDown = false
-                mPageIndex += 2
-                getData()
-            }
-        })
-
-        recycler_beauty.layoutManager = LinearLayoutManager(this)
-        recycler_beauty.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        recycler_beauty.adapter = mAdapter
-
-        // 进来时就刷新
-        refresh_layout.startRefresh()
+                override fun onLoadMore(refreshLayout: TwinklingRefreshLayout?) {
+                    isPullDown = false
+                    mPageIndex += 2
+                    getData()
+                }
+            })
+            //启动刷新
+            startRefresh()
+        }
     }
 
 
     // 获取网络数据
     private fun getData() {
-        NetworkUtil.get(mBaseUrl + mPageIndex, "") { _, array ->
+        NetworkUtil.get(mBaseUrl + mPageIndex, "") { state, array ->
             val data = String(array)
             Log.i("MIUI图片", data)
-            if ((data.isEmpty() or (data.length < 150)) and !isDestroyed) {
+            if (!state or (data.isEmpty() or (data.length < 150)) and !isDestroyed) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()
                 getData()
                 return@get
