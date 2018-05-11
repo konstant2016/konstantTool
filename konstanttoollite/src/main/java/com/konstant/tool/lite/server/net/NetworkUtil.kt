@@ -42,7 +42,7 @@ object NetworkUtil {
     }
 
     // 发起get请求
-    fun get(url: String, param: String, callback: (state: Boolean, data: ByteArray) -> Unit) {
+    fun get(url: String, param: String="", callback: (state: Boolean, data: ByteArray) -> Unit) {
         val s = buildGetMethodUrl(param)
         Log.i("get请求参数", url + s)
         val request = Request.Builder()
@@ -61,7 +61,7 @@ object NetworkUtil {
                 if (!response.isSuccessful) {
                     callback(false, response.toString().toByteArray())
                 } else {
-                    callback(true, response.body()!!.string().toByteArray())
+                    callback(true, response.body()!!.bytes())
                 }
             }
         })

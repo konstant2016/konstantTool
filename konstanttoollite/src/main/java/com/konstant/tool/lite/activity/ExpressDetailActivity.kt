@@ -182,7 +182,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 修改物流单号
     private fun changeOrderNo() {
         mPop.dismiss()
-        val view = layoutInflater.inflate(R.layout.layout_input, null)
+        val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         val edit = view.findViewById(R.id.edit_input) as EditText
         edit.setText(mOrderNo)
         KonstantDialog(this)
@@ -207,7 +207,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 修改物流公司
     private fun changeCompany() {
         mPop.dismiss()
-        val view = LayoutInflater.from(this).inflate(R.layout.layout_spinner, null)
+        val view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_spinner, null)
 
         val spinner = view.findViewById(R.id.spinner_company) as Spinner
         spinner.adapter = KonstantArrayAdapter(this, R.layout.item_spinner_bg, coms)
@@ -237,7 +237,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 修改备注
     private fun changeRemark() {
         mPop.dismiss()
-        val view = layoutInflater.inflate(R.layout.layout_input, null)
+        val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         val edit = view.findViewById(R.id.edit_input) as EditText
         edit.setText(mRemark)
         KonstantDialog(this)

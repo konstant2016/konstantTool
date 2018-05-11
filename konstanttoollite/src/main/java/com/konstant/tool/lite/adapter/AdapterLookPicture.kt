@@ -3,7 +3,6 @@ package com.konstant.tool.lite.adapter
 import android.Manifest
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.os.Environment
 import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +10,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bm.library.PhotoView
 import com.konstant.tool.lite.activity.LookPictureActivity
+import com.konstant.tool.lite.util.FileUtils
 import com.konstant.tool.lite.view.KonstantDialog
 import com.squareup.picasso.Picasso
 import com.yanzhenjie.permission.AndPermission
-import java.io.File
-import java.io.FileOutputStream
 
 /**
  * 描述:看图页面的适配器
@@ -80,15 +78,9 @@ class AdapterLookPicture(val context: LookPictureActivity, val urlList: List<Str
 
     // 保存图片
     private fun savePicture(bitmap: Bitmap) {
-        val fileParent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-        val file = File(fileParent, "${System.currentTimeMillis()}.jpg")
-        val baos = FileOutputStream(file)
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos)
-        try {
-            baos.flush()
-            baos.close()
+        if (FileUtils.saveBitmap(bitmap, "${System.currentTimeMillis()}.jpg")) {
             showToast("保存成功")
-        }catch (ex:Exception){
+        } else {
             showToast("保存失败")
         }
     }

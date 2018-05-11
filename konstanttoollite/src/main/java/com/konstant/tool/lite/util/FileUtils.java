@@ -2,6 +2,8 @@ package com.konstant.tool.lite.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.Environment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -86,6 +88,36 @@ public class FileUtils {
         return new byte[0];
     }
 
+    // 保存图片到公共目录下
+    public synchronized static boolean saveBitmap(byte[] bytes, String name) {
+        File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File file = new File(directory, name);
+        try {
+            FileOutputStream stream = new FileOutputStream(file);
+            stream.write(bytes);
+            stream.flush();
+            stream.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public synchronized static boolean saveBitmap(Bitmap bitmap, String name) {
+        File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File file = new File(directory, name);
+        FileOutputStream stream = null;
+        try {
+            stream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.flush();
+            stream.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     //********通过SharedPreference保存数据，保存路径为/data/data/包名/XX
     public static boolean saveDataWithSharedPreference(Context context, String key, String value) {

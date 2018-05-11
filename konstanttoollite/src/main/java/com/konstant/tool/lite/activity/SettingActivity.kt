@@ -93,7 +93,7 @@ class SettingActivity : BaseActivity() {
     // 头像选择
     private fun headerSelector() {
         val dialog = KonstantDialog(this)
-        val view = layoutInflater.inflate(R.layout.layout_header_selector, null)
+        val view = layoutInflater.inflate(R.layout.layout_dialog_header_selector, null)
         // 拍照
         view.findViewById(R.id.text_camera).setOnClickListener {
             dialog.dismiss()

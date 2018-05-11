@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso
 
 class AdapterBeauty(val urls: ArrayList<String>, val context: Context) : RecyclerView.Adapter<AdapterBeauty.NormalHolder>() {
 
+    private val imgList = ArrayList<ImageView>()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NormalHolder {
 
@@ -41,8 +42,11 @@ class AdapterBeauty(val urls: ArrayList<String>, val context: Context) : Recycle
             intent.putExtra("index", position)
             context.startActivity(intent)
         }
+        imgList.add(holder.view)
     }
 
+
+    fun getImgList() = imgList
 
     // 默认的holder
     class NormalHolder(val view: ImageView) : RecyclerView.ViewHolder(view)

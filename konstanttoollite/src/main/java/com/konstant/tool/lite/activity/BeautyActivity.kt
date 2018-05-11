@@ -1,18 +1,28 @@
 package com.konstant.tool.lite.activity
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterBeauty
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.server.net.NetworkUtil
+import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.view.KonstantDialog
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
+import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_beauty.*
+import kotlinx.android.synthetic.main.title_layout.*
 import org.json.JSONObject
+import java.util.concurrent.Executors
 
 /**
  * 描述:美图列表页
@@ -21,6 +31,7 @@ import org.json.JSONObject
  * 备注:
  */
 
+@SuppressLint("MissingSuperCall")
 class BeautyActivity : BaseActivity() {
 
     private val mUrlList = ArrayList<String>()
@@ -28,6 +39,7 @@ class BeautyActivity : BaseActivity() {
     private var mPageIndex = (Math.random() * 1000 + 2807480).toInt()
     private var isPullDown = true
     private val mAdapter by lazy { AdapterBeauty(mUrlList, this) }
+    private val dialog by lazy { KonstantDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +51,7 @@ class BeautyActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
 
+        // recyclerView
         recycler_beauty.apply {
             layoutManager = LinearLayoutManager(this@BeautyActivity)
             addItemDecoration(DividerItemDecoration(this@BeautyActivity, DividerItemDecoration.VERTICAL))
@@ -63,6 +76,19 @@ class BeautyActivity : BaseActivity() {
             })
             //启动刷新
             startRefresh()
+        }
+
+        img_more.apply {
+            visibility = View.VISIBLE
+            setOnClickListener {
+                KonstantDialog(this@BeautyActivity)
+                        .setMessage("批量保存到本地？")
+                        .setPositiveListener {
+                            it.dismiss()
+                            requestPermission()
+                        }
+                        .createDialog()
+            }
         }
     }
 
@@ -108,6 +134,57 @@ class BeautyActivity : BaseActivity() {
             }
             mUrlList.addAll(urlList)
             mAdapter.notifyDataSetChanged()
+        }
+    }
+
+    // 申请权限
+    private fun requestPermission() {
+        AndPermission.with(this)
+                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .onDenied { showToast("你拒绝了权限申请") }
+                .onGranted {
+                    beachSavePic()
+                }
+                .start()
+    }
+
+    // 批量保存图片
+    private fun beachSavePic() {
+
+        val view = layoutInflater.inflate(R.layout.layout_dialog_progress, null)
+        val text = view.findViewById(R.id.text_progress) as TextView
+        val progress = view.findViewById(R.id.progress_horizontal) as ProgressBar
+        progress.max = mUrlList.size
+
+        dialog.apply {
+            hideNavigation()
+            addView(view)
+            createDialog()
+        }
+
+        Executors.newSingleThreadExecutor().execute {
+            mUrlList.forEachIndexed { index, s ->
+                text.text = "正在保存中(${index + 1}/${mUrlList.size})"
+                progress.progress = index + 1
+                Thread.sleep(100)
+                val split = s.split("/")
+                val name = split[split.size - 1]
+                NetworkUtil.get(s) { _, data ->
+                    FileUtils.saveBitmap(data, name)
+                }
+                if (index == mUrlList.size - 1) {
+                    runOnUiThread { dialog.dismiss() }
+                    showToast("保存完毕")
+                }
+            }
+        }
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        if (dialog.isShowing) {
+            dialog.dismiss()
         }
     }
 }
