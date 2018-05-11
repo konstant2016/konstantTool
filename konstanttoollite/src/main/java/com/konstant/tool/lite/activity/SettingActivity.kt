@@ -1,5 +1,6 @@
 package com.konstant.tool.lite.activity
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -16,6 +17,7 @@ import com.konstant.tool.lite.eventbusparam.SwipeBackState
 import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
 import com.konstant.tool.lite.util.FileUtils
 import com.konstant.tool.lite.view.KonstantDialog
+import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
 import java.io.ByteArrayOutputStream
@@ -36,6 +38,8 @@ class SettingActivity : BaseActivity() {
     private val PHOTO_REQUEST = 2       // 相册
     private val PHOTO_CLIP = 3          // 裁剪
 
+    private var confirmPressed = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
@@ -52,7 +56,7 @@ class SettingActivity : BaseActivity() {
 
         btn_switch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                onSwitchEnable(isChecked)
+                onSwitchEnable()
             }
             EventBus.getDefault().post(SwipeBackState(isChecked))
             SettingManager.setSwipeBackState(this, isChecked)
@@ -67,10 +71,13 @@ class SettingActivity : BaseActivity() {
         layout_header.setOnClickListener { headerSelector() }
     }
 
-    private fun onSwitchEnable(isChecked: Boolean) {
+    private fun onSwitchEnable() {
         val dialog = KonstantDialog(this)
         dialog.setOnDismissListener {
-            if (isChecked) btn_switch.isChecked = false
+            if (!confirmPressed) {
+                btn_switch.isChecked = false
+            }
+            confirmPressed = false
         }
         dialog.setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
                 // 取消
@@ -80,8 +87,9 @@ class SettingActivity : BaseActivity() {
                 }
                 // 确认
                 .setPositiveListener {
-                    it.dismiss()
+                    confirmPressed = true
                     btn_switch.isChecked = true
+                    it.dismiss()
                 }
                 .createDialog()
     }
@@ -93,11 +101,17 @@ class SettingActivity : BaseActivity() {
         // 拍照
         view.findViewById(R.id.text_camera).setOnClickListener {
             dialog.dismiss()
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
-            val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
-            startActivityForResult(intent, CAMERA_REQUEST)
+            AndPermission.with(this)
+                    .permission(Manifest.permission.CAMERA)
+                    .onGranted {
+                        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
+                        val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+                        startActivityForResult(intent, CAMERA_REQUEST)
+                    }
+                    .onDenied { showToast("您拒绝了相机权限") }
+                    .start()
         }
         // 相册
         view.findViewById(R.id.text_photo).setOnClickListener {
