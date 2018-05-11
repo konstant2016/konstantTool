@@ -157,6 +157,8 @@ class BeautyActivity : BaseActivity() {
         progress.max = mUrlList.size
 
         dialog.apply {
+            setCanceledOnTouchOutside(false)
+            setCancelable(false)
             hideNavigation()
             addView(view)
             createDialog()

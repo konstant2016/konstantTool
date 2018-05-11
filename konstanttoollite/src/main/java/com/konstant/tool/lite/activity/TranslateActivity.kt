@@ -101,16 +101,20 @@ class TranslateActivity : BaseActivity() {
     // 调用接口进行翻译
     private fun doTranslate(string: String) {
         Service.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
-                KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { _, data ->
-            showTranslateResult(String(data))
+                KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { state, data ->
+            showTranslateResult(state,String(data))
         }
     }
 
     // 展示翻译结果
-    private fun showTranslateResult(string: String) {
+    private fun showTranslateResult(state:Boolean,string: String) {
         runOnUiThread {
+            if (!state) {
+                tv_result.text = "翻译出错"
+                return@runOnUiThread
+            }
             val result = JSON.parseObject(string, TranslateResponse::class.java)
-            if (result == null || result.trans_result.isEmpty()) {
+            if (result == null || result.trans_result == null || result.trans_result.size == 0) {
                 tv_result.text = "翻译出错"
                 return@runOnUiThread
             }
