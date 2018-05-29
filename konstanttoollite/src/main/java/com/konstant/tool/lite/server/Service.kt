@@ -34,12 +34,6 @@ object Service {
         NetworkUtil.get(url, request, callback)
     }
 
-    // 查询指定地址的天气
-    fun locationToCID(url: String, location: String, key: String, callback: (state: Boolean, array: ByteArray) -> Unit) {
-        val request = WeatherRequest(location, key)
-        val param = request.toString()
-        NetworkUtil.get(url, param, callback)
-    }
 
     // 查询天气
     fun queryWeather(directNo: String, callback: (state: Boolean, array: ByteArray) -> Unit) {

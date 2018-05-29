@@ -25,6 +25,7 @@ import com.konstant.tool.lite.server.response.LocationCIDrResponse
 import com.konstant.tool.lite.server.response.Weather360Response
 import com.konstant.tool.lite.server.net.KeyConstant
 import com.konstant.tool.lite.server.net.UrlConstant
+import com.konstant.tool.lite.server.other.China
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
@@ -70,7 +71,11 @@ class WeatherFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mDirectCode = arguments.getString(PARAM)
+        mDirectCode = arguments.getString(PARAM) ?: ""
+        if (mDirectCode.isEmpty()) {
+            needLocation = true
+            mDirectCode = LocalCountryManager.getCityCode()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -79,34 +84,33 @@ class WeatherFragment : BaseFragment() {
 
     override fun onLazyLoad() {
 
-        recycler_weather_hour.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-        recycler_weather_hour.adapter = mAdapterHour
+        recycler_weather_hour.apply {
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+            adapter = mAdapterHour
+        }
 
-        recycler_weather_day.isNestedScrollingEnabled = false
-        recycler_weather_day.layoutManager = LinearLayoutManager(activity)
-        recycler_weather_day.adapter = mAdapterDay
+        recycler_weather_day.apply {
+            isNestedScrollingEnabled = false
+            layoutManager = LinearLayoutManager(activity)
+            adapter = mAdapterDay
+        }
 
-        refresh_layout.setHeaderView(BezierLayout(activity))
-        refresh_layout.setEnableLoadmore(false)
-        refresh_layout.setOnRefreshListener(object : RefreshListenerAdapter() {
-            override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
-                if (mDirectCode.isEmpty()) {
-                    needLocation = true
-                    // 进来后判断是否为空，如果为空，则说明是第一个定位页面，去读取本地值
-                    mDirectCode = LocalCountryManager.getCityCode()
-                    // 读取到本地值后，如果为空，则进行定位
-                    if (mDirectCode.isEmpty()) {
+        refresh_layout.apply {
+            setHeaderView(BezierLayout(activity))
+            setEnableLoadmore(false)
+            setOnRefreshListener(object : RefreshListenerAdapter() {
+                override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
+                    if (mDirectCode.isEmpty()){
                         mLocationClient.startLocation()
-                    } else {
-                        // 如果不为空，则直接请求数据
+                    }else{
                         requestData(mDirectCode)
                     }
-                } else {
-                    requestData(mDirectCode)
                 }
-            }
-        })
+            })
+        }
+
         requestPermission()
+
     }
 
 
@@ -134,29 +138,40 @@ class WeatherFragment : BaseFragment() {
             if (it.errorCode != AMapLocation.LOCATION_SUCCESS) {
                 Toast.makeText(activity, "定位失败，请稍后重试", Toast.LENGTH_SHORT).show()
             } else {
-                Log.d("当前位置", "${it.longitude},${it.latitude}")
-                val param = "${it.district},${it.city}"
-                        .replace("省", "")
-                        .replace("市", "")
-                        .replace("区", "")
-                changeCid(param)
+                Log.d("当前位置", "${it.province},${it.city},${it.district}")
+                queryWeatherCode(it.province, it.city, it.district)
             }
         }
     }
 
-    // 转为城市CID
-    private fun changeCid(string: String) {
-        Service.locationToCID(UrlConstant.WEATHER_HEFENG_URL, string, KeyConstant.WEATHER_KEY) { state, data ->
-            if (!state) {
-                stopRefreshAnim();return@locationToCID
+    // 分析出当前城市 天气编号
+    private fun queryWeatherCode(province: String, city: String, direct: String) {
+        Log.d("当前位置", "$province,$city,$direct")
+
+        activity?.let { activity ->
+            val text = activity.assets.open("directdata.json").bufferedReader().readText()
+            val china = JSON.parseObject(text, China::class.java)
+            china.provinceList.map { prov ->
+                if (province.contains(prov.name)) {
+                    prov.cityList.map { cit ->
+                        if (city.contains(cit.name)) {
+                            cit.countyList.map { dir ->
+                                if (direct.contains(dir.name)) {
+                                    mDirectCode = dir.weatherCode
+                                    LocalCountryManager.setCityCode(mDirectCode)
+                                    requestData(mDirectCode)
+                                    return@map
+                                }
+                            }
+                            return@map
+                        }
+                    }
+                }
+                return@map
             }
-            val response = JSON.parseObject(String(data).replace("$", ""), LocationCIDrResponse::class.java)
-            mDirectCode = response.heWeather6[0]?.basic?.cid?.replace("CN", "")?:""
-            Log.d("地区编号", mDirectCode)
-            LocalCountryManager.setCityCode(mDirectCode)
-            requestData(mDirectCode)
         }
     }
+
 
     // 向服务器请求数据
     private fun requestData(location: String) {
@@ -195,7 +210,7 @@ class WeatherFragment : BaseFragment() {
             mAdapterDay.notifyDataSetChanged()
 
             // 更换父标题
-            mCurrentCity = "${result.area[0][0]}${result.area[2][0]}"
+            mCurrentCity = "${result.area[0][0]} ${result.area[2][0]}"
             if (isFragmentResume()) {
                 setActivityTitle(mCurrentCity)
             }
