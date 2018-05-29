@@ -27,12 +27,10 @@ import org.greenrobot.eventbus.Subscribe
 class WeatherActivity : BaseActivity() {
 
     private val mFragmentList = mutableListOf<Fragment>()
-    private var mSavedInstanceState: Bundle? = null
     private val mAdapter by lazy { AdapterWeatherFragment(mFragmentList,supportFragmentManager) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mSavedInstanceState = savedInstanceState
         setContentView(R.layout.activity_weather)
         setTitle("天气查询")
         initBaseViews()
@@ -52,6 +50,7 @@ class WeatherActivity : BaseActivity() {
 
         readyFragment()
     }
+
 
     private fun readyFragment() {
 
