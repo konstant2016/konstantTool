@@ -59,9 +59,9 @@ object NetworkUtil {
                 Log.d("response:net", response.networkResponse().toString())
                 Log.d("response:cache", response.cacheResponse().toString())
                 if (!response.isSuccessful) {
-                    callback(false, response.toString().toByteArray())
+                    callback(false, response.body()?.bytes()?: ByteArray(0))
                 } else {
-                    callback(true, response.body()!!.bytes())
+                    callback(true, response.body()?.bytes()?:ByteArray(0))
                 }
             }
         })

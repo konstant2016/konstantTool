@@ -96,19 +96,18 @@ class BeautyActivity : BaseActivity() {
     // 获取网络数据
     private fun getData() {
         NetworkUtil.get(mBaseUrl + mPageIndex, "") { state, array ->
-            val data = String(array)
-            Log.i("MIUI图片", data)
-            if (!state or (data.isEmpty() or (data.length < 150)) and !isDestroyed) {
+            Log.i("MIUI图片", String(array))
+            if (!state || array.size < 150) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()
                 getData()
                 return@get
             }
-            refreshUI(parseUrlList(data))
+            if (!isDestroyed) refreshUI(parseUrlList(String(array)))
         }
     }
 
     // 手动解析，整合数据
-    private fun parseUrlList(string: String): ArrayList<String> {
+    private fun parseUrlList(string: String): List<String> {
         val urlList = ArrayList<String>()
         val obj = JSONObject(string)
         val array = obj.optJSONArray("data")
@@ -123,7 +122,7 @@ class BeautyActivity : BaseActivity() {
     }
 
     // 刷新界面
-    private fun refreshUI(urlList: ArrayList<String>) {
+    private fun refreshUI(urlList: List<String>) {
         Log.i("beauty", "开始刷新界面")
         runOnUiThread {
             if (isPullDown) {
