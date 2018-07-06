@@ -42,36 +42,37 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:support-v4:25.3.1'
     testImplementation 'junit:junit:4.12'
-    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
     //  滑动返回
-    implementation 'com.alibaba:fastjson:1.2.44'
+    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
     // FAST JSON
-    implementation 'com.7heaven.widgets:segmentcontrol:1.17'
+    implementation 'com.alibaba:fastjson:1.2.44'
     // segmentcontrol分段控制控件
-    implementation 'fm.jiecao:jiecaovideoplayer:5.5.4'
+    implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     // 节操播放器
-    implementation 'com.amap.api:location:latest.integration'
+    implementation 'fm.jiecao:jiecaovideoplayer:5.5.4'
     // 高德定位
-    implementation 'com.mylhyl:zxingscanner:2.1.0'
+    implementation 'com.amap.api:location:latest.integration'
     // 二维码扫描
-    implementation 'com.bm.photoview:library:1.4.1'
+    implementation 'com.mylhyl:zxingscanner:2.1.0'
     // 图片查看控件
-    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问工具
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    // 环信
     implementation('com.google.android.gms:play-services-plus:11.8.0', {
         exclude group: 'org.apache.http'
     })
     // 环信
     implementation 'com.hyphenate:hyphenate-sdk:3.3.0'
-    // 环信
-    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     // 新的滚轮选择器
-    implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     // superRecyclerView
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
     // picasso图片加载控件
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     // 下拉刷新库
-    implementation 'com.jiechic.android.library:snappy-android:1.1.7'
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     // Snappy压缩库
+    implementation 'com.jiechic.android.library:snappy-android:1.1.7'
+
 }

@@ -212,7 +212,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 跳转到支付宝红包页面
     fun zfb() {
         val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
-        clipBoard.text = "i4B6BP11Xt"
+        clipBoard.text = "LMGGea11Mh"
         try {
             val packageManager = this.applicationContext.packageManager
             val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")

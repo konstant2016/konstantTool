@@ -61,7 +61,7 @@ class AdapterWeatherFragment(private val fragmentList: List<Fragment>, fm: Fragm
     }
 
 
-    // 取代直接返回position，用于识别是非为同一个fragment
+    // 取代直接返回position，用于识别是否为同一个fragment
     override fun getItemId(position: Int) = fragmentList[position].hashCode().toLong()
 
 

@@ -23,6 +23,7 @@ import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
+import java.util.*
 
 /**
  * 描述:物流详情页
