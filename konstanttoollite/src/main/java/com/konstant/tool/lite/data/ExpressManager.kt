@@ -2,7 +2,7 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
 /**
@@ -19,7 +19,7 @@ object ExpressManager {
 
     // 初始化的时候，读取本地保存的数据
     fun onCreate(context: Context) {
-        val temp = FileUtils.readFileFromInnerStorage(context, NameConstant.NAME_LOCAL_EXPRESS)
+        val temp = FileUtil.readFileFromCache(context, NameConstant.NAME_LOCAL_EXPRESS)
         if (temp.isNotEmpty()) {
             val array = JSON.parseArray(String(temp), ExpressData::class.java)
             mExpressList.addAll(array)
@@ -30,7 +30,7 @@ object ExpressManager {
     fun onDestroy(context: Context) {
         val json = JSON.toJSONString(mExpressList)
         Executors.newSingleThreadExecutor().execute {
-            FileUtils.saveFileToInnerStorage(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
+            FileUtil.saveFileToCache(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
         }
     }
 

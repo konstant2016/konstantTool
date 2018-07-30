@@ -11,7 +11,6 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.data.ExpressData
 import com.konstant.tool.lite.util.CircleTransform
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 /**
  * 描述:快递列表的适配器

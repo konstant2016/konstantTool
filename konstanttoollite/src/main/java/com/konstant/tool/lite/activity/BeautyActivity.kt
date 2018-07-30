@@ -13,7 +13,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterBeauty
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.server.net.NetworkUtil
-import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.util.FileUtil
 import com.konstant.tool.lite.view.KonstantDialog
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
@@ -150,6 +150,11 @@ class BeautyActivity : BaseActivity() {
     // 批量保存图片
     private fun beachSavePic() {
 
+        if (mUrlList.isEmpty()) {
+            showToast("图片列表为空哦~")
+            return
+        }
+
         val view = layoutInflater.inflate(R.layout.layout_dialog_progress, null)
         val text = view.findViewById(R.id.text_progress) as TextView
         val progress = view.findViewById(R.id.progress_horizontal) as ProgressBar
@@ -171,7 +176,7 @@ class BeautyActivity : BaseActivity() {
                 val split = s.split("/")
                 val name = split[split.size - 1]
                 NetworkUtil.get(s) { _, data ->
-                    FileUtils.saveBitmap(data, name)
+                    FileUtil.saveBitmapToAlbum(data, name = name)
                 }
                 if (index == mUrlList.size - 1) {
                     runOnUiThread { dialog.dismiss() }

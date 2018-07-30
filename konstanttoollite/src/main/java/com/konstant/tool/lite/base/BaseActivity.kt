@@ -54,7 +54,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         supportActionBar?.hide()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.apply {
-                clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+                clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                        or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
                 decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 //                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // 隐藏导航栏
                         or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
@@ -62,7 +63,7 @@ abstract class BaseActivity : SwipeBackActivity() {
                 statusBarColor = Color.TRANSPARENT
                 navigationBarColor = run {
                     val value = TypedValue()
-                    theme.resolveAttribute(R.attr.colorPrimary,value,true)
+                    theme.resolveAttribute(R.attr.colorPrimary, value, true)
                     value.data
                 }
             }
@@ -166,7 +167,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 展示吐司
-    protected fun showToast(msg:String){
+    protected fun showToast(msg: String) {
         runOnUiThread {
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }

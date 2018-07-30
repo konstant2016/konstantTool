@@ -2,7 +2,7 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
 /**
@@ -21,11 +21,10 @@ object LocalCountryManager {
     private var mCityCode = ""
 
     fun onCreate(context: Context) {
-        val code = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY_ID)
-        mCityCode = code ?: ""
-        val s = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY)
-        if (s != null) {
-            val array = JSON.parseArray(s, LocalCountry::class.java)
+        mCityCode = FileUtil.readDataFromSp(context, NameConstant.NAME_LOCAL_CITY_ID)
+        val s = FileUtil.readDataFromSp(context, NameConstant.NAME_LOCAL_CITY)
+        val array = JSON.parseArray(s, LocalCountry::class.java)
+        if (array != null && array.isNotEmpty()) {
             mCityList.addAll(array)
         }
     }
@@ -33,8 +32,8 @@ object LocalCountryManager {
     fun onDestroy(context: Context) {
         Executors.newSingleThreadExecutor().execute {
             val s1 = JSON.toJSONString(mCityList)
-            FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY, s1)
-            FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_LOCAL_CITY_ID, mCityCode)
+            FileUtil.saveDataToSp(context, NameConstant.NAME_LOCAL_CITY, s1)
+            FileUtil.saveDataToSp(context, NameConstant.NAME_LOCAL_CITY_ID, mCityCode)
         }
     }
 

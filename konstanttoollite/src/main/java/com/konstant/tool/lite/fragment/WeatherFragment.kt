@@ -76,6 +76,7 @@ class WeatherFragment : BaseFragment() {
             needLocation = true
             mDirectCode = LocalCountryManager.getCityCode()
         }
+        Log.d("","")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

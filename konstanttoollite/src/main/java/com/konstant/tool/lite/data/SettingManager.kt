@@ -2,7 +2,7 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.util.FileUtil
 
 /**
  * 描述:保存用户设置
@@ -15,15 +15,17 @@ import com.konstant.tool.lite.util.FileUtils
 object SettingManager {
 
 
-    fun getSwipeBackState(context: Context) = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_SWIPEBACK_STATE, false)
+    fun getSwipeBackState(context: Context) =
+            FileUtil.readDataFromSp(context, NameConstant.NAME_SWIPEBACK_STATE, false)
 
     fun setSwipeBackState(context: Context, state: Boolean) {
-        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_SWIPEBACK_STATE, state)
+        FileUtil.saveDataToSp(context, NameConstant.NAME_SWIPEBACK_STATE, state)
     }
 
-    fun getTheme(context: Context) = FileUtils.readDataWithSharedPreference(context, NameConstant.NAME_SELECTED_THEME, R.style.tool_lite_class)
+    fun getTheme(context: Context) =
+            FileUtil.readDataFromSp(context, NameConstant.NAME_SELECTED_THEME, R.style.tool_lite_class)
 
     fun saveTheme(context: Context, theme: Int) {
-        FileUtils.saveDataWithSharedPreference(context, NameConstant.NAME_SELECTED_THEME, theme)
+        FileUtil.saveDataToSp(context, NameConstant.NAME_SELECTED_THEME, theme)
     }
 }

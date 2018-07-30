@@ -26,6 +26,12 @@ class MainActivity : BaseActivity() {
 
     override fun initBaseViews() {
 
+        var s = listOf<String>()
+        s.forEach (::print)
+
+
+
+
         hideTitleBar()
 
         layout_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }

@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bm.library.PhotoView
 import com.konstant.tool.lite.activity.LookPictureActivity
-import com.konstant.tool.lite.util.FileUtils
+import com.konstant.tool.lite.util.FileUtil
 import com.konstant.tool.lite.view.KonstantDialog
 import com.squareup.picasso.Picasso
 import com.yanzhenjie.permission.AndPermission
@@ -78,7 +78,7 @@ class AdapterLookPicture(val context: LookPictureActivity, val urlList: List<Str
 
     // 保存图片
     private fun savePicture(bitmap: Bitmap) {
-        if (FileUtils.saveBitmap(bitmap, "${System.currentTimeMillis()}.jpg")) {
+        if (FileUtil.saveBitmapToAlbum(bitmap = bitmap, name = "${System.currentTimeMillis()}.jpg")) {
             showToast("保存成功")
         } else {
             showToast("保存失败")

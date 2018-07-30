@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center"
-        android:text="正在保存中(23/30)"
+        android:text="正在保存中(0/0)"
         android:textColor="@color/black"
         android:textSize="15sp" />
 
