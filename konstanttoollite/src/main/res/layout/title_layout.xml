@@ -67,7 +67,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="主标题"
-            android:textColor="#ccffffff"
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </FrameLayout>
 

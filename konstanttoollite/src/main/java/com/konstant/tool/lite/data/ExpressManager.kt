@@ -19,7 +19,7 @@ object ExpressManager {
 
     // 初始化的时候，读取本地保存的数据
     fun onCreate(context: Context) {
-        val temp = FileUtil.readFileFromCache(context, NameConstant.NAME_LOCAL_EXPRESS)
+        val temp = FileUtil.readFileFromFile(context, NameConstant.NAME_LOCAL_EXPRESS)
         if (temp.isNotEmpty()) {
             val array = JSON.parseArray(String(temp), ExpressData::class.java)
             mExpressList.addAll(array)
@@ -30,7 +30,7 @@ object ExpressManager {
     fun onDestroy(context: Context) {
         val json = JSON.toJSONString(mExpressList)
         Executors.newSingleThreadExecutor().execute {
-            FileUtil.saveFileToCache(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
+            FileUtil.saveFileToFile(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
         }
     }
 

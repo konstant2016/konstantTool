@@ -60,7 +60,7 @@ object FileUtil {
 
 
     // 从安装目录下读取文件
-    fun readFileFroFile(context: Context, fileName: String): ByteArray =
+    fun readFileFromFile(context: Context, fileName: String): ByteArray =
             readFile(File(context.getExternalFilesDir(null), fileName))
 
 
