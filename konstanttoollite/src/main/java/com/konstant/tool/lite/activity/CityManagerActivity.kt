@@ -13,7 +13,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterCityList
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.LocalCountry
-import com.konstant.tool.lite.data.LocalCountryManager
+import com.konstant.tool.lite.data.CountryManager
 import com.konstant.tool.lite.eventbusparam.WeatherStateChanged
 import com.konstant.tool.lite.server.other.China
 import com.konstant.tool.lite.view.KonstantDialog
@@ -80,7 +80,7 @@ class CityManagerActivity : BaseActivity() {
                 .setPositiveListener {
                     it.dismiss()
                     mCityList.remove(direct)
-                    LocalCountryManager.deleteCity(direct)
+                    CountryManager.deleteCity(direct)
                     mAdapter.notifyDataSetChanged()
                     EventBus.getDefault().post(WeatherStateChanged(true, 0))
                 }
@@ -196,19 +196,19 @@ class CityManagerActivity : BaseActivity() {
         mCityList.apply {
             clear()
             add(LocalCountry("", "当前位置"))
-            addAll(LocalCountryManager.readCityList())
+            addAll(CountryManager.readLocalCityList())
             mAdapter.notifyDataSetChanged()
         }
     }
 
     // 新添加的城市保存到本地
     private fun saveLocalCityList(country: LocalCountry) {
-        LocalCountryManager.addCity(country)
+        CountryManager.addCity(country)
         readLocalCityList()
     }
 
     override fun onDestroy() {
-        LocalCountryManager.onDestroy(this)
+        CountryManager.onDestroy(this)
         super.onDestroy()
     }
 }

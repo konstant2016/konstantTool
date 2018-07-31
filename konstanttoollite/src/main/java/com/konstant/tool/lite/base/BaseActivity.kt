@@ -114,6 +114,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     protected open fun initBaseViews() {
+        title_bar.setOnClickListener { hideSoftKeyboard() }
         findViewById(R.id.img_back).setOnClickListener { finish() }
     }
 

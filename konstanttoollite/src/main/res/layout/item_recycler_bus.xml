@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="40dp"
+    android:paddingTop="20dp"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_marginTop="4.5dp"
+        android:id="@+id/line_left"
+        android:layout_width="15dp"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black_60_transparent" />
+
+    <ImageView
+        android:id="@+id/img_ring"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/custom_icon_ring" />
+
+    <View
+        android:layout_marginTop="4.5dp"
+        android:id="@+id/line_right"
+        android:layout_width="15dp"
+        android:layout_height="1dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/black_60_transparent" />
+
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_station"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/img_ring"
+        android:layout_marginTop="5dp"
+        android:text="北京东西站" />
+
+</RelativeLayout>

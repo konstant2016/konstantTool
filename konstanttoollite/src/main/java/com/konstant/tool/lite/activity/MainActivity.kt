@@ -26,12 +26,6 @@ class MainActivity : BaseActivity() {
 
     override fun initBaseViews() {
 
-        var s = listOf<String>()
-        s.forEach (::print)
-
-
-
-
         hideTitleBar()
 
         layout_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
@@ -45,6 +39,8 @@ class MainActivity : BaseActivity() {
         layout_express.setOnClickListener { startActivity(ExpressActivity::class.java) }
 
         layout_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
+
+        layout_bus.setOnClickListener { startActivity(BusRouteActivity::class.java) }
 
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 

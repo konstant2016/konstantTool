@@ -18,13 +18,10 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.data.LocalCountryManager
+import com.konstant.tool.lite.data.CountryManager
 import com.konstant.tool.lite.eventbusparam.TitleChanged
 import com.konstant.tool.lite.server.Service
-import com.konstant.tool.lite.server.response.LocationCIDrResponse
 import com.konstant.tool.lite.server.response.Weather360Response
-import com.konstant.tool.lite.server.net.KeyConstant
-import com.konstant.tool.lite.server.net.UrlConstant
 import com.konstant.tool.lite.server.other.China
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
@@ -74,7 +71,7 @@ class WeatherFragment : BaseFragment() {
         mDirectCode = arguments.getString(PARAM) ?: ""
         if (mDirectCode.isEmpty()) {
             needLocation = true
-            mDirectCode = LocalCountryManager.getCityCode()
+            mDirectCode = CountryManager.getCityCode()
         }
         Log.d("","")
     }
@@ -159,7 +156,7 @@ class WeatherFragment : BaseFragment() {
                             cit.countyList.map { dir ->
                                 if (direct.contains(dir.name)) {
                                     mDirectCode = dir.weatherCode
-                                    LocalCountryManager.setCityCode(mDirectCode)
+                                    CountryManager.setCityCode(mDirectCode)
                                     requestData(mDirectCode)
                                     return@map
                                 }

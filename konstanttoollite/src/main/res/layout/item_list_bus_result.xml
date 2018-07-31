@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_height="90dp">
+
+    <TextView
+        android:text="公交线路:"
+        android:gravity="center_vertical"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_marginTop="40dp"
+        android:text="公交公司:"
+        android:layout_width="80dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:layout_marginLeft="80dp"
+        android:id="@+id/tv_line_name"
+        android:gravity="center_vertical"
+        android:text="地铁6号线(海淀五路居--潞城)"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_marginLeft="80dp"
+        android:layout_below="@id/tv_line_name"
+        android:id="@+id/tv_line_company"
+        android:gravity="center_vertical"
+        android:text="北京市公共交通总公司电车客运分公司"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+</RelativeLayout>

@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/title_bar"
         android:horizontalSpacing="20dp"
         android:numColumns="3"
         android:verticalSpacing="20dp" />

@@ -31,7 +31,6 @@ class AdapterWeatherDaily(private val context: Context, private val datas: List<
 
     override fun onBindViewHolder(holder: AdapterWeatherDaily.Holder, position: Int) {
         val data = datas[position]
-
         val tWeeak = holder.view.findViewById(R.id.tv_weather_week) as TextView
         val tDate = holder.view.findViewById(R.id.tv_weather_date)as TextView
         val tInfo = holder.view.findViewById(R.id.tv_weather_info)as TextView

@@ -8,7 +8,7 @@ import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterWeatherFragment
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.LocalCountryManager
+import com.konstant.tool.lite.data.CountryManager
 import com.konstant.tool.lite.eventbusparam.TitleChanged
 import com.konstant.tool.lite.eventbusparam.WeatherStateChanged
 import com.konstant.tool.lite.fragment.WeatherFragment
@@ -54,7 +54,7 @@ class WeatherActivity : BaseActivity() {
 
     private fun readyFragment() {
 
-        val weatherCodeList = LocalCountryManager.readCityList()
+        val weatherCodeList = CountryManager.readLocalCityList()
         if (weatherCodeList.size > 0) {
             title_indicator.visibility = View.VISIBLE
         } else {

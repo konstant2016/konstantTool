@@ -15,8 +15,8 @@ import com.konstant.tool.lite.R
  * 备注:
  */
 
-class KonstantArrayAdapter(context: Context, val resource: Int, val array: Array<String>) :
-        ArrayAdapter<String>(context, resource, array) {
+class KonstantArrayAdapter(context: Context, val array: List<String>) :
+        ArrayAdapter<String>(context, R.layout.item_spinner_bg, array) {
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val root = LayoutInflater.from(context).inflate(R.layout.item_spinner_pull_down_bg, parent, false)

@@ -46,7 +46,7 @@ class TranslateActivity : BaseActivity() {
         addLayoutListener(layout_bg, btn_translate)
 
         // 初始化左边的spinner
-        val adapterOrigin = KonstantArrayAdapter(this, R.layout.item_spinner_bg, languageNames)
+        val adapterOrigin = KonstantArrayAdapter(this, languageNames.toList())
         spinner_origin.apply {
             adapter = adapterOrigin
             setSelection(0)
@@ -64,7 +64,7 @@ class TranslateActivity : BaseActivity() {
 
         // 初始化右边的spinner
         val typeName = languageNames.copyOfRange(1, languageNames.size)
-        val adapterResult = KonstantArrayAdapter(this, R.layout.item_spinner_bg, typeName)
+        val adapterResult = KonstantArrayAdapter(this, typeName.toList())
         spinner_result.apply {
             adapter = adapterResult
             setSelection(0)

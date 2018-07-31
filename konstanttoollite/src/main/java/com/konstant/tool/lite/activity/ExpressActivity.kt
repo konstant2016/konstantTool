@@ -104,7 +104,7 @@ class ExpressActivity : BaseActivity() {
         val companyIds = this.resources.getStringArray(R.array.express_company_id)
         var companyId = "shunfeng"
         spinner.apply {
-            adapter = KonstantArrayAdapter(this@ExpressActivity, R.layout.item_spinner_bg, commanyArr)
+            adapter = KonstantArrayAdapter(this@ExpressActivity,commanyArr.toList())
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
 

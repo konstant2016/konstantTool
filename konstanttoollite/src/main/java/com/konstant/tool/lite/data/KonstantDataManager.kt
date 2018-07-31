@@ -13,12 +13,12 @@ object KonstantDataManager {
 
     fun onCreate(context: Context){
         ExpressManager.onCreate(context)
-        LocalCountryManager.onCreate(context)
+        CountryManager.onCreate(context)
     }
 
     fun onDestroy(context: Context){
         ExpressManager.onDestroy(context)
-        LocalCountryManager.onDestroy(context)
+        CountryManager.onDestroy(context)
     }
 
 }

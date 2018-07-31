@@ -4,6 +4,8 @@
     android:id="@+id/title_bar"
     android:layout_width="match_parent"
     android:layout_height="70dp"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
     <TextView

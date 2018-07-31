@@ -211,7 +211,7 @@ class ExpressDetailActivity : BaseActivity() {
         val view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_spinner, null)
 
         val spinner = view.findViewById(R.id.spinner_company) as Spinner
-        spinner.adapter = KonstantArrayAdapter(this, R.layout.item_spinner_bg, coms)
+        spinner.adapter = KonstantArrayAdapter(this,coms.toList())
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
