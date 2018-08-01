@@ -99,12 +99,8 @@ class CityManagerActivity : BaseActivity() {
         // 初始化弹窗
         initPopWindow(view)
 
-        // 准备城市列表数据
-        val data = assets.open("directdata.json").bufferedReader().readText()
-        val china = JSON.parseObject(data, China::class.java)
-
         // 设置数据，添加监听
-        readyPickerData(china, pickPro, pickCity, pickCou)
+        readyPickerData(CountryManager.getChina(), pickPro, pickCity, pickCou)
     }
 
     // 初始化添加城市的弹窗

@@ -31,6 +31,7 @@ import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.layout_weather_15_daily.*
 import kotlinx.android.synthetic.main.layout_weather_24_hour.*
 import kotlinx.android.synthetic.main.layout_weather_current.*
+import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 
@@ -73,7 +74,6 @@ class WeatherFragment : BaseFragment() {
             needLocation = true
             mDirectCode = CountryManager.getCityCode()
         }
-        Log.d("","")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -98,9 +98,9 @@ class WeatherFragment : BaseFragment() {
             setEnableLoadmore(false)
             setOnRefreshListener(object : RefreshListenerAdapter() {
                 override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
-                    if (mDirectCode.isEmpty()){
+                    if (mDirectCode.isEmpty()) {
                         mLocationClient.startLocation()
-                    }else{
+                    } else {
                         requestData(mDirectCode)
                     }
                 }
@@ -145,29 +145,11 @@ class WeatherFragment : BaseFragment() {
     // 分析出当前城市 天气编号
     private fun queryWeatherCode(province: String, city: String, direct: String) {
         Log.d("当前位置", "$province,$city,$direct")
-
-        activity?.let { activity ->
-            val text = activity.assets.open("directdata.json").bufferedReader().readText()
-            val china = JSON.parseObject(text, China::class.java)
-            china.provinceList.map { prov ->
-                if (province.contains(prov.name)) {
-                    prov.cityList.map { cit ->
-                        if (city.contains(cit.name)) {
-                            cit.countyList.map { dir ->
-                                if (direct.contains(dir.name)) {
-                                    mDirectCode = dir.weatherCode
-                                    CountryManager.setCityCode(mDirectCode)
-                                    requestData(mDirectCode)
-                                    return@map
-                                }
-                            }
-                            return@map
-                        }
-                    }
-                }
-                return@map
-            }
-        }
+        val weatherCode = CountryManager.queryWeatherCode(province, city, direct)
+        if (weatherCode.isEmpty()) return
+        mDirectCode = weatherCode
+        CountryManager.setCityCode(mDirectCode)
+        requestData(mDirectCode)
     }
 
 

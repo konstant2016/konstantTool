@@ -3,9 +3,9 @@ package com.konstant.tool.lite.activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.AdapterView
 import com.alibaba.fastjson.JSON
 import com.amap.api.services.busline.BusLineItem
 import com.amap.api.services.busline.BusLineQuery
@@ -24,10 +24,11 @@ import java.text.DecimalFormat
 
 class BusRouteActivity : BaseActivity() {
 
+    private val TAG = "BusRouteActivity"
 
     private val mBusStationList = ArrayList<BusStationItem>()
-    private val mCountryList by lazy { CountryManager.getCountryList() }
-    private val mCountryNameList by lazy { CountryManager.getCountryNameList() }
+    private val mCountryList by lazy { CountryManager.getCityNameList() }
+    private val mCountryNameList by lazy { CountryManager.getCityNameList() }
     private val mBusLineList = ArrayList<BusLineItem>()
 
     private val mAdapterDetail by lazy { AdapterBusStation(mBusStationList) }
@@ -53,15 +54,6 @@ class BusRouteActivity : BaseActivity() {
 
         auto_tv_city.apply {
             setAdapter(mAdapterAutoCity)
-            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    mCountryCode = mCountryList[position].weatherCode
-                }
-            }
         }
 
         list_result.apply {
@@ -76,7 +68,7 @@ class BusRouteActivity : BaseActivity() {
                 tv_distance.text = "全程： ${DecimalFormat("#.0").format(item.distance)}公里"
                 mAdapterStation.notifyDataSetChanged()
                 layout_detail.startAnimation(AnimationUtils.loadAnimation(this@BusRouteActivity, R.anim.anim_right_to_left))
-                updateViewState(false,true,false,false)
+                updateViewState(false, true, false, false)
             }
         }
 
@@ -85,9 +77,13 @@ class BusRouteActivity : BaseActivity() {
                 showToast("记得输入公交路线哦~")
                 return@setOnClickListener
             }
+            if (TextUtils.isEmpty(auto_tv_city.text)) {
+                showToast("记得选择城市哦~")
+                return@setOnClickListener
+            }
             hideSoftKeyboard()
-            updateViewState(false, false, true,false)
-            queryRoute(et_bus.text.toString(), BusLineQuery.SearchType.BY_LINE_NAME, mCountryCode)
+            updateViewState(false, false, true, false)
+            queryRoute(et_bus.text.toString(), BusLineQuery.SearchType.BY_LINE_NAME, auto_tv_city.text.toString())
         }
     }
 
@@ -102,15 +98,13 @@ class BusRouteActivity : BaseActivity() {
         search.apply {
             setOnBusLineSearchListener { busLineResult, rCode ->
                 if (rCode != 1000 || busLineResult.busLines.size == 0) {
-                    updateViewState(false, false, false,true)
+                    updateViewState(false, false, false, true)
                     return@setOnBusLineSearchListener
                 }
-                val s = JSON.toJSONString(busLineResult)
-                FileUtil.saveFileToFile(this@BusRouteActivity, "text.txt", s.toByteArray())
                 mBusLineList.clear()
                 mBusLineList.addAll(busLineResult.busLines)
                 mAdapterStation.notifyDataSetChanged()
-                updateViewState(true,false,false,false)
+                updateViewState(true, false, false, false)
             }
             searchBusLineAsyn()
         }
@@ -119,7 +113,7 @@ class BusRouteActivity : BaseActivity() {
     override fun onBackPressed() {
         if (layout_detail.visibility == View.VISIBLE) {
             layout_detail.startAnimation(AnimationUtils.loadAnimation(this@BusRouteActivity, R.anim.anim_left_to_right))
-            updateViewState(true,false,false,false)
+            updateViewState(true, false, false, false)
             return
         }
         super.onBackPressed()
