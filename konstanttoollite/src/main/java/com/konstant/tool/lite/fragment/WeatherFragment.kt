@@ -22,7 +22,6 @@ import com.konstant.tool.lite.data.CountryManager
 import com.konstant.tool.lite.eventbusparam.TitleChanged
 import com.konstant.tool.lite.server.Service
 import com.konstant.tool.lite.server.response.Weather360Response
-import com.konstant.tool.lite.server.other.China
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
@@ -31,7 +30,6 @@ import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.layout_weather_15_daily.*
 import kotlinx.android.synthetic.main.layout_weather_24_hour.*
 import kotlinx.android.synthetic.main.layout_weather_current.*
-import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 

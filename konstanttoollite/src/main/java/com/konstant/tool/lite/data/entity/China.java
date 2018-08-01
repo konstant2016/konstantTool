@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.server.other;
+package com.konstant.tool.lite.data.entity;
 
 import java.util.List;
 

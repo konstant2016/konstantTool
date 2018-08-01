@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+    <TextView
+        android:id="@+id/device_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:text="这里展示设备信息\n" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/device_info"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="这里展示设备信息\n" />
-    </ScrollView>
-</LinearLayout>
+</ScrollView>

@@ -2,8 +2,9 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.server.other.AreaCode
-import com.konstant.tool.lite.server.other.China
+import com.konstant.tool.lite.data.entity.Area
+import com.konstant.tool.lite.data.entity.China
+import com.konstant.tool.lite.data.entity.LocalCountry
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -50,7 +51,7 @@ object CountryManager {
 
     private fun parseAreaCode(context: Context) {
         val s = context.assets.open("areacode.json").bufferedReader().readText()
-        JSON.parseArray(s, AreaCode::class.java)
+        JSON.parseArray(s, Area::class.java)
                 .map { mCityNameList.add(it.name) }
     }
 

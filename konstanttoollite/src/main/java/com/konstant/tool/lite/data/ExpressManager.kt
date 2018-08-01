@@ -2,6 +2,7 @@ package com.konstant.tool.lite.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
+import com.konstant.tool.lite.data.entity.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -63,7 +64,8 @@ object ExpressManager {
 
     // 添加新的物流
     fun addExpress(orderNo: String, company: String?, remark: String?, state: String?) {
-        val expressData = ExpressData(company, orderNo, remark ?: "保密物件", state ?: "暂无信息")
+        val expressData = ExpressData(company, orderNo, remark
+                ?: "保密物件", state ?: "暂无信息")
         if (!mExpressList.contains(expressData)) mExpressList.add(expressData)
     }
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.LocalCountry
+import com.konstant.tool.lite.data.entity.LocalCountry
 
 /**
  * 描述:城市管理页面的适配器

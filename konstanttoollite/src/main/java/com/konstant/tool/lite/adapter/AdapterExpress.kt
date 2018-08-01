@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.ExpressData
+import com.konstant.tool.lite.data.entity.ExpressData
 import com.konstant.tool.lite.util.CircleTransform
 import com.squareup.picasso.Picasso
 

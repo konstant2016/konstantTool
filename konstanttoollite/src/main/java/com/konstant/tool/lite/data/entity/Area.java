@@ -1,11 +1,11 @@
-package com.konstant.tool.lite.server.other;
+package com.konstant.tool.lite.data.entity;
 
 /**
  * 时间：2018/8/1 16:25
  * 作者：吕卡
  * 描述：
  */
-public class AreaCode {
+public class Area {
 
     /**
      * label : 北京Beijing010

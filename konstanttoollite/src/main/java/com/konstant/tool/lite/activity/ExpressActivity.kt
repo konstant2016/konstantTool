@@ -11,7 +11,7 @@ import android.widget.Spinner
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterExpress
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.ExpressData
+import com.konstant.tool.lite.data.entity.ExpressData
 import com.konstant.tool.lite.data.ExpressManager
 import com.konstant.tool.lite.eventbusparam.ExpressChanged
 import com.konstant.tool.lite.view.KonstantArrayAdapter

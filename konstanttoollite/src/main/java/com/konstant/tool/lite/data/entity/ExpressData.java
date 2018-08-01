@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data;
+package com.konstant.tool.lite.data.entity;
 
 /**
  * 描述:本地保存的物流信息的实体类

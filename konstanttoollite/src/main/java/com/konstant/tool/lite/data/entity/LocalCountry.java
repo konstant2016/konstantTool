@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data;
+package com.konstant.tool.lite.data.entity;
 
 /**
  * Created by konstant on 2018/4/7.

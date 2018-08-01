@@ -8,14 +8,13 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
 import com.aigestudio.wheelpicker.WheelPicker
-import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.adapter.AdapterCityList
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.LocalCountry
+import com.konstant.tool.lite.data.entity.LocalCountry
 import com.konstant.tool.lite.data.CountryManager
 import com.konstant.tool.lite.eventbusparam.WeatherStateChanged
-import com.konstant.tool.lite.server.other.China
+import com.konstant.tool.lite.data.entity.China
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_city_manager.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -28,7 +27,7 @@ class CityManagerActivity : BaseActivity() {
     private val mCityList = ArrayList<LocalCountry>()
 
     private val mAdapter by lazy { AdapterCityList(this, mCityList) }
-    private lateinit var mSelectedCountry:China.Province.City.County
+    private lateinit var mSelectedCountry: China.Province.City.County
 
     private lateinit var mPop: PopupWindow
 
