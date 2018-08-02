@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:gravity="center_vertical"
+        android:text="公交线路："
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_marginLeft="80dp"
+        android:text=""
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical"
+        android:text="公交公司："
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="80dp"
+        android:text=""
+        android:id="@+id/tv_company"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:gravity="center_vertical"
+        android:text="价格："
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:gravity="center_vertical"
+        android:text="全程："
+        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/recycler_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp" />
+
+</RelativeLayout>

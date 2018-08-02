@@ -1,17 +1,17 @@
-package com.konstant.tool.lite.module.weather.adapter
+package com.konstant.tool.lite.base
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 
 /**
- * 描述:fragment的适配器
- * 创建人:菜籽
- * 创建时间:2017/12/28 下午6:34
- * 备注:
+ * 时间：2018/8/2 19:12
+ * 作者：吕卡
+ * 描述：
  */
-
-class AdapterWeatherFragment(private val fragmentList: List<Fragment>, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class BaseFragmentAdapter(fm: FragmentManager, val fragmentList: List<BaseFragment>,
+                          val titleList: List<String> = listOf())
+    : FragmentPagerAdapter(fm) {
 
     private val mFragPosOldMap = HashMap<Long, String>()
     private val mFragPosNewMap = HashMap<Long, String>()
@@ -71,4 +71,5 @@ class AdapterWeatherFragment(private val fragmentList: List<Fragment>, fm: Fragm
         setFragmentPositionOldMap()
     }
 
+    override fun getPageTitle(position: Int): CharSequence = titleList[position]
 }

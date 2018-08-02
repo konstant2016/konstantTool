@@ -56,7 +56,7 @@ class WeatherFragment : BaseFragment() {
 
     companion object {
         private val PARAM = "param"
-        fun newInstance(direct: String): Fragment {
+        fun newInstance(direct: String): BaseFragment {
             val fragment = WeatherFragment()
             val bundle = Bundle()
             bundle.putString(PARAM, direct)

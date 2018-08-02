@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <AutoCompleteTextView
         android:id="@+id/auto_tv_city"
@@ -59,146 +60,27 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_marginTop="120dp"
-        android:background="@color/black_60_transparent" />
+        android:background="?attr/tool_main_color" />
 
-    <!--匹配结果-->
-    <ListView
-        android:id="@+id/list_result"
+    <!--下面的导航和viewpager-->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        app:tabSelectedTextColor="?attr/tool_main_color"
+        android:layout_below="@id/divider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        android:divider="@color/black_60_transparent"
-        android:dividerHeight="1px"
-        android:visibility="gone" />
+        android:layout_height="50dp"/>
 
-    <!--查询结果-->
-    <RelativeLayout
-        android:id="@+id/layout_detail"
+    <View
+        android:layout_below="@id/tab_layout"
+        android:id="@+id/divider_tab"
+        android:background="@color/black_60_transparent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingTop="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:visibility="gone">
+        android:layout_height="1px"/>
 
-        <TextView
-            android:gravity="center_vertical"
-            android:text="公交线路："
-            android:layout_width="80dp"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:gravity="center_vertical"
-            android:layout_marginLeft="80dp"
-            android:text="845路(羊坊村--西管头)"
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:layout_marginTop="40dp"
-            android:gravity="center_vertical"
-            android:text="公交公司："
-            android:layout_width="80dp"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:layout_marginTop="40dp"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="80dp"
-            android:text="北京公交集团第六客运分公司"
-            android:id="@+id/tv_company"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:id="@+id/tv_price"
-            android:gravity="center_vertical"
-            android:text="两边对齐两边对齐两边对齐两边对齐"
-            android:layout_marginTop="80dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:id="@+id/tv_distance"
-            android:gravity="center_vertical"
-            android:text="两边对齐两边对齐两边对齐两边对齐"
-            android:layout_marginTop="120dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_detail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="160dp" />
-    </RelativeLayout>
-
-    <!--加载动画-->
-    <LinearLayout
-        android:id="@+id/layout_anim"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@id/divider_tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="正在查询中。。。" />
-
-        <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp" />
-    </LinearLayout>
-
-    <!--查询失败-->
-    <LinearLayout
-        android:id="@+id/layout_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="查询失败，请检查：" />
-
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="1、城市选择是否正确" />
-
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="2、路线输入是否正确" />
-
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="3、网络连接是否正常" />
-
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
