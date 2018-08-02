@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,12 +12,12 @@ import android.widget.PopupWindow
 import android.widget.Spinner
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.adapter.AdapterExpressDetail
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.ExpressManager
-import com.konstant.tool.lite.eventbusparam.ExpressChanged
-import com.konstant.tool.lite.server.Service
-import com.konstant.tool.lite.server.response.ExpressResponse
+import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
+import com.konstant.tool.lite.module.express.param.ExpressChanged
+import com.konstant.tool.lite.module.express.server.ExpressResponse
+import com.konstant.tool.lite.module.express.server.ExpressService
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express_detail.*
@@ -81,7 +81,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 开始查询物流信息
     private fun queryExpress() {
         onLoading()
-        Service.expressQuery(mCompanyId, mOrderNo) { state, data ->
+        ExpressService.expressQuery(mCompanyId, mOrderNo) { state, data ->
             if (!state) {
                 onError()
                 return@expressQuery

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.server.net
+package com.konstant.tool.lite.network
 
 /**
  * 描述:网络地址

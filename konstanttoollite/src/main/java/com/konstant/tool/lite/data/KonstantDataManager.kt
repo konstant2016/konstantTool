@@ -1,6 +1,8 @@
 package com.konstant.tool.lite.data
 
 import android.content.Context
+import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.weather.data.CountryManager
 
 /**
  * 描述:保存APP运行中的一些数据，避免频繁的IO读取，增加APP的流畅度
@@ -12,6 +14,7 @@ import android.content.Context
 object KonstantDataManager {
 
     fun onCreate(context: Context){
+        AreaManager.onCreate(context)
         ExpressManager.onCreate(context)
         CountryManager.onCreate(context)
     }

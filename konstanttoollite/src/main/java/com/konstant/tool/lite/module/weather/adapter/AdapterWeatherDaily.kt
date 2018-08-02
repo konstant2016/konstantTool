@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 

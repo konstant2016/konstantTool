@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data.entity;
+package com.konstant.tool.lite.module.weather.data;
 
 /**
  * Created by konstant on 2018/4/7.

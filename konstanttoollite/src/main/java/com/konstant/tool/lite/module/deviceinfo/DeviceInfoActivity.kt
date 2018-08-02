@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.deviceinfo
 
 import android.Manifest
 import android.os.Bundle

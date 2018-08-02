@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.entity.LocalCountry
+import com.konstant.tool.lite.module.weather.data.LocalCountry
 
 /**
  * 描述:城市管理页面的适配器

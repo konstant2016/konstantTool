@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

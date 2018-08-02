@@ -1,20 +1,19 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.base
 
 import android.os.Bundle
 import android.view.Gravity
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.eventbusparam.SwipeBackState
-import com.konstant.tool.lite.module.beauty.BeautyActivity
+import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.busline.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
-import com.konstant.tool.lite.module.express.ExpressActivity
+import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
-import com.konstant.tool.lite.module.setting.SettingActivity
+import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
-import com.konstant.tool.lite.module.weather.WeatherActivity
+import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -46,7 +45,7 @@ class MainActivity : BaseActivity() {
 
         layout_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
-        layout_express.setOnClickListener { startActivity(ExpressActivity::class.java) }
+        layout_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
 
         layout_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 

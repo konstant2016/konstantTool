@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.beauty
+package com.konstant.tool.lite.module.beauty.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.module.beauty.activity.LookPictureActivity
 import com.squareup.picasso.Picasso
 
 /**

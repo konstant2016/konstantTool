@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.server.net
+package com.konstant.tool.lite.network
 
 /**
  * 描述:聚合数据中申请的app_key

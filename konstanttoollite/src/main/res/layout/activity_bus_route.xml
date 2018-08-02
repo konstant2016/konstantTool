@@ -14,6 +14,16 @@
         android:hint="选择公交城市"
         android:textSize="13sp" />
 
+    <ImageView
+        android:id="@+id/img_city_close"
+        android:clickable="true"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_edit_close"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+
     <EditText
         android:id="@+id/et_bus"
         android:layout_width="240dp"
@@ -24,6 +34,15 @@
         android:gravity="center"
         android:hint="输入路线"
         android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/img_line_close"
+        android:clickable="true"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/icon_edit_close"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/btn_search"

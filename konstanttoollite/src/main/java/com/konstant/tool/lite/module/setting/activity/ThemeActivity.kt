@@ -1,10 +1,11 @@
-package com.konstant.tool.lite.module.setting
+package com.konstant.tool.lite.module.setting.activity
 
 import android.os.Bundle
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.SettingManager
+import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import kotlinx.android.synthetic.main.activity_theme.*
 import org.greenrobot.eventbus.EventBus
 

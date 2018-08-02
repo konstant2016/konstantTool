@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.adapter
+package com.konstant.tool.lite.module.busline
 
 import android.content.Context
 import android.text.TextUtils

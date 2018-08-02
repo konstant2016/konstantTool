@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.fragment
 
 import android.Manifest
 import android.os.Bundle
@@ -16,14 +16,20 @@ import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.data.CountryManager
+import com.konstant.tool.lite.module.weather.data.CountryManager
+import com.konstant.tool.lite.module.weather.server.WeatherService
+import com.konstant.tool.lite.module.weather.param.TitleChanged
+import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
-import com.konstant.tool.lite.network.Service
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
 import com.yanzhenjie.permission.AndPermission
+import kotlinx.android.synthetic.main.fragment_weather.*
+import kotlinx.android.synthetic.main.layout_weather_15_daily.*
+import kotlinx.android.synthetic.main.layout_weather_24_hour.*
+import kotlinx.android.synthetic.main.layout_weather_current.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 
@@ -147,7 +153,7 @@ class WeatherFragment : BaseFragment() {
 
     // 向服务器请求数据
     private fun requestData(location: String) {
-        Server.queryWeather(location) { state, data ->
+        WeatherService.queryWeather(location) { state, data ->
             stopRefreshAnim()
             if (isDetached or !state) return@queryWeather
             setData(String(data))

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.setting
+package com.konstant.tool.lite.module.setting.activity
 
 import android.Manifest
 import android.app.Activity
@@ -6,12 +6,14 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.NameConstant
-import com.konstant.tool.lite.data.SettingManager
+import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
@@ -99,7 +101,7 @@ class SettingActivity : BaseActivity() {
                     .permission(Manifest.permission.CAMERA)
                     .onGranted {
                         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                        val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
+                        val file = File(externalCacheDir, SettingManager.NAME_USER_HEADER)
                         val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
                         startActivityForResult(intent, CAMERA_REQUEST)
@@ -118,7 +120,7 @@ class SettingActivity : BaseActivity() {
         // 恢复默认
         view.findViewById(R.id.text_default).setOnClickListener {
             dialog.dismiss()
-            File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB).delete()
+            SettingManager.deleteUserHeaderThumb(this)
             EventBus.getDefault().post(UserHeaderChanged())
             showToast("已恢复默认")
         }
@@ -133,7 +135,7 @@ class SettingActivity : BaseActivity() {
         if (resultCode != Activity.RESULT_OK) return
         when (requestCode) {
             CAMERA_REQUEST -> {
-                val file = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME)
+                val file = File(externalCacheDir, SettingManager.NAME_USER_HEADER)
                 if (!file.exists()) return
                 val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
                 clipPhoto(uri)
@@ -152,11 +154,7 @@ class SettingActivity : BaseActivity() {
 
     // 调用系统中自带的图片剪裁
     private fun clipPhoto(uri: Uri) {
-        val cropPhoto = File(externalCacheDir, NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB)
-        if (cropPhoto.exists()) {
-            cropPhoto.delete()
-            cropPhoto.createNewFile()
-        }
+        val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), SettingManager.NAME_HEADER_THUMB)
         with(Intent("com.android.camera.action.CROP")) {
             setDataAndType(uri, "image/*")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)

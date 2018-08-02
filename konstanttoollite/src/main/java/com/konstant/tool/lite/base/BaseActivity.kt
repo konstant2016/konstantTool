@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
@@ -12,18 +11,26 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.activity.*
-import com.konstant.tool.lite.data.NameConstant
-import com.konstant.tool.lite.data.SettingManager
-import com.konstant.tool.lite.eventbusparam.SwipeBackState
-import com.konstant.tool.lite.eventbusparam.ThemeChanged
-import com.konstant.tool.lite.eventbusparam.UserHeaderChanged
+import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
+import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
+import com.konstant.tool.lite.module.express.activity.ExpressListActivity
+import com.konstant.tool.lite.module.qrcode.QRCodeActivity
+import com.konstant.tool.lite.module.ruler.RulerActivity
+import com.konstant.tool.lite.module.setting.activity.SettingActivity
+import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.ThemeChanged
+import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
+import com.konstant.tool.lite.module.translate.TranslateActivity
+import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -100,12 +107,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 用户头像发生了变化
     @Subscribe
     open fun onUserHeaderChanged(msg: UserHeaderChanged) {
-        val path = "$externalCacheDir${File.separator}${NameConstant.NAME_USER_HEADER_PIC_NAME_THUMB}"
-        val bitmap = if (File(path).exists()) {
-            BitmapFactory.decodeFile(path)
-        } else {
-            BitmapFactory.decodeResource(resources, R.drawable.ic_launcher)
-        }
+        val bitmap = SettingManager.getUserHeaderThumb(this)
         with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
             paint.isAntiAlias = true
             cornerRadius = Math.max(bitmap.width.toFloat(), bitmap.height.toFloat())
@@ -180,7 +182,9 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     protected fun startActivity(cls: Class<*>) {
-        draw_layout.closeDrawers()
+        if (draw_layout.isDrawerOpen(Gravity.LEFT)) {
+            draw_layout.closeDrawers()
+        }
         startActivity(Intent(this, cls))
     }
 
@@ -195,7 +199,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
-        text_express.setOnClickListener { startActivity(ExpressActivity::class.java) }
+        text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
 
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 

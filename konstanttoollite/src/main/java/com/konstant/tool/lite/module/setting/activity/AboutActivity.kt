@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.setting
+package com.konstant.tool.lite.module.setting.activity
 
 import android.os.Bundle
 import com.konstant.tool.lite.R

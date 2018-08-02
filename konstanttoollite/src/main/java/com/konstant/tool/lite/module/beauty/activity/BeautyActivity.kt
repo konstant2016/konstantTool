@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.beauty
+package com.konstant.tool.lite.module.beauty.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -11,6 +11,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.module.beauty.adapter.AdapterBeauty
+import com.konstant.tool.lite.module.beauty.BeautyService
 import com.konstant.tool.lite.network.NetworkUtil
 import com.konstant.tool.lite.util.FileUtil
 import com.konstant.tool.lite.view.KonstantDialog
@@ -94,7 +96,7 @@ class BeautyActivity : BaseActivity() {
 
     // 获取网络数据
     private fun getData() {
-        Server.getBeautyData(mBaseUrl + mPageIndex){state,array->
+        BeautyService.getBeautyData(mBaseUrl + mPageIndex) { state, array ->
             Log.i("MIUI图片", String(array))
             if (!state || array.size < 150) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()

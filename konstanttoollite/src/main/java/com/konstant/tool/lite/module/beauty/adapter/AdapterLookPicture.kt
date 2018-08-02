@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.beauty
+package com.konstant.tool.lite.module.beauty.adapter
 
 import android.Manifest
 import android.graphics.Bitmap
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import com.bm.library.PhotoView
+import com.konstant.tool.lite.module.beauty.activity.LookPictureActivity
 import com.konstant.tool.lite.util.FileUtil
 import com.konstant.tool.lite.view.KonstantDialog
 import com.squareup.picasso.Picasso

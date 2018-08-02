@@ -1,10 +1,8 @@
-package com.konstant.tool.lite.data
+package com.konstant.tool.lite.module.weather.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.data.entity.Area
-import com.konstant.tool.lite.data.entity.China
-import com.konstant.tool.lite.data.entity.LocalCountry
+import com.konstant.tool.lite.data.AreaManager
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -17,19 +15,18 @@ import java.util.concurrent.Executors
 
 object CountryManager {
 
+    private val NAME_LOCAL_CITY = "localCity"
+    private val NAME_LOCAL_CITY_ID = "local_city_id"
+
     // 本地保存的城市列表
     private val mLocalCityList = ArrayList<LocalCountry>()
-    private val mCityNameList = ArrayList<String>()
 
     // 当前位置的cityCode
     private var mCityCode = ""
-    private lateinit var mChina: China
 
     fun onCreate(context: Context) {
-        parseChina(context)
-        parseAreaCode(context)
-        mCityCode = FileUtil.readDataFromSp(context, NameConstant.NAME_LOCAL_CITY_ID)
-        val s = FileUtil.readDataFromSp(context, NameConstant.NAME_LOCAL_CITY)
+        mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID)
+        val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY)
         val array = JSON.parseArray(s, LocalCountry::class.java)
         if (array != null && array.isNotEmpty()) {
             mLocalCityList.addAll(array)
@@ -39,21 +36,11 @@ object CountryManager {
     fun onDestroy(context: Context) {
         Executors.newSingleThreadExecutor().execute {
             val s1 = JSON.toJSONString(mLocalCityList)
-            FileUtil.saveDataToSp(context, NameConstant.NAME_LOCAL_CITY, s1)
-            FileUtil.saveDataToSp(context, NameConstant.NAME_LOCAL_CITY_ID, mCityCode)
+            FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
+            FileUtil.saveDataToSp(context, NAME_LOCAL_CITY_ID, mCityCode)
         }
     }
 
-    private fun parseChina(context: Context) {
-        val text = context.assets.open("directdata.json").bufferedReader().readText()
-        mChina = JSON.parseObject(text, China::class.java)
-    }
-
-    private fun parseAreaCode(context: Context) {
-        val s = context.assets.open("areacode.json").bufferedReader().readText()
-        JSON.parseArray(s, Area::class.java)
-                .map { mCityNameList.add(it.name) }
-    }
 
     // 添加城市
     fun addCity(country: LocalCountry) {
@@ -78,12 +65,10 @@ object CountryManager {
     // 读取cityCode
     fun getCityCode() = mCityCode
 
-    // 读取城市列表
-    fun getCityNameList() = mCityNameList
-
     // 查找城市对应的天气代号
     fun queryWeatherCode(province: String, city: String, direct: String): String {
-        mChina.provinceList.map { prov ->
+        AreaManager.getChina()
+                .provinceList.map { prov ->
             if (province.contains(prov.name)) {
                 prov.cityList.map { cit ->
                     if (city.contains(cit.name)) {
@@ -97,9 +82,4 @@ object CountryManager {
         }
         return ""
     }
-
-    // 获取全国区域信息
-    fun getChina() = mChina
-
-
 }

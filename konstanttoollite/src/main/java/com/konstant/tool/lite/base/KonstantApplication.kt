@@ -3,7 +3,7 @@ package com.konstant.tool.lite.base
 import android.app.Application
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
-import com.konstant.tool.lite.server.net.NetworkUtil
+import com.konstant.tool.lite.network.NetworkUtil
 
 /**
  * 描述:整个应用的application

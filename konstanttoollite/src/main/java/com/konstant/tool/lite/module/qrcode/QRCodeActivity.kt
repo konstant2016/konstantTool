@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.qrcode
 
 import android.Manifest
 import android.content.Intent

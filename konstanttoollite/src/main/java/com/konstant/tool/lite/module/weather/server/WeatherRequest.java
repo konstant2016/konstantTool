@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather;
+package com.konstant.tool.lite.module.weather.server;
 
 public class WeatherRequest{
     private String location;

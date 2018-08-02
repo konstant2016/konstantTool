@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.ruler
 
 import android.os.Bundle
 import android.view.WindowManager

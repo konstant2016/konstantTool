@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.translate
+package com.konstant.tool.lite.module.translate
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,10 +7,10 @@ import android.widget.AdapterView
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.server.Service
-import com.konstant.tool.lite.server.net.KeyConstant
-import com.konstant.tool.lite.server.net.UrlConstant
-import com.konstant.tool.lite.server.response.TranslateResponse
+import com.konstant.tool.lite.module.translate.server.TranslateResponse
+import com.konstant.tool.lite.module.translate.server.TranslateService
+import com.konstant.tool.lite.network.KeyConstant
+import com.konstant.tool.lite.network.UrlConstant
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 
@@ -100,7 +100,7 @@ class TranslateActivity : BaseActivity() {
 
     // 调用接口进行翻译
     private fun doTranslate(string: String) {
-        Service.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
+        TranslateService.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
                 KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { state, data ->
             showTranslateResult(state,String(data))
         }

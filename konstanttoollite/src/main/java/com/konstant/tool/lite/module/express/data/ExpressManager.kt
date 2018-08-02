@@ -1,8 +1,7 @@
-package com.konstant.tool.lite.data
+package com.konstant.tool.lite.module.express.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.data.entity.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -16,11 +15,12 @@ import java.util.concurrent.Executors
 
 object ExpressManager {
 
+    private val NAME_LOCAL_EXPRESS = "localExpress"
     private val mExpressList = ArrayList<ExpressData>()
 
     // 初始化的时候，读取本地保存的数据
     fun onCreate(context: Context) {
-        val temp = FileUtil.readFileFromFile(context, NameConstant.NAME_LOCAL_EXPRESS)
+        val temp = FileUtil.readFileFromFile(context, NAME_LOCAL_EXPRESS)
         if (temp.isNotEmpty()) {
             val array = JSON.parseArray(String(temp), ExpressData::class.java)
             mExpressList.addAll(array)
@@ -31,7 +31,7 @@ object ExpressManager {
     fun onDestroy(context: Context) {
         val json = JSON.toJSONString(mExpressList)
         Executors.newSingleThreadExecutor().execute {
-            FileUtil.saveFileToFile(context, NameConstant.NAME_LOCAL_EXPRESS, json.toByteArray())
+            FileUtil.saveFileToFile(context, NAME_LOCAL_EXPRESS, json.toByteArray())
         }
     }
 

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.adapter
+package com.konstant.tool.lite.module.busline
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -15,14 +15,14 @@ import com.konstant.tool.lite.R
  */
 class AdapterBusStation(val list: List<BusStationItem>) : RecyclerView.Adapter<AdapterBusStation.Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterBusStation.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_bus, parent, false)
-        return AdapterBusStation.Holder(view)
+        return Holder(view)
     }
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: AdapterBusStation.Holder, position: Int) {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
         val tvStation = holder.view.findViewById(R.id.tv_station) as TextView
         tvStation.text = list[position].busStationName
         val left = holder.view.findViewById(R.id.line_left)

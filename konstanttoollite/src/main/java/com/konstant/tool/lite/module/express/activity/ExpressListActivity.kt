@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.express.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,11 +9,11 @@ import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.Spinner
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.adapter.AdapterExpress
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.entity.ExpressData
-import com.konstant.tool.lite.data.ExpressManager
-import com.konstant.tool.lite.eventbusparam.ExpressChanged
+import com.konstant.tool.lite.module.express.data.ExpressData
+import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.express.adapter.AdapterExpress
+import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
@@ -28,7 +28,7 @@ import org.greenrobot.eventbus.Subscribe
  */
 
 @SuppressLint("MissingSuperCall")
-class ExpressActivity : BaseActivity() {
+class ExpressListActivity : BaseActivity() {
 
     private val expressList = ArrayList<ExpressData>()
     private val mAdapter by lazy { AdapterExpress(this, expressList) }
@@ -104,7 +104,7 @@ class ExpressActivity : BaseActivity() {
         val companyIds = this.resources.getStringArray(R.array.express_company_id)
         var companyId = "shunfeng"
         spinner.apply {
-            adapter = KonstantArrayAdapter(this@ExpressActivity,commanyArr.toList())
+            adapter = KonstantArrayAdapter(this@ExpressListActivity,commanyArr.toList())
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
 

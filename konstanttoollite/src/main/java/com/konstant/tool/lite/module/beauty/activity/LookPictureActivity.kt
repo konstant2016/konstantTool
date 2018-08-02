@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.beauty
+package com.konstant.tool.lite.module.beauty.activity
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.ViewGroup
 import android.view.WindowManager
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.module.beauty.adapter.AdapterLookPicture
 import java.util.*
 
 /**

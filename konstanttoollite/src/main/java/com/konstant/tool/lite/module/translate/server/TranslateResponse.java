@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.translate;
+package com.konstant.tool.lite.module.translate.server;
 
 import java.util.List;
 

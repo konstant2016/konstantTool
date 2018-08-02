@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.scanfile
 
 import android.os.Bundle
 import com.konstant.tool.lite.R

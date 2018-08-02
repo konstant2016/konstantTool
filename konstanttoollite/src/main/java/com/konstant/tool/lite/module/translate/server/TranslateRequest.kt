@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.translate
+package com.konstant.tool.lite.module.translate.server
 
 /**
  * Created by konstant on 2018/4/4.

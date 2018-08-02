@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.busline
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -10,10 +10,8 @@ import com.amap.api.services.busline.BusLineQuery
 import com.amap.api.services.busline.BusLineSearch
 import com.amap.api.services.busline.BusStationItem
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.adapter.AdapterBusLine
-import com.konstant.tool.lite.adapter.AdapterBusStation
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.CountryManager
+import com.konstant.tool.lite.data.AreaManager
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_bus_route.*
 import java.text.DecimalFormat
@@ -24,7 +22,7 @@ class BusRouteActivity : BaseActivity() {
     private val TAG = "BusRouteActivity"
 
     private val mBusStationList = ArrayList<BusStationItem>()
-    private val mCountryNameList by lazy { CountryManager.getCityNameList() }
+    private val mCountryNameList by lazy { AreaManager.getAreaList().map { it.name } }
     private val mBusLineList = ArrayList<BusLineItem>()
 
     private val mAdapterDetail by lazy { AdapterBusStation(mBusStationList) }
@@ -66,7 +64,7 @@ class BusRouteActivity : BaseActivity() {
             }
         }
 
-        img_city_close.setOnClickListener{auto_tv_city.setText("")}
+        img_city_close.setOnClickListener { auto_tv_city.setText("") }
 
         img_line_close.setOnClickListener { et_bus.setText("") }
 

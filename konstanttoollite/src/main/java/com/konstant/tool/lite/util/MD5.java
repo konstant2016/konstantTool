@@ -2,7 +2,6 @@ package com.konstant.tool.lite.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -39,9 +38,7 @@ public class MD5 {
             byte[] resultByteArray = messageDigest.digest();
             // 字符数组转换成字符串返回
             return byteArrayToHex(resultByteArray);
-        } catch (NoSuchAlgorithmException e) {
-            return "";
-        }catch ( UnsupportedEncodingException e){
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             return "";
         }
     }
@@ -67,8 +64,6 @@ public class MD5 {
 
             return result;
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -76,7 +71,7 @@ public class MD5 {
         return null;
     }
 
-    public static String md5(InputStream in) {
+    private static String md5(InputStream in) {
 
         try {
             MessageDigest messagedigest = MessageDigest.getInstance("MD5");
@@ -89,14 +84,8 @@ public class MD5 {
 
             in.close();
 
-            String result = byteArrayToHex(messagedigest.digest());
-
-            return result;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+            return byteArrayToHex(messagedigest.digest());
+        } catch (NoSuchAlgorithmException | IOException e) {
             e.printStackTrace();
         }
 

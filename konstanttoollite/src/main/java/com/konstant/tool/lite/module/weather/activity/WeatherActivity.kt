@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,11 @@ import android.util.Log
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.CountryManager
+import com.konstant.tool.lite.module.weather.data.CountryManager
+import com.konstant.tool.lite.module.weather.param.TitleChanged
+import com.konstant.tool.lite.module.weather.fragment.WeatherFragment
+import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
+import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherFragment
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.Subscribe
@@ -72,7 +76,7 @@ class WeatherActivity : BaseActivity() {
     }
 
     @Subscribe
-    fun onStateChanged(msg:WeatherStateChanged){
+    fun onStateChanged(msg: WeatherStateChanged){
         if (msg.cityNumChange){
             readyFragment()
         }

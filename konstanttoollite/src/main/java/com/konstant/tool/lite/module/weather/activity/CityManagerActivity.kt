@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather
+package com.konstant.tool.lite.module.weather.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,11 +10,15 @@ import android.widget.PopupWindow
 import com.aigestudio.wheelpicker.WheelPicker
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.entity.LocalCountry
-import com.konstant.tool.lite.data.CountryManager
+import com.konstant.tool.lite.data.AreaManager
+import com.konstant.tool.lite.module.weather.data.LocalCountry
+import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.data.entity.China
+import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import com.konstant.tool.lite.module.weather.adapter.AdapterCityList
 import com.konstant.tool.lite.view.KonstantDialog
+import kotlinx.android.synthetic.main.activity_city_manager.*
+import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 
 
@@ -96,7 +100,7 @@ class CityManagerActivity : BaseActivity() {
         initPopWindow(view)
 
         // 设置数据，添加监听
-        readyPickerData(CountryManager.getChina(), pickPro, pickCity, pickCou)
+        readyPickerData(pickPro, pickCity, pickCou)
     }
 
     // 初始化添加城市的弹窗
@@ -126,8 +130,9 @@ class CityManagerActivity : BaseActivity() {
 
 
     // 初始化城市的相关数据
-    private fun readyPickerData(china: China, pickPro: WheelPicker, pickCity: WheelPicker, pickCou: WheelPicker) {
+    private fun readyPickerData(pickPro: WheelPicker, pickCity: WheelPicker, pickCou: WheelPicker) {
         // 初始化省市区的列表
+        val china = AreaManager.getChina()
         pickPro.data = china.provinceList.map { it.name }
         pickCity.data = china.provinceList[0].cityList.map { it.name }
         pickCou.data = china.provinceList[0].cityList[0].countyList.map { it.name }

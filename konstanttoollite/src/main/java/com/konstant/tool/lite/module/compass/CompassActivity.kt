@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.activity
+package com.konstant.tool.lite.module.compass
 
 import android.annotation.SuppressLint
 import android.content.Context
