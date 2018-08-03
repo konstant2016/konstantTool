@@ -9,7 +9,7 @@ import android.view.View
  * 描述：RecyclerView的Adapter添加ITEM点击事件
  */
 
-abstract class BaseViewHolder<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
+abstract class BaseRecyclerAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     private var mOnItemClickListener: ((View, Int) -> Unit)? = null
     private var mOnItemLongClickListener: ((View, Int) -> Unit)? = null
