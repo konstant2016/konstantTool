@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.BaseViewHolder
+import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.module.busline.data.QueryWrapper
 
 /**
@@ -14,7 +14,7 @@ import com.konstant.tool.lite.module.busline.data.QueryWrapper
  * 作者：吕卡
  * 描述：
  */
-class AdapterQueryHistory(val list: ArrayList<QueryWrapper>) : BaseViewHolder<AdapterQueryHistory.Holder>() {
+class AdapterQueryHistory(val list: ArrayList<QueryWrapper>) : BaseRecyclerAdapter<AdapterQueryHistory.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_query_history, parent, false)
