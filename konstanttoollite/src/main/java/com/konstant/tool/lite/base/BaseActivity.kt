@@ -20,6 +20,7 @@ import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
+import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
@@ -38,7 +39,6 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import java.io.File
 
 
 /**
@@ -200,6 +200,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
         text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
+
+        text_bus_line.setOnClickListener { startActivity(BusRouteActivity::class.java) }
 
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 
