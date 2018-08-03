@@ -136,7 +136,10 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".module.busline.BusRouteActivity"></activity>
+        <activity android:name=".module.busline.activity.BusRouteActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

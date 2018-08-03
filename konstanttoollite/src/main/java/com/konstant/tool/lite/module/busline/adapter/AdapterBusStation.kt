@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.busline
+package com.konstant.tool.lite.module.busline.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

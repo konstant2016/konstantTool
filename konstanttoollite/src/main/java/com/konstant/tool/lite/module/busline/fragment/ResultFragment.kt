@@ -9,7 +9,7 @@ import com.amap.api.services.busline.BusLineQuery
 import com.amap.api.services.busline.BusLineSearch
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.module.busline.AdapterBusLine
+import com.konstant.tool.lite.module.busline.adapter.AdapterBusLine
 import com.konstant.tool.lite.module.busline.param.BusLineResult
 import kotlinx.android.synthetic.main.fragment_result.*
 import org.greenrobot.eventbus.EventBus
@@ -67,10 +67,9 @@ class ResultFragment : BaseFragment() {
 
     // 刷新界面
     private fun updateViewState(result: Boolean, anim: Boolean, error: Boolean) {
-        mActivity.runOnUiThread {
-            list_result.visibility = if (result) View.VISIBLE else View.GONE
-            layout_anim.visibility = if (anim) View.VISIBLE else View.GONE
-            layout_error.visibility = if (error) View.VISIBLE else View.GONE
-        }
+        tv_none.visibility = View.GONE
+        list_result.visibility = if (result) View.VISIBLE else View.GONE
+        layout_anim.visibility = if (anim) View.VISIBLE else View.GONE
+        layout_error.visibility = if (error) View.VISIBLE else View.GONE
     }
 }

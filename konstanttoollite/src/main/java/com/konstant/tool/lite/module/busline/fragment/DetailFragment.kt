@@ -10,7 +10,7 @@ import com.amap.api.services.busline.BusLineItem
 import com.amap.api.services.busline.BusStationItem
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.module.busline.AdapterBusStation
+import com.konstant.tool.lite.module.busline.adapter.AdapterBusStation
 import kotlinx.android.synthetic.main.fragment_detail.*
 import java.text.DecimalFormat
 
@@ -47,6 +47,16 @@ class DetailFragment : BaseFragment() {
         tv_price.text = "价格： ${item.basicPrice}元——${item.totalPrice}元"
         tv_distance.text = "全程： ${DecimalFormat("#.0").format(item.distance)}公里"
         mAdapterStation.notifyDataSetChanged()
+        updateData()
+    }
+
+    private fun updateData(){
+        layout_detail.visibility = if (mBusStationList.isEmpty()) View.GONE else View.VISIBLE
+        tv_none.visibility = if (mBusStationList.isEmpty()) View.VISIBLE else View.GONE
+    }
+
+    override fun onFragmentResume() {
+        updateData()
     }
 
 }

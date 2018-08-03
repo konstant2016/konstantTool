@@ -5,7 +5,7 @@ import android.view.Gravity
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
-import com.konstant.tool.lite.module.busline.BusRouteActivity
+import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity

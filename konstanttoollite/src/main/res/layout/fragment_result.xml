@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:divider="@color/black_60_transparent"
         android:dividerHeight="1px"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <!--加载动画-->
     <LinearLayout
@@ -71,6 +71,13 @@
             android:text="3、网络连接是否正常" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="暂无数据" />
 
 </RelativeLayout>
 
