@@ -21,6 +21,7 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_beauty.*
+import kotlinx.android.synthetic.main.layout_dialog_progress.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.json.JSONObject
 import java.util.concurrent.Executors
@@ -171,8 +172,10 @@ class BeautyActivity : BaseActivity() {
 
         Executors.newSingleThreadExecutor().execute {
             mUrlList.forEachIndexed { index, s ->
-                text.text = "正在保存中(${index + 1}/${mUrlList.size})"
-                progress.progress = index + 1
+                runOnUiThread {
+                    text.text = "正在保存中(${index + 1}/${mUrlList.size})"
+                    progress.progress = index + 1
+                }
                 Thread.sleep(100)
                 val split = s.split("/")
                 val name = split[split.size - 1]
