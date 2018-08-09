@@ -2,7 +2,6 @@ package com.konstant.tool.lite.module.weather.fragment
 
 import android.Manifest
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -52,7 +51,8 @@ class WeatherFragment : BaseFragment() {
     private val mAdapterDay by lazy { AdapterWeatherDaily(activity, mListDaily) }
 
     private var mCurrentCity = "加载中"
-    private var needLocation = false
+    private var needReLocation = false      // 是否需要再次定位
+    private var isReRequest = false         // 是否为第二次请求数据
 
     companion object {
         private val PARAM = "param"
@@ -67,11 +67,14 @@ class WeatherFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mDirectCode = arguments.getString(PARAM) ?: ""
-        if (mDirectCode.isEmpty()) {
-            needLocation = true
-            mDirectCode = CountryManager.getCityCode()
-        }
+        val p1 = arguments.getString(PARAM)
+        val p2 = CountryManager.getCityCode()
+
+        // 如果传进来的参数为空，但是缓存参数不为空，才需要二次定位
+        if (p1.isEmpty() && p2.isNotEmpty()) needReLocation = true
+
+        mDirectCode = if (p1.isNotEmpty()) p1 else p2
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -154,7 +157,11 @@ class WeatherFragment : BaseFragment() {
     // 向服务器请求数据
     private fun requestData(location: String) {
         WeatherService.queryWeather(location) { state, data ->
-            stopRefreshAnim()
+            if (isReRequest){
+                isReRequest = false
+            }else{
+                stopRefreshAnim()
+            }
             if (isDetached or !state) return@queryWeather
             setData(String(data))
         }
@@ -193,9 +200,10 @@ class WeatherFragment : BaseFragment() {
                 setActivityTitle(mCurrentCity)
             }
         }
-        if (needLocation) {
+        if (needReLocation) {
             mLocationClient.startLocation()
-            needLocation = false
+            isReRequest = true
+            needReLocation = false
         }
     }
 
