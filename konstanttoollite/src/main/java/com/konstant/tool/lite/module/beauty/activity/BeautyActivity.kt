@@ -97,7 +97,7 @@ class BeautyActivity : BaseActivity() {
     private fun getData() {
         BeautyService.getBeautyData(mBaseUrl + mPageIndex) { state, array ->
             Log.i("MIUI图片", String(array))
-            if (!state || array.size < 150) {
+            if ((!state || array.size < 150) && !isDestroyed) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()
                 getData()
                 return@getBeautyData
