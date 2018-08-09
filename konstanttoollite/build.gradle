@@ -16,9 +16,14 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            useProguard = true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions{
+        ignoreWarnings true
+        abortOnError false
     }
     buildToolsVersion '27.0.3'
     compileOptions {
@@ -31,7 +36,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:25.2.0'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
     // 二维码扫描
     implementation 'com.mylhyl:zxingscanner:2.1.0'
     // 图片查看控件
@@ -51,17 +56,15 @@ dependencies {
     // eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
-    implementation 'com.amap.api:location:3.8.0'
+    implementation 'com.amap.api:location:4.1.0'
     // 高德公交查询
-    implementation 'com.amap.api:search:latest.integration'
+    implementation 'com.amap.api:search:6.1.0'
     // 权限申请工具
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
-    // 位置指示器
-    implementation 'me.relex:circleindicator:1.2.2@aar'
+    // design 主要用到了tabLayout
+    implementation 'com.android.support:design:25.4.0'
     // 内存泄漏检测
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:support-v4:25.4.0'
-    implementation 'com.android.support:design:25.4.0'
+
 }

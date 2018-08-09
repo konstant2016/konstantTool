@@ -299,10 +299,8 @@ public class WheelView extends View {
      * 继续移动一定距离
      */
     private synchronized void goonMove(final int move) {
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
+        try {
+            new Thread(() -> {
                 int distance = 0;
                 while (distance < unitHeight * MOVE_NUMBER) {
                     try {
@@ -316,8 +314,10 @@ public class WheelView extends View {
                 }
                 actionUp(move > 0 ? distance - 10 : distance * (-1) + 10);
                 noEmpty();
-            }
-        }).start();
+            }).start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
