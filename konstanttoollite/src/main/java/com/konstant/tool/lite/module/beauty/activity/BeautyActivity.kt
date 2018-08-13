@@ -23,6 +23,8 @@ import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_beauty.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.json.JSONObject
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 /**
  * 描述:美图列表页
@@ -168,20 +170,22 @@ class BeautyActivity : BaseActivity() {
             createDialog()
         }
 
-        mUrlList.forEachIndexed { index, s ->
-            runOnUiThread {
-                text.text = "正在保存中(${index + 1}/${mUrlList.size})"
-                progress.progress = index + 1
-            }
-            Thread.sleep(100)
-            val split = s.split("/")
-            val name = split[split.size - 1]
-            NetworkUtil.get(s) { _, data ->
-                FileUtil.saveBitmapToAlbum(data, name = name)
-            }
-            if (index == mUrlList.size - 1) {
-                runOnUiThread { dialog.dismiss() }
-                showToast("保存完毕")
+        Executors.newSingleThreadExecutor().execute {
+            mUrlList.forEachIndexed { index, url ->
+                runOnUiThread {
+                    text.text = "正在保存中(${index + 1}/${mUrlList.size})"
+                    progress.progress = index + 1
+                }
+                Thread.sleep(300)
+                val split = url.split("/")
+                val name = split[split.size - 1]
+                NetworkUtil.get(url) { _, data ->
+                    FileUtil.saveBitmapToAlbum(data, name = name)
+                }
+                if (index == mUrlList.size - 1) {
+                    runOnUiThread { dialog.dismiss() }
+                    showToast("保存完毕")
+                }
             }
         }
     }

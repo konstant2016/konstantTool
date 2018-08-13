@@ -67,8 +67,7 @@ object CountryManager {
 
     // 查找城市对应的天气代号
     fun queryWeatherCode(province: String, city: String, direct: String): String {
-        AreaManager.getChina()
-                .provinceList.map { prov ->
+        AreaManager.getChina().provinceList.map { prov ->
             if (province.contains(prov.name)) {
                 prov.cityList.map { cit ->
                     if (city.contains(cit.name)) {
