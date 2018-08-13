@@ -68,7 +68,7 @@ class AdapterLookPicture(val context: LookPictureActivity, urlList: List<String>
         AndPermission.with(context)
                 .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .onDenied {
-                    Toast.makeText(context, "您拒绝了本地读取权限", Toast.LENGTH_SHORT).show()
+                    context.showToast("您拒绝了本地读取权限")
                 }
                 .onGranted {
                     savePicture(bitmap)
@@ -79,17 +79,9 @@ class AdapterLookPicture(val context: LookPictureActivity, urlList: List<String>
     // 保存图片
     private fun savePicture(bitmap: Bitmap) {
         if (FileUtil.saveBitmapToAlbum(bitmap = bitmap, name = "${System.currentTimeMillis()}.jpg")) {
-            showToast("保存成功")
+            context.showToast("保存成功")
         } else {
-            showToast("保存失败")
+            context.showToast("保存失败")
         }
     }
-
-    // 展示吐司
-    private fun showToast(string: String) {
-        context.runOnUiThread {
-            Toast.makeText(context, string, Toast.LENGTH_SHORT).show()
-        }
-    }
-
 }

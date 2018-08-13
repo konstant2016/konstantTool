@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 
 /**
  * 描述:所有fragment的父类，用于封装一下常用方法
@@ -78,5 +79,11 @@ open class BaseFragment : Fragment() {
         (mActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
                 .hideSoftInputFromWindow(mActivity.currentFocus?.windowToken,
                         InputMethodManager.HIDE_NOT_ALWAYS)
+    }
+
+    protected fun showToast(msg:String){
+        mActivity.runOnUiThread{
+            Toast.makeText(mActivity.applicationContext,msg,Toast.LENGTH_SHORT).show()
+        }
     }
 }

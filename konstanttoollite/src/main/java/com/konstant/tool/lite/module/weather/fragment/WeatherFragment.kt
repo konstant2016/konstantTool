@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.alibaba.fastjson.JSON
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
@@ -120,7 +119,7 @@ class WeatherFragment : BaseFragment() {
                     initLocationClient()
                     refresh_layout.startRefresh()
                 }
-                .onDenied { Toast.makeText(activity, "您拒绝了定位权限", Toast.LENGTH_SHORT).show() }
+                .onDenied { showToast("您拒绝了定位权限")}
                 .start()
     }
 
@@ -135,7 +134,7 @@ class WeatherFragment : BaseFragment() {
         mLocationClient.setLocationListener {
             if (isDetached) return@setLocationListener
             if (it.errorCode != AMapLocation.LOCATION_SUCCESS) {
-                Toast.makeText(activity, "定位失败，请稍后重试", Toast.LENGTH_SHORT).show()
+                showToast("定位失败，请稍后重试")
             } else {
                 Log.d("当前位置", "${it.province},${it.city},${it.district}")
                 queryWeatherCode(it.province, it.city, it.district)
@@ -170,22 +169,22 @@ class WeatherFragment : BaseFragment() {
     // 设置数据
     private fun setData(data: String) {
         val result = JSON.parseObject(data, WeatherResponse::class.java)
-        val realtime = result.realtime
-        val hourly_forecast = result.hourly_forecast
+        val realTime = result.realtime
+        val hourlyForecast = result.hourly_forecast
         val weatherList = result.weather
-        mListHour.addAll(hourly_forecast)
+        mListHour.addAll(hourlyForecast)
         mListDaily.addAll(weatherList)
 
         activity?.runOnUiThread {
 
             // 头部的信息
-            tv_weather_direct.text = realtime.wind.direct
-            tv_weather_power.text = realtime.wind.power
+            tv_weather_direct.text = realTime.wind.direct
+            tv_weather_power.text = realTime.wind.power
 
-            tv_weather_describe.text = "天气：${realtime.weather.info}"
-            tv_temperature.text = realtime.weather.temperature
+            tv_weather_describe.text = "天气：${realTime.weather.info}"
+            tv_temperature.text = realTime.weather.temperature
 
-            val time = SimpleDateFormat("MM-dd HH:mm").format(realtime.dataUptime.toLong() * 1000)
+            val time = SimpleDateFormat("MM-dd HH:mm").format(realTime.dataUptime.toLong() * 1000)
             tv_weather_update_time.text = "更新时间：${time}"
 
             // 逐小时预报

@@ -170,7 +170,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 展示吐司
-    protected fun showToast(msg: String) {
+    fun showToast(msg: String) {
         runOnUiThread {
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
