@@ -51,7 +51,7 @@ dependencies {
     // 节操播放器
     implementation 'fm.jiecao:jiecaovideoplayer:5.5.4'
     // 高德定位
-    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:location:4.2.0'
     // 二维码扫描
     implementation 'com.mylhyl:zxingscanner:2.1.0'
     // 图片查看控件
