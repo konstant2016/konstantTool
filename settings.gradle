@@ -1,1 +1,1 @@
-include ':app', ':konstanttoollite'
+include ':app', ':tool'
