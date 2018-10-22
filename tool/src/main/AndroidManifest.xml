@@ -50,7 +50,8 @@
         <activity
             android:name=".base.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashActivity">
+            android:theme="@style/SplashActivity"
+            android:configChanges="fontScale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,71 +61,94 @@
         <activity
             android:name=".base.MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name="com.konstant.tool.lite.module.translate.TranslateActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.beauty.activity.BeautyActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.beauty.activity.LookPictureActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.setting.activity.SettingActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.setting.activity.ThemeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.compass.CompassActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.qrcode.QRCodeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.qrcode.QRScanActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.express.activity.ExpressListActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.express.activity.ExpressDetailActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.deviceinfo.DeviceInfoActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.setting.activity.AboutActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.weather.activity.WeatherActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.weather.activity.CityManagerActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.ruler.RulerActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="sensorLandscape" />
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="fontScale"/>
         <activity
             android:name=".module.scanfile.ScanFileActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
+
+        <activity android:name=".module.busline.activity.BusRouteActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="fontScale"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -136,10 +160,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".module.busline.activity.BusRouteActivity"
-            android:windowSoftInputMode="stateHidden|stateUnchanged"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

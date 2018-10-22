@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
@@ -231,6 +233,14 @@ abstract class BaseActivity : SwipeBackActivity() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
+    }
+
+    override fun getResources(): Resources {
+        val resources = super.getResources()
+        val configuration = Configuration()
+        configuration.setToDefaults()
+        resources.updateConfiguration(configuration,resources.displayMetrics)
+        return resources
     }
 
 }

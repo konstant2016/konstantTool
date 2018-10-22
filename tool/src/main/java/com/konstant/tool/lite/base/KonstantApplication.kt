@@ -1,6 +1,8 @@
 package com.konstant.tool.lite.base
 
 import android.app.Application
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.network.NetworkUtil
@@ -37,6 +39,14 @@ class KonstantApplication : Application() {
         Log.d("KonstantApplication","onLowMemory")
         KonstantDataManager.onDestroy(applicationContext)
         super.onLowMemory()
+    }
+
+    override fun getResources(): Resources {
+        val resources = super.getResources()
+        val configuration = Configuration()
+        configuration.setToDefaults()
+        resources.updateConfiguration(configuration,resources.displayMetrics)
+        return resources
     }
 
 }
