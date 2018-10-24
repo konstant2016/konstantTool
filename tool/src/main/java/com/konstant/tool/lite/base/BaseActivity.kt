@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
-import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
@@ -20,7 +18,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
@@ -28,6 +25,7 @@ import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
@@ -118,6 +116,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     protected open fun initBaseViews() {
+        view_status_bar.height = getStatusBarHeight()
         title_bar.setOnClickListener { hideSoftKeyboard() }
         findViewById(R.id.img_back).setOnClickListener { finish() }
     }
@@ -222,7 +221,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 跳转到支付宝红包页面
     fun zfb() {
         val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
-        clipBoard.text = "LMGGea11Mh"
+        clipBoard.text = "Rac赫卡蓝略j11瑞佳"
         try {
             val packageManager = this.applicationContext.packageManager
             val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")
@@ -233,5 +232,13 @@ abstract class BaseActivity : SwipeBackActivity() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
+    }
+
+    // 获取状态栏高度
+    private fun getStatusBarHeight(): Int {
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        return if (resourceId > 0) {
+            resources.getDimensionPixelSize(resourceId)
+        } else 0
     }
 }

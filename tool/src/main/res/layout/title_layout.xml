@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/view_status_bar"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="?attr/tool_main_color" />

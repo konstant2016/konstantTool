@@ -1,9 +1,11 @@
 package com.konstant.tool.lite.util
 
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Context
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Environment
 import android.provider.Settings
 import android.telephony.TelephonyManager
@@ -22,7 +24,7 @@ import java.util.*
  */
 
 @SuppressLint("MissingPermission")
-object DeviceInfoUtil {
+object DeviceInfo {
 
     // 获取当前CPU型号
     fun getCPUModel(): String {
@@ -146,6 +148,7 @@ object DeviceInfoUtil {
 
 
     // 获取设备指定卡槽的IMEI号码
+    @TargetApi(Build.VERSION_CODES.M)
     fun getDeviceMEIBySlotId(context: Context, slotId: Int): String {
         return try {
             val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
