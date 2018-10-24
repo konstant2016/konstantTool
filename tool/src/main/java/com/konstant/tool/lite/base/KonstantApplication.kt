@@ -6,6 +6,8 @@ import android.content.res.Resources
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.network.NetworkUtil
+import com.konstant.tool.lite.util.Density
+import com.lcodecore.tkrefreshlayout.utils.DensityUtil
 
 /**
  * 描述:整个应用的application
@@ -19,6 +21,7 @@ class KonstantApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.d("KonstantApplication","onCreate")
+        Density.init(this)
         NetworkUtil.init(applicationContext)
         KonstantDataManager.onCreate(applicationContext)
     }

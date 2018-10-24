@@ -234,13 +234,4 @@ abstract class BaseActivity : SwipeBackActivity() {
             startActivity(intent)
         }
     }
-
-    override fun getResources(): Resources {
-        val resources = super.getResources()
-        val configuration = Configuration()
-        configuration.setToDefaults()
-        resources.updateConfiguration(configuration,resources.displayMetrics)
-        return resources
-    }
-
 }
