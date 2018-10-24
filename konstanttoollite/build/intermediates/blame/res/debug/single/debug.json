@@ -1,0 +1,2186 @@
+[
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_select_dialog_singlechoice_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading06.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading06.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_bus_route.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_bus_route.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_btn_checkable.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_beauty.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_beauty.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_btn_radio_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_screen_content_include.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_slide_out_bottom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_seek_thumb.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_weather_24_hour.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_weather_24_hour.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_compass.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_compass.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_7.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_7.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_seekbar_thumb_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_arrow.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/drawable-xhdpi-v4/ic_arrow.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_btn_colored_text_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_konstant.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_konstant.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_hint_foreground_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_search_dropdown_item_icons_2line.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_2_night.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_2_night.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_anim_loading_view.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/drawable/anim_loading_view.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_dialog_material_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_select_dialog_multichoice_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_icon_edit_close.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/icon_edit_close.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_recycler_bus.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_recycler_bus.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_select_dialog_item_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading11.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading11.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_list_bus_result.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_list_bus_result.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_9.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_weather_24_hour.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_weather_24_hour.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_design_error.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/color/design_error.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_fragment_history.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/fragment_history.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi_std_tittlebar_main_device_back_white_press.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xxhdpi/std_tittlebar_main_device_back_white_press.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_btn_default_mtrl_shape.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_spinner_textfield_background_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading04.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading04.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_spinner_pull_down_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_spinner_pull_down_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_menu_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_design_snackbar_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable/design_snackbar_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_clear_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xxxhdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_fade_out.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_yunda.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_yunda.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_design_tint_password_toggle.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_debang.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_debang.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_shadow_bottom.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/library-1.1.0.aar/f61f3d187af70c509f62e82508baced8/res/drawable-xhdpi-v4/shadow_bottom.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_seekbar_tick_mark_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_gridview_city_manager.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_gridview_city_manager.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_item_background_holo_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_cab_background_internal_bg.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_shrink_fade_out_from_bottom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-anydpi-v21_design_ic_visibility.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-hdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-hdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_tab_indicator_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_textfield_search_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_layout_bg_spinner.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/layout_bg_spinner.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_alert_dialog_button_bar_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_search_url_text.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_15.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_15.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_switch_thumb_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_edittext.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_seek_thumb.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_color_highlight_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_select_dialog_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_design_tint_password_toggle.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/color/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim-v21_design_bottom_sheet_slide_in.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_input.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_input.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_item_subheader.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_express_detail.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_express_detail.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_list_menu_item_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_avd_hide_password.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_spinner.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_design_fab_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xxxhdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ratingbar_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_fragment_result.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/fragment_result.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_14.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_14.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_pop_express.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_pop_express.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_city_manager.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_city_manager.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_menu_item_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_12.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_12.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_voice_search_api_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_anim_left_to_right.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/anim/anim_left_to_right.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_design_password_eye.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-mdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_qrcode.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_qrcode.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_edittext.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_menu_item_action_area.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_list_menu_item_icon.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-anydpi-v21_design_ic_visibility_off.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_search_api_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_3.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_3.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_btn_bg_pressed.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/btn_bg_pressed.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_10.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_10.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_switch_track.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_13.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_13.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xxhdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_device_info.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_device_info.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading10.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading10.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_weather.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_weather.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_secondary_text_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_swipeback_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/library-1.1.0.aar/f61f3d187af70c509f62e82508baced8/res/layout/swipeback_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_pop_express.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/pop_express.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim-v21_design_bottom_sheet_slide_out.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_layout_tab_text.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_view_bezier.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/layout/view_bezier.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_custom_icon_ring.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/custom_icon_ring.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_5.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_5.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_text_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_zhongtong.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_zhongtong.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_base.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_base.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_switch_thumb.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading09.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading09.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_4.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_4.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_popup_menu_header_item_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_bar_title_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_default.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_layout_snackbar_include.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_11.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_11.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_spinner_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_spinner_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-hdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading08.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading08.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_zhaijisong.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_zhaijisong.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_express_list.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_express_list.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_secondary_text_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_theme.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_theme.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_item_background_holo_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_primary_text_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_8.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_8.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_abc_edit_text_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_design_fab_in.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim/design_fab_in.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_primary_text_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_design_snackbar_out.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_design_bottom_navigation_item_background.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_notification_template_media.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_edit_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/edit_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading05.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading05.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_about.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_about.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_title_layout.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/title_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_layout_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/layout_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading12.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading12.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_media_action.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_design_snackbar_in.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_layout_tab_icon.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_notification_template_media_custom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_popup_exit.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_selector_btn.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/selector_btn.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_anim_top_to_bottom.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/anim/anim_top_to_bottom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_btn_checkable.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_category.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/category.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_progress.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_progress.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_cab_background_top_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_hint_foreground_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi_std_tittlebar_main_device_more_white_press.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xxhdpi/std_tittlebar_main_device_more_white_press.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_bottom_navigation_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_dialog_title_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_go_search_api_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_shunfeng.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_shunfeng.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_weather_current.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_weather_current.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_recycler_normal.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_recycler_normal.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_design_ic_visibility.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xhdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_recycler_weather_hour.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_recycler_weather_hour.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_bar_view_list_nav_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading07.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading07.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_std_tittlebar_main_device_back_white.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/std_tittlebar_main_device_back_white.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_express.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_express.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_item_separator.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_vector_test.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_6.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_6.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_spinner.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_ic_launcher.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_tiantian.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_tiantian.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_head_arrow.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_head_arrow.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_spinner.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_spinner.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_screen_simple.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_fade_in.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_grow_fade_in_from_bottom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v17_view_wheel_date_picker.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/WheelPicker-1.1.2.aar/ac5de6f041505997e6a093c6f6bf4792/res/layout-v17/view_wheel_date_picker.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_translate.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_translate.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_splash_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/splash_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_notification_template_lines_media.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_shentong.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_shentong.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media_narrow.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_popup_menu_item_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_layout_snackbar.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_mode_bar.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_tint_default.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_list_menu_item_checkbox.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_express_detail.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_express_detail.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_menu_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_menu.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_alert_dialog_title_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_avd_show_password.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_1_night.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_1_night.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_bottom_sheet_dialog.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_switch_track.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_2.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_2.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_mode_close_item_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v11_abc_background_cache_hint_selector_material_dark.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_ruler.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_ruler.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi_compass.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xxhdpi/compass.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_layout_bg_main_color.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/layout_bg_main_color.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_weather_life.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_weather_life.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_huiotng.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_huiotng.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_screen_toolbar.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xhdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color_switch_thumb_material_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_setting.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/setting.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_weather_15_daily.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_weather_15_daily.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_shadow_left.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/library-1.1.0.aar/f61f3d187af70c509f62e82508baced8/res/drawable-xhdpi-v4/shadow_left.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v21_abc_btn_colored_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_fragment_weather.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/fragment_weather.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_slide_in_top.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_ems.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_ems.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_search_view.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_1.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_1.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/xml_file_paths.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/xml/file_paths.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ratingbar_small_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_std_tittlebar_main_device_more_white.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/std_tittlebar_main_device_more_white.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_scan_file.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_scan_file.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_view_sinaheader.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/layout/view_sinaheader.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-v23_abc_control_background_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_text_cursor_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_pop_window_menu_weather.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/pop_window_menu_weather.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_16.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_16.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/color-v23_abc_tint_switch_thumb.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_qrscan.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_qrscan.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_btn_bg_normal.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/btn_bg_normal.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_design_ic_visibility.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-mdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_anim_right_to_left.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/anim/anim_right_to_left.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-sw600dp-v13_design_layout_snackbar.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading01.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading01.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_light.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_yuantong.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_yuantong.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_switch_thumb_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_list_menu_item_radio.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_selector_item_bg.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable/selector_item_bg.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_fragment_detail.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/fragment_detail.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_item_query_history.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/item_query_history.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi_std_tittlebar_main_device_more_white_normal.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xxhdpi/std_tittlebar_main_device_more_white_normal.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_media_cancel_action.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi_std_tittlebar_main_device_back_white_normal.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xxhdpi/std_tittlebar_main_device_back_white_normal.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_17.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_17.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_shadow_right.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/library-1.1.0.aar/f61f3d187af70c509f62e82508baced8/res/drawable-xhdpi-v4/shadow_right.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading03.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading03.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_action_bar_up_container.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_slide_out_top.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_navigation_empty_icon.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_weather_img_18.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/weather_img_18.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/mipmap-hdpi-v4_refresh_loading02.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/tkrefreshlayout-1.0.7.aar/bfb180069499999e7ceaa53175ec1f5a/res/mipmap-hdpi-v4/refresh_loading02.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_design_fab_out.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/anim/design_fab_out.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-xxhdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_dialog_header_selector.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_dialog_header_selector.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view_list_item.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_btn_borderless_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media_custom.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout-v11/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_abc_popup_enter.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/drawable-mdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_icon_arrows.png.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/icon_arrows.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_abc_alert_dialog_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ratingbar_indicator_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_ic_menu_overflow_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_navigation_item_header.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_activity_setting.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/activity_setting.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xhdpi_pic_quanfeng.jpg.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/drawable-xhdpi/pic_quanfeng.jpg"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/anim_anim_bottom_to_top.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/anim/anim_bottom_to_top.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_drawer_left.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_drawer_left.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_design_text_input_password_icon.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/425c77a47d8cd7bd2b192ea96fd1f50e/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable_abc_seekbar_track_material.xml.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-hdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-mdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/layout_layout_weather_15_daily.xml.flat",
+        "source": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/src/main/res/layout/layout_weather_15_daily.xml"
+    },
+    {
+        "merged": "/Users/konstant/StudioProjects/KonstantTools/konstanttoollite/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/Users/konstant/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/4380aa2a0f5f865c5ce367b02019dd71/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    }
+]

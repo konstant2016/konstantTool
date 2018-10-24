@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":25,"versionName":"1.5.5","enabled":true,"outputFile":"konstanttoollite-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.konstant.tool.lite","split":"","minSdkVersion":"21"}}]
