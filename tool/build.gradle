@@ -25,7 +25,7 @@ android {
         ignoreWarnings true
         abortOnError false
     }
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -56,7 +56,7 @@ dependencies {
     // eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
-    implementation 'com.amap.api:location:4.1.0'
+    implementation 'com.amap.api:location:4.2.0'
     // 高德公交查询
     implementation 'com.amap.api:search:6.1.0'
     // 权限申请工具
