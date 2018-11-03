@@ -11,13 +11,12 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.SurfaceHolder;
-import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.WindowManager;
 
 import com.konstant.tool.lite.R;
 
-public class KonstantRulerView extends SurfaceView implements Callback {
+public class KonstantRulerView extends SurfaceView implements SurfaceHolder.Callback {
     public float UNIT_MM;
 	public float RULE_HEIGHT;
 	public float RULE_SCALE;
@@ -75,6 +74,7 @@ public class KonstantRulerView extends SurfaceView implements Callback {
 		super(context, attrs, defStyle);
 		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.KonstantRulerView);
 		mColor = array.getInt(R.styleable.KonstantRulerView_color_line, Color.BLUE);
+		array.recycle();
 		init(context);
 	}
 

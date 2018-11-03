@@ -92,17 +92,21 @@ object FileUtil {
         return editor.commit()
     }
 
+
     // 从SharedPreference读取数据
-    fun readDataFromSp(context: Context, key: String): String =
-            readData(context, key, "") as String
-
-
-    fun readDataFromSp(context: Context, key: String, default: Boolean): Boolean =
-            readData(context, key, default) as Boolean
-
-
-    fun readDataFromSp(context: Context, key: String, default: Int): Int =
-            readData(context, key, default) as Int
+    @Suppress("UNCHECKED_CAST")
+    fun <T> readDataFromSp(context: Context, key: String, default: T): T =
+            with(context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)) {
+                val response: Any = when (default) {
+                    is Long -> getLong(key, default)
+                    is Int -> getInt(key, default)
+                    is Boolean -> getBoolean(key, default)
+                    is Float -> getFloat(key, default)
+                    is String -> getString(key,"")
+                    else -> throw IllegalArgumentException("SharedPreference不支持此类型的存储！")
+                }
+                response as T
+            }
 
 
     private fun readData(context: Context, key: String, default: Any): Any {
