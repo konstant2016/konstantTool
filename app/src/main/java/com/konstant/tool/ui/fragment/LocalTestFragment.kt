@@ -43,6 +43,9 @@ class LocalTestFragment : BaseFragment() {
         // 圆环刻度进度
         progress_scale_circle.setOnClickListener { startActivity(Intent(mActivity, ScaleCircleActivity::class.java)) }
 
+        // 圆弧
+        arc_view.setOnClickListener { startActivity(Intent(mActivity, ArcActivity::class.java)) }
+
         // 手势缩放字体
         gesture_zoom.setOnClickListener { startActivity(Intent(mActivity, GestureActivity::class.java)) }
 

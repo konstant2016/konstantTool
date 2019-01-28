@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CustomLinearLayout">
-        <attr name="content_text" format="string"/>
+        <attr name="content_text" format="string" />
     </declare-styleable>
     <declare-styleable name="WheelView">
         <attr name="unitHeight" format="dimension" />
-        <attr name="itemNumber" format="integer"/>
+        <attr name="itemNumber" format="integer" />
 
         <attr name="normalTextColor" format="color" />
         <attr name="normalTextSize" format="dimension" />
@@ -15,9 +15,9 @@
         <attr name="lineColor" format="color" />
         <attr name="lineHeight" format="dimension" />
 
-        <attr name="maskHeight" format="dimension"/>
-        <attr name="noEmpty" format="boolean"/>
-        <attr name="isEnable" format="boolean"/>
+        <attr name="maskHeight" format="dimension" />
+        <attr name="noEmpty" format="boolean" />
+        <attr name="isEnable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="CircleProgress">
@@ -71,15 +71,28 @@
 
     <declare-styleable name="WeatherLineView">
         <!-- 文字大小 -->
-        <attr name="temperTextSize" format="dimension"/>
+        <attr name="temperTextSize" format="dimension" />
         <!-- 文字的颜色 -->
-        <attr name="weatextColor" format="color"/>
+        <attr name="weatextColor" format="color" />
         <!-- 绘制的线的宽度 -->
-        <attr name="weaLineWidth" format="dimension"/>
+        <attr name="weaLineWidth" format="dimension" />
         <!-- 绘制的圆点的半径 -->
-        <attr name="weadotRadius" format="dimension"/>
+        <attr name="weadotRadius" format="dimension" />
         <!-- 文字离圆点的距离 -->
-        <attr name="textDotDistance" format="dimension"/>
+        <attr name="textDotDistance" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AcrView">
+        <attr name="outer_color" format="color" />
+        <attr name="outer_sweep" format="integer" />
+        <attr name="start" format="integer" />
+        <attr name="outer_width" format="dimension" />
+
+        <attr name="inner_color" format="color" />
+        <attr name="inner_sweep" format="integer" />
+        <attr name="inner_width" format="dimension" />
+
+        <attr name="arc_padding" format="dimension"/>
     </declare-styleable>
 
 </resources>

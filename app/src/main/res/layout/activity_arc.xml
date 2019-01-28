@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.konstant.tool.ui.activity.testactivity.ArcActivity">
+
+    <com.konstant.tool.views.ArcView
+        app:outer_width="15dp"
+        app:inner_width="15dp"
+        android:id="@+id/arc_out"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        app:inner_sweep="90"
+        app:outer_sweep="270"
+        app:outer_color="#00a8ff"
+        app:inner_color="#f4b622"
+        app:arc_padding="25dp"
+        app:start="0" />
+
+    <Button
+        android:background="@drawable/test"
+        android:layout_width="50dp"
+        android:layout_height="200dp" />
+
+</LinearLayout>

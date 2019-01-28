@@ -68,7 +68,7 @@ object Density {
         })
     }
 
-    // 当activity被创建时，使用自定的api
+    // 当activity被创建时，使用自定的dpi
     private fun setActivityDensity(activity: Activity) {
         val targetDensity = activity.resources.displayMetrics.widthPixels / SIGN_DPI
         val targetScaleDensity = targetDensity * (mAppScaleDensity / mAppDensity)

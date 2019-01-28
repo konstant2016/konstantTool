@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/toast_normal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingLeft="32px"
+        android:paddingTop="25px"
+        android:paddingRight="32px"
+        android:paddingBottom="25px"
+        android:text="这是一条吐司这是一条吐司这是一条吐司"
+        android:textColor="#5b5f66"
+        android:textSize="30px" />
+
+</RelativeLayout>

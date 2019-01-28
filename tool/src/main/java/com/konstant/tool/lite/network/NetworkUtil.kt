@@ -42,14 +42,14 @@ object NetworkUtil {
     }
 
     // 发起get请求
-    fun get(url: String, param: String="", callback: (state: Boolean, data: ByteArray) -> Unit) {
+    fun get(url: String, param: String = "", callback: (state: Boolean, data: ByteArray) -> Unit) {
         val s = buildGetMethodUrl(param)
         Log.i("get请求参数", url + s)
         val request = Request.Builder()
                 .url(url + s)
                 .get()
                 .build()
-        mOkHttpClient.newCall(request)?.enqueue(object :Callback{
+        mOkHttpClient.newCall(request)?.enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
                 Log.d("response", e.toString())
                 callback(false, e.toString().toByteArray())
@@ -59,9 +59,9 @@ object NetworkUtil {
                 Log.d("response:net", response.networkResponse().toString())
                 Log.d("response:cache", response.cacheResponse().toString())
                 if (!response.isSuccessful) {
-                    callback(false, response.body()?.bytes()?: ByteArray(0))
+                    callback(false, response.body()?.bytes() ?: ByteArray(0))
                 } else {
-                    callback(true, response.body()?.bytes()?:ByteArray(0))
+                    callback(true, response.body()?.bytes() ?: ByteArray(0))
                 }
             }
         })
