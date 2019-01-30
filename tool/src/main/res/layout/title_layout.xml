@@ -8,6 +8,7 @@
     android:focusable="true"
     android:orientation="vertical">
 
+    <!--留出系统状态栏的高度-->
     <TextView
         android:id="@+id/view_status_bar"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         android:layout_marginTop="20dp"
         android:background="?attr/tool_main_color">
 
+        <!--返回按钮-->
         <ImageView
             android:id="@+id/img_back"
             android:layout_width="30dp"
@@ -29,6 +31,19 @@
             android:clickable="true"
             android:src="@drawable/std_tittlebar_main_device_back_white" />
 
+        <!--展开侧边栏按钮-->
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_drawer"
+            android:layout_width="30dp"
+            android:padding="5dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="14dp"
+            android:clickable="true"
+            android:src="@drawable/category" />
+
+        <!--副标题-->
         <TextView
             android:id="@+id/sub_title"
             android:layout_width="wrap_content"
@@ -41,6 +56,7 @@
             android:textSize="12sp"
             android:visibility="gone" />
 
+        <!--位置指示器-->
         <com.konstant.tool.lite.view.KonstantPagerIndicator
             android:id="@+id/title_indicator"
             android:layout_width="match_parent"
@@ -53,6 +69,7 @@
             app:dotGap="5dp"
             app:pageIndicatorColor="@color/white_60_transparent" />
 
+        <!--更多按钮-->
         <ImageView
             android:id="@+id/img_more"
             android:layout_width="30dp"
@@ -63,6 +80,19 @@
             android:src="@drawable/std_tittlebar_main_device_more_white"
             android:visibility="gone" />
 
+        <!--软件设置按钮-->
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/img_setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="14dp"
+            android:clickable="true"
+            android:src="@drawable/setting"
+            android:visibility="gone" />
+
+        <!--主标题-->
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"

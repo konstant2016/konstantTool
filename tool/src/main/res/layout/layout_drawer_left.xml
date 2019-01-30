@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="@color/white"
-    android:clickable="true"
-    android:focusable="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:layout_alignParentTop="true"
-        android:paddingTop="20dp"
         android:background="?attr/tool_main_color"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp">
 
         <ImageView
             android:id="@+id/drawer_header"
@@ -76,7 +74,7 @@
             android:text="设置" />
     </RelativeLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/layout_header"
@@ -100,7 +98,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/text_beauty"
+                android:id="@+id/text_ruler"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/selector_item_bg"
@@ -108,7 +106,7 @@
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
-                android:text="美女图片"
+                android:text="直尺"
                 android:textColor="@color/black" />
 
             <TextView
@@ -124,7 +122,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/text_qrcode"
+                android:id="@+id/text_beauty"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/selector_item_bg"
@@ -132,7 +130,7 @@
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
-                android:text="二维码扫描与解析"
+                android:text="美女图片"
                 android:textColor="@color/black" />
 
             <TextView
@@ -145,6 +143,18 @@
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="物流查询"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_weather"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/selector_item_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="天气查询"
                 android:textColor="@color/black" />
 
             <TextView
@@ -171,9 +181,8 @@
                 android:text="公交线路查询"
                 android:textColor="@color/black" />
 
-
             <TextView
-                android:id="@+id/text_weather"
+                android:id="@+id/text_qrcode"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/selector_item_bg"
@@ -181,21 +190,8 @@
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
-                android:text="天气查询"
+                android:text="二维码扫描解析"
                 android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="40dp"
-                android:text="直尺"
-                android:textColor="@color/black" />
-
 
             <TextView
                 android:id="@+id/text_zfb"
@@ -210,6 +206,6 @@
                 android:textColor="@color/black" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
 </RelativeLayout>

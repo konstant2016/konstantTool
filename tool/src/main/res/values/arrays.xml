@@ -91,4 +91,18 @@
         <item>debangwuliu</item>
         <item>zhaijisong</item>
     </array>
+
+
+    <array name="main_function">
+        <item>翻译</item>
+        <item>直尺</item>
+        <item>指南针</item>
+        <item>美女图片</item>
+        <item>物流查询</item>
+        <item>天气查询</item>
+        <item>查看设备信息</item>
+        <item>公交线路查询</item>
+        <item>二维码扫描解析</item>
+        <item>领取支付宝红包</item>
+    </array>
 </resources>

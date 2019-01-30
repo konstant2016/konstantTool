@@ -122,10 +122,10 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 设置主标题
-    protected fun setTitle(s: String) {
+    protected fun setTitle(title: String) {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.title) as TextView
-        textView.text = s
+        textView.text = title
     }
 
     // 隐藏主标题

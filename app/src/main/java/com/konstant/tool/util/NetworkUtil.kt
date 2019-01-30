@@ -50,7 +50,7 @@ object NetworkUtil {
 
     // 构建GET请求的路径
     private fun buildGetMethodUrl(params: String): String {
-        if (params.isNullOrEmpty()) return ""
+        if (params.isEmpty()) return ""
         val map = JSON.parseObject(params, Map::class.java)
         val buffer = StringBuffer()
         buffer.append("?")

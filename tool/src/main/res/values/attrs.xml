@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="tool_main_color" format="color"/>
+    <attr name="tool_main_color" format="color" />
 
 
     <declare-styleable name="KonstantRulerView">
-        <attr name="color_line" format="color"/>
+        <attr name="color_line" format="color" />
     </declare-styleable>
 
     <declare-styleable name="KonstantPageIndicator">
@@ -13,6 +13,10 @@
         <attr name="animationDuration" format="integer" />
         <attr name="pageIndicatorColor" format="color" />
         <attr name="currentPageIndicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ItemView">
+        <attr name="text" format="string"/>
     </declare-styleable>
 
 </resources>

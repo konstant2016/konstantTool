@@ -2,6 +2,7 @@ package com.konstant.tool.lite.base
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
@@ -16,6 +17,7 @@ import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.title_layout.*
 
 /**
  * 描述:主页
@@ -35,7 +37,10 @@ class MainActivity : BaseActivity() {
 
     override fun initBaseViews() {
 
-        hideTitleBar()
+        img_back.visibility = View.GONE
+        img_more.visibility = View.GONE
+        img_drawer.visibility = View.VISIBLE
+        img_setting.visibility = View.VISIBLE
 
         layout_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
 
@@ -57,9 +62,9 @@ class MainActivity : BaseActivity() {
 
         layout_zfb.setOnClickListener { zfb() }
 
-        layout_side.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
+        img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 
-        layout_more.setOnClickListener { startActivity(SettingActivity::class.java) }
+        img_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
     }
 
 

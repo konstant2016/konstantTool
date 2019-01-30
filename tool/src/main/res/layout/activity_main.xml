@@ -1,375 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="?attr/tool_main_color">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="菜籽工具箱"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <RelativeLayout
-            android:id="@+id/layout_more"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:clickable="true">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/setting" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_side"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:clickable="true">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/category" />
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_translate"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        app:text="翻译" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="翻译"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_beauty"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="美女图片"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_compass"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="指南针"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/layout_qrcode"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="二维码扫描与解析"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_express"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="物流查询"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_device_info"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="查看设备信息"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_bus"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="公交线路查询"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_weather"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="天气查询"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
-
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_ruler"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        app:text="直尺" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="直尺"
-            android:textColor="@color/black" />
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_compass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="指南针" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_beauty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="美女图片" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_express"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="物流查询" />
 
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_weather"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="天气查询" />
+
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="查看设备信息" />
+
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_bus"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="公交线路查询" />
+
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_qrcode"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:text="二维码扫描解析" />
+
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_zfb"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        app:text="领取支付宝红包" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="领取支付宝红包"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:rotation="180"
-            android:src="@drawable/std_tittlebar_main_device_back_white_press" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
-    </RelativeLayout>
 </LinearLayout>
-
