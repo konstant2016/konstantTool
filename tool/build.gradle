@@ -21,7 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions{
+    lintOptions {
         ignoreWarnings true
         abortOnError false
     }
@@ -50,7 +50,7 @@ dependencies {
     // picasso图片加载控件
     implementation 'com.squareup.picasso:picasso:2.5.2'
     // FAST JSON
-    implementation 'com.alibaba:fastjson:1.2.44'
+    implementation 'com.alibaba:fastjson:1.2.54'
     // 下拉刷新
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     // eventbus
@@ -67,4 +67,5 @@ dependencies {
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
 
+    implementation 'cn.jzvd:jiaozivideoplayer:6.4.1'
 }

@@ -14,6 +14,7 @@ import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
+import com.konstant.tool.lite.module.video.VideoListActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -59,6 +60,8 @@ class MainActivity : BaseActivity() {
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         layout_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
+
+        layout_video.setOnClickListener { startActivity(VideoListActivity::class.java) }
 
         layout_zfb.setOnClickListener { zfb() }
 

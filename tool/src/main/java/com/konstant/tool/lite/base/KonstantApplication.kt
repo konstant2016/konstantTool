@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.base
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.util.Log
@@ -18,8 +19,13 @@ import com.lcodecore.tkrefreshlayout.utils.DensityUtil
 
 class KonstantApplication : Application() {
 
+    companion object {
+        lateinit var sContext: Application
+    }
+
     override fun onCreate() {
         super.onCreate()
+        sContext = this
         Log.d("KonstantApplication","onCreate")
         Density.init(this)
         NetworkUtil.init(applicationContext)

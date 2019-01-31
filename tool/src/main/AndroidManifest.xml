@@ -6,29 +6,19 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- 以下为高德定位所要求的权限 -->
-    <!-- 用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- 用于访问网络，网络定位需要上网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 用于写入缓存数据到扩展存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 用于申请调用A-GPS模块 -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 以下为高德定位所要求的权限 -->
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于申请获取蓝牙信息进行室内定位 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
@@ -39,8 +29,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!-- 以下为高德定位相关 -->
+        <activity android:name=".module.video.PlayActivity"></activity>
+        <activity android:name=".module.video.VideoListActivity" /> <!-- 以下为高德定位相关 -->
         <service android:name="com.amap.api.location.APSService" />
 
         <meta-data
@@ -49,9 +39,9 @@
 
         <activity
             android:name=".base.SplashActivity"
+            android:configChanges="fontScale"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashActivity"
-            android:configChanges="fontScale">
+            android:theme="@style/SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,95 +50,95 @@
         </activity>
         <activity
             android:name=".base.MainActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.konstant.tool.lite.module.translate.TranslateActivity"
+            android:name=".module.translate.TranslateActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.beauty.activity.BeautyActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.beauty.activity.LookPictureActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.setting.activity.SettingActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.setting.activity.ThemeActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.compass.CompassActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.qrcode.QRCodeActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.qrcode.QRScanActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.express.activity.ExpressListActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.express.activity.ExpressDetailActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.deviceinfo.DeviceInfoActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.setting.activity.AboutActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.weather.activity.WeatherActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.weather.activity.CityManagerActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.ruler.RulerActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
-            android:screenOrientation="sensorLandscape"
-            android:configChanges="fontScale"/>
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".module.scanfile.ScanFileActivity"
+            android:configChanges="fontScale"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.busline.activity.BusRouteActivity"
+            android:configChanges="fontScale"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
-
-        <activity android:name=".module.busline.activity.BusRouteActivity"
-            android:windowSoftInputMode="stateHidden|stateUnchanged"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:configChanges="fontScale"/>
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -159,7 +149,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>
