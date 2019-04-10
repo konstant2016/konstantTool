@@ -30,7 +30,7 @@ open class BaseFragment : Fragment() {
     private var mIsVisibleToUser = false
     private var isFirstVisible = true
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         isViewCreated = true
         // onViewCreated只会调用一次，当调用此方法时，判断是否对用户可见，如果可见，调用懒加载方法

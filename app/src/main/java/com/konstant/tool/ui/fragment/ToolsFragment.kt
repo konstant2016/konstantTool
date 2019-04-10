@@ -34,7 +34,7 @@ class ToolsFragment : BaseFragment() {
         return view
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         layout_translate.setOnClickListener { startActivity(Intent(mActivity, TranslateActivity::class.java)) }

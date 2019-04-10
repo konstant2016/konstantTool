@@ -25,8 +25,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
         holder.tv_time.text = "12:43"
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent!!.context).inflate(R.layout.item_recycler_conversion_chat, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_conversion_chat, parent, false)
         return Holder(view)
     }
 

@@ -24,7 +24,7 @@ class LocalTestFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_local_test, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 

@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id": "1",
+        "name": "最热",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/HOT/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/HOT/hot.txt"
+    },
+    {
+        "id": "2",
+        "name": "最新",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/NEW/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/NEW/new.txt"
+    },
+    {
+        "id": "0001",
+        "name": "抽象",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Abstract/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Abstract/abstract.txt"
+    },
+    {
+        "id": "0002",
+        "name": "美女",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Adult/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/JingMei%20Ringtones/wallpaper/Adult/adult.txt"
+    },
+    {
+        "id": "0003",
+        "name": "动物",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Animals/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Animals/animals.txt"
+    },
+    {
+        "id": "0004",
+        "name": "艺术",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Art/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Art/art.txt"
+    },
+    {
+        "id": "0005",
+        "name": "汽车",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Cars/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Cars/cars.txt"
+    },
+    {
+        "id": "0006",
+        "name": "美食",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Food%20Drink/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Food%20Drink/fooddrink.txt"
+    },
+    {
+        "id": "0007",
+        "name": "游戏",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Games/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Games/games.txt"
+    },
+    {
+        "id": "0008",
+        "name": "电影",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Movies/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Movies/movies.txt"
+    },
+    {
+        "id": "0009",
+        "name": "音乐",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Music/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Music/music.txt"
+    },
+    {
+        "id": "0010",
+        "name": "自然",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Nature/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Nature/nature.txt"
+    },
+    {
+        "id": "0011",
+        "name": "照片",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Photos/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Photos/photos.txt"
+    },
+    {
+        "id": "0012",
+        "name": "城市",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Places/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Places/places.txt"
+    },
+    {
+        "id": "0013",
+        "name": "Quotes",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Quotes/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Quotes/quotes.txt"
+    },
+    {
+        "id": "0014",
+        "name": "体育",
+        "imgUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Sports/logo.png",
+        "contentUrl": "https://raw.githubusercontent.com/804447885/ringtones/master/Kaka%20Ringtones/wallpaper/Sports/sports.txt"
+    }
+]

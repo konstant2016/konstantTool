@@ -24,7 +24,7 @@ class AdapterViewpager(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getCount(): Int = mFragmentList.size
 
 
-    override fun getItemPosition(any: Any?): Int = PagerAdapter.POSITION_NONE
+    override fun getItemPosition(any: Any): Int = PagerAdapter.POSITION_NONE
 
 
     fun updateFragmentList(fragmentList: List<Fragment>){

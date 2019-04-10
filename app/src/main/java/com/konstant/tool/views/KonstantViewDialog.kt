@@ -2,6 +2,7 @@ package com.konstant.tool
 
 import android.support.v7.app.AppCompatActivity
 import android.view.*
+import android.widget.Button
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -18,10 +19,10 @@ class KonstantViewDialog(private val context: AppCompatActivity) : PopupWindow()
         val view = LayoutInflater.from(context).inflate(R.layout.layout_konstant_dialog_view, null)
         mMessage = view.findViewById(R.id.tv_message) as TextView
         mLayout = view.findViewById(R.id.layout_view) as RelativeLayout
-        view.findViewById(R.id.btn_confirm).setOnClickListener {
+        view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
             listener(this)
         }
-        view.findViewById(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
+        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.animationStyle = R.style.popwin_anim_style
         mPop.setOnDismissListener { backgroundAlpha(1.0f) }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupWindow
 import android.widget.TextView
@@ -32,13 +33,13 @@ class KonstantInputDialog(private val context: Activity) : PopupWindow() {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_konstant_dialog_input, null)
         mMessage = view.findViewById(R.id.tv_message) as TextView
         mEdit = view.findViewById(R.id.et_input) as EditText
-        view.findViewById(R.id.btn_confirm).setOnClickListener {
+        view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
             mPop.dismiss()
             if (!TextUtils.isEmpty(mEdit.text)){
                 listener(mEdit.text.toString())
             }
         }
-        view.findViewById(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
+        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener { mPop.dismiss() }
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.animationStyle = R.style.popwin_anim_style
         mPop.setOnDismissListener { backgroundAlpha(1.0f) }

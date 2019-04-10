@@ -3,6 +3,7 @@ package com.konstant.tool.ui.activity.testactivity
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.util.Log
 import android.view.View
 import com.konstant.tool.R
@@ -30,16 +31,15 @@ class CoordinatorActivity : SwipeBackActivity() {
         supportActionBar?.setHomeAsUpIndicator(android.R.drawable.ic_input_add)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        app_bar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            Log.d("移动高度",""+verticalOffset)
+        app_bar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            Log.d("移动高度", "" + verticalOffset)
             if (Math.abs(verticalOffset) >= 200) {
-            }else{
+            } else {
             }
             if (Math.abs(verticalOffset) >= appBarLayout.totalScrollRange) {
 
             }
-        }
-
+        })
     }
 }
 
