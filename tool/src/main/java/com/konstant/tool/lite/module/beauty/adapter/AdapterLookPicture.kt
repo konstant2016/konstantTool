@@ -36,15 +36,15 @@ class AdapterLookPicture(val context: LookPictureActivity, urlList: List<String>
         }
     }
 
-    override fun isViewFromObject(view: View?, any: Any?): Boolean = (view === any)
+    override fun isViewFromObject(view: View, any: Any): Boolean = (view === any)
 
 
     override fun getCount(): Int = imgList.size
 
 
-    override fun instantiateItem(container: ViewGroup?, position: Int): Any {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val image = imgList[position]
-        container?.addView(image)
+        container.addView(image)
         image.setOnClickListener { context.finish() }
         image.setOnLongClickListener {
             KonstantDialog(context)
@@ -59,8 +59,8 @@ class AdapterLookPicture(val context: LookPictureActivity, urlList: List<String>
         return image
     }
 
-    override fun destroyItem(container: ViewGroup?, position: Int, any: Any?) {
-        container?.removeView(any as View)
+    override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
+        container.removeView(any as View)
     }
 
     // 请求权限

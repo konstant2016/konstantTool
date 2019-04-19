@@ -43,15 +43,15 @@ class VideoListActivity : BaseActivity() {
     }
 
     private fun readVideoList() {
-        layout_loading.visibility = View.VISIBLE
+        showLoading(state = true)
 
         VideoScanner.scanVideo(VideoScanner.Type.MEDIA, {
             mVideoList.clear()
             mVideoList.addAll(it)
             mAdapter.notifyDataSetChanged()
-            layout_loading.visibility = View.GONE
+            showLoading(state = false)
         }, { index, total ->
-            tv_state.text = "已扫描: $index/$total"
+            showLoading(true, "已扫描: $index/$total")
         })
     }
 

@@ -56,7 +56,7 @@ dependencies {
     // 图片查看控件
     implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问工具
-    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
     // 环信
     implementation('com.google.android.gms:play-services-plus:11.8.0', {
         exclude group: 'org.apache.http'
@@ -73,5 +73,4 @@ dependencies {
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     // Snappy压缩库
     implementation 'com.jiechic.android.library:snappy-android:1.1.7'
-
 }

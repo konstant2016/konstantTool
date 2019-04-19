@@ -25,7 +25,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_state"
+            android:id="@+id/tv_state_express"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -61,7 +61,7 @@
 
         <!--加载中的页面-->
         <LinearLayout
-            android:id="@+id/layout_loading"
+            android:id="@+id/layout_loading_express"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

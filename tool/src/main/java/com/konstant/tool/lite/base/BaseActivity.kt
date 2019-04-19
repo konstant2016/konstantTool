@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
+import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
@@ -173,6 +174,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 展示吐司
     fun showToast(msg: String) {
         runOnUiThread {
+            showLoading(state = false)
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
     }
@@ -187,6 +189,15 @@ abstract class BaseActivity : SwipeBackActivity() {
             draw_layout.closeDrawers()
         }
         startActivity(Intent(this, cls))
+    }
+
+    protected fun startActivitySafely(intent: Intent): Boolean {
+        return try {
+            startActivity(intent)
+            true
+        } catch (e: Exception) {
+            false
+        }
     }
 
     // 初始化侧边栏
@@ -240,5 +251,11 @@ abstract class BaseActivity : SwipeBackActivity() {
         return if (resourceId > 0) {
             resources.getDimensionPixelSize(resourceId)
         } else 0
+    }
+
+    // 显示加载窗口
+    fun showLoading(state: Boolean, msg: String = "正在加载中...") {
+        tv_state.text = msg
+        layout_loading.visibility = if (state) View.VISIBLE else View.GONE
     }
 }

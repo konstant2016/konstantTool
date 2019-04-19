@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:id="@+id/draw_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/title_layout" />
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/title_layout" />
 
         <RelativeLayout
             android:id="@+id/base_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_below="@id/title_bar" />
+
+        <!--加载中的页面-->
+        <LinearLayout
+            android:id="@+id/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_state"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="-50dp"
+                android:gravity="center"
+                android:text="正在加载中。。。" />
+
+            <include layout="@layout/layout_progress" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <include layout="@layout/layout_drawer_left" />
 

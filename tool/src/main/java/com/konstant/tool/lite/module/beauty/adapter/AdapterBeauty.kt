@@ -21,7 +21,7 @@ class AdapterBeauty(val urls: ArrayList<String>, val context: Context) : Recycle
 
     private val imgList = ArrayList<ImageView>()
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NormalHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NormalHolder {
 
         val view = LayoutInflater.from(context)
                 .inflate(R.layout.item_recycler_normal, parent, false) as ImageView

@@ -10,6 +10,7 @@ import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
+import com.konstant.tool.lite.module.extract.PackageActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
@@ -62,6 +63,8 @@ class MainActivity : BaseActivity() {
         layout_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 
         layout_video.setOnClickListener { startActivity(VideoListActivity::class.java) }
+
+        layout_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 
         layout_zfb.setOnClickListener { zfb() }
 

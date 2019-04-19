@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.weather.fragment
 
 import android.Manifest
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -44,10 +45,10 @@ class WeatherFragment : BaseFragment() {
     private var mDirectCode: String = ""
 
     private val mListHour = ArrayList<WeatherResponse.HourlyForecastBean>()
-    private val mAdapterHour by lazy { AdapterWeatherHourly(activity, mListHour) }
+    private val mAdapterHour by lazy { AdapterWeatherHourly(activity as Context, mListHour) }
 
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
-    private val mAdapterDay by lazy { AdapterWeatherDaily(activity, mListDaily) }
+    private val mAdapterDay by lazy { AdapterWeatherDaily(activity as Context, mListDaily) }
 
     private var mCurrentCity = "加载中"
     private var needReLocation = false      // 是否需要再次定位
@@ -66,7 +67,7 @@ class WeatherFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val p1 = arguments.getString(PARAM)
+        val p1 = arguments!!.getString(PARAM)!!
         val p2 = CountryManager.getCityCode()
 
         // 如果传进来的参数为空，但是缓存参数不为空，才需要二次定位

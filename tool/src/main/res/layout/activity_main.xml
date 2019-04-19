@@ -1,74 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_translate"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="翻译" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_ruler"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="直尺" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_translate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="翻译" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_compass"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="指南针" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_ruler"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="直尺" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_beauty"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="美女图片" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_compass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="指南针" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_express"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="物流查询" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_beauty"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="美女图片" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_weather"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="天气查询" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_express"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="物流查询" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_video"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="视频播放器" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_weather"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="天气查询" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_device_info"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="查看设备信息" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_video"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="视频播放器" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_bus"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="公交线路查询" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_package"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="安装包提取" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_qrcode"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="二维码扫描解析" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_device_info"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="查看设备信息" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_zfb"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:text="领取支付宝红包" />
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_bus"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="公交线路查询" />
 
-</LinearLayout>
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_qrcode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="二维码扫描解析" />
+
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_zfb"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="领取支付宝红包" />
+    </LinearLayout>
+</ScrollView>

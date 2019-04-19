@@ -20,7 +20,9 @@ import com.konstant.tool.lite.module.express.server.ExpressResponse
 import com.konstant.tool.lite.module.express.server.ExpressService
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
+import kotlinx.android.synthetic.main.pop_express.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
@@ -102,7 +104,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 更新界面
     private fun updateUI() {
 
-        tv_state.text = mState
+        tv_state_express.text = mState
 
         tv_remark.text = mRemark
 
@@ -141,27 +143,25 @@ class ExpressDetailActivity : BaseActivity() {
     // 正在加载中
     private fun onLoading() {
         runOnUiThread {
-            layout_loading.visibility = View.VISIBLE
+            layout_loading_express.visibility = View.VISIBLE
             layout_erroe.visibility = View.GONE
             listview_detail.visibility = View.GONE
         }
-
     }
 
     // 加载失败
     private fun onError() {
         runOnUiThread {
-            layout_loading.visibility = View.GONE
+            layout_loading_express.visibility = View.GONE
             layout_erroe.visibility = View.VISIBLE
             listview_detail.visibility = View.GONE
         }
-
     }
 
     // 加载成功
     private fun onSuccess() {
         runOnUiThread {
-            layout_loading.visibility = View.GONE
+            layout_loading_express.visibility = View.GONE
             layout_erroe.visibility = View.GONE
             listview_detail.visibility = View.VISIBLE
         }
@@ -170,10 +170,10 @@ class ExpressDetailActivity : BaseActivity() {
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
         val view = LayoutInflater.from(this).inflate(R.layout.pop_express, null)
-        view.findViewById(R.id.tv_change_order).setOnClickListener { changeOrderNo() }
-        view.findViewById(R.id.tv_change_company).setOnClickListener { changeCompany() }
-        view.findViewById(R.id.tv_change_remark).setOnClickListener { changeRemark() }
-        view.findViewById(R.id.tv_delete).setOnClickListener { deleteOrder() }
+        tv_change_order.setOnClickListener { changeOrderNo() }
+        tv_change_company.setOnClickListener { changeCompany() }
+        tv_change_remark.setOnClickListener { changeRemark() }
+        tv_delete.setOnClickListener { deleteOrder() }
 
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.showAsDropDown(title_bar)

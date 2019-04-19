@@ -4,8 +4,9 @@ import android.app.Dialog
 import android.content.Context
 import android.view.*
 import android.widget.RelativeLayout
-import android.widget.TextView
 import com.konstant.tool.lite.R
+import kotlinx.android.synthetic.main.layout_dialog_konstant.*
+import kotlinx.android.synthetic.main.layout_dialog_konstant.view.*
 
 /**
  * 描述:自定义的dialog
@@ -24,7 +25,6 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     private var negativeListener: ((KonstantDialog) -> Unit)? = null     // 取消按钮按下后
 
     private lateinit var root: View
-    private lateinit var child: RelativeLayout
 
     // 设置信息
     fun setMessage(msg: String): KonstantDialog {
@@ -51,40 +51,40 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     }
 
     // 根据builder创建dialog
-    fun createDialog() {
+    fun createDialog(): KonstantDialog {
         root = LayoutInflater.from(context).inflate(R.layout.layout_dialog_konstant, null)
-        if (hideNavigation){
-            root.findViewById(R.id.layout_navigation).visibility = View.GONE
+        if (hideNavigation) {
+            root.layout_navigation.visibility = View.GONE
         }
-        child = root.findViewById(R.id.layout_view) as RelativeLayout
 
-        root.findViewById(R.id.btn_confirm).setOnClickListener {
+        root.btn_confirm.setOnClickListener {
             positiveListener?.invoke(this)
         }
 
-        root.findViewById(R.id.btn_cancel).setOnClickListener {
+        root.btn_cancel.setOnClickListener {
             negativeListener?.invoke(this)
             this.dismiss()
         }
 
         if (message.isNotEmpty()) {
-            (root.findViewById(R.id.tv_message) as TextView).text = message
+            root.tv_message.text = message
         } else {
-            root.findViewById(R.id.tv_message).visibility = View.GONE
+            root.tv_message.visibility = View.GONE
         }
 
         if (view != null) {
-            child.removeAllViews()
-            child.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+            root.layout_view.removeAllViews()
+            root.layout_view.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
 
         addContentView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
 
         showDialog()
+        return this
     }
 
     // 隐藏确认和取消按钮
-    fun hideNavigation():KonstantDialog{
+    fun hideNavigation(): KonstantDialog {
         hideNavigation = true
         return this
     }
@@ -101,7 +101,7 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
     }
 
     override fun dismiss() {
-        child.removeAllViews()
+        root.layout_view.removeAllViews()
         super.dismiss()
     }
 

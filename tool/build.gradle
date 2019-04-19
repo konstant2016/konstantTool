@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 26
         versionName "1.6.0"
 
@@ -36,13 +36,15 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     // 二维码扫描
-    implementation 'com.mylhyl:zxingscanner:2.1.0'
+    implementation ('com.mylhyl:zxingscanner:2.1.0'){
+        exclude group:'com.google.zxing'
+    }
     // 图片查看控件
     implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问框架
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
     // 新的滚轮选择器
     implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     // 滑动返回
@@ -52,7 +54,9 @@ dependencies {
     // FAST JSON
     implementation 'com.alibaba:fastjson:1.2.54'
     // 下拉刷新
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    implementation('com.lcodecorex:tkrefreshlayout:1.0.7') {
+        exclude group: 'com.android.support'
+    }
     // eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
@@ -62,10 +66,10 @@ dependencies {
     // 权限申请工具
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
     // design 主要用到了tabLayout
-    implementation 'com.android.support:design:25.4.0'
+    implementation 'com.android.support:design:28.0.0'
     // 内存泄漏检测
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
-
     implementation 'cn.jzvd:jiaozivideoplayer:6.4.1'
+    implementation files('libs/core-3.3.3.jar')
 }

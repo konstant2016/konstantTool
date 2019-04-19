@@ -18,6 +18,7 @@ import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import com.konstant.tool.lite.module.weather.adapter.AdapterCityList
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_city_manager.*
+import kotlinx.android.synthetic.main.pop_window_menu_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 
@@ -107,14 +108,14 @@ class CityManagerActivity : BaseActivity() {
     private fun initPopWindow(view: View) {
 
         // 确认按钮
-        view.findViewById(R.id.btn_confirm).setOnClickListener {
+        btn_confirm.setOnClickListener {
             mPop.dismiss()
             saveLocalCityList(LocalCountry(mSelectedCountry.weatherCode, mSelectedCountry.name))
             EventBus.getDefault().post(WeatherStateChanged(true, 0))
         }
 
         // 取消按钮
-        view.findViewById(R.id.btn_cancel).setOnClickListener {
+        btn_cancel.setOnClickListener {
             mPop.dismiss()
         }
 

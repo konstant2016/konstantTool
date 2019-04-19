@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/selector_item_bg"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/tool_main_color" />
+
+    <ImageView
+        android:id="@+id/img_package"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:maxLines="1"
+        android:id="@+id/name_package"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="65dp"
+        android:gravity="center_vertical"
+        android:text="应用名字：微信"
+        android:textSize="16sp" />
+
+    <TextView
+        android:maxLines="1"
+        android:id="@+id/number_package"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="65dp"
+        android:gravity="center_vertical"
+        android:text="应用ID：com/tencent/qq.com"
+        android:textSize="14sp" />
+
+</RelativeLayout>

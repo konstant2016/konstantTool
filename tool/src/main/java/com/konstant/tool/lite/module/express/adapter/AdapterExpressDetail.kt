@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.express.server.ExpressResponse
+import kotlinx.android.synthetic.main.item_express_detail.view.*
 
 /**
  * 描述:物流详情页面的适配器
@@ -26,10 +27,10 @@ class AdapterExpressDetail(val context: Context, val datas: List<ExpressResponse
         location.text = datas[position].context
 
         if (position == datas.size - 1) {
-            view.findViewById(R.id.line_bottom).visibility = View.GONE
+            view.findViewById<View>(R.id.line_bottom).visibility = View.GONE
         }
         if (position == 0) {
-            view.findViewById(R.id.line_top).visibility = View.GONE
+            view.findViewById<View>(R.id.line_top).visibility = View.GONE
         }
         return view
     }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.amap.api.services.busline.BusStationItem
 import com.konstant.tool.lite.R
+import kotlinx.android.synthetic.main.item_recycler_bus.view.*
 
 /**
  * 时间：2018/7/30 20:26
@@ -23,14 +24,15 @@ class AdapterBusStation(val list: List<BusStationItem>) : RecyclerView.Adapter<A
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val tvStation = holder.view.findViewById(R.id.tv_station) as TextView
-        tvStation.text = list[position].busStationName
-        val left = holder.view.findViewById(R.id.line_left)
-        val right = holder.view.findViewById(R.id.line_right)
-        left.visibility = View.VISIBLE
-        right.visibility = View.VISIBLE
-        if (position == 0) holder.view.findViewById(R.id.line_left).visibility = View.GONE
-        if (position == list.size - 1) holder.view.findViewById(R.id.line_right).visibility = View.GONE
+        with(holder.itemView) {
+            tv_station.text = list[position].busStationName
+            line_left.visibility = View.VISIBLE
+            line_right.visibility = View.VISIBLE
+
+            if (position == 0) line_left.visibility = View.GONE
+            if (position == list.size - 1) line_right.visibility = View.GONE
+
+        }
     }
 
     class Holder(val view: View) : RecyclerView.ViewHolder(view)
