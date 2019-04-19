@@ -192,7 +192,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         startActivity(Intent(this, cls))
     }
 
-    protected fun startActivitySafely(intent: Intent): Boolean {
+    protected fun startActivitySafely(intent: Intent?): Boolean {
         return try {
             startActivity(intent)
             true

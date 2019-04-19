@@ -31,6 +31,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTitle("菜籽工具箱")
         setContentView(R.layout.activity_main)
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
