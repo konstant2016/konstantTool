@@ -24,6 +24,7 @@ import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
+import com.konstant.tool.lite.module.extract.PackageActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -214,6 +215,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
 
         text_bus_line.setOnClickListener { startActivity(BusRouteActivity::class.java) }
+
+        text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 

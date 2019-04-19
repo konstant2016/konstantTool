@@ -29,9 +29,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.extract.PackageActivity"></activity>
-        <activity android:name=".module.video.PlayActivity" />
-        <activity android:name=".module.video.VideoListActivity" /> <!-- 以下为高德定位相关 -->
+        <activity android:name=".module.extract.PackageActivity"/>
+        <!-- 以下为高德定位相关 -->
         <service android:name="com.amap.api.location.APSService" />
 
         <meta-data

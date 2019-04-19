@@ -47,12 +47,6 @@
             app:text="天气查询" />
 
         <com.konstant.tool.lite.view.ItemView
-            android:id="@+id/layout_video"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:text="视频播放器" />
-
-        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_package"
             android:layout_width="match_parent"
             android:layout_height="50dp"
