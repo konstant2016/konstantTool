@@ -8,8 +8,8 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 200
-        versionName "2.0"
+        versionCode 201
+        versionName "2.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -52,7 +52,7 @@ dependencies {
     // picasso图片加载控件
     implementation 'com.squareup.picasso:picasso:2.5.2'
     // FAST JSON
-    implementation 'com.alibaba:fastjson:1.2.54'
+    implementation 'com.alibaba:fastjson:1.2.57'
     // 下拉刷新
     implementation('com.lcodecorex:tkrefreshlayout:1.0.7') {
         exclude group: 'com.android.support'

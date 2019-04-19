@@ -52,7 +52,9 @@ dependencies {
     // 高德定位
     implementation 'com.amap.api:location:4.2.0'
     // 二维码扫描
-    implementation 'com.mylhyl:zxingscanner:2.1.0'
+    implementation('com.mylhyl:zxingscanner:2.1.0') {
+        exclude group: 'com.google.zxing'
+    }
     // 图片查看控件
     implementation 'com.bm.photoview:library:1.4.1'
     // 网络访问工具
@@ -73,4 +75,5 @@ dependencies {
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     // Snappy压缩库
     implementation 'com.jiechic.android.library:snappy-android:1.1.7'
+    implementation files('libs/core-3.3.3.jar')
 }
