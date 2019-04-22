@@ -22,7 +22,10 @@ import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
+import kotlinx.android.synthetic.main.layout_dialog_input.view.*
+import kotlinx.android.synthetic.main.layout_dialog_spinner.view.*
 import kotlinx.android.synthetic.main.pop_express.*
+import kotlinx.android.synthetic.main.pop_express.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
@@ -169,34 +172,32 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
-        val view = LayoutInflater.from(this).inflate(R.layout.pop_express, null)
-        tv_change_order.setOnClickListener { changeOrderNo() }
-        tv_change_company.setOnClickListener { changeCompany() }
-        tv_change_remark.setOnClickListener { changeRemark() }
-        tv_delete.setOnClickListener { deleteOrder() }
-
-        mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-        mPop.showAsDropDown(title_bar)
-
+        with(LayoutInflater.from(this).inflate(R.layout.pop_express, null)){
+            tv_change_order.setOnClickListener { changeOrderNo() }
+            tv_change_company.setOnClickListener { changeCompany() }
+            tv_change_remark.setOnClickListener { changeRemark() }
+            tv_delete.setOnClickListener { deleteOrder() }
+            mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
+            mPop.showAsDropDown(title_bar)
+        }
     }
 
     // 修改物流单号
     private fun changeOrderNo() {
         mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
-        val edit = view.findViewById(R.id.edit_input) as EditText
-        edit.setText(mOrderNo)
+        view.edit_input.setText(mOrderNo)
         KonstantDialog(this)
                 .setMessage("输入运单号")
                 .addView(view)
                 .setPositiveListener {
-                    if (TextUtils.isEmpty(edit.text)) {
+                    if (TextUtils.isEmpty(view.edit_input.text)) {
                         showToast("记得输入运单号哦")
                         return@setPositiveListener
                     }
                     it.dismiss()
                     ExpressManager.deleteExpress(orderNo = mOrderNo)
-                    mOrderNo = edit.text.toString()
+                    mOrderNo = view.edit_input.text.toString()
                     updateUI()
                     ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, mState)
                     sendExpressChanged()
@@ -209,19 +210,18 @@ class ExpressDetailActivity : BaseActivity() {
     private fun changeCompany() {
         mPop.dismiss()
         val view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_spinner, null)
+        with(view.spinner_company){
+            adapter = KonstantArrayAdapter(this@ExpressDetailActivity,coms.toList())
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-        val spinner = view.findViewById(R.id.spinner_company) as Spinner
-        spinner.adapter = KonstantArrayAdapter(this,coms.toList())
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
 
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                mCompanyId = ids[position]
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    mCompanyId = ids[position]
+                }
             }
         }
-
         KonstantDialog(this)
                 .setMessage("选择物流公司：")
                 .addView(view)
@@ -239,7 +239,7 @@ class ExpressDetailActivity : BaseActivity() {
     private fun changeRemark() {
         mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
-        val edit = view.findViewById(R.id.edit_input) as EditText
+        val edit = view.edit_input
         edit.setText(mRemark)
         KonstantDialog(this)
                 .setMessage("输入备注")

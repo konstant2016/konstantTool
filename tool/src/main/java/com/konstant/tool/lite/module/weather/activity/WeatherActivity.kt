@@ -2,17 +2,16 @@ package com.konstant.tool.lite.module.weather.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.module.weather.data.CountryManager
-import com.konstant.tool.lite.module.weather.param.TitleChanged
-import com.konstant.tool.lite.module.weather.fragment.WeatherFragment
-import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import com.konstant.tool.lite.base.BaseFragmentAdapter
+import com.konstant.tool.lite.module.weather.data.CountryManager
+import com.konstant.tool.lite.module.weather.fragment.WeatherFragment
+import com.konstant.tool.lite.module.weather.param.TitleChanged
+import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.Subscribe
