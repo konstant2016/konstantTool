@@ -47,6 +47,10 @@ object ApplicationUtil {
     fun backUserApp(path: String, packageInfo: PackageInfo, callback: (boolean: Boolean) -> Unit) {
         Thread {
             try {
+                if (!File(path).exists()){
+                    File(path).mkdir()
+                }
+
                 val name = getAppName(packageInfo)
                 val outFile = File("$path${File.separator}$name.apk")
                 val installFile = File(getInstallPath(packageInfo))
