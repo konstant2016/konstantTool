@@ -69,4 +69,23 @@
         <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
+    <style name="WechatFakeActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/class_S</item>
+        <item name="colorPrimaryDark">@color/class_S</item>
+        <item name="colorAccent">@color/class_S</item>
+        <item name="tool_main_color">@color/class_S</item>
+        <item name="android:listDivider">@color/class_S</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
+    <!--透明主题-->
+    <style name="TransparentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>

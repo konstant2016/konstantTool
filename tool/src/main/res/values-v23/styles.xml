@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="WechatFakeActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/class_S</item>
+        <item name="colorPrimaryDark">@color/class_S</item>
+        <item name="colorAccent">@color/class_S</item>
+        <item name="tool_main_color">@color/class_S</item>
+        <item name="android:listDivider">@color/class_S</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
+</resources>

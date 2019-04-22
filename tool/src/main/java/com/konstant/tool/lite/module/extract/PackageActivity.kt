@@ -107,8 +107,7 @@ class PackageActivity : BaseActivity() {
 
     private fun backAllApp() {
         val view = layoutInflater.inflate(R.layout.layout_dialog_progress, null)
-        val progress = view.findViewById(R.id.progress_horizontal) as ProgressBar
-        progress.max = mList.size
+        view.progress_horizontal.max = mList.size
         val dialog = KonstantDialog(this)
         with(dialog) {
             setCancelable(false)
@@ -123,9 +122,10 @@ class PackageActivity : BaseActivity() {
     private fun backApp(index: Int, view: View, dialog: KonstantDialog) {
         val int = index + 1
         view.text_progress.text = "提取中($int/${mList.size})"
+        view.progress_horizontal.progress = index
         ApplicationUtil.backUserApp(mPath, mList[index]) {
             runOnUiThread {
-                if (index == mList.size) {
+                if (int == mList.size) {
                     dialog.dismiss()
                     return@runOnUiThread
                 }

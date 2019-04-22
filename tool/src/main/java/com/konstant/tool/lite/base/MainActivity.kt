@@ -16,6 +16,7 @@ import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
+import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -63,6 +64,8 @@ class MainActivity : BaseActivity() {
         layout_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 
         layout_package.setOnClickListener { startActivity(PackageActivity::class.java) }
+
+        layout_wxfake.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
 
         layout_zfb.setOnClickListener { zfb() }
 

@@ -14,6 +14,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
+import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
@@ -101,11 +102,12 @@ class SettingActivity : BaseActivity() {
             AndPermission.with(this)
                     .permission(Manifest.permission.CAMERA)
                     .onGranted {
-                        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                        val file = File(externalCacheDir, SettingManager.NAME_USER_HEADER)
-                        val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
-                        startActivityForResult(intent, CAMERA_REQUEST)
+                        ImageSelector.takePhoto(this,SettingManager.NAME_USER_HEADER){
+                            if (it){
+                                EventBus.getDefault().post(UserHeaderChanged())
+                                showToast("设置成功")
+                            }
+                        }
                     }
                     .onDenied { showToast("您拒绝了相机权限") }
                     .start()
@@ -113,9 +115,11 @@ class SettingActivity : BaseActivity() {
         // 相册
         view.text_photo.setOnClickListener {
             dialog.dismiss()
-            with(Intent(Intent.ACTION_PICK)) {
-                setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-                startActivityForResult(this, PHOTO_REQUEST)
+            ImageSelector.selectImg(this,SettingManager.NAME_USER_HEADER){
+                if (it){
+                    EventBus.getDefault().post(UserHeaderChanged())
+                    showToast("设置成功")
+                }
             }
         }
         // 恢复默认
