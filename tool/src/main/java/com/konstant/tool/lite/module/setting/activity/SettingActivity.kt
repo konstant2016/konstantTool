@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
-import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -18,7 +17,7 @@ import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
-import kotlinx.android.synthetic.main.layout_dialog_header_selector.*
+import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
 import org.greenrobot.eventbus.EventBus
 import java.io.File
 
@@ -97,7 +96,7 @@ class SettingActivity : BaseActivity() {
         val dialog = KonstantDialog(this)
         val view = layoutInflater.inflate(R.layout.layout_dialog_header_selector, null)
         // 拍照
-        text_camera.setOnClickListener {
+        view.text_camera.setOnClickListener {
             dialog.dismiss()
             AndPermission.with(this)
                     .permission(Manifest.permission.CAMERA)
@@ -112,7 +111,7 @@ class SettingActivity : BaseActivity() {
                     .start()
         }
         // 相册
-        text_photo.setOnClickListener {
+        view.text_photo.setOnClickListener {
             dialog.dismiss()
             with(Intent(Intent.ACTION_PICK)) {
                 setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
@@ -120,7 +119,7 @@ class SettingActivity : BaseActivity() {
             }
         }
         // 恢复默认
-        text_default.setOnClickListener {
+        view.text_default.setOnClickListener {
             dialog.dismiss()
             SettingManager.deleteUserHeaderThumb(this)
             EventBus.getDefault().post(UserHeaderChanged())
