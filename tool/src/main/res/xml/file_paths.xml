@@ -6,4 +6,7 @@
     <external-cache-path
         name="header_big.jpg"
         path="."/>
+    <external-path
+        name="header_big.jpg"
+        path="."/>
 </paths>

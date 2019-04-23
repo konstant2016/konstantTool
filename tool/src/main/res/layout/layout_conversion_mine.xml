@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_msg"
+        android:background="@drawable/wechat_bg_right"
+        android:layout_marginRight="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="不知道什么时候修改了路径，改成root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:src="@drawable/ic_launcher"
+        android:layout_alignParentRight="true"
+        android:id="@+id/img_header"
+        android:layout_marginRight="5dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp" />
+
+    <View
+        android:layout_below="@id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</RelativeLayout>

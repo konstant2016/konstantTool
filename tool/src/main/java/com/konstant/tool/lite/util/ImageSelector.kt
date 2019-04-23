@@ -25,8 +25,13 @@ class ImageSelector : Activity() {
         private val PHOTO_CLIP = 3          // 裁剪
 
         private lateinit var mFileName: String
+        private lateinit var mClipOut: String
 
         lateinit var mCallback: ((result: Boolean) -> Unit)
+
+        /**
+         * 从相册选择图片
+         */
         fun selectImg(context: Context, name: String, callback: (result: Boolean) -> Unit) {
             mCallback = callback
             mFileName = name
@@ -37,6 +42,9 @@ class ImageSelector : Activity() {
             }
         }
 
+        /**
+         * 调用摄像机拍摄图片
+         */
         fun takePhoto(context: Activity, name: String, callback: (result: Boolean) -> Unit) {
             mCallback = callback
             mFileName = name
@@ -55,8 +63,7 @@ class ImageSelector : Activity() {
         when (type) {
             CAMERA_REQUEST -> {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                val file = File(externalCacheDir, mFileName)
-                val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+                val uri = FileUtil.getPictureUri(this, mFileName)
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
                 startActivityForResult(intent, CAMERA_REQUEST)
             }
@@ -76,9 +83,12 @@ class ImageSelector : Activity() {
         }
         when (requestCode) {
             CAMERA_REQUEST -> {
-                val file = File(externalCacheDir, mFileName)
-                if (!file.exists()) return
-                val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+                val file = File(getExternalFilesDir(null), mFileName)
+                if (!file.exists()) {
+                    mCallback.invoke(false)
+                    return
+                }
+                val uri = FileUtil.getPictureUri(this, mFileName)
                 clipPhoto(uri)
             }
             PHOTO_REQUEST -> {
@@ -99,7 +109,7 @@ class ImageSelector : Activity() {
 
     // 调用系统中自带的图片剪裁
     private fun clipPhoto(uri: Uri) {
-        val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), SettingManager.NAME_HEADER_THUMB)
+        val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
         with(Intent("com.android.camera.action.CROP")) {
             setDataAndType(uri, "image/*")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)

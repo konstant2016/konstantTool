@@ -77,6 +77,8 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
             root.layout_view.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
 
+        root.layout_outside.setOnClickListener { dismiss() }
+
         addContentView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
 
         showDialog()

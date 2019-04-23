@@ -1,50 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/color_wechat_bg"
     android:layout_height="match_parent">
 
-
     <ImageView
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
+        android:id="@+id/img_back_fake"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="35dp"
         android:src="@drawable/wechat_back" />
 
     <TextView
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:id="@+id/tv_adverse"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:text="菜籽" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:text="菜籽"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <ImageView
-        android:layout_marginRight="15dp"
-        android:src="@drawable/wechat_more"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:id="@+id/img_more_fake"
         android:layout_width="25dp"
-        android:layout_height="25dp" />
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/wechat_more" />
 
     <View
         android:id="@+id/view_divider"
-        android:background="@color/gray"
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="2px"/>
+        android:layout_height="2px"
+        android:layout_marginTop="70dp"
+        android:background="@color/gray" />
 
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/view_divider"
+        android:paddingTop="10dp"
+        android:id="@+id/layout_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_bottom"
+        android:layout_below="@+id/view_divider" />
 
     <ImageView
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/wechat_bottom"
+        android:id="@+id/view_bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/wechat_bottom" />
+
+    <LinearLayout
+        android:id="@+id/layout_build"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_adverse"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn"
+            android:text="输入对方文字" />
+
+        <Button
+            android:id="@+id/btn_mine"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn"
+            android:text="输入我的文字" />
+    </LinearLayout>
 
 </RelativeLayout>

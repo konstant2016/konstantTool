@@ -32,10 +32,6 @@ import java.io.File
 
 class SettingActivity : BaseActivity() {
 
-    private val CAMERA_REQUEST = 1      // 拍照
-    private val PHOTO_REQUEST = 2       // 相册
-    private val PHOTO_CLIP = 3          // 裁剪
-
     private var confirmPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -133,52 +129,5 @@ class SettingActivity : BaseActivity() {
         dialog.hideNavigation()
                 .addView(view)
                 .createDialog()
-    }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode != Activity.RESULT_OK) return
-        when (requestCode) {
-            CAMERA_REQUEST -> {
-                val file = File(externalCacheDir, SettingManager.NAME_USER_HEADER)
-                if (!file.exists()) return
-                val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
-                clipPhoto(uri)
-            }
-            PHOTO_REQUEST -> {
-                data?.let {
-                    clipPhoto(it.data)
-                }
-            }
-            PHOTO_CLIP -> {
-                EventBus.getDefault().post(UserHeaderChanged())
-                showToast("设置成功")
-            }
-        }
-    }
-
-    // 调用系统中自带的图片剪裁
-    private fun clipPhoto(uri: Uri) {
-        val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), SettingManager.NAME_HEADER_THUMB)
-        with(Intent("com.android.camera.action.CROP")) {
-            setDataAndType(uri, "image/*")
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
-            putExtra("crop", "true")
-            putExtra("scale", true)
-
-            putExtra("aspectX", 1)
-            putExtra("aspectY", 1)
-
-            //输出的宽高
-            putExtra("outputX", 300)
-            putExtra("outputY", 300)
-
-            putExtra("return-data", false)
-            putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cropPhoto))
-            putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString())
-            putExtra("noFaceDetection", true) // no face detection
-            startActivityForResult(this, PHOTO_CLIP)
-        }
     }
 }
