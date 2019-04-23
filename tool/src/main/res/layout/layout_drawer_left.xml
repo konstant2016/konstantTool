@@ -170,6 +170,18 @@
                 android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/text_wechat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/selector_item_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="虚拟微信对话"
+                android:textColor="@color/black" />
+
+            <TextView
                 android:id="@+id/text_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -203,18 +215,6 @@
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="二维码扫描解析"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_zfb"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="40dp"
-                android:text="领取支付宝红包"
                 android:textColor="@color/black" />
 
         </LinearLayout>

@@ -76,10 +76,5 @@
             android:layout_height="50dp"
             app:text="二维码扫描解析" />
 
-        <com.konstant.tool.lite.view.ItemView
-            android:id="@+id/layout_zfb"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:text="领取支付宝红包" />
     </LinearLayout>
 </ScrollView>

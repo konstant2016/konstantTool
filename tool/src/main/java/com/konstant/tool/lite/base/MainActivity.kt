@@ -67,8 +67,6 @@ class MainActivity : BaseActivity() {
 
         layout_wxfake.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
 
-        layout_zfb.setOnClickListener { zfb() }
-
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 
         img_setting.setOnClickListener { startActivity(SettingActivity::class.java) }

@@ -4,7 +4,6 @@ import android.content.pm.PackageInfo
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.ProgressBar
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.ApplicationUtil

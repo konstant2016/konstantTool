@@ -34,6 +34,7 @@ import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
+import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -218,34 +219,18 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 
+        text_wechat.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
+
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 
         text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 
-        text_zfb.setOnClickListener { zfb() }
-
         text_mian.setOnClickListener { startActivity(MainActivity::class.java) }
 
         text_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
 
-    }
-
-    // 跳转到支付宝红包页面
-    fun zfb() {
-        val clipBoard = this.getSystemService(SwipeBackActivity.CLIPBOARD_SERVICE) as ClipboardManager
-        clipBoard.text = "Rac赫卡蓝略j11瑞佳"
-        try {
-            val packageManager = this.applicationContext.packageManager
-            val intent = packageManager.getLaunchIntentForPackage("com.eg.android.AlipayGphone")
-            startActivity(intent)
-        } catch (e: Exception) {
-            val url = "https://ds.alipay.com/?from=mobileweb"
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(url)
-            startActivity(intent)
-        }
     }
 
     // 获取状态栏高度
