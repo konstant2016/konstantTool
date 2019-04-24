@@ -83,7 +83,7 @@ class ImageSelector : Activity() {
         }
         when (requestCode) {
             CAMERA_REQUEST -> {
-                val file = File(getExternalFilesDir(null), mFileName)
+                val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
                 if (!file.exists()) {
                     mCallback.invoke(false)
                     return

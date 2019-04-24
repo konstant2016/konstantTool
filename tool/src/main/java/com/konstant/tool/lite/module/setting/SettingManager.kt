@@ -21,7 +21,6 @@ object SettingManager {
     private val NAME_SELECTED_THEME = "selectedTheme"
     private val NAME_SWIPEBACK_STATE = "swipeBackState"
     val NAME_USER_HEADER = "header_big.jpg"
-    val NAME_HEADER_THUMB = "header_small.jpg"
 
     fun saveTheme(context: Context, theme: Int) {
         FileUtil.saveDataToSp(context, NAME_SELECTED_THEME, theme)
@@ -32,7 +31,7 @@ object SettingManager {
     }
 
     fun deleteUserHeaderThumb(context: Context) {
-        File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_HEADER_THUMB).delete()
+        File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_USER_HEADER).delete()
     }
 
     fun getTheme(context: Context) =
@@ -42,7 +41,7 @@ object SettingManager {
             FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATE, false)
 
     fun getUserHeaderThumb(context: Context): Bitmap {
-        val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$NAME_HEADER_THUMB"
+        val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$NAME_USER_HEADER"
         return if (File(path).exists()) {
             BitmapFactory.decodeFile(path)
         } else {
