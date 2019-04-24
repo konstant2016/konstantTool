@@ -8,14 +8,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.amap.api.location.AMapLocationClient
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.module.weather.param.TitleChanged
-import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
+import com.konstant.tool.lite.module.weather.param.TitleChanged
+import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
@@ -38,7 +37,6 @@ class WeatherFragment : BaseFragment() {
 
     private val mPresenter by lazy { WeatherPresenter() }
 
-    private val mLocationClient by lazy { AMapLocationClient(activity) }
     private var mDirectCode: String = ""
 
     private val mListHour = ArrayList<WeatherResponse.HourlyForecastBean>()
@@ -193,10 +191,4 @@ class WeatherFragment : BaseFragment() {
             setActivityTitle(mCurrentCity)
         }
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mLocationClient.onDestroy()
-    }
-
 }

@@ -60,7 +60,7 @@ dependencies {
     // eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
-    implementation 'com.amap.api:location:4.2.0'
+//    implementation 'com.amap.api:location:4.2.0'
     // 高德公交查询
     implementation 'com.amap.api:search:6.1.0'
     // 权限申请工具
@@ -71,5 +71,4 @@ dependencies {
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
     implementation files('libs/core-3.3.3.jar')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
