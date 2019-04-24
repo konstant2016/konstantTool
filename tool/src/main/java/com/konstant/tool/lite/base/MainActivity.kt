@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
@@ -13,12 +12,16 @@ import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
+import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
@@ -75,6 +78,22 @@ class MainActivity : BaseActivity() {
 
     override fun onSwipeBackChanged(msg: SwipeBackState) {
 
+    }
+
+    override fun onBackPressed() {
+        if (draw_layout.isDrawerOpen(layout_left)) {
+            draw_layout.closeDrawer(Gravity.LEFT)
+            return
+        }
+        if (!SettingManager.getExitDialogStatus(this)) {
+            super.onBackPressed()
+            return
+        }
+        KonstantDialog(this)
+                .setCheckedChangeListener { SettingManager.setExitDialogStatus(this, !it) }
+                .setMessage("确认退出菜籽工具箱？")
+                .setPositiveListener { finish() }
+                .createDialog()
     }
 
 }

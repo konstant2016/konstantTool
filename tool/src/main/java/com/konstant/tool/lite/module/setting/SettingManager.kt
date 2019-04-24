@@ -20,6 +20,7 @@ object SettingManager {
 
     private val NAME_SELECTED_THEME = "selectedTheme"
     private val NAME_SWIPEBACK_STATE = "swipeBackState"
+    private val EXIT_DIALOG_STATUS = "exitDialogStatus"
     val NAME_USER_HEADER = "header_big.jpg"
 
     fun saveTheme(context: Context, theme: Int) {
@@ -47,6 +48,13 @@ object SettingManager {
         } else {
             BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
         }
+    }
+
+    // 读取是否显示退出对话框：true->显示，false->不显示
+    fun getExitDialogStatus(context: Context) = FileUtil.readDataFromSp(context, EXIT_DIALOG_STATUS, true)
+
+    fun setExitDialogStatus(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, EXIT_DIALOG_STATUS, status)
     }
 
 }

@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
-import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.translate.server.TranslateResponse
-import com.konstant.tool.lite.module.translate.server.TranslateService
-import com.konstant.tool.lite.network.KeyConstant
-import com.konstant.tool.lite.network.UrlConstant
+import com.konstant.tool.lite.network.Constant
+import com.konstant.tool.lite.network.NetService
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_translate.*
 
@@ -100,21 +98,16 @@ class TranslateActivity : BaseActivity() {
 
     // 调用接口进行翻译
     private fun doTranslate(string: String) {
-        TranslateService.translate(UrlConstant.TRANSLATE_URL, string, typeFrom, typeTo,
-                KeyConstant.TRANSLATE_APP_ID, KeyConstant.TRANSLATE_SECRET) { state, data ->
-            showTranslateResult(state,String(data))
+        NetService.translate(Constant.URL_TRANSLATE, string, typeFrom, typeTo,
+                Constant.KEY_TRANSLATE_APP_ID, Constant.KEY_TRANSLATE_SECRET) {
+            showTranslateResult(it)
         }
     }
 
     // 展示翻译结果
-    private fun showTranslateResult(state:Boolean,string: String) {
+    private fun showTranslateResult(result: TranslateResponse) {
         runOnUiThread {
-            if (!state) {
-                tv_result.text = "翻译出错"
-                return@runOnUiThread
-            }
-            val result = JSON.parseObject(string, TranslateResponse::class.java)
-            if (result == null || result.trans_result == null || result.trans_result.size == 0) {
+            if (result.trans_result == null || result.trans_result.size == 0) {
                 tv_result.text = "翻译出错"
                 return@runOnUiThread
             }

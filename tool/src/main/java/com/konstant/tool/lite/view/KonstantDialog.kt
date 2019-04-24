@@ -23,6 +23,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
 
     private var positiveListener: ((KonstantDialog) -> Unit)? = null     // 确认按钮按下后
     private var negativeListener: ((KonstantDialog) -> Unit)? = null     // 取消按钮按下后
+    private var checkedChangeListener: ((state: Boolean) -> Unit)? = null// checkbox状态监听
 
     private lateinit var root: View
 
@@ -50,6 +51,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         return this
     }
 
+    // 显示、隐藏 checkboc
+    fun setCheckedChangeListener(listener: ((state: Boolean) -> Unit)): KonstantDialog {
+        checkedChangeListener = listener
+        return this
+    }
+
     // 根据builder创建dialog
     fun createDialog(): KonstantDialog {
         root = LayoutInflater.from(context).inflate(R.layout.layout_dialog_konstant, null)
@@ -70,6 +77,13 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
             root.tv_message.text = message
         } else {
             root.tv_message.visibility = View.GONE
+        }
+
+        if (checkedChangeListener != null) {
+            root.layout_checkbox.visibility = View.VISIBLE
+            root.checkbox.setOnCheckedChangeListener { _, isChecked ->
+                checkedChangeListener!!.invoke(isChecked)
+            }
         }
 
         if (view != null) {

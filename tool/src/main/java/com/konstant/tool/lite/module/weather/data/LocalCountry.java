@@ -6,38 +6,38 @@ package com.konstant.tool.lite.module.weather.data;
 
 public class LocalCountry {
 
-    private String cityCode;
-    private String cityName;
+    private String directCode;
+    private String directName;
 
     public LocalCountry() {
     }
 
-    public LocalCountry(String cityCode, String cityName) {
-        this.cityCode = cityCode;
-        this.cityName = cityName;
+    public LocalCountry(String directCode, String directName) {
+        this.directCode = directCode;
+        this.directName = directName;
     }
 
-    public String getCityCode() {
-        return cityCode;
+    public String getDirectCode() {
+        return directCode;
     }
 
-    public void setCityCode(String cityCode) {
-        this.cityCode = cityCode;
+    public void setDirectCode(String directCode) {
+        this.directCode = directCode;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getDirectName() {
+        return directName;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setDirectName(String directName) {
+        this.directName = directName;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof LocalCountry)) return false;
+        if (!(obj instanceof LocalCountry)) return false;
         LocalCountry that = (LocalCountry) obj;
-        return this.cityCode.equals(that.cityCode) && this.cityName.equals(that.cityName);
+        return this.directCode.equals(that.directCode) && this.directName.equals(that.directName);
     }
 
 

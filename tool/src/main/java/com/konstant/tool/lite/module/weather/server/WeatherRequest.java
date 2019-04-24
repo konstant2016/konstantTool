@@ -1,24 +1,17 @@
 package com.konstant.tool.lite.module.weather.server;
 
 public class WeatherRequest{
-    private String location;
-    private String key;
+    private String code;
 
-    public WeatherRequest() {
-    }
-
-    public WeatherRequest(String location, String key) {
-        this.location = location;
-        this.key = key;
+    public WeatherRequest(String code) {
+        this.code = code;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("{");
-        sb.append("\"location\":\"")
-                .append(location).append('\"');
-        sb.append(",\"key\":\"")
-                .append(key).append('\"');
+        sb.append("\"code\":\"")
+                .append(code).append('\"');
         sb.append('}');
         return sb.toString();
     }

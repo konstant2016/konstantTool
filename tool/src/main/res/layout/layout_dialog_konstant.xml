@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:clipToPadding="false"
     android:clipChildren="false"
+    android:clipToPadding="false"
     android:orientation="vertical">
 
     <View
@@ -25,12 +25,36 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
+    <LinearLayout
+        android:id="@+id/layout_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不再提醒"
+            android:textColor="?attr/tool_main_color" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_checkbox"
+            android:button="@null"
+            android:checked="false"
+            android:clickable="true" />
+    </LinearLayout>
+
     <RelativeLayout
-        android:clipToPadding="false"
-        android:clipChildren="false"
         android:id="@+id/layout_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:gravity="center" />
 
     <LinearLayout

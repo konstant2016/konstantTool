@@ -1,5 +1,6 @@
 package com.konstant.tool.lite.module.weather.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +38,7 @@ class WeatherActivity : BaseActivity() {
     }
 
 
+    @SuppressLint("MissingSuperCall")
     override fun onSaveInstanceState(outState: Bundle?) {}
 
 
@@ -64,7 +66,7 @@ class WeatherActivity : BaseActivity() {
         mFragmentList.clear()
         mFragmentList.add(WeatherFragment.newInstance(""))
         weatherCodeList.forEach {
-            mFragmentList.add(WeatherFragment.newInstance(it.cityCode))
+            mFragmentList.add(WeatherFragment.newInstance(it.directCode))
         }
         mAdapter.notifyDataSetChanged()
         Log.i("mFragmentList size", "${mFragmentList.size}")

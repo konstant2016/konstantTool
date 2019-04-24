@@ -25,8 +25,8 @@ object CountryManager {
     private var mCityCode = ""
 
     fun onCreate(context: Context) {
-        mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID,"")
-        val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY,"")
+        mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
+        val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
         val array = JSON.parseArray(s, LocalCountry::class.java)
         if (array != null && array.isNotEmpty()) {
             mLocalCityList.addAll(array)
@@ -70,11 +70,9 @@ object CountryManager {
         AreaManager.getChina().provinceList.map { prov ->
             if (province.contains(prov.name)) {
                 prov.cityList.map { cit ->
-                    if (city.contains(cit.name)) {
-                        cit.countyList.map { dir ->
-                            if (direct.contains(dir.name))
-                                return dir.weatherCode
-                        }
+                    cit.countyList.map { dir ->
+                        if (direct.contains(dir.name))
+                            return dir.weatherCode
                     }
                 }
             }

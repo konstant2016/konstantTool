@@ -81,11 +81,11 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:text="开启滑动返回功能"
+            android:text="滑动返回"
             android:textColor="@color/black" />
 
         <Switch
-            android:id="@+id/btn_switch"
+            android:id="@+id/btn_swipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -101,6 +101,36 @@
             android:background="@color/black_20_transparent" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layout_exit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_item_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="退出提示"
+            android:textColor="@color/black" />
+
+        <Switch
+            android:id="@+id/btn_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/black_20_transparent" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/layout_about"

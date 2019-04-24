@@ -5,22 +5,17 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alibaba.fastjson.JSON
-import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
-import com.amap.api.location.AMapLocationClientOption
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.module.weather.data.CountryManager
-import com.konstant.tool.lite.module.weather.server.WeatherService
 import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
+import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
@@ -41,6 +36,8 @@ import java.text.SimpleDateFormat
 
 class WeatherFragment : BaseFragment() {
 
+    private val mPresenter by lazy { WeatherPresenter() }
+
     private val mLocationClient by lazy { AMapLocationClient(activity) }
     private var mDirectCode: String = ""
 
@@ -51,11 +48,9 @@ class WeatherFragment : BaseFragment() {
     private val mAdapterDay by lazy { AdapterWeatherDaily(activity as Context, mListDaily) }
 
     private var mCurrentCity = "加载中"
-    private var needReLocation = false      // 是否需要再次定位
-    private var isReRequest = false         // 是否为第二次请求数据
 
     companion object {
-        private val PARAM = "param"
+        private val PARAM = "directCode"
         fun newInstance(direct: String): BaseFragment {
             val fragment = WeatherFragment()
             val bundle = Bundle()
@@ -67,14 +62,8 @@ class WeatherFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val p1 = arguments!!.getString(PARAM)!!
-        val p2 = CountryManager.getCityCode()
-
-        // 如果传进来的参数为空，但是缓存参数不为空，才需要二次定位
-        if (p1.isEmpty() && p2.isNotEmpty()) needReLocation = true
-
-        mDirectCode = if (p1.isNotEmpty()) p1 else p2
-
+        val directCode = arguments?.getString(PARAM)
+        directCode?.let { mDirectCode = it }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -99,17 +88,12 @@ class WeatherFragment : BaseFragment() {
             setEnableLoadmore(false)
             setOnRefreshListener(object : RefreshListenerAdapter() {
                 override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
-                    if (mDirectCode.isEmpty()) {
-                        mLocationClient.startLocation()
-                    } else {
-                        requestData(mDirectCode)
-                    }
+                    requestWeather()
                 }
             })
         }
 
         requestPermission()
-
     }
 
 
@@ -117,59 +101,49 @@ class WeatherFragment : BaseFragment() {
         AndPermission.with(this)
                 .permission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .onGranted {
-                    initLocationClient()
                     refresh_layout.startRefresh()
                 }
-                .onDenied { showToast("您拒绝了定位权限")}
+                .onDenied { showToast("您拒绝了定位权限") }
                 .start()
     }
 
+    // 请求天气数据
+    private fun requestWeather(){
+        if (mDirectCode.isEmpty()) {
+            requestLocationWeather()
+        } else {
+            requestWeatherWithCode(mDirectCode)
+        }
+    }
 
-    // 初始化获取当前位置的相关控件
-    private fun initLocationClient() {
-
-        val option = AMapLocationClientOption()
-        option.locationPurpose = AMapLocationClientOption.AMapLocationPurpose.SignIn
-        mLocationClient.setLocationOption(option)
-
-        mLocationClient.setLocationListener {
-            if (isDetached) return@setLocationListener
-            if (it.errorCode != AMapLocation.LOCATION_SUCCESS) {
-                showToast("定位失败，请稍后重试")
+    // 请求当前城市数据
+    private fun requestLocationWeather() {
+        refresh_layout.startRefresh()
+        mPresenter.getCurrentLocationWeather { weather, directCode ->
+            stopRefreshAnim()
+            if (weather.isSuccess) {
+                updateUI(weather)
+                CountryManager.setCityCode(directCode)
             } else {
-                Log.d("当前位置", "${it.province},${it.city},${it.district}")
-                queryWeatherCode(it.province, it.city, it.district)
+                showToast("天气信息请求失败")
             }
         }
     }
 
-    // 分析出当前城市 天气编号
-    private fun queryWeatherCode(province: String, city: String, direct: String) {
-        Log.d("当前位置", "$province,$city,$direct")
-        val weatherCode = CountryManager.queryWeatherCode(province, city, direct)
-        if (weatherCode.isEmpty()) return
-        mDirectCode = weatherCode
-        CountryManager.setCityCode(mDirectCode)
-        requestData(mDirectCode)
-    }
-
-
-    // 向服务器请求数据
-    private fun requestData(location: String) {
-        WeatherService.queryWeather(location) { state, data ->
-            if (isReRequest){
-                isReRequest = false
-            }else{
-                stopRefreshAnim()
+    // 请求指定城市的数据
+    private fun requestWeatherWithCode(directCode: String) {
+        mPresenter.getWeatherWithCode(directCode) {
+            stopRefreshAnim()
+            if (it.isSuccess) {
+                updateUI(it)
+            } else {
+                showToast("天气信息请求失败")
             }
-            if (isDetached or !state) return@queryWeather
-            setData(String(data))
         }
     }
 
     // 设置数据
-    private fun setData(data: String) {
-        val result = JSON.parseObject(data, WeatherResponse::class.java)
+    private fun updateUI(result: WeatherResponse) {
         val realTime = result.realtime
         val hourlyForecast = result.hourly_forecast
         val weatherList = result.weather
@@ -200,12 +174,8 @@ class WeatherFragment : BaseFragment() {
                 setActivityTitle(mCurrentCity)
             }
         }
-        if (needReLocation) {
-            mLocationClient.startLocation()
-            isReRequest = true
-            needReLocation = false
-        }
     }
+
 
     // 设置标题
     private fun setActivityTitle(title: String) {

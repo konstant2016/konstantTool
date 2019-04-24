@@ -11,9 +11,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.beauty.BeautyService
 import com.konstant.tool.lite.module.beauty.adapter.AdapterBeauty
-import com.konstant.tool.lite.network.NetworkUtil
+import com.konstant.tool.lite.network.NetService
 import com.konstant.tool.lite.util.FileUtil
 import com.konstant.tool.lite.view.KonstantDialog
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
@@ -23,7 +22,6 @@ import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_beauty.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.json.JSONObject
-import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 /**
@@ -97,7 +95,7 @@ class BeautyActivity : BaseActivity() {
 
     // 获取网络数据
     private fun getData() {
-        BeautyService.getBeautyData(mBaseUrl + mPageIndex) { state, array ->
+        NetService.getBeautyData(mBaseUrl + mPageIndex) { state, array ->
             Log.i("MIUI图片", String(array))
             if ((!state || array.size < 150) && !isDestroyed) {
                 mPageIndex += (Math.random() * 8 - 4).toInt()
@@ -179,7 +177,7 @@ class BeautyActivity : BaseActivity() {
                 Thread.sleep(300)
                 val split = url.split("/")
                 val name = split[split.size - 1]
-                NetworkUtil.get(url) { _, data ->
+                NetService.getPicture(url) { _, data ->
                     FileUtil.saveBitmapToAlbum(data, name = name)
                 }
                 if (index == mUrlList.size - 1) {

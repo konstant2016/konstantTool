@@ -2,12 +2,10 @@ package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
-import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.express.SelectorDialog
@@ -15,7 +13,7 @@ import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
 import com.konstant.tool.lite.module.express.data.ExpressManager
 import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.module.express.server.ExpressResponse
-import com.konstant.tool.lite.module.express.server.ExpressService
+import com.konstant.tool.lite.network.NetService
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
@@ -81,21 +79,14 @@ class ExpressDetailActivity : BaseActivity() {
     // 开始查询物流信息
     private fun queryExpress() {
         onLoading()
-        ExpressService.expressQuery(mCompanyId, mOrderNo) { state, data ->
-            if (!state) {
-                onError()
-                return@expressQuery
-            }
-            val response = JSON.parseObject(String(data), ExpressResponse::class.java)
-            Log.d(this.localClassName, String(data))
-            if (response.status != "200") {
+        NetService.expressQuery(mCompanyId,mOrderNo){
+            if (it.status != "200") {
                 onError()
                 return@expressQuery
             }
 
             onSuccess()
-            updateData(response)
-
+            updateData(it)
         }
     }
 

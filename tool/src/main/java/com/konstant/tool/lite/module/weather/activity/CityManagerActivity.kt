@@ -77,7 +77,7 @@ class CityManagerActivity : BaseActivity() {
     // 长按城市块后弹窗
     private fun onItemLongClick(direct: LocalCountry): Boolean {
         KonstantDialog(this)
-                .setMessage("是否要删除${direct.cityName}?")
+                .setMessage("是否要删除${direct.directName}?")
                 .setPositiveListener {
                     it.dismiss()
                     mCityList.remove(direct)

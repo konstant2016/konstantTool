@@ -11,6 +11,15 @@ import java.util.List;
 
 public class WeatherResponse {
 
+    private boolean isSuccess;
+
+    public boolean isSuccess() {
+        return isSuccess;
+    }
+
+    public void setSuccess(boolean success) {
+        isSuccess = success;
+    }
 
     /**
      * history : {}

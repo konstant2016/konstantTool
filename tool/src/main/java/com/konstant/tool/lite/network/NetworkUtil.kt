@@ -49,7 +49,7 @@ object NetworkUtil {
                 .url(url + s)
                 .get()
                 .build()
-        mOkHttpClient.newCall(request)?.enqueue(object : Callback {
+        mOkHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
                 Log.d("response", e.toString())
                 callback(false, e.toString().toByteArray())

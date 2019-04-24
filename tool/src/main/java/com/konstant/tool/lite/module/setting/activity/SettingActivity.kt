@@ -1,14 +1,7 @@
 package com.konstant.tool.lite.module.setting.activity
 
 import android.Manifest
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
-import android.support.v4.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -20,7 +13,6 @@ import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
 import org.greenrobot.eventbus.EventBus
-import java.io.File
 
 
 /**
@@ -46,18 +38,26 @@ class SettingActivity : BaseActivity() {
 
         layout_theme.setOnClickListener { startActivity(ThemeActivity::class.java) }
 
-        btn_switch.isChecked = SettingManager.getSwipeBackState(this)
-
-        btn_switch.setOnCheckedChangeListener { _, isChecked ->
+        // 滑动返回
+        btn_swipe.isChecked = SettingManager.getSwipeBackState(this)
+        btn_swipe.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 onSwitchEnable()
             }
             EventBus.getDefault().post(SwipeBackState(isChecked))
             SettingManager.setSwipeBackState(this, isChecked)
         }
-
         layout_swipe.setOnClickListener {
-            btn_switch.isChecked = !btn_switch.isChecked
+            btn_swipe.isChecked = !btn_swipe.isChecked
+        }
+
+        // 退出提示
+        btn_exit.isChecked = SettingManager.getExitDialogStatus(this)
+        btn_exit.setOnCheckedChangeListener { _, isChecked ->
+            SettingManager.setExitDialogStatus(this, isChecked)
+        }
+        layout_exit.setOnClickListener {
+            btn_exit.isChecked = !btn_exit.isChecked
         }
 
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }
@@ -69,7 +69,7 @@ class SettingActivity : BaseActivity() {
         val dialog = KonstantDialog(this)
         dialog.setOnDismissListener {
             if (!confirmPressed) {
-                btn_switch.isChecked = false
+                btn_swipe.isChecked = false
             }
             confirmPressed = false
         }
@@ -77,12 +77,12 @@ class SettingActivity : BaseActivity() {
                 // 取消
                 .setNegativeListener {
                     it.dismiss()
-                    btn_switch.isChecked = false
+                    btn_swipe.isChecked = false
                 }
                 // 确认
                 .setPositiveListener {
                     confirmPressed = true
-                    btn_switch.isChecked = true
+                    btn_swipe.isChecked = true
                     it.dismiss()
                 }
                 .createDialog()
@@ -98,8 +98,8 @@ class SettingActivity : BaseActivity() {
             AndPermission.with(this)
                     .permission(Manifest.permission.CAMERA)
                     .onGranted {
-                        ImageSelector.takePhoto(this,SettingManager.NAME_USER_HEADER){
-                            if (it){
+                        ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
+                            if (it) {
                                 EventBus.getDefault().post(UserHeaderChanged())
                                 showToast("设置成功")
                             }
@@ -111,8 +111,8 @@ class SettingActivity : BaseActivity() {
         // 相册
         view.text_photo.setOnClickListener {
             dialog.dismiss()
-            ImageSelector.selectImg(this,SettingManager.NAME_USER_HEADER){
-                if (it){
+            ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
+                if (it) {
                     EventBus.getDefault().post(UserHeaderChanged())
                     showToast("设置成功")
                 }
