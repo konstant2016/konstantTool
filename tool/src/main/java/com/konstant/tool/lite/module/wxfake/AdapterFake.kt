@@ -20,10 +20,10 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         context = viewGroup.context
         return when (viewType) {
             0 -> {
-                AdverseHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_conversion_adverse, viewGroup, false))
+                AdverseHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_conversion_adverse, viewGroup, false))
             }
             else -> {
-                MineHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_conversion_mine, viewGroup, false))
+                MineHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_conversion_mine, viewGroup, false))
             }
         }
     }

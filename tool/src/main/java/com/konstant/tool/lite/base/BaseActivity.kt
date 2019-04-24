@@ -1,13 +1,10 @@
 package com.konstant.tool.lite.base
 
 import android.annotation.SuppressLint
-import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
-import android.net.Uri
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
@@ -20,7 +17,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
-import com.konstant.tool.lite.module.busline.activity.BusRouteActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
@@ -214,8 +210,6 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
         text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
-
-        text_bus_line.setOnClickListener { startActivity(BusRouteActivity::class.java) }
 
         text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 

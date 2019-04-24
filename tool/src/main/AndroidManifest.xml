@@ -133,18 +133,6 @@
             android:configChanges="fontScale"
             android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name=".module.scanfile.ScanFileActivity"
-            android:configChanges="fontScale"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".module.busline.activity.BusRouteActivity"
-            android:configChanges="fontScale"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|stateUnchanged" />
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"

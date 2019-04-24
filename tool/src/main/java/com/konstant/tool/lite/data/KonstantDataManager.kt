@@ -1,7 +1,6 @@
 package com.konstant.tool.lite.data
 
 import android.content.Context
-import com.konstant.tool.lite.module.busline.data.QueryHistoryManager
 import com.konstant.tool.lite.module.express.data.ExpressManager
 import com.konstant.tool.lite.module.weather.data.CountryManager
 
@@ -18,13 +17,11 @@ object KonstantDataManager {
         AreaManager.onCreate(context)
         ExpressManager.onCreate(context)
         CountryManager.onCreate(context)
-        QueryHistoryManager.onCreate(context)
     }
 
     fun onDestroy(context: Context){
         ExpressManager.onDestroy(context)
         CountryManager.onDestroy(context)
-        QueryHistoryManager.onDestroy(context)
     }
 
 }
