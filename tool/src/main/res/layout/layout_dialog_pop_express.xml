@@ -3,6 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:clipToPadding="false"
+    android:clipChildren="false"
     android:orientation="vertical">
 
     <EditText
@@ -34,15 +36,23 @@
         android:text="选择物流公司：" />
 
     <RelativeLayout
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/layout_bg_spinner">
 
-        <Spinner
+        <TextView
+            android:gravity="center"
+            android:text="顺丰速运"
+            android:clickable="true"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:spinnerMode="dropdown"
             android:background="@color/white_transport"
-            android:id="@+id/spinner_company"
+            android:id="@+id/tv_company"
             android:layout_width="320dp"
             android:layout_height="40dp" />
 

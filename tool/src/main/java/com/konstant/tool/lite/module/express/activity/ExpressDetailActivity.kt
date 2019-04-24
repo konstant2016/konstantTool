@@ -6,25 +6,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.AdapterView
-import android.widget.EditText
 import android.widget.PopupWindow
-import android.widget.Spinner
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.express.SelectorDialog
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
+import com.konstant.tool.lite.module.express.data.ExpressManager
 import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.module.express.server.ExpressResponse
 import com.konstant.tool.lite.module.express.server.ExpressService
-import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.layout_dialog_input.view.*
-import kotlinx.android.synthetic.main.layout_dialog_spinner.view.*
-import kotlinx.android.synthetic.main.pop_express.*
 import kotlinx.android.synthetic.main.pop_express.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
@@ -209,24 +204,9 @@ class ExpressDetailActivity : BaseActivity() {
     // 修改物流公司
     private fun changeCompany() {
         mPop.dismiss()
-        val view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_spinner, null)
-        with(view.spinner_company){
-            adapter = KonstantArrayAdapter(this@ExpressDetailActivity,coms.toList())
-            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    mCompanyId = ids[position]
-                }
-            }
-        }
-        KonstantDialog(this)
-                .setMessage("选择物流公司：")
-                .addView(view)
-                .setPositiveListener {
-                    it.dismiss()
+        SelectorDialog(this)
+                .setOnItemClickListener { id, _ ->
+                    mCompanyId = id
                     updateUI()
                     queryExpress()
                     ExpressManager.updateExpress(mOrderNo, mCompanyId, null, null)

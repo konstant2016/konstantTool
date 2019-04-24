@@ -6,7 +6,6 @@
     android:clickable="true"
     android:orientation="vertical">
 
-
     <EditText
         android:id="@+id/et_query"
         android:layout_width="match_parent"
@@ -34,6 +33,8 @@
             android:background="@drawable/layout_bg_spinner">
 
             <Spinner
+                android:scrollbarTrackVertical="@null"
+                android:scrollbarThumbVertical="@drawable/scrollbar"
                 android:id="@+id/spinner_origin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -64,6 +65,8 @@
             android:background="@drawable/layout_bg_spinner">
 
             <Spinner
+                android:scrollbarTrackVertical="@null"
+                android:scrollbarThumbVertical="@drawable/scrollbar"
                 android:id="@+id/spinner_result"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

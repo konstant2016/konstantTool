@@ -2,7 +2,6 @@
 <resources>
     <attr name="tool_main_color" format="color" />
 
-
     <declare-styleable name="KonstantRulerView">
         <attr name="color_line" format="color" />
     </declare-styleable>

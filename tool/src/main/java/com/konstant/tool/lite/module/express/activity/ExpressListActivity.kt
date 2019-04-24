@@ -3,20 +3,22 @@ package com.konstant.tool.lite.module.express.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.View
-import android.widget.AdapterView
 import android.widget.EditText
-import android.widget.Spinner
+import android.widget.TextView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.module.express.SelectorDialog
+import com.konstant.tool.lite.module.express.adapter.AdapterExpress
+import com.konstant.tool.lite.module.express.adapter.AdapterExpressCompany
 import com.konstant.tool.lite.module.express.data.ExpressData
 import com.konstant.tool.lite.module.express.data.ExpressManager
-import com.konstant.tool.lite.module.express.adapter.AdapterExpress
 import com.konstant.tool.lite.module.express.param.ExpressChanged
-import com.konstant.tool.lite.view.KonstantArrayAdapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
+import kotlinx.android.synthetic.main.layout_recycler_express_company.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.Subscribe
 
@@ -96,40 +98,35 @@ class ExpressListActivity : BaseActivity() {
 
     // 添加物流查询
     private fun addExpress() {
-        val view = layoutInflater.inflate(R.layout.layout_dialog_pop_express, null)
-        val et_num = view.findViewById(R.id.et_num) as EditText
-        val et_remark = view.findViewById(R.id.et_remark) as EditText
-        val spinner = view.findViewById(R.id.spinner_company) as Spinner
-        val commanyArr = this.resources.getStringArray(R.array.express_company)
-        val companyIds = this.resources.getStringArray(R.array.express_company_id)
+        val viewDialog = layoutInflater.inflate(R.layout.layout_dialog_pop_express, null)
+        val etNo = viewDialog.findViewById(R.id.et_num) as EditText
+        val etRemark = viewDialog.findViewById(R.id.et_remark) as EditText
+        val tvCompany = viewDialog.findViewById(R.id.tv_company) as TextView
         var companyId = "shunfeng"
-        spinner.apply {
-            adapter = KonstantArrayAdapter(this@ExpressListActivity,commanyArr.toList())
-            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-                }
-
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    companyId = companyIds[position]
-                }
-            }
+        tvCompany.setOnClickListener {
+            SelectorDialog(this)
+                    .setOnItemClickListener { id, name ->
+                        companyId = id
+                        tvCompany.text = name
+                    }
+                    .createDialog()
         }
 
         KonstantDialog(this)
                 .setMessage("添加物流信息")
-                .addView(view)
+                .addView(viewDialog)
                 .setPositiveListener {
                     var remark = "保密物件"
-                    if (!TextUtils.isEmpty(et_remark.text)) {
-                        remark = et_remark.text.toString()
+                    if (!TextUtils.isEmpty(etRemark.text)) {
+                        remark = etRemark.text.toString()
                     }
-                    if (TextUtils.isEmpty(et_num.text)) {
+                    if (TextUtils.isEmpty(etNo.text)) {
                         showToast("记得输入运单号哦")
                         return@setPositiveListener
                     }
                     it.dismiss()
-                    expressQuery(companyId, et_num.text.toString(), remark)
+                    expressQuery(companyId, etNo.text.toString(), remark)
                 }
                 .createDialog()
     }

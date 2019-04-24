@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.layout_dialog_konstant.view.*
  * 备注:
  */
 
-class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog) {
+open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog) {
 
     private var hideNavigation = false
     private var message: String = ""
@@ -76,8 +76,6 @@ class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDialog)
             root.layout_view.removeAllViews()
             root.layout_view.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
-
-        root.layout_outside.setOnClickListener { dismiss() }
 
         addContentView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
 

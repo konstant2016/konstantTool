@@ -113,6 +113,7 @@ class WechatFakeActivity : BaseActivity() {
         ImageSelector.selectImg(this, ADVERSE_HEADER_NAME) {
             val msg = "对方头像设置${if (it) "成功" else "失败"}"
             showToast(msg)
+            if(it) mAdapter.notifyDataSetChanged()
         }
     }
 
@@ -122,6 +123,7 @@ class WechatFakeActivity : BaseActivity() {
         ImageSelector.selectImg(this, MINE_HEADER_NAME) {
             val msg = "我的头像设置${if (it) "成功" else "失败"}"
             showToast(msg)
+            if(it) mAdapter.notifyDataSetChanged()
         }
     }
 
