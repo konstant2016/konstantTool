@@ -1,10 +1,10 @@
 package com.konstant.tool.lite.module.weather.fragment
 
 import android.Manifest
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,15 +35,13 @@ import java.text.SimpleDateFormat
 
 class WeatherFragment : BaseFragment() {
 
-    private val mPresenter by lazy { WeatherPresenter() }
-
-    private var mDirectCode: String = ""
+    private val mPresenter by lazy { WeatherPresenter(mActivity) }
 
     private val mListHour = ArrayList<WeatherResponse.HourlyForecastBean>()
-    private val mAdapterHour by lazy { AdapterWeatherHourly(activity as Context, mListHour) }
+    private val mAdapterHour by lazy { AdapterWeatherHourly(mActivity, mListHour) }
 
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
-    private val mAdapterDay by lazy { AdapterWeatherDaily(activity as Context, mListDaily) }
+    private val mAdapterDay by lazy { AdapterWeatherDaily(mActivity, mListDaily) }
 
     private var mCurrentCity = "加载中"
 
@@ -58,12 +56,6 @@ class WeatherFragment : BaseFragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val directCode = arguments?.getString(PARAM)
-        directCode?.let { mDirectCode = it }
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_weather, container, false)
     }
@@ -71,18 +63,18 @@ class WeatherFragment : BaseFragment() {
     override fun onLazyLoad() {
 
         recycler_weather_hour.apply {
-            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false)
             adapter = mAdapterHour
         }
 
         recycler_weather_day.apply {
             isNestedScrollingEnabled = false
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(mActivity)
             adapter = mAdapterDay
         }
 
         refresh_layout.apply {
-            setHeaderView(BezierLayout(activity))
+            setHeaderView(BezierLayout(mActivity))
             setEnableLoadmore(false)
             setOnRefreshListener(object : RefreshListenerAdapter() {
                 override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
@@ -106,26 +98,40 @@ class WeatherFragment : BaseFragment() {
     }
 
     // 请求天气数据
-    private fun requestWeather(){
-        if (mDirectCode.isEmpty()) {
+    private fun requestWeather() {
+        val directCode = arguments?.getString(PARAM)
+        if (TextUtils.isEmpty(directCode)) {
             requestLocationWeather()
         } else {
-            requestWeatherWithCode(mDirectCode)
+            requestWeatherWithCode(directCode!!)
         }
     }
 
     // 请求当前城市数据
     private fun requestLocationWeather() {
         refresh_layout.startRefresh()
-        mPresenter.getCurrentLocationWeather { weather, directCode ->
-            stopRefreshAnim()
-            if (weather.isSuccess) {
-                updateUI(weather)
+        mPresenter.getCurrentLocationWeather(object : WeatherPresenter.WeatherResult {
+            override fun onSuccess(response: WeatherResponse, directCode: String) {
+                stopRefreshAnim()
+                updateUI(response)
                 CountryManager.setCityCode(directCode)
-            } else {
-                showToast("天气信息请求失败")
             }
-        }
+
+            override fun onLocationError() {
+                val code = CountryManager.getCityCode()
+                if (code.isEmpty()) {
+                    showToast("定位失败，请稍后重试")
+                    return
+                }
+                showToast("定位失败，将显示上次定位天气")
+                requestWeatherWithCode(code)
+            }
+
+            override fun onWeatherError() {
+                stopRefreshAnim()
+                showToast("获取天气信息失败")
+            }
+        })
     }
 
     // 请求指定城市的数据
@@ -148,7 +154,7 @@ class WeatherFragment : BaseFragment() {
         mListHour.addAll(hourlyForecast)
         mListDaily.addAll(weatherList)
 
-        activity?.runOnUiThread {
+        mActivity.runOnUiThread {
 
             // 头部的信息
             tv_weather_direct.text = realTime.wind.direct
@@ -182,7 +188,7 @@ class WeatherFragment : BaseFragment() {
 
     // 停止刷新
     private fun stopRefreshAnim() {
-        activity?.runOnUiThread { refresh_layout?.finishRefreshing() }
+        mActivity.runOnUiThread { refresh_layout?.finishRefreshing() }
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -190,5 +196,10 @@ class WeatherFragment : BaseFragment() {
         if (isVisibleToUser) {
             setActivityTitle(mCurrentCity)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.onDestroy()
     }
 }

@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +9,14 @@ import android.view.WindowManager
 import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.express.SelectorDialog
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
 import com.konstant.tool.lite.module.express.data.ExpressManager
 import com.konstant.tool.lite.module.express.param.ExpressChanged
-import com.konstant.tool.lite.module.express.server.ExpressResponse
-import com.konstant.tool.lite.network.NetService
+import com.konstant.tool.lite.module.express.server.ExpressData
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
+import kotlinx.android.synthetic.main.activity_express_detail.view.*
 import kotlinx.android.synthetic.main.layout_dialog_input.view.*
 import kotlinx.android.synthetic.main.pop_express.view.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -33,134 +33,101 @@ import java.util.*
 class ExpressDetailActivity : BaseActivity() {
 
     var mState = ""
-
-    var mCompanyId = ""
-    var mOrderNo = ""
-    var mRemark = ""
-
-    val coms by lazy { resources.getStringArray(R.array.express_company) }
-    val ids by lazy { resources.getStringArray(R.array.express_company_id) }
+    var mNumber = ""
+    var mCompany = ""
+    var mName = ""
 
     lateinit var mPop: PopupWindow
 
-    val mDatas = ArrayList<ExpressResponse.DataBean>()
-    val mAdapter by lazy { AdapterExpressDetail(this, mDatas) }
+    private val mList = ArrayList<ExpressData.Message>()
+    private val mAdapter by lazy { AdapterExpressDetail(this, mList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_express_detail)
-
         setTitle("物流详情")
-
         initBaseViews()
-
-        queryExpress()
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
-        mCompanyId = intent.getStringExtra("mCompanyId")
-        mOrderNo = intent.getStringExtra("mOrderNo")
-        mRemark = intent.getStringExtra("mRemark") ?: "保密物件"
+        mNumber = intent.getStringExtra("number")
+        mName = intent.getStringExtra("name") ?: "保密物件"
+        updateStatus()
+        with(layout_recycler) {
+            layoutManager = LinearLayoutManager(this@ExpressDetailActivity, LinearLayoutManager.VERTICAL, false)
+            adapter = mAdapter
+        }
 
-        updateUI()
-
-        ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, "暂无信息")
+        btn_retry.setOnClickListener { queryExpress(mNumber) }
+        ExpressManager.addExpress(mNumber)
         sendExpressChanged()
-
-        listview_detail.adapter = mAdapter
-
-        btn_retry.setOnClickListener { queryExpress() }
-
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { onMorePressed() }
+        queryExpress(mNumber)
     }
 
     // 开始查询物流信息
-    private fun queryExpress() {
+    private fun queryExpress(number: String) {
         onLoading()
-        NetService.expressQuery(mCompanyId,mOrderNo){
-            if (it.status != "200") {
-                onError()
-                return@expressQuery
+        ExpressPresenter.getExpressDetail(number, object : ExpressPresenter.ExpressResult {
+            override fun onSuccess(response: ExpressData) {
+                this@ExpressDetailActivity.onSuccess(response)
             }
 
-            onSuccess()
-            updateData(it)
-        }
+            override fun onError() {
+                this@ExpressDetailActivity.onError()
+            }
+        })
     }
 
-    // 更新界面
-    private fun updateUI() {
-
+    // 更新状态
+    private fun updateStatus() {
         tv_state_express.text = mState
-
-        tv_remark.text = mRemark
-
-        var com = ""
-        ids.forEachIndexed { index, _ ->
-            if (mCompanyId == ids[index]) {
-                com = coms[index]
-            }
-        }
-        tv_num.text = "$com:$mOrderNo"
-    }
-
-    // 刷新数据
-    private fun updateData(response: ExpressResponse) {
-        runOnUiThread {
-            mDatas.addAll(response.data)
-            mAdapter.notifyDataSetChanged()
-
-            when (response.state) {
-                0 -> mState = "在途中"
-                1 -> mState = "已揽件"
-                2 -> mState = "疑难件"
-                3 -> mState = "已签收"
-                4 -> mState = "已退签"
-                5 -> mState = "派件中"
-                6 -> mState = "退回中"
-            }
-
-            updateUI()
-
-            ExpressManager.updateExpress(mOrderNo, mCompanyId, mRemark, mState)
-            sendExpressChanged()
-        }
+        tv_name.text = mName
+        tv_describe.text = "$mCompany:$mNumber"
     }
 
     // 正在加载中
     private fun onLoading() {
         runOnUiThread {
-            layout_loading_express.visibility = View.VISIBLE
-            layout_erroe.visibility = View.GONE
-            listview_detail.visibility = View.GONE
+            base_content.layout_loading.visibility = View.VISIBLE
+            base_content.layout_error.visibility = View.GONE
+            base_content.layout_success.visibility = View.GONE
         }
     }
 
     // 加载失败
     private fun onError() {
         runOnUiThread {
-            layout_loading_express.visibility = View.GONE
-            layout_erroe.visibility = View.VISIBLE
-            listview_detail.visibility = View.GONE
+            base_content.layout_loading.visibility = View.GONE
+            base_content.layout_error.visibility = View.VISIBLE
+            base_content.layout_success.visibility = View.GONE
         }
     }
 
     // 加载成功
-    private fun onSuccess() {
+    private fun onSuccess(response: ExpressData) {
+        mCompany = response.company
+        mState = response.status
+        ExpressManager.updateExpress(mNumber, mCompany, mName, mState)
+        sendExpressChanged()
         runOnUiThread {
-            layout_loading_express.visibility = View.GONE
-            layout_erroe.visibility = View.GONE
-            listview_detail.visibility = View.VISIBLE
+            base_content.layout_loading.visibility = View.GONE
+            base_content.layout_error.visibility = View.GONE
+            base_content.layout_success.visibility = View.VISIBLE
+            tv_describe.text = "${response.company}:${response.number}"
+            updateStatus()
+            mList.clear()
+            mList.addAll(response.messages)
+            mAdapter.notifyDataSetChanged()
         }
     }
 
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
-        with(LayoutInflater.from(this).inflate(R.layout.pop_express, null)){
+        with(LayoutInflater.from(this).inflate(R.layout.pop_express, null)) {
             tv_change_order.setOnClickListener { changeOrderNo() }
-            tv_change_company.setOnClickListener { changeCompany() }
             tv_change_remark.setOnClickListener { changeRemark() }
             tv_delete.setOnClickListener { deleteOrder() }
             mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
@@ -172,7 +139,7 @@ class ExpressDetailActivity : BaseActivity() {
     private fun changeOrderNo() {
         mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
-        view.edit_input.setText(mOrderNo)
+        view.edit_input.setText(mNumber)
         KonstantDialog(this)
                 .setMessage("输入运单号")
                 .addView(view)
@@ -182,26 +149,12 @@ class ExpressDetailActivity : BaseActivity() {
                         return@setPositiveListener
                     }
                     it.dismiss()
-                    ExpressManager.deleteExpress(orderNo = mOrderNo)
-                    mOrderNo = view.edit_input.text.toString()
-                    updateUI()
-                    ExpressManager.addExpress(mOrderNo, mCompanyId, mRemark, mState)
+                    ExpressManager.deleteExpress(number = mNumber)
+                    mNumber = view.edit_input.text.toString()
+                    tv_describe.text = "$mCompany:$mNumber"
+                    ExpressManager.addExpress(mNumber,mCompany,mState,mName)
                     sendExpressChanged()
-                    queryExpress()
-                }
-                .createDialog()
-    }
-
-    // 修改物流公司
-    private fun changeCompany() {
-        mPop.dismiss()
-        SelectorDialog(this)
-                .setOnItemClickListener { id, _ ->
-                    mCompanyId = id
-                    updateUI()
-                    queryExpress()
-                    ExpressManager.updateExpress(mOrderNo, mCompanyId, null, null)
-                    sendExpressChanged()
+                    queryExpress(mNumber)
                 }
                 .createDialog()
     }
@@ -211,7 +164,7 @@ class ExpressDetailActivity : BaseActivity() {
         mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         val edit = view.edit_input
-        edit.setText(mRemark)
+        edit.setText(mName)
         KonstantDialog(this)
                 .setMessage("输入备注")
                 .addView(view)
@@ -221,9 +174,9 @@ class ExpressDetailActivity : BaseActivity() {
                         showToast("记得输入备注哦")
                         return@setPositiveListener
                     }
-                    mRemark = edit.text.toString()
-                    updateUI()
-                    ExpressManager.updateExpress(mOrderNo, null, mRemark, null)
+                    mName = edit.text.toString()
+                    updateStatus()
+                    ExpressManager.updateExpress(mNumber, null, mName, null)
                     sendExpressChanged()
                 }
                 .createDialog()
@@ -236,7 +189,7 @@ class ExpressDetailActivity : BaseActivity() {
                 .setMessage("确定要删除此运单号？")
                 .setPositiveListener {
                     it.dismiss()
-                    ExpressManager.deleteExpress(orderNo = mOrderNo)
+                    ExpressManager.deleteExpress(number = mNumber)
                     sendExpressChanged()
                     this.finish()
                 }

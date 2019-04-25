@@ -1,12 +1,11 @@
 package com.konstant.tool.lite.module.weather.fragment
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
-import android.os.Bundle
-import com.konstant.tool.lite.base.KonstantApplication
+import android.util.Log
+import com.alibaba.fastjson.JSON
+import com.amap.api.location.AMapLocation
+import com.amap.api.location.AMapLocationClient
+import com.amap.api.location.AMapLocationClientOption
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.network.NetService
@@ -17,59 +16,70 @@ import com.konstant.tool.lite.network.NetService
  * 描述：查询天气信息，获取定位信息，经纬度转位置，位置转城市编码等
  */
 
-class WeatherPresenter {
+class WeatherPresenter(private val context: Context) {
+
+    private val TAG = "WeatherPresenter"
+    private val locationClient by lazy { AMapLocationClient(context) }
+
+    interface WeatherResult {
+        fun onSuccess(response: WeatherResponse, directCode: String)
+        fun onLocationError()
+        fun onWeatherError()
+    }
 
     // 获取当前城市的天气信息
-    fun getCurrentLocationWeather(result: (response: WeatherResponse, directCode: String) -> Unit) {
-        getCurrentLocation { latitude, longitude ->
-            getAddressWithLocation(latitude, longitude) { province: String, city: String, direct: String ->
-                val code = getCodeWithAddress(province, city, direct)
-                getWeatherWithCode(code) { response ->
-                    result.invoke(response, code)
+    fun getCurrentLocationWeather(result: WeatherResult) {
+        getCurrentAddress { location ->
+            Log.d(TAG, "得到定位结果:" + location.errorCode)
+            if (location.errorCode != AMapLocation.LOCATION_SUCCESS) {
+                result.onLocationError()
+                return@getCurrentAddress
+            }
+            val weatherCode = getCodeWithAddress(location.province, location.city, location.district)
+            getWeatherWithCode(weatherCode) { weather ->
+                if (!weather.isSuccess) {
+                    result.onWeatherError()
+                    return@getWeatherWithCode
                 }
+                result.onSuccess(weather, weatherCode)
             }
         }
     }
 
-    // 利用原生定位，获取经纬度信息
-    @SuppressLint("MissingPermission")
-    fun getCurrentLocation(result: (latitude: Double, longitude: Double) -> Unit) {
-        val locationManager = KonstantApplication.sContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30, 5000f, object : LocationListener {
-            override fun onLocationChanged(location: Location) {
-                result.invoke(location.latitude, location.longitude)
+    // 利用高德定位获取城市信息
+    private fun getCurrentAddress(callback: (location: AMapLocation) -> Unit) {
+        Log.d(TAG, "开始利用高德定位")
+        with(locationClient) {
+            setLocationOption(with(AMapLocationClientOption()) {
+                locationPurpose = AMapLocationClientOption.AMapLocationPurpose.SignIn
+                this
+            })
+            setLocationListener {
+                callback.invoke(it)
             }
-
-            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-            }
-
-            override fun onProviderEnabled(provider: String?) {
-            }
-
-            override fun onProviderDisabled(provider: String?) {
-            }
-        })
-    }
-
-    // 根据经纬度获取位置信息
-    private fun getAddressWithLocation(latitude: Double, longitude: Double, result: (province: String, city: String, direct: String) -> Unit) {
-        NetService.getAddressWithLocation(latitude, longitude) {
-            if (it.status == "1") {
-                val address = it.regeocode.addressComponent
-                result.invoke(address.province, "", address.district)
-            }else{
-                result.invoke("", "", "")
-            }
+            startLocation()
         }
     }
 
     // 根据位置信息获取城市编码
-    private fun getCodeWithAddress(province: String, city: String, direct: String) = CountryManager.queryWeatherCode(province, city, direct)
+    private fun getCodeWithAddress(province: String, city: String, direct: String): String {
+        val code = CountryManager.queryWeatherCode(province, city, direct)
+        Log.d(TAG, "城市编码：$code")
+        return code
+    }
 
 
     // 根据位置编码获取天气信息
     fun getWeatherWithCode(code: String, result: (response: WeatherResponse) -> Unit) {
-        NetService.getWeatherWithCode(code) { result.invoke(it) }
+        NetService.getWeatherWithCode(code) {
+            Log.d(TAG, "查询天气结果:" + JSON.toJSON(it))
+            result.invoke(it)
+        }
+    }
+
+    // 页面退出时调用，避免内存泄漏
+    fun onDestroy() {
+        locationClient.onDestroy()
     }
 
 }

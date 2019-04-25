@@ -1,26 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_bg"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--最上面的单号，状态、公司等信息-->
-    <RelativeLayout
+    <!--加载页面-->
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/layout_loading"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_remark"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="-50dp"
+            android:gravity="center"
+            android:text="正在加载中。。。" />
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:indeterminateTint="?attr/tool_main_color" />
+
+    </LinearLayout>
+
+
+    <!--数据展示页面-->
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/layout_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
-            android:text="鞋子"
+            android:text="保密物件"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -29,102 +54,74 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:gravity="center_vertical"
             android:text="在途中"
             android:textColor="?attr/tool_main_color" />
 
         <TextView
-            android:id="@+id/tv_num"
+            android:id="@+id/tv_describe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"
             android:text="顺丰速运：1232423456323"
             android:textSize="15sp" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/tv_describe"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black_60_transparent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/layout_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_divider"
+            android:visibility="visible" />
+
     </RelativeLayout>
 
-    <!--分割线-->
-    <View
+
+    <!--出错页面-->
+    <LinearLayout
+        android:id="@+id/layout_error"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/black_60_transparent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="-80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <!--下面的半部分-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!--加载中的页面-->
-        <LinearLayout
-            android:id="@+id/layout_loading_express"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:text="查询无数据，请检查：" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="-50dp"
-                android:gravity="center"
-                android:text="正在加载中。。。" />
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="1、运单号填写正确" />
 
-            <ProgressBar
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:indeterminateTint="?attr/tool_main_color" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="2、网络正常" />
 
-        <!--物流路径页面-->
-        <ListView
-            android:id="@+id/listview_detail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:visibility="gone" />
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_btn"
+            android:text="重试" />
+    </LinearLayout>
 
-        <!--错误展示页-->
-        <LinearLayout
-            android:id="@+id/layout_erroe"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-80dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="暂无物流信息，请检查：" />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="1、运单号填写正确" />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="2、物流公司选择正确" />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="3、网络正常" />
-
-            <Button
-                android:layout_marginTop="10dp"
-                android:id="@+id/btn_retry"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:background="@drawable/selector_btn"
-                android:text="重试" />
-        </LinearLayout>
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

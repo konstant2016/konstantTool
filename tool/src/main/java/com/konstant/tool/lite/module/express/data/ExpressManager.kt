@@ -2,6 +2,7 @@ package com.konstant.tool.lite.module.express.data
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
+import com.konstant.tool.lite.module.express.server.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -40,32 +41,31 @@ object ExpressManager {
 
 
     //更新物流数据
-    fun updateExpress(orderNo: String, company: String?, remark: String?, state: String?) {
+    fun updateExpress(number: String, company: String?, name: String?, status: String?) {
         mExpressList.forEach { express ->
-            if (express.orderNo == orderNo) {
+            if (express.number == number) {
                 company?.let { express.company = company }
-                remark?.let { express.remark = remark }
-                state?.let { express.state = state }
+                name?.let { express.name = name }
+                status?.let { express.status = status }
             }
         }
     }
 
     // 删除物流数据
-    fun deleteExpress(data: ExpressData? = null, orderNo: String = "") {
+    fun deleteExpress(data: ExpressData? = null, number: String = "") {
         var exp = ExpressData()
         if (data != null) {
             exp = data
         }
-        if (orderNo != ""){
-            exp.orderNo = orderNo
+        if (number != "") {
+            exp.number = number
         }
         mExpressList.remove(exp)
     }
 
     // 添加新的物流
-    fun addExpress(orderNo: String, company: String?, remark: String?, state: String?) {
-        val expressData = ExpressData(company, orderNo, remark
-                ?: "保密物件", state ?: "暂无信息")
+    fun addExpress(number: String, company: String = "物流单号", status: String = "暂无信息", name: String = "保密物件") {
+        val expressData = ExpressData(company, number, status, name)
         if (!mExpressList.contains(expressData)) mExpressList.add(expressData)
     }
 

@@ -19,19 +19,6 @@
         android:background="?attr/tool_main_color" />
 
     <TextView
-        android:id="@+id/tv_change_company"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="更换物流公司"
-        android:textSize="15sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="?attr/tool_main_color" />
-
-    <TextView
         android:id="@+id/tv_change_remark"
         android:layout_width="match_parent"
         android:layout_height="50dp"

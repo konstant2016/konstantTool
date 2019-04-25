@@ -31,6 +31,7 @@ import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
+import com.konstant.tool.lite.view.KonstantPagerIndicator
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -125,6 +126,15 @@ abstract class BaseActivity : SwipeBackActivity() {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.title) as TextView
         textView.text = title
+    }
+
+    protected fun setSubTitle(subTitle: String) {
+        val view = findViewById(R.id.title_bar)
+        val textView = view.findViewById(R.id.sub_title) as TextView
+        view.findViewById<KonstantPagerIndicator>(R.id.title_indicator).visibility = View.GONE
+        textView.text = subTitle
+        textView.visibility = View.VISIBLE
+
     }
 
     // 隐藏主标题

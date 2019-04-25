@@ -14,6 +14,9 @@ object Constant {
     // 快递物流查询接口
     val URL_EXPRESS = "http://www.kuaidi100.com/query"
 
+    // 菜鸟裹裹
+    val URL_EXPRESS_GUOGUO = "http://coldsong.cn/letter/api/v1/kuaidi.php"
+
     // 经纬度转地址
     val URL_ADDRESS = "https://restapi.amap.com/v3/geocode/regeo"
 

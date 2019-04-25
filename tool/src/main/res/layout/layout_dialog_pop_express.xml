@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:clipToPadding="false"
     android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center"
     android:orientation="vertical">
 
     <EditText
@@ -29,6 +29,7 @@
         android:textSize="13sp" />
 
     <TextView
+        android:visibility="gone"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -36,25 +37,26 @@
         android:text="选择物流公司：" />
 
     <RelativeLayout
-        android:clipToPadding="false"
-        android:clipChildren="false"
+        android:visibility="gone"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/layout_bg_spinner">
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/layout_bg_spinner"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <TextView
-            android:gravity="center"
-            android:text="顺丰速运"
-            android:clickable="true"
-            android:clipToPadding="false"
-            android:clipChildren="false"
-            android:spinnerMode="dropdown"
-            android:background="@color/white_transport"
             android:id="@+id/tv_company"
             android:layout_width="320dp"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:background="@color/white_transport"
+            android:clickable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:text="自动选择" />
 
         <ImageView
             android:layout_width="10dp"

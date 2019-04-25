@@ -45,6 +45,7 @@ class BeautyActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beauty)
         setTitle("美女图片")
+        setSubTitle("提示：如图片显示不全，可多刷新几次")
         initBaseViews()
     }
 

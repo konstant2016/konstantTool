@@ -3,6 +3,7 @@ package com.konstant.tool.lite.network
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.module.express.server.ExpressRequest
 import com.konstant.tool.lite.module.express.server.ExpressResponse
+import com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo
 import com.konstant.tool.lite.module.translate.server.TranslateRequest
 import com.konstant.tool.lite.module.translate.server.TranslateResponse
 import com.konstant.tool.lite.module.weather.server.AddressResponse
@@ -56,8 +57,8 @@ object NetService {
     }
 
     // 物流查询
-    fun expressQuery(commanyId: String, num: String, callback: (response: ExpressResponse) -> Unit) {
-        val url = Constant.URL_EXPRESS + "?type=" + commanyId + "&postid=" + num
+    fun expressQuery(companyId: String, num: String, callback: (response: ExpressResponse) -> Unit) {
+        val url = Constant.URL_EXPRESS + "?type=" + companyId + "&postid=" + num
         NetworkUtil.get(url) { state, data ->
             var response = ExpressResponse()
             if (state) {
@@ -66,6 +67,21 @@ object NetService {
                 return@get
             }
             response.state = -1
+            callback.invoke(response)
+        }
+    }
+
+    // 菜鸟裹裹的物流查询
+    fun expressQuery(expressNo: String, callback: (response: ExpressResponseGuoGuo) -> Unit) {
+        val url = Constant.URL_EXPRESS_GUOGUO + "?q=" + expressNo
+        NetworkUtil.get(url) { state, data ->
+            var response = ExpressResponseGuoGuo()
+            if (state) {
+                response = JSON.parseObject(String(data), ExpressResponseGuoGuo::class.java)
+                callback.invoke(response)
+                return@get
+            }
+            response.status = -1
             callback.invoke(response)
         }
     }
