@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_filter_system"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="显示所有应用"
+        android:textSize="15sp" />
+
+    <CheckBox
+        android:layout_toRightOf="@id/tv_filter_system"
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/selector_checkbox"
+        android:button="@null"
+        android:checked="false"
+        android:clickable="true" />
+
+    <View
+        android:id="@+id/divider_01"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tv_filter_system"
+        android:background="?attr/tool_main_color" />
+
+    <TextView
+        android:id="@+id/tv_all_save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/divider_01"
+        android:gravity="center"
+        android:text="批量保存"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider_02"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tv_all_save"
+        android:background="?attr/tool_main_color" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/divider_02"
+        android:background="@color/black_20_transparent" />
+
+</RelativeLayout>

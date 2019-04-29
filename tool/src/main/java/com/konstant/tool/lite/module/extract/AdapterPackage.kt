@@ -1,35 +1,48 @@
 package com.konstant.tool.lite.module.extract
 
-import android.content.pm.PackageInfo
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
-import com.konstant.tool.lite.util.ApplicationUtil
 import kotlinx.android.synthetic.main.item_recycler_package_extra.view.*
 
-class AdapterPackage(val list: List<PackageInfo>) : BaseRecyclerAdapter<AdapterPackage.Holder>() {
+class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_package_extra, parent, false)
-        return Holder(view)
-    }
-
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        super.onBindViewHolder(holder, position)
-        val data = list[position]
-        with(holder.itemView) {
-            img_package.setImageDrawable(ApplicationUtil.getAppIcon(data))
-            name_package.text = "应用名字：${ApplicationUtil.getAppName(data)}"
-            number_package.text = "应用标识：${ApplicationUtil.getPackageName(data)}"
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == 0) {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_package_header, parent, false)
+            TopHolder(view)
+        } else {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_package_extra, parent, false)
+            CommonHolder(view)
         }
     }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+        val data = list[position]
+        if (holder is CommonHolder) {
+            with(holder.itemView) {
+                img_package.setImageDrawable(data.icon)
+                name_package.text = "应用名字：${data.appName}"
+                number_package.text = "应用标识：${data.packageName}"
+            }
+        }
+        if (holder is TopHolder) {
+            holder.itemView.setOnClickListener { }
+            holder.itemView.setOnLongClickListener { false }
+        }
+    }
+
+    override fun getItemViewType(position: Int) = position
 
     override fun getItemCount() = list.size
 
 
-    class Holder(view: View) : RecyclerView.ViewHolder(view)
+    class CommonHolder(view: View) : RecyclerView.ViewHolder(view)
+
+    class TopHolder(view: View) : RecyclerView.ViewHolder(view)
 
 }

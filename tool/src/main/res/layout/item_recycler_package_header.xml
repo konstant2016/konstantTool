@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center"
+    android:text="提示：单击打开应用，长按导出安装包\n提取的安装包路径为：\nAndroid/data/com.konstant.tool.lite/files/apks"
+    android:textColor="?attr/tool_main_color" />

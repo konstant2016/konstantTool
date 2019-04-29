@@ -1,15 +1,18 @@
 package com.konstant.tool.lite.module.extract
 
-import android.content.pm.PackageInfo
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
+import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.util.ApplicationUtil
 import com.konstant.tool.lite.view.KonstantDialog
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_package.*
 import kotlinx.android.synthetic.main.layout_dialog_progress.view.*
+import kotlinx.android.synthetic.main.pop_package.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import java.io.File
 
@@ -21,9 +24,11 @@ import java.io.File
 
 class PackageActivity : BaseActivity() {
 
-    private val mList = ArrayList<PackageInfo>()
+    private var mIsChecked = false;
+    private val mList = ArrayList<AppData>()
     private val mAdapter = AdapterPackage(mList)
     private val mPath by lazy { getExternalFilesDir(null)?.path + File.separator + "apks" }
+    private var mPop: PopupWindow? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +45,9 @@ class PackageActivity : BaseActivity() {
             adapter = mAdapter
         }
         mAdapter.setOnItemClickListener { _, position ->
-            val packageName = ApplicationUtil.getPackageName(mList[position])
-            if (packageName.isEmpty()) {
-                showToast("标识为空，无法跳转！")
-                return@setOnItemClickListener
-            }
-            val intent = packageManager.getLaunchIntentForPackage(packageName)
-            val result = startActivitySafely(intent)
+            val result = PackagePresenter.startApp(this, mList[position])
             if (!result) {
-                showToast("此应用不支持直接跳转~")
+                showToast("此应用不支持跳转")
             }
         }
         mAdapter.setOnItemLongClickListener { _, position ->
@@ -63,7 +62,29 @@ class PackageActivity : BaseActivity() {
         }
         img_more.apply {
             visibility = View.VISIBLE
-            setOnClickListener {
+            setOnClickListener { onMorePressed() }
+        }
+    }
+
+    private fun onMorePressed() {
+        with(LayoutInflater.from(this).inflate(R.layout.pop_package, null)) {
+            checkbox.isChecked = mIsChecked
+
+            tv_filter_system.setOnClickListener {
+                mIsChecked = checkbox.isChecked
+                mPop?.dismiss()
+                showLoading(state = true)
+                readAppList(mIsChecked)
+            }
+
+            checkbox.setOnCheckedChangeListener { _, isChecked ->
+                mIsChecked = isChecked
+                mPop?.dismiss()
+                showLoading(state = true)
+                readAppList(mIsChecked)
+            }
+
+            tv_all_save.setOnClickListener {
                 KonstantDialog(this@PackageActivity)
                         .setMessage("批量保存到本地？")
                         .setPositiveListener {
@@ -72,24 +93,34 @@ class PackageActivity : BaseActivity() {
                         }
                         .createDialog()
             }
+            mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
+            mPop!!.showAsDropDown(title_bar)
         }
     }
 
-    private fun readAppList() {
-        showLoading(state = true)
-        Thread {
-            ApplicationUtil.getPackageInfoList {
+    private fun readAppList(withSystem: Boolean = false) {
+        showLoading(true)
+        mList.clear()
+        if (withSystem) {
+            PackagePresenter.getAllApp(this) {
+                showLoading(state = false)
                 runOnUiThread {
-                    showLoading(state = false)
-                    mList.clear()
                     mList.addAll(it)
                     mAdapter.notifyDataSetChanged()
                 }
             }
-        }.start()
+        } else {
+            PackagePresenter.getUserApp(this) {
+                showLoading(state = false)
+                runOnUiThread {
+                    mList.addAll(it)
+                    mAdapter.notifyDataSetChanged()
+                }
+            }
+        }
     }
 
-    private fun backupApp(packageInfo: PackageInfo) {
+    private fun backupApp(appData: AppData) {
         val view = layoutInflater.inflate(R.layout.layout_progress, null)
         val dialog = KonstantDialog(this)
                 .addView(view)
@@ -97,7 +128,7 @@ class PackageActivity : BaseActivity() {
                 .hideNavigation()
                 .createDialog()
 
-        ApplicationUtil.backUserApp(mPath, packageInfo) {
+        PackagePresenter.backApp(mPath, appData) {
             runOnUiThread { dialog.dismiss() }
             val msg = if (it) "提取成功" else "备份失败，此应用不支持备份"
             showToast(msg)
@@ -122,7 +153,7 @@ class PackageActivity : BaseActivity() {
         val int = index + 1
         view.text_progress.text = "提取中($int/${mList.size})"
         view.progress_horizontal.progress = index
-        ApplicationUtil.backUserApp(mPath, mList[index]) {
+        PackagePresenter.backApp(mPath,  mList[index]) {
             runOnUiThread {
                 if (int == mList.size) {
                     dialog.dismiss()

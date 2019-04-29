@@ -199,7 +199,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         startActivity(Intent(this, cls))
     }
 
-    protected fun startActivitySafely(intent: Intent?): Boolean {
+    fun startActivitySafely(intent: Intent?): Boolean {
         return try {
             startActivity(intent)
             true
@@ -247,7 +247,9 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 显示加载窗口
     fun showLoading(state: Boolean, msg: String = "正在加载中...") {
-        tv_state.text = msg
-        layout_loading.visibility = if (state) View.VISIBLE else View.GONE
+        runOnUiThread {
+            tv_state.text = msg
+            layout_loading.visibility = if (state) View.VISIBLE else View.GONE
+        }
     }
 }

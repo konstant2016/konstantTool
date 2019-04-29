@@ -20,7 +20,8 @@ object SettingManager {
 
     private val NAME_SELECTED_THEME = "selectedTheme"
     private val NAME_SWIPEBACK_STATE = "swipeBackState"
-    private val EXIT_DIALOG_STATUS = "exitDialogStatus"
+    private val EXIT_TIPS_STATUS = "exitTipsStatus"
+    private val KILL_PROCESS_STATUS = "killProcessStatus"
     val NAME_USER_HEADER = "header_big.jpg"
 
     fun saveTheme(context: Context, theme: Int) {
@@ -50,11 +51,17 @@ object SettingManager {
         }
     }
 
-    // 读取是否显示退出对话框：true->显示，false->不显示
-    fun getExitDialogStatus(context: Context) = FileUtil.readDataFromSp(context, EXIT_DIALOG_STATUS, true)
+    // 读取是否退出提示：true->显示，false->不显示
+    fun getExitTipsStatus(context: Context) = FileUtil.readDataFromSp(context, EXIT_TIPS_STATUS, true)
 
-    fun setExitDialogStatus(context: Context, status: Boolean) {
-        FileUtil.saveDataToSp(context, EXIT_DIALOG_STATUS, status)
+    fun setExitTipsStatus(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, EXIT_TIPS_STATUS, status)
+    }
+
+    fun getKillProcess(context: Context) = FileUtil.readDataFromSp(context, KILL_PROCESS_STATUS, false)
+
+    fun setKillProcess(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, KILL_PROCESS_STATUS, status)
     }
 
 }

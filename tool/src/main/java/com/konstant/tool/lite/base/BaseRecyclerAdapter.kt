@@ -19,7 +19,6 @@ abstract class BaseRecyclerAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.
         holder.itemView.setOnLongClickListener { mOnItemLongClickListener?.invoke(holder.itemView, position);true }
     }
 
-
     fun setOnItemClickListener(onItemClickListener: ((View, Int) -> Unit)) {
         mOnItemClickListener = onItemClickListener
     }

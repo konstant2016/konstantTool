@@ -52,12 +52,21 @@ class SettingActivity : BaseActivity() {
         }
 
         // 退出提示
-        btn_exit.isChecked = SettingManager.getExitDialogStatus(this)
+        btn_exit.isChecked = SettingManager.getExitTipsStatus(this)
         btn_exit.setOnCheckedChangeListener { _, isChecked ->
-            SettingManager.setExitDialogStatus(this, isChecked)
+            SettingManager.setExitTipsStatus(this, isChecked)
         }
         layout_exit.setOnClickListener {
             btn_exit.isChecked = !btn_exit.isChecked
+        }
+
+        // 杀进程
+        btn_kill.isChecked = SettingManager.getKillProcess(this)
+        btn_kill.setOnCheckedChangeListener { _, isChecked ->
+            SettingManager.setKillProcess(this, isChecked)
+        }
+        layout_kill.setOnClickListener {
+            btn_kill.isChecked = !btn_kill.isChecked
         }
 
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }

@@ -17,7 +17,6 @@ import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
-import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
@@ -31,6 +30,8 @@ import kotlinx.android.synthetic.main.title_layout.*
  */
 
 class MainActivity : BaseActivity() {
+
+    private var mLastTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,15 +83,22 @@ class MainActivity : BaseActivity() {
             draw_layout.closeDrawer(Gravity.LEFT)
             return
         }
-        if (!SettingManager.getExitDialogStatus(this)) {
+        if (!SettingManager.getExitTipsStatus(this)) {
             super.onBackPressed()
             return
         }
-        KonstantDialog(this)
-                .setCheckedChangeListener { SettingManager.setExitDialogStatus(this, !it) }
-                .setMessage("确认退出菜籽工具箱？")
-                .setPositiveListener { finish() }
-                .createDialog()
+        if (System.currentTimeMillis() - mLastTime > 2000) {
+            mLastTime = System.currentTimeMillis()
+            showToast("再按一次返回键退出应用")
+            return
+        }
+        super.onBackPressed()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if (SettingManager.getKillProcess(this)) {
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
+    }
 }

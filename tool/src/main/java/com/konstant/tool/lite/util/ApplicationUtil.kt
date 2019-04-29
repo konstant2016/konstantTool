@@ -1,8 +1,10 @@
 package com.konstant.tool.lite.util
 
+import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.Log
@@ -14,14 +16,23 @@ import java.io.FileOutputStream
 object ApplicationUtil {
 
     // 获取应用列表
-    fun getPackageInfoList(callback: (list: List<PackageInfo>) -> Unit) {
+    fun getPackageInfoList(): List<PackageInfo> {
         val manager = KonstantApplication.sContext.packageManager
-        val list = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             manager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES)
         } else {
             manager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES)
         }
-        callback.invoke(list)
+    }
+
+    // 获取packageInfo
+    fun getPackageInfo(packageName: String): PackageInfo? {
+        getPackageInfoList().forEach {
+            if (it.packageName == packageName) {
+                return it
+            }
+        }
+        return null
     }
 
     // 获取应用包名
@@ -40,6 +51,13 @@ object ApplicationUtil {
         return isSysApp or isSysUpd
     }
 
+    // 应用是否可以跳转
+    fun getUserAppList(): List<ResolveInfo> {
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_LAUNCHER)
+        return KonstantApplication.sContext.packageManager.queryIntentActivities(intent, 0)
+    }
+
     // 读取安装路径
     fun getInstallPath(packageInfo: PackageInfo) = packageInfo.applicationInfo.sourceDir
 
@@ -47,7 +65,7 @@ object ApplicationUtil {
     fun backUserApp(path: String, packageInfo: PackageInfo, callback: (boolean: Boolean) -> Unit) {
         Thread {
             try {
-                if (!File(path).exists()){
+                if (!File(path).exists()) {
                     File(path).mkdir()
                 }
 
