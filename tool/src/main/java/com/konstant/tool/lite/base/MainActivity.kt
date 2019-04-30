@@ -6,6 +6,7 @@ import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
@@ -61,6 +62,8 @@ class MainActivity : BaseActivity() {
         layout_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
+
+        layout_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
 
         layout_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 

@@ -158,6 +158,18 @@
                 android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/text_decibel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/selector_item_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="分贝测试仪"
+                android:textColor="@color/black" />
+
+            <TextView
                 android:id="@+id/text_package"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

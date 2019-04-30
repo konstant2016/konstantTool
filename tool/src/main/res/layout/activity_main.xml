@@ -47,6 +47,12 @@
             app:text="天气查询" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_decibel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="分贝测试仪" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_package"
             android:layout_width="match_parent"
             android:layout_height="50dp"

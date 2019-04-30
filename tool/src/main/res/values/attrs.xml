@@ -18,4 +18,14 @@
         <attr name="text" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="DiffuseView">
+        <attr name="diffuse_color" format="color"/>
+        <attr name="diffuse_coreColor" format="color"/>
+        <attr name="diffuse_coreImage" format="reference"/>
+        <attr name="diffuse_coreRadius" format="float"/>
+        <attr name="diffuse_width" format="integer"/>
+        <attr name="diffuse_maxWidth" format="integer"/>
+        <attr name="diffuse_speed" format="integer"/>
+    </declare-styleable>
+
 </resources>

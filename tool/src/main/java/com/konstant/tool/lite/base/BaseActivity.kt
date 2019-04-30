@@ -18,6 +18,7 @@ import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
@@ -224,6 +225,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 
         text_wechat.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
+
+        text_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
 
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 

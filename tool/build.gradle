@@ -71,4 +71,5 @@ dependencies {
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
     implementation files('libs/core-3.3.3.jar')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
