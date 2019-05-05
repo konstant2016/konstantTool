@@ -41,6 +41,12 @@
             app:text="物流查询" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_speed"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="网速测试" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_weather"
             android:layout_width="match_parent"
             android:layout_height="50dp"

@@ -3,6 +3,9 @@ package com.konstant.tool.lite.module.extract
 import android.content.Context
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.ApplicationUtil
+import java.lang.reflect.Array
+import java.text.Collator
+import java.util.*
 import kotlin.concurrent.thread
 
 object PackagePresenter {
@@ -15,6 +18,7 @@ object PackagePresenter {
                 val packageName = it.packageName
                 val appName = ApplicationUtil.getAppName(it)
                 list.add(AppData(packageName, icon, appName))
+                list.sort()
             }
             callback.invoke(list)
         }
@@ -28,6 +32,7 @@ object PackagePresenter {
                 val packageName = it.activityInfo.packageName
                 val appName = it.loadLabel(context.packageManager).toString()
                 list.add(AppData(packageName, icon, appName))
+                list.sort()
             }
             callback.invoke(list)
         }

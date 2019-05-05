@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗"
+        android:textColor="?attr/tool_main_color" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:text="输入消耗流量值，默认10MB，数值越大越精确，但最大不得超过1024MB"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/edit_bg"
+        android:gravity="center"
+        android:hint="10"
+        android:inputType="number"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:text="0%" />
+
+    <ProgressBar
+        android:id="@+id/view_progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginRight="30dp"
+        android:max="100"
+        android:progress="5"
+        android:progressDrawable="@drawable/horizontal_progressbar" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
+        android:text="0.0MB/S"
+        android:textColor="?attr/tool_main_color"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/selector_btn"
+        android:text="开始" />
+
+</RelativeLayout>

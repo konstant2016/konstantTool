@@ -5,6 +5,7 @@
     android:layout_height="150dp">
 
     <TextView
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="逐小时预报："
         android:layout_width="match_parent"
@@ -13,7 +14,6 @@
     <android.support.v7.widget.RecyclerView
         android:overScrollMode="never"
         android:id="@+id/recycler_weather_hour"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -22,11 +22,11 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="这里展示扫描结果：" />
+        android:text="这里展示生成的二维码：" />
 
     <ImageView
         android:id="@+id/img_result"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/edit_bg" />

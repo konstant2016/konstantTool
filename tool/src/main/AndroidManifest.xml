@@ -31,7 +31,9 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.decibel.DecibelActivity"></activity>
+        <activity android:name=".module.speed.NetSpeedActivity"></activity>
+        <activity android:name=".base.H5Activity" />
+        <activity android:name=".module.decibel.DecibelActivity" />
         <activity
             android:name=".util.ImageSelector"
             android:theme="@style/TransparentTheme" />

@@ -1,6 +1,8 @@
 package com.konstant.tool.lite.module.weather.fragment
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
+import com.konstant.tool.lite.base.H5Activity
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
@@ -147,10 +150,12 @@ class WeatherFragment : BaseFragment() {
     }
 
     // 设置数据
+    @SuppressLint("SetTextI18n")
     private fun updateUI(result: WeatherResponse) {
         val realTime = result.realtime
         val hourlyForecast = result.hourly_forecast
         val weatherList = result.weather
+        val alert = result.alert
         mListHour.addAll(hourlyForecast)
         mListDaily.addAll(weatherList)
 
@@ -160,11 +165,20 @@ class WeatherFragment : BaseFragment() {
             tv_weather_direct.text = realTime.wind.direct
             tv_weather_power.text = realTime.wind.power
 
-            tv_weather_describe.text = "天气：${realTime.weather.info}"
+            tv_weather_describe.text = "当前：${realTime.weather.info}"
             tv_temperature.text = realTime.weather.temperature
 
             val time = SimpleDateFormat("MM-dd HH:mm").format(realTime.dataUptime.toLong() * 1000)
-            tv_weather_update_time.text = "更新时间：${time}"
+            tv_weather_update_time.text = "更新时间：$time"
+
+            if (alert != null && alert.size > 0) {
+                tv_weather_update_time.text = alert[0].content
+                tv_weather_update_time.setOnClickListener {
+                    val intent = Intent(mActivity, H5Activity::class.java)
+                    intent.putExtra("url", alert[0].originUrl)
+                    startActivity(intent)
+                }
+            }
 
             // 逐小时预报
             mAdapterHour.notifyDataSetChanged()
@@ -173,7 +187,10 @@ class WeatherFragment : BaseFragment() {
             mAdapterDay.notifyDataSetChanged()
 
             // 更换父标题
-            mCurrentCity = "${result.area[0][0]} ${result.area[2][0]}"
+            val province = result.area[0][0]
+            val direct = result.area[2][0]
+            val des = if (province == direct) province else "${result.area[0][0]} ${result.area[2][0]}"
+            mCurrentCity = des
             if (isFragmentResume()) {
                 setActivityTitle(mCurrentCity)
             }

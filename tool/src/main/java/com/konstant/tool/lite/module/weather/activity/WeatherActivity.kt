@@ -16,6 +16,7 @@ import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * 描述:天气预报主页
@@ -72,12 +73,12 @@ class WeatherActivity : BaseActivity() {
         Log.i("mFragmentList size", "${mFragmentList.size}")
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onTitleChanged(msg: TitleChanged) {
         setTitle(msg.title)
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onStateChanged(msg: WeatherStateChanged){
         if (msg.cityNumChange){
             readyFragment()

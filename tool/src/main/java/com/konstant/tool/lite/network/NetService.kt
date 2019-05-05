@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.network
 
 import com.alibaba.fastjson.JSON
+import com.konstant.tool.lite.base.KonstantApplication
 import com.konstant.tool.lite.module.express.server.ExpressRequest
 import com.konstant.tool.lite.module.express.server.ExpressResponse
 import com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo
@@ -9,6 +10,7 @@ import com.konstant.tool.lite.module.translate.server.TranslateResponse
 import com.konstant.tool.lite.module.weather.server.AddressResponse
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.util.MD5
+import java.io.File
 
 /**
  * 时间：2019/4/24 18:51
@@ -99,6 +101,15 @@ object NetService {
                 response = JSON.parseObject(String(data), TranslateResponse::class.java)
             }
             callback.invoke(response)
+        }
+    }
+
+    // 下载王者荣耀
+    fun downloadCoolApk(max: Long, callback: (current: Long, total: Long, status: Boolean) -> Unit) {
+        val url = "http://dlied5.myapp.com/myapp/1104466820/sgame/2017_com.tencent.tmgp.sgame_h8691_1.44.1.10_95fcaf.apk"
+        val path = "${KonstantApplication.sContext.externalCacheDir}" + File.separator + "fileStamp"
+        NetworkUtil.downloadFile(url, max, path) { current, total, status ->
+            callback.invoke(current, total, status)
         }
     }
 

@@ -15,6 +15,7 @@ import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
@@ -58,6 +59,8 @@ class MainActivity : BaseActivity() {
         layout_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
         layout_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
+
+        layout_speed.setOnClickListener { startActivity(NetSpeedActivity::class.java) }
 
         layout_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 

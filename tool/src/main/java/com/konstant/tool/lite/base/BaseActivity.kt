@@ -29,6 +29,7 @@ import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
+import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
@@ -221,6 +222,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
 
         text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
+
+        text_speed.setOnClickListener { startActivity(NetSpeedActivity::class.java) }
 
         text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 

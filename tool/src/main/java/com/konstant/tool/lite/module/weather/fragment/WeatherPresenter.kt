@@ -10,6 +10,7 @@ import com.amap.api.location.AMapLocationClientOption
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.network.NetService
+import kotlin.concurrent.thread
 
 /**
  * 时间：2019/4/24 18:18
@@ -37,13 +38,14 @@ class WeatherPresenter(private val context: Context) {
                 return@getCurrentAddress
             }
             Log.d(TAG, "省：" + location.province + "，市：" + location.city + "，区：" + location.district)
-            val weatherCode = getCodeWithAddress(location.province, location.city, location.district)
-            getWeatherWithCode(weatherCode) { weather ->
-                if (!weather.isSuccess) {
-                    result.onWeatherError()
-                    return@getWeatherWithCode
+            getCodeWithAddress(location.province, location.city, location.district) { weatherCode ->
+                getWeatherWithCode(weatherCode) { weather ->
+                    if (!weather.isSuccess) {
+                        result.onWeatherError()
+                        return@getWeatherWithCode
+                    }
+                    result.onSuccess(weather, weatherCode)
                 }
-                result.onSuccess(weather, weatherCode)
             }
         }
     }
@@ -54,25 +56,28 @@ class WeatherPresenter(private val context: Context) {
         with(locationClient) {
             setLocationOption(with(AMapLocationClientOption()) {
                 locationMode = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy
-                isOnceLocationLatest = true
                 this
             })
             setLocationListener {
                 if (it.errorCode == AMapLocation.LOCATION_SUCCESS
                         && !TextUtils.isEmpty(it.province)
                         && !TextUtils.isEmpty(it.city)
-                        && !TextUtils.isEmpty(it.district))
+                        && !TextUtils.isEmpty(it.district)) {
+                    locationClient.stopLocation()
                     callback.invoke(it)
+                }
             }
             startLocation()
         }
     }
 
     // 根据位置信息获取城市编码
-    private fun getCodeWithAddress(province: String, city: String, direct: String): String {
-        val code = CountryManager.queryWeatherCode(province, city, direct)
-        Log.d(TAG, "城市编码：$code")
-        return code
+    private fun getCodeWithAddress(province: String, city: String, direct: String, result: (code: String) -> Unit) {
+        thread {
+            val code = CountryManager.queryWeatherCode(province, city, direct)
+            Log.d(TAG, "城市编码：$code")
+            result.invoke(code)
+        }
     }
 
 

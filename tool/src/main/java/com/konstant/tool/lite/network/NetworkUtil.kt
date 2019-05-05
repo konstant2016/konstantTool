@@ -3,8 +3,12 @@ package com.konstant.tool.lite.network
 import android.content.Context
 import android.util.Log
 import com.alibaba.fastjson.JSON
+import com.konstant.tool.lite.base.KonstantApplication
 import okhttp3.*
+import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
+import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
 /**
@@ -79,4 +83,39 @@ object NetworkUtil {
         return buffer.toString()
     }
 
+
+    // 下载大文件
+    fun downloadFile(url: String, max: Long = 0L, path: String, progressResult: (current: Long, total: Long, status: Boolean) -> Unit) {
+        val request = Request.Builder()
+                .url(url)
+                .get()
+                .build()
+        mOkHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call?, e: IOException?) {
+                progressResult.invoke(0, 1, false)
+            }
+
+            override fun onResponse(call: Call?, response: Response) {
+                try {
+                    val inputStream = response.body()!!.byteStream()
+                    val length = response.body()!!.contentLength()
+                    val outputStream = FileOutputStream(File(path))
+                    val bytes = ByteArray(1024)
+                    var ch = -1
+                    var process = 0L
+                    while (inputStream.read(bytes).also { ch = it } != -1) {
+                        outputStream.write(bytes)
+                        process += ch
+                        progressResult.invoke(process, length, true)
+                        if (max != 0L && process >= max) break
+                    }
+                    outputStream.flush()
+                    outputStream.close()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    progressResult.invoke(0, 1, false)
+                }
+            }
+        })
+    }
 }

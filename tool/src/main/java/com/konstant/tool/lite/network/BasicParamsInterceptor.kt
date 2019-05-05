@@ -9,6 +9,12 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
 
+/**
+ * 时间：2019/5/5 16:34
+ * 创建：吕卡
+ * 描述：网络拦截器
+ */
+
 class BasicParamsInterceptor(val context: Context) : Interceptor {
 
     @Throws(IOException::class)
@@ -17,29 +23,28 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
         Log.d("网络是否可用:", "" + isNetworkAvailable())
 
         var request = chain.request()
-        if(!isNetworkAvailable()){
+        if (!isNetworkAvailable()) {
             request = chain.request()
                     .newBuilder()
                     .cacheControl(CacheControl.FORCE_CACHE)
                     .build()
         }
 
-        var response:Response
-        if (isNetworkAvailable()) {
+        val response = if (isNetworkAvailable()) {
             val maxAge = 0
-            response =  chain.proceed(request).newBuilder()
+            chain.proceed(request).newBuilder()
                     .removeHeader("Pragma")
                     .header("Cache-Control", "public, max-age=$maxAge")
                     .build()
         } else {
             val maxStale = 60 * 60 * 24
-            response =  chain.proceed(request).newBuilder()
+            chain.proceed(request).newBuilder()
                     .removeHeader("Pragma")
                     .header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
                     .build()
         }
 
-        Log.d("缓存时间",response.headers().toString())
+        Log.d("缓存时间", response.headers().toString())
         return response
     }
 

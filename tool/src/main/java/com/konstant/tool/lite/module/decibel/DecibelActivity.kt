@@ -4,7 +4,6 @@ import android.media.MediaRecorder
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.yanzhenjie.permission.AndPermission
@@ -58,12 +57,14 @@ class DecibelActivity : BaseActivity() {
 
     private fun createRecodeAudio() {
         try {
-            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC)
-            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
-            mediaRecorder.setOutputFile(mFile.absolutePath)
-            mediaRecorder.prepare()
-            mediaRecorder.start()
+            mediaRecorder.apply {
+                setAudioSource(MediaRecorder.AudioSource.MIC)
+                setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
+                setOutputFile(mFile.absolutePath)
+                prepare()
+                start()
+            }
         } catch (exception: Exception) {
             exception.printStackTrace()
             stopRecord()
