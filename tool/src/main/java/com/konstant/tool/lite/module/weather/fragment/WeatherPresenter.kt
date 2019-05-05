@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.weather.fragment
 
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
 import com.alibaba.fastjson.JSON
 import com.amap.api.location.AMapLocation
@@ -35,6 +36,7 @@ class WeatherPresenter(private val context: Context) {
                 result.onLocationError()
                 return@getCurrentAddress
             }
+            Log.d(TAG, "省：" + location.province + "，市：" + location.city + "，区：" + location.district)
             val weatherCode = getCodeWithAddress(location.province, location.city, location.district)
             getWeatherWithCode(weatherCode) { weather ->
                 if (!weather.isSuccess) {
@@ -51,11 +53,16 @@ class WeatherPresenter(private val context: Context) {
         Log.d(TAG, "开始利用高德定位")
         with(locationClient) {
             setLocationOption(with(AMapLocationClientOption()) {
-                locationPurpose = AMapLocationClientOption.AMapLocationPurpose.SignIn
+                locationMode = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy
+                isOnceLocationLatest = true
                 this
             })
             setLocationListener {
-                callback.invoke(it)
+                if (it.errorCode == AMapLocation.LOCATION_SUCCESS
+                        && !TextUtils.isEmpty(it.province)
+                        && !TextUtils.isEmpty(it.city)
+                        && !TextUtils.isEmpty(it.district))
+                    callback.invoke(it)
             }
             startLocation()
         }

@@ -71,7 +71,7 @@ object CountryManager {
             if (province.contains(prov.name)) {
                 prov.cityList.map { cit ->
                     cit.countyList.map { dir ->
-                        if (direct.contains(dir.name))
+                        if (direct.contains(dir.name) || city.contains(dir.name))
                             return dir.weatherCode
                     }
                 }
