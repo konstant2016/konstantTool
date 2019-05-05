@@ -18,6 +18,7 @@ class NetSpeedActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTitle("网速测试")
         setContentView(R.layout.activity_net_speed)
         initBaseViews()
     }
