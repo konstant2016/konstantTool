@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
+    android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -19,9 +20,9 @@
         android:textSize="12dp" />
 
     <TextView
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:gravity="center"
         android:text="这里展示生成的二维码：" />
 
     <ImageView
@@ -29,7 +30,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/edit_bg" />
+        android:background="@drawable/edit_bg"
+        android:padding="3dp" />
 
     <Button
         android:id="@+id/btn_create"

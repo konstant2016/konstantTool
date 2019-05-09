@@ -8,17 +8,17 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 230
-        versionName "2.3.0"
+        versionCode 231
+        versionName "2.3.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
         release {
-            shrinkResources true
-            minifyEnabled true
-            useProguard true
+//            shrinkResources true
+//            minifyEnabled true
+//            useProguard true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
