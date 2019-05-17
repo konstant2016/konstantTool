@@ -10,6 +10,7 @@
         android:id="@+id/tv_msg"
         android:background="@drawable/wechat_bg_right"
         android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="不知道什么时候修改了路径，改成root"

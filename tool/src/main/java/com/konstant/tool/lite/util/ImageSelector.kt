@@ -77,7 +77,7 @@ class ImageSelector : Activity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode != Activity.RESULT_OK) {
+        if (resultCode != RESULT_OK) {
             mCallback.invoke(false)
             finish()
         }

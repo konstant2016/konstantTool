@@ -6,8 +6,10 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.mylhyl.zxing.scanner.decode.QRDecode
@@ -32,6 +34,7 @@ class QRScanActivity : BaseActivity() {
         setContentView(R.layout.activity_qrscan)
         setTitle("二维码扫描")
         initBaseViews()
+        Log.d("二维码扫描参数", JSON.toJSONString(intent))
     }
 
     override fun initBaseViews() {
@@ -44,6 +47,12 @@ class QRScanActivity : BaseActivity() {
             if (rawResult == null) {
                 showToast("未发现二维码")
                 return@setOnScannerCompletionListener
+            }
+            if (intent.action == "com.google.zxing.client.android.SCAN") {
+                val intent = Intent()
+                intent.putExtra("SCAN_RESULT", parsedResult.toString())
+                setResult(Activity.RESULT_OK, intent)
+                finish()
             }
             onScanResult(parsedResult.toString())
         }

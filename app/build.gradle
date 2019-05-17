@@ -76,4 +76,5 @@ dependencies {
     // Snappy压缩库
     implementation 'com.jiechic.android.library:snappy-android:1.1.7'
     implementation files('libs/core-3.3.3.jar')
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
 }
