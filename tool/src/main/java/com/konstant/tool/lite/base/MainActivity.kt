@@ -11,6 +11,7 @@ import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
+import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
@@ -73,6 +74,8 @@ class MainActivity : BaseActivity() {
         layout_package.setOnClickListener { startActivity(PackageActivity::class.java) }
 
         layout_wxfake.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
+
+        layout_roll.setOnClickListener { startActivity(RollTextActivity::class.java) }
 
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 

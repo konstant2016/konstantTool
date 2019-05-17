@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.view
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.TextView
 
@@ -11,7 +12,8 @@ import android.widget.TextView
  */
 
 class KonstantTextView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : TextView(context, attrs, defStyleAttr) {
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextView(context, attrs, defStyleAttr) {
+
     override fun isFocused() = true
+
 }

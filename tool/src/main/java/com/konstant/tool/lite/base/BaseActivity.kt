@@ -139,9 +139,18 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     }
 
-    // 隐藏主标题
-    protected fun hideTitleBar() {
-        title_bar.visibility = View.GONE
+    // 显示、隐藏 主标题
+    protected fun showTitleBar(status: Boolean = true) {
+        title_bar.visibility = if (status) View.VISIBLE else View.GONE
+    }
+
+    // 显示、隐藏 状态栏
+    protected fun showStatusBar(status: Boolean = true) {
+        if (status) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        } else {
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     // 隐藏软键盘

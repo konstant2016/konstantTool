@@ -71,6 +71,12 @@
             app:text="虚拟微信对话" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_roll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:text="全屏滚动文字" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_device_info"
             android:layout_width="match_parent"
             android:layout_height="50dp"
