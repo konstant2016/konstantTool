@@ -8,8 +8,8 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 252
-        versionName "2.5.2"
+        versionCode 253
+        versionName "2.5.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
