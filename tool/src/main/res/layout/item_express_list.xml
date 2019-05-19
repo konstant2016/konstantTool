@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="25dp"
             android:text="在途中"
             android:textColor="?attr/tool_theme_text_color" />
 
