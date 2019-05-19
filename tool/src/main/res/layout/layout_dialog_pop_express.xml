@@ -16,6 +16,9 @@
         android:hint="输入运单号"
         android:inputType="number"
         android:padding="5dp"
+        android:paddingLeft="5dp"
+        android:textColor="?attr/tool_main_text_color"
+        android:textColorHint="?attr/tool_theme_text_color"
         android:textSize="13sp" />
 
     <EditText
@@ -26,25 +29,28 @@
         android:background="@drawable/edit_bg"
         android:hint="货物名称(非必填)"
         android:padding="5dp"
+        android:paddingLeft="5dp"
+        android:textColor="?attr/tool_main_text_color"
+        android:textColorHint="?attr/tool_theme_text_color"
         android:textSize="13sp" />
 
     <TextView
-        android:visibility="gone"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        android:text="选择物流公司：" />
+        android:text="选择物流公司："
+        android:visibility="gone" />
 
     <RelativeLayout
-        android:visibility="gone"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/layout_bg_spinner"
         android:clipChildren="false"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tv_company"

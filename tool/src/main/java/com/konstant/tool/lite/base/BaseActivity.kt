@@ -3,11 +3,13 @@ package com.konstant.tool.lite.base
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -97,6 +99,11 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 更换主题
     @Subscribe
     fun changeTheme(msg: ThemeChanged) {
+        recreate()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
         recreate()
     }
 

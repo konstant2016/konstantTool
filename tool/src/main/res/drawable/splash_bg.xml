@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/white" />
+    <item android:drawable="@color/color_white" />
     <item android:gravity="center" android:width="60dp" android:height="60dp">
         <bitmap android:src="@drawable/ic_launcher" />
     </item>

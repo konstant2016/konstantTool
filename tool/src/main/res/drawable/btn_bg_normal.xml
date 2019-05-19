@@ -6,11 +6,11 @@
     <corners android:radius="5dp" />
 
     <!--填充颜色-->
-    <solid android:color="@color/white" />
+    <solid android:color="?attr/tool_main_bg_color" />
 
     <!--边框-->
     <stroke
         android:width="1px"
-        android:color="@color/black_20_transparent" />
+        android:color="?attr/tool_divider_color" />
 
 </shape>

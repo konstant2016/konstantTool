@@ -6,6 +6,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.view.KonstantDialog
@@ -67,6 +68,16 @@ class SettingActivity : BaseActivity() {
         }
         layout_kill.setOnClickListener {
             btn_kill.isChecked = !btn_kill.isChecked
+        }
+
+        // 适配系统暗黑主题
+        btn_dark.isChecked = SettingManager.getAdapterDarkMode(this)
+        btn_dark.setOnCheckedChangeListener { _, isChecked ->
+            SettingManager.setAdapterDarkMode(this, isChecked)
+            EventBus.getDefault().post(ThemeChanged())
+        }
+        layout_dark.setOnClickListener {
+            btn_dark.isChecked = !btn_dark.isChecked
         }
 
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }

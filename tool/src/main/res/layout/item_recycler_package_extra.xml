@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
-        android:background="?attr/tool_main_color" />
+        android:background="?attr/tool_divider_color" />
 
     <ImageView
         android:id="@+id/img_package"
@@ -19,6 +19,7 @@
         android:src="@drawable/ic_launcher" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:layout_marginTop="5dp"
         android:maxLines="1"
         android:id="@+id/name_package"
@@ -30,6 +31,7 @@
         android:textSize="16sp" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:maxLines="1"
         android:id="@+id/number_package"
         android:layout_marginTop="25dp"

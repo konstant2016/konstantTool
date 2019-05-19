@@ -63,7 +63,7 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="1dp"
             app:animationDuration="0"
-            app:currentPageIndicatorColor="@color/white"
+            app:currentPageIndicatorColor="@color/color_white"
             app:dotDiameter="5dp"
             app:dotGap="5dp"
             app:pageIndicatorColor="@color/white_60_transparent" />
@@ -99,7 +99,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="主标题"
-            android:textColor="@color/white"
+            android:textColor="@color/color_white"
             android:textSize="16sp" />
     </FrameLayout>
 

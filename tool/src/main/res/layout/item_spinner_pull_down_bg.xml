@@ -2,16 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@drawable/selector_item_bg"
+    android:background="?android:selectableItemBackground"
     android:orientation="vertical">
 
     <View
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/black_20_transparent" />
+        android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/text_label"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

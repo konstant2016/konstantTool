@@ -4,7 +4,6 @@
     android:layout_width="280dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -29,17 +28,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="业精于勤荒于嬉"
-            android:textColor="@color/white" />
+            android:textColor="@color/color_white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="行成于思毁于随"
-            android:textColor="@color/white" />
+            android:textColor="@color/color_white" />
     </LinearLayout>
 
     <RelativeLayout
+        android:background="?attr/tool_main_bg_color"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true">
@@ -47,27 +47,29 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="?attr/tool_main_color" />
+            android:background="?attr/tool_divider_color" />
 
         <TextView
+            android:background="?android:selectableItemBackground"
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/text_mian"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="1px"
-            android:background="@drawable/selector_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:text="主页" />
 
         <TextView
+            android:background="?android:selectableItemBackground"
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/text_setting"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginTop="1px"
-            android:background="@drawable/selector_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -81,153 +83,154 @@
         android:layout_marginBottom="50dp">
 
         <LinearLayout
+            android:background="?attr/tool_main_bg_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_translate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="翻译"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_ruler"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="直尺"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_compass"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="指南针"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_beauty"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="美女图片"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_express"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="物流查询"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_speed"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="网速测试"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_weather"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="天气查询"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_decibel"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="分贝测试仪"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_package"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="安装包提取"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_wechat"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="虚拟微信对话"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="查看设备信息"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_qrcode"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/selector_item_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="二维码扫描解析"
-                android:textColor="@color/black" />
+                android:textColor="?attr/tool_main_text_color" />
 
         </LinearLayout>
     </ScrollView>

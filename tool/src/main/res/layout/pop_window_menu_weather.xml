@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="220dp"
-    android:background="@color/white"
+    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="?attr/tool_main_color" />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,6 +29,7 @@
             android:text="取消" />
 
         <TextView
+            android:textColor="?attr/tool_main_text_color"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -62,9 +62,10 @@
             app:wheel_indicator="true"
             app:wheel_indicator_color="?attr/tool_main_color"
             app:wheel_indicator_size="2px"
+            app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -77,7 +78,8 @@
             app:wheel_indicator_size="2px"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
+            app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -90,7 +92,8 @@
             app:wheel_indicator_size="2px"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
+            app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_visible_item_count="3" />
     </LinearLayout>
 

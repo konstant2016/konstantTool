@@ -12,10 +12,11 @@
         android:layout_marginRight="30dp"
         android:gravity="center"
         android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗"
-        android:textColor="?attr/tool_main_color" />
+        android:textColor="?attr/tool_second_text_color" />
 
 
     <TextView
+        android:textColor="?attr/tool_second_text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -35,10 +36,12 @@
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:hint="10"
+        android:textColorHint="?attr/tool_theme_text_color"
         android:inputType="number"
         android:textSize="13sp" />
 
     <TextView
+        android:textColorHint="?attr/tool_second_text_color"
         android:id="@+id/tv_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,10 +68,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="320dp"
         android:text="0.0MB/S"
-        android:textColor="?attr/tool_main_color"
+        android:textColor="?attr/tool_theme_text_color"
         android:textSize="30sp" />
 
     <Button
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/btn_start"
         android:layout_width="100dp"
         android:layout_height="50dp"

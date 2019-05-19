@@ -20,7 +20,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center_vertical"
         android:text="菜籽"
-        android:textColor="@color/black"
+        android:textColor="@color/color_black"
         android:textSize="16sp" />
 
     <ImageView
@@ -63,6 +63,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/btn_adverse"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -72,6 +73,7 @@
             android:text="输入对方文字" />
 
         <Button
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/btn_mine"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"

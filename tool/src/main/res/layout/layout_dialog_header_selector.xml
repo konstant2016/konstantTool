@@ -2,42 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_camera"
-        android:background="@drawable/selector_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center"
         android:text="拍照"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:textColor="?attr/tool_main_text_color" />
+
     <View
-        android:background="@color/black_20_transparent"
         android:layout_width="match_parent"
-        android:layout_height="1px"/>
+        android:layout_height="1px"
+        android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/text_photo"
-        android:background="@drawable/selector_item_bg"
-        android:text="相册"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:text="相册" />
+
     <View
-        android:background="@color/black_20_transparent"
         android:layout_width="match_parent"
-        android:layout_height="1px"/>
+        android:layout_height="1px"
+        android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/text_default"
-        android:background="@drawable/selector_item_bg"
-        android:text="恢复默认"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:text="恢复默认" />
+
     <View
-        android:background="@color/black_20_transparent"
         android:layout_width="match_parent"
-        android:layout_height="1px"/>
+        android:layout_height="1px"
+        android:background="?attr/tool_divider_color" />
 
 </LinearLayout>

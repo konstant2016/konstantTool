@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/white"/>
-    <stroke android:color="?attr/tool_main_color" android:width="1px"/>
+    <solid android:color="?attr/tool_edit_bg_color"/>
+    <stroke android:color="?attr/tool_divider_color" android:width="1px"/>
     <corners android:radius="5dp"/>
 
 </shape>

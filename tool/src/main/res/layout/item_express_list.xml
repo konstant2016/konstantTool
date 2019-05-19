@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="@drawable/selector_item_bg"
+    android:background="?android:selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -29,10 +29,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:text="鞋子"
-            android:textColor="@color/black"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="16sp" />
 
         <TextView
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_express_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:text="在途中"
-            android:textColor="?attr/tool_main_color" />
+            android:textColor="?attr/tool_theme_text_color" />
 
     </RelativeLayout>
 
@@ -67,6 +68,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:background="@color/black_20_transparent" />
+        android:background="?attr/tool_divider_color" />
 
 </RelativeLayout>

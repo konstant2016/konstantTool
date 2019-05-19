@@ -22,7 +22,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="?attr/tool_main_color" />
+                android:background="?attr/tool_divider_color" />
 
             <!--中间的逐小时预报-->
             <include layout="@layout/layout_weather_24_hour" />
@@ -30,7 +30,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="?attr/tool_main_color" />
+                android:background="?attr/tool_divider_color" />
 
             <!--下面的最近几天预报-->
             <include layout="@layout/layout_weather_15_daily" />
@@ -38,7 +38,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="?attr/tool_main_color" />
+                android:background="?attr/tool_divider_color" />
             <!--最下面的生活指数-->
             <include layout="@layout/layout_weather_life" />
 

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="tool_main_color" format="color" />
+    <attr name="tool_main_text_color" format="color"/>
+    <attr name="tool_second_text_color" format="color"/>
+    <attr name="tool_theme_text_color" format="color"/>
+    <attr name="tool_divider_color" format="color"/>
+    <attr name="tool_main_bg_color" format="color"/>
+    <attr name="tool_edit_bg_color" format="color"/>
+    <attr name="tool_btn_pressed_color" format="color"/>
 
     <declare-styleable name="KonstantRulerView">
         <attr name="color_line" format="color" />

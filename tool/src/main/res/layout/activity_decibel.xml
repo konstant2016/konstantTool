@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="提示：室内静音分贝为 30 DB"
-        android:textColor="?attr/tool_main_color" />
+        android:textColor="?attr/tool_second_text_color" />
 
     <TextView
         android:id="@+id/tv_big"
@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:text="当前最大分贝：0DB"
-        android:textColor="?attr/tool_main_color" />
+        android:textColor="?attr/tool_second_text_color" />
 
     <TextView
         android:id="@+id/tv_small"
@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:text="当前最小分贝：0DB"
-        android:textColor="?attr/tool_main_color" />
+        android:textColor="?attr/tool_second_text_color" />
 
     <com.konstant.tool.lite.view.DiffuseView
         android:id="@+id/view_wave"
@@ -51,7 +51,7 @@
         android:layout_marginTop="120dp"
         android:gravity="center"
         android:text="---"
-        android:textColor="@color/white"
+        android:textColor="@color/color_white"
         android:textSize="18sp" />
 
 </RelativeLayout>

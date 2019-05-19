@@ -5,6 +5,7 @@
     android:orientation="horizontal">
 
     <TextView
+        android:textColor="?attr/tool_second_text_color"
         android:id="@+id/tv_time"
         android:layout_width="100dp"
         android:layout_height="match_parent"

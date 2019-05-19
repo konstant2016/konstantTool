@@ -20,7 +20,7 @@ object ExpressPresenter {
         NetService.expressQuery(expressNo) { response ->
             if (response.status == 1) {
                 val list = arrayListOf<ExpressData.Message>()
-                response.data.messages.forEach { message ->
+                response.data?.messages?.forEach { message ->
                     list.add(ExpressData.Message(message.context, message.time))
                 }
                 val data = ExpressData(response.data.company, response.data.tel, response.data.status, response.data.nu, list)

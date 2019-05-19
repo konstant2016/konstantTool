@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.setting
 
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
@@ -22,6 +23,7 @@ object SettingManager {
     private val NAME_SWIPEBACK_STATE = "swipeBackState"
     private val EXIT_TIPS_STATUS = "exitTipsStatus"
     private val KILL_PROCESS_STATUS = "killProcessStatus"
+    private val ADAPTER_DARK_MODE = "adapterDarkMode"
     val NAME_USER_HEADER = "header_big.jpg"
 
     fun saveTheme(context: Context, theme: Int) {
@@ -36,8 +38,29 @@ object SettingManager {
         File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_USER_HEADER).delete()
     }
 
-    fun getTheme(context: Context) =
-            FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
+    fun setAdapterDarkMode(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, ADAPTER_DARK_MODE, status)
+    }
+
+    fun getAdapterDarkMode(context: Context) = FileUtil.readDataFromSp(context, ADAPTER_DARK_MODE, true)
+
+    /**
+     * 判断当前用户是否已开启系统暗黑模式适配
+     * 如果未开启：则返回用户自己设置的主题样式
+     * 如果已开启：判断当前系统是否为暗黑模式
+     *             如果是：则返回暗黑模式
+     *             否则：返回用户自定义样式
+     */
+    fun getTheme(context: Context): Int {
+        if (!getAdapterDarkMode(context)) {
+            return FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
+        }
+        val mode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if (mode == Configuration.UI_MODE_NIGHT_YES) {
+            return R.style.tool_lite_dark
+        }
+        return FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
+    }
 
     fun getSwipeBackState(context: Context) =
             FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATE, false)

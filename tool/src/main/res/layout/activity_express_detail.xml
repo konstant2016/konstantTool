@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="-50dp"
@@ -46,7 +47,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:text="保密物件"
-            android:textColor="@color/black"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="18sp" />
 
         <TextView
@@ -58,7 +59,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center_vertical"
             android:text="在途中"
-            android:textColor="?attr/tool_main_color" />
+            android:textColor="?attr/tool_main_text_color" />
 
         <TextView
             android:id="@+id/tv_describe"
@@ -77,7 +78,7 @@
             android:layout_below="@id/tv_describe"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/black_60_transparent" />
+            android:background="?attr/tool_divider_color" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/layout_recycler"
@@ -100,22 +101,26 @@
         android:visibility="gone">
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
             android:text="查询无数据，请检查：" />
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="1、运单号填写正确" />
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="2、网络正常" />
 
         <Button
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/btn_retry"
             android:layout_width="100dp"
             android:layout_height="40dp"

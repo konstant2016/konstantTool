@@ -8,16 +8,16 @@
         android:id="@+id/layout_theme"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="主题设置"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
 
@@ -42,16 +42,16 @@
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="头像设置"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
 
@@ -76,19 +76,20 @@
         android:id="@+id/layout_swipe"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="滑动返回"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_back"
@@ -111,26 +112,27 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/layout_exit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="防止误退"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_exit"
@@ -153,7 +155,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
 
@@ -161,25 +163,26 @@
         android:id="@+id/layout_kill"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_kill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="纯净后台"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <TextView
+            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_kill"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:text="(按返回键退出时，无需等待系统回收，主动释放内存)"
+            android:text="(按返回键退出应用时，主动释放内存)"
             android:textSize="12sp" />
 
         <Switch
@@ -196,23 +199,68 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_dark"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground">
+
+        <TextView
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/tv_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="8dp"
+            android:text="适配系统深色模式"
+            android:textSize="14sp" />
+
+        <TextView
+            android:textColor="?attr/tool_second_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_dark"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="(建议开启，关闭后会影响显示效果)"
+            android:textSize="12sp" />
+
+        <Switch
+            android:id="@+id/btn_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="?attr/tool_divider_color" />
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:id="@+id/layout_about"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/selector_item_bg">
+        android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textSize="14sp"
+            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="关于"
-            android:textColor="@color/black" />
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -229,7 +277,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:background="@color/black_20_transparent" />
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
 </LinearLayout>

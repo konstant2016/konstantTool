@@ -13,6 +13,7 @@
             layout="@layout/title_layout" />
 
         <RelativeLayout
+            android:background="?attr/tool_main_bg_color"
             android:id="@+id/base_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,12 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/title_bar"
-            android:background="@color/white"
+            android:background="?attr/tool_main_bg_color"
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone">
 
             <TextView
+                android:textColor="?attr/tool_second_text_color"
                 android:id="@+id/tv_state"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

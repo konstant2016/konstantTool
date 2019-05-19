@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
     <View
@@ -13,6 +13,7 @@
         android:background="?attr/tool_main_color" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -21,7 +22,6 @@
         android:layout_marginRight="10dp"
         android:gravity="center"
         android:text="这是message这是message"
-        android:textColor="@color/black"
         android:textSize="15sp" />
 
     <LinearLayout
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="不再提醒"
-            android:textColor="?attr/tool_main_color" />
+            android:textColor="?android:attr/textColorPrimary" />
 
         <CheckBox
             android:id="@+id/checkbox"
@@ -76,6 +76,7 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
+            android:textColor="?attr/tool_main_text_color"
             android:text="取消" />
 
         <Button
@@ -88,6 +89,7 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
+            android:textColor="?attr/tool_main_text_color"
             android:text="确定" />
 
     </LinearLayout>

@@ -12,25 +12,26 @@
         android:layout_marginTop="30dp"
         android:src="@drawable/ic_launcher" />
 
-   <TextView
-       android:gravity="center"
-       android:layout_marginLeft="20dp"
-       android:layout_marginRight="20dp"
-       android:layout_marginTop="200dp"
-       android:text="本应用完全遵守绿色公约！\n应用卸载后，除用户手动保存的图片外，没有任何残留数据"
-       android:textColor="?attr/tool_main_color"
-       android:layout_centerHorizontal="true"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="本应用完全遵守绿色公约！\n应用卸载后，除用户手动保存的图片外，没有任何残留数据"
+        android:textColor="?attr/tool_main_text_color" />
 
     <TextView
         android:id="@+id/tv_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
         android:gravity="center"
-        android:text="版本号：1.0" />
+        android:text="版本号：1.0"
+        android:textColor="?attr/tool_main_text_color" />
 </RelativeLayout>
 

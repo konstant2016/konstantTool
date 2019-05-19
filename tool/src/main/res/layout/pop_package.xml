@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:id="@+id/tv_filter_system"
@@ -30,9 +31,10 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_below="@id/tv_filter_system"
-        android:background="?attr/tool_main_color" />
+        android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_all_save"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -46,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_below="@id/tv_all_save"
-        android:background="?attr/tool_main_color" />
+        android:background="?attr/tool_divider_color" />
 
     <View
         android:layout_width="match_parent"

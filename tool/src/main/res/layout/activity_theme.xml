@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -19,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="60dp"
-        android:background="@color/red"
+        android:background="@color/color_red"
         android:clickable="true" />
 
     <View
@@ -28,7 +29,7 @@
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="@color/class_S"
+        android:background="@color/color_green"
         android:clickable="true" />
 
     <View
