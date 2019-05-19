@@ -55,11 +55,15 @@ object SettingManager {
         if (!getAdapterDarkMode(context)) {
             return FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
         }
-        val mode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        if (mode == Configuration.UI_MODE_NIGHT_YES) {
+        if (getDarkModeStatus(context)) {
             return R.style.tool_lite_dark
         }
         return FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
+    }
+
+    fun getDarkModeStatus(context: Context): Boolean {
+        val mode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return mode == Configuration.UI_MODE_NIGHT_YES
     }
 
     fun getSwipeBackState(context: Context) =

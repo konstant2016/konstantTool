@@ -6,6 +6,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_theme.*
 import org.greenrobot.eventbus.EventBus
 
@@ -32,6 +33,13 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
+        if (SettingManager.getDarkModeStatus(this) && SettingManager.getAdapterDarkMode(this)) {
+            KonstantDialog(this)
+                    .setMessage("您已开启适配系统深色模式功能，当前无法切换主题，可尝试以下方案：\n1、在应用设置中关闭神色模式适配\n2、关闭系统深色模式")
+                    .setPositiveListener { finish() }
+                    .createDialog()
+            return
+        }
         var thme = R.style.tool_lite_class
         when (v.id) {
             R.id.selector_red -> {
@@ -44,7 +52,7 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
                 thme = R.style.tool_lite_blue
             }
         }
-        SettingManager.saveTheme(this,thme)
+        SettingManager.saveTheme(this, thme)
         EventBus.getDefault().post(ThemeChanged())
     }
 }

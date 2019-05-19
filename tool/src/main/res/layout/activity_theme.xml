@@ -5,13 +5,14 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:textColor="?attr/tool_main_text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="选色主题颜色" />
-
+        android:text="选色主题颜色\n\n注意：开启适配系统深色模式且系统处于深色模式时，无法切换主题" />
 
     <View
         android:id="@+id/selector_red"
@@ -19,7 +20,7 @@
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:background="@color/color_red"
         android:clickable="true" />
 
@@ -28,7 +29,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:background="@color/color_green"
         android:clickable="true" />
 
@@ -38,7 +39,7 @@
         android:layout_height="80dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:background="@color/colorPrimary"
         android:clickable="true" />
 

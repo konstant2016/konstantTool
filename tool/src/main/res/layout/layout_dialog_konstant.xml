@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/tool_main_bg_color"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
     <View
@@ -13,15 +13,16 @@
         android:background="?attr/tool_main_color" />
 
     <TextView
-        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:minHeight="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
         android:text="这是message这是message"
+        android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
     <LinearLayout
@@ -59,11 +60,11 @@
     <LinearLayout
         android:id="@+id/layout_navigation"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
 
         <Button
             android:id="@+id/btn_cancel"
@@ -76,8 +77,8 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
-            android:textColor="?attr/tool_main_text_color"
-            android:text="取消" />
+            android:text="取消"
+            android:textColor="?attr/tool_main_text_color" />
 
         <Button
             android:id="@+id/btn_confirm"
@@ -89,8 +90,8 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
-            android:textColor="?attr/tool_main_text_color"
-            android:text="确定" />
+            android:text="确定"
+            android:textColor="?attr/tool_main_text_color" />
 
     </LinearLayout>
 </LinearLayout>
