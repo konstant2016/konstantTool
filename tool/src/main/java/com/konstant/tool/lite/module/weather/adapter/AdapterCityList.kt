@@ -27,9 +27,8 @@ class AdapterCityList(val context: Context, val list: List<LocalCountry>) : Base
     override fun getCount(): Int = list.size
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = mInflater.inflate(R.layout.item_gridview_city_manager, parent, false)
-        val textView = view.findViewById(R.id.tv_item_city) as TextView
-        textView.text = list[position].directName
+        val view = mInflater.inflate(R.layout.item_gridview_city_manager, parent, false) as TextView
+        view.text = list[position].directName
         return view
     }
 }

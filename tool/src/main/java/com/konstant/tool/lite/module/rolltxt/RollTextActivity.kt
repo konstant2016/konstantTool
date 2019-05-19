@@ -18,6 +18,7 @@ class RollTextActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initBaseViews()
         setTitle("全屏滚动文字")
         setContentView(R.layout.activity_roll_text)
         btn_create.setOnClickListener { onBtnPressed() }
