@@ -31,6 +31,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".module.rolltxt.ScrollTxtActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".module.rolltxt.RollTextActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
@@ -53,16 +55,12 @@
             android:theme="@style/WechatFakeActivity" />
         <activity
             android:name=".module.extract.PackageActivity"
-            android:configChanges="uiMode" />
-
-
-        <!-- 高德定位相关 START -->
+            android:configChanges="uiMode" /> <!-- 高德定位相关 START -->
         <service android:name="com.amap.api.location.APSService" />
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="9c866158ed7b1cd4e907518c13588c0b" />
-        <!-- 高德定位相关 END-->
-
+            android:value="9c866158ed7b1cd4e907518c13588c0b" /> <!-- 高德定位相关 END -->
         <activity
             android:name=".base.SplashActivity"
             android:configChanges="fontScale|uiMode"

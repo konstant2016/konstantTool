@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_black"
+    android:ellipsize="marquee"
+    android:gravity="center"
+    android:marqueeRepeatLimit="marquee_forever"
+    android:singleLine="true"
+    android:textSize="120sp"
+    android:textColor="@color/color_white">
+
+</TextView>

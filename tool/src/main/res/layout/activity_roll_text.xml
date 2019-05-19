@@ -18,6 +18,7 @@
         android:textSize="14sp" />
 
     <Button
+        style="?android:attr/borderlessButtonStyle"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/btn_create"
         android:layout_width="200dp"
@@ -26,20 +27,5 @@
         android:layout_marginTop="350dp"
         android:background="@drawable/selector_btn"
         android:text="生成滚动字体" />
-
-    <com.konstant.tool.lite.view.KonstantTextView
-        android:id="@+id/txt_roll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_black"
-        android:ellipsize="marquee"
-        android:gravity="center"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:singleLine="true"
-        android:text="这是你设置的文字"
-        android:textColor="@color/color_white"
-        android:textSize="120sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
 
 </RelativeLayout>
