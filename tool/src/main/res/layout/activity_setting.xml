@@ -11,12 +11,12 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="主题设置"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <ImageView
@@ -37,7 +37,6 @@
             android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
-
     <RelativeLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
@@ -45,12 +44,12 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="头像设置"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <ImageView
@@ -79,23 +78,23 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="滑动返回"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <TextView
-            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_back"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="(从左侧向右滑动即可返回上一页面)"
+            android:textColor="?attr/tool_second_text_color"
             android:textSize="12sp" />
 
         <Switch
@@ -104,7 +103,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="25dp"
+            android:thumb="@drawable/selector_switch_thumb"
+            android:track="@drawable/selector_switch_track" />
 
         <View
             android:layout_width="match_parent"
@@ -122,23 +123,23 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="防止误退"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <TextView
-            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_exit"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="(连按两次返回键才能退出应用)"
+            android:textColor="?attr/tool_second_text_color"
             android:textSize="12sp" />
 
         <Switch
@@ -147,7 +148,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="25dp"
+            android:thumb="@drawable/selector_switch_thumb"
+            android:track="@drawable/selector_switch_track" />
 
         <View
             android:layout_width="match_parent"
@@ -166,23 +169,23 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_kill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="纯净后台"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <TextView
-            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_kill"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="(按返回键退出应用时，主动释放内存)"
+            android:textColor="?attr/tool_second_text_color"
             android:textSize="12sp" />
 
         <Switch
@@ -191,7 +194,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="25dp"
+            android:thumb="@drawable/selector_switch_thumb"
+            android:track="@drawable/selector_switch_track" />
 
         <View
             android:layout_width="match_parent"
@@ -210,23 +215,23 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:text="适配系统深色模式"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <TextView
-            android:textColor="?attr/tool_second_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_dark"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:text="(建议开启，关闭后会影响显示效果)"
+            android:text="(建议开启，关闭后可能会影响显示效果)"
+            android:textColor="?attr/tool_second_text_color"
             android:textSize="12sp" />
 
         <Switch
@@ -235,7 +240,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="25dp"
+            android:thumb="@drawable/selector_switch_thumb"
+            android:track="@drawable/selector_switch_track" />
 
         <View
             android:layout_width="match_parent"
@@ -254,12 +261,12 @@
         android:background="?android:selectableItemBackground">
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="关于"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 
         <ImageView

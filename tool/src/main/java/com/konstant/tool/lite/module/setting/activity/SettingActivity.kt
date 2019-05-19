@@ -34,9 +34,17 @@ class SettingActivity : BaseActivity() {
         initBaseViews()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setViewsStatus()
+    }
+
     override fun initBaseViews() {
         super.initBaseViews()
+        setViewsStatus()
+    }
 
+    private fun setViewsStatus() {
         layout_theme.setOnClickListener { startActivity(ThemeActivity::class.java) }
 
         // 滑动返回
@@ -74,7 +82,8 @@ class SettingActivity : BaseActivity() {
         btn_dark.isChecked = SettingManager.getAdapterDarkMode(this)
         btn_dark.setOnCheckedChangeListener { _, isChecked ->
             SettingManager.setAdapterDarkMode(this, isChecked)
-            EventBus.getDefault().post(ThemeChanged())
+            if (SettingManager.getDarkModeStatus(this))
+                EventBus.getDefault().post(ThemeChanged())
         }
         layout_dark.setOnClickListener {
             btn_dark.isChecked = !btn_dark.isChecked

@@ -21,6 +21,7 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTitle("主题设置")
         setContentView(R.layout.activity_theme)
         initBaseViews()
     }
@@ -30,16 +31,10 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
         selector_red.setOnClickListener(this)
         selector_class.setOnClickListener(this)
         selector_blue.setOnClickListener(this)
+        selector_dark.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        if (SettingManager.getDarkModeStatus(this) && SettingManager.getAdapterDarkMode(this)) {
-            KonstantDialog(this)
-                    .setMessage("您已开启适配系统深色模式功能，当前无法切换主题，可尝试以下方案：\n1、在应用设置中关闭神色模式适配\n2、关闭系统深色模式")
-                    .setPositiveListener { finish() }
-                    .createDialog()
-            return
-        }
         var thme = R.style.tool_lite_class
         when (v.id) {
             R.id.selector_red -> {
@@ -51,8 +46,22 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
             R.id.selector_blue -> {
                 thme = R.style.tool_lite_blue
             }
+            R.id.selector_dark -> {
+                thme = R.style.tool_lite_dark
+            }
         }
-        SettingManager.saveTheme(this, thme)
-        EventBus.getDefault().post(ThemeChanged())
+        if (thme == SettingManager.getTheme(this)) return
+        if ((SettingManager.getAdapterDarkMode(this))
+                && (thme != R.style.tool_lite_dark)
+                && SettingManager.getDarkModeStatus(this)) {
+            KonstantDialog(this)
+                    .setMessage("您当前已开启\"适配系统深色模式\"开关，需要关闭后才能修改主题，是否前往关闭？")
+                    .setPositiveListener { finish() }
+                    .setNegativeListener { return@setNegativeListener }
+                    .createDialog()
+        } else {
+            SettingManager.saveTheme(this, thme)
+            EventBus.getDefault().post(ThemeChanged())
+        }
     }
 }

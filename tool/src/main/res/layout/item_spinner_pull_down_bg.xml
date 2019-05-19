@@ -2,21 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="?android:selectableItemBackground"
+    android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
-    <View
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="?attr/tool_divider_color" />
-
-    <TextView
-        android:textColor="?attr/tool_main_text_color"
-        android:id="@+id/text_label"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="1px"
-        android:gravity="center" />
+        android:background="?android:selectableItemBackground">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/tool_divider_color" />
+
+        <TextView
+            android:id="@+id/text_label"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1px"
+            android:gravity="center"
+            android:textColor="?attr/tool_main_text_color" />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -101,11 +101,7 @@ class MainActivity : BaseActivity() {
             showToast("再按一次返回键退出应用")
             return
         }
-        super.onBackPressed()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+        finish()
         if (SettingManager.getKillProcess(this)) {
             android.os.Process.killProcess(android.os.Process.myPid())
         }
