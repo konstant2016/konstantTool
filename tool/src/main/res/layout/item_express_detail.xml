@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="100dp"
     android:orientation="horizontal">
 
     <TextView
-        android:textColor="?attr/tool_second_text_color"
         android:id="@+id/tv_time"
         android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:gravity="center_vertical|right"
-        android:text="2081-04-04 10:22:23" />
+        android:text="2081-04-04 10:22:23"
+        android:textColor="?attr/tool_second_text_color" />
 
-    <RelativeLayout
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/circle"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="114dp"
+        android:background="@color/black_60_transparent" />
+
+    <ImageView
+        android:id="@+id/circle"
         android:layout_width="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="110dp"
+        android:src="@drawable/custom_icon_ring" />
 
-        <View
-            android:id="@+id/line_top"
-            android:layout_width="1dp"
-            android:layout_height="35dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@color/black_60_transparent" />
-
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/custom_icon_ring" />
-
-        <View
-            android:id="@+id/line_bottom"
-            android:layout_width="1dp"
-            android:layout_height="35dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@color/black_60_transparent" />
-    </RelativeLayout>
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/circle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="114dp"
+        android:background="@color/black_60_transparent" />
 
     <TextView
+        android:ellipsize="middle"
         android:id="@+id/tv_location"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center_vertical"
-        android:text="北京市朝阳国贸，张晓明，已收件" />
-</LinearLayout>
+        android:text="北京市朝阳国，张晓明，已收件北京市朝阳国贸，张晓明，已收件"
+        android:textColor="?attr/tool_main_text_color" />
+</RelativeLayout>

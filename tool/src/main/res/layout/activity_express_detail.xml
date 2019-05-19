@@ -62,6 +62,7 @@
             android:textColor="?attr/tool_main_text_color" />
 
         <TextView
+            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/tv_describe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
