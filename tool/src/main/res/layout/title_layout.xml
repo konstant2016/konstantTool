@@ -32,15 +32,15 @@
 
         <!--展开侧边栏按钮-->
         <ImageView
-            android:visibility="gone"
             android:id="@+id/img_drawer"
             android:layout_width="30dp"
-            android:padding="5dp"
             android:layout_height="30dp"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="14dp"
             android:clickable="true"
-            android:src="@drawable/category" />
+            android:padding="5dp"
+            android:src="@drawable/category"
+            android:visibility="gone" />
 
         <!--副标题-->
         <TextView
@@ -66,7 +66,7 @@
             app:currentPageIndicatorColor="@color/color_white"
             app:dotDiameter="5dp"
             app:dotGap="5dp"
-            app:pageIndicatorColor="@color/white_60_transparent" />
+            app:pageIndicatorColor="@color/color_gray" />
 
         <!--更多按钮-->
         <ImageView
@@ -81,13 +81,13 @@
 
         <!--软件设置按钮-->
         <ImageView
-            android:padding="5dp"
             android:id="@+id/img_setting"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="14dp"
             android:clickable="true"
+            android:padding="5dp"
             android:src="@drawable/setting"
             android:visibility="gone" />
 
