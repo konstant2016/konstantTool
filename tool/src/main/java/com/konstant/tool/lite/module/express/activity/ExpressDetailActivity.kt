@@ -140,6 +140,7 @@ class ExpressDetailActivity : BaseActivity() {
         mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         view.edit_input.setText(mNumber)
+        view.edit_input.selectAll()
         KonstantDialog(this)
                 .setMessage("输入运单号")
                 .addView(view)
@@ -157,6 +158,7 @@ class ExpressDetailActivity : BaseActivity() {
                     queryExpress(mNumber)
                 }
                 .createDialog()
+        showKeyboard(view.edit_input)
     }
 
     // 修改备注
@@ -165,6 +167,7 @@ class ExpressDetailActivity : BaseActivity() {
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         val edit = view.edit_input
         edit.setText(mName)
+        edit.selectAll()
         KonstantDialog(this)
                 .setMessage("输入备注")
                 .addView(view)
@@ -180,6 +183,7 @@ class ExpressDetailActivity : BaseActivity() {
                     sendExpressChanged()
                 }
                 .createDialog()
+        showKeyboard(edit)
     }
 
     // 删除运单

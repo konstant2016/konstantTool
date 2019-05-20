@@ -3,6 +3,7 @@ package com.konstant.tool.lite.module.express.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
@@ -112,6 +113,7 @@ class ExpressListActivity : BaseActivity() {
                     expressQuery(etNumber.text.toString(), name)
                 }
                 .createDialog()
+        showKeyboard(etNumber)
     }
 
     // 跳转到快递查询页面
