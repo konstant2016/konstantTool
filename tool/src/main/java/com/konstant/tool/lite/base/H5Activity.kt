@@ -31,6 +31,7 @@ class H5Activity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTitle("加载中...")
         setContentView(R.layout.activity_h5)
         initBaseViews()
         val url = intent.getStringExtra(H5_URL)
