@@ -17,7 +17,7 @@
         <item name="tool_main_text_color">@color/color_black</item>
         <item name="tool_second_text_color">@color/color_black_30</item>
         <item name="tool_theme_text_color">@color/colorPrimary</item>
-        <item name="tool_divider_color">@color/colorPrimary</item>
+        <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_main_bg_color">@color/color_white</item>
         <item name="tool_btn_pressed_color">@color/color_white_d9</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -34,7 +34,7 @@
         <item name="tool_main_text_color">@color/color_black</item>
         <item name="tool_second_text_color">@color/color_black_30</item>
         <item name="tool_theme_text_color">@color/color_green</item>
-        <item name="tool_divider_color">@color/color_green</item>
+        <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_edit_bg_color">@color/color_white</item>
         <item name="tool_main_bg_color">@color/color_white</item>
         <item name="tool_btn_pressed_color">@color/color_white_d9</item>
@@ -51,7 +51,7 @@
         <item name="tool_main_text_color">@color/color_black</item>
         <item name="tool_second_text_color">@color/color_black_30</item>
         <item name="tool_theme_text_color">@color/color_red</item>
-        <item name="tool_divider_color">@color/color_red</item>
+        <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_edit_bg_color">@color/color_white</item>
         <item name="tool_main_bg_color">@color/color_white</item>
         <item name="tool_btn_pressed_color">@color/color_white_d9</item>
@@ -69,7 +69,7 @@
         <item name="tool_second_text_color">@color/color_white_60</item>
         <item name="tool_theme_text_color">@color/color_gray</item>
         <item name="tool_edit_bg_color">@color/color_black_39</item>
-        <item name="tool_divider_color">@color/color_black</item>
+        <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_main_bg_color">@color/color_black_30</item>
         <item name="tool_btn_pressed_color">@color/color_gray</item>
         <item name="colorPrimary">@color/color_gray</item>

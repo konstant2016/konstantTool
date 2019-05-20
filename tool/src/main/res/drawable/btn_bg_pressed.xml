@@ -3,5 +3,5 @@
     android:shape="rectangle">
     <corners android:radius="5dp" />
     <solid android:color="?attr/tool_btn_pressed_color" />
-    <stroke android:color="?attr/tool_divider_color" android:width="1px"/>
+    <stroke android:color="?attr/tool_main_color" android:width="1px"/>
 </shape>

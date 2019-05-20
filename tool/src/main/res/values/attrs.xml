@@ -11,6 +11,7 @@
 
     <declare-styleable name="KonstantRulerView">
         <attr name="color_line" format="color" />
+        <attr name="color_background" format="color" />
     </declare-styleable>
 
     <declare-styleable name="KonstantPageIndicator">

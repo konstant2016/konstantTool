@@ -28,6 +28,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:background="@color/black_20_transparent" />
+        android:background="@color/color_black_20" />
 
 </RelativeLayout>
