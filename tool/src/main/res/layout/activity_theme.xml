@@ -41,7 +41,7 @@
         android:layout_height="120dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="260dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/color_blue"
         android:clickable="true" />
 
     <View

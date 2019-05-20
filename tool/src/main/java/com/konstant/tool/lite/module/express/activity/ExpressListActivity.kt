@@ -92,7 +92,7 @@ class ExpressListActivity : BaseActivity() {
 
     // 添加物流查询
     private fun addExpress() {
-        val viewDialog = layoutInflater.inflate(R.layout.layout_dialog_pop_express, null)
+        val viewDialog = layoutInflater.inflate(R.layout.pop_express_list, null)
         val etNumber = viewDialog.findViewById(R.id.et_num) as EditText
         val etName = viewDialog.findViewById(R.id.et_remark) as EditText
 

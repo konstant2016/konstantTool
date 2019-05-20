@@ -15,14 +15,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="实时风向：" />
+            android:text="实时风向："
+            android:textColor="?attr/tool_main_text_color" />
 
         <TextView
             android:id="@+id/tv_weather_direct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="未知" />
+            android:text="未知"
+            android:textColor="?attr/tool_main_text_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,6 +41,7 @@
             android:layout_height="130dp"
             android:gravity="center"
             android:text="-00"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="90sp" />
 
         <TextView
@@ -46,6 +49,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal|top"
             android:text="℃"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -61,7 +65,8 @@
         android:gravity="center"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
-        android:text="更新时间：2018-01-01" />
+        android:text="更新时间：2018-01-01"
+        android:textColor="?attr/tool_main_text_color" />
 
     <TextView
         android:id="@+id/tv_weather_describe"
@@ -71,6 +76,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:text="未知"
+        android:textColor="?attr/tool_main_text_color"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -85,14 +91,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="实时风力：" />
+            android:text="实时风力："
+            android:textColor="?attr/tool_main_text_color" />
 
         <TextView
             android:id="@+id/tv_weather_power"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="0级" />
+            android:text="0级"
+            android:textColor="?attr/tool_main_text_color" />
     </LinearLayout>
 
 </RelativeLayout>

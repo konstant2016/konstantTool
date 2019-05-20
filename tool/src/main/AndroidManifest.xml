@@ -95,12 +95,10 @@
         <activity
             android:name=".module.setting.activity.SettingActivity"
             android:configChanges="fontScale|uiMode"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.setting.activity.ThemeActivity"
             android:configChanges="fontScale|uiMode"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.compass.CompassActivity"

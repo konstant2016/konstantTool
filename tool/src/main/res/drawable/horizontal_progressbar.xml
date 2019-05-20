@@ -2,7 +2,7 @@
     <!--  设置背景色  -->
     <item android:id="@android:id/background">
         <shape>
-            <solid android:color="@color/gray" />
+            <solid android:color="@color/color_gray" />
         </shape>
     </item>
 

@@ -1,5 +1,7 @@
 package com.konstant.tool.lite.util
 
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
@@ -8,12 +10,13 @@ import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.Log
+import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.KonstantApplication
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
-object ApplicationUtil {
+object AppUtil {
 
     // 获取应用列表
     fun getPackageInfoList(): List<PackageInfo> {
@@ -51,6 +54,11 @@ object ApplicationUtil {
         return isSysApp or isSysUpd
     }
 
+    fun isTop(activity: BaseActivity) {
+        val manager = activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        manager.getRunningTasks(1)
+    }
+
     // 应用是否可以跳转
     fun getUserAppList(): List<ResolveInfo> {
         val intent = Intent(Intent.ACTION_MAIN)
@@ -68,7 +76,6 @@ object ApplicationUtil {
                 if (!File(path).exists()) {
                     File(path).mkdir()
                 }
-
                 val name = getAppName(packageInfo)
                 val outFile = File("$path${File.separator}$name.apk")
                 val installFile = File(getInstallPath(packageInfo))

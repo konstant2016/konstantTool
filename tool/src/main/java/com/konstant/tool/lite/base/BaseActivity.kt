@@ -55,6 +55,8 @@ import org.greenrobot.eventbus.Subscribe
 @SuppressLint("MissingSuperCall")
 abstract class BaseActivity : SwipeBackActivity() {
 
+    private var mIsTop = false;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(SettingManager.getTheme(this))
@@ -74,7 +76,7 @@ abstract class BaseActivity : SwipeBackActivity() {
                 statusBarColor = Color.TRANSPARENT
                 navigationBarColor = run {
                     val value = TypedValue()
-                    theme.resolveAttribute(R.attr.colorPrimary, value, true)
+                    theme.resolveAttribute(R.attr.tool_main_color, value, true)
                     value.data
                 }
             }
@@ -96,10 +98,16 @@ abstract class BaseActivity : SwipeBackActivity() {
         layoutInflater.inflate(layoutResID, base_content, true)
     }
 
-    // 更换主题
+    // 更换主题，主题切换时，重新打开自身，避免界面闪烁
     @Subscribe
-    fun changeTheme(msg: ThemeChanged) {
-        recreate()
+    open fun onThemeChanged(msg: ThemeChanged) {
+        if (mIsTop) {
+            startActivity(javaClass)
+            overridePendingTransition(R.anim.start_anim, R.anim.out_anim)
+            finish()
+        } else {
+            recreate()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -207,6 +215,16 @@ abstract class BaseActivity : SwipeBackActivity() {
             showLoading(state = false)
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mIsTop = true
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mIsTop = false
     }
 
     override fun onDestroy() {

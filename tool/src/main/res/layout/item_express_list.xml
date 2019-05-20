@@ -48,7 +48,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="25dp"
-            android:text="在途中"
+            android:text="暂无信息"
             android:textColor="?attr/tool_theme_text_color" />
 
     </RelativeLayout>
@@ -59,8 +59,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
-        android:rotation="180"
-        android:src="@drawable/std_tittlebar_main_device_back_white_press" />
+        android:src="@drawable/icon_right" />
 
     <View
         android:layout_width="match_parent"

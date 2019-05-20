@@ -5,5 +5,5 @@
     android:thicknessRatio="4"
     android:useLevel="false">
 
-    <solid android:color="?attr/tool_main_color" />
+    <solid android:color="?attr/tool_main_text_color" />
 </shape>

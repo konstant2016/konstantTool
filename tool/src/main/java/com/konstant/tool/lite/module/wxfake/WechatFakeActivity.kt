@@ -43,6 +43,11 @@ class WechatFakeActivity : BaseActivity() {
         initBaseViews()
     }
 
+    // 微信对话界面 目前没有暗色主题，因此无需修改
+    override fun setTheme(resid: Int) {
+        super.setTheme(R.style.tool_lite_class)
+    }
+
     override fun initBaseViews() {
         img_more_fake.setOnClickListener {
             with(LayoutInflater.from(this).inflate(R.layout.pop_wechat, null)) {
@@ -136,6 +141,4 @@ class WechatFakeActivity : BaseActivity() {
             layout_build.visibility = View.VISIBLE
         }
     }
-
-
 }

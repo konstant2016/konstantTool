@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:layout_marginTop="70dp"
-        android:background="@color/gray" />
+        android:background="@color/color_black_d9" />
 
     <android.support.v7.widget.RecyclerView
         android:paddingTop="10dp"

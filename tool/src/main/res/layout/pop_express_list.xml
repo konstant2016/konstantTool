@@ -18,7 +18,7 @@
         android:padding="5dp"
         android:paddingLeft="5dp"
         android:textColor="?attr/tool_main_text_color"
-        android:textColorHint="?attr/tool_theme_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
 
     <EditText
@@ -31,7 +31,7 @@
         android:padding="5dp"
         android:paddingLeft="5dp"
         android:textColor="?attr/tool_main_text_color"
-        android:textColorHint="?attr/tool_theme_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
 
     <TextView
@@ -56,7 +56,7 @@
             android:id="@+id/tv_company"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:background="@color/white_transport"
+            android:background="@color/color_transport"
             android:clickable="true"
             android:clipChildren="false"
             android:clipToPadding="false"

@@ -5,6 +5,7 @@
     android:layout_height="150dp">
 
     <TextView
+        android:textColor="?attr/tool_main_text_color"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="逐小时预报："

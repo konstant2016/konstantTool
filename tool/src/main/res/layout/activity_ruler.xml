@@ -5,6 +5,4 @@
     app:color_background="?attr/tool_main_bg_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-</com.konstant.tool.lite.view.KonstantRulerView>
+    android:orientation="vertical"/>

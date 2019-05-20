@@ -94,7 +94,9 @@
         <!--主标题-->
         <com.konstant.tool.lite.view.KonstantTextView
             android:id="@+id/title"
-            android:layout_width="280dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:ellipsize="marquee"

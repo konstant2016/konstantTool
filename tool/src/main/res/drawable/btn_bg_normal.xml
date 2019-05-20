@@ -11,6 +11,6 @@
     <!--边框-->
     <stroke
         android:width="1px"
-        android:color="?attr/tool_divider_color" />
+        android:color="?attr/tool_main_color" />
 
 </shape>

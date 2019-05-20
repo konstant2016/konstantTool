@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="common_white_list_bg_pressed_color">#efeff0</color>
-    <color name="white_transport">#00000000</color>
-
-    <color name="white_60_transparent">#4D4D4D</color>
-
-    <color name="gray">#EBEBEB</color>
-
-    <color name="black_60_transparent">#4D4D4D</color>
-    <color name="color_green">#3fb57d</color>
-    <color name="transparent">#00000000</color>
-    <color name="color_wechat_bg">#f5f5f5</color>
-
-
-
     <color name="color_white">#FFFFFF</color>
+    <color name="color_wechat_bg">#f5f5f5</color>
     <color name="color_white_60">#60FFFFFF</color>
-    <color name="color_white_d9">#D9D9D9</color>
-    <color name="color_black">#1F1F1F</color>
+    <color name="color_transport">#00000000</color>
+    <color name="color_black_d9">#D9D9D9</color>
+    <color name="color_black_20">#30000000</color>
+    <color name="color_gray">#7F7F7F</color>
     <color name="color_black_30">#303030</color>
     <color name="color_black_39">#393939</color>
-    <color name="color_black_20">#30000000</color>
+    <color name="color_black">#1F1F1F</color>
+    <color name="color_green">#3fb57d</color>
     <color name="color_red">#ff0000</color>
-    <color name="color_gray">#7F7F7F</color>
+    <color name="color_blue">#3F51B5</color>
 
 </resources>

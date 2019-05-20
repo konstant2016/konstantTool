@@ -2,6 +2,7 @@ package com.konstant.tool.lite.module.extract
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -28,7 +29,7 @@ class PackageActivity : BaseActivity() {
     private val mList = ArrayList<AppData>()
     private val mAdapter = AdapterPackage(mList)
     private val mPath by lazy { getExternalFilesDir(null)?.path + File.separator + "apks" }
-    private var mPop: PopupWindow? = null
+    private lateinit var mPop: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +57,7 @@ class PackageActivity : BaseActivity() {
                     .setMessage("备份此应用？")
                     .setPositiveListener {
                         it.dismiss()
-                        backupApp(packageInfo)
+                        backupSingleApp(packageInfo)
                     }
                     .createDialog()
         }
@@ -70,57 +71,43 @@ class PackageActivity : BaseActivity() {
         with(LayoutInflater.from(this).inflate(R.layout.pop_package, null)) {
             checkbox.isChecked = mIsChecked
 
-            tv_filter_system.setOnClickListener {
-                mIsChecked = checkbox.isChecked
-                mPop?.dismiss()
-                showLoading(state = true)
-                readAppList(mIsChecked)
-            }
+            layout_filter.setOnClickListener { checkbox.isChecked = !checkbox.isChecked }
 
             checkbox.setOnCheckedChangeListener { _, isChecked ->
                 mIsChecked = isChecked
-                mPop?.dismiss()
+                mPop.dismiss()
                 showLoading(state = true)
                 readAppList(mIsChecked)
             }
 
             tv_all_save.setOnClickListener {
+                mPop.dismiss()
                 KonstantDialog(this@PackageActivity)
                         .setMessage("批量保存到本地？")
                         .setPositiveListener {
                             it.dismiss()
-                            backAllApp()
+                            backupAllApp()
                         }
                         .createDialog()
             }
             mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-            mPop!!.showAsDropDown(title_bar)
+            mPop.showAsDropDown(title_bar)
         }
     }
 
     private fun readAppList(withSystem: Boolean = false) {
         showLoading(true)
-        mList.clear()
-        if (withSystem) {
-            PackagePresenter.getAllApp(this) {
-                showLoading(state = false)
-                runOnUiThread {
-                    mList.addAll(it)
-                    mAdapter.notifyDataSetChanged()
-                }
-            }
-        } else {
-            PackagePresenter.getUserApp(this) {
-                showLoading(state = false)
-                runOnUiThread {
-                    mList.addAll(it)
-                    mAdapter.notifyDataSetChanged()
-                }
+        PackagePresenter.getAppList(withSystem,this){
+            runOnUiThread {
+                mList.clear()
+                mList.addAll(it)
+                mAdapter.notifyDataSetChanged()
+                showLoading(false)
             }
         }
     }
 
-    private fun backupApp(appData: AppData) {
+    private fun backupSingleApp(appData: AppData) {
         val view = layoutInflater.inflate(R.layout.layout_progress, null)
         val dialog = KonstantDialog(this)
                 .addView(view)
@@ -135,7 +122,7 @@ class PackageActivity : BaseActivity() {
         }
     }
 
-    private fun backAllApp() {
+    private fun backupAllApp() {
         val view = layoutInflater.inflate(R.layout.layout_dialog_progress, null)
         view.progress_horizontal.max = mList.size
         val dialog = KonstantDialog(this)
@@ -153,7 +140,7 @@ class PackageActivity : BaseActivity() {
         val int = index + 1
         view.text_progress.text = "提取中($int/${mList.size})"
         view.progress_horizontal.progress = index
-        PackagePresenter.backApp(mPath,  mList[index]) {
+        PackagePresenter.backApp(mPath, mList[index]) {
             runOnUiThread {
                 if (int == mList.size) {
                     dialog.dismiss()

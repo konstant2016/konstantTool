@@ -32,10 +32,10 @@ import java.util.*
 
 class ExpressDetailActivity : BaseActivity() {
 
-    var mState = ""
+    var mState: String? = ""
     var mNumber = ""
-    var mCompany = ""
-    var mName = ""
+    var mCompany: String? = ""
+    var mName: String? = ""
 
     lateinit var mPop: PopupWindow
 
@@ -152,7 +152,7 @@ class ExpressDetailActivity : BaseActivity() {
                     ExpressManager.deleteExpress(number = mNumber)
                     mNumber = view.edit_input.text.toString()
                     tv_describe.text = "$mCompany:$mNumber"
-                    ExpressManager.addExpress(mNumber,mCompany,mState,mName)
+                    ExpressManager.addExpress(mNumber, mCompany, mState, mName)
                     sendExpressChanged()
                     queryExpress(mNumber)
                 }

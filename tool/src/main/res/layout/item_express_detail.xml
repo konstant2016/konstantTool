@@ -20,7 +20,7 @@
         android:layout_above="@id/circle"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="114dp"
-        android:background="@color/black_60_transparent" />
+        android:background="?attr/tool_second_text_color" />
 
     <ImageView
         android:id="@+id/circle"
@@ -37,7 +37,7 @@
         android:layout_below="@id/circle"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="114dp"
-        android:background="@color/black_60_transparent" />
+        android:background="?attr/tool_second_text_color" />
 
     <TextView
         android:lines="4"

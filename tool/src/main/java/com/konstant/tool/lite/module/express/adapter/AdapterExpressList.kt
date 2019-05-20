@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.express.adapter
 
 import android.content.Context
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,7 @@ class AdapterExpressList(val context: Context, val expresses: ArrayList<ExpressD
                     Picasso.with(context).load(getDrawableId(data.company)).transform(CircleTransform()).into(img_company)
                     tv_express_num.text = data.company + ":" + data.number
                     tv_name.text = data.name
-                    tv_state.text = data.status
-                    this
+                    tv_state.text = if (TextUtils.isEmpty(data.status)) "暂无信息" else data.status
                 }
     }
 
@@ -48,7 +48,7 @@ class AdapterExpressList(val context: Context, val expresses: ArrayList<ExpressD
             return R.drawable.pic_shentong
         if (company.contains("韵达"))
             return R.drawable.pic_yunda
-        if (company.contains("汇通"))
+        if (company.contains("汇通") or company.contains("百世"))
             return R.drawable.pic_huiotng
         if (company.contains("全峰"))
             return R.drawable.pic_quanfeng

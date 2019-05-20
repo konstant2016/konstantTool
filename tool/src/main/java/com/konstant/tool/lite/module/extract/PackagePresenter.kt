@@ -2,21 +2,26 @@ package com.konstant.tool.lite.module.extract
 
 import android.content.Context
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.util.ApplicationUtil
-import java.lang.reflect.Array
-import java.text.Collator
-import java.util.*
+import com.konstant.tool.lite.util.AppUtil
 import kotlin.concurrent.thread
 
 object PackagePresenter {
 
-    fun getAllApp(context: Context, callback: (List<AppData>) -> Unit) {
+    fun getAppList(withSystem: Boolean, context: Context, callback: (List<AppData>) -> Unit) {
+        if (withSystem){
+            getAllApp(callback)
+        }else{
+            getUserApp(context,callback)
+        }
+    }
+
+    private fun getAllApp(callback: (List<AppData>) -> Unit) {
         thread {
             val list = mutableListOf<AppData>()
-            ApplicationUtil.getPackageInfoList().forEach {
-                val icon = ApplicationUtil.getAppIcon(it)
+            AppUtil.getPackageInfoList().forEach {
+                val icon = AppUtil.getAppIcon(it)
                 val packageName = it.packageName
-                val appName = ApplicationUtil.getAppName(it)
+                val appName = AppUtil.getAppName(it)
                 list.add(AppData(packageName, icon, appName))
                 list.sort()
             }
@@ -24,10 +29,10 @@ object PackagePresenter {
         }
     }
 
-    fun getUserApp(context: Context, callback: (List<AppData>) -> Unit) {
+    private fun getUserApp(context: Context, callback: (List<AppData>) -> Unit) {
         thread {
             val list = mutableListOf<AppData>()
-            ApplicationUtil.getUserAppList().forEach {
+            AppUtil.getUserAppList().forEach {
                 val icon = it.loadIcon(context.packageManager)
                 val packageName = it.activityInfo.packageName
                 val appName = it.loadLabel(context.packageManager).toString()
@@ -39,9 +44,9 @@ object PackagePresenter {
     }
 
     fun backApp(path: String, appData: AppData, callback: (Boolean) -> Unit) {
-        val packageInfo = ApplicationUtil.getPackageInfo(appData.packageName)
+        val packageInfo = AppUtil.getPackageInfo(appData.packageName)
         if (packageInfo == null) callback.invoke(false)
-        ApplicationUtil.backUserApp(path, packageInfo!!, callback::invoke)
+        AppUtil.backUserApp(path, packageInfo!!, callback::invoke)
     }
 
     fun startApp(context: BaseActivity, appData: AppData): Boolean {

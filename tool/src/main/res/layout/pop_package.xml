@@ -5,42 +5,49 @@
     android:background="?attr/tool_main_bg_color"
     android:orientation="vertical">
 
-    <TextView
-        android:textColor="?attr/tool_main_text_color"
+    <LinearLayout
+        android:id="@+id/layout_filter"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tv_filter_system"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="显示所有应用"
-        android:textSize="15sp" />
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:layout_toRightOf="@id/tv_filter_system"
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/selector_checkbox"
-        android:button="@null"
-        android:checked="false"
-        android:clickable="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="显示所有应用"
+            android:textColor="?attr/tool_main_text_color"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_checkbox"
+            android:button="@null"
+            android:checked="false" />
+    </LinearLayout>
+
 
     <View
         android:id="@+id/divider_01"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_below="@id/tv_filter_system"
+        android:layout_below="@id/layout_filter"
         android:background="?attr/tool_divider_color" />
 
     <TextView
-        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_all_save"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/divider_01"
         android:gravity="center"
         android:text="批量保存"
+        android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
     <View

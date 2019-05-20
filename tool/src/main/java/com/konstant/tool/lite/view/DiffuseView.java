@@ -28,7 +28,7 @@ public class DiffuseView extends View {
     /** 扩散圆圈颜色 */
     private int mColor = Color.parseColor("#FF4081");
     /** 圆圈中心颜色 */
-    private int mCoreColor = getResources().getColor(R.color.colorPrimary);
+    private int mCoreColor = getResources().getColor(R.color.color_blue);
     /** 圆圈中心图片 */
     private Bitmap mBitmap;
     /** 中心圆半径 */

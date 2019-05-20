@@ -13,18 +13,18 @@
     <style name="tool_lite_blue" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="tool_main_color">@color/colorPrimary</item>
+        <item name="tool_main_color">@color/color_blue</item>
         <item name="tool_main_text_color">@color/color_black</item>
         <item name="tool_second_text_color">@color/color_black_30</item>
-        <item name="tool_theme_text_color">@color/colorPrimary</item>
+        <item name="tool_theme_text_color">@color/color_blue</item>
         <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_main_bg_color">@color/color_white</item>
-        <item name="tool_btn_pressed_color">@color/color_white_d9</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="tool_btn_pressed_color">@color/color_black_d9</item>
+        <item name="colorPrimary">@color/color_blue</item>
         <item name="tool_edit_bg_color">@color/color_white</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:listDivider">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/color_blue</item>
+        <item name="colorAccent">@color/color_blue</item>
+        <item name="android:listDivider">@color/color_blue</item>
     </style>
 
     <style name="tool_lite_class" parent="Theme.AppCompat.DayNight.DarkActionBar">
@@ -37,7 +37,7 @@
         <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_edit_bg_color">@color/color_white</item>
         <item name="tool_main_bg_color">@color/color_white</item>
-        <item name="tool_btn_pressed_color">@color/color_white_d9</item>
+        <item name="tool_btn_pressed_color">@color/color_black_d9</item>
         <item name="colorPrimary">@color/color_green</item>
         <item name="colorPrimaryDark">@color/color_green</item>
         <item name="colorAccent">@color/color_green</item>
@@ -54,7 +54,7 @@
         <item name="tool_divider_color">@color/color_black_20</item>
         <item name="tool_edit_bg_color">@color/color_white</item>
         <item name="tool_main_bg_color">@color/color_white</item>
-        <item name="tool_btn_pressed_color">@color/color_white_d9</item>
+        <item name="tool_btn_pressed_color">@color/color_black_d9</item>
         <item name="colorPrimary">@color/color_red</item>
         <item name="colorPrimaryDark">@color/color_red</item>
         <item name="colorAccent">@color/color_red</item>
@@ -91,7 +91,7 @@
 
     <style name="KonstantDialog" parent="android:style/Theme.Dialog">
         <item name="android:background">#00000000</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/color_transport</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
@@ -122,7 +122,7 @@
     <style name="TransparentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/color_transport</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
 
