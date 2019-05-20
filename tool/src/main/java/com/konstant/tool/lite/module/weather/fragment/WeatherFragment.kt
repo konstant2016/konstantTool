@@ -175,7 +175,7 @@ class WeatherFragment : BaseFragment() {
                 tv_weather_update_time.text = alert[0].content
                 tv_weather_update_time.setOnClickListener {
                     val intent = Intent(mActivity, H5Activity::class.java)
-                    intent.putExtra("url", alert[0].originUrl)
+                    intent.putExtra(H5Activity.H5_URL, alert[0].originUrl)
                     startActivity(intent)
                 }
             }

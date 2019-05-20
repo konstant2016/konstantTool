@@ -92,12 +92,15 @@
             android:visibility="gone" />
 
         <!--主标题-->
-        <TextView
+        <com.konstant.tool.lite.view.KonstantTextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:ellipsize="marquee"
             android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:text="主标题"
             android:textColor="@color/color_white"
             android:textSize="16sp" />

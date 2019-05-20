@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.activity_express_detail.view.*
 import kotlinx.android.synthetic.main.layout_dialog_input.view.*
-import kotlinx.android.synthetic.main.pop_express.view.*
+import kotlinx.android.synthetic.main.pop_express_detail.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
@@ -126,7 +126,7 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
-        with(LayoutInflater.from(this).inflate(R.layout.pop_express, null)) {
+        with(LayoutInflater.from(this).inflate(R.layout.pop_express_detail, null)) {
             tv_change_order.setOnClickListener { changeOrderNo() }
             tv_change_remark.setOnClickListener { changeRemark() }
             tv_delete.setOnClickListener { deleteOrder() }

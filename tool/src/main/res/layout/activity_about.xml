@@ -24,6 +24,17 @@
         android:textColor="?attr/tool_main_text_color" />
 
     <TextView
+        android:id="@+id/tv_github"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="240dp"
+        android:gravity="center"
+        android:text="项目地址"
+        android:textColor="?attr/tool_theme_text_color" />
+
+    <TextView
         android:id="@+id/tv_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
