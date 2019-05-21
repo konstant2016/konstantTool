@@ -11,43 +11,44 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:gravity="center"
-        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗"
+        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，理论上下载文件数值越大，速度计算越精确"
         android:textColor="?attr/tool_second_text_color" />
 
 
     <TextView
-        android:textColor="?attr/tool_second_text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="130dp"
         android:layout_marginRight="50dp"
         android:gravity="center"
-        android:text="输入消耗流量值，默认10MB，数值越大越精确，但最大不得超过50MB"
+        android:text="输入消耗流量值，最大50MB"
+        android:textColor="?attr/tool_second_text_color"
         android:textSize="13sp" />
 
     <EditText
         android:id="@+id/et_input"
         android:layout_width="220dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="160dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="10"
-        android:textColorHint="?attr/tool_second_text_color"
+        android:hint="默认10MB"
         android:inputType="number"
+        android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
 
     <TextView
-        android:textColor="?attr/tool_second_text_color"
         android:id="@+id/tv_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp"
-        android:text="0%" />
+        android:layout_marginTop="250dp"
+        android:text="0%"
+        android:textColor="?attr/tool_second_text_color"
+        android:textSize="16sp" />
 
     <ProgressBar
         android:id="@+id/view_progress"
@@ -72,13 +73,14 @@
         android:textSize="30sp" />
 
     <Button
-        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/btn_start"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
         android:background="@drawable/selector_btn"
-        android:text="开始" />
+        android:text="开始"
+        android:textColor="?attr/tool_main_text_color" />
 
 </RelativeLayout>

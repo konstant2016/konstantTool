@@ -6,7 +6,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.util.FileUtil
+import org.greenrobot.eventbus.EventBus
 import java.io.File
 
 /**
@@ -20,7 +22,7 @@ import java.io.File
 object SettingManager {
 
     private val NAME_SELECTED_THEME = "selectedTheme"
-    private val NAME_SWIPEBACK_STATE = "swipeBackState"
+    private val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
     private val EXIT_TIPS_STATUS = "exitTipsStatus"
     private val KILL_PROCESS_STATUS = "killProcessStatus"
     private val ADAPTER_DARK_MODE = "adapterDarkMode"
@@ -30,9 +32,12 @@ object SettingManager {
         FileUtil.saveDataToSp(context, NAME_SELECTED_THEME, theme)
     }
 
-    fun setSwipeBackState(context: Context, state: Boolean) {
-        FileUtil.saveDataToSp(context, NAME_SWIPEBACK_STATE, state)
+    fun setSwipeBackStatus(context: Context, state: Int) {
+        FileUtil.saveDataToSp(context, NAME_SWIPEBACK_STATUS, state)
     }
+
+    fun getSwipeBackStatus(context: Context) =
+            FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATUS, 0)
 
     fun deleteUserHeaderThumb(context: Context) {
         File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_USER_HEADER).delete()
@@ -65,9 +70,6 @@ object SettingManager {
         val mode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return mode == Configuration.UI_MODE_NIGHT_YES
     }
-
-    fun getSwipeBackState(context: Context) =
-            FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATE, false)
 
     fun getUserHeaderThumb(context: Context): Bitmap {
         val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$NAME_USER_HEADER"

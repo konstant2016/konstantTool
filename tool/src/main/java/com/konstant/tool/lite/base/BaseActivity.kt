@@ -10,7 +10,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
-import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -30,7 +29,7 @@ import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
-import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
@@ -85,10 +84,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
 
         // 滑动返回
-        swipeBackLayout.apply {
-            setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
-            setEnableGesture(SettingManager.getSwipeBackState(this@BaseActivity))
-        }
+        onSwipeBackChanged(SwipeBackStatus(SettingManager.getSwipeBackStatus(this)))
 
         initDrawLayout()
 
@@ -123,8 +119,27 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 是否启用滑动返回
     @Subscribe
-    open fun onSwipeBackChanged(msg: SwipeBackState) {
-        setSwipeBackEnable(msg.state)
+    open fun onSwipeBackChanged(msg: SwipeBackStatus) {
+        swipeBackLayout.apply {
+            setEnableGesture(true)
+            when (msg.state) {
+                0 -> {
+                    setEnableGesture(false)
+                }
+                1 -> {
+                    setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+                }
+                2 -> {
+                    setEdgeTrackingEnabled(SwipeBackLayout.EDGE_RIGHT)
+                }
+                3 -> {
+                    setEdgeTrackingEnabled(SwipeBackLayout.EDGE_BOTTOM)
+                }
+                4 -> {
+                    setEdgeTrackingEnabled(SwipeBackLayout.EDGE_ALL)
+                }
+            }
+        }
     }
 
     // 用户头像发生了变化
@@ -142,6 +157,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         view_status_bar.height = getStatusBarHeight()
         title_bar.setOnClickListener { hideSoftKeyboard() }
         findViewById(R.id.img_back).setOnClickListener { finish() }
+        base_content.setOnClickListener { hideSoftKeyboard() }
     }
 
     // 设置主标题

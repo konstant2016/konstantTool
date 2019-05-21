@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.setting.SettingManager
-import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
@@ -13,6 +13,7 @@ import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
+import kotlinx.android.synthetic.main.pop_swipe_back.view.*
 import org.greenrobot.eventbus.EventBus
 
 
@@ -24,8 +25,6 @@ import org.greenrobot.eventbus.EventBus
  */
 
 class SettingActivity : BaseActivity() {
-
-    private var confirmPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,17 +47,8 @@ class SettingActivity : BaseActivity() {
         layout_theme.setOnClickListener { startActivity(ThemeActivity::class.java) }
 
         // 滑动返回
-        btn_swipe.isChecked = SettingManager.getSwipeBackState(this)
-        btn_swipe.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                onSwitchEnable()
-            }
-            EventBus.getDefault().post(SwipeBackState(isChecked))
-            SettingManager.setSwipeBackState(this, isChecked)
-        }
-        layout_swipe.setOnClickListener {
-            btn_swipe.isChecked = !btn_swipe.isChecked
-        }
+        layout_swipe.setOnClickListener { onSwipeBackClick() }
+        setSwipeTxt()
 
         // 退出提示
         btn_exit.isChecked = SettingManager.getExitTipsStatus(this)
@@ -94,27 +84,47 @@ class SettingActivity : BaseActivity() {
         layout_header.setOnClickListener { headerSelector() }
     }
 
-    private fun onSwitchEnable() {
+    // 点击滑动返回状态后的操作
+    private fun onSwipeBackClick() {
+        val view = layoutInflater.inflate(R.layout.pop_swipe_back, null)
         val dialog = KonstantDialog(this)
-        dialog.setOnDismissListener {
-            if (!confirmPressed) {
-                btn_swipe.isChecked = false
-            }
-            confirmPressed = false
-        }
-        dialog.setMessage("开启滑动返回后，侧边栏将只能通过主页打开，确认开启？")
-                // 取消
-                .setNegativeListener {
-                    it.dismiss()
-                    btn_swipe.isChecked = false
-                }
-                // 确认
-                .setPositiveListener {
-                    confirmPressed = true
-                    btn_swipe.isChecked = true
-                    it.dismiss()
-                }
+                .addView(view)
+                .hideNavigation()
                 .createDialog()
+        view.tv_back_none.setOnClickListener { onSwipeItemClick(0, dialog) }
+        view.tv_back_left.setOnClickListener { onSwipeItemClick(1, dialog) }
+        view.tv_back_right.setOnClickListener { onSwipeItemClick(2, dialog) }
+        view.tv_back_bottom.setOnClickListener { onSwipeItemClick(3, dialog) }
+        view.tv_back_all.setOnClickListener { onSwipeItemClick(4, dialog) }
+    }
+
+    // 点击某一选项后的操作
+    private fun onSwipeItemClick(index: Int, dialog: KonstantDialog) {
+        dialog.dismiss()
+        SettingManager.setSwipeBackStatus(this, index)
+        EventBus.getDefault().post(SwipeBackStatus(index))
+        setSwipeTxt()
+    }
+
+    // 更新滑动返回状态提示语
+    private fun setSwipeTxt() {
+        when (SettingManager.getSwipeBackStatus(this)) {
+            0 -> {
+                tv_swipe_back_status.text = "已关闭"
+            }
+            1 -> {
+                tv_swipe_back_status.text = "左滑"
+            }
+            2 -> {
+                tv_swipe_back_status.text = "右滑"
+            }
+            3 -> {
+                tv_swipe_back_status.text = "上滑"
+            }
+            4 -> {
+                tv_swipe_back_status.text = "全部启用"
+            }
+        }
     }
 
     // 头像选择

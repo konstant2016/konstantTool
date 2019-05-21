@@ -76,7 +76,6 @@ class PackageActivity : BaseActivity() {
             checkbox.setOnCheckedChangeListener { _, isChecked ->
                 mIsChecked = isChecked
                 mPop.dismiss()
-                showLoading(state = true)
                 readAppList(mIsChecked)
             }
 
@@ -96,7 +95,7 @@ class PackageActivity : BaseActivity() {
     }
 
     private fun readAppList(withSystem: Boolean = false) {
-        showLoading(true)
+        showLoading(true,"正在扫描应用...")
         PackagePresenter.getAppList(withSystem,this){
             runOnUiThread {
                 mList.clear()

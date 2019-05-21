@@ -91,19 +91,26 @@
             android:layout_below="@id/tv_back"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            android:text="(从左侧向右滑动即可返回上一页面)"
+            android:text="(设置滑动返回的状态与方向)"
             android:textColor="?attr/tool_second_text_color"
             android:textSize="12sp" />
 
-        <Switch
-            android:id="@+id/btn_swipe"
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icon_right" />
+
+        <TextView
+            android:id="@+id/tv_swipe_back_status"
+            android:textColor="?attr/tool_second_text_color"
+            android:layout_marginRight="40dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
         <View
             android:layout_width="match_parent"
@@ -218,7 +225,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
-            android:text="适配系统深色模式"
+            android:text="适配 Android Q 深色模式"
             android:textColor="?attr/tool_main_text_color"
             android:textSize="14sp" />
 

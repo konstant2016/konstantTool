@@ -15,7 +15,7 @@ import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
-import com.konstant.tool.lite.module.setting.param.SwipeBackState
+import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
@@ -83,7 +83,7 @@ class MainActivity : BaseActivity() {
     }
 
 
-    override fun onSwipeBackChanged(msg: SwipeBackState) {
+    override fun onSwipeBackChanged(msg: SwipeBackStatus) {
 
     }
 

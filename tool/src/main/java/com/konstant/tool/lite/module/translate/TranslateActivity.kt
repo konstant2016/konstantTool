@@ -11,6 +11,7 @@ import com.konstant.tool.lite.module.translate.server.TranslateResponse
 import com.konstant.tool.lite.network.Constant
 import com.konstant.tool.lite.network.NetService
 import com.konstant.tool.lite.view.KonstantArrayAdapter
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_translate.*
 
 /**
@@ -38,11 +39,8 @@ class TranslateActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
 
-        // 隐藏键盘
-        layout_bg.setOnClickListener { hideSoftKeyboard() }
-
         // 防止键盘遮挡布局
-        addLayoutListener(layout_bg, btn_translate)
+        addLayoutListener(base_content, btn_translate)
 
         // 初始化左边的spinner
         val adapterOrigin = KonstantArrayAdapter(this, languageNames.toList())
