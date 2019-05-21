@@ -16,7 +16,8 @@
         android:gravity="center"
         android:hint="在这里输入要翻译的内容，支持单词和句子"
         android:padding="5dp"
-        android:textColorHint="?attr/tool_theme_text_color"
+        android:textColor="?attr/tool_main_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
         android:textSize="14sp" />
 
     <LinearLayout
@@ -92,10 +93,10 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/edit_bg"
-        android:editable="false"
         android:gravity="center"
+        android:textColor="?attr/tool_main_text_color"
         android:hint="这里展示翻译结果"
-        android:textColorHint="?attr/tool_theme_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
         android:textIsSelectable="true" />
 
     <LinearLayout

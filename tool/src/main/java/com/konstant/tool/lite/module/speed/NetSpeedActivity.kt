@@ -29,14 +29,14 @@ class NetSpeedActivity : BaseActivity() {
             var max = 10 * 1024 * 1024L
             if (!TextUtils.isEmpty(et_input.text)) {
                 val stamp = et_input.text.toString().toLong() * 1024 * 1024
-                if (stamp <= 1024 * 1024 * 1024) {
-                    max = stamp
+                if (stamp >= 50 * 1024 * 1024) {
+                    max = 50 * 1024 * 1024
                 }
             }
             btn_start.isClickable = false
             val time = System.currentTimeMillis()
             tv_result.text = "测试中..."
-            NetService.downloadCoolApk(max) { percent, _, status ->
+            NetService.downloadSafe(max) { percent, _, status ->
                 runOnUiThread {
                     view_progress.progress = ((percent * 100 / max).toInt())
                     tv_percent.text = "${percent * 100 / max}%"

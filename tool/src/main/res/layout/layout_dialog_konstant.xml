@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="不再提醒"
-            android:textColor="?attr/tool_theme_text_color" />
+            android:textColor="?attr/tool_second_text_color" />
 
         <CheckBox
             android:id="@+id/checkbox"

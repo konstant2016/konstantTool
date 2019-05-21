@@ -19,33 +19,35 @@
         android:orientation="horizontal">
 
         <Button
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/btn_cancel"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:background="@drawable/selector_btn"
-            android:text="取消" />
+            android:text="取消"
+            android:textColor="?attr/tool_main_text_color" />
 
         <TextView
-            android:textColor="?attr/tool_main_text_color"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="选择城市"
+            android:textColor="?attr/tool_main_text_color"
             android:textSize="15sp" />
 
         <Button
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/btn_confirm"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:background="@drawable/selector_btn"
-            android:text="确定" />
+            android:text="确定"
+            android:textColor="?attr/tool_main_text_color" />
     </RelativeLayout>
 
     <LinearLayout
@@ -65,7 +67,7 @@
             app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -76,10 +78,10 @@
             app:wheel_indicator="true"
             app:wheel_indicator_color="?attr/tool_main_color"
             app:wheel_indicator_size="2px"
+            app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
-            app:wheel_item_text_color="?attr/tool_second_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -90,10 +92,10 @@
             app:wheel_indicator="true"
             app:wheel_indicator_color="?attr/tool_main_color"
             app:wheel_indicator_size="2px"
+            app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
-            app:wheel_item_text_color="?attr/tool_second_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
             app:wheel_visible_item_count="3" />
     </LinearLayout>
 

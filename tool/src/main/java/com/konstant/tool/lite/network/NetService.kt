@@ -112,9 +112,9 @@ object NetService {
         }
     }
 
-    // 下载王者荣耀
-    fun downloadCoolApk(max: Long, callback: (current: Long, total: Long, status: Boolean) -> Unit) {
-        val url = "http://dlied5.myapp.com/myapp/1104466820/sgame/2017_com.tencent.tmgp.sgame_h8691_1.44.1.10_95fcaf.apk"
+    // 下载360卫士
+    fun downloadSafe(max: Long, callback: (current: Long, total: Long, status: Boolean) -> Unit) {
+        val url = "https://dl.360safe.com/setup.exe"
         val path = "${KonstantApplication.sContext.externalCacheDir}" + File.separator + "fileStamp"
         NetworkUtil.downloadFile(url, max, path) { current, total, status ->
             callback.invoke(current, total, status)

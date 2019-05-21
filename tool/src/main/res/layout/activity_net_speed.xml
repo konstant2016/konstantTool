@@ -24,7 +24,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginRight="50dp"
         android:gravity="center"
-        android:text="输入消耗流量值，默认10MB，数值越大越精确，但最大不得超过1024MB"
+        android:text="输入消耗流量值，默认10MB，数值越大越精确，但最大不得超过50MB"
         android:textSize="13sp" />
 
     <EditText
@@ -36,12 +36,12 @@
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:hint="10"
-        android:textColorHint="?attr/tool_theme_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
         android:inputType="number"
         android:textSize="13sp" />
 
     <TextView
-        android:textColorHint="?attr/tool_second_text_color"
+        android:textColor="?attr/tool_second_text_color"
         android:id="@+id/tv_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
