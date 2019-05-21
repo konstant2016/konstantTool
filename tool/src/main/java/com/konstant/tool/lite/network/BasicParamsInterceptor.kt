@@ -4,10 +4,12 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
+import com.alibaba.fastjson.serializer.IntegerCodec
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 /**
  * 时间：2019/5/5 16:34
@@ -17,10 +19,10 @@ import java.io.IOException
 
 class BasicParamsInterceptor(val context: Context) : Interceptor {
 
-    private val map = HashMap<String, Long>()
+    private val map = HashMap<String, Int>()
 
     init {
-        map[Constant.URL_EXPRESS_GUOGUO] = 20 * 60 * 1000
+        map[Constant.URL_EXPRESS_GUOGUO] = 60 * 30
     }
 
     @Throws(IOException::class)
@@ -28,45 +30,31 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
 
         Log.d("网络是否可用:", "" + isNetworkAvailable())
 
-        var request = chain.request()
-        if (!isNetworkAvailable()) {
-            request = chain.request()
-                    .newBuilder()
-                    .cacheControl(CacheControl.FORCE_CACHE)
+        /**
+         * 直接发起网络请求，如果请求成功，则进行数据缓存
+         */
+        val response = chain.proceed(chain.request())
+        if (response.isSuccessful) {
+            return response.newBuilder()
+                    .header("Cache-Control", "public, max-age=${Int.MAX_VALUE}")
                     .build()
         }
 
-        // 如果网络不可用，那么此链接的缓存时间为 60 * 60 * 24
-        if (!isNetworkAvailable()) {
-            val maxStale = 60 * 60 * 24
-            return chain.proceed(request).newBuilder()
-                    .removeHeader("Pragma")
-                    .removeHeader("Cache-Control")
-                    .header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
-                    .build()
-        }
-
-        // 如果网络可用，并且指定了此链接的缓存时间
+        /**
+         * 网络不可用或者请求失败时，会走到这里
+         * 先获取此次请求链接的缓存时间
+         * 1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为1天(60*60*24)
+         * 2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
+         */
         val cacheTime = getCacheTime(chain.request().url().host())
-        Log.d("缓存链接", chain.request().url().host())
-        Log.d("缓存时间", "" + cacheTime)
-        if (cacheTime != 0L) {
-            return chain.proceed(request).newBuilder()
-                    .removeHeader("Pragma")
-                    .removeHeader("Cache-Control")
-                    .header("Cache-Control", "public, max-age=$cacheTime")
-                    .build()
-        }
-
-        // 网络可用，没有指定缓存时间
-        val maxAge = 0
-        return chain.proceed(request).newBuilder()
-                .removeHeader("Pragma")
-                .removeHeader("Cache-Control")
-                .header("Cache-Control", "public, max-age=$maxAge")
+        val time = if (cacheTime == 0) 60 * 60 * 24 else cacheTime
+        val request = chain.request()
+                .newBuilder()
+                .cacheControl(CacheControl.Builder().onlyIfCached().maxStale(time, TimeUnit.SECONDS).build())
                 .build()
-
+        return chain.proceed(request)
     }
+
 
     // 判断网络是否可用
     private fun isNetworkAvailable(): Boolean {
@@ -79,14 +67,14 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
     }
 
     // 获取当前链接的缓存时间，用于对指定链接设定缓存时间
-    private fun getCacheTime(hosts: String): Long {
+    private fun getCacheTime(hosts: String): Int {
         for (entry in map) {
             if (entry.key.contains(hosts))
                 return entry.value
             if (hosts.contains(entry.key))
                 return entry.value
         }
-        return 0L
+        return 0
     }
 }
 

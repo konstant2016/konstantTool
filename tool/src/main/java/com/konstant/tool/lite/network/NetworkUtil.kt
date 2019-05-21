@@ -22,7 +22,7 @@ object NetworkUtil {
 
     private lateinit var mOkHttpClient: OkHttpClient
     private val mCacheSize: Long = 10 * 1024 * 1024            // 缓存大小
-    private val mCacheTime = 60 * 60 * 1000                    // 缓存时间
+    private val mCacheTime = 60 * 60                           // 缓存时间
 
     fun init(context: Context) {
         // 构建缓存
