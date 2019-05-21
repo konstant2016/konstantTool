@@ -26,7 +26,7 @@ class AdapterExpressList(val context: Context, val expresses: ArrayList<ExpressD
         return LayoutInflater.from(context).inflate(R.layout.item_express_list, parent, false)
                 .apply {
                     Picasso.with(context).load(getDrawableId(data.company)).transform(CircleTransform()).into(img_company)
-                    tv_express_num.text = data.company + ":" + data.number
+                    tv_express_num.text = data.company + "：" + data.number
                     tv_name.text = data.name
                     tv_state.text = if (TextUtils.isEmpty(data.status)) "暂无信息" else data.status
                 }

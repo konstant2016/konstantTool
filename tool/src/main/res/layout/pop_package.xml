@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:background="?android:selectableItemBackground"
         android:id="@+id/layout_filter"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -41,6 +42,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:id="@+id/tv_all_save"
         android:layout_width="match_parent"
         android:layout_height="50dp"

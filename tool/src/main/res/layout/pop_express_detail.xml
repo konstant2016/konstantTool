@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_change_order"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_change_remark"
         android:layout_width="match_parent"
@@ -34,6 +36,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_delete"
         android:layout_width="match_parent"

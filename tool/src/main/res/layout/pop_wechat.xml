@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_set_adverse_name"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_set_adverse_header"
         android:layout_width="match_parent"
@@ -34,6 +36,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_set_mine_header"
         android:layout_width="match_parent"
@@ -48,6 +51,7 @@
         android:background="?attr/tool_divider_color" />
 
     <TextView
+        android:background="?android:selectableItemBackground"
         android:textColor="?attr/tool_main_text_color"
         android:id="@+id/tv_state_change"
         android:layout_width="match_parent"

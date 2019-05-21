@@ -11,6 +11,7 @@ import com.konstant.tool.lite.module.weather.server.AddressResponse
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.konstant.tool.lite.util.MD5
 import java.io.File
+import kotlin.Exception
 
 /**
  * 时间：2019/4/24 18:51
@@ -25,9 +26,13 @@ object NetService {
         val url = Constant.URL_WEATHER + code + ".json"
         NetworkUtil.get(url) { state, data ->
             var response = WeatherResponse()
-            if (state) {
-                response = JSON.parseObject(String(data), WeatherResponse::class.java)
-                response.isSuccess = true
+            if (state and data.isNotEmpty()) {
+                try {
+                    response = JSON.parseObject(String(data), WeatherResponse::class.java)
+                    response.isSuccess = true
+                } catch (ex: Exception){
+                    response.isSuccess = false
+                }
             } else {
                 response.isSuccess = false
             }
@@ -79,11 +84,14 @@ object NetService {
         NetworkUtil.get(url) { state, data ->
             var response = ExpressResponseGuoGuo()
             if (state) {
-                response = JSON.parseObject(String(data), ExpressResponseGuoGuo::class.java)
-                callback.invoke(response)
-                return@get
+                try {
+                    response = JSON.parseObject(String(data), ExpressResponseGuoGuo::class.java)
+                }catch (e:Exception){
+                    response.status = -1
+                }
+            }else{
+                response.status = -1
             }
-            response.status = -1
             callback.invoke(response)
         }
     }

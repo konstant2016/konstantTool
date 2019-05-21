@@ -85,7 +85,7 @@ class ExpressDetailActivity : BaseActivity() {
     private fun updateStatus() {
         tv_state_express.text = mState
         tv_name.text = mName
-        tv_describe.text = "$mCompany:$mNumber"
+        tv_describe.text = "$mCompany：$mNumber"
     }
 
     // 正在加载中

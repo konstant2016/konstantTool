@@ -50,10 +50,10 @@ class BaseFragmentAdapter(fm: FragmentManager, val fragmentList: List<BaseFragme
             return result
         }
 
-        mFragPosOldMap.forEach { key, _ ->
-            if (key == any.hashCode().toLong() && mFragPosOldMap[key] == position) {
+        for (entry in mFragPosOldMap) {
+            if (entry.key == any.hashCode().toLong() && mFragPosOldMap[entry.key] == position){
                 result = POSITION_UNCHANGED
-                return@forEach
+                break
             }
         }
 
