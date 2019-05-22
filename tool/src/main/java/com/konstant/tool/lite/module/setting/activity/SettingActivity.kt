@@ -110,16 +110,16 @@ class SettingActivity : BaseActivity() {
     private fun setSwipeTxt() {
         when (SettingManager.getSwipeBackStatus(this)) {
             0 -> {
-                tv_swipe_back_status.text = "已关闭"
+                tv_swipe_back_status.text = "全部关闭"
             }
             1 -> {
-                tv_swipe_back_status.text = "左滑"
+                tv_swipe_back_status.text = "从左向右"
             }
             2 -> {
-                tv_swipe_back_status.text = "右滑"
+                tv_swipe_back_status.text = "从右向左"
             }
             3 -> {
-                tv_swipe_back_status.text = "上滑"
+                tv_swipe_back_status.text = "从下向上"
             }
             4 -> {
                 tv_swipe_back_status.text = "全部启用"
