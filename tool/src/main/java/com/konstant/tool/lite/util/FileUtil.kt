@@ -31,7 +31,8 @@ import java.io.File
  * <p>
  * context.getCacheDir()————————————————/data/data/包名/cache
  * <p>
- * context.getExternalFilesDir(null)————共有存储目录，跟SD卡中Android目录同级，需要申请读写权限
+ * Environment.getExternalStoragePublicDirectory(null)————手机内部存储根目录，需要申请读写权限
+ * Environment.getExternalStorageDirectory()——————————————SD卡(如果有)根目录，需要申请读写权限
  * <p>
  * 注意：调用以上接口保存的数据，在APP下载之后，数据会随之删除，不留垃圾
  * 注意：data 分区十分有限，不建议把大型数据保存在 data 分区下

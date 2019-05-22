@@ -123,6 +123,7 @@ class WeatherFragment : BaseFragment() {
             override fun onLocationError() {
                 val code = CountryManager.getCityCode()
                 if (code.isEmpty()) {
+                    stopRefreshAnim()
                     showToast("定位失败，请稍后重试")
                     return
                 }
