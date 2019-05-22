@@ -118,20 +118,6 @@ object FileUtil {
                 response as T
             }
 
-
-    private fun readData(context: Context, key: String, default: Any): Any {
-        val preferences = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
-        return when (default) {
-            is Int ->
-                preferences.getInt(key, default)
-            is Boolean ->
-                preferences.getBoolean(key, default)
-            is String ->
-                preferences.getString(key, default)
-            else -> ""
-        }
-    }
-
     private fun saveFile(file: File, bytes: ByteArray): Boolean {
         if (file.exists()) file.delete()
         return try {

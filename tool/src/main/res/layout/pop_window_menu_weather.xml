@@ -67,7 +67,7 @@
             app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -81,7 +81,7 @@
             app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
@@ -95,7 +95,7 @@
             app:wheel_item_text_color="?attr/tool_second_text_color"
             app:wheel_item_text_size="18sp"
             app:wheel_selected_item_position="1"
-            app:wheel_selected_item_text_color="?attr/tool_main_text_color"
+            app:wheel_selected_item_text_color="?attr/tool_theme_text_color"
             app:wheel_visible_item_count="3" />
     </LinearLayout>
 
