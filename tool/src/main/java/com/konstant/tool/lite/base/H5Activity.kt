@@ -3,13 +3,14 @@ package com.konstant.tool.lite.base
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
+import android.util.Log
+import android.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.PopupWindow
 import com.konstant.tool.lite.R
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_h5.*
 import kotlinx.android.synthetic.main.pop_h5.view.*
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.title_layout.*
 class H5Activity : BaseActivity() {
 
     companion object {
+        private val TAG = "H5Activity"
         val H5_URL = "url"
     }
 
@@ -35,6 +37,7 @@ class H5Activity : BaseActivity() {
         setContentView(R.layout.activity_h5)
         initBaseViews()
         val url = intent.getStringExtra(H5_URL)
+        Log.d(TAG,url)
         view_web.loadUrl(url)
     }
 
@@ -98,5 +101,17 @@ class H5Activity : BaseActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    override fun onDestroy() {
+        (view_web.parent as ViewGroup).removeView(view_web)
+        view_web.apply {
+            settings.javaScriptEnabled = false
+            clearHistory()
+            clearView()
+            removeAllViews()
+            destroy()
+        }
+        super.onDestroy()
     }
 }

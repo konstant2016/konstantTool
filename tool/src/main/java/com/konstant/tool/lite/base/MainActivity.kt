@@ -1,6 +1,8 @@
 package com.konstant.tool.lite.base
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
@@ -33,6 +35,8 @@ import kotlinx.android.synthetic.main.title_layout.*
  */
 
 class MainActivity : BaseActivity() {
+
+    private val TAG = "MainActivity";
 
     private var mLastTime = 0L
 
@@ -92,18 +96,19 @@ class MainActivity : BaseActivity() {
             draw_layout.closeDrawer(Gravity.LEFT)
             return
         }
-        if (!SettingManager.getExitTipsStatus(this)) {
-            super.onBackPressed()
-            return
-        }
-        if (System.currentTimeMillis() - mLastTime > 2000) {
+        if (SettingManager.getExitTipsStatus(this) and (System.currentTimeMillis() - mLastTime > 2000)) {
             mLastTime = System.currentTimeMillis()
             showToast("再按一次返回键退出应用")
             return
         }
-        finish()
         if (SettingManager.getKillProcess(this)) {
             android.os.Process.killProcess(android.os.Process.myPid())
+        } else {
+            Intent(Intent.ACTION_MAIN).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                addCategory(Intent.CATEGORY_HOME)
+                startActivity(this)
+            }
         }
     }
 }
