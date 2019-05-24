@@ -8,8 +8,8 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 262
-        versionName "2.6.2"
+        versionCode 263
+        versionName "2.6.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -70,7 +70,7 @@ dependencies {
     // design 主要用到了tabLayout
     implementation 'com.android.support:design:28.0.0'
     // 内存泄漏检测
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
+    //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
     implementation files('libs/core-3.3.3.jar')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'

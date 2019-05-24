@@ -7,7 +7,6 @@ import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.network.NetworkUtil
 import com.konstant.tool.lite.util.Density
-import com.squareup.leakcanary.LeakCanary
 
 /**
  * 描述:整个应用的application
@@ -29,7 +28,6 @@ class KonApplication : Application() {
         Density.init(this)
         NetworkUtil.init(applicationContext)
         KonstantDataManager.onCreate(applicationContext)
-        LeakCanary.install(this)
     }
 
     override fun onTerminate() {
