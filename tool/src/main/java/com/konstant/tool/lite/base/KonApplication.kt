@@ -1,14 +1,13 @@
 package com.konstant.tool.lite.base
 
 import android.app.Application
-import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.network.NetworkUtil
 import com.konstant.tool.lite.util.Density
-import com.lcodecore.tkrefreshlayout.utils.DensityUtil
+import com.squareup.leakcanary.LeakCanary
 
 /**
  * 描述:整个应用的application
@@ -17,35 +16,36 @@ import com.lcodecore.tkrefreshlayout.utils.DensityUtil
  * 备注:
  */
 
-class KonstantApplication : Application() {
+class KonApplication : Application() {
 
     companion object {
-        lateinit var sContext: Application
+        lateinit var context: Application
     }
 
     override fun onCreate() {
         super.onCreate()
-        sContext = this
-        Log.d("KonstantApplication","onCreate")
+        context = this
+        Log.d("KonApplication","onCreate")
         Density.init(this)
         NetworkUtil.init(applicationContext)
         KonstantDataManager.onCreate(applicationContext)
+        LeakCanary.install(this)
     }
 
     override fun onTerminate() {
-        Log.d("KonstantApplication","onTerminate")
+        Log.d("KonApplication","onTerminate")
         KonstantDataManager.onDestroy(applicationContext)
         super.onTerminate()
     }
 
     override fun onTrimMemory(level: Int) {
         KonstantDataManager.onDestroy(applicationContext)
-        Log.d("KonstantApplication","onTrimMemory")
+        Log.d("KonApplication","onTrimMemory")
         super.onTrimMemory(level)
     }
 
     override fun onLowMemory() {
-        Log.d("KonstantApplication","onLowMemory")
+        Log.d("KonApplication","onLowMemory")
         KonstantDataManager.onDestroy(applicationContext)
         super.onLowMemory()
     }

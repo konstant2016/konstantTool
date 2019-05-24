@@ -2,6 +2,7 @@ package com.konstant.tool.lite.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -102,7 +103,8 @@ class MainActivity : BaseActivity() {
             return
         }
         if (SettingManager.getKillProcess(this)) {
-            android.os.Process.killProcess(android.os.Process.myPid())
+            finish()
+            Handler().postDelayed({ android.os.Process.killProcess(android.os.Process.myPid()) }, 100)
         } else {
             Intent(Intent.ACTION_MAIN).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK

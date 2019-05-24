@@ -1,8 +1,7 @@
 package com.konstant.tool.lite.network
 
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.base.KonstantApplication
-import com.konstant.tool.lite.module.express.server.ExpressRequest
+import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.express.server.ExpressResponse
 import com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo
 import com.konstant.tool.lite.module.translate.server.TranslateRequest
@@ -115,7 +114,7 @@ object NetService {
     // 下载360卫士
     fun downloadSafe(max: Long, callback: (current: Long, total: Long, status: Boolean) -> Unit) {
         val url = "https://dl.360safe.com/setup.exe"
-        val path = "${KonstantApplication.sContext.externalCacheDir}" + File.separator + "fileStamp"
+        val path = "${KonApplication.context.externalCacheDir}" + File.separator + "fileStamp"
         NetworkUtil.downloadFile(url, max, path) { current, total, status ->
             callback.invoke(current, total, status)
         }

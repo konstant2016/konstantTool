@@ -3,7 +3,6 @@ package com.konstant.tool.lite.network
 import android.content.Context
 import android.util.Log
 import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.base.KonstantApplication
 import okhttp3.*
 import java.io.File
 import java.io.FileOutputStream

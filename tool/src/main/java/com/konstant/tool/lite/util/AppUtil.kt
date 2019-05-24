@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.Log
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.base.KonstantApplication
+import com.konstant.tool.lite.base.KonApplication
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -20,7 +20,7 @@ object AppUtil {
 
     // 获取应用列表
     fun getPackageInfoList(): List<PackageInfo> {
-        val manager = KonstantApplication.sContext.packageManager
+        val manager = KonApplication.context.packageManager
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             manager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES)
         } else {
@@ -42,10 +42,10 @@ object AppUtil {
     fun getPackageName(packageInfo: PackageInfo) = packageInfo.packageName
 
     // 获取应用名字
-    fun getAppName(packageInfo: PackageInfo) = packageInfo.applicationInfo.loadLabel(KonstantApplication.sContext.packageManager).toString()
+    fun getAppName(packageInfo: PackageInfo) = packageInfo.applicationInfo.loadLabel(KonApplication.context.packageManager).toString()
 
     // 获取应用图标
-    fun getAppIcon(packageInfo: PackageInfo): Drawable = packageInfo.applicationInfo.loadIcon(KonstantApplication.sContext.packageManager)
+    fun getAppIcon(packageInfo: PackageInfo): Drawable = packageInfo.applicationInfo.loadIcon(KonApplication.context.packageManager)
 
     // 是否为系统应用
     fun isSystemApp(packageInfo: PackageInfo): Boolean {
@@ -63,7 +63,7 @@ object AppUtil {
     fun getUserAppList(): List<ResolveInfo> {
         val intent = Intent(Intent.ACTION_MAIN)
         intent.addCategory(Intent.CATEGORY_LAUNCHER)
-        return KonstantApplication.sContext.packageManager.queryIntentActivities(intent, 0)
+        return KonApplication.context.packageManager.queryIntentActivities(intent, 0)
     }
 
     // 读取安装路径
