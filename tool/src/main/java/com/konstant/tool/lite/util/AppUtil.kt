@@ -59,7 +59,7 @@ object AppUtil {
         manager.getRunningTasks(1)
     }
 
-    // 应用是否可以跳转
+    // 获取可以直接跳转的应用列表
     fun getUserAppList(): List<ResolveInfo> {
         val intent = Intent(Intent.ACTION_MAIN)
         intent.addCategory(Intent.CATEGORY_LAUNCHER)

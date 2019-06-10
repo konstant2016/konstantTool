@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
-import com.alibaba.fastjson.serializer.IntegerCodec
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -43,7 +42,7 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
         /**
          * 网络不可用或者请求失败时，会走到这里
          * 先获取此次请求链接的缓存时间
-         * 1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为1天(60*60*24)
+         * 1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
          * 2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
          */
         val cacheTime = getCacheTime(chain.request().url().host())
