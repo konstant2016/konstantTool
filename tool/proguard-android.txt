@@ -1,10 +1,10 @@
 #-------------------------------------------定制化区域----------------------------------------------
 #---------------------------------1.实体类---------------------------------
--keep class com.konstant.tool.lite.module.weather.server.AddressResponse
--keep class com.konstant.tool.lite.module.weather.server.WeatherResponse
--keep class com.konstant.tool.lite.module.express.server.ExpressResponse
--keep class com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo
--keep class com.konstant.tool.lite.module.translate.server.TranslateResponse
+-keep class com.konstant.tool.lite.module.weather.server.AddressResponse.**{*;}
+-keep class com.konstant.tool.lite.module.weather.server.WeatherResponse.**{*;}
+-keep class com.konstant.tool.lite.module.express.server.ExpressResponse.**{*;}
+-keep class com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo.**{*;}
+-keep class com.konstant.tool.lite.module.translate.server.TranslateResponse.**{*;}
 
 
 #-------------------------------------------------------------------------
@@ -20,6 +20,9 @@
 -keepclassmembers class * {
     @android.support.annotation.Keep *;
 }
+
+-keepattributes Signature
+-keepattributes *Annotation*
 
 
 #---------------------------------2.第三方包-------------------------------
