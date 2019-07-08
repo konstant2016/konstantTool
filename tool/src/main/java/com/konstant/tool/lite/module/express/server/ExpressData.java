@@ -1,9 +1,11 @@
 package com.konstant.tool.lite.module.express.server;
 
+import android.support.annotation.Keep;
 import android.text.TextUtils;
 
 import java.util.List;
 
+@Keep
 public class ExpressData {
 
     private String name;

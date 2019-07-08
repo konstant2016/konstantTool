@@ -35,7 +35,7 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
         val response = chain.proceed(chain.request())
         if (response.isSuccessful) {
             return response.newBuilder()
-                    .header("Cache-Control", "public, max-age=${60 * 60 * 2}")
+                    .header("Cache-Control", "public, max-age=${60 * 60 * 12}")
                     .build()
         }
 
@@ -46,7 +46,7 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
          * 2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
          */
         val cacheTime = getCacheTime(chain.request().url().host())
-        val time = if (cacheTime == 0) 60 * 60 * 2 else cacheTime
+        val time = if (cacheTime == 0) 60 * 60 * 12 else cacheTime
         val request = chain.request()
                 .newBuilder()
                 .cacheControl(CacheControl.Builder().onlyIfCached().maxStale(time, TimeUnit.SECONDS).build())

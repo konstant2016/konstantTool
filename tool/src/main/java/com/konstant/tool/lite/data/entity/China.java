@@ -1,5 +1,7 @@
 package com.konstant.tool.lite.data.entity;
 
+import android.support.annotation.Keep;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ import java.util.List;
  * 备注:
  */
 
+@Keep
 public class China {
     /**
      * id : 01
@@ -26,6 +29,7 @@ public class China {
         this.province = province;
     }
 
+    @Keep
     public static class Province {
         private String id;
         private String name;
@@ -61,6 +65,7 @@ public class China {
             this.city = city;
         }
 
+        @Keep
         public static class City {
             private String id;
             private String name;
@@ -96,6 +101,7 @@ public class China {
                 this.county = county;
             }
 
+            @Keep
             public static class County {
                 private String id;
                 private String name;

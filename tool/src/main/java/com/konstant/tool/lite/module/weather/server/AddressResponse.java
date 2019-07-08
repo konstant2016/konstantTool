@@ -1,7 +1,10 @@
 package com.konstant.tool.lite.module.weather.server;
 
+import android.support.annotation.Keep;
+
 import java.util.List;
 
+@Keep
 public class AddressResponse {
 
     /**

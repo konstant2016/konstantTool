@@ -1,5 +1,7 @@
 package com.konstant.tool.lite.module.weather.server;
 
+import android.support.annotation.Keep;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ import java.util.List;
  * 备注:
  */
 
+@Keep
 public class WeatherResponse {
 
     private boolean isSuccess;

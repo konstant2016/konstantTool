@@ -30,6 +30,7 @@ object NetService {
                     response = JSON.parseObject(String(data), WeatherResponse::class.java)
                     response.isSuccess = true
                 } catch (ex: Exception){
+                    ex.printStackTrace()
                     response.isSuccess = false
                 }
             } else {

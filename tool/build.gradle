@@ -9,18 +9,28 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 266
-        versionName "2.6.6"
+        versionName "2.6.7"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
         release {
-//            shrinkResources true
-//            minifyEnabled true
-//            useProguard true
+            shrinkResources true    // 删除无用资源
+            minifyEnabled true      // 删除没用到的代码
+            useProguard false
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            release {
+                shrinkResources true    // 删除无用资源
+                minifyEnabled true      // 删除没用到的代码
+                useProguard false
+                zipAlignEnabled true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
         }
     }
     lintOptions {
@@ -29,8 +39,8 @@ android {
     }
     buildToolsVersion '28.0.3'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility '1.8'
+        targetCompatibility '1.8'
     }
 }
 

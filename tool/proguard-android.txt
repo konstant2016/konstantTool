@@ -1,12 +1,37 @@
 #-------------------------------------------定制化区域----------------------------------------------
 #---------------------------------1.实体类---------------------------------
-
+-keep class com.konstant.tool.lite.module.weather.server.AddressResponse
+-keep class com.konstant.tool.lite.module.weather.server.WeatherResponse
+-keep class com.konstant.tool.lite.module.express.server.ExpressResponse
+-keep class com.konstant.tool.lite.module.express.server.ExpressResponseGuoGuo
+-keep class com.konstant.tool.lite.module.translate.server.TranslateResponse
 
 
 #-------------------------------------------------------------------------
 
-#---------------------------------2.第三方包-------------------------------
 
+#手动启用support keep注解
+#http://tools.android.com/tech-docs/support-annotations
+-dontskipnonpubliclibraryclassmembers
+-printconfiguration
+-keep,allowobfuscation @interface android.support.annotation.Keep
+
+-keep @android.support.annotation.Keep class *
+-keepclassmembers class * {
+    @android.support.annotation.Keep *;
+}
+
+
+#---------------------------------2.第三方包-------------------------------
+-dontwarn com.alibaba.fastjson.**
+-keep class com.squareup.okhttp.**{*;}
+-keep class com.alibaba.fastjson.**{*;}
+
+#EventBus的ProGuard设置
+ -keepclassmembers class ** {
+     @org.greenrobot.eventbus.Subscribe <methods>;
+ }
+ -keep enum org.greenrobot.eventbus.ThreadMode { *; }
 
 
 #-------------------------------------------------------------------------
@@ -105,3 +130,13 @@
     public void *(android.webkit.WebView, jav.lang.String);
 }
 #----------------------------------------------------------------------------
+
+#高德定位 - START -
+-keep class com.amap.api.location.**{*;}
+-keep class com.amap.api.fence.**{*;}
+-keep class com.autonavi.aps.amapapi.model.**{*;}
+#高德定位 - END -
+
+#下拉刷新 - END -
+-keep class com.lcodecore.tkrefreshlayout.**{*;}
+#下拉刷新 - START -
