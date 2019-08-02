@@ -9,6 +9,7 @@ import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.text.TextUtils
 import android.util.Log
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.KonApplication
@@ -54,9 +55,11 @@ object AppUtil {
         return isSysApp or isSysUpd
     }
 
-    fun isTop(activity: BaseActivity) {
+    fun isTop(activity: BaseActivity): Boolean {
         val manager = activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        manager.getRunningTasks(1)
+        val tasks = manager.getRunningTasks(1)
+        if (tasks == null || tasks.size == 0) return false
+        return TextUtils.equals(activity.componentName.className, tasks[0].topActivity.className)
     }
 
     // 获取可以直接跳转的应用列表

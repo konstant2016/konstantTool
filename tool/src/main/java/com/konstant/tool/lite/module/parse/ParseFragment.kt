@@ -32,13 +32,7 @@ class ParseFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_parse, container, false)
     }
 
-    override fun onFragmentResume() {
-        setTitle("网址解析页面")
-        setSubTitle("右滑进入视频网站列表")
-    }
-
     override fun onLazyLoad() {
-        setTitle("VIP视频解析")
         layout_content.setOnClickListener { hideSoftKeyboard() }
         radio_group.setOnCheckedChangeListener { _, checkedId ->
             baseUrl = when (checkedId) {

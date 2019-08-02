@@ -39,6 +39,7 @@ import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.weather.param.SubTitleChanged
 import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
+import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantPagerIndicator
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
@@ -58,8 +59,6 @@ import org.greenrobot.eventbus.ThreadMode
 
 @SuppressLint("MissingSuperCall")
 abstract class BaseActivity : SwipeBackActivity() {
-
-    private var mIsTop = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,7 +101,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 更换主题，主题切换时，重新打开自身，避免界面闪烁
     @Subscribe
     open fun onThemeChanged(msg: ThemeChanged) {
-        if (mIsTop) {
+        if (AppUtil.isTop(this)) {
             startActivity(javaClass)
             overridePendingTransition(R.anim.start_anim, R.anim.out_anim)
             finish()
@@ -195,13 +194,13 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onTitleChanged(msg: TitleChanged) {
-        if (!mIsTop) return
+        if (!AppUtil.isTop(this)) return
         setTitle(msg.title)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onSubTitleChanged(msg: SubTitleChanged) {
-        if (!mIsTop) return
+        if (!AppUtil.isTop(this)) return
         setSubTitle(msg.subTitle)
     }
 
@@ -255,16 +254,6 @@ abstract class BaseActivity : SwipeBackActivity() {
             showLoading(state = false)
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        mIsTop = true
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mIsTop = false
     }
 
     override fun onDestroy() {

@@ -29,8 +29,8 @@ class NetVideoActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("加载中...")
         setContentView(R.layout.activity_net)
+        setTitle("加载中...")
         initBaseViews()
         intent?.getStringExtra("url")?.let { web_view.loadUrl(it) }
     }

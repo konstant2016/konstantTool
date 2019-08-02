@@ -36,11 +36,6 @@ class ListFragment : BaseFragment() {
         btn_letv.setOnClickListener { onBtnClick("http://www.le.com")}
     }
 
-    override fun onFragmentResume() {
-        setTitle("视频网站列表")
-        setSubTitle("左滑进入网址解析页面")
-    }
-
     private fun onBtnClick(url: String) {
         with(Intent(mActivity,NetVideoActivity::class.java)){
             putExtra("url",url)
