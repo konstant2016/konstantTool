@@ -30,12 +30,6 @@
             app:text="指南针" />
 
         <com.konstant.tool.lite.view.ItemView
-            android:id="@+id/layout_beauty"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:text="美女图片" />
-
-        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_express"
             android:layout_width="match_parent"
             android:layout_height="50dp"

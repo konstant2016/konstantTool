@@ -25,6 +25,7 @@ import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
+import com.konstant.tool.lite.module.parse.ParseVideoActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -292,8 +293,6 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         text_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
 
-        text_beauty.setOnClickListener { startActivity(BeautyActivity::class.java) }
-
         text_compass.setOnClickListener { startActivity(CompassActivity::class.java) }
 
         text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
@@ -313,6 +312,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
+
+        text_vip.setOnClickListener { startActivity(ParseVideoActivity::class.java) }
 
         text_mian.setOnClickListener { startActivity(MainActivity::class.java) }
 

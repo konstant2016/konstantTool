@@ -126,18 +126,6 @@
 
             <TextView
                 android:background="?android:selectableItemBackground"
-                android:id="@+id/text_beauty"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="40dp"
-                android:text="美女图片"
-                android:textColor="?attr/tool_main_text_color" />
-
-            <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_express"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -230,6 +218,18 @@
                 android:gravity="left|center_vertical"
                 android:paddingLeft="40dp"
                 android:text="二维码扫描解析"
+                android:textColor="?attr/tool_main_text_color" />
+
+            <TextView
+                android:background="?android:selectableItemBackground"
+                android:id="@+id/text_vip"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="影视VIP视频解析"
                 android:textColor="?attr/tool_main_text_color" />
 
         </LinearLayout>
