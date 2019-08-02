@@ -11,7 +11,6 @@ import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.BaseFragmentAdapter
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.fragment.WeatherFragment
-import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -38,10 +37,8 @@ class WeatherActivity : BaseActivity() {
         initBaseViews()
     }
 
-
     @SuppressLint("MissingSuperCall")
     override fun onSaveInstanceState(outState: Bundle?) {}
-
 
     override fun initBaseViews() {
         super.initBaseViews()
@@ -54,7 +51,6 @@ class WeatherActivity : BaseActivity() {
         readyFragment()
     }
 
-
     private fun readyFragment() {
 
         val weatherCodeList = CountryManager.readLocalCityList()
@@ -66,16 +62,9 @@ class WeatherActivity : BaseActivity() {
 
         mFragmentList.clear()
         mFragmentList.add(WeatherFragment.newInstance(""))
-        weatherCodeList.forEach {
-            mFragmentList.add(WeatherFragment.newInstance(it.directCode))
-        }
+        weatherCodeList.forEach { mFragmentList.add(WeatherFragment.newInstance(it.directCode)) }
         mAdapter.notifyDataSetChanged()
         Log.i("mFragmentList size", "${mFragmentList.size}")
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onTitleChanged(msg: TitleChanged) {
-        setTitle(msg.title)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

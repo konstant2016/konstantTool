@@ -105,4 +105,16 @@
         <item>二维码扫描解析</item>
         <item>领取支付宝红包</item>
     </array>
+
+
+    <array name="list_parse_url">
+        <item>http://jx.du2.cc/?url=</item>
+        <item>http://jx.drgxj.com/?url=</item>
+        <item>http://jx.618ge.com/?url=</item>
+        <item>http://vip.jlsprh.com/?url=</item>
+        <item>http://jx.598110.com/?url=</item>
+        <item>http://jx.598110.com/?url=</item>
+        <item>https://jx.xianmuyu.com?url=</item>
+    </array>
+
 </resources>

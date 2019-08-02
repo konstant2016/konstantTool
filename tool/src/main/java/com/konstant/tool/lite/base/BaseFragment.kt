@@ -4,12 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.konstant.tool.lite.module.weather.param.SubTitleChanged
+import com.konstant.tool.lite.module.weather.param.TitleChanged
+import org.greenrobot.eventbus.EventBus
 
 /**
  * 描述:所有fragment的父类，用于封装一下常用方法
@@ -23,7 +24,7 @@ open class BaseFragment : Fragment() {
     protected lateinit var mActivity: Activity
 
     private var isViewCreated = false
-    private var mIsVisibleToUser = false
+    protected var mIsVisibleToUser = false
     private var isFirstVisible = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,13 +66,20 @@ open class BaseFragment : Fragment() {
     }
 
     override fun onAttach(context: Context?) {
+        val c = context
+        mActivity = c as BaseActivity
         super.onAttach(context)
-        mActivity = context as Activity
     }
-
 
     protected open fun isFragmentResume(): Boolean = isViewCreated and mIsVisibleToUser
 
+    protected fun setTitle(title: String) {
+        EventBus.getDefault().post(TitleChanged(title))
+    }
+
+    protected fun setSubTitle(title: String) {
+        EventBus.getDefault().post(SubTitleChanged(title))
+    }
 
     // 隐藏软键盘
     protected fun hideSoftKeyboard() {
@@ -83,9 +91,9 @@ open class BaseFragment : Fragment() {
                         InputMethodManager.HIDE_NOT_ALWAYS)
     }
 
-    protected fun showToast(msg:String){
-        mActivity.runOnUiThread{
-            Toast.makeText(mActivity.applicationContext,msg,Toast.LENGTH_SHORT).show()
+    protected fun showToast(msg: String) {
+        mActivity.runOnUiThread {
+            Toast.makeText(mActivity.applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
     }
 }

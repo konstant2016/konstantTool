@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_content"
+    android:clickable="true"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="在下面的输入框内，填入你要播放的视频地址"
+        android:textColor="?attr/tool_main_text_color" />
+
+    <EditText
+        android:padding="5dp"
+        android:id="@+id/edit_input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_bg" />
+
+    <TextView
+        android:gravity="center"
+        android:text="选择解析引擎"
+        android:textColor="?attr/tool_main_text_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/radio_01"
+            android:checked="true"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:text="1" />
+
+        <RadioButton
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/radio_02"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:text="2" />
+
+        <RadioButton
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/radio_03"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:text="3" />
+
+        <RadioButton
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/radio_04"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:text="4" />
+
+        <RadioButton
+            android:textColor="?attr/tool_main_text_color"
+            android:id="@+id/radio_05"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:text="5" />
+
+    </RadioGroup>
+
+    <Button
+        android:textColor="?attr/tool_main_text_color"
+        android:id="@+id/btn_ok"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_btn"
+        android:text="确定" />
+
+</LinearLayout>

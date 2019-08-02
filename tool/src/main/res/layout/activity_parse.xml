@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="?attr/tool_main_color">
+
+        <!--返回按钮-->
+        <ImageView
+            android:id="@+id/img_back_parse"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:src="@drawable/std_tittlebar_main_device_back_white" />
+
+        <com.sevenheaven.segmentcontrol.SegmentControl
+            android:id="@+id/view_segment"
+            android:layout_width="200dp"
+            android:layout_height="26dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="12dp"
+            app:boundWidth="1dp"
+            app:normalColor="?attr/tool_main_color"
+            app:selectedColor="@color/color_white"
+            app:texts="视频解析|地址解析" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

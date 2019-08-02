@@ -31,29 +31,25 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
 
         /**
          * 直接发起网络请求，如果请求成功，则进行数据缓存
-         */
-        val response = chain.proceed(chain.request())
-        if (response.isSuccessful) {
-            return response.newBuilder()
-                    .header("Cache-Control", "public, max-age=${60 * 60 * 12}")
-                    .build()
-        }
-
-        /**
-         * 网络不可用或者请求失败时，会走到这里
-         * 先获取此次请求链接的缓存时间
-         * 1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
-         * 2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
+         * 缓存时间策略：
+         *      1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
+         *      2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
          */
         val cacheTime = getCacheTime(chain.request().url().host())
         val time = if (cacheTime == 0) 60 * 60 * 12 else cacheTime
-        val request = chain.request()
-                .newBuilder()
-                .cacheControl(CacheControl.Builder().onlyIfCached().maxStale(time, TimeUnit.SECONDS).build())
+        val response = chain.proceed(chain.request())
+        if (response.isSuccessful) {
+            return response.newBuilder()
+                    .header("Cache-Control", "public, max-age=$time")
+                    .build()
+        }
+        /**
+         * 网络不可用或者请求失败时，会走到这里，如果本地有缓存，则根据时间返回缓存，否则，返回失败
+         */
+        return response.newBuilder()
+                .header("Cache-Control", "public, only-if-cached, max-stale=$time")
                 .build()
-        return chain.proceed(request)
     }
-
 
     // 判断网络是否可用
     private fun isNetworkAvailable(): Boolean {

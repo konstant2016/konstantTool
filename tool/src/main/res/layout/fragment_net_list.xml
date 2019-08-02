@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="使用说明"
+        android:textColor="?attr/tool_main_text_color"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/introduce" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btn_tencent"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/selector_btn"
+            android:text="腾讯视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_youku"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/btn_tencent"
+            android:background="@drawable/selector_btn"
+            android:text="优酷视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_sohu"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_tencent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_btn"
+            android:text="搜狐视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_iqiyi"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_tencent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/btn_sohu"
+            android:background="@drawable/selector_btn"
+            android:text="爱奇艺视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_pptv"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_sohu"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_btn"
+            android:text="PPTV视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_letv"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_sohu"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/btn_pptv"
+            android:background="@drawable/selector_btn"
+            android:text="乐视视频"
+            android:textColor="?attr/tool_main_text_color" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

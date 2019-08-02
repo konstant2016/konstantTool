@@ -9,9 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter
  * 作者：吕卡
  * 描述：
  */
-class BaseFragmentAdapter(fm: FragmentManager, val fragmentList: List<BaseFragment>,
-                          val titleList: List<String> = listOf())
-    : FragmentPagerAdapter(fm) {
+class BaseFragmentAdapter(fm: FragmentManager, private val fragmentList: List<BaseFragment>, private val titleList: List<String> = listOf()) : FragmentPagerAdapter(fm) {
 
     private val mFragPosOldMap = HashMap<Long, String>()
     private val mFragPosNewMap = HashMap<Long, String>()
@@ -35,12 +33,9 @@ class BaseFragmentAdapter(fm: FragmentManager, val fragmentList: List<BaseFragme
         }
     }
 
-
     override fun getItem(position: Int): Fragment = fragmentList[position]
 
-
     override fun getCount(): Int = fragmentList.size
-
 
     override fun getItemPosition(any: Any): Int {
         var result = POSITION_NONE
@@ -60,10 +55,8 @@ class BaseFragmentAdapter(fm: FragmentManager, val fragmentList: List<BaseFragme
         return result
     }
 
-
     // 取代直接返回position，用于识别是否为同一个fragment
     override fun getItemId(position: Int) = fragmentList[position].hashCode().toLong()
-
 
     override fun notifyDataSetChanged() {
         setFragmentPositionNewMap()

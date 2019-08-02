@@ -35,6 +35,8 @@ import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
+import com.konstant.tool.lite.module.weather.param.SubTitleChanged
+import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.view.KonstantPagerIndicator
 import kotlinx.android.synthetic.main.activity_base.*
@@ -44,7 +46,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * 描述:所有activity的基类
@@ -56,7 +58,7 @@ import org.greenrobot.eventbus.Subscribe
 @SuppressLint("MissingSuperCall")
 abstract class BaseActivity : SwipeBackActivity() {
 
-    private var mIsTop = false;
+    private var mIsTop = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,13 +163,13 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 设置主标题
-    protected fun setTitle(title: String) {
+    fun setTitle(title: String) {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.title) as TextView
         textView.text = title
     }
 
-    protected fun setSubTitle(subTitle: String) {
+    fun setSubTitle(subTitle: String) {
         val view = findViewById(R.id.title_bar)
         val textView = view.findViewById(R.id.sub_title) as TextView
         view.findViewById<KonstantPagerIndicator>(R.id.title_indicator).visibility = View.GONE
@@ -188,6 +190,18 @@ abstract class BaseActivity : SwipeBackActivity() {
         } else {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onTitleChanged(msg: TitleChanged) {
+        if (!mIsTop) return
+        setTitle(msg.title)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onSubTitleChanged(msg: SubTitleChanged) {
+        if (!mIsTop) return
+        setSubTitle(msg.subTitle)
     }
 
     // 隐藏软键盘

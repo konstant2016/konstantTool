@@ -3,7 +3,6 @@ package com.konstant.tool.lite.base
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
@@ -13,6 +12,7 @@ import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
+import com.konstant.tool.lite.module.parse.ParseVideoActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
@@ -81,6 +81,8 @@ class MainActivity : BaseActivity() {
         layout_wxfake.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
 
         layout_roll.setOnClickListener { startActivity(RollTextActivity::class.java) }
+
+        layout_vip.setOnClickListener { startActivity(ParseVideoActivity::class.java) }
 
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 

@@ -16,7 +16,6 @@ import com.konstant.tool.lite.base.H5Activity
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
-import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
@@ -26,7 +25,6 @@ import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.layout_weather_15_daily.*
 import kotlinx.android.synthetic.main.layout_weather_24_hour.*
 import kotlinx.android.synthetic.main.layout_weather_current.*
-import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 
 /**
@@ -193,15 +191,9 @@ class WeatherFragment : BaseFragment() {
             val des = if (province == direct) province else "${result.area[0][0]} ${result.area[2][0]}"
             mCurrentCity = des
             if (isFragmentResume()) {
-                setActivityTitle(mCurrentCity)
+                setTitle(mCurrentCity)
             }
         }
-    }
-
-
-    // 设置标题
-    private fun setActivityTitle(title: String) {
-        EventBus.getDefault().post(TitleChanged(title))
     }
 
     // 停止刷新
@@ -212,7 +204,7 @@ class WeatherFragment : BaseFragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isVisibleToUser) {
-            setActivityTitle(mCurrentCity)
+            setTitle(mCurrentCity)
         }
     }
 
