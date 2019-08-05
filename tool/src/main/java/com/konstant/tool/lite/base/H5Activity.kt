@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.webkit.WebChromeClient
-import android.webkit.WebView
 import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.activity_base.*

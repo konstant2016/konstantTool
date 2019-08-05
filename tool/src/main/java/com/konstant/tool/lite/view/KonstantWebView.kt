@@ -7,7 +7,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-class KonstantWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : WebView(context, attrs, defStyleAttr) {
+class KonstantWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.webViewStyle) : WebView(context, attrs, defStyleAttr) {
 
     private var mTitleChange: ((String) -> Unit)? = null
     private var mProgressChange: ((Int) -> Unit)? = null
@@ -34,12 +34,10 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
 
         webChromeClient = object : WebChromeClient() {
             override fun onReceivedTitle(view: WebView, title: String) {
-                super.onReceivedTitle(view, title)
                 mTitleChange?.invoke(title)
             }
 
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                super.onProgressChanged(view, newProgress)
                 mProgressChange?.invoke(newProgress)
             }
         }
