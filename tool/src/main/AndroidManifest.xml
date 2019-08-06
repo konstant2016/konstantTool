@@ -87,16 +87,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".module.beauty.activity.BeautyActivity"
-            android:configChanges="fontScale|uiMode"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".module.beauty.activity.LookPictureActivity"
-            android:configChanges="fontScale|uiMode"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".module.setting.activity.SettingActivity"
             android:configChanges="fontScale|uiMode"
             android:screenOrientation="portrait" />

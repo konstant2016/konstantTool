@@ -15,79 +15,79 @@
             android:id="@+id/layout_translate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="翻译" />
+            app:title="翻译" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_ruler"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="直尺" />
+            app:title="直尺" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_compass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="指南针" />
+            app:title="指南针" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_express"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="物流查询" />
+            app:title="物流查询" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_speed"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="网速测试" />
+            app:title="网速测试" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_weather"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="天气查询" />
+            app:title="天气查询" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_decibel"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="分贝测试仪" />
+            app:title="分贝测试仪" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_package"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="安装包提取" />
+            app:title="安装包提取" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_wxfake"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="虚拟微信对话" />
+            app:title="虚拟微信对话" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_roll"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="全屏滚动文字" />
+            app:title="全屏滚动文字" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_device_info"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="查看设备信息" />
+            app:title="查看设备信息" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_qrcode"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="二维码扫描解析" />
+            app:title="二维码扫描解析" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_vip"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:text="影视VIP视频解析" />
+            app:title="影视VIP视频解析" />
 
     </LinearLayout>
 </ScrollView>

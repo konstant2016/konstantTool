@@ -19,7 +19,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.module.beauty.activity.BeautyActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity

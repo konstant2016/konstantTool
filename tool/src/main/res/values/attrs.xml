@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="tool_main_color" format="color" />
-    <attr name="tool_main_text_color" format="color"/>
-    <attr name="tool_second_text_color" format="color"/>
-    <attr name="tool_theme_text_color" format="color"/>
-    <attr name="tool_divider_color" format="color"/>
-    <attr name="tool_main_bg_color" format="color"/>
-    <attr name="tool_edit_bg_color" format="color"/>
-    <attr name="tool_btn_pressed_color" format="color"/>
+    <attr name="tool_main_text_color" format="color" />
+    <attr name="tool_second_text_color" format="color" />
+    <attr name="tool_theme_text_color" format="color" />
+    <attr name="tool_divider_color" format="color" />
+    <attr name="tool_main_bg_color" format="color" />
+    <attr name="tool_edit_bg_color" format="color" />
+    <attr name="tool_btn_pressed_color" format="color" />
 
     <declare-styleable name="KonstantRulerView">
         <attr name="color_line" format="color" />
@@ -23,17 +23,20 @@
     </declare-styleable>
 
     <declare-styleable name="ItemView">
-        <attr name="text" format="string"/>
+        <attr name="title" format="string" />
+        <attr name="subTitle" format="string" />
+        <attr name="showHint" format="boolean" />
+        <attr name="showMore" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DiffuseView">
-        <attr name="diffuse_color" format="color"/>
-        <attr name="diffuse_coreColor" format="color"/>
-        <attr name="diffuse_coreImage" format="reference"/>
-        <attr name="diffuse_coreRadius" format="float"/>
-        <attr name="diffuse_width" format="integer"/>
-        <attr name="diffuse_maxWidth" format="integer"/>
-        <attr name="diffuse_speed" format="integer"/>
+        <attr name="diffuse_color" format="color" />
+        <attr name="diffuse_coreColor" format="color" />
+        <attr name="diffuse_coreImage" format="reference" />
+        <attr name="diffuse_coreRadius" format="float" />
+        <attr name="diffuse_width" format="integer" />
+        <attr name="diffuse_maxWidth" format="integer" />
+        <attr name="diffuse_speed" format="integer" />
     </declare-styleable>
 
 </resources>

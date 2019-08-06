@@ -9,11 +9,12 @@ import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
+import com.konstant.tool.lite.view.Adapter
 import com.konstant.tool.lite.view.KonstantDialog
 import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
-import kotlinx.android.synthetic.main.pop_swipe_back.view.*
+import kotlinx.android.synthetic.main.pop_item_setting.view.*
 import org.greenrobot.eventbus.EventBus
 
 
@@ -26,16 +27,14 @@ import org.greenrobot.eventbus.EventBus
 
 class SettingActivity : BaseActivity() {
 
+    private val swipeStateList = listOf("全部关闭", "从左向右", "从右向左", "从下向上", "全部启用")
+    private val browserTypeList = listOf("默认设置", "Chrome Browser", "QQ浏览器", "UC浏览器", "系统浏览器")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
         setTitle("设置")
         initBaseViews()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setViewsStatus()
     }
 
     override fun initBaseViews() {
@@ -44,86 +43,71 @@ class SettingActivity : BaseActivity() {
     }
 
     private fun setViewsStatus() {
+        // 主题设置
         layout_theme.setOnClickListener { startActivity(ThemeActivity::class.java) }
+
+        // 头像设置
+        layout_header.setOnClickListener { headerSelector() }
+
+        // 退出提示
+        switch_exit.isChecked = SettingManager.getExitTipsStatus(this)
+        switch_exit.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveExitTipsStatus(this, isChecked) }
+        layout_exit.setOnClickListener { switch_exit.isChecked = !switch_exit.isChecked }
+
+        // 杀进程
+        switch_kill.isChecked = SettingManager.getKillProcess(this)
+        switch_kill.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveKillProcess(this, isChecked) }
+        layout_kill.setOnClickListener { switch_kill.isChecked = !switch_kill.isChecked }
 
         // 滑动返回
         layout_swipe.setOnClickListener { onSwipeBackClick() }
-        setSwipeTxt()
+        layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
 
-        // 退出提示
-        btn_exit.isChecked = SettingManager.getExitTipsStatus(this)
-        btn_exit.setOnCheckedChangeListener { _, isChecked ->
-            SettingManager.setExitTipsStatus(this, isChecked)
-        }
-        layout_exit.setOnClickListener {
-            btn_exit.isChecked = !btn_exit.isChecked
-        }
-
-        // 杀进程
-        btn_kill.isChecked = SettingManager.getKillProcess(this)
-        btn_kill.setOnCheckedChangeListener { _, isChecked ->
-            SettingManager.setKillProcess(this, isChecked)
-        }
-        layout_kill.setOnClickListener {
-            btn_kill.isChecked = !btn_kill.isChecked
-        }
+        // 浏览器类型
+        layout_browser.setOnClickListener { onBrowserClick() }
+        layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
 
         // 适配系统暗黑主题
-        btn_dark.isChecked = SettingManager.getAdapterDarkMode(this)
-        btn_dark.setOnCheckedChangeListener { _, isChecked ->
+        switch_dark.isChecked = SettingManager.getAdapterDarkMode(this)
+        switch_dark.setOnCheckedChangeListener { _, isChecked ->
             SettingManager.setAdapterDarkMode(this, isChecked)
             if (SettingManager.getDarkModeStatus(this))
                 EventBus.getDefault().post(ThemeChanged())
         }
-        layout_dark.setOnClickListener {
-            btn_dark.isChecked = !btn_dark.isChecked
-        }
+        layout_dark.setOnClickListener { switch_dark.isChecked = !switch_dark.isChecked }
 
+        // 关于
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }
-
-        layout_header.setOnClickListener { headerSelector() }
     }
 
     // 点击滑动返回状态后的操作
     private fun onSwipeBackClick() {
-        val view = layoutInflater.inflate(R.layout.pop_swipe_back, null)
+        val view = layoutInflater.inflate(R.layout.pop_item_setting, null)
         val dialog = KonstantDialog(this)
                 .addView(view)
                 .hideNavigation()
                 .createDialog()
-        view.tv_back_none.setOnClickListener { onSwipeItemClick(0, dialog) }
-        view.tv_back_left.setOnClickListener { onSwipeItemClick(1, dialog) }
-        view.tv_back_right.setOnClickListener { onSwipeItemClick(2, dialog) }
-        view.tv_back_bottom.setOnClickListener { onSwipeItemClick(3, dialog) }
-        view.tv_back_all.setOnClickListener { onSwipeItemClick(4, dialog) }
+        view.layout_list_view.adapter = Adapter(this, swipeStateList)
+        view.layout_list_view.setOnItemClickListener { _, _, position, _ ->
+            dialog.dismiss()
+            SettingManager.setSwipeBackStatus(this, position)
+            EventBus.getDefault().post(SwipeBackStatus(position))
+            layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
+        }
     }
 
-    // 点击某一选项后的操作
-    private fun onSwipeItemClick(index: Int, dialog: KonstantDialog) {
-        dialog.dismiss()
-        SettingManager.setSwipeBackStatus(this, index)
-        EventBus.getDefault().post(SwipeBackStatus(index))
-        setSwipeTxt()
-    }
-
-    // 更新滑动返回状态提示语
-    private fun setSwipeTxt() {
-        when (SettingManager.getSwipeBackStatus(this)) {
-            0 -> {
-                tv_swipe_back_status.text = "全部关闭"
-            }
-            1 -> {
-                tv_swipe_back_status.text = "从左向右"
-            }
-            2 -> {
-                tv_swipe_back_status.text = "从右向左"
-            }
-            3 -> {
-                tv_swipe_back_status.text = "从下向上"
-            }
-            4 -> {
-                tv_swipe_back_status.text = "全部启用"
-            }
+    // 浏览器类型点击后的操作
+    private fun onBrowserClick() {
+        val view = layoutInflater.inflate(R.layout.pop_item_setting, null)
+        val dialog = KonstantDialog(this)
+                .addView(view)
+                .hideNavigation()
+                .createDialog()
+        view.layout_list_view.adapter = Adapter(this, browserTypeList)
+        view.layout_list_view.setOnItemClickListener { _, _, position, _ ->
+            dialog.dismiss()
+            SettingManager.saveBrowserType(this, position)
+            layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
         }
     }
 

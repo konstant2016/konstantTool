@@ -39,7 +39,7 @@ class H5Activity : BaseActivity() {
         val url = intent.getStringExtra(H5_URL)
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
         if (browser) {
-            withBrowser(url)
+            view_web.openOnBrowser(url)
             finish()
             return
         }
@@ -70,7 +70,7 @@ class H5Activity : BaseActivity() {
     private fun onMorePressed() {
         val view = layoutInflater.inflate(R.layout.pop_h5, null)
         view.tv_refresh.setOnClickListener { mPop.dismiss();onRefresh() }
-        view.tv_browser.setOnClickListener { mPop.dismiss();withBrowser() }
+        view.tv_browser.setOnClickListener { mPop.dismiss();view_web.openOnBrowser() }
         mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         mPop.showAsDropDown(title_bar)
     }

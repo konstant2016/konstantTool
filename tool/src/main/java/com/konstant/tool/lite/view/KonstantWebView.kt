@@ -1,11 +1,15 @@
 package com.konstant.tool.lite.view
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.AttributeSet
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
+import com.konstant.tool.lite.module.setting.SettingManager
 
 class KonstantWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.webViewStyle) : WebView(context, attrs, defStyleAttr) {
 
@@ -23,7 +27,6 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             displayZoomControls = false
         }
-
 
         webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -49,6 +52,27 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
 
     fun registerProgressChanged(progressChange: (Int) -> Unit) {
         mProgressChange = progressChange
+    }
+
+    fun openOnBrowser(url: String = "") {
+        val uri = if (url.isEmpty()) Uri.parse(getUrl()) else Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        when (SettingManager.getBrowserType(context)) {
+            // Chrome Browser
+            1 -> intent.setClassName("com.android.chrome", "org.chromium.chrome.browser.ChromeTabbedActivity")
+            // QQ浏览器
+            2 -> intent.setClassName("com.tencent.mtt", "com.tencent.mtt.MainActivity")
+            // UC浏览器
+            3 -> intent.setClassName("com.UCMobile", "com.uc.browser.InnerUCMobile")
+            // 系统浏览器
+            4 -> intent.setClassName("com.android.browser", "com.android.browser.BrowserActivity")
+        }
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(context, "未发现指定浏览器，将以默认方式打开", Toast.LENGTH_SHORT).show()
+            context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+        }
     }
 
     fun onDestroy() {

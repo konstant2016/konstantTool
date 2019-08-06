@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
+import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.util.FileUtil
@@ -21,32 +22,40 @@ import java.io.File
 
 object SettingManager {
 
-    private val NAME_SELECTED_THEME = "selectedTheme"
-    private val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
-    private val EXIT_TIPS_STATUS = "exitTipsStatus"
-    private val KILL_PROCESS_STATUS = "killProcessStatus"
-    private val ADAPTER_DARK_MODE = "adapterDarkMode"
-    val NAME_USER_HEADER = "header_big.jpg"
+    private const val NAME_SELECTED_THEME = "selectedTheme"
+    private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
+    private const val NAME_BROWSER_TYPE = "browserStatus"
+    private const val EXIT_TIPS_STATUS = "exitTipsStatus"
+    private const val KILL_PROCESS_STATUS = "killProcessStatus"
+    private const val ADAPTER_DARK_MODE = "adapterDarkMode"
+    const val NAME_USER_HEADER = "header_big.jpg"
 
+    // 保存用户选择的主题
     fun saveTheme(context: Context, theme: Int) {
         FileUtil.saveDataToSp(context, NAME_SELECTED_THEME, theme)
     }
 
+    // 保存滑动返回的状态
     fun setSwipeBackStatus(context: Context, state: Int) {
         FileUtil.saveDataToSp(context, NAME_SWIPEBACK_STATUS, state)
     }
 
+    // 获取滑动返回的状态
     fun getSwipeBackStatus(context: Context) =
             FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATUS, 0)
 
+    // 删除保存的用户头像（恢复默认）
     fun deleteUserHeaderThumb(context: Context) {
         File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_USER_HEADER).delete()
     }
 
+    // 适配系统暗黑模式
     fun setAdapterDarkMode(context: Context, status: Boolean) {
+        Log.d("SettingManager","黑暗模式："+status)
         FileUtil.saveDataToSp(context, ADAPTER_DARK_MODE, status)
     }
 
+    // 读取：是否开启适配暗黑模式
     fun getAdapterDarkMode(context: Context) = FileUtil.readDataFromSp(context, ADAPTER_DARK_MODE, true)
 
     /**
@@ -66,11 +75,13 @@ object SettingManager {
         return FileUtil.readDataFromSp(context, NAME_SELECTED_THEME, R.style.tool_lite_class)
     }
 
+    // 判断当前是否系统是否处于暗黑模式
     fun getDarkModeStatus(context: Context): Boolean {
         val mode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return mode == Configuration.UI_MODE_NIGHT_YES
     }
 
+    // 获取用户保存的头像
     fun getUserHeaderThumb(context: Context): Bitmap {
         val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$NAME_USER_HEADER"
         return if (File(path).exists()) {
@@ -83,14 +94,25 @@ object SettingManager {
     // 读取是否退出提示：true->显示，false->不显示
     fun getExitTipsStatus(context: Context) = FileUtil.readDataFromSp(context, EXIT_TIPS_STATUS, true)
 
-    fun setExitTipsStatus(context: Context, status: Boolean) {
+    // 保存是否显示退出提示
+    fun saveExitTipsStatus(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, EXIT_TIPS_STATUS, status)
     }
 
+    // 读取：退出后是否杀进程
     fun getKillProcess(context: Context) = FileUtil.readDataFromSp(context, KILL_PROCESS_STATUS, false)
 
-    fun setKillProcess(context: Context, status: Boolean) {
+    // 保存：退出后是否杀进程
+    fun saveKillProcess(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, KILL_PROCESS_STATUS, status)
+    }
+
+    // 读取：用什么浏览器打开网页
+    fun getBrowserType(context: Context) = FileUtil.readDataFromSp(context, NAME_BROWSER_TYPE, 0)
+
+    // 保存：用什么浏览器打开网页
+    fun saveBrowserType(context: Context, type: Int) {
+        FileUtil.saveDataToSp(context, NAME_BROWSER_TYPE, type)
     }
 
 }

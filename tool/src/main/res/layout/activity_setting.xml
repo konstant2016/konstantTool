@@ -2,124 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_theme"
+        app:title="主题设置"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
+        android:layout_height="50dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="主题设置"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/icon_right" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
-
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_header"
+        app:title="头像设置"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
+        android:layout_height="50dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="头像设置"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/icon_right" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
-
-
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_swipe"
+        app:title="滑动返回"
+        app:subTitle="(设置滑动返回的状态与方向)"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
+        android:layout_height="50dp"/>
 
-        <TextView
-            android:id="@+id/tv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="8dp"
-            android:text="滑动返回"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_back"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="(设置滑动返回的状态与方向)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/icon_right" />
-
-        <TextView
-            android:id="@+id/tv_swipe_back_status"
-            android:textColor="?attr/tool_second_text_color"
-            android:layout_marginRight="40dp"
-            android:layout_alignParentRight="true"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+    <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_browser"
+        app:title="浏览器设置"
+        app:subTitle="(因UC限制，选择UC时无法自动跳转网页)"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 
     <RelativeLayout
         android:id="@+id/layout_exit"
@@ -148,7 +58,7 @@
             android:textSize="12sp" />
 
         <Switch
-            android:id="@+id/btn_exit"
+            android:id="@+id/switch_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -194,7 +104,7 @@
             android:textSize="12sp" />
 
         <Switch
-            android:id="@+id/btn_kill"
+            android:id="@+id/switch_kill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -240,7 +150,7 @@
             android:textSize="12sp" />
 
         <Switch
-            android:id="@+id/btn_dark"
+            android:id="@+id/switch_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -258,37 +168,10 @@
             android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
-
-    <RelativeLayout
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_about"
+        app:title="关于"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="关于"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/icon_right" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+        android:layout_height="50dp"/>
 
 </LinearLayout>
