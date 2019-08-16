@@ -1,10 +1,20 @@
 package com.konstant.tool.test;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.konstant.tool.R;
+import com.konstant.tool.views.CustomTouchView;
 
 /**
  * 描述:前台服务
@@ -31,6 +41,7 @@ public class ForegroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         createNotification();
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -39,21 +50,25 @@ public class ForegroundService extends Service {
         // 创建状态栏通知的构造器
         Notification.Builder builder = new Notification.Builder(this);
         // 为构造器设置小图标
-//        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setSmallIcon(R.drawable.ic_launcher);
 //        // 为构造器设置大图标
-//        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher));
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher));
 //        // 禁止删除
-//        builder.setAutoCancel(false);
+        builder.setAutoCancel(false);
 //        // 右上角显示时间
-//        builder.setShowWhen(true);
+        builder.setShowWhen(true);
         // 设置通知栏标题
-//        builder.setContentTitle("菜籽工具箱");
+        builder.setContentTitle("菜籽工具箱");
         // 创建通知
         Notification notification = builder.build();
         // 设置为前台通知，int：代表唯一标示通知的整形数；
         startForeground(1,notification);
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        notificationManager.notify(1,notification);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("1", "前台通知测试", NotificationManager.IMPORTANCE_DEFAULT);
+
+        }
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1,notification);
     }
 
 

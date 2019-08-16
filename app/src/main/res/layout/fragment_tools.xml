@@ -180,6 +180,36 @@
                 android:textColor="@color/black" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/music"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_item_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:text="音乐播放器"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_item_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:text="视频播放器"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

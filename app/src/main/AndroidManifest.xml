@@ -39,6 +39,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -48,8 +49,9 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.testactivity.DownloadFileActivity"></activity>
-        <!-- 以下为高德定位相关 -->
+        <activity android:name=".media.VideoActivity"/>
+        <activity android:name=".media.MusicActivity" />
+        <activity android:name=".ui.activity.testactivity.DownloadFileActivity" /> <!-- 以下为高德定位相关 -->
         <service android:name="com.amap.api.location.APSService" />
 
         <meta-data

@@ -58,7 +58,7 @@ class MainActivity : BaseActivity() {
 
      fun startService() {
          Log.i(this.localClassName,"开启Service")
-        val intentService = Intent(this, ForegroundService::class.java)
-        startService(intentService)
+//        val intentService = Intent(this, ForegroundService::class.java)
+//        startService(intentService)
     }
 }

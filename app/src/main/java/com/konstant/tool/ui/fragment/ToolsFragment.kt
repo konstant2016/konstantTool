@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.R
 import com.konstant.tool.base.BaseFragment
+import com.konstant.tool.media.MusicActivity
+import com.konstant.tool.media.VideoActivity
 import com.konstant.tool.ui.activity.SMSFakeActivity
 import com.konstant.tool.ui.activity.toolactivity.DeviceInfoActivity
 import com.konstant.tool.ui.activity.toolactivity.CompassActivity
@@ -30,7 +32,7 @@ import kotlinx.android.synthetic.main.fragment_tools.*
 class ToolsFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view =  inflater.inflate(R.layout.fragment_tools, container, false)
+        val view = inflater.inflate(R.layout.fragment_tools, container, false)
         return view
     }
 
@@ -65,7 +67,13 @@ class ToolsFragment : BaseFragment() {
         layout_sms.setOnClickListener { startActivity(Intent(mActivity, SMSFakeActivity::class.java)) }
 
         // 流量统计服务
-        traffic_count.setOnClickListener { startActivity(Intent(mActivity,TrafficActivity::class.java)) }
+        traffic_count.setOnClickListener { startActivity(Intent(mActivity, TrafficActivity::class.java)) }
+
+        // 音乐播放器
+        music.setOnClickListener { startActivity(Intent(mActivity, MusicActivity::class.java)) }
+
+        // 视频播放器
+        video.setOnClickListener { startActivity(Intent(mActivity, VideoActivity::class.java)) }
     }
 
 }
