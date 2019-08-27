@@ -57,7 +57,7 @@
         android:orientation="horizontal">
 
         <com.aigestudio.wheelpicker.WheelPicker
-            android:id="@+id/picker_province_new"
+            android:id="@+id/picker_province"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -71,7 +71,7 @@
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
-            android:id="@+id/picker_city_new"
+            android:id="@+id/picker_city"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -85,7 +85,7 @@
             app:wheel_visible_item_count="3" />
 
         <com.aigestudio.wheelpicker.WheelPicker
-            android:id="@+id/picker_direct_new"
+            android:id="@+id/picker_direct"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"

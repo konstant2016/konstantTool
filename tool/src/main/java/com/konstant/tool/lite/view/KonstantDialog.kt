@@ -52,7 +52,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         return this
     }
 
-    // 显示、隐藏 checkboc
+    // 显示、隐藏 checkbox
     fun setCheckedChangeListener(listener: ((state: Boolean) -> Unit)): KonstantDialog {
         checkedChangeListener = listener
         return this

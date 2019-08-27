@@ -73,7 +73,7 @@ open class BaseFragment : Fragment() {
 
     protected open fun isFragmentResume(): Boolean = isViewCreated and mIsVisibleToUser
 
-    protected fun setTitle(title: String) {
+    protected open fun setTitle(title: String) {
         EventBus.getDefault().post(TitleChanged(title))
     }
 

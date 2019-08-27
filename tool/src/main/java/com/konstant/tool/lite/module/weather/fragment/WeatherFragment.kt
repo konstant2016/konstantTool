@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.H5Activity
+import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
@@ -211,5 +212,12 @@ class WeatherFragment : BaseFragment() {
     override fun onDestroy() {
         super.onDestroy()
         mPresenter.onDestroy()
+    }
+
+    override fun setTitle(title: String) {
+        if (activity == null) return
+        if (activity is WeatherActivity) {
+            (activity as WeatherActivity).setTitle(title)
+        }
     }
 }
