@@ -20,5 +20,6 @@ class RulerActivity : BaseActivity() {
         setContentView(R.layout.activity_ruler)
         setSwipeBackEnable(false)
         showTitleBar(false)
+        setDrawerLayoutStatus(false)
     }
 }

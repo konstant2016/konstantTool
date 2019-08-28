@@ -54,6 +54,12 @@
             app:title="分贝测试仪" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_live"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="电视台直播" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_package"
             android:layout_width="match_parent"
             android:layout_height="50dp"

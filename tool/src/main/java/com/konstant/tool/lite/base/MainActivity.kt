@@ -11,6 +11,7 @@ import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
+import com.konstant.tool.lite.module.live.TVLiveActivity
 import com.konstant.tool.lite.module.parse.ParseVideoActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.rolltxt.RollTextActivity
@@ -70,6 +71,8 @@ class MainActivity : BaseActivity() {
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         layout_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
+
+        layout_live.setOnClickListener { startActivity(TVLiveActivity::class.java) }
 
         layout_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 

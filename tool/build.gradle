@@ -84,4 +84,5 @@ dependencies {
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
     implementation files('libs/core-3.3.3.jar')
     implementation 'com.7heaven.widgets:segmentcontrol:1.17'
+    implementation 'cn.jzvd:jiaozivideoplayer:7.0.5'
 }
