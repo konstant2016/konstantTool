@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.support.v4.widget.DrawerLayout
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -118,17 +119,28 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
     }
 
+    // 是否启用侧滑手势
+    fun setDrawerLayoutStatus(status: Boolean) {
+        if (status){
+            draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        }else{
+            draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
+    }
+
     // 是否启用滑动返回
     @Subscribe
     open fun onSwipeBackChanged(msg: SwipeBackStatus) {
         swipeBackLayout.apply {
             setEnableGesture(true)
+            setDrawerLayoutStatus(true)
             when (msg.state) {
                 0 -> {
                     setEnableGesture(false)
                 }
                 1 -> {
                     setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT)
+                    setDrawerLayoutStatus(false)
                 }
                 2 -> {
                     setEdgeTrackingEnabled(SwipeBackLayout.EDGE_RIGHT)
@@ -174,7 +186,6 @@ abstract class BaseActivity : SwipeBackActivity() {
         view.findViewById<KonstantPagerIndicator>(R.id.title_indicator).visibility = View.GONE
         textView.text = subTitle
         textView.visibility = View.VISIBLE
-
     }
 
     // 显示、隐藏 主标题
