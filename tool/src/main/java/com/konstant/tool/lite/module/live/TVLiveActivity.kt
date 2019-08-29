@@ -9,15 +9,16 @@ import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_tv_live.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class TVLiveActivity : BaseActivity() {
 
     val url = "http://223.110.242.130:6610/cntv/live1/cctv-1/1.m3u8";
 
     private val mChannelList = ArrayList<String>()
-    private val mMap = TreeMap<String, String>()
+    private val mMap by lazy {
+        val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
+        JSON.parseObject(txt, HashMap::class.java)
+    }
     private val mAdapter = AdapterLive(mChannelList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +29,7 @@ class TVLiveActivity : BaseActivity() {
     }
 
     private fun initData() {
-        val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
-        val map = JSON.parseObject(txt, Map::class.java)
-        map.forEach {
-            mMap[it.key.toString()] = it.value.toString()
-            mChannelList.add(it.key.toString())
-        }
+        mMap.forEach { mChannelList.add(it.key.toString()) }
         mAdapter.notifyDataSetChanged()
     }
 
@@ -42,10 +38,11 @@ class TVLiveActivity : BaseActivity() {
         showTitleBar(false)
         showStatusBar(false)
         setDrawerLayoutStatus(false)
+        JzvdStd.setVideoImageDisplayType(JzvdStd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_PARENT);
         video_player.apply {
             setPlayUrl(url)
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
-            mAdapter.setOnItemClickListener { _, position -> setPlayUrl(mMap[mChannelList[position]]) }
+            mAdapter.setOnItemClickListener { _, position -> setPlayUrl(mMap[mChannelList[position]].toString()) }
             view_list.apply {
                 layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = mAdapter

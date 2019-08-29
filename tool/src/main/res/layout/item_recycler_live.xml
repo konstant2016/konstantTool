@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:clickable="true"
-    android:background="#90000000">
+    android:background="?android:selectableItemBackground">
 
     <TextView
         android:id="@+id/tv_name"

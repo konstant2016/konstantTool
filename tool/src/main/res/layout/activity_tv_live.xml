@@ -11,6 +11,7 @@
         android:layout_height="match_parent" />
 
     <android.support.v7.widget.RecyclerView
+        android:background="#90000000"
         android:visibility="gone"
         android:id="@+id/view_list"
         android:layout_width="200dp"
