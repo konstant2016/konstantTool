@@ -37,6 +37,16 @@ public class KonstantVideoPlayer extends JzvdStd {
     }
 
     @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.thumb) {
+            if (mOnClickListener != null) mOnClickListener.onClick(v);
+            return;
+        }
+        super.onClick(v);
+    }
+
+    @Override
     public void changeUiToError() {
         switch (screen) {
             case SCREEN_NORMAL:
@@ -52,5 +62,16 @@ public class KonstantVideoPlayer extends JzvdStd {
             case SCREEN_TINY:
                 break;
         }
+    }
+
+    public void setAllControlsVisiblity(int topCon, int bottomCon, int startBtn, int loadingPro,
+                                        int thumbImg, int bottomPro, int retryLayout) {
+        topContainer.setVisibility(topCon);
+        bottomContainer.setVisibility(bottomCon);
+        startButton.setVisibility(startBtn);
+        loadingProgressBar.setVisibility(loadingPro);
+        thumbImageView.setVisibility(thumbImg);
+        bottomProgressBar.setVisibility(View.GONE);
+        mRetryLayout.setVisibility(retryLayout);
     }
 }

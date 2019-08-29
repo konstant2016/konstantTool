@@ -17,7 +17,8 @@ object Density {
     private var mAppDensity: Float = 0f
     private var mAppScaleDensity: Float = 0f
 
-    private const val SIGN_DPI = 360   // 设计图中的宽度
+    private const val SIGN_DPI_WIDTH = 360   // 设计图中的宽度
+    private const val SIGN_DPI_HEIGHT = 640  // 设计图中的高度
 
     fun init(application: Application) {
         with(application.resources.displayMetrics) {
@@ -70,7 +71,11 @@ object Density {
 
     // 当activity被创建时，使用自定的dpi
     private fun setActivityDensity(activity: Activity) {
-        val targetDensity = activity.resources.displayMetrics.widthPixels / SIGN_DPI
+        val targetDensity = when (activity.resources.configuration.orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> activity.resources.displayMetrics.widthPixels / SIGN_DPI_HEIGHT
+            else -> activity.resources.displayMetrics.widthPixels / SIGN_DPI_WIDTH
+        }
+
         val targetScaleDensity = targetDensity * (mAppScaleDensity / mAppDensity)
         val targetDensityDpi = targetScaleDensity * 160
 
