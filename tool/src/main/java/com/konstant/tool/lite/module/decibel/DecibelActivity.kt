@@ -27,7 +27,7 @@ class DecibelActivity : BaseActivity() {
     private var small = 100f
     private var big = 0f
 
-    class MyHandler(private val activity: DecibelActivity) : Handler() {
+    class MyHandler(activity: DecibelActivity) : Handler() {
         private val reference = WeakReference<DecibelActivity>(activity)
         override fun handleMessage(msg: Message?) {
             val activity = reference.get()

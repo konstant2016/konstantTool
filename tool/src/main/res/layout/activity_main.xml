@@ -48,6 +48,12 @@
             app:title="天气查询" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="日期推算" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_decibel"
             android:layout_width="match_parent"
             android:layout_height="50dp"

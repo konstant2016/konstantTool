@@ -2,7 +2,7 @@ package com.konstant.tool.lite.base
 
 import android.support.v4.view.ViewPager
 
-abstract class BasePagerChangeListener: ViewPager.OnPageChangeListener{
+abstract class BasePagerChangeListener : ViewPager.OnPageChangeListener {
 
     override fun onPageScrollStateChanged(p0: Int) {
 
@@ -12,5 +12,7 @@ abstract class BasePagerChangeListener: ViewPager.OnPageChangeListener{
 
     }
 
-    abstract override fun onPageSelected(position: Int)
+    override fun onPageSelected(position: Int) {
+
+    }
 }

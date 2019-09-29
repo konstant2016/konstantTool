@@ -44,6 +44,7 @@ import com.konstant.tool.lite.view.KonstantPagerIndicator
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
+import kotlinx.android.synthetic.main.title_layout.view.*
 import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
@@ -121,9 +122,9 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 是否启用侧滑手势
     fun setDrawerLayoutStatus(status: Boolean) {
-        if (status){
+        if (status) {
             draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-        }else{
+        } else {
             draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
     }
@@ -169,15 +170,20 @@ abstract class BaseActivity : SwipeBackActivity() {
     protected open fun initBaseViews() {
         view_status_bar.height = getStatusBarHeight()
         title_bar.setOnClickListener { hideSoftKeyboard() }
-        findViewById(R.id.img_back).setOnClickListener { finish() }
+        title_bar.img_back.setOnClickListener { finish() }
         base_content.setOnClickListener { hideSoftKeyboard() }
     }
 
     // 设置主标题
     fun setTitle(title: String) {
-        val view = findViewById(R.id.title_bar)
-        val textView = view.findViewById(R.id.title) as TextView
-        textView.text = title
+        main_title.text = title
+    }
+
+    // 分段标题
+    fun setSegmentalTitle(vararg title: String) {
+        main_title.visibility = View.GONE
+        view_segment.visibility = View.VISIBLE
+        view_segment.setText(*title)
     }
 
     fun setSubTitle(subTitle: String) {

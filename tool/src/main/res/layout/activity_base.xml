@@ -13,11 +13,11 @@
             layout="@layout/title_layout" />
 
         <RelativeLayout
-            android:background="?attr/tool_main_bg_color"
             android:id="@+id/base_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/title_bar" />
+            android:layout_below="@id/title_bar"
+            android:background="?attr/tool_main_bg_color" />
 
         <!--加载中的页面-->
         <LinearLayout
@@ -31,13 +31,13 @@
             android:visibility="gone">
 
             <TextView
-                android:textColor="?attr/tool_second_text_color"
                 android:id="@+id/tv_state"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="-50dp"
                 android:gravity="center"
-                android:text="正在加载中。。。" />
+                android:text="正在加载中。。。"
+                android:textColor="?attr/tool_second_text_color" />
 
             <include layout="@layout/layout_progress" />
 

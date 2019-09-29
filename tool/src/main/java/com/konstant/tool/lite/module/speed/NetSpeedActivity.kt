@@ -57,7 +57,7 @@ class NetSpeedActivity : BaseActivity() {
         if (s > 1024 * 1024) {// MB
             return "${numAccuracy(s / 1024 / 1024)} MB/s"
         }
-        return "$${numAccuracy(s / 1024)} KB/s"
+        return "${numAccuracy(s / 1024)} KB/s"
     }
 
     // 数据的精确度转换

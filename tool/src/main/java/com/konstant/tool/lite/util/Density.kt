@@ -71,9 +71,12 @@ object Density {
 
     // 当activity被创建时，使用自定的dpi
     private fun setActivityDensity(activity: Activity) {
-        val targetDensity = when (activity.resources.configuration.orientation) {
-            Configuration.ORIENTATION_LANDSCAPE -> activity.resources.displayMetrics.widthPixels / SIGN_DPI_HEIGHT
-            else -> activity.resources.displayMetrics.widthPixels / SIGN_DPI_WIDTH
+        val widthPixels = activity.resources.displayMetrics.widthPixels
+        val heightPixels = activity.resources.displayMetrics.heightPixels
+        val targetDensity = if (heightPixels > widthPixels){
+            widthPixels / SIGN_DPI_WIDTH
+        }else{
+            heightPixels / SIGN_DPI_WIDTH
         }
 
         val targetScaleDensity = targetDensity * (mAppScaleDensity / mAppDensity)

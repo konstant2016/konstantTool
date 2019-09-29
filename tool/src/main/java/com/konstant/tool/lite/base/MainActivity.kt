@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.date.DateCalculationActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
@@ -37,8 +38,6 @@ import kotlinx.android.synthetic.main.title_layout.*
 
 class MainActivity : BaseActivity() {
 
-    private val TAG = "MainActivity";
-
     private var mLastTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +49,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initBaseViews() {
+        super.initBaseViews()
 
         img_back.visibility = View.GONE
         img_more.visibility = View.GONE
@@ -69,6 +69,8 @@ class MainActivity : BaseActivity() {
         layout_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
+
+        layout_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
 
         layout_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
 
