@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="计算两个日期之间的间隔"
+        android:text="计算日期前、后几天的日期"
         android:textColor="?attr/tool_main_text_color"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,8 +22,7 @@
         android:gravity="center_vertical"
         android:text="开始日期"
         android:textColor="?attr/tool_main_text_color"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_start"
@@ -51,8 +51,7 @@
         android:gravity="center_vertical"
         android:text="结束日期"
         android:textColor="?attr/tool_main_text_color"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_end"
@@ -78,7 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="?attr/tool_main_color"
+        android:text="间隔 0 天"
+        android:textColor="?attr/tool_main_text_color"
         android:textSize="30sp"
         android:textStyle="bold" />
 

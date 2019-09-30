@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".module.date.CalculationFragment">
+    android:id="@+id/layout_content"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="计算两个日期之间的间隔"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center_vertical"
+        android:text="开始日期"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_start"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center_vertical"
+        android:text="2010年12月12日"
+        android:textColor="?attr/tool_main_text_color" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/icon_right" />
+
+    <Button
+        android:id="@+id/btn_direction"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="155dp"
+        android:background="@drawable/selector_btn"
+        android:gravity="center"
+        android:text="往前推算"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="15sp" />
+
+    <EditText
+        android:textColor="?attr/tool_main_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
+        android:id="@+id/et_input"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="155dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_bg"
+        android:gravity="center"
+        android:hint="输入天数"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/selector_btn"
+        android:gravity="center"
+        android:text="开始推算"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

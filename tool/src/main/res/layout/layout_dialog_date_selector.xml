@@ -28,10 +28,10 @@
 
 
     <TextView
-        android:layout_centerHorizontal="true"
         android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:text="2010年12月12日"
         android:textColor="?attr/tool_main_text_color"
@@ -76,6 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="3"
+            app:wheel_cyclic="true"
             app:wheel_indicator="true"
             app:wheel_indicator_color="?attr/tool_main_color"
             app:wheel_indicator_size="2px"
@@ -90,6 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="3"
+            app:wheel_cyclic="true"
             app:wheel_indicator="true"
             app:wheel_indicator_color="?attr/tool_main_color"
             app:wheel_indicator_size="2px"

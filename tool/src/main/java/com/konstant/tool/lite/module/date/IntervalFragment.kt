@@ -30,6 +30,7 @@ class IntervalFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        layout_content.setOnClickListener { hideSoftKeyboard() }
         val date = DateUtil.getCurrentDate(DateUtil.FORMAT)
         tv_start.text = date
         tv_end.text = date
@@ -55,7 +56,7 @@ class IntervalFragment : BaseFragment() {
                     tv_end.text = it
                     dialog.dismiss()
                     val days = DateUtil.calculateDateInterval(tv_start.text.toString(), tv_end.text.toString())
-                    tv_result.text = "$days 天"
+                    tv_result.text = "间隔 $days 天"
                 }
             }
             dialog.addView(pickerView).hideNavigation().createDialog()
