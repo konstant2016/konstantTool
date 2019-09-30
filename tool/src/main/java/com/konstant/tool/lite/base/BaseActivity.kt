@@ -21,6 +21,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.date.DateCalculationActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
@@ -315,6 +316,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
 
         text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
+
+        text_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
 
         text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 

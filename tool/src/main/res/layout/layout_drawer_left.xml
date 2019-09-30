@@ -39,10 +39,10 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:background="?attr/tool_main_bg_color"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="?attr/tool_main_bg_color">
 
         <View
             android:layout_width="match_parent"
@@ -50,30 +50,30 @@
             android:background="?attr/tool_divider_color" />
 
         <TextView
-            android:background="?android:selectableItemBackground"
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/text_mian"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="1px"
+            android:background="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="主页" />
+            android:text="主页"
+            android:textColor="?attr/tool_main_text_color" />
 
         <TextView
-            android:background="?android:selectableItemBackground"
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/text_setting"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginTop="1px"
+            android:background="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="设置" />
+            android:text="设置"
+            android:textColor="?attr/tool_main_text_color" />
     </RelativeLayout>
 
     <ScrollView
@@ -83,16 +83,16 @@
         android:layout_marginBottom="50dp">
 
         <LinearLayout
-            android:background="?attr/tool_main_bg_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/tool_main_bg_color"
             android:orientation="vertical">
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_translate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -101,10 +101,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_ruler"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -113,10 +113,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_compass"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -125,10 +125,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_express"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -137,10 +137,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_speed"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -149,10 +149,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_weather"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -161,10 +161,22 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:id="@+id/text_date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="日期推算"
+                android:textColor="?attr/tool_main_text_color" />
+
+            <TextView
                 android:id="@+id/text_decibel"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -173,10 +185,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_package"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -185,10 +197,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_wechat"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -197,10 +209,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -209,10 +221,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_qrcode"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
@@ -221,10 +233,10 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/text_vip"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="left|center_vertical"
