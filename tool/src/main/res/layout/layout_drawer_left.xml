@@ -44,11 +44,6 @@
         android:layout_alignParentBottom="true"
         android:background="?attr/tool_main_bg_color">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="?attr/tool_divider_color" />
-
         <TextView
             android:id="@+id/text_mian"
             android:layout_width="140dp"
@@ -74,6 +69,11 @@
             android:gravity="center"
             android:text="设置"
             android:textColor="?attr/tool_main_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
     <ScrollView

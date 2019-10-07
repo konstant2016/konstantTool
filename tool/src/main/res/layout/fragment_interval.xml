@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="计算日期前、后几天的日期"
+        android:text="计算两个日期之间的间隔"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp"
         android:textStyle="bold" />
