@@ -4,8 +4,8 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -65,13 +65,13 @@ class WeatherFragment : BaseFragment() {
     override fun onLazyLoad() {
 
         recycler_weather_hour.apply {
-            layoutManager = LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(mActivity, androidx.recyclerview.widget.RecyclerView.HORIZONTAL, false)
             adapter = mAdapterHour
         }
 
         recycler_weather_day.apply {
             isNestedScrollingEnabled = false
-            layoutManager = LinearLayoutManager(mActivity)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(mActivity)
             adapter = mAdapterDay
         }
 

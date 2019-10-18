@@ -2,7 +2,7 @@ package com.konstant.tool.lite.view
 
 import android.app.Dialog
 import android.content.Context
-import android.support.v4.widget.SwipeRefreshLayout
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.view.*
 import android.widget.RelativeLayout
 import com.konstant.tool.lite.R

@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.data.entity;
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 import java.util.List;
 

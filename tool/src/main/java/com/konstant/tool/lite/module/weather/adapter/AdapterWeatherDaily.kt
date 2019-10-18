@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.weather.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
  * 备注:
  */
 
-class AdapterWeatherDaily(private val context: Context, private val datas: List<WeatherResponse.WeatherBean>) : RecyclerView.Adapter<AdapterWeatherDaily.Holder>() {
+class AdapterWeatherDaily(private val context: Context, private val datas: List<WeatherResponse.WeatherBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterWeatherDaily.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_weather_15_daily, parent, false)
@@ -125,6 +125,6 @@ class AdapterWeatherDaily(private val context: Context, private val datas: List<
         }
     }
 
-    class Holder(val view: View) : RecyclerView.ViewHolder(view)
+    class Holder(val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
 }

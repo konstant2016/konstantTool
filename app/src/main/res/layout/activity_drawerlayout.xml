@@ -6,7 +6,7 @@
 
     <include layout="@layout/title_layout" />
 
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -30,5 +30,5 @@
             android:background="#48e200"
             android:gravity="center"
             android:text="这是右边的滑动液面" />
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

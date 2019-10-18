@@ -1,7 +1,7 @@
 package com.konstant.tool.ui.activity.toolactivity.im.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +14,10 @@ import com.konstant.tool.R
  * 备注:
  */
 
-class FinderFragment:Fragment() {
+class FinderFragment: androidx.fragment.app.Fragment() {
 
     companion object {
-        fun newInstance():Fragment{
+        fun newInstance(): androidx.fragment.app.Fragment {
             return FinderFragment()
         }
     }

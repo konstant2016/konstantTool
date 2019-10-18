@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.live
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.AnimationUtils
 import cn.jzvd.JzvdStd
@@ -44,7 +44,7 @@ class TVLiveActivity : BaseActivity() {
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
             mAdapter.setOnItemClickListener { _, position -> setPlayUrl(mMap[mChannelList[position]].toString()) }
             view_list.apply {
-                layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
+                layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@TVLiveActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
                 adapter = mAdapter
             }
         }

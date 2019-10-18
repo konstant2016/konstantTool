@@ -11,7 +11,7 @@ android {
         versionCode 291
         versionName "2.9.1"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -48,7 +48,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     // 二维码扫描
     implementation('com.mylhyl:zxingscanner:2.1.0') {
         exclude group: 'com.google.zxing'
@@ -78,13 +78,13 @@ dependencies {
     // 权限申请工具
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
     // design 主要用到了tabLayout
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     // 内存泄漏检测
     //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.3'
     //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
     implementation files('libs/core-3.3.3.jar')
     implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.5'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

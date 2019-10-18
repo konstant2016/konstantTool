@@ -8,7 +8,7 @@
 
     <include layout="@layout/title_layout"></include>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:gravity="center">
@@ -19,7 +19,7 @@
             android:layout_height="100dp"
             android:background="@android:drawable/editbox_background"
             android:hint="请输入要解析的视频地址" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <View
         android:layout_width="match_parent"

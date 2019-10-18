@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.module.extract
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +8,9 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import kotlinx.android.synthetic.main.item_recycler_package_extra.view.*
 
-class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
+class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         return if (viewType == 0) {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_package_header, parent, false)
             TopHolder(view)
@@ -20,7 +20,7 @@ class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<RecyclerView
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val data = list[position]
         if (holder is CommonHolder) {
@@ -41,8 +41,8 @@ class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<RecyclerView
     override fun getItemCount() = list.size
 
 
-    class CommonHolder(view: View) : RecyclerView.ViewHolder(view)
+    class CommonHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
-    class TopHolder(view: View) : RecyclerView.ViewHolder(view)
+    class TopHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
 }

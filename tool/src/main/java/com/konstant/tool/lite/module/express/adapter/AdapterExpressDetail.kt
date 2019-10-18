@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.express.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +39,6 @@ class AdapterExpressDetail(val context: Context, val datas: List<ExpressData.Mes
         }
     }
 
-    class Holder(view: View) : RecyclerView.ViewHolder(view)
+    class Holder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
 }

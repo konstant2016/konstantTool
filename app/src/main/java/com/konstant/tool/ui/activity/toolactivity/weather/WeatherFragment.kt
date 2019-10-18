@@ -2,7 +2,7 @@ package com.konstant.tool.ui.activity.toolactivity.weather
 
 import android.Manifest
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +37,7 @@ class WeatherFragment : BaseFragment() {
 
     companion object {
         private val PARAM = "param"
-        fun newInstance(direct: String): Fragment {
+        fun newInstance(direct: String): androidx.fragment.app.Fragment {
             val fragment = WeatherFragment()
             val bundle = Bundle()
             bundle.putString(PARAM, direct)

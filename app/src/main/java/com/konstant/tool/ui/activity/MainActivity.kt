@@ -2,7 +2,7 @@ package com.konstant.tool.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.Log
 import com.konstant.tool.R
 import com.konstant.tool.base.BaseActivity
@@ -41,7 +41,7 @@ class MainActivity : BaseActivity() {
 
         mAdapter.updateFragmentList(list)
 
-        viewpager_main_activity.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        viewpager_main_activity.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
             }

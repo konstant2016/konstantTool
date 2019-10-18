@@ -1,15 +1,15 @@
 package com.konstant.tool.lite.base
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 
 /**
  * 时间：2018/8/2 19:12
  * 作者：吕卡
  * 描述：
  */
-class BaseFragmentAdapter(fm: FragmentManager, private val fragmentList: List<BaseFragment>, private val titleList: List<String> = listOf()) : FragmentPagerAdapter(fm) {
+class BaseFragmentAdapter(fm: androidx.fragment.app.FragmentManager, private val fragmentList: List<BaseFragment>, private val titleList: List<String> = listOf()) : androidx.fragment.app.FragmentPagerAdapter(fm) {
 
     private val mFragPosOldMap = HashMap<Long, String>()
     private val mFragPosNewMap = HashMap<Long, String>()
@@ -33,7 +33,7 @@ class BaseFragmentAdapter(fm: FragmentManager, private val fragmentList: List<Ba
         }
     }
 
-    override fun getItem(position: Int): Fragment = fragmentList[position]
+    override fun getItem(position: Int): androidx.fragment.app.Fragment = fragmentList[position]
 
     override fun getCount(): Int = fragmentList.size
 

@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +55,7 @@ class ExpressDetailActivity : BaseActivity() {
         mName = intent.getStringExtra("name") ?: "保密物件"
         updateStatus()
         with(layout_recycler) {
-            layoutManager = LinearLayoutManager(this@ExpressDetailActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@ExpressDetailActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
 

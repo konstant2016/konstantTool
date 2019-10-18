@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.module.weather.server;
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 import java.util.List;
 

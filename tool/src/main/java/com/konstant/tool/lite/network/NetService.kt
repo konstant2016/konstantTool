@@ -63,7 +63,7 @@ object NetService {
         NetworkUtil.get(url) { state, data -> callback.invoke(state, data) }
     }
 
-    // 物流查询
+    // 快递100的物流查询接口
     fun expressQuery(companyId: String, num: String, callback: (response: ExpressResponse) -> Unit) {
         val url = Constant.URL_EXPRESS + "?type=" + companyId + "&postid=" + num
         NetworkUtil.get(url) { state, data ->

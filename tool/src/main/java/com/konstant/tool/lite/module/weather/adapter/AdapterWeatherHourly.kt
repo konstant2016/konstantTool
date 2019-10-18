@@ -2,7 +2,7 @@ package com.konstant.tool.lite.module.weather.adapter
 
 import android.app.Activity
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso
  * 备注:
  */
 
-class AdapterWeatherHourly(private val context: Context, private val datas: List<WeatherResponse.HourlyForecastBean>) : RecyclerView.Adapter<AdapterWeatherHourly.Holder>() {
+class AdapterWeatherHourly(private val context: Context, private val datas: List<WeatherResponse.HourlyForecastBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterWeatherHourly.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_24_hour, parent, false)
@@ -106,6 +106,6 @@ class AdapterWeatherHourly(private val context: Context, private val datas: List
         }
     }
 
-    class Holder(val view: View) : RecyclerView.ViewHolder(view)
+    class Holder(val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
 }

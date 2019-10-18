@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.module.express.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_spinner_pull_down_bg.view.*
  * 描述：选择物流公司的适配器
  */
 
-class AdapterExpressCompany(val companyNamelist: Array<String>, val companyIdList: Array<String>) : RecyclerView.Adapter<AdapterExpressCompany.Holder>() {
+class AdapterExpressCompany(val companyNamelist: Array<String>, val companyIdList: Array<String>) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterExpressCompany.Holder>() {
 
     private var onClick: ((companyId: String, companyName: String) -> Unit)? = null
 
@@ -33,7 +33,7 @@ class AdapterExpressCompany(val companyNamelist: Array<String>, val companyIdLis
 
     override fun getItemCount() = companyNamelist.size
 
-    class Holder(view: View) : RecyclerView.ViewHolder(view)
+    class Holder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
 
 }

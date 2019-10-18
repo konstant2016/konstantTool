@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.extract
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +42,7 @@ class PackageActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
         with(layout_recycler) {
-            layoutManager = LinearLayoutManager(this@PackageActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PackageActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
         mAdapter.setOnItemClickListener { _, position ->

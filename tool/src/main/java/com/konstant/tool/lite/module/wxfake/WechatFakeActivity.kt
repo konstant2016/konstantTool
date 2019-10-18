@@ -3,7 +3,7 @@ package com.konstant.tool.lite.module.wxfake
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -89,7 +89,7 @@ class WechatFakeActivity : BaseActivity() {
         }
 
         with(layout_recycler){
-            layoutManager = LinearLayoutManager(this@WechatFakeActivity,LinearLayoutManager.VERTICAL,false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@WechatFakeActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
 

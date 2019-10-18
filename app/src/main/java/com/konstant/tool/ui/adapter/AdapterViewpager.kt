@@ -1,9 +1,9 @@
 package com.konstant.tool.ui.adapter
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.PagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 
 /**
  * 描述:fragment的适配器
@@ -12,22 +12,22 @@ import android.support.v4.view.PagerAdapter
  * 备注:
  */
 
-class AdapterViewpager(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class AdapterViewpager(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
 
 
-    private val mFragmentList = mutableListOf<Fragment>()
+    private val mFragmentList = mutableListOf<androidx.fragment.app.Fragment>()
 
 
-    override fun getItem(position: Int): Fragment = mFragmentList[position]
+    override fun getItem(position: Int): androidx.fragment.app.Fragment = mFragmentList[position]
 
 
     override fun getCount(): Int = mFragmentList.size
 
 
-    override fun getItemPosition(any: Any): Int = PagerAdapter.POSITION_NONE
+    override fun getItemPosition(any: Any): Int = androidx.viewpager.widget.PagerAdapter.POSITION_NONE
 
 
-    fun updateFragmentList(fragmentList: List<Fragment>){
+    fun updateFragmentList(fragmentList: List<androidx.fragment.app.Fragment>){
         mFragmentList.clear()
         mFragmentList.addAll(fragmentList)
         notifyDataSetChanged()

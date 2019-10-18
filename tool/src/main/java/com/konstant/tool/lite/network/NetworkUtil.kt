@@ -100,7 +100,7 @@ object NetworkUtil {
                     val length = response.body()!!.contentLength()
                     val outputStream = FileOutputStream(File(path))
                     val bytes = ByteArray(1024)
-                    var ch = -1
+                    var ch: Int
                     var process = 0L
                     while (inputStream.read(bytes).also { ch = it } != -1) {
                         outputStream.write(bytes)

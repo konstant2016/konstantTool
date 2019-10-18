@@ -3,7 +3,7 @@ package com.konstant.tool.lite.base
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -19,7 +19,7 @@ import org.greenrobot.eventbus.EventBus
  * 备注:
  */
 
-open class BaseFragment : Fragment() {
+open class BaseFragment : androidx.fragment.app.Fragment() {
 
     protected lateinit var mActivity: Activity
 

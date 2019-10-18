@@ -1,8 +1,8 @@
 package com.konstant.tool.lite.base
 
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 
-abstract class BasePagerChangeListener : ViewPager.OnPageChangeListener {
+abstract class BasePagerChangeListener : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
 
     override fun onPageScrollStateChanged(p0: Int) {
 

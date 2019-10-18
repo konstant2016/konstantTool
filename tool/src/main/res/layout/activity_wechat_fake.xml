@@ -40,7 +40,7 @@
         android:layout_marginTop="70dp"
         android:background="@color/color_black_d9" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:paddingTop="10dp"
         android:id="@+id/layout_recycler"
         android:layout_width="match_parent"

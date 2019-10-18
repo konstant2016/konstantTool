@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.date
 
 import android.os.Bundle
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragmentAdapter

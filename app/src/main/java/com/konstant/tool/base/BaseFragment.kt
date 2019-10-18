@@ -5,8 +5,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.PermissionChecker.checkSelfPermission
+import androidx.fragment.app.Fragment
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -19,7 +19,7 @@ import android.view.inputmethod.InputMethodManager
  * 备注:
  */
 
-open class BaseFragment : Fragment() {
+open class BaseFragment : androidx.fragment.app.Fragment() {
 
     private val mRequestCode = 12
     private lateinit var mReason: String

@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.extract
 
 import android.graphics.drawable.Drawable
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 
 @Keep
 data class AppData(val packageName: String, val icon: Drawable, val appName: String) : Comparable<AppData> {

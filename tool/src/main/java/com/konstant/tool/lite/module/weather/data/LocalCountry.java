@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.module.weather.data;
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 /**
  * Created by konstant on 2018/4/7.

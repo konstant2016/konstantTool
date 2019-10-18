@@ -9,8 +9,8 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
-import android.support.v4.widget.DrawerLayout
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.drawerlayout.widget.DrawerLayout
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -124,9 +124,9 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 是否启用侧滑手势
     fun setDrawerLayoutStatus(status: Boolean) {
         if (status) {
-            draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            draw_layout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED)
         } else {
-            draw_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            draw_layout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
     }
 

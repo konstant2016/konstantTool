@@ -1,8 +1,8 @@
 package com.konstant.tool.lite.module.wxfake
 
 import android.content.Context
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
-import android.support.v7.widget.RecyclerView
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +12,11 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.util.FileUtil
 
-class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
+class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
     lateinit var context: Context
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         context = viewGroup.context
         return when (viewType) {
             0 -> {
@@ -32,7 +32,7 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
 
     override fun getItemViewType(position: Int) = list[position].type
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val conversion = list[position]
         with(holder.itemView){
@@ -46,7 +46,7 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         }
     }
 
-    class AdverseHolder(view: View) : RecyclerView.ViewHolder(view)
+    class AdverseHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
-    class MineHolder(view: View) : RecyclerView.ViewHolder(view)
+    class MineHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 }

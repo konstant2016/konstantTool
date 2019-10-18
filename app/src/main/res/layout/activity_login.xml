@@ -13,7 +13,7 @@
         android:layout_marginTop="50dp"
         android:src="@drawable/em_welcom_logo" />
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="20dp"
@@ -27,9 +27,9 @@
             android:layout_height="@dimen/button_height"
             android:background="@android:drawable/editbox_background"
             android:hint="输入用户名" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="20dp"
@@ -43,7 +43,7 @@
             android:layout_height="@dimen/button_height"
             android:background="@android:drawable/editbox_background"
             android:hint="输入密码" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

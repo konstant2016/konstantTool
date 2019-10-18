@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.module.express
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressCompany
@@ -18,7 +18,7 @@ class SelectorDialog(context: Context) : KonstantDialog(context) {
         addView(view)
         val adapterCompany = AdapterExpressCompany(context.resources.getStringArray(R.array.express_company), context.resources.getStringArray(R.array.express_company_id))
         with(view.layout_recycler) {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = adapterCompany
         }
         adapterCompany.setOnItemClickListener { companyId, companyName ->

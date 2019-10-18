@@ -6,14 +6,14 @@ import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.konstant.tool.lite.R;
 
 /**
- * An ink inspired widget for indicating pages in a {@link android.support.v4.view.ViewPager}.
+ * An ink inspired widget for indicating pages in a {@link ViewPager}.
  */
 public class KonstantPagerIndicator extends View implements ViewPager.OnPageChangeListener {
 

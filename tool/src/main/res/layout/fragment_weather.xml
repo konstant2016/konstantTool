@@ -7,7 +7,7 @@
     android:overScrollMode="never"
     app:tr_head_height="100dp">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never">
@@ -43,5 +43,5 @@
             <include layout="@layout/layout_weather_life" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>

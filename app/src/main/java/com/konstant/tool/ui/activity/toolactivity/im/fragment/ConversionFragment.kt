@@ -2,7 +2,7 @@ package com.konstant.tool.ui.activity.toolactivity.im.fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +34,7 @@ class ConversionFragment : BaseFragment() {
     }
 
     private fun initRecyclerView() {
-        layout_recycler.layoutManager = LinearLayoutManager(mActivity)
+        layout_recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(mActivity)
 
         // 添加右侧侧滑菜单
         layout_recycler.setSwipeMenuCreator { _, swipeRightMenu, _ ->

@@ -2,7 +2,7 @@ package com.konstant.tool.ui.activity.toolactivity.weather
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.View
 import com.alibaba.fastjson.JSON
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.title_layout.*
 
 class WeatherActivity : BaseActivity() {
 
-    private val mFragmentList = mutableListOf<Fragment>()
+    private val mFragmentList = mutableListOf<androidx.fragment.app.Fragment>()
     private var mSavedInstanceState: Bundle? = null
     private val mAdapter by lazy { AdapterViewpager(supportFragmentManager) }
 
