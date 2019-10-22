@@ -22,7 +22,7 @@ class ProgressBody(val responseBody: ResponseBody, val progressListener: Progres
     override fun contentType() = responseBody.contentType()
 
     override fun source(): BufferedSource {
-        bufferedSource = Okio.buffer(source(responseBody.source()))
+        bufferedSource = source(responseBody.source()).buffer()
         return bufferedSource
     }
 

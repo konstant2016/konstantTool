@@ -38,7 +38,7 @@ class WeatherActivity : BaseActivity() {
     }
 
     @SuppressLint("MissingSuperCall")
-    override fun onSaveInstanceState(outState: Bundle?) {}
+    override fun onSaveInstanceState(outState: Bundle) {}
 
     override fun initBaseViews() {
         super.initBaseViews()

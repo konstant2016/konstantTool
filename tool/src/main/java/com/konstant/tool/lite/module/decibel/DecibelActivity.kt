@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Message
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.yanzhenjie.permission.AndPermission
+import com.konstant.tool.lite.util.PermissionRequester
 import kotlinx.android.synthetic.main.activity_decibel.*
 import java.io.File
 import java.lang.ref.WeakReference
@@ -44,15 +44,14 @@ class DecibelActivity : BaseActivity() {
     }
 
     private fun requestPermission() {
-        AndPermission.with(this)
-                .permission(android.Manifest.permission.RECORD_AUDIO)
-                .onDenied { showToast("您拒绝了录音权限") }
-                .onGranted {
+        PermissionRequester.requestPermission(this,
+                mutableListOf(android.Manifest.permission.RECORD_AUDIO),
+                {
                     createRecodeAudio()
                     startRecord()
                     view_wave.start()
-                }
-                .start()
+                },
+                { showToast("您拒绝了录音权限") })
     }
 
     private fun createRecodeAudio() {

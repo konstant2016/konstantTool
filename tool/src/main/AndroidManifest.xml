@@ -62,6 +62,10 @@
             android:configChanges="uiMode"
             android:theme="@style/TransparentTheme" />
         <activity
+            android:name=".util.PermissionRequester"
+            android:configChanges="uiMode"
+            android:theme="@style/TranslateTheme" />
+        <activity
             android:name=".module.wxfake.WechatFakeActivity"
             android:theme="@style/WechatFakeActivity" />
         <activity

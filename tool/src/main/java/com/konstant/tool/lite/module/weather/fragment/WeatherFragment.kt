@@ -4,12 +4,12 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.H5Activity
@@ -18,10 +18,10 @@ import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.server.WeatherResponse
+import com.konstant.tool.lite.util.PermissionRequester
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
-import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.layout_weather_15_daily.*
 import kotlinx.android.synthetic.main.layout_weather_24_hour.*
@@ -43,7 +43,7 @@ class WeatherFragment : BaseFragment() {
     private val mAdapterHour by lazy { AdapterWeatherHourly(mActivity, mListHour) }
 
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
-    private val mAdapterDay by lazy { AdapterWeatherDaily(mActivity, mListDaily) }
+    private val mAdapterDay by lazy { AdapterWeatherDaily(mListDaily) }
 
     private var mCurrentCity = "加载中"
 
@@ -65,13 +65,13 @@ class WeatherFragment : BaseFragment() {
     override fun onLazyLoad() {
 
         recycler_weather_hour.apply {
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(mActivity, androidx.recyclerview.widget.RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false)
             adapter = mAdapterHour
         }
 
         recycler_weather_day.apply {
             isNestedScrollingEnabled = false
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(mActivity)
+            layoutManager = LinearLayoutManager(mActivity)
             adapter = mAdapterDay
         }
 
@@ -79,7 +79,7 @@ class WeatherFragment : BaseFragment() {
             setHeaderView(BezierLayout(mActivity))
             setEnableLoadmore(false)
             setOnRefreshListener(object : RefreshListenerAdapter() {
-                override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
+                override fun onRefresh(refreshLayout: TwinklingRefreshLayout) {
                     requestWeather()
                 }
             })
@@ -90,13 +90,12 @@ class WeatherFragment : BaseFragment() {
 
 
     private fun requestPermission() {
-        AndPermission.with(this)
-                .permission(Manifest.permission.ACCESS_FINE_LOCATION)
-                .onGranted {
-                    refresh_layout.startRefresh()
-                }
-                .onDenied { showToast("您拒绝了定位权限") }
-                .start()
+        val permissions = mutableListOf(Manifest.permission.ACCESS_FINE_LOCATION)
+        PermissionRequester.requestPermission(mActivity, permissions, {
+            refresh_layout.startRefresh()
+        }, {
+            showToast("您拒绝了定位权限")
+        })
     }
 
     // 请求天气数据

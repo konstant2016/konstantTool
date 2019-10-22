@@ -19,10 +19,10 @@ import java.text.SimpleDateFormat
  * 备注:
  */
 
-class AdapterWeatherDaily(private val context: Context, private val datas: List<WeatherResponse.WeatherBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterWeatherDaily.Holder>() {
+class AdapterWeatherDaily(private val datas: List<WeatherResponse.WeatherBean>) : RecyclerView.Adapter<AdapterWeatherDaily.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_weather_15_daily, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_15_daily, parent, false)
         return Holder(view)
     }
 
@@ -69,62 +69,62 @@ class AdapterWeatherDaily(private val context: Context, private val datas: List<
         // 设置图片
         when (data.info.day[0].toInt()) {
             0 -> {
-                Picasso.with(context).load(R.drawable.weather_img_1).into(img)
+                Picasso.get().load(R.drawable.weather_img_1).into(img)
             }
             1 -> {
-                Picasso.with(context).load(R.drawable.weather_img_2).into(img)
+                Picasso.get().load(R.drawable.weather_img_2).into(img)
             }
             2 -> {
-                Picasso.with(context).load(R.drawable.weather_img_3).into(img)
+                Picasso.get().load(R.drawable.weather_img_3).into(img)
             }
             3 -> {
-                Picasso.with(context).load(R.drawable.weather_img_4).into(img)
+                Picasso.get().load(R.drawable.weather_img_4).into(img)
             }
             4 -> {
-                Picasso.with(context).load(R.drawable.weather_img_5).into(img)
+                Picasso.get().load(R.drawable.weather_img_5).into(img)
             }
             5 -> {
-                Picasso.with(context).load(R.drawable.weather_img_6).into(img)
+                Picasso.get().load(R.drawable.weather_img_6).into(img)
             }
             6 -> {
-                Picasso.with(context).load(R.drawable.weather_img_7).into(img)
+                Picasso.get().load(R.drawable.weather_img_7).into(img)
             }
             7 -> {
-                Picasso.with(context).load(R.drawable.weather_img_8).into(img)
+                Picasso.get().load(R.drawable.weather_img_8).into(img)
             }
             8 -> {
-                Picasso.with(context).load(R.drawable.weather_img_9).into(img)
+                Picasso.get().load(R.drawable.weather_img_9).into(img)
             }
             9 -> {
-                Picasso.with(context).load(R.drawable.weather_img_10).into(img)
+                Picasso.get().load(R.drawable.weather_img_10).into(img)
             }
             10 -> {
-                Picasso.with(context).load(R.drawable.weather_img_11).into(img)
+                Picasso.get().load(R.drawable.weather_img_11).into(img)
             }
             11 -> {
-                Picasso.with(context).load(R.drawable.weather_img_12).into(img)
+                Picasso.get().load(R.drawable.weather_img_12).into(img)
             }
             12 -> {
-                Picasso.with(context).load(R.drawable.weather_img_13).into(img)
+                Picasso.get().load(R.drawable.weather_img_13).into(img)
             }
             13 -> {
-                Picasso.with(context).load(R.drawable.weather_img_14).into(img)
+                Picasso.get().load(R.drawable.weather_img_14).into(img)
             }
             14 -> {
-                Picasso.with(context).load(R.drawable.weather_img_15).into(img)
+                Picasso.get().load(R.drawable.weather_img_15).into(img)
             }
             15 -> {
-                Picasso.with(context).load(R.drawable.weather_img_16).into(img)
+                Picasso.get().load(R.drawable.weather_img_16).into(img)
             }
             30 -> {
-                Picasso.with(context).load(R.drawable.weather_img_17).into(img)
+                Picasso.get().load(R.drawable.weather_img_17).into(img)
             }
             17 -> {
-                Picasso.with(context).load(R.drawable.weather_img_18).into(img)
+                Picasso.get().load(R.drawable.weather_img_18).into(img)
             }
         }
     }
 
-    class Holder(val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
+    class Holder(val view: View) : RecyclerView.ViewHolder(view)
 
 }

@@ -9,9 +9,9 @@ import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
+import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.Adapter
 import com.konstant.tool.lite.view.KonstantDialog
-import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
 import kotlinx.android.synthetic.main.pop_item_setting.view.*
@@ -118,18 +118,17 @@ class SettingActivity : BaseActivity() {
         // 拍照
         view.text_camera.setOnClickListener {
             dialog.dismiss()
-            AndPermission.with(this)
-                    .permission(Manifest.permission.CAMERA)
-                    .onGranted {
+            PermissionRequester.requestPermission(this,
+                    mutableListOf(Manifest.permission.CAMERA),
+                    {
                         ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
                             if (it) {
                                 EventBus.getDefault().post(UserHeaderChanged())
                                 showToast("设置成功")
                             }
                         }
-                    }
-                    .onDenied { showToast("您拒绝了相机权限") }
-                    .start()
+                    },
+                    { showToast("您拒绝了相机权限") })
         }
         // 相册
         view.text_photo.setOnClickListener {

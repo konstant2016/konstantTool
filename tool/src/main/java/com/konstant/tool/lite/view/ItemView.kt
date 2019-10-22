@@ -37,7 +37,7 @@ class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? =
         array.recycle()
     }
 
-    override fun setOnClickListener(listener: OnClickListener) {
+    override fun setOnClickListener(listener: OnClickListener?) {
         mOnClickListener = listener
     }
 

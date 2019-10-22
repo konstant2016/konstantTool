@@ -126,4 +126,11 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="TranslateTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/color_transport</item>
+        <item name="android:navigationBarColor">@color/color_transport</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

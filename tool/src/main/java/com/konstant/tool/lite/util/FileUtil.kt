@@ -1,13 +1,18 @@
 package com.konstant.tool.lite.util
 
+import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import android.os.Environment
+import android.provider.MediaStore
+import android.util.Log
 import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.base.KonApplication
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -69,19 +74,69 @@ object FileUtil {
     fun readFileFromFile(context: Context, fileName: String): ByteArray =
             readFile(File(context.getExternalFilesDir(null), fileName))
 
-
     // 保存图片到相册
     fun saveBitmapToAlbum(bytes: ByteArray? = null, bitmap: Bitmap? = null, name: String): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            saveBitmapToAlbumQ(bytes, bitmap, name)
+        else
+            saveBitmapToAlbumP(bytes, bitmap, name)
+    }
+
+    private fun saveBitmapToAlbumP(bytes: ByteArray? = null, bitmap: Bitmap? = null, name: String): Boolean {
         val directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val file = File(directory, name)
         if (bytes != null) {
-            return saveFile(File(directory, name), bytes)
+            val result = saveFile(file, bytes)
+            if (result) {
+                sendScanBroadCast(file)
+            }
+            return result
         }
         if (bitmap != null) {
             val stream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            return saveFile(File(directory, name), stream.toByteArray())
+            val result = saveFile(file, stream.toByteArray())
+            if (result) {
+                sendScanBroadCast(file)
+            }
+            return result
         }
         return false
+    }
+
+    private fun sendScanBroadCast(file: File) {
+        with(Intent()) {
+            action = Intent.ACTION_MEDIA_SCANNER_SCAN_FILE
+            data = Uri.fromFile(file)
+            KonApplication.context.sendBroadcast(this)
+        }
+    }
+
+    private fun saveBitmapToAlbumQ(bytes: ByteArray? = null, bitmap: Bitmap? = null, name: String): Boolean {
+        try {
+            with(ContentValues()) {
+                put(MediaStore.Images.Media.DISPLAY_NAME, name)
+                put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+                put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+                put(MediaStore.Images.Media.TITLE, name)
+                val uri = KonApplication.context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this)
+                        ?: return false
+                Log.d("FileUtil", uri.toString())
+                val stream = KonApplication.context.contentResolver.openOutputStream(uri)
+                        ?: return false
+                Log.d("FileUtil", "*********")
+                if (bytes != null) {
+                    stream.write(bytes)
+                }
+                bitmap?.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                stream.flush()
+                stream.close()
+                return true
+            }
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+            return false
+        }
     }
 
     // 保存数据到SharedPreference
@@ -112,7 +167,7 @@ object FileUtil {
                     is Int -> getInt(key, default)
                     is Boolean -> getBoolean(key, default)
                     is Float -> getFloat(key, default)
-                    is String -> getString(key, "")
+                    is String -> getString(key, "")!!
                     else -> throw IllegalArgumentException("SharedPreference不支持此类型的存储！")
                 }
                 response as T

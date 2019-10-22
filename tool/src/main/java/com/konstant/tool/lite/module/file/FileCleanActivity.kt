@@ -1,11 +1,12 @@
 package com.konstant.tool.lite.module.file
 
+import android.Manifest
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.yanzhenjie.permission.AndPermission
+import com.konstant.tool.lite.util.PermissionRequester
 import kotlinx.android.synthetic.main.activity_file_clean.*
 import java.io.File
 
@@ -25,22 +26,21 @@ class FileCleanActivity : BaseActivity() {
     }
 
     private fun scanRootFile() {
-        AndPermission.with(this)
-                .permission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                .onGranted { scanFile() }
-                .onDenied { showToast("") }
-                .start()
+        PermissionRequester.requestPermission(this,
+                mutableListOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                { scanFile() },
+                { showToast("") })
     }
 
-    private fun scanFile(){
+    private fun scanFile() {
         fileList.clear()
         Thread {
             scanFile(Environment.getExternalStorageDirectory());
-            Log.d("FileCleanActivity","扫描完了")
+            Log.d("FileCleanActivity", "扫描完了")
         }.start()
     }
 
-    private fun scanFile(file: File){
+    private fun scanFile(file: File) {
         val index = file.path.lastIndexOf(File.separator)
         val name = file.path.substring(index)
         if (name == "Android") return

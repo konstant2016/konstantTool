@@ -25,7 +25,7 @@ object NetworkUtil {
 
     fun init(context: Context) {
         // 构建缓存
-        val mCache = Cache(context.externalCacheDir, mCacheSize)
+        val mCache = Cache(context.externalCacheDir!!, mCacheSize)
 
         // 缓存控制
         val mCacheControl = CacheControl.Builder().maxAge(mCacheTime, TimeUnit.SECONDS).build()
@@ -53,18 +53,18 @@ object NetworkUtil {
                 .get()
                 .build()
         mOkHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call?, e: IOException?) {
+            override fun onFailure(call: Call, e: IOException) {
                 Log.d("response", e.toString())
                 callback(false, e.toString().toByteArray())
             }
 
-            override fun onResponse(call: Call?, response: Response) {
-                Log.d("response:net", response.networkResponse().toString())
-                Log.d("response:cache", response.cacheResponse().toString())
+            override fun onResponse(call: Call, response: Response) {
+                Log.d("response:net", response.networkResponse.toString())
+                Log.d("response:cache", response.networkResponse.toString())
                 if (!response.isSuccessful) {
-                    callback(false, response.body()?.bytes() ?: ByteArray(0))
+                    callback(false, response.body?.bytes() ?: ByteArray(0))
                 } else {
-                    callback(true, response.body()?.bytes() ?: ByteArray(0))
+                    callback(true, response.body?.bytes() ?: ByteArray(0))
                 }
             }
         })
@@ -90,14 +90,14 @@ object NetworkUtil {
                 .get()
                 .build()
         mOkHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call?, e: IOException?) {
+            override fun onFailure(call: Call, e: IOException) {
                 progressResult.invoke(0, 1, false)
             }
 
-            override fun onResponse(call: Call?, response: Response) {
+            override fun onResponse(call: Call, response: Response) {
                 try {
-                    val inputStream = response.body()!!.byteStream()
-                    val length = response.body()!!.contentLength()
+                    val inputStream = response.body!!.byteStream()
+                    val length = response.body!!.contentLength()
                     val outputStream = FileOutputStream(File(path))
                     val bytes = ByteArray(1024)
                     var ch: Int

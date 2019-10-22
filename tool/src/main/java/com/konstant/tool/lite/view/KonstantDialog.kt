@@ -105,7 +105,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     private fun showDialog() {
-        window.apply {
+        window?.apply {
             setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL)
             decorView.setPadding(0, 0, 0, 0)
             attributes.width = WindowManager.LayoutParams.MATCH_PARENT

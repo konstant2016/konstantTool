@@ -59,7 +59,7 @@ object AppUtil {
         val manager = activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val tasks = manager.getRunningTasks(1)
         if (tasks == null || tasks.size == 0) return false
-        return TextUtils.equals(activity.componentName.className, tasks[0].topActivity.className)
+        return TextUtils.equals(activity.componentName.className, tasks[0].topActivity!!.className)
     }
 
     // 获取可以直接跳转的应用列表

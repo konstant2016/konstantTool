@@ -43,65 +43,65 @@ class AdapterWeatherHourly(private val context: Context, private val datas: List
         when (data.img) {
             0 -> {
                 if (hour in 6..18) {
-                    Picasso.with(context).load(R.drawable.weather_img_1).into(img)
+                    Picasso.get().load(R.drawable.weather_img_1).into(img)
                 } else {
-                    Picasso.with(context).load(R.drawable.weather_img_1_night).into(img)
+                    Picasso.get().load(R.drawable.weather_img_1_night).into(img)
                 }
             }
             1 -> {
                 if (hour in 6..18) {
-                    Picasso.with(context).load(R.drawable.weather_img_2).into(img)
+                    Picasso.get().load(R.drawable.weather_img_2).into(img)
                 } else {
-                    Picasso.with(context).load(R.drawable.weather_img_2_night).into(img)
+                    Picasso.get().load(R.drawable.weather_img_2_night).into(img)
                 }
             }
             2 -> {
-                Picasso.with(context).load(R.drawable.weather_img_3).into(img)
+                Picasso.get().load(R.drawable.weather_img_3).into(img)
             }
             3 -> {
-                Picasso.with(context).load(R.drawable.weather_img_4).into(img)
+                Picasso.get().load(R.drawable.weather_img_4).into(img)
             }
             4 -> {
-                Picasso.with(context).load(R.drawable.weather_img_5).into(img)
+                Picasso.get().load(R.drawable.weather_img_5).into(img)
             }
             5 -> {
-                Picasso.with(context).load(R.drawable.weather_img_6).into(img)
+                Picasso.get().load(R.drawable.weather_img_6).into(img)
             }
             6 -> {
-                Picasso.with(context).load(R.drawable.weather_img_7).into(img)
+                Picasso.get().load(R.drawable.weather_img_7).into(img)
             }
             7 -> {
-                Picasso.with(context).load(R.drawable.weather_img_8).into(img)
+                Picasso.get().load(R.drawable.weather_img_8).into(img)
             }
             8 -> {
-                Picasso.with(context).load(R.drawable.weather_img_9).into(img)
+                Picasso.get().load(R.drawable.weather_img_9).into(img)
             }
             9 -> {
-                Picasso.with(context).load(R.drawable.weather_img_10).into(img)
+                Picasso.get().load(R.drawable.weather_img_10).into(img)
             }
             10 -> {
-                Picasso.with(context).load(R.drawable.weather_img_11).into(img)
+                Picasso.get().load(R.drawable.weather_img_11).into(img)
             }
             11 -> {
-                Picasso.with(context).load(R.drawable.weather_img_12).into(img)
+                Picasso.get().load(R.drawable.weather_img_12).into(img)
             }
             12 -> {
-                Picasso.with(context).load(R.drawable.weather_img_13).into(img)
+                Picasso.get().load(R.drawable.weather_img_13).into(img)
             }
             13 -> {
-                Picasso.with(context).load(R.drawable.weather_img_14).into(img)
+                Picasso.get().load(R.drawable.weather_img_14).into(img)
             }
             14 -> {
-                Picasso.with(context).load(R.drawable.weather_img_15).into(img)
+                Picasso.get().load(R.drawable.weather_img_15).into(img)
             }
             15 -> {
-                Picasso.with(context).load(R.drawable.weather_img_16).into(img)
+                Picasso.get().load(R.drawable.weather_img_16).into(img)
             }
             30 -> {
-                Picasso.with(context).load(R.drawable.weather_img_17).into(img)
+                Picasso.get().load(R.drawable.weather_img_17).into(img)
             }
             17 -> {
-                Picasso.with(context).load(R.drawable.weather_img_18).into(img)
+                Picasso.get().load(R.drawable.weather_img_18).into(img)
             }
         }
     }

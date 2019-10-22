@@ -118,7 +118,7 @@ class ImageSelector : Activity() {
                 clipPhoto(uri)
             }
             PHOTO_REQUEST -> {
-                data?.let { clipPhoto(it.data) }
+                data?.let { clipPhoto(it.data!!) }
             }
             PHOTO_CLIP -> {
                 mCallback.invoke(true)

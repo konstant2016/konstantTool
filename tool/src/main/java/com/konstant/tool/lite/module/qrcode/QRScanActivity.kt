@@ -12,8 +12,8 @@ import android.view.animation.AnimationUtils
 import com.alibaba.fastjson.JSON
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.util.PermissionRequester
 import com.mylhyl.zxing.scanner.decode.QRDecode
-import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_qrscan.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -75,14 +75,13 @@ class QRScanActivity : BaseActivity() {
 
     // 请求权限
     private fun requestPermission() {
-        AndPermission.with(this)
-                .permission(Manifest.permission.CAMERA)
-                .onGranted {
+        PermissionRequester.requestPermission(this,
+                mutableListOf(Manifest.permission.CAMERA),
+                {
                     layout_scan.restartPreviewAfterDelay(500)
                     layout_scan.onResume()
-                }
-                .onDenied { showToast("需要摄像头权限用以扫描二维码") }
-                .start()
+                },
+                { showToast("需要摄像头权限用以扫描二维码") })
     }
 
 

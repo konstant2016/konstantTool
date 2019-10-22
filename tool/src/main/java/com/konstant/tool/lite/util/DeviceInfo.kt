@@ -37,23 +37,27 @@ object DeviceInfo {
 
     // 获取厂商信息
     fun getDeviceFactory(): String {
-        return android.os.Build.MANUFACTURER
+        return Build.MANUFACTURER
     }
 
     // 获取手机型号
     fun getDeviceType(): String {
-        return android.os.Build.MODEL
+        return Build.MODEL
     }
 
     // 获取安卓版本
     fun getAndroidVersion(): String {
-        return android.os.Build.VERSION.RELEASE
+        return Build.VERSION.RELEASE
     }
 
     // 获取ICCID
     fun getCurrentIccid(context: Context): String {
-        val service = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        return service.simSerialNumber?:""
+        return try {
+            val service = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+            service.simSerialNumber ?: ""
+        } catch (exception: Exception) {
+            ""
+        }
     }
 
 
@@ -66,7 +70,7 @@ object DeviceInfo {
 
     // 获取主机地址
     fun getDeviceHost(): String {
-        return android.os.Build.HOST
+        return Build.HOST
     }
 
     // 获取设备唯一标识符
@@ -76,13 +80,13 @@ object DeviceInfo {
 
     // 获取系统API级别
     fun getDeviceAPILevel(): Int {
-        return android.os.Build.VERSION.SDK_INT
+        return Build.VERSION.SDK_INT
     }
 
     // 获取当前ROM类型
     fun getROMType(): String {
         try {
-            val method: Method? = Class.forName("android.os.Build")?.getMethod("hasSmartBar")
+            val method: Method? = Class.forName("Build").getMethod("hasSmartBar")
             if (method != null) return "Flyme"
 
             val properties = Properties()
@@ -93,11 +97,11 @@ object DeviceInfo {
             val property1 = properties.getProperty("ro.miui.ui.version.name")
             if (property1 != null) return "MIUI"
 
-            return "unknown"
+            return ""
         } catch (e: Exception) {
 
         }
-        return "unknown"
+        return ""
     }
 
 
@@ -110,14 +114,13 @@ object DeviceInfo {
             properties.load(inputStream)
             return properties.getProperty("ro.build.version.incremental") ?: "unknown"
         } catch (exc: Exception) {
-            return "unknown"
+            return ""
         }
-
     }
 
     // 获取当前WIFI信息
-    fun getWIFIInfo(context: Context): WifiInfo? {
-        val manager = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
+    fun getWiFiInfo(context: Context): WifiInfo? {
+        val manager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         return if (manager.isWifiEnabled) manager.connectionInfo else null
     }
 
@@ -128,7 +131,7 @@ object DeviceInfo {
             for (nif in all) {
                 if (nif.name != "wlan0") continue
 
-                val macBytes = nif.getHardwareAddress() ?: return ""
+                val macBytes = nif.hardwareAddress ?: return ""
 
                 val res1 = StringBuilder()
                 for (b in macBytes) {
@@ -142,7 +145,6 @@ object DeviceInfo {
             }
         } catch (ex: Exception) {
         }
-
         return "02:00:00:00:00:00"
     }
 
@@ -154,7 +156,7 @@ object DeviceInfo {
             val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
             manager.getDeviceId(slotId)
         } catch (ex: Exception) {
-            "unknown"
+            ""
         }
     }
 
@@ -166,7 +168,7 @@ object DeviceInfo {
             val declaredMethod = clazz.getDeclaredMethod("getSubscriberId", Int::class.java)
             declaredMethod.invoke(manager, slotId) as String
         } catch (ex: Exception) {
-            "unknown"
+            ""
         }
     }
 }

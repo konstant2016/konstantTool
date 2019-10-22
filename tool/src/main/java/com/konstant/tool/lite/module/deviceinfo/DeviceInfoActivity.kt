@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.DeviceInfo
-import com.yanzhenjie.permission.AndPermission
+import com.konstant.tool.lite.util.PermissionRequester
 import kotlinx.android.synthetic.main.activity_device_info.*
 
 
@@ -26,27 +26,22 @@ class DeviceInfoActivity : BaseActivity() {
         judgePermission()
     }
 
-
     private fun judgePermission() {
-        AndPermission.with(this)
-                .permission(Manifest.permission.READ_PHONE_STATE)
-                .onDenied { showToast("权限申请已被拒绝") }
-                .onGranted { readDeviceInfo() }
-                .start()
+        PermissionRequester.requestPermission(this,
+                mutableListOf(Manifest.permission.READ_PHONE_STATE),
+                { readDeviceInfo() },
+                { showToast("权限申请已被拒绝，部分信息无法展示");readDeviceInfo() })
     }
 
-
     private fun readDeviceInfo() {
-        val act = this
-        val wifiInfo = DeviceInfo.getWIFIInfo(this)
+        val wifiInfo = DeviceInfo.getWiFiInfo(this)
 
         device_info.apply {
             append("\n当前连接的WiFi名字：" + wifiInfo?.ssid)
-            append("\n\n当前连接的WiFi的mac地址：" + wifiInfo?.bssid?.toUpperCase())
-            append("\n\n本机Mac地址：" + DeviceInfo.getDeviceMACAddress())
+            append("\n\n当前连接的WiFi的MAC地址：" + wifiInfo?.bssid?.toUpperCase())
+            append("\n\n本机MAC地址：" + DeviceInfo.getDeviceMACAddress())
 
-            val manager = act.packageManager
-            val info = manager.getPackageInfo(act.packageName, 0)
+            val info = packageManager.getPackageInfo(packageName, 0)
             append("\n\n当前versionName：" + info.versionName)
             append("\n\n当前versionCode：" + info.versionCode)
 
@@ -63,19 +58,19 @@ class DeviceInfoActivity : BaseActivity() {
 
             append("\n\n主机地址HOST：" + DeviceInfo.getDeviceHost())
 
-            append("\n\n设备唯一标识符：" + DeviceInfo.getDeviceFingerprint(act))
+            append("\n\n设备唯一标识符：" + DeviceInfo.getDeviceFingerprint(this@DeviceInfoActivity))
 
-            append("\n\n当前ICCID：${DeviceInfo.getCurrentIccid(act)}")
+            append("\n\n当前ICCID：${DeviceInfo.getCurrentIccid(this@DeviceInfoActivity)}")
 
-            append("\n\n是否存在实体SIM卡：${DeviceInfo.isSimExist(act)}")
+            append("\n\n是否存在实体SIM卡：${DeviceInfo.isSimExist(this@DeviceInfoActivity)}")
 
-            append("\n\nIMEI(卡一)：" + DeviceInfo.getDeviceMEIBySlotId(act, 0))
+            append("\n\nIMEI(卡一)：" + DeviceInfo.getDeviceMEIBySlotId(this@DeviceInfoActivity, 0))
 
-            append("\n\nIMEI(卡二)：" + DeviceInfo.getDeviceMEIBySlotId(act, 1))
+            append("\n\nIMEI(卡二)：" + DeviceInfo.getDeviceMEIBySlotId(this@DeviceInfoActivity, 1))
 
-            append("\n\nIMSI(卡一)：" + DeviceInfo.getDeviceIMSIBySlotId(act, 0))
+            append("\n\nIMSI(卡一)：" + DeviceInfo.getDeviceIMSIBySlotId(this@DeviceInfoActivity, 0))
 
-            append("\n\nIMSI(卡二)：" + DeviceInfo.getDeviceIMSIBySlotId(act, 1))
+            append("\n\nIMSI(卡二)：" + DeviceInfo.getDeviceIMSIBySlotId(this@DeviceInfoActivity, 1))
 
             append("\n\n")
         }

@@ -5,16 +5,14 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Environment
 import android.text.TextUtils
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.util.FileUtil
+import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
 import com.mylhyl.zxing.scanner.encode.QREncode
-import com.yanzhenjie.permission.AndPermission
 import kotlinx.android.synthetic.main.activity_qrcode.*
-import java.io.File
-import java.io.FileOutputStream
 
 /**
  * 描述:二维码生成
@@ -75,29 +73,20 @@ class QRCodeActivity : BaseActivity() {
     }
 
     // 写出文件到本地
-    private fun writeToStroage(bitmap: Bitmap) {
-        val fileParent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-        val name = "${System.currentTimeMillis()}.jpg"
-        val file = File(fileParent, name)
-        try {
-            val outputStream = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
-            outputStream.flush()
-            outputStream.close()
-            showToast("保存成功")
-        } catch (e: Exception) {
-            e.printStackTrace()
-            showToast("保存失败")
+    private fun writeToStorage(bitmap: Bitmap?) {
+        bitmap.let {
+            val name = "${System.currentTimeMillis()}.jpg"
+            val result = FileUtil.saveBitmapToAlbum(bitmap = bitmap, name = name)
+            showToast(if (result) "保存成功" else "保存失败")
         }
     }
 
     // 请求权限
     private fun requestWritePermission() {
-        AndPermission.with(this)
-                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted { writeToStroage(mBitmap!!) }
-                .onDenied { showToast("您拒绝了权限申请") }
-                .start()
+        PermissionRequester.requestPermission(this,
+                mutableListOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                { writeToStorage(mBitmap) },
+                { showToast("您拒绝了权限申请") })
     }
 
 }
