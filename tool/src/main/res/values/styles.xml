@@ -127,6 +127,7 @@
     </style>
 
     <style name="TranslateTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/color_transport</item>
         <item name="android:navigationBarColor">@color/color_transport</item>
