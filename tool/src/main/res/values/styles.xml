@@ -119,15 +119,7 @@
     </style>
 
     <!--透明主题-->
-    <style name="TransparentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/color_transport</item>
-        <item name="android:windowDisablePreview">true</item>
-    </style>
-
-    <style name="TranslateTheme" parent="AppTheme">
-        <item name="android:windowFullscreen">true</item>
+    <style name="TransparentTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/color_transport</item>
         <item name="android:navigationBarColor">@color/color_transport</item>

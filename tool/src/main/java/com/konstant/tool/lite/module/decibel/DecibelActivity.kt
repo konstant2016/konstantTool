@@ -37,8 +37,8 @@ class DecibelActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("分贝测试仪")
         setContentView(R.layout.activity_decibel)
+        setTitle("分贝测试仪")
         initBaseViews()
         requestPermission()
     }

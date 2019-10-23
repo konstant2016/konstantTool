@@ -28,11 +28,15 @@ object DeviceInfo {
 
     // 获取当前CPU型号
     fun getCPUModel(): String {
-        val file = File("proc/cpuinfo")
-        val inputStream = FileInputStream(file)
-        val properties = Properties()
-        properties.load(inputStream)
-        return properties.getProperty("Hardware")
+        return try {
+            val file = File("proc/cpuinfo")
+            val inputStream = FileInputStream(file)
+            val properties = Properties()
+            properties.load(inputStream)
+            properties.getProperty("Hardware")
+        } catch (e: Exception) {
+            ""
+        }
     }
 
     // 获取厂商信息

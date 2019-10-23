@@ -13,14 +13,28 @@
         android:background="?attr/tool_main_color" />
 
     <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:minHeight="30dp"
+        android:text="提示"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:minHeight="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
+        android:minHeight="50dp"
         android:text="这是message这是message"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />

@@ -26,15 +26,15 @@ class H5Activity : BaseActivity() {
     companion object {
         private val TAG = "H5Activity"
         val H5_URL = "url"
-        val H5_BROWSER = "browser"
+        val H5_BROWSER = "browser"  // 是否用浏览器打开
     }
 
     private lateinit var mPop: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("加载中...")
         setContentView(R.layout.activity_h5)
+        setTitle("加载中...")
         initBaseViews()
         val url = intent.getStringExtra(H5_URL)
         val browser = intent.getBooleanExtra(H5_BROWSER, false)

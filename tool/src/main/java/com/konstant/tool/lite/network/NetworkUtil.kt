@@ -45,14 +45,18 @@ object NetworkUtil {
     }
 
     // 发起get请求
-    fun get(url: String, param: String = "", callback: (state: Boolean, data: ByteArray) -> Unit) {
+    fun get(header: Map<String, String> = HashMap(), url: String, param: String = "", callback: (state: Boolean, data: ByteArray) -> Unit) {
         val s = buildGetMethodUrl(param)
         Log.i("get请求参数", url + s)
-        val request = Request.Builder()
+        val builder = Request.Builder()
                 .url(url + s)
                 .get()
-                .build()
-        mOkHttpClient.newCall(request).enqueue(object : Callback {
+        if (header.isNotEmpty()) {
+            for (entry in header) {
+                builder.addHeader(entry.key, entry.value)
+            }
+        }
+        mOkHttpClient.newCall(builder.build()).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.d("response", e.toString())
                 callback(false, e.toString().toByteArray())

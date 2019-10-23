@@ -42,8 +42,8 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("菜籽工具箱")
         setContentView(R.layout.activity_main)
+        setTitle("菜籽工具箱")
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
     }
@@ -89,6 +89,9 @@ class MainActivity : BaseActivity() {
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 
         img_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
+
+        if (SettingManager.getAutoCheckUpdate(this)) UpdateManager.autoCheckoutUpdate()
+
     }
 
 

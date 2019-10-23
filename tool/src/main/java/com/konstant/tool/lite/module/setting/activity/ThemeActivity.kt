@@ -21,8 +21,8 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("主题设置")
         setContentView(R.layout.activity_theme)
+        setTitle("主题设置")
         initBaseViews()
     }
 

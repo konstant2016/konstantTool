@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.os.Environment
 import android.util.Log
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.base.KonApplication.Companion.context
 import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.util.FileUtil
 import org.greenrobot.eventbus.EventBus
@@ -23,6 +24,7 @@ import java.io.File
 object SettingManager {
 
     private const val NAME_SELECTED_THEME = "selectedTheme"
+    private const val NAME_AUTO_UPDATE = "autoUpdate"
     private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
     private const val NAME_BROWSER_TYPE = "browserStatus"
     private const val EXIT_TIPS_STATUS = "exitTipsStatus"
@@ -51,7 +53,7 @@ object SettingManager {
 
     // 适配系统暗黑模式
     fun setAdapterDarkMode(context: Context, status: Boolean) {
-        Log.d("SettingManager","黑暗模式："+status)
+        Log.d("SettingManager", "黑暗模式：$status")
         FileUtil.saveDataToSp(context, ADAPTER_DARK_MODE, status)
     }
 
@@ -113,6 +115,14 @@ object SettingManager {
     // 保存：用什么浏览器打开网页
     fun saveBrowserType(context: Context, type: Int) {
         FileUtil.saveDataToSp(context, NAME_BROWSER_TYPE, type)
+    }
+
+    // 读取：是否自动检查更新
+    fun getAutoCheckUpdate(context: Context) = FileUtil.readDataFromSp(context, NAME_AUTO_UPDATE, false)
+
+    // 保存：是否自动检查更新
+    fun saveAutoCheckUpdate(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, NAME_AUTO_UPDATE, status)
     }
 
 }

@@ -9,8 +9,6 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
-import androidx.drawerlayout.widget.DrawerLayout
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -19,6 +17,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.date.DateCalculationActivity
@@ -64,9 +63,17 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppUtil.addActivity(this)
+    }
+
+    override fun setContentView(layoutResID: Int) {
         setTheme(SettingManager.getTheme(this))
         super.setContentView(R.layout.activity_base)
+        layoutInflater.inflate(layoutResID, base_content, true)
+        initUserInterface()
+    }
 
+    private fun initUserInterface() {
         EventBus.getDefault().register(this)
         // 沉浸状态栏
         supportActionBar?.hide()
@@ -89,15 +96,8 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         // 滑动返回
         onSwipeBackChanged(SwipeBackStatus(SettingManager.getSwipeBackStatus(this)))
-
         initDrawLayout()
-
         onUserHeaderChanged(UserHeaderChanged())
-
-    }
-
-    override fun setContentView(layoutResID: Int) {
-        layoutInflater.inflate(layoutResID, base_content, true)
     }
 
     // 更换主题，主题切换时，重新打开自身，避免界面闪烁
@@ -274,8 +274,9 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         EventBus.getDefault().unregister(this)
+        AppUtil.removeActivity(this)
+        super.onDestroy()
     }
 
     protected fun startActivity(cls: Class<*>) {

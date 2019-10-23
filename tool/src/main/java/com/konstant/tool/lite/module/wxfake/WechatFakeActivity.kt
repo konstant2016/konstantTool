@@ -33,13 +33,13 @@ class WechatFakeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showTitleBar(false)
+        setContentView(R.layout.activity_wechat_fake)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }else{
             window.statusBarColor = Color.BLACK
         }
-        setContentView(R.layout.activity_wechat_fake)
+        showTitleBar(false)
         initBaseViews()
     }
 

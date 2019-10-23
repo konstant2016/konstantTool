@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.H5Activity
+import com.konstant.tool.lite.base.UpdateManager
 import kotlinx.android.synthetic.main.activity_about.*
 
 /**
@@ -39,5 +40,8 @@ class AboutActivity : BaseActivity() {
                 }
             }
         }
+
+        tv_update.setOnClickListener { UpdateManager.checkoutUpdate() }
     }
+
 }

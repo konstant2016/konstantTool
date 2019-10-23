@@ -1,5 +1,6 @@
 package com.konstant.tool.lite.util
 
+import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
@@ -16,8 +17,11 @@ import com.konstant.tool.lite.base.KonApplication
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.util.*
 
 object AppUtil {
+
+    private val activityStack = Stack<BaseActivity>()
 
     // 获取应用列表
     fun getPackageInfoList(): List<PackageInfo> {
@@ -94,5 +98,18 @@ object AppUtil {
                 callback.invoke(false)
             }
         }.start()
+    }
+
+    fun addActivity(activity: BaseActivity) {
+        activityStack.add(activity)
+    }
+
+    fun removeActivity(activity: BaseActivity) {
+        activityStack.remove(activity)
+    }
+
+    fun getTopActivity(): BaseActivity? {
+        if (activityStack.size == 0) return null
+        return activityStack.peek()
     }
 }

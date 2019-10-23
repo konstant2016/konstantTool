@@ -12,6 +12,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 
 /**
@@ -31,7 +32,7 @@ import java.io.File
  *      当接口回调false时，基本上用户手动取消了操作，调用者可根据此结果做响应处理
  */
 
-class ImageSelector : Activity() {
+class ImageSelector : AppCompatActivity() {
 
     companion object {
 
@@ -103,6 +104,7 @@ class ImageSelector : Activity() {
 
     // 本activity调用系统的API获取数据后得到的结果，并对结果进行处理
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != RESULT_OK) {
             mCallback.invoke(false)
             finish()
@@ -156,7 +158,7 @@ class ImageSelector : Activity() {
         }
     }
 
-    // 隐藏系统的状态栏 以及 任务栏
+    // 导航栏隐藏，状态栏全透明
     private fun invasionStatusBar(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity.window

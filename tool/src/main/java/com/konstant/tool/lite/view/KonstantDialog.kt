@@ -20,6 +20,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
 
     private var hideNavigation = false
     private var message: String = ""
+    private var title: String = ""
     private var view: View? = null           // 内部填充的布局
 
     private var positiveListener: ((KonstantDialog) -> Unit)? = null     // 确认按钮按下后
@@ -27,6 +28,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     private var checkedChangeListener: ((state: Boolean) -> Unit)? = null// checkbox状态监听
 
     private lateinit var root: View
+
+    // 设置标题
+    fun setTitle(msg: String): KonstantDialog {
+        title = msg
+        return this
+    }
 
     // 设置信息
     fun setMessage(msg: String): KonstantDialog {
@@ -78,6 +85,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
             root.tv_message.text = message
         } else {
             root.tv_message.visibility = View.GONE
+        }
+
+        if (title.isNotEmpty()) {
+            root.tv_title.text = title
+        } else {
+            root.tv_title.visibility = View.GONE
         }
 
         if (checkedChangeListener != null) {

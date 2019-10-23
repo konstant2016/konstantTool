@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:name=".base.KonApplication"
@@ -64,7 +65,7 @@
         <activity
             android:name=".util.PermissionRequester"
             android:configChanges="uiMode"
-            android:theme="@style/TranslateTheme" />
+            android:theme="@style/TransparentTheme" />
         <activity
             android:name=".module.wxfake.WechatFakeActivity"
             android:theme="@style/WechatFakeActivity" />
@@ -172,6 +173,10 @@
         </provider>
 
         <service android:name="com.amap.api.location.APSService" />
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="3ad320223c3abf107a51f0f46bbe718c" >
+        </meta-data>
     </application>
 
 </manifest>

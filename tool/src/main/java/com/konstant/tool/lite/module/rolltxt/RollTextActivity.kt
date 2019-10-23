@@ -20,9 +20,9 @@ class RollTextActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_roll_text)
         initBaseViews()
         setTitle("全屏滚动文字")
-        setContentView(R.layout.activity_roll_text)
         btn_create.setOnClickListener { onBtnPressed() }
         layout_roll.setOnClickListener { hideSoftKeyboard() }
     }

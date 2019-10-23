@@ -67,6 +67,11 @@ class SettingActivity : BaseActivity() {
         layout_browser.setOnClickListener { onBrowserClick() }
         layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
 
+        // 自动检查更新
+        switch_update.isChecked = SettingManager.getAutoCheckUpdate(this)
+        switch_update.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveAutoCheckUpdate(this, isChecked) }
+        layout_update.setOnClickListener { switch_update.isChecked = !switch_update.isChecked }
+
         // 适配系统暗黑主题
         switch_dark.isChecked = SettingManager.getAdapterDarkMode(this)
         switch_dark.setOnCheckedChangeListener { _, isChecked ->
