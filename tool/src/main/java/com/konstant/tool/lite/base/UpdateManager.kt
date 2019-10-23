@@ -44,11 +44,11 @@ object UpdateManager {
     fun checkoutUpdate() {
         checkUpdate { status, newVersion, versionName, describe, url ->
             if (!status) {
-                Toast.makeText(KonApplication.context, "检查失败，可能是网络或者服务器挂了", Toast.LENGTH_LONG).show()
+                AppUtil.getTopActivity()?.showToast("检查失败，可能是网络或者服务器挂了")
                 return@checkUpdate
             }
             if (!newVersion) {
-                Toast.makeText(KonApplication.context, "当前已经是最新版本", Toast.LENGTH_LONG).show()
+                AppUtil.getTopActivity()?.showToast("当前已经是最新版本")
                 return@checkUpdate
             }
             showUpdateDialog(versionName, describe, url)

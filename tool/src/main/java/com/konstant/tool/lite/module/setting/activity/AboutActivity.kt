@@ -41,7 +41,11 @@ class AboutActivity : BaseActivity() {
             }
         }
 
-        tv_update.setOnClickListener { UpdateManager.checkoutUpdate() }
+        tv_update.apply {
+            paint.flags = Paint.UNDERLINE_TEXT_FLAG
+            paint.isAntiAlias = true
+            setOnClickListener { UpdateManager.checkoutUpdate() }
+        }
     }
 
 }

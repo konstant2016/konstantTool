@@ -7,7 +7,6 @@ import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.network.NetworkUtil
 import com.konstant.tool.lite.util.Density
-import com.pgyersdk.crash.PgyCrashManager
 
 /**
  * 描述:整个应用的application
