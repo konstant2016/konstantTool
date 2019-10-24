@@ -3,13 +3,13 @@ package com.konstant.tool.lite.module.weather.fragment
 import android.content.Context
 import android.text.TextUtils
 import android.util.Log
-import com.alibaba.fastjson.JSON
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.konstant.tool.lite.module.weather.data.CountryManager
-import com.konstant.tool.lite.module.weather.server.WeatherResponse
-import com.konstant.tool.lite.network.NetService
+import com.konstant.tool.lite.network.NetworkHelper
+import com.konstant.tool.lite.network.response.WeatherResponse
+import io.reactivex.disposables.CompositeDisposable
 import kotlin.concurrent.thread
 
 /**
@@ -18,7 +18,7 @@ import kotlin.concurrent.thread
  * 描述：查询天气信息，获取定位信息，经纬度转位置，位置转城市编码等
  */
 
-class WeatherPresenter(private val context: Context) {
+class WeatherPresenter(private val context: Context, private val mDisposable: CompositeDisposable) {
 
     private val TAG = "WeatherPresenter"
     private val locationClient by lazy { AMapLocationClient(context) }
@@ -40,7 +40,7 @@ class WeatherPresenter(private val context: Context) {
             Log.d(TAG, "省：" + location.province + "，市：" + location.city + "，区：" + location.district)
             getCodeWithAddress(location.province, location.city, location.district) { weatherCode ->
                 getWeatherWithCode(weatherCode) { weather ->
-                    if (!weather.isSuccess) {
+                    if (weather.weather == null) {
                         result.onWeatherError()
                         return@getWeatherWithCode
                     }
@@ -83,10 +83,10 @@ class WeatherPresenter(private val context: Context) {
 
     // 根据位置编码获取天气信息
     fun getWeatherWithCode(code: String, result: (response: WeatherResponse) -> Unit) {
-        NetService.getWeatherWithCode(code) {
-            Log.d(TAG, "查询天气结果:" + JSON.toJSON(it))
-            result.invoke(it)
-        }
+        val disposable = NetworkHelper.getWeatherWithCode(code)
+                .onErrorReturn { WeatherResponse() }
+                .subscribe { result.invoke(it) }
+        mDisposable.add(disposable)
     }
 
     // 页面退出时调用，避免内存泄漏

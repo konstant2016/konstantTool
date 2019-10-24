@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.data.AreaManager
-import com.konstant.tool.lite.data.entity.China
+import com.konstant.tool.lite.data.weather.China
 import kotlinx.android.synthetic.main.layout_dialog_city_selector.view.*
 
 /**

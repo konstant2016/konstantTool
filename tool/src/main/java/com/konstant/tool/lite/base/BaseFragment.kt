@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.konstant.tool.lite.module.weather.param.SubTitleChanged
 import com.konstant.tool.lite.module.weather.param.TitleChanged
+import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -22,6 +23,7 @@ import org.greenrobot.eventbus.EventBus
 open class BaseFragment : androidx.fragment.app.Fragment() {
 
     protected lateinit var mActivity: Activity
+    protected val mDisposable = CompositeDisposable()
 
     private var isViewCreated = false
     protected var mIsVisibleToUser = false
@@ -95,5 +97,10 @@ open class BaseFragment : androidx.fragment.app.Fragment() {
         mActivity.runOnUiThread {
             Toast.makeText(mActivity.applicationContext, msg, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onDestroy() {
+        mDisposable.dispose()
+        super.onDestroy()
     }
 }

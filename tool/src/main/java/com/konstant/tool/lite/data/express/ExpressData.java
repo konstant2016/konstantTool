@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.express.server;
+package com.konstant.tool.lite.data.express;
 
 import androidx.annotation.Keep;
 import android.text.TextUtils;

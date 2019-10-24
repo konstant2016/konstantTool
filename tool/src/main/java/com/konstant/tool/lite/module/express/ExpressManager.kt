@@ -1,8 +1,9 @@
-package com.konstant.tool.lite.module.express.data
+package com.konstant.tool.lite.module.express
 
 import android.content.Context
-import com.alibaba.fastjson.JSON
-import com.konstant.tool.lite.module.express.server.ExpressData
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.konstant.tool.lite.data.express.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
@@ -22,14 +23,14 @@ object ExpressManager {
     fun onCreate(context: Context) {
         val temp = FileUtil.readFileFromFile(context, NAME_LOCAL_EXPRESS)
         if (temp.isNotEmpty()) {
-            val array = JSON.parseArray(String(temp), ExpressData::class.java)
+            val array = Gson().fromJson<List<ExpressData>>(String(temp), object : TypeToken<List<ExpressData>>() {}.type)
             mExpressList.addAll(array)
         }
     }
 
     // APP退出的时候，把数据保存到本地
     fun onDestroy(context: Context) {
-        val json = JSON.toJSONString(mExpressList)
+        val json = Gson().toJson(mExpressList)
         Executors.newSingleThreadExecutor().execute {
             FileUtil.saveFileToFile(context, NAME_LOCAL_EXPRESS, json.toByteArray())
         }

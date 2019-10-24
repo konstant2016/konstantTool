@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.weather.server;
+package com.konstant.tool.lite.network.response;
 
 import androidx.annotation.Keep;
 
@@ -13,16 +13,6 @@ import java.util.List;
 
 @Keep
 public class WeatherResponse {
-
-    private boolean isSuccess;
-
-    public boolean isSuccess() {
-        return isSuccess;
-    }
-
-    public void setSuccess(boolean success) {
-        isSuccess = success;
-    }
 
     /**
      * history : {}

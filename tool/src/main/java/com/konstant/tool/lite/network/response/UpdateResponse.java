@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.setting;
+package com.konstant.tool.lite.network.response;
 
 public class UpdateResponse {
 

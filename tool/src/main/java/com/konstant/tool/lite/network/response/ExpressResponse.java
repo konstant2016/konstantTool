@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.express.server;
+package com.konstant.tool.lite.network.response;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
 * 描述：菜鸟裹裹物流查询的返回体
 */
 
-public class ExpressResponseGuoGuo {
+public class ExpressResponse {
 
 
     /**

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data.entity;
+package com.konstant.tool.lite.data.weather;
 
 /**
  * 时间：2018/8/1 16:25

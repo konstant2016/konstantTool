@@ -1,14 +1,12 @@
-package com.konstant.tool.lite.network
+package com.konstant.tool.lite.network.config
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
-import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 /**
  * 时间：2019/5/5 16:34
@@ -16,12 +14,13 @@ import java.util.concurrent.TimeUnit
  * 描述：网络拦截器
  */
 
-class BasicParamsInterceptor(val context: Context) : Interceptor {
+class NetworkInterceptor(val context: Context) : Interceptor {
 
     private val map = HashMap<String, Int>()
+    private val URL_EXPRESS_GUOGUO = "http://coldsong.cn/letter/api/v1/kuaidi.php"
 
     init {
-        map[Constant.URL_EXPRESS_GUOGUO] = 60 * 30
+        map[URL_EXPRESS_GUOGUO] = 60 * 30
     }
 
     @Throws(IOException::class)
@@ -35,6 +34,7 @@ class BasicParamsInterceptor(val context: Context) : Interceptor {
          *      1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
          *      2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
          */
+        Log.d("请求链接", chain.request().url.toString())
         val cacheTime = getCacheTime(chain.request().url.host)
         val time = if (cacheTime == 0) 60 * 60 * 12 else cacheTime
         val response = chain.proceed(chain.request())

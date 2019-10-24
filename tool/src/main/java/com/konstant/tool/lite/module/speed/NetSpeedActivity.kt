@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.network.NetService
+import com.konstant.tool.lite.network.NetworkHelper
+import com.konstant.tool.lite.network.config.FileDownloader
 import kotlinx.android.synthetic.main.activity_net_speed.*
 import java.text.DecimalFormat
 
@@ -36,16 +37,17 @@ class NetSpeedActivity : BaseActivity() {
             btn_start.isClickable = false
             val time = System.currentTimeMillis()
             tv_result.text = "测试中..."
-            NetService.downloadSafe(max) { percent, _, status ->
-                runOnUiThread {
-                    view_progress.progress = ((percent * 100 / max).toInt())
-                    tv_percent.text = "${percent * 100 / max}%"
-                    if (percent >= max) {
+
+            NetworkHelper.getSpeed(max, object : FileDownloader.DownloadListener {
+                override fun onProgress(current: Long, total: Long) {
+                    view_progress.progress = ((current * 100 / max).toInt())
+                    tv_percent.text = "${current * 100 / max}%"
+                    if (current >= max) {
                         tv_result.text = speedConvert(System.currentTimeMillis() - time, max)
                         btn_start.isClickable = true
                     }
                 }
-            }
+            })
         }
     }
 

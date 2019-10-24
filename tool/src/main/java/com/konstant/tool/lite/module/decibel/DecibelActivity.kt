@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_decibel.*
 import java.io.File
 import java.lang.ref.WeakReference
 import java.text.DecimalFormat
+import kotlin.math.log10
 
 /**
  * 时间：2019/4/30 18:20
@@ -82,7 +83,7 @@ class DecibelActivity : BaseActivity() {
 
     private fun updateViews() {
         val amplitude = mediaRecorder.maxAmplitude.toDouble()
-        val value = numAccuracy(Math.log10(amplitude).toFloat() * 20)
+        val value = numAccuracy(log10(amplitude).toFloat() * 20)
         startRecord()
         if (value == 0f) return
         current_value.text = "$value"

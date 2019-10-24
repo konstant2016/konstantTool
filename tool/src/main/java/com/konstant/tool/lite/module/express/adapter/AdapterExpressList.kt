@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.module.express.server.ExpressData
+import com.konstant.tool.lite.data.express.ExpressData
 import com.konstant.tool.lite.util.CircleTransform
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_express_list.view.*

@@ -17,7 +17,7 @@ import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
-import com.konstant.tool.lite.module.weather.server.WeatherResponse
+import com.konstant.tool.lite.network.response.WeatherResponse
 import com.konstant.tool.lite.util.PermissionRequester
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
@@ -37,7 +37,7 @@ import java.text.SimpleDateFormat
 
 class WeatherFragment : BaseFragment() {
 
-    private val mPresenter by lazy { WeatherPresenter(mActivity) }
+    private val mPresenter by lazy { WeatherPresenter(mActivity, mDisposable) }
 
     private val mListHour = ArrayList<WeatherResponse.HourlyForecastBean>()
     private val mAdapterHour by lazy { AdapterWeatherHourly(mActivity, mListHour) }
@@ -140,10 +140,10 @@ class WeatherFragment : BaseFragment() {
     private fun requestWeatherWithCode(directCode: String) {
         mPresenter.getWeatherWithCode(directCode) {
             stopRefreshAnim()
-            if (it.isSuccess) {
-                updateUI(it)
-            } else {
+            if (it.weather == null){
                 showToast("天气信息请求失败")
+            }else{
+                updateUI(it)
             }
         }
     }

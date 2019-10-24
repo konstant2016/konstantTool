@@ -1,6 +1,4 @@
-package com.konstant.tool.lite.module.translate.server;
-
-import androidx.annotation.Keep;
+package com.konstant.tool.lite.network.response;
 
 import java.util.List;
 
@@ -8,7 +6,6 @@ import java.util.List;
  * Created by konstant on 2018/1/13.
  */
 
-@Keep
 public class TranslateResponse {
 
     /**

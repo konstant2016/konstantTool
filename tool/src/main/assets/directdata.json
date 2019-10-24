@@ -1706,11 +1706,11 @@
         {
           "id": "0803",
           "name": "乌海",
-          "county": {
+          "county": [{
             "id": "080301",
             "name": "乌海",
             "weatherCode": "101080301"
-          }
+          }]
         },
         {
           "id": "0804",
@@ -4334,11 +4334,11 @@
         {
           "id": "1111",
           "name": "杨凌",
-          "county": {
+          "county": [{
             "id": "111101",
             "name": "杨凌",
             "weatherCode": "101111101"
-          }
+          }]
         }
       ]
     },
@@ -5004,11 +5004,11 @@
         {
           "id": "1216",
           "name": "莱芜",
-          "county": {
+          "county": [{
             "id": "121601",
             "name": "莱芜",
             "weatherCode": "101121601"
-          }
+          }]
         },
         {
           "id": "1217",
@@ -5286,11 +5286,11 @@
         {
           "id": "1307",
           "name": "阿拉尔",
-          "county": {
+          "county": [{
             "id": "130701",
             "name": "阿拉尔",
             "weatherCode": "101130701"
-          }
+          }]
         },
         {
           "id": "1308",
@@ -6921,11 +6921,11 @@
         {
           "id": "1614",
           "name": "嘉峪关",
-          "county": {
+          "county": [{
             "id": "161401",
             "name": "嘉峪关",
             "weatherCode": "101161401"
-          }
+          }]
         }
       ]
     },
@@ -7789,11 +7789,11 @@
         {
           "id": "1818",
           "name": "济源",
-          "county": {
+          "county": [{
             "id": "181801",
             "name": "济源",
             "weatherCode": "101181801"
-          }
+          }]
         }
       ]
     },
@@ -8749,11 +8749,11 @@
         {
           "id": "2012",
           "name": "神农架",
-          "county": {
+          "county": [{
             "id": "201201",
             "name": "神农架",
             "weatherCode": "101201201"
-          }
+          }]
         },
         {
           "id": "2013",
@@ -8805,29 +8805,29 @@
         {
           "id": "2015",
           "name": "天门",
-          "county": {
+          "county": [{
             "id": "201501",
             "name": "天门",
             "weatherCode": "101201501"
-          }
+          }]
         },
         {
           "id": "2016",
           "name": "仙桃",
-          "county": {
+          "county": [{
             "id": "201601",
             "name": "仙桃",
             "weatherCode": "101201601"
-          }
+          }]
         },
         {
           "id": "2017",
           "name": "潜江",
-          "county": {
+          "county": [{
             "id": "201701",
             "name": "潜江",
             "weatherCode": "101201701"
-          }
+          }]
         }
       ]
     },
@@ -9672,11 +9672,11 @@
         {
           "id": "2213",
           "name": "铜陵",
-          "county": {
+          "county": [{
             "id": "221301",
             "name": "铜陵",
             "weatherCode": "101221301"
-          }
+          }]
         },
         {
           "id": "2214",
@@ -13055,11 +13055,11 @@
         {
           "id": "2806",
           "name": "深圳",
-          "county": {
+          "county": [{
             "id": "280601",
             "name": "深圳",
             "weatherCode": "101280601"
-          }
+          }]
         },
         {
           "id": "2807",
@@ -13393,20 +13393,20 @@
         {
           "id": "2816",
           "name": "东莞",
-          "county": {
+          "county": [{
             "id": "281601",
             "name": "东莞",
             "weatherCode": "101281601"
-          }
+          }]
         },
         {
           "id": "2817",
           "name": "中山",
-          "county": {
+          "county": [{
             "id": "281701",
             "name": "中山",
             "weatherCode": "101281701"
-          }
+          }]
         },
         {
           "id": "2818",
@@ -14838,182 +14838,182 @@
         {
           "id": "3101",
           "name": "海口",
-          "county": {
+          "county": [{
             "id": "310101",
             "name": "海口",
             "weatherCode": "101310101"
-          }
+          }]
         },
         {
           "id": "3102",
           "name": "三亚",
-          "county": {
+          "county": [{
             "id": "310201",
             "name": "三亚",
             "weatherCode": "101310201"
-          }
+          }]
         },
         {
           "id": "3103",
           "name": "东方",
-          "county": {
+          "county": [{
             "id": "310301",
             "name": "东方",
             "weatherCode": "101310202"
-          }
+          }]
         },
         {
           "id": "3104",
           "name": "临高",
-          "county": {
+          "county": [{
             "id": "310401",
             "name": "临高",
             "weatherCode": "101310203"
-          }
+          }]
         },
         {
           "id": "3105",
           "name": "澄迈",
-          "county": {
+          "county": [{
             "id": "310501",
             "name": "澄迈",
             "weatherCode": "101310204"
-          }
+          }]
         },
         {
           "id": "3106",
           "name": "儋州",
-          "county": {
+          "county": [{
             "id": "310601",
             "name": "儋州",
             "weatherCode": "101310205"
-          }
+          }]
         },
         {
           "id": "3107",
           "name": "昌江",
-          "county": {
+          "county": [{
             "id": "310701",
             "name": "昌江",
             "weatherCode": "101310206"
-          }
+          }]
         },
         {
           "id": "3108",
           "name": "白沙",
-          "county": {
+          "county": [{
             "id": "310801",
             "name": "白沙",
             "weatherCode": "101310207"
-          }
+          }]
         },
         {
           "id": "3109",
           "name": "琼中",
-          "county": {
+          "county": [{
             "id": "310901",
             "name": "琼中",
             "weatherCode": "101310208"
-          }
+          }]
         },
         {
           "id": "3110",
           "name": "定安",
-          "county": {
+          "county": [{
             "id": "311001",
             "name": "定安",
             "weatherCode": "101310209"
-          }
+          }]
         },
         {
           "id": "3111",
           "name": "屯昌",
-          "county": {
+          "county": [{
             "id": "311101",
             "name": "屯昌",
             "weatherCode": "101310210"
-          }
+          }]
         },
         {
           "id": "3112",
           "name": "琼海",
-          "county": {
+          "county": [{
             "id": "311201",
             "name": "琼海",
             "weatherCode": "101310211"
-          }
+          }]
         },
         {
           "id": "3113",
           "name": "文昌",
-          "county": {
+          "county": [{
             "id": "311301",
             "name": "文昌",
             "weatherCode": "101310212"
-          }
+          }]
         },
         {
           "id": "3114",
           "name": "保亭",
-          "county": {
+          "county": [{
             "id": "311401",
             "name": "保亭",
             "weatherCode": "101310214"
-          }
+          }]
         },
         {
           "id": "3115",
           "name": "万宁",
-          "county": {
+          "county": [{
             "id": "311501",
             "name": "万宁",
             "weatherCode": "101310215"
-          }
+          }]
         },
         {
           "id": "3116",
           "name": "陵水",
-          "county": {
+          "county": [{
             "id": "311601",
             "name": "陵水",
             "weatherCode": "101310216"
-          }
+          }]
         },
         {
           "id": "3117",
           "name": "西沙",
-          "county": {
+          "county": [{
             "id": "311701",
             "name": "西沙",
             "weatherCode": "101310217"
-          }
+          }]
         },
         {
           "id": "3118",
           "name": "南沙",
-          "county": {
+          "county": [{
             "id": "311801",
             "name": "南沙",
             "weatherCode": "101310220"
-          }
+          }]
         },
         {
           "id": "3119",
           "name": "乐东",
-          "county": {
+          "county": [{
             "id": "311901",
             "name": "乐东",
             "weatherCode": "101310221"
-          }
+          }]
         },
         {
           "id": "3120",
           "name": "五指山",
-          "county": {
+          "county": [{
             "id": "312001",
             "name": "五指山",
             "weatherCode": "101310222"
-          }
+          }]
         }
       ]
     },

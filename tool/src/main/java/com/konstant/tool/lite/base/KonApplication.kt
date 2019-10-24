@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
-import com.konstant.tool.lite.network.NetworkUtil
 import com.konstant.tool.lite.util.Density
 
 /**
@@ -26,24 +25,23 @@ class KonApplication : Application() {
         context = this
         Log.d("KonApplication","onCreate")
         Density.init(this)
-        NetworkUtil.init(applicationContext)
         KonstantDataManager.onCreate(applicationContext)
     }
 
     override fun onTerminate() {
-        Log.d("KonApplication","onTerminate")
+        Log.d("KonApplication", "onTerminate")
         KonstantDataManager.onDestroy(applicationContext)
         super.onTerminate()
     }
 
     override fun onTrimMemory(level: Int) {
         KonstantDataManager.onDestroy(applicationContext)
-        Log.d("KonApplication","onTrimMemory")
+        Log.d("KonApplication", "onTrimMemory")
         super.onTrimMemory(level)
     }
 
     override fun onLowMemory() {
-        Log.d("KonApplication","onLowMemory")
+        Log.d("KonApplication", "onLowMemory")
         KonstantDataManager.onDestroy(applicationContext)
         super.onLowMemory()
     }
@@ -52,7 +50,7 @@ class KonApplication : Application() {
         val resources = super.getResources()
         val configuration = Configuration()
         configuration.setToDefaults()
-        resources.updateConfiguration(configuration,resources.displayMetrics)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
         return resources
     }
 

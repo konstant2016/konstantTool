@@ -2,8 +2,7 @@ package com.konstant.tool.lite.base
 
 import android.content.Intent
 import android.text.TextUtils
-import android.widget.Toast
-import com.konstant.tool.lite.network.NetService
+import com.konstant.tool.lite.network.NetworkHelper
 import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantDialog
 
@@ -17,18 +16,23 @@ object UpdateManager {
      * url          下载链接
      */
     private fun checkUpdate(updateResult: (status: Boolean, newVersion: Boolean, versionName: String, describe: String, url: String) -> Unit) {
-        NetService.getUpdateVersion { response ->
-            if (response.versionCode == 0 || TextUtils.isEmpty(response.versionName)) {
-                updateResult.invoke(false, false, "", "", "")
-                return@getUpdateVersion
-            }
-            val info = KonApplication.context.packageManager.getPackageInfo(KonApplication.context.packageName, 0)
-            if (response.versionCode <= info.versionCode) {
-                updateResult.invoke(true, false, "", "", "")
-                return@getUpdateVersion
-            }
-            updateResult.invoke(true, true, response.versionName, response.updateDescribe, response.downloadUrl)
-        }
+        val disposable = NetworkHelper.getUpdate()
+                .subscribe({ response ->
+                    if (response.versionCode == 0 || TextUtils.isEmpty(response.versionName)) {
+                        updateResult.invoke(false, false, "", "", "")
+                        return@subscribe
+                    }
+                    val info = KonApplication.context.packageManager.getPackageInfo(KonApplication.context.packageName, 0)
+                    if (response.versionCode <= info.versionCode) {
+                        updateResult.invoke(true, false, "", "", "")
+                        return@subscribe
+                    }
+                    updateResult.invoke(true, true, response.versionName, response.updateDescribe, response.downloadUrl)
+
+                }, {
+                    updateResult.invoke(false, false, "", "", "")
+                    it.printStackTrace()
+                })
     }
 
     // 自动检查更新

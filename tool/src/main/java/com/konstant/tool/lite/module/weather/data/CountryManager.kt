@@ -1,7 +1,8 @@
 package com.konstant.tool.lite.module.weather.data
 
 import android.content.Context
-import com.alibaba.fastjson.JSON
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.data.AreaManager
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
@@ -27,7 +28,7 @@ object CountryManager {
     fun onCreate(context: Context) {
         mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
         val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
-        val array = JSON.parseArray(s, LocalCountry::class.java)
+        val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
         if (array != null && array.isNotEmpty()) {
             mLocalCityList.addAll(array)
         }
@@ -35,7 +36,7 @@ object CountryManager {
 
     fun onDestroy(context: Context) {
         Executors.newSingleThreadExecutor().execute {
-            val s1 = JSON.toJSONString(mLocalCityList)
+            val s1 = Gson().toJson(mLocalCityList)
             FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
             FileUtil.saveDataToSp(context, NAME_LOCAL_CITY_ID, mCityCode)
         }

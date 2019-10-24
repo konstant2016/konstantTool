@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.retrofit.network.NetworkHelper;
 import com.example.retrofit.network.response.VideoListResponse;
+import com.google.gson.Gson;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;

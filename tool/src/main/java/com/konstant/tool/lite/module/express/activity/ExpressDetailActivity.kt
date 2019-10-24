@@ -1,7 +1,6 @@
 package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +9,9 @@ import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
-import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.module.express.param.ExpressChanged
-import com.konstant.tool.lite.module.express.server.ExpressData
+import com.konstant.tool.lite.data.express.ExpressData
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
@@ -70,7 +69,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 开始查询物流信息
     private fun queryExpress(number: String) {
         onLoading()
-        ExpressPresenter.getExpressDetail(number, object : ExpressPresenter.ExpressResult {
+        ExpressPresenter(mDisposable).getExpressDetail(number, object : ExpressPresenter.ExpressResult {
             override fun onSuccess(response: ExpressData) {
                 this@ExpressDetailActivity.onSuccess(response)
             }

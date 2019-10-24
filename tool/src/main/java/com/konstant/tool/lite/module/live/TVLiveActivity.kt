@@ -1,11 +1,11 @@
 package com.konstant.tool.lite.module.live
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.recyclerview.widget.LinearLayoutManager
 import cn.jzvd.JzvdStd
-import com.alibaba.fastjson.JSON
+import com.google.gson.Gson
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_tv_live.*
@@ -17,7 +17,7 @@ class TVLiveActivity : BaseActivity() {
     private val mChannelList = ArrayList<String>()
     private val mMap by lazy {
         val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
-        JSON.parseObject(txt, HashMap::class.java)
+        Gson().fromJson(txt,HashMap::class.java)
     }
     private val mAdapter = AdapterLive(mChannelList)
 

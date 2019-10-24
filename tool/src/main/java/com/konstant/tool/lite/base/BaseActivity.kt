@@ -41,6 +41,7 @@ import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantPagerIndicator
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -60,6 +61,8 @@ import org.greenrobot.eventbus.ThreadMode
 
 @SuppressLint("MissingSuperCall")
 abstract class BaseActivity : SwipeBackActivity() {
+
+    protected val mDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -276,6 +279,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onDestroy() {
         EventBus.getDefault().unregister(this)
         AppUtil.removeActivity(this)
+        mDisposable.dispose()
         super.onDestroy()
     }
 

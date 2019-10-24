@@ -1,7 +1,7 @@
 package com.konstant.tool.lite.data
 
 import android.content.Context
-import com.konstant.tool.lite.module.express.data.ExpressManager
+import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.module.weather.data.CountryManager
 
 /**
