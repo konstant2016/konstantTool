@@ -10,6 +10,7 @@ import androidx.core.content.PermissionChecker.checkSelfPermission
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.PermissionChecker
 
 
 /**
@@ -81,7 +82,7 @@ open class BaseFragment : androidx.fragment.app.Fragment() {
         mReason = reason
         mPermission = permission
         // 判断自身是否拥有此权限
-        if (PackageManager.PERMISSION_DENIED == checkSelfPermission(mActivity, permission)) {
+        if (PermissionChecker.PERMISSION_DENIED == checkSelfPermission(mActivity, permission)) {
             // 如果没有，就去申请权限
             requestPermissions(arrayOf(permission), mRequestCode)
         } else {

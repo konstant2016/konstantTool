@@ -108,7 +108,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     open fun onThemeChanged(msg: ThemeChanged) {
         if (AppUtil.isTop(this)) {
             startActivity(javaClass)
-            overridePendingTransition(R.anim.start_anim, R.anim.out_anim)
+            overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
             finish()
         } else {
             recreate()

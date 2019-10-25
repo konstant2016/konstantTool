@@ -5,13 +5,14 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 
 /**
  * TextView that increases/decreases font size as it is pinched.
  *
  * Created by adam.mcneilly on 12/27/16.
  */
-open class KonstantTextview : TextView {
+open class KonstantTextview : AppCompatTextView {
 
     /**
      * The ratio of the text size compared to its original.

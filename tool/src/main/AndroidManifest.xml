@@ -173,10 +173,7 @@
         </provider>
 
         <service android:name="com.amap.api.location.APSService" />
-        <meta-data
-            android:name="PGYER_APPID"
-            android:value="3ad320223c3abf107a51f0f46bbe718c" >
-        </meta-data>
+
     </application>
 
 </manifest>
