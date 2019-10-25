@@ -1,6 +1,6 @@
 package com.konstant.tool.lite.module.express.activity
 
-import com.konstant.tool.lite.data.express.ExpressData
+import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.network.NetworkHelper
 import io.reactivex.disposables.CompositeDisposable
 

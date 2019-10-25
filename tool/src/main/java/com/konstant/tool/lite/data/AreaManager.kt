@@ -3,8 +3,8 @@ package com.konstant.tool.lite.data
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.konstant.tool.lite.data.weather.China
-import com.konstant.tool.lite.data.weather.Area
+import com.konstant.tool.lite.data.bean.weather.China
+import com.konstant.tool.lite.data.bean.weather.Area
 
 /**
  * 时间：2018/8/2 17:37

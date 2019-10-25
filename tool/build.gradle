@@ -3,14 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    signingConfigs {
-        debug {
-            storeFile file('D:\\Android\\Projects\\KonstantTools\\konstantkey.keystore')
-            storePassword 'konstant'
-            keyAlias = 'konstant'
-            keyPassword 'konstant'
-        }
-    }
+
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.konstant.tool.lite"
@@ -24,16 +17,16 @@ android {
     }
     buildTypes {
         release {
-            shrinkResources false    // 删除无用资源
-            minifyEnabled false      // 删除没用到的代码
+            shrinkResources true    // 删除无用资源
+            minifyEnabled true      // 删除没用到的代码
             useProguard true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug {
-            shrinkResources false    // 删除无用资源
-            minifyEnabled false      // 删除没用到的代码
+            shrinkResources true    // 删除无用资源
+            minifyEnabled true      // 删除没用到的代码
             useProguard true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

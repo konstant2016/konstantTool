@@ -1,10 +1,13 @@
 package com.konstant.tool.lite.network.response;
 
+import androidx.annotation.Keep;
+
 import java.util.List;
 
 /**
  * Created by konstant on 2018/1/13.
  */
+
 
 public class TranslateResponse {
 
@@ -42,6 +45,7 @@ public class TranslateResponse {
         this.trans_result = trans_result;
     }
 
+    
     public static class Data {
         /**
          * src : apple

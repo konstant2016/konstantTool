@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.68
 # min_api: 21
-# pg_map_id: 7b3768c
+# pg_map_id: f421cc4
 $r8$java8methods$utility$Boolean$hashCode$IZ -> a:
     1:1:int hashCode(boolean) -> a
 $r8$java8methods$utility$Long$hashCode$IJ -> b:
@@ -23890,9 +23890,10 @@ com.konstant.tool.lite.base.BaseFragment -> com.konstant.tool.lite.base.a:
     25:25:android.app.Activity getMActivity() -> m0
     26:26:io.reactivex.disposables.CompositeDisposable getMDisposable() -> n0
     88:88:void hideSoftKeyboard() -> o0
-    68:68:void onFragmentPause() -> p0
-    64:64:void onFragmentResume() -> q0
-    60:60:void onLazyLoad() -> r0
+    76:76:boolean isFragmentResume() -> p0
+    68:68:void onFragmentPause() -> q0
+    64:64:void onFragmentResume() -> r0
+    60:60:void onLazyLoad() -> s0
 com.konstant.tool.lite.base.BaseFragment$showToast$1 -> com.konstant.tool.lite.base.a$a:
     com.konstant.tool.lite.base.BaseFragment this$0 -> b
     java.lang.String $msg -> c
@@ -24098,12 +24099,12 @@ com.konstant.tool.lite.base.UpdateManager$showUpdateDialog$$inlined$let$lambda$1
     70:75:void invoke(com.konstant.tool.lite.view.KonstantDialog) -> a
 com.konstant.tool.lite.data.AreaManager -> com.konstant.tool.lite.a.a:
     com.konstant.tool.lite.data.AreaManager INSTANCE -> c
-    com.konstant.tool.lite.data.weather.China mChina -> a
+    com.konstant.tool.lite.data.bean.weather.China mChina -> a
     java.util.ArrayList mAreaList -> b
     14:17:void <clinit>() -> <clinit>
     14:14:void <init>() -> <init>
     20:25:void onCreate(android.content.Context) -> a
-    27:27:com.konstant.tool.lite.data.weather.China getChina() -> a
+    27:27:com.konstant.tool.lite.data.bean.weather.China getChina() -> a
 com.konstant.tool.lite.data.AreaManager$onCreate$1 -> com.konstant.tool.lite.a.a$a:
     24:24:void <init>() -> <init>
 com.konstant.tool.lite.data.KonstantDataManager -> com.konstant.tool.lite.a.b:
@@ -24112,11 +24113,11 @@ com.konstant.tool.lite.data.KonstantDataManager -> com.konstant.tool.lite.a.b:
     14:14:void <init>() -> <init>
     17:20:void onCreate(android.content.Context) -> a
     23:25:void onDestroy(android.content.Context) -> b
-com.konstant.tool.lite.data.express.ExpressData -> com.konstant.tool.lite.data.express.ExpressData:
+com.konstant.tool.lite.data.bean.express.ExpressData -> com.konstant.tool.lite.data.bean.express.ExpressData:
     18:19:void <init>() -> <init>
     21:27:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.List) -> <init>
     29:34:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> <init>
-    97:98:boolean equals(java.lang.Object) -> equals
+    98:99:boolean equals(java.lang.Object) -> equals
     45:45:java.lang.String getCompany() -> getCompany
     74:74:java.util.List getMessages() -> getMessages
     37:37:java.lang.String getName() -> getName
@@ -24127,16 +24128,25 @@ com.konstant.tool.lite.data.express.ExpressData -> com.konstant.tool.lite.data.e
     41:42:void setName(java.lang.String) -> setName
     70:71:void setNumber(java.lang.String) -> setNumber
     61:62:void setStatus(java.lang.String) -> setStatus
-com.konstant.tool.lite.data.express.ExpressData$Message -> com.konstant.tool.lite.data.express.ExpressData$a:
-    java.lang.String context -> a
-    java.lang.String time -> b
-    87:87:java.lang.String getContext() -> a
-    91:91:java.lang.String getTime() -> b
-com.konstant.tool.lite.data.weather.China -> com.konstant.tool.lite.data.weather.China:
-    java.util.List province -> a
+com.konstant.tool.lite.data.bean.express.ExpressData$Message -> com.konstant.tool.lite.data.bean.express.ExpressData$Message:
+    82:85:void <init>(java.lang.String,java.lang.String) -> <init>
+    88:88:java.lang.String getContext() -> getContext
+    92:92:java.lang.String getTime() -> getTime
+com.konstant.tool.lite.data.bean.weather.Area -> com.konstant.tool.lite.data.bean.weather.Area:
+    11:11:void <init>() -> <init>
+    26:26:java.lang.String getLabel() -> getLabel
+    34:34:java.lang.String getName() -> getName
+    42:42:java.lang.String getPinyin() -> getPinyin
+    50:50:java.lang.String getZip() -> getZip
+    30:31:void setLabel(java.lang.String) -> setLabel
+    38:39:void setName(java.lang.String) -> setName
+    46:47:void setPinyin(java.lang.String) -> setPinyin
+    54:55:void setZip(java.lang.String) -> setZip
+com.konstant.tool.lite.data.bean.weather.China -> com.konstant.tool.lite.data.bean.weather.China:
     14:14:void <init>() -> <init>
-    24:24:java.util.List getProvinceList() -> a
-com.konstant.tool.lite.data.weather.China$Province -> com.konstant.tool.lite.data.weather.China$Province:
+    24:24:java.util.List getProvinceList() -> getProvinceList
+    28:29:void setProvince(java.util.List) -> setProvince
+com.konstant.tool.lite.data.bean.weather.China$Province -> com.konstant.tool.lite.data.bean.weather.China$Province:
     32:32:void <init>() -> <init>
     60:60:java.util.List getCityList() -> getCityList
     44:44:java.lang.String getId() -> getId
@@ -24144,7 +24154,7 @@ com.konstant.tool.lite.data.weather.China$Province -> com.konstant.tool.lite.dat
     64:65:void setCity(java.util.List) -> setCity
     48:49:void setId(java.lang.String) -> setId
     56:57:void setName(java.lang.String) -> setName
-com.konstant.tool.lite.data.weather.China$Province$City -> com.konstant.tool.lite.data.weather.China$Province$City:
+com.konstant.tool.lite.data.bean.weather.China$Province$City -> com.konstant.tool.lite.data.bean.weather.China$Province$City:
     68:68:void <init>() -> <init>
     96:96:java.util.List getCountyList() -> getCountyList
     80:80:java.lang.String getId() -> getId
@@ -24152,7 +24162,7 @@ com.konstant.tool.lite.data.weather.China$Province$City -> com.konstant.tool.lit
     100:101:void setCounty(java.util.List) -> setCounty
     84:85:void setId(java.lang.String) -> setId
     92:93:void setName(java.lang.String) -> setName
-com.konstant.tool.lite.data.weather.China$Province$City$County -> com.konstant.tool.lite.data.weather.China$Province$City$County:
+com.konstant.tool.lite.data.bean.weather.China$Province$City$County -> com.konstant.tool.lite.data.bean.weather.China$Province$City$County:
     109:111:void <init>() -> <init>
     113:117:void <init>(java.lang.String,java.lang.String,java.lang.String) -> <init>
     120:120:java.lang.String getId() -> getId
@@ -24200,7 +24210,7 @@ com.konstant.tool.lite.module.date.CalculationFragment -> com.konstant.tool.lite
     21:21:void access$hideSoftKeyboard(com.konstant.tool.lite.module.date.CalculationFragment) -> c
     21:21:void access$计算日期(com.konstant.tool.lite.module.date.CalculationFragment) -> d
     void _$_clearFindViewByIdCache() -> l0
-    62:70:void 计算日期() -> s0
+    62:70:void 计算日期() -> t0
 com.konstant.tool.lite.module.date.CalculationFragment$Companion -> com.konstant.tool.lite.module.date.a$a:
     26:26:void <init>() -> <init>
     26:26:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
@@ -24344,8 +24354,8 @@ com.konstant.tool.lite.module.express.ExpressManager -> com.konstant.tool.lite.b
     17:17:java.lang.String access$getNAME_LOCAL_EXPRESS$p(com.konstant.tool.lite.module.express.ExpressManager) -> a
     24:29:void onCreate(android.content.Context) -> a
     40:40:java.util.List readExpress() -> a
-    55:55:void deleteExpress$default(com.konstant.tool.lite.module.express.ExpressManager,com.konstant.tool.lite.data.express.ExpressData,java.lang.String,int,java.lang.Object) -> a
-    56:64:void deleteExpress(com.konstant.tool.lite.data.express.ExpressData,java.lang.String) -> a
+    55:55:void deleteExpress$default(com.konstant.tool.lite.module.express.ExpressManager,com.konstant.tool.lite.data.bean.express.ExpressData,java.lang.String,int,java.lang.Object) -> a
+    56:64:void deleteExpress(com.konstant.tool.lite.data.bean.express.ExpressData,java.lang.String) -> a
     67:67:void addExpress$default(com.konstant.tool.lite.module.express.ExpressManager,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.Object) -> a
     68:70:void addExpress(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     33:37:void onDestroy(android.content.Context) -> b
@@ -24372,18 +24382,21 @@ com.konstant.tool.lite.module.express.activity.ExpressDetailActivity -> com.kons
     204:205:void sendExpressChanged() -> C
     85:88:void updateStatus() -> D
     32:32:void access$changeOrderNo(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> a
+    32:32:void access$onSuccess(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity,com.konstant.tool.lite.data.bean.express.ExpressData) -> a
     32:32:void access$queryExpress(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity,java.lang.String) -> a
+    110:124:void onSuccess(com.konstant.tool.lite.data.bean.express.ExpressData) -> a
     32:32:void access$changeRemark(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> b
     android.view.View _$_findCachedViewById(int) -> c
     32:32:void access$deleteOrder(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> c
     37:37:void setMName(java.lang.String) -> c
-    32:32:java.util.ArrayList access$getMList$p(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> d
+    32:32:com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail access$getMAdapter$p(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> d
     35:35:void setMNumber(java.lang.String) -> d
-    32:32:void access$onError(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> e
+    32:32:java.util.ArrayList access$getMList$p(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> e
     71:81:void queryExpress(java.lang.String) -> e
-    32:32:void access$onMorePressed(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> f
-    32:32:void access$sendExpressChanged(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> g
-    32:32:void access$updateStatus(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> h
+    32:32:void access$onError(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> f
+    32:32:void access$onMorePressed(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> g
+    32:32:void access$sendExpressChanged(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> h
+    32:32:void access$updateStatus(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> i
     45:49:void onCreate(android.os.Bundle) -> onCreate
     52:67:void initBaseViews() -> q
     36:36:java.lang.String getMCompany() -> r
@@ -24434,9 +24447,14 @@ com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$onMorePress
 com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$onMorePressed$$inlined$with$lambda$3 -> com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$k:
     com.konstant.tool.lite.module.express.activity.ExpressDetailActivity this$0 -> b
     131:131:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$queryExpress$1 -> com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$l:
+com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$onSuccess$1 -> com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$l:
+    com.konstant.tool.lite.module.express.activity.ExpressDetailActivity this$0 -> b
+    com.konstant.tool.lite.data.bean.express.ExpressData $response -> c
+    115:123:void run() -> run
+com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$queryExpress$1 -> com.konstant.tool.lite.module.express.activity.ExpressDetailActivity$m:
     com.konstant.tool.lite.module.express.activity.ExpressDetailActivity this$0 -> a
     72:72:void <init>(com.konstant.tool.lite.module.express.activity.ExpressDetailActivity) -> <init>
+    74:75:void onSuccess(com.konstant.tool.lite.data.bean.express.ExpressData) -> a
     78:79:void onError() -> a
 com.konstant.tool.lite.module.express.activity.ExpressListActivity -> com.konstant.tool.lite.module.express.activity.ExpressListActivity:
     java.util.HashMap _$_findViewCache -> y
@@ -24488,6 +24506,7 @@ com.konstant.tool.lite.module.express.activity.ExpressPresenter -> com.konstant.
     21:38:void getExpressDetail(java.lang.String,com.konstant.tool.lite.module.express.activity.ExpressPresenter$ExpressResult) -> a
 com.konstant.tool.lite.module.express.activity.ExpressPresenter$ExpressResult -> com.konstant.tool.lite.module.express.activity.a$a:
     void onError() -> a
+    void onSuccess(com.konstant.tool.lite.data.bean.express.ExpressData) -> a
 com.konstant.tool.lite.module.express.activity.ExpressPresenter$getExpressDetail$disposable$1 -> com.konstant.tool.lite.module.express.activity.a$b:
     com.konstant.tool.lite.module.express.activity.ExpressPresenter$ExpressResult $result -> a
     13:13:void accept(java.lang.Object) -> a
@@ -24805,8 +24824,8 @@ com.konstant.tool.lite.module.parse.ParseFragment -> com.konstant.tool.lite.modu
     21:21:java.lang.String[] access$getMUrls$p(com.konstant.tool.lite.module.parse.ParseFragment) -> c
     21:21:void access$hideSoftKeyboard(com.konstant.tool.lite.module.parse.ParseFragment) -> d
     void _$_clearFindViewByIdCache() -> l0
-    36:63:void onLazyLoad() -> r0
-    java.lang.String[] getMUrls() -> s0
+    36:63:void onLazyLoad() -> s0
+    java.lang.String[] getMUrls() -> t0
 com.konstant.tool.lite.module.parse.ParseFragment$Companion -> com.konstant.tool.lite.module.parse.b$a:
     26:26:void <init>() -> <init>
     26:26:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
@@ -25198,7 +25217,7 @@ com.konstant.tool.lite.module.weather.activity.CityManagerActivity$onMoreClick$$
     com.konstant.tool.lite.view.KonstantDialog $dialog$inlined -> c
     com.konstant.tool.lite.module.weather.activity.CityManagerActivity this$0 -> b
     20:20:java.lang.Object invoke(java.lang.Object) -> a
-    79:82:void invoke(com.konstant.tool.lite.data.weather.China$Province$City$County) -> a
+    79:82:void invoke(com.konstant.tool.lite.data.bean.weather.China$Province$City$County) -> a
 com.konstant.tool.lite.module.weather.activity.WeatherActivity -> com.konstant.tool.lite.module.weather.activity.WeatherActivity:
     java.util.HashMap _$_findViewCache -> y
     kotlin.Lazy mAdapter$delegate -> x
@@ -25298,6 +25317,7 @@ com.konstant.tool.lite.module.weather.fragment.WeatherFragment -> com.konstant.t
     java.lang.String PARAM -> m0
     51:51:void <clinit>() -> <clinit>
     38:48:void <init>() -> <init>
+    201:202:void stopRefreshAnim() -> A0
     212:214:void onDestroy() -> P
     void onDestroyView() -> R
     38:38:android.app.Activity access$getMActivity$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> a
@@ -25305,26 +25325,30 @@ com.konstant.tool.lite.module.weather.fragment.WeatherFragment -> com.konstant.t
     38:38:void access$updateUI(com.konstant.tool.lite.module.weather.fragment.WeatherFragment,com.konstant.tool.lite.network.response.WeatherResponse) -> a
     62:62:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     154:197:void updateUI(com.konstant.tool.lite.network.response.WeatherResponse) -> a
-    38:38:io.reactivex.disposables.CompositeDisposable access$getMDisposable$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> b
-    38:38:void access$showToast(com.konstant.tool.lite.module.weather.fragment.WeatherFragment,java.lang.String) -> b
+    38:38:com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily access$getMAdapterDay$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> b
+    38:38:void access$setMCurrentCity$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment,java.lang.String) -> b
     android.view.View _$_findCachedViewById(int) -> c
-    38:38:java.util.ArrayList access$getMListDaily$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> c
+    38:38:com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly access$getMAdapterHour$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> c
+    38:38:void access$showToast(com.konstant.tool.lite.module.weather.fragment.WeatherFragment,java.lang.String) -> c
     217:221:void setTitle(java.lang.String) -> c
-    38:38:java.util.ArrayList access$getMListHour$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> d
+    38:38:java.lang.String access$getMCurrentCity$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> d
     141:149:void requestWeatherWithCode(java.lang.String) -> d
-    38:38:void access$requestWeather(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> e
-    38:38:void access$stopRefreshAnim(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> f
+    38:38:io.reactivex.disposables.CompositeDisposable access$getMDisposable$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> e
+    38:38:java.util.ArrayList access$getMListDaily$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> f
+    38:38:java.util.ArrayList access$getMListHour$p(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> g
+    38:38:boolean access$isFragmentResume(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> h
+    38:38:void access$requestWeather(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> i
     205:209:void setUserVisibleHint(boolean) -> i
+    38:38:void access$stopRefreshAnim(com.konstant.tool.lite.module.weather.fragment.WeatherFragment) -> j
     void _$_clearFindViewByIdCache() -> l0
-    67:89:void onLazyLoad() -> r0
-    38:38:java.lang.String access$getPARAM$cp() -> s0
-    com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily getMAdapterDay() -> t0
-    com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly getMAdapterHour() -> u0
-    com.konstant.tool.lite.module.weather.fragment.WeatherPresenter getMPresenter() -> v0
-    113:137:void requestLocationWeather() -> w0
-    93:99:void requestPermission() -> x0
-    103:107:void requestWeather() -> y0
-    201:202:void stopRefreshAnim() -> z0
+    67:89:void onLazyLoad() -> s0
+    38:38:java.lang.String access$getPARAM$cp() -> t0
+    com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily getMAdapterDay() -> u0
+    com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly getMAdapterHour() -> v0
+    com.konstant.tool.lite.module.weather.fragment.WeatherPresenter getMPresenter() -> w0
+    113:137:void requestLocationWeather() -> x0
+    93:99:void requestPermission() -> y0
+    103:107:void requestWeather() -> z0
 com.konstant.tool.lite.module.weather.fragment.WeatherFragment$Companion -> com.konstant.tool.lite.b.c.b.a$a:
     50:50:void <init>() -> <init>
     50:50:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
@@ -25371,7 +25395,10 @@ com.konstant.tool.lite.module.weather.fragment.WeatherFragment$updateUI$1 -> com
     com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean $realTime -> c
     java.util.List $alert -> d
     com.konstant.tool.lite.network.response.WeatherResponse $result -> e
-    164:164:void run() -> run
+    164:196:void run() -> run
+com.konstant.tool.lite.module.weather.fragment.WeatherFragment$updateUI$1$1 -> com.konstant.tool.lite.b.c.b.a$k$a:
+    com.konstant.tool.lite.module.weather.fragment.WeatherFragment$updateUI$1 this$0 -> b
+    176:179:void onClick(android.view.View) -> onClick
 com.konstant.tool.lite.module.weather.fragment.WeatherPresenter -> com.konstant.tool.lite.b.c.b.b:
     kotlin.Lazy locationClient$delegate -> b
     android.content.Context context -> c
@@ -25431,8 +25458,18 @@ com.konstant.tool.lite.module.weather.fragment.WeatherPresenter$locationClient$2
     com.konstant.tool.lite.module.weather.fragment.WeatherPresenter this$0 -> b
     21:21:java.lang.Object invoke() -> b
     24:24:com.amap.api.location.AMapLocationClient invoke() -> b
-com.konstant.tool.lite.module.weather.param.WeatherStateChanged -> com.konstant.tool.lite.b.c.c.a:
-    4:4:void <init>(boolean,int) -> <init>
+com.konstant.tool.lite.module.weather.param.SubTitleChanged -> com.konstant.tool.lite.module.weather.param.SubTitleChanged:
+    15:15:void <init>(java.lang.String) -> <init>
+    15:15:java.lang.String getSubTitle() -> getSubTitle
+com.konstant.tool.lite.module.weather.param.TitleChanged -> com.konstant.tool.lite.module.weather.param.TitleChanged:
+    11:11:void <init>(java.lang.String) -> <init>
+    11:11:java.lang.String getTitle() -> getTitle
+com.konstant.tool.lite.module.weather.param.WeatherStateChanged -> com.konstant.tool.lite.module.weather.param.WeatherStateChanged:
+    7:7:void <init>(boolean,int) -> <init>
+    7:7:boolean getCityNumChange() -> getCityNumChange
+    7:7:int getIndex() -> getIndex
+    7:7:void setCityNumChange(boolean) -> setCityNumChange
+    7:7:void setIndex(int) -> setIndex
 com.konstant.tool.lite.module.weather.server.AddressResponse -> com.konstant.tool.lite.module.weather.server.AddressResponse:
     8:8:void <init>() -> <init>
     39:39:java.lang.String getInfo() -> getInfo
@@ -25651,33 +25688,74 @@ com.konstant.tool.lite.network.config.RetrofitBuilder -> com.konstant.tool.lite.
     14:22:void <clinit>() -> <clinit>
     14:14:void <init>() -> <init>
     39:39:java.lang.Object getApi(java.lang.String,java.lang.Class) -> a
-com.konstant.tool.lite.network.response.ExpressResponse -> com.konstant.tool.lite.network.response.a:
-    com.konstant.tool.lite.network.response.ExpressResponse$DataBean data -> b
-    int status -> a
-    11:11:void <init>() -> <init>
-    41:41:com.konstant.tool.lite.network.response.ExpressResponse$DataBean getData() -> a
-    25:25:int getStatus() -> b
-com.konstant.tool.lite.network.response.ExpressResponse$DataBean -> com.konstant.tool.lite.network.response.a$a:
-    java.lang.String getCompany() -> a
-    java.util.List getMessages() -> b
-com.konstant.tool.lite.network.response.TranslateResponse -> com.konstant.tool.lite.network.response.b:
-    java.util.List trans_result -> a
-    9:9:void <init>() -> <init>
-    38:38:java.util.List getTrans_result() -> a
-com.konstant.tool.lite.network.response.TranslateResponse$Data -> com.konstant.tool.lite.network.response.b$a:
-    java.lang.String dst -> a
-    45:45:void <init>() -> <init>
-    63:63:java.lang.String getDst() -> a
-com.konstant.tool.lite.network.response.UpdateResponse -> com.konstant.tool.lite.network.response.c:
-    java.lang.String downloadUrl -> a
-    java.lang.String updateDescribe -> b
-    int versionCode -> c
-    java.lang.String versionName -> d
-    3:3:void <init>() -> <init>
-    32:32:java.lang.String getDownloadUrl() -> a
-    48:48:java.lang.String getUpdateDescribe() -> b
-    64:64:int getVersionCode() -> c
-    72:72:java.lang.String getVersionName() -> d
+com.konstant.tool.lite.network.response.ExpressResponse -> com.konstant.tool.lite.network.response.ExpressResponse:
+    13:13:void <init>() -> <init>
+    43:43:com.konstant.tool.lite.network.response.ExpressResponse$DataBean getData() -> getData
+    35:35:java.lang.String getMsg() -> getMsg
+    27:27:int getStatus() -> getStatus
+    47:48:void setData(com.konstant.tool.lite.network.response.ExpressResponse$DataBean) -> setData
+    39:40:void setMsg(java.lang.String) -> setMsg
+    31:32:void setStatus(int) -> setStatus
+com.konstant.tool.lite.network.response.ExpressResponse$DataBean -> com.konstant.tool.lite.network.response.ExpressResponse$DataBean:
+    51:51:void <init>() -> <init>
+    95:95:java.lang.String getCode() -> getCode
+    87:87:java.lang.String getCompany() -> getCompany
+    135:135:java.lang.String getHasItem() -> getHasItem
+    111:111:java.lang.String getImg() -> getImg
+    159:159:java.util.List getMessages() -> getMessages
+    79:79:java.lang.String getNu() -> getNu
+    143:143:java.lang.String getSource_name() -> getSource_name
+    151:151:java.lang.String getSource_url() -> getSource_url
+    127:127:java.lang.String getStatus() -> getStatus
+    103:103:java.lang.String getTel() -> getTel
+    119:119:java.lang.String getUrl() -> getUrl
+    99:100:void setCode(java.lang.String) -> setCode
+    91:92:void setCompany(java.lang.String) -> setCompany
+    139:140:void setHasItem(java.lang.String) -> setHasItem
+    115:116:void setImg(java.lang.String) -> setImg
+    163:164:void setMessages(java.util.List) -> setMessages
+    83:84:void setNu(java.lang.String) -> setNu
+    147:148:void setSource_name(java.lang.String) -> setSource_name
+    155:156:void setSource_url(java.lang.String) -> setSource_url
+    131:132:void setStatus(java.lang.String) -> setStatus
+    107:108:void setTel(java.lang.String) -> setTel
+    123:124:void setUrl(java.lang.String) -> setUrl
+com.konstant.tool.lite.network.response.ExpressResponse$DataBean$MessagesBean -> com.konstant.tool.lite.network.response.ExpressResponse$DataBean$MessagesBean:
+    167:167:void <init>() -> <init>
+    177:177:java.lang.String getContext() -> getContext
+    185:185:java.lang.String getTime() -> getTime
+    181:182:void setContext(java.lang.String) -> setContext
+    189:190:void setTime(java.lang.String) -> setTime
+com.konstant.tool.lite.network.response.TranslateResponse -> com.konstant.tool.lite.network.response.TranslateResponse:
+    12:12:void <init>() -> <init>
+    25:25:java.lang.String getFrom() -> getFrom
+    33:33:java.lang.String getTo() -> getTo
+    41:41:java.util.List getTrans_result() -> getTrans_result
+    29:30:void setFrom(java.lang.String) -> setFrom
+    37:38:void setTo(java.lang.String) -> setTo
+    45:46:void setTrans_result(java.util.List) -> setTrans_result
+com.konstant.tool.lite.network.response.TranslateResponse$Data -> com.konstant.tool.lite.network.response.TranslateResponse$Data:
+    49:49:void <init>() -> <init>
+    67:67:java.lang.String getDst() -> getDst
+    59:59:java.lang.String getSrc() -> getSrc
+    71:72:void setDst(java.lang.String) -> setDst
+    63:64:void setSrc(java.lang.String) -> setSrc
+com.konstant.tool.lite.network.response.UpdateResponse -> com.konstant.tool.lite.network.response.UpdateResponse:
+    6:6:void <init>() -> <init>
+    27:27:java.lang.String getCreatedAt() -> getCreatedAt
+    35:35:java.lang.String getDownloadUrl() -> getDownloadUrl
+    43:43:java.lang.String getObjectId() -> getObjectId
+    51:51:java.lang.String getUpdateDescribe() -> getUpdateDescribe
+    59:59:java.lang.String getUpdatedAt() -> getUpdatedAt
+    67:67:int getVersionCode() -> getVersionCode
+    75:75:java.lang.String getVersionName() -> getVersionName
+    31:32:void setCreatedAt(java.lang.String) -> setCreatedAt
+    39:40:void setDownloadUrl(java.lang.String) -> setDownloadUrl
+    47:48:void setObjectId(java.lang.String) -> setObjectId
+    55:56:void setUpdateDescribe(java.lang.String) -> setUpdateDescribe
+    63:64:void setUpdatedAt(java.lang.String) -> setUpdatedAt
+    71:72:void setVersionCode(int) -> setVersionCode
+    79:80:void setVersionName(java.lang.String) -> setVersionName
 com.konstant.tool.lite.network.response.WeatherResponse -> com.konstant.tool.lite.network.response.WeatherResponse:
     15:15:void <init>() -> <init>
     142:142:java.util.List getAlert() -> getAlert
@@ -25698,28 +25776,152 @@ com.konstant.tool.lite.network.response.WeatherResponse -> com.konstant.tool.lit
     122:123:void setRealtime(com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean) -> setRealtime
     154:155:void setTrafficalert(java.util.List) -> setTrafficalert
     162:163:void setWeather(java.util.List) -> setWeather
-com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean -> com.konstant.tool.lite.network.response.WeatherResponse$a:
-com.konstant.tool.lite.network.response.WeatherResponse$HourlyForecastBean -> com.konstant.tool.lite.network.response.WeatherResponse$b:
-    java.lang.String temperature -> c
-    java.lang.String hour -> b
-    int img -> a
-    714:714:void <init>() -> <init>
-    739:739:java.lang.String getHour() -> a
-    723:723:int getImg() -> b
-    755:755:java.lang.String getTemperature() -> c
-com.konstant.tool.lite.network.response.WeatherResponse$LifeBean -> com.konstant.tool.lite.network.response.WeatherResponse$c:
-com.konstant.tool.lite.network.response.WeatherResponse$Pm25Bean -> com.konstant.tool.lite.network.response.WeatherResponse$d:
-com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean -> com.konstant.tool.lite.network.response.WeatherResponse$e:
-    com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean getWind() -> a
-com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean -> com.konstant.tool.lite.network.response.WeatherResponse$e$a:
-com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean -> com.konstant.tool.lite.network.response.WeatherResponse$f:
-    java.lang.String date -> a
-    com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean info -> b
-    663:663:void <init>() -> <init>
-    677:677:java.lang.String getDate() -> a
-    685:685:com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean getInfo() -> b
-com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean -> com.konstant.tool.lite.network.response.WeatherResponse$f$a:
-    java.util.List getDay() -> a
+com.konstant.tool.lite.network.response.WeatherResponse$AlertBean -> com.konstant.tool.lite.network.response.WeatherResponse$AlertBean:
+    597:597:void <init>() -> <init>
+    664:664:java.lang.String getAlarmPic1() -> getAlarmPic1
+    656:656:java.lang.String getAlarmPic2() -> getAlarmPic2
+    640:640:java.lang.String getAlarmTp1() -> getAlarmTp1
+    632:632:java.lang.String getAlarmTp2() -> getAlarmTp2
+    608:608:java.lang.String getContent() -> getContent
+    624:624:java.lang.String getOriginUrl() -> getOriginUrl
+    616:616:java.lang.String getPubTime() -> getPubTime
+    648:648:int getType() -> getType
+    668:669:void setAlarmPic1(java.lang.String) -> setAlarmPic1
+    660:661:void setAlarmPic2(java.lang.String) -> setAlarmPic2
+    644:645:void setAlarmTp1(java.lang.String) -> setAlarmTp1
+    636:637:void setAlarmTp2(java.lang.String) -> setAlarmTp2
+    612:613:void setContent(java.lang.String) -> setContent
+    628:629:void setOriginUrl(java.lang.String) -> setOriginUrl
+    620:621:void setPubTime(java.lang.String) -> setPubTime
+    652:653:void setType(int) -> setType
+com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean -> com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean:
+    174:174:void <init>() -> <init>
+    178:178:com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean$HistoryBean getHistory() -> getHistory
+    182:183:void setHistory(com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean$HistoryBean) -> setHistory
+com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean$HistoryBean -> com.konstant.tool.lite.network.response.WeatherResponse$HistoryWeatherBean$HistoryBean:
+    186:186:void <init>() -> <init>
+com.konstant.tool.lite.network.response.WeatherResponse$HourlyForecastBean -> com.konstant.tool.lite.network.response.WeatherResponse$HourlyForecastBean:
+    726:726:void <init>() -> <init>
+    751:751:java.lang.String getHour() -> getHour
+    735:735:int getImg() -> getImg
+    775:775:java.lang.String getInfo() -> getInfo
+    767:767:java.lang.String getTemperature() -> getTemperature
+    759:759:java.lang.String getWind_direct() -> getWind_direct
+    743:743:java.lang.String getWind_speed() -> getWind_speed
+    755:756:void setHour(java.lang.String) -> setHour
+    739:740:void setImg(int) -> setImg
+    779:780:void setInfo(java.lang.String) -> setInfo
+    771:772:void setTemperature(java.lang.String) -> setTemperature
+    763:764:void setWind_direct(java.lang.String) -> setWind_direct
+    747:748:void setWind_speed(java.lang.String) -> setWind_speed
+com.konstant.tool.lite.network.response.WeatherResponse$LifeBean -> com.konstant.tool.lite.network.response.WeatherResponse$LifeBean:
+    191:191:void <init>() -> <init>
+    196:196:java.lang.String getDate() -> getDate
+    204:204:com.konstant.tool.lite.network.response.WeatherResponse$LifeBean$InfoBean getInfo() -> getInfo
+    200:201:void setDate(java.lang.String) -> setDate
+    208:209:void setInfo(com.konstant.tool.lite.network.response.WeatherResponse$LifeBean$InfoBean) -> setInfo
+com.konstant.tool.lite.network.response.WeatherResponse$LifeBean$InfoBean -> com.konstant.tool.lite.network.response.WeatherResponse$LifeBean$InfoBean:
+    212:212:void <init>() -> <init>
+    306:306:java.util.List getChuanyi() -> getChuanyi
+    234:234:java.util.List getDaisan() -> getDaisan
+    274:274:java.util.List getDiaoyu() -> getDiaoyu
+    258:258:java.util.List getGanmao() -> getGanmao
+    282:282:java.util.List getGuomin() -> getGuomin
+    226:226:java.util.List getKongtiao() -> getKongtiao
+    298:298:java.util.List getWuran() -> getWuran
+    290:290:java.util.List getXianxing() -> getXianxing
+    266:266:java.util.List getXiche() -> getXiche
+    250:250:java.util.List getYundong() -> getYundong
+    242:242:java.util.List getZiwaixian() -> getZiwaixian
+    310:311:void setChuanyi(java.util.List) -> setChuanyi
+    238:239:void setDaisan(java.util.List) -> setDaisan
+    278:279:void setDiaoyu(java.util.List) -> setDiaoyu
+    262:263:void setGanmao(java.util.List) -> setGanmao
+    286:287:void setGuomin(java.util.List) -> setGuomin
+    230:231:void setKongtiao(java.util.List) -> setKongtiao
+    302:303:void setWuran(java.util.List) -> setWuran
+    294:295:void setXianxing(java.util.List) -> setXianxing
+    270:271:void setXiche(java.util.List) -> setXiche
+    254:255:void setYundong(java.util.List) -> setYundong
+    246:247:void setZiwaixian(java.util.List) -> setZiwaixian
+com.konstant.tool.lite.network.response.WeatherResponse$Pm25Bean -> com.konstant.tool.lite.network.response.WeatherResponse$Pm25Bean:
+    476:476:void <init>() -> <init>
+    572:572:java.lang.String getAdvice() -> getAdvice
+    540:540:int getAqi() -> getAqi
+    580:580:java.lang.String getChief() -> getChief
+    508:508:java.lang.String getCo() -> getCo
+    524:524:java.lang.String getColor() -> getColor
+    516:516:int getLevel() -> getLevel
+    532:532:int getNo2() -> getNo2
+    500:500:int getO3() -> getO3
+    556:556:int getPm10() -> getPm10
+    564:564:int getPm25() -> getPm25
+    548:548:java.lang.String getQuality() -> getQuality
+    492:492:int getSo2() -> getSo2
+    588:588:long getUpDateTime() -> getUpDateTime
+    576:577:void setAdvice(java.lang.String) -> setAdvice
+    544:545:void setAqi(int) -> setAqi
+    584:585:void setChief(java.lang.String) -> setChief
+    512:513:void setCo(java.lang.String) -> setCo
+    528:529:void setColor(java.lang.String) -> setColor
+    520:521:void setLevel(int) -> setLevel
+    536:537:void setNo2(int) -> setNo2
+    504:505:void setO3(int) -> setO3
+    560:561:void setPm10(int) -> setPm10
+    568:569:void setPm25(int) -> setPm25
+    552:553:void setQuality(java.lang.String) -> setQuality
+    496:497:void setSo2(int) -> setSo2
+    592:593:void setUpDateTime(long) -> setUpDateTime
+com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean -> com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean:
+    316:316:void <init>() -> <init>
+    388:388:java.lang.String getDataUptime() -> getDataUptime
+    396:396:java.lang.String getDate() -> getDate
+    380:380:java.lang.String getFeelslike_c() -> getFeelslike_c
+    340:340:java.lang.String getMslp() -> getMslp
+    364:364:java.lang.String getPressure() -> getPressure
+    356:356:java.lang.String getTime() -> getTime
+    372:372:com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WeatherBean getWeather() -> getWeather
+    348:348:com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean getWind() -> getWind
+    392:393:void setDataUptime(java.lang.String) -> setDataUptime
+    400:401:void setDate(java.lang.String) -> setDate
+    384:385:void setFeelslike_c(java.lang.String) -> setFeelslike_c
+    344:345:void setMslp(java.lang.String) -> setMslp
+    368:369:void setPressure(java.lang.String) -> setPressure
+    360:361:void setTime(java.lang.String) -> setTime
+    376:377:void setWeather(com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WeatherBean) -> setWeather
+    352:353:void setWind(com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean) -> setWind
+com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WeatherBean -> com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WeatherBean:
+    435:435:void <init>() -> <init>
+    442:442:java.lang.String getHumidity() -> getHumidity
+    450:450:java.lang.String getImg() -> getImg
+    458:458:java.lang.String getInfo() -> getInfo
+    466:466:java.lang.String getTemperature() -> getTemperature
+    446:447:void setHumidity(java.lang.String) -> setHumidity
+    454:455:void setImg(java.lang.String) -> setImg
+    462:463:void setInfo(java.lang.String) -> setInfo
+    470:471:void setTemperature(java.lang.String) -> setTemperature
+com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean -> com.konstant.tool.lite.network.response.WeatherResponse$RealtimeBean$WindBean:
+    404:404:void <init>() -> <init>
+    418:418:java.lang.String getDirect() -> getDirect
+    426:426:java.lang.String getPower() -> getPower
+    410:410:java.lang.String getWindspeed() -> getWindspeed
+    422:423:void setDirect(java.lang.String) -> setDirect
+    430:431:void setPower(java.lang.String) -> setPower
+    414:415:void setWindspeed(java.lang.String) -> setWindspeed
+com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean -> com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean:
+    673:673:void <init>() -> <init>
+    679:679:java.lang.String getAqi() -> getAqi
+    687:687:java.lang.String getDate() -> getDate
+    695:695:com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean getInfo() -> getInfo
+    683:684:void setAqi(java.lang.String) -> setAqi
+    691:692:void setDate(java.lang.String) -> setDate
+    699:700:void setInfo(com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean) -> setInfo
+com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean -> com.konstant.tool.lite.network.response.WeatherResponse$WeatherBean$InfoBean:
+    703:703:void <init>() -> <init>
+    716:716:java.util.List getDay() -> getDay
+    708:708:java.util.List getNight() -> getNight
+    720:721:void setDay(java.util.List) -> setDay
+    712:713:void setNight(java.util.List) -> setNight
 com.konstant.tool.lite.util.AppUtil -> com.konstant.tool.lite.util.a:
     java.util.Stack activityStack -> a
     com.konstant.tool.lite.util.AppUtil INSTANCE -> b
@@ -25873,17 +26075,17 @@ com.konstant.tool.lite.view.CityPickerView -> com.konstant.tool.lite.view.CityPi
     kotlin.jvm.functions.Function0 mOnCancelClick -> d
     kotlin.jvm.functions.Function1 mOnConfirmClick -> e
     kotlin.Lazy mRoot$delegate -> f
-    com.konstant.tool.lite.data.weather.China mChina -> b
+    com.konstant.tool.lite.data.bean.weather.China mChina -> b
     kotlin.reflect.KProperty[] $$delegatedProperties -> g
-    com.konstant.tool.lite.data.weather.China$Province$City$County mSelectedDirect -> c
+    com.konstant.tool.lite.data.bean.weather.China$Province$City$County mSelectedDirect -> c
     18:59:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     18:18:void <init>(android.content.Context,android.util.AttributeSet,int,int,kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
-    18:18:com.konstant.tool.lite.data.weather.China access$getMChina$p(com.konstant.tool.lite.view.CityPickerView) -> a
-    18:18:void access$setMSelectedDirect$p(com.konstant.tool.lite.view.CityPickerView,com.konstant.tool.lite.data.weather.China$Province$City$County) -> a
+    18:18:com.konstant.tool.lite.data.bean.weather.China access$getMChina$p(com.konstant.tool.lite.view.CityPickerView) -> a
+    18:18:void access$setMSelectedDirect$p(com.konstant.tool.lite.view.CityPickerView,com.konstant.tool.lite.data.bean.weather.China$Province$City$County) -> a
     18:18:kotlin.jvm.functions.Function0 access$getMOnCancelClick$p(com.konstant.tool.lite.view.CityPickerView) -> b
     18:18:kotlin.jvm.functions.Function1 access$getMOnConfirmClick$p(com.konstant.tool.lite.view.CityPickerView) -> c
     18:18:android.view.View access$getMRoot$p(com.konstant.tool.lite.view.CityPickerView) -> d
-    18:18:com.konstant.tool.lite.data.weather.China$Province$City$County access$getMSelectedDirect$p(com.konstant.tool.lite.view.CityPickerView) -> e
+    18:18:com.konstant.tool.lite.data.bean.weather.China$Province$City$County access$getMSelectedDirect$p(com.konstant.tool.lite.view.CityPickerView) -> e
     63:64:void setOnCancelClick(kotlin.jvm.functions.Function0) -> setOnCancelClick
     67:68:void setOnConfirmClick(kotlin.jvm.functions.Function1) -> setOnConfirmClick
 com.konstant.tool.lite.view.CityPickerView$$special$$inlined$apply$lambda$1 -> com.konstant.tool.lite.view.CityPickerView$a:

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
-import com.konstant.tool.lite.data.express.ExpressData
+import com.konstant.tool.lite.data.bean.express.ExpressData
 import kotlinx.android.synthetic.main.item_express_detail.view.*
 
 /**

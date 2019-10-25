@@ -11,7 +11,6 @@ import java.util.List;
  * 备注:
  */
 
-@Keep
 public class WeatherResponse {
 
     /**
@@ -170,6 +169,7 @@ public class WeatherResponse {
         this.hourly_forecast = hourly_forecast;
     }
 
+
     public static class HistoryWeatherBean {
         private HistoryBean history;
 
@@ -181,9 +181,11 @@ public class WeatherResponse {
             this.history = history;
         }
 
+
         public static class HistoryBean {
         }
     }
+
 
     public static class LifeBean {
         private String date;
@@ -204,6 +206,7 @@ public class WeatherResponse {
         public void setInfo(InfoBean info) {
             this.info = info;
         }
+
 
         public static class InfoBean {
             private List<String> kongtiao;
@@ -308,6 +311,7 @@ public class WeatherResponse {
         }
     }
 
+
     public static class RealtimeBean {
         private String mslp;
         /**
@@ -395,6 +399,7 @@ public class WeatherResponse {
             this.date = date;
         }
 
+
         public static class WindBean {
             private String windspeed;
             private String direct;
@@ -424,6 +429,7 @@ public class WeatherResponse {
                 this.power = power;
             }
         }
+
 
         public static class WeatherBean {
             private String humidity;
@@ -464,6 +470,7 @@ public class WeatherResponse {
             }
         }
     }
+
 
     public static class Pm25Bean {
         private int so2;
@@ -585,6 +592,7 @@ public class WeatherResponse {
         }
     }
 
+
     public static class AlertBean {
         private String content;
         private String pubTime;
@@ -660,6 +668,7 @@ public class WeatherResponse {
         }
     }
 
+
     public static class WeatherBean {
         private String aqi;
         private String date;
@@ -689,6 +698,7 @@ public class WeatherResponse {
             this.info = info;
         }
 
+
         public static class InfoBean {
             private List<String> night;
             private List<String> day;
@@ -710,6 +720,7 @@ public class WeatherResponse {
             }
         }
     }
+
 
     public static class HourlyForecastBean {
         private int img;

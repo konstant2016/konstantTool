@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data.express;
+package com.konstant.tool.lite.data.bean.express;
 
 import androidx.annotation.Keep;
 import android.text.TextUtils;
@@ -74,6 +74,7 @@ public class ExpressData {
         return messages;
     }
 
+    @Keep
     public static class Message {
         private String context;
         private String time;

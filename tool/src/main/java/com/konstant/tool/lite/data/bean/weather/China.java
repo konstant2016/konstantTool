@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.data.weather;
+package com.konstant.tool.lite.data.bean.weather;
 
 import androidx.annotation.Keep;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * 创建时间:2018/4/27 上午11:07
  * 备注:
  */
-
+@Keep
 public class China {
     /**
      * id : 01

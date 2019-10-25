@@ -1,5 +1,7 @@
 package com.konstant.tool.lite.network.response;
 
+import androidx.annotation.Keep;
+
 import java.util.List;
 
 /**
@@ -45,6 +47,7 @@ public class ExpressResponse {
         this.data = data;
     }
 
+    
     public static class DataBean {
         /**
          * nu : 669865132113
@@ -160,6 +163,7 @@ public class ExpressResponse {
             this.messages = messages;
         }
 
+        
         public static class MessagesBean {
             /**
              * context : 您的快件已签收，签收人是011059.0019本人，签收网点是【SN北京朝阳八里庄站010-57306488】扫描员是张海杰

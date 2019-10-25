@@ -1,5 +1,8 @@
 package com.konstant.tool.lite.network.response;
 
+import androidx.annotation.Keep;
+
+
 public class UpdateResponse {
 
     /**

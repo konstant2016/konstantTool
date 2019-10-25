@@ -1,10 +1,13 @@
-package com.konstant.tool.lite.data.weather;
+package com.konstant.tool.lite.data.bean.weather;
+
+import androidx.annotation.Keep;
 
 /**
  * 时间：2018/8/1 16:25
  * 作者：吕卡
  * 描述：
  */
+@Keep
 public class Area {
 
     /**

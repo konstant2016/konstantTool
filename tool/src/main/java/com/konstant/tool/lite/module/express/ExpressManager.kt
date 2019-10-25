@@ -3,7 +3,7 @@ package com.konstant.tool.lite.module.express
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.konstant.tool.lite.data.express.ExpressData
+import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
 
