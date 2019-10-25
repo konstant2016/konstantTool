@@ -4,6 +4,7 @@ import android.Manifest
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.ForegroundService
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
@@ -56,7 +57,10 @@ class SettingActivity : BaseActivity() {
 
         // 杀进程
         switch_kill.isChecked = SettingManager.getKillProcess(this)
-        switch_kill.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveKillProcess(this, isChecked) }
+        switch_kill.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) switch_enhance.isChecked = false
+            SettingManager.saveKillProcess(this, isChecked)
+        }
         layout_kill.setOnClickListener { switch_kill.isChecked = !switch_kill.isChecked }
 
         // 滑动返回
@@ -80,6 +84,15 @@ class SettingActivity : BaseActivity() {
                 EventBus.getDefault().post(ThemeChanged())
         }
         layout_dark.setOnClickListener { switch_dark.isChecked = !switch_dark.isChecked }
+
+        // 后台增强
+        switch_enhance.isChecked = SettingManager.getBackgroundEnhance(this)
+        switch_enhance.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) switch_kill.isChecked = false
+            SettingManager.saveBackgroundEnhance(this, isChecked)
+            ForegroundService.startForegroundService(this, isChecked)
+        }
+        layout_enhance.setOnClickListener { switch_enhance.isChecked = !switch_enhance.isChecked }
 
         // 关于
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }

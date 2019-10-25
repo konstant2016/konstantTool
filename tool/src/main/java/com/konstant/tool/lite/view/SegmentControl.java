@@ -13,13 +13,13 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-
-import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.konstant.tool.lite.R;
 import com.konstant.tool.lite.base.BasePagerChangeListener;

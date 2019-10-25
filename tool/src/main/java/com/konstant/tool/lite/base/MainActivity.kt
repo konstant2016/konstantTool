@@ -22,6 +22,7 @@ import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
+import com.konstant.tool.lite.module.wallpaper.TransparentWallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import kotlinx.android.synthetic.main.activity_base.*
@@ -46,6 +47,7 @@ class MainActivity : BaseActivity() {
         setTitle("菜籽工具箱")
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
+        ForegroundService.startForegroundService(this, SettingManager.getBackgroundEnhance(this))
     }
 
     override fun initBaseViews() {
@@ -71,6 +73,8 @@ class MainActivity : BaseActivity() {
         layout_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         layout_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
+
+        layout_wallpaper.setOnClickListener { startActivity(TransparentWallpaperActivity::class.java) }
 
         layout_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
 
