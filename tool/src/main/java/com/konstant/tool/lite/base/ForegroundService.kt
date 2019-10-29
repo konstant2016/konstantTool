@@ -46,7 +46,7 @@ class ForegroundService : Service() {
                     }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val channelName = "后台增强服务"
-                val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+                val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_MIN)
                 val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 manager.createNotificationChannel(channel)
             }
