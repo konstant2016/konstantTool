@@ -140,9 +140,9 @@ class WeatherFragment : BaseFragment() {
     private fun requestWeatherWithCode(directCode: String) {
         mPresenter.getWeatherWithCode(directCode) {
             stopRefreshAnim()
-            if (it.weather == null){
+            if (it.weather == null) {
                 showToast("天气信息请求失败")
-            }else{
+            } else {
                 updateUI(it)
             }
         }
@@ -190,9 +190,7 @@ class WeatherFragment : BaseFragment() {
             val direct = result.area[2][0]
             val des = if (province == direct) province else "${result.area[0][0]} ${result.area[2][0]}"
             mCurrentCity = des
-            if (isFragmentResume()) {
-                setTitle(mCurrentCity)
-            }
+            if (isResumed) setTitle(mCurrentCity)
         }
     }
 

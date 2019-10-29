@@ -173,6 +173,18 @@
                 android:textColor="?attr/tool_main_text_color" />
 
             <TextView
+                android:id="@+id/text_wallpaper"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="40dp"
+                android:text="趣味壁纸"
+                android:textColor="?attr/tool_main_text_color" />
+
+            <TextView
                 android:id="@+id/text_decibel"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

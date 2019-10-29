@@ -24,6 +24,7 @@ import java.io.File
 object SettingManager {
 
     private const val NAME_SELECTED_THEME = "selectedTheme"
+    private const val NAME_WALLPAPER_TRANSPARENT = "wallpaperTransparent"
     private const val NAME_AUTO_UPDATE = "autoUpdate"
     private const val NAME_BACKGROUND_ENHANCE = "backgroundEnhance"
     private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
@@ -132,6 +133,14 @@ object SettingManager {
     // 保存：是否开启后台增强
     fun saveBackgroundEnhance(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, NAME_BACKGROUND_ENHANCE, status)
+    }
+
+    // 读取：悬浮壁纸的透明度
+    fun getWallpaperTransparent(context: Context) = FileUtil.readDataFromSp(context, NAME_WALLPAPER_TRANSPARENT, 70)
+
+    // 保存：悬浮壁纸的透明度
+    fun saveWallpaperTransparent(context: Context, transparent: Int) {
+        FileUtil.saveDataToSp(context, NAME_WALLPAPER_TRANSPARENT, transparent)
     }
 
 }

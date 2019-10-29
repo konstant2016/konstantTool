@@ -217,35 +217,30 @@
     <RelativeLayout
         android:id="@+id/layout_enhance"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:background="?android:selectableItemBackground"
         android:gravity="center_vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_enhance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="开启后台增强"
+            android:textColor="?attr/tool_main_text_color"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tv_enhance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="启用后台增强"
-                android:textColor="?attr/tool_main_text_color"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="60dp"
-                android:text="(避免应用被回收，开启后通知栏会出现一个无法移除的通知，与'纯净后台'开关互斥)"
-                android:textColor="?attr/tool_second_text_color"
-                android:textSize="12sp" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_enhance"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+            android:text="(避免应用被回收，与'纯净后台'开关互斥)"
+            android:textColor="?attr/tool_second_text_color"
+            android:textSize="12sp" />
 
         <Switch
             android:id="@+id/switch_enhance"

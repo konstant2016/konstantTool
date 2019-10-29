@@ -35,6 +35,7 @@ import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
+import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.weather.param.SubTitleChanged
 import com.konstant.tool.lite.module.weather.param.TitleChanged
@@ -323,6 +324,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
 
         text_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
+
+        text_wallpaper.setOnClickListener { startActivity(WallpaperActivity::class.java) }
 
         text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 

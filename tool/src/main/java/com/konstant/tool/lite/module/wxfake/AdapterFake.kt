@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.module.wxfake
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -28,15 +29,15 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<androidx.rec
         }
     }
 
-    override fun getItemCount()= list.size
+    override fun getItemCount() = list.size
 
     override fun getItemViewType(position: Int) = list[position].type
 
-    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val conversion = list[position]
-        with(holder.itemView){
-            val bitmap = FileUtil.getBitmap(context, conversion.fileName)
+        with(holder.itemView) {
+            val bitmap = FileUtil.getBitmap(context, conversion.fileName)?: BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
             with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
                 paint.isAntiAlias = true
                 cornerRadius = 50F

@@ -8,7 +8,6 @@ class TransparentWallpaperService : WallpaperService() {
 
     private var camera: Camera? = null
 
-
     override fun onCreateEngine(): Engine {
         return CameraEngine()
     }
@@ -49,7 +48,6 @@ class TransparentWallpaperService : WallpaperService() {
                 stopPreview()
             }
         }
-
     }
 
 }

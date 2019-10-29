@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +35,8 @@ import java.io.File
 
 class ImageSelector : AppCompatActivity() {
 
+    private val TAG = "ImageSelector"
+
     companion object {
 
         private val CAMERA_REQUEST = 1      // 拍照
@@ -45,22 +48,26 @@ class ImageSelector : AppCompatActivity() {
         lateinit var mCallback: ((result: Boolean) -> Unit)
 
         //  从相册选择图片，提供给外部的接口
-        fun selectImg(context: Context, name: String, callback: (result: Boolean) -> Unit) {
+        fun selectImg(context: Context, name: String, width: Int = 300, height: Int = 300, callback: (result: Boolean) -> Unit) {
             mCallback = callback
             mFileName = name
             with(Intent(context, ImageSelector::class.java)) {
                 putExtra("type", PHOTO_REQUEST)
+                putExtra("width", width)
+                putExtra("height", height)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 context.startActivity(this)
             }
         }
 
         //  调用摄像机拍摄图片，提供给外部的接口
-        fun takePhoto(context: Context, name: String, callback: (result: Boolean) -> Unit) {
+        fun takePhoto(context: Context, name: String, width: Int = 300, height: Int = 300, callback: (result: Boolean) -> Unit) {
             mCallback = callback
             mFileName = name
             with(Intent(context, ImageSelector::class.java)) {
                 putExtra("type", CAMERA_REQUEST)
+                putExtra("width", width)
+                putExtra("height", height)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 context.startActivity(this)
             }
@@ -77,6 +84,9 @@ class ImageSelector : AppCompatActivity() {
             }
         }
     }
+
+    private val mWidth by lazy { intent.getIntExtra("width", 0) }
+    private val mHeight by lazy { intent.getIntExtra("height", 0) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,10 +115,7 @@ class ImageSelector : AppCompatActivity() {
     // 本activity调用系统的API获取数据后得到的结果，并对结果进行处理
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode != RESULT_OK) {
-            mCallback.invoke(false)
-            finish()
-        }
+        Log.d(TAG, "requestCode" + requestCode)
         when (requestCode) {
             CAMERA_REQUEST -> {
                 val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
@@ -120,14 +127,18 @@ class ImageSelector : AppCompatActivity() {
                 clipPhoto(uri)
             }
             PHOTO_REQUEST -> {
-                data?.let { clipPhoto(it.data!!) }
+                if (data != null) {
+                    clipPhoto(data.data!!)
+                } else {
+                    mCallback.invoke(false)
+                    finish()
+                }
             }
             PHOTO_CLIP -> {
-                mCallback.invoke(true)
+                mCallback.invoke(resultCode == RESULT_OK)
                 finish()
             }
             else -> {
-                mCallback.invoke(false)
                 finish()
             }
         }
@@ -135,6 +146,10 @@ class ImageSelector : AppCompatActivity() {
 
     // 调用系统中自带的图片剪裁
     private fun clipPhoto(uri: Uri) {
+        val width = if (mWidth == 0) 300 else mWidth
+        val height = if (mHeight == 0) 300 else mHeight
+        Log.d(TAG, "mWidth:" + mWidth)
+        Log.d(TAG, "mHeight:" + mHeight)
         val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
         with(Intent("com.android.camera.action.CROP")) {
             setDataAndType(uri, "image/*")
@@ -143,12 +158,12 @@ class ImageSelector : AppCompatActivity() {
             putExtra("crop", "true")
             putExtra("scale", true)
 
-            putExtra("aspectX", 1)
-            putExtra("aspectY", 1)
+            putExtra("aspectX", width)
+            putExtra("aspectY", height)
 
             //输出的宽高
-            putExtra("outputX", 300)
-            putExtra("outputY", 300)
+            putExtra("outputX", width)
+            putExtra("outputY", height)
 
             putExtra("return-data", false)
             putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cropPhoto))

@@ -90,7 +90,6 @@ class SettingActivity : BaseActivity() {
         switch_enhance.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) switch_kill.isChecked = false
             SettingManager.saveBackgroundEnhance(this, isChecked)
-            ForegroundService.startForegroundService(this, isChecked)
         }
         layout_enhance.setOnClickListener { switch_enhance.isChecked = !switch_enhance.isChecked }
 

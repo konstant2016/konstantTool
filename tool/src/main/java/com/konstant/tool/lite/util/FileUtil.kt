@@ -194,12 +194,12 @@ object FileUtil {
     }
 
     // 根据名字拿图片
-    fun getBitmap(context: Context, fileName: String): Bitmap {
+    fun getBitmap(context: Context, fileName: String): Bitmap? {
         val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$fileName"
         return if (File(path).exists()) {
             BitmapFactory.decodeFile(path)
         } else {
-            BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
+            null
         }
     }
 }

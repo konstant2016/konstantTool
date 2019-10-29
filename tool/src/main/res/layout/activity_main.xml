@@ -57,7 +57,7 @@
             android:id="@+id/layout_wallpaper"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:title="透明壁纸" />
+            app:title="趣味壁纸" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_decibel"

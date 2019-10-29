@@ -26,6 +26,32 @@ class ForegroundService : Service() {
                 context.startService(this)
             }
         }
+
+        fun createForegroundNotification(context: Context, title: String = "菜籽工具箱-后台增强服务",
+                                         msg: String = "关闭'后台增强服务'后，此通知会自动移除"): Notification {
+            val channelId = "${context.packageName}.channel"
+            val intent = TaskStackBuilder.create(context)
+                    .addNextIntent(Intent(context, SettingActivity::class.java))
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            val notificationBuilder = NotificationCompat.Builder(context, channelId)
+                    .apply {
+                        setSmallIcon(R.drawable.ic_launcher)
+                        setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher))
+                        setAutoCancel(false)
+                        setShowWhen(true)
+                        setContentTitle(title)
+                        setContentText(msg)
+                        setOngoing(true)
+                        setContentIntent(intent)
+                    }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channelName = "后台增强服务"
+                val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+                val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                manager.createNotificationChannel(channel)
+            }
+            return notificationBuilder.build()
+        }
     }
 
     override fun onBind(intent: Intent): IBinder? = null
@@ -33,35 +59,11 @@ class ForegroundService : Service() {
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val enhance = intent.getBooleanExtra(ENABLE_ENHANCE, false)
         if (enhance) {
-            createForegroundNotification()
+            startForeground(1, Companion.createForegroundNotification(this))
         } else {
             stopForeground(true)
         }
         return super.onStartCommand(intent, flags, startId)
     }
 
-    private fun createForegroundNotification() {
-        val channelId = "$packageName.channel"
-        val intent = TaskStackBuilder.create(this)
-                .addNextIntent(Intent(this@ForegroundService, SettingActivity::class.java))
-                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-                .apply {
-                    setSmallIcon(R.drawable.ic_launcher)
-                    setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_launcher))
-                    setAutoCancel(false)
-                    setShowWhen(true)
-                    setContentTitle("菜籽工具箱-后台增强服务")
-                    setContentText("关闭'后台增强服务'后，此通知会自动移除")
-                    setOngoing(true)
-                    setContentIntent(intent)
-                }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelName = "后台增强服务"
-            val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
-            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(channel)
-        }
-        startForeground(1, notificationBuilder.build())
-    }
 }
