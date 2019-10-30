@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.NotificationCreator
+import com.konstant.tool.lite.module.setting.SettingManager
 import kotlinx.android.synthetic.main.layout_concetration.view.*
 import java.lang.Exception
 
@@ -55,6 +56,7 @@ class ConcentrationService : Service() {
     }
 
     private fun showFloatView(minutes: Int) {
+        SettingManager.saveKillProcess(this, false)
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val params = WindowManager.LayoutParams()
                 .apply {

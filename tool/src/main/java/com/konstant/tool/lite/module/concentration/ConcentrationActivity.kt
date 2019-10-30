@@ -60,7 +60,6 @@ class ConcentrationActivity : BaseActivity() {
                     .setTitle("再次提示")
                     .setMessage("专注模式开启后在倒计时结束前无法关闭，如需强制关闭，请长按电源键10秒以上以重启手机")
                     .setPositiveListener {
-                        SettingManager.saveKillProcess(this, false)
                         ConcentrationService.startCountDown(this, view_seekbar.progress + 5)
                         it.dismiss()
                     }

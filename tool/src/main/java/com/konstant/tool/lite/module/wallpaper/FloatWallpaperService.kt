@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.NotificationCreator
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.FileUtil
 
 class FloatWallpaperService : Service() {
@@ -59,6 +60,7 @@ class FloatWallpaperService : Service() {
     private fun showFloatWallpaper(transparent: Int) {
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val bitmap = FileUtil.getBitmap(this, WALLPAPER_NAME) ?: return
+        SettingManager.saveKillProcess(this, false)
         val resource = getAlplaBitmap(bitmap, transparent)
         mView.setImageBitmap(resource)
 

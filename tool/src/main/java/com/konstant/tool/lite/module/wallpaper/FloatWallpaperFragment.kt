@@ -49,7 +49,6 @@ class FloatWallpaperFragment : BaseFragment() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 SettingManager.saveWallpaperTransparent(mActivity, seekBar.progress)
-                SettingManager.saveKillProcess(mActivity, false)
                 FloatWallpaperService.startTransparentWallpaper(mActivity, seekBar.progress)
             }
         })
@@ -76,7 +75,6 @@ class FloatWallpaperFragment : BaseFragment() {
             if (!it) {
                 showToast("图片未选择")
             } else {
-                SettingManager.saveKillProcess(mActivity, false)
                 FloatWallpaperService.startTransparentWallpaper(mActivity, transparent)
             }
         }
