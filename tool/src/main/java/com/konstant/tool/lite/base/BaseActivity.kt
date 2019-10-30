@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.concentration.ConcentrationActivity
 import com.konstant.tool.lite.module.date.DateCalculationActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
@@ -326,6 +327,8 @@ abstract class BaseActivity : SwipeBackActivity() {
         text_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
 
         text_wallpaper.setOnClickListener { startActivity(WallpaperActivity::class.java) }
+
+        text_concentration.setOnClickListener { startActivity(ConcentrationActivity::class.java) }
 
         text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
 

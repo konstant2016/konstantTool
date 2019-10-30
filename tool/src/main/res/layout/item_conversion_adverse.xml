@@ -5,25 +5,27 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@drawable/ic_launcher"
         android:id="@+id/img_header"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="5dp"
-        android:layout_width="38dp"
-        android:layout_height="38dp" />
+        android:src="@drawable/ic_launcher" />
 
     <TextView
-        android:gravity="center_vertical"
         android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/wechat_bg_left"
-        android:text="好候修改了改成root" />
+        android:gravity="center_vertical"
+        android:text="好候修改了改成root"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="14sp" />
 
     <View
-        android:layout_below="@id/tv_msg"
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp"
+        android:layout_below="@id/tv_msg" />
 
 </RelativeLayout>

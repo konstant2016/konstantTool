@@ -213,52 +213,6 @@
             android:background="?attr/tool_divider_color" />
     </RelativeLayout>
 
-
-    <RelativeLayout
-        android:id="@+id/layout_enhance"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:background="?android:selectableItemBackground"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/tv_enhance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="开启后台增强"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_enhance"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="60dp"
-            android:text="(避免应用被回收，与'纯净后台'开关互斥)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_enhance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="?attr/tool_divider_color" />
-
-    </RelativeLayout>
-
     <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_about"
         android:layout_width="match_parent"

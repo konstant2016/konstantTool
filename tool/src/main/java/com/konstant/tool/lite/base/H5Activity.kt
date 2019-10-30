@@ -6,12 +6,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
-import android.widget.PopupWindow
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_h5.*
-import kotlinx.android.synthetic.main.pop_h5.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 
@@ -28,8 +26,6 @@ class H5Activity : BaseActivity() {
         val H5_URL = "url"
         val H5_BROWSER = "browser"  // 是否用浏览器打开
     }
-
-    private lateinit var mPop: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +64,19 @@ class H5Activity : BaseActivity() {
     }
 
     private fun onMorePressed() {
-        val view = layoutInflater.inflate(R.layout.pop_h5, null)
-        view.tv_refresh.setOnClickListener { mPop.dismiss();onRefresh() }
-        view.tv_browser.setOnClickListener { mPop.dismiss();view_web.openOnBrowser() }
-        mPop = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-        mPop.showAsDropDown(title_bar)
+        KonstantPopupWindow(this)
+                .setItemList(listOf("刷新页面", "用浏览器打开"))
+                .setOnItemClickListener {
+                    when (it) {
+                        0 -> {
+                            onRefresh()
+                        }
+                        1 -> {
+                            view_web.openOnBrowser()
+                        }
+                    }
+                }
+                .showAsDropDown(title_bar)
     }
 
     private fun onRefresh() {

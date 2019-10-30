@@ -1,8 +1,6 @@
 package com.konstant.tool.lite.module.extract
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager

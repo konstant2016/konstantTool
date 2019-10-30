@@ -4,20 +4,15 @@ import android.Manifest
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.base.ForegroundService
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.util.PermissionRequester
-import com.konstant.tool.lite.view.Adapter
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_setting.*
-import kotlinx.android.synthetic.main.layout_dialog_header_selector.view.*
-import kotlinx.android.synthetic.main.pop_item_setting.view.*
 import org.greenrobot.eventbus.EventBus
-
 
 /**
  * 描述:APP设置
@@ -57,10 +52,7 @@ class SettingActivity : BaseActivity() {
 
         // 杀进程
         switch_kill.isChecked = SettingManager.getKillProcess(this)
-        switch_kill.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) switch_enhance.isChecked = false
-            SettingManager.saveKillProcess(this, isChecked)
-        }
+        switch_kill.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveKillProcess(this, isChecked) }
         layout_kill.setOnClickListener { switch_kill.isChecked = !switch_kill.isChecked }
 
         // 滑动返回
@@ -85,88 +77,78 @@ class SettingActivity : BaseActivity() {
         }
         layout_dark.setOnClickListener { switch_dark.isChecked = !switch_dark.isChecked }
 
-        // 后台增强
-        switch_enhance.isChecked = SettingManager.getBackgroundEnhance(this)
-        switch_enhance.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) switch_kill.isChecked = false
-            SettingManager.saveBackgroundEnhance(this, isChecked)
-        }
-        layout_enhance.setOnClickListener { switch_enhance.isChecked = !switch_enhance.isChecked }
-
         // 关于
         layout_about.setOnClickListener { startActivity(AboutActivity::class.java) }
     }
 
     // 点击滑动返回状态后的操作
     private fun onSwipeBackClick() {
-        val view = layoutInflater.inflate(R.layout.pop_item_setting, null)
-        val dialog = KonstantDialog(this)
-                .addView(view)
+        KonstantDialog(this)
                 .hideNavigation()
+                .setItemList(swipeStateList)
+                .setOnItemClickListener { dialog, position ->
+                    dialog.dismiss()
+                    SettingManager.setSwipeBackStatus(this, position)
+                    EventBus.getDefault().post(SwipeBackStatus(position))
+                    layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
+                }
                 .createDialog()
-        view.layout_list_view.adapter = Adapter(this, swipeStateList)
-        view.layout_list_view.setOnItemClickListener { _, _, position, _ ->
-            dialog.dismiss()
-            SettingManager.setSwipeBackStatus(this, position)
-            EventBus.getDefault().post(SwipeBackStatus(position))
-            layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
-        }
+
     }
 
     // 浏览器类型点击后的操作
     private fun onBrowserClick() {
-        val view = layoutInflater.inflate(R.layout.pop_item_setting, null)
-        val dialog = KonstantDialog(this)
-                .addView(view)
+        KonstantDialog(this)
                 .hideNavigation()
+                .setItemList(browserTypeList)
+                .setOnItemClickListener { dialog, position ->
+                    dialog.dismiss()
+                    SettingManager.saveBrowserType(this, position)
+                    layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
+                }
                 .createDialog()
-        view.layout_list_view.adapter = Adapter(this, browserTypeList)
-        view.layout_list_view.setOnItemClickListener { _, _, position, _ ->
-            dialog.dismiss()
-            SettingManager.saveBrowserType(this, position)
-            layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
-        }
     }
 
     // 头像选择
     private fun headerSelector() {
-        val dialog = KonstantDialog(this)
-        val view = layoutInflater.inflate(R.layout.layout_dialog_header_selector, null)
-        // 拍照
-        view.text_camera.setOnClickListener {
-            dialog.dismiss()
-            PermissionRequester.requestPermission(this,
-                    mutableListOf(Manifest.permission.CAMERA),
-                    {
-                        ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
-                            if (it) {
-                                EventBus.getDefault().post(UserHeaderChanged())
-                                showToast("设置成功")
+        KonstantDialog(this)
+                .hideNavigation()
+                .setItemList(listOf("拍照", "相册", "恢复默认"))
+                .setOnItemClickListener { dialog, position ->
+                    dialog.dismiss()
+                    when (position) {
+                        // 拍照
+                        0 -> {
+                            PermissionRequester.requestPermission(this,
+                                    mutableListOf(Manifest.permission.CAMERA),
+                                    {
+                                        ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
+                                            if (it) {
+                                                EventBus.getDefault().post(UserHeaderChanged())
+                                                showToast("设置成功")
+                                            }
+                                        }
+                                    },
+                                    { showToast("您拒绝了相机权限") })
+                        }
+                        // 相册
+                        1 -> {
+                            ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
+                                if (it) {
+                                    EventBus.getDefault().post(UserHeaderChanged())
+                                    showToast("设置成功")
+                                }
                             }
                         }
-                    },
-                    { showToast("您拒绝了相机权限") })
-        }
-        // 相册
-        view.text_photo.setOnClickListener {
-            dialog.dismiss()
-            ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
-                if (it) {
-                    EventBus.getDefault().post(UserHeaderChanged())
-                    showToast("设置成功")
+                        // 恢复默认
+                        2 -> {
+                            dialog.dismiss()
+                            SettingManager.deleteUserHeaderThumb(this)
+                            EventBus.getDefault().post(UserHeaderChanged())
+                            showToast("已恢复默认")
+                        }
+                    }
                 }
-            }
-        }
-        // 恢复默认
-        view.text_default.setOnClickListener {
-            dialog.dismiss()
-            SettingManager.deleteUserHeaderThumb(this)
-            EventBus.getDefault().post(UserHeaderChanged())
-            showToast("已恢复默认")
-        }
-        // 显示dialog
-        dialog.hideNavigation()
-                .addView(view)
                 .createDialog()
     }
 }

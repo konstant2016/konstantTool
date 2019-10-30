@@ -60,6 +60,12 @@
             app:title="趣味壁纸" />
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_concentration"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="专注模式" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_decibel"
             android:layout_width="match_parent"
             android:layout_height="50dp"

@@ -13,11 +13,11 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.util.FileUtil
 
-class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
 
     lateinit var context: Context
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         context = viewGroup.context
         return when (viewType) {
             0 -> {

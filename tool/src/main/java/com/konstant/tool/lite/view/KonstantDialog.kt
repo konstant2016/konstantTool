@@ -19,10 +19,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     private var message: String = ""
     private var title: String = ""
     private var view: View? = null           // 内部填充的布局
+    private val mList = ArrayList<String>()  // 内部填充的列表
 
     private var positiveListener: ((KonstantDialog) -> Unit)? = null     // 确认按钮按下后
     private var negativeListener: ((KonstantDialog) -> Unit)? = null     // 取消按钮按下后
     private var checkedChangeListener: ((state: Boolean) -> Unit)? = null// checkbox状态监听
+    private var mOnItemClickListener: ((dialog: KonstantDialog, position: Int) -> Unit)? = null   // 列表的点击回调
 
     private lateinit var root: View
 
@@ -53,6 +55,19 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     // 设置取消按钮的监听
     fun setNegativeListener(listener: (KonstantDialog) -> Unit): KonstantDialog {
         negativeListener = listener
+        return this
+    }
+
+    // 设置列表点击监听
+    fun setOnItemClickListener(listener: (dialog: KonstantDialog, position: Int) -> Unit): KonstantDialog {
+        mOnItemClickListener = listener
+        return this
+    }
+
+    // 设置填充列表
+    fun setItemList(stringList: List<String>): KonstantDialog {
+        mList.clear()
+        mList.addAll(stringList)
         return this
     }
 
@@ -90,6 +105,16 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
             root.tv_title.visibility = View.GONE
         }
 
+        if (mList.isNotEmpty()) {
+            root.view_list.apply {
+                visibility = View.VISIBLE
+                adapter = Adapter(context, mList)
+                setOnItemClickListener { _, _, position, _ ->
+                    mOnItemClickListener?.invoke(this@KonstantDialog, position)
+                }
+            }
+        }
+
         if (checkedChangeListener != null) {
             root.layout_checkbox.visibility = View.VISIBLE
             root.checkbox.setOnCheckedChangeListener { _, isChecked ->
@@ -98,8 +123,11 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         }
 
         if (view != null) {
-            root.layout_view.removeAllViews()
-            root.layout_view.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+            root.layout_content.apply {
+                visibility = View.VISIBLE
+                removeAllViews()
+                addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+            }
         }
 
         addContentView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -126,7 +154,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     override fun dismiss() {
-        root.layout_view.removeAllViews()
+        root.layout_content.removeAllViews()
         super.dismiss()
     }
 

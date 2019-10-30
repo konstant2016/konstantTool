@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
-import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
@@ -16,16 +15,9 @@ import com.konstant.tool.lite.module.setting.activity.SettingActivity
  * 描述：前台通知，用于加强应用存活性
  */
 
-class ForegroundService : Service() {
+class NotificationCreator {
 
     companion object {
-        private const val ENABLE_ENHANCE = "enable_enhance"
-        fun startForegroundService(context: Context, enhance: Boolean) {
-            with(Intent(context, ForegroundService::class.java)) {
-                putExtra(ENABLE_ENHANCE, enhance)
-                context.startService(this)
-            }
-        }
 
         fun createForegroundNotification(context: Context, title: String = "菜籽工具箱-后台增强服务",
                                          msg: String = "关闭'后台增强服务'后，此通知会自动移除"): Notification {
@@ -53,17 +45,4 @@ class ForegroundService : Service() {
             return notificationBuilder.build()
         }
     }
-
-    override fun onBind(intent: Intent): IBinder? = null
-
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        val enhance = intent.getBooleanExtra(ENABLE_ENHANCE, false)
-        if (enhance) {
-            startForeground(1, Companion.createForegroundNotification(this))
-        } else {
-            stopForeground(true)
-        }
-        return super.onStartCommand(intent, flags, startId)
-    }
-
 }

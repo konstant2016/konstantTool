@@ -9,11 +9,10 @@ import android.os.Build
 import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.WindowManager
+import android.widget.ImageView
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.ForegroundService
-import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.base.NotificationCreator
 import com.konstant.tool.lite.util.FileUtil
-import kotlinx.android.synthetic.main.layout_float_wallpapewr.view.*
 
 class FloatWallpaperService : Service() {
 
@@ -34,11 +33,10 @@ class FloatWallpaperService : Service() {
             intent.putExtra(COMMEND_TYPE, 2)
             context.startService(intent)
         }
-
     }
 
     private val mView by lazy {
-        LayoutInflater.from(this).inflate(R.layout.layout_float_wallpapewr, null)
+        LayoutInflater.from(this).inflate(R.layout.layout_float_wallpapewr, null) as ImageView
     }
 
     override fun onBind(intent: Intent): IBinder? = null
@@ -62,7 +60,7 @@ class FloatWallpaperService : Service() {
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val bitmap = FileUtil.getBitmap(this, WALLPAPER_NAME) ?: return
         val resource = getAlplaBitmap(bitmap, transparent)
-        mView.imageView.setImageBitmap(resource)
+        mView.setImageBitmap(resource)
 
         val params = WindowManager.LayoutParams()
                 .apply {
@@ -81,11 +79,8 @@ class FloatWallpaperService : Service() {
                 }
         removeFloatWallpaper()
         windowManager.addView(mView, params)
-        if (SettingManager.getBackgroundEnhance(this)) {
-            val notification = ForegroundService.createForegroundNotification(this, msg = "关闭‘全局壁纸’后，此通知自动移除")
-            startForeground(1, notification)
-        }
-
+        val notification = NotificationCreator.createForegroundNotification(this, msg = "关闭‘全局壁纸’后，此通知自动移除")
+        startForeground(1, notification)
     }
 
     private fun removeFloatWallpaper() {

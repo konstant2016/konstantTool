@@ -19,7 +19,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:src="@color/color_black" />
+        android:src="@drawable/ic_launcher" />
 
     <TextView
         android:textColor="?attr/tool_main_text_color"

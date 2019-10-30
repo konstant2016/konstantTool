@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.network.NetworkHelper
+import com.konstant.tool.lite.view.Adapter
 import com.konstant.tool.lite.view.KonstantArrayAdapter
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_translate.*

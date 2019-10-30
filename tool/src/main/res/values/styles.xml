@@ -89,7 +89,7 @@
     </style>
 
 
-    <style name="KonstantDialog" parent="android:style/Theme.Dialog">
+    <style name="KonstantDialog" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="android:background">#00000000</item>
         <item name="android:windowBackground">@color/color_transport</item>
         <item name="android:windowNoTitle">true</item>

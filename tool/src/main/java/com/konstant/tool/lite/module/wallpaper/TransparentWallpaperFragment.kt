@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.KonApplication
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.fragment_wallpaper_transparent.*
@@ -55,6 +56,7 @@ class TransparentWallpaperFragment : BaseFragment() {
 
     // 启用指定的壁纸选择器
     private fun startCustomWallpaperPicker() {
+        SettingManager.saveKillProcess(mActivity, false)
         val intent = Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
                 ComponentName(mActivity, TransparentWallpaperService::class.java));

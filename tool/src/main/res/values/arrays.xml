@@ -64,49 +64,6 @@
         <item>vie</item>
     </array>
 
-    <array name="express_company">
-        <item>顺丰速运</item>
-        <item>中国邮政</item>
-        <item>申通快递</item>
-        <item>圆通速递</item>
-        <item>中通快递</item>
-        <item>百世汇通</item>
-        <item>韵达快递</item>
-        <item>天天快递</item>
-        <item>全峰快递</item>
-        <item>德邦物流</item>
-        <item>宅急送</item>
-    </array>
-
-    <array name="express_company_id">
-        <item>shunfeng</item>
-        <item>ems</item>
-        <item>shentong</item>
-        <item>yuantong</item>
-        <item>zhongtong</item>
-        <item>huitongkuaidi</item>
-        <item>yunda</item>
-        <item>tiantian</item>
-        <item>quanfengkuaidi</item>
-        <item>debangwuliu</item>
-        <item>zhaijisong</item>
-    </array>
-
-
-    <array name="main_function">
-        <item>翻译</item>
-        <item>直尺</item>
-        <item>指南针</item>
-        <item>美女图片</item>
-        <item>物流查询</item>
-        <item>天气查询</item>
-        <item>查看设备信息</item>
-        <item>公交线路查询</item>
-        <item>二维码扫描解析</item>
-        <item>领取支付宝红包</item>
-    </array>
-
-
     <array name="list_parse_url">
         <item>http://jx.du2.cc/?url=</item>
         <item>http://jx.drgxj.com/?url=</item>

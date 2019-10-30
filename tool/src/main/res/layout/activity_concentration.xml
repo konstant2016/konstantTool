@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="原理说明："
+        android:text="!-!-注意-!-!"
         android:textColor="?attr/tool_main_text_color" />
 
     <TextView
@@ -21,29 +21,18 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:text="本质上是启用了全局悬浮窗，在所有应用上层显示一张半透明的壁纸"
+        android:text="此功能专为自控能力不足的用户开发，开启后手机会直接显示一个倒计时画面，在倒计时结束前无法使用手机，此功能需要开启'显示在其他应用上层权限'，若要强行结束，唯一的解决办法是强制重启手机（当然你也可以通过其他手段杀掉本进程）"
         android:textColor="?attr/tool_second_text_color" />
 
     <TextView
+        android:id="@+id/tv_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:text="注意：注意：为保证功能可用，开启全局壁纸后'纯净后台'选项将自动关闭"
-        android:textColor="?attr/tool_second_text_color" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp"
-        android:gravity="center"
-        android:text="设置壁纸透明度"
-        android:textColor="?attr/tool_second_text_color" />
+        android:gravity="center_horizontal"
+        android:text="设置倒计时时间(当前30分钟)"
+        android:textColor="?attr/tool_main_text_color" />
 
     <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/view_seekbar"
@@ -52,10 +41,11 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:max="100" />
+        android:max="145"
+        android:progress="25" />
 
     <Button
-        android:id="@+id/btn_enable"
+        android:id="@+id/btn_start"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -63,19 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/selector_btn"
-        android:text="启用全局壁纸"
-        android:textColor="?attr/tool_main_text_color" />
-
-    <Button
-        android:id="@+id/btn_disable"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/selector_btn"
-        android:text="关闭全局壁纸"
+        android:text="我知道了，启用专注模式"
         android:textColor="?attr/tool_main_text_color" />
 
 </LinearLayout>

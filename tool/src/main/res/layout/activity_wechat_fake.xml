@@ -18,19 +18,21 @@
         android:layout_height="35dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center_vertical"
         android:text="菜籽"
         android:textColor="@color/color_black"
         android:textSize="16sp" />
 
     <ImageView
-        android:clickable="true"
         android:id="@+id/img_more_fake"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="35dp"
         android:layout_marginRight="15dp"
+        android:clickable="true"
         android:src="@drawable/wechat_more" />
 
     <View
@@ -41,12 +43,12 @@
         android:background="@color/color_black_d9" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:paddingTop="10dp"
         android:id="@+id/layout_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/view_bottom"
-        android:layout_below="@+id/view_divider" />
+        android:layout_below="@+id/view_divider"
+        android:paddingTop="10dp" />
 
     <ImageView
         android:id="@+id/view_bottom"
@@ -63,24 +65,24 @@
         android:orientation="horizontal">
 
         <Button
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/btn_adverse"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="输入对方文字" />
+            android:text="输入对方文字"
+            android:textColor="?attr/tool_main_text_color" />
 
         <Button
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/btn_mine"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="输入我的文字" />
+            android:text="输入我的文字"
+            android:textColor="?attr/tool_main_text_color" />
     </LinearLayout>
 
 </RelativeLayout>

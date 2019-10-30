@@ -39,6 +39,13 @@
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
+    <com.konstant.tool.lite.view.KonstantListView
+        android:id="@+id/view_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/layout_checkbox"
         android:layout_width="match_parent"
@@ -64,7 +71,7 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/layout_view"
+        android:id="@+id/layout_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"

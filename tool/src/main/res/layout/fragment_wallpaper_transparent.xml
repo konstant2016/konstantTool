@@ -31,7 +31,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:text="注意：为避免应用退出后台被回收，强烈建议使用此功能时打开'后台增强'开关"
+        android:text="注意：为保证功能可用，开启透明壁纸后'纯净后台'选项将自动关闭"
         android:textColor="?attr/tool_second_text_color" />
 
     <Button

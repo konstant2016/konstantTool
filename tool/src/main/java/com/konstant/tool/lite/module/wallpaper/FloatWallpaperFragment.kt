@@ -14,6 +14,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.ImageSelector
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.fragment_wallpaper_float.*
 
 /**
@@ -48,6 +49,7 @@ class FloatWallpaperFragment : BaseFragment() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 SettingManager.saveWallpaperTransparent(mActivity, seekBar.progress)
+                SettingManager.saveKillProcess(mActivity, false)
                 FloatWallpaperService.startTransparentWallpaper(mActivity, seekBar.progress)
             }
         })
@@ -57,9 +59,16 @@ class FloatWallpaperFragment : BaseFragment() {
 
     private fun enableFloatWallpaper(transparent: Int = 70) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mActivity)) {
-            showToast("需要开启显示在其他应用的上层权限")
-            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(mActivity.packageName)}"))
-            mActivity.startActivity(intent)
+            KonstantDialog(mActivity)
+                    .setTitle("需要申请额外权限")
+                    .setMessage("请在下一个页面开启'显示在其他应用的上层'权限开关")
+                    .setNegativeListener { showToast("授权已取消") }
+                    .setPositiveListener {
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(mActivity.packageName)}"))
+                        mActivity.startActivity(intent)
+                        it.dismiss()
+                    }
+                    .createDialog()
             return
         }
         ImageSelector.selectImg(mActivity, FloatWallpaperService.WALLPAPER_NAME, 540, 960) {
@@ -67,6 +76,7 @@ class FloatWallpaperFragment : BaseFragment() {
             if (!it) {
                 showToast("图片未选择")
             } else {
+                SettingManager.saveKillProcess(mActivity, false)
                 FloatWallpaperService.startTransparentWallpaper(mActivity, transparent)
             }
         }

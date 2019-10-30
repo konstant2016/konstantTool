@@ -2,22 +2,19 @@ package com.konstant.tool.lite.module.express.activity
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
-import com.konstant.tool.lite.module.express.ExpressManager
-import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.data.bean.express.ExpressData
+import com.konstant.tool.lite.module.express.ExpressManager
+import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
+import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.view.KonstantDialog
+import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_express_detail.*
 import kotlinx.android.synthetic.main.activity_express_detail.view.*
 import kotlinx.android.synthetic.main.layout_dialog_input.view.*
-import kotlinx.android.synthetic.main.pop_express_detail.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
@@ -35,8 +32,6 @@ class ExpressDetailActivity : BaseActivity() {
     var mNumber = ""
     var mCompany: String? = ""
     var mName: String? = ""
-
-    lateinit var mPop: PopupWindow
 
     private val mList = ArrayList<ExpressData.Message>()
     private val mAdapter by lazy { AdapterExpressDetail(this, mList) }
@@ -125,18 +120,26 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
-        with(LayoutInflater.from(this).inflate(R.layout.pop_express_detail, null)) {
-            tv_change_order.setOnClickListener { changeOrderNo() }
-            tv_change_remark.setOnClickListener { changeRemark() }
-            tv_delete.setOnClickListener { deleteOrder() }
-            mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-            mPop.showAsDropDown(title_bar)
-        }
+        KonstantPopupWindow(this)
+                .setItemList(listOf("修改物流单号", "修改备注", "删除此物流"))
+                .setOnItemClickListener {
+                    when (it) {
+                        0 -> {
+                            changeOrderNo()
+                        }
+                        1 -> {
+                            changeRemark()
+                        }
+                        2 -> {
+                            deleteOrder()
+                        }
+                    }
+                }
+                .showAsDropDown(title_bar)
     }
 
     // 修改物流单号
     private fun changeOrderNo() {
-        mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         view.edit_input.setText(mNumber)
         view.edit_input.selectAll()
@@ -162,7 +165,6 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 修改备注
     private fun changeRemark() {
-        mPop.dismiss()
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         val edit = view.edit_input
         edit.setText(mName)
@@ -187,7 +189,6 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 删除运单
     private fun deleteOrder() {
-        mPop.dismiss()
         KonstantDialog(this)
                 .setMessage("确定要删除此运单号？")
                 .setPositiveListener {

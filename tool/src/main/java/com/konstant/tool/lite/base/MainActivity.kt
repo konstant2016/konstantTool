@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.module.compass.CompassActivity
+import com.konstant.tool.lite.module.concentration.ConcentrationActivity
 import com.konstant.tool.lite.module.date.DateCalculationActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
@@ -74,6 +75,8 @@ class MainActivity : BaseActivity() {
         layout_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
 
         layout_wallpaper.setOnClickListener { startActivity(WallpaperActivity::class.java) }
+
+        layout_concentration.setOnClickListener { startActivity(ConcentrationActivity::class.java) }
 
         layout_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
 

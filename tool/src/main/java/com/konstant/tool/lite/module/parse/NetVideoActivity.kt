@@ -4,28 +4,24 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.ClipboardManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.H5Activity
+import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_net.*
-import kotlinx.android.synthetic.main.pop_net_video.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
-* 时间：2019/8/2 15:30
-* 创建：菜籽
-* 描述：网络视频展示页面
-*/
+ * 时间：2019/8/2 15:30
+ * 创建：菜籽
+ * 描述：网络视频展示页面
+ */
 
 class NetVideoActivity : BaseActivity() {
 
     private val mUrls by lazy { resources.getStringArray(R.array.list_parse_url) }
-    lateinit var mPop: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,22 +47,24 @@ class NetVideoActivity : BaseActivity() {
     }
 
     private fun onMoreClick() {
-        with(LayoutInflater.from(this).inflate(R.layout.pop_net_video, null)) {
-            tv_refresh.setOnClickListener { web_view.reload();mPop.dismiss() }
-            tv_copy_url.setOnClickListener {
-                val manger = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                manger.text = web_view.url
-                showToast("当前地址已保存至剪切板")
-                mPop.dismiss()
-            }
-            tv_parse_01.setOnClickListener { startHtmlActivity(mUrls[0]) }
-            tv_parse_02.setOnClickListener { startHtmlActivity(mUrls[1]) }
-            tv_parse_03.setOnClickListener { startHtmlActivity(mUrls[2]) }
-            tv_parse_04.setOnClickListener { startHtmlActivity(mUrls[3]) }
-            tv_parse_05.setOnClickListener { startHtmlActivity(mUrls[4]) }
-            mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-            mPop.showAsDropDown(title_bar)
-        }
+        KonstantPopupWindow(this)
+                .setItemList(listOf("刷新当前页面", "复制页面地址", "引擎一解析VIP视频(推荐)", "引擎二解析VIP视频", "引擎三解析VIP视频", "引擎四解析VIP视频", "引擎五解析VIP视频"))
+                .setOnItemClickListener {
+                    when (it) {
+                        0 -> {
+                            web_view.reload()
+                        }
+                        1 -> {
+                            val manger = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                            manger.text = web_view.url
+                            showToast("当前地址已保存至剪切板")
+                        }
+                        2, 3, 4, 5, 6 -> {
+                            startHtmlActivity(mUrls[it - 2])
+                        }
+                    }
+                }
+                .showAsDropDown(title_bar)
     }
 
     private fun startHtmlActivity(url: String) {
@@ -76,7 +74,6 @@ class NetVideoActivity : BaseActivity() {
             putExtra(H5Activity.H5_BROWSER, true)
             startActivity(this)
         }
-        mPop.dismiss()
     }
 
     override fun onBackPressed() {
