@@ -1,11 +1,10 @@
 package com.konstant.tool.lite.module.date
 
 import android.os.Bundle
-import androidx.viewpager.widget.PagerAdapter
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragmentAdapter
-import kotlinx.android.synthetic.main.activity_date_calculation.*
+import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
@@ -18,7 +17,7 @@ class DateCalculationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_date_calculation)
+        setContentView(R.layout.activity_viewpager)
         initBaseViews()
     }
 

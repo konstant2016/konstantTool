@@ -1,16 +1,10 @@
 package com.konstant.tool.lite.module.wallpaper
 
-import android.Manifest
-import android.app.WallpaperManager
-import android.content.ComponentName
-import android.content.Intent
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.BaseFragmentAdapter
-import com.konstant.tool.lite.util.PermissionRequester
-import kotlinx.android.synthetic.main.activity_transparent_wallpaper.*
+import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
@@ -23,7 +17,7 @@ class WallpaperActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_transparent_wallpaper)
+        setContentView(R.layout.activity_viewpager)
         initBaseViews()
     }
 

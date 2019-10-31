@@ -12,7 +12,7 @@ import com.konstant.tool.lite.base.BaseFragmentAdapter
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.fragment.WeatherFragment
 import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
-import kotlinx.android.synthetic.main.activity_weather.*
+import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.title_layout.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -32,7 +32,7 @@ class WeatherActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather)
+        setContentView(R.layout.activity_viewpager)
         setTitle("天气查询")
         initBaseViews()
     }
@@ -44,9 +44,9 @@ class WeatherActivity : BaseActivity() {
         super.initBaseViews()
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { startActivity(Intent(this, CityManagerActivity::class.java)) }
-        layout_viewpager.offscreenPageLimit = 50
-        layout_viewpager.adapter = mAdapter
-        title_indicator.setViewPager(layout_viewpager)
+        view_pager.offscreenPageLimit = 50
+        view_pager.adapter = mAdapter
+        title_indicator.setViewPager(view_pager)
 
         readyFragment()
     }
@@ -72,7 +72,7 @@ class WeatherActivity : BaseActivity() {
         if (msg.cityNumChange){
             readyFragment()
         }
-        layout_viewpager.currentItem = msg.index
+        view_pager.currentItem = msg.index
     }
 
 }

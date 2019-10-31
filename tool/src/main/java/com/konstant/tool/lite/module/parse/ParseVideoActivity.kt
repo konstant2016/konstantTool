@@ -5,7 +5,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragmentAdapter
 import com.konstant.tool.lite.base.BasePagerChangeListener
-import kotlinx.android.synthetic.main.activity_parse.*
+import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
@@ -18,7 +18,7 @@ class ParseVideoActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_parse)
+        setContentView(R.layout.activity_viewpager)
         initBaseViews()
     }
 
