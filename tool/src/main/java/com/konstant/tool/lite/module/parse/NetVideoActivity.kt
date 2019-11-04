@@ -10,7 +10,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.H5Activity
 import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
-import kotlinx.android.synthetic.main.activity_net.*
+import kotlinx.android.synthetic.main.activity_h5.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
@@ -25,7 +25,7 @@ class NetVideoActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_net)
+        setContentView(R.layout.activity_h5)
         setTitle("加载中...")
         initBaseViews()
         intent?.getStringExtra("url")?.let { web_view.loadUrl(it) }

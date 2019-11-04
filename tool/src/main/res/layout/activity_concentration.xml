@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="!-!-注意-!-!"
+        android:text="！-！-注意-！-！"
         android:textColor="?attr/tool_main_text_color" />
 
     <TextView

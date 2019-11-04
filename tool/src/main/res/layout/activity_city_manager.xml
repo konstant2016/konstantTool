@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_city"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <GridView
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/grid_city"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:horizontalSpacing="20dp"
-        android:numColumns="3"
-        android:verticalSpacing="20dp" />
-
-    <RelativeLayout
-        android:visibility="gone"
-        android:background="#60000000"
-        android:id="@+id/layout_city_mamger"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</RelativeLayout>
+    android:layout_height="match_parent"
+    android:layout_alignParentEnd="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:horizontalSpacing="20dp"
+    android:numColumns="3"
+    android:verticalSpacing="20dp" />

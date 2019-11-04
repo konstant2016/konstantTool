@@ -35,12 +35,12 @@ class H5Activity : BaseActivity() {
         val url = intent.getStringExtra(H5_URL)
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
         if (browser) {
-            view_web.openOnBrowser(url)
+            web_view.openOnBrowser(url)
             finish()
             return
         }
         Log.d(TAG, url)
-        view_web.loadUrl(url)
+        web_view.loadUrl(url)
     }
 
     override fun initBaseViews() {
@@ -50,7 +50,7 @@ class H5Activity : BaseActivity() {
             visibility = View.VISIBLE
             setOnClickListener { onMorePressed() }
         }
-        view_web.apply {
+        web_view.apply {
             registerTitleChanged(::setTitle)
             registerProgressChanged {
                 if (it == 100) {
@@ -72,7 +72,7 @@ class H5Activity : BaseActivity() {
                             onRefresh()
                         }
                         1 -> {
-                            view_web.openOnBrowser()
+                            web_view.openOnBrowser()
                         }
                     }
                 }
@@ -80,22 +80,22 @@ class H5Activity : BaseActivity() {
     }
 
     private fun onRefresh() {
-        view_web.reload()
+        web_view.reload()
     }
 
-    private fun withBrowser(url: String = view_web.url) {
+    private fun withBrowser(url: String = web_view.url) {
         val uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, uri)
         startActivity(intent)
     }
 
     override fun onBackPressed() {
-        if (view_web.onBackPressed()) return
+        if (web_view.onBackPressed()) return
         super.onBackPressed()
     }
 
     override fun onDestroy() {
-        view_web.onDestroy()
+        web_view.onDestroy()
         super.onDestroy()
     }
 }

@@ -22,8 +22,8 @@ import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
 import kotlinx.android.synthetic.main.fragment_weather.*
-import kotlinx.android.synthetic.main.layout_weather_15_daily.*
-import kotlinx.android.synthetic.main.layout_weather_24_hour.*
+import kotlinx.android.synthetic.main.layout_weather_days.*
+import kotlinx.android.synthetic.main.layout_weather_hours.*
 import kotlinx.android.synthetic.main.layout_weather_current.*
 import java.text.SimpleDateFormat
 

@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
 class AdapterWeatherDaily(private val datas: List<WeatherResponse.WeatherBean>) : RecyclerView.Adapter<AdapterWeatherDaily.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_15_daily, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_days, parent, false)
         return Holder(view)
     }
 

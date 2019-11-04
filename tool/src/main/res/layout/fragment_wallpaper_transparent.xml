@@ -31,7 +31,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:text="注意：为保证功能可用，开启透明壁纸后'纯净后台'选项将自动关闭"
+        android:text="注意：为保证功能可用，此功能启用后'纯净后台'选项将自动关闭"
         android:textColor="?attr/tool_second_text_color" />
 
     <Button

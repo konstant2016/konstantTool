@@ -85,7 +85,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 正在加载中
     private fun onLoading() {
         runOnUiThread {
-            base_content.layout_loading.visibility = View.VISIBLE
+            showLoading(true)
             base_content.layout_error.visibility = View.GONE
             base_content.layout_success.visibility = View.GONE
         }
@@ -94,7 +94,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 加载失败
     private fun onError() {
         runOnUiThread {
-            base_content.layout_loading.visibility = View.GONE
+            showLoading(false)
             base_content.layout_error.visibility = View.VISIBLE
             base_content.layout_success.visibility = View.GONE
         }
@@ -102,12 +102,12 @@ class ExpressDetailActivity : BaseActivity() {
 
     // 加载成功
     private fun onSuccess(response: ExpressData) {
+        showLoading(false)
         mCompany = response.company
         mState = response.status
         ExpressManager.updateExpress(mNumber, mCompany, mName, mState)
         sendExpressChanged()
         runOnUiThread {
-            base_content.layout_loading.visibility = View.GONE
             base_content.layout_error.visibility = View.GONE
             base_content.layout_success.visibility = View.VISIBLE
             tv_describe.text = "${response.company}:${response.number}"

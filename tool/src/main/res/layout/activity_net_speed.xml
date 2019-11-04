@@ -11,9 +11,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:gravity="center"
-        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，理论上下载文件数值越大，速度计算越精确"
+        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，网络稳定时，下载文件数值越大，速度计算越精确"
         android:textColor="?attr/tool_second_text_color" />
-
 
     <TextView
         android:layout_width="wrap_content"

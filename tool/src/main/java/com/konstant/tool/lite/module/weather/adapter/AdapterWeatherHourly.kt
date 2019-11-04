@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso
 class AdapterWeatherHourly(private val context: Context, private val datas: List<WeatherResponse.HourlyForecastBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterWeatherHourly.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_24_hour, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_weather_hours, parent, false)
         return Holder(view)
     }
 

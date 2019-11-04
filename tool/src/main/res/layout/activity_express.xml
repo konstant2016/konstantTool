@@ -5,18 +5,18 @@
     android:orientation="vertical">
 
     <ListView
-        android:divider="@null"
         android:id="@+id/listview_express"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:divider="@null" />
 
     <TextView
-        android:textColor="?attr/tool_second_text_color"
-        android:visibility="gone"
         android:id="@+id/tv_tips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="点击右上角添加物流信息~" />
+        android:text="点击右上角添加物流信息~"
+        android:textColor="?attr/tool_second_text_color"
+        android:visibility="gone" />
 
 </LinearLayout>
