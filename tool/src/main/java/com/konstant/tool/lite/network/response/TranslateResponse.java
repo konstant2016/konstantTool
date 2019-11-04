@@ -1,7 +1,5 @@
 package com.konstant.tool.lite.network.response;
 
-import androidx.annotation.Keep;
-
 import java.util.List;
 
 /**

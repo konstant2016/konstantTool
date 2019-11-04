@@ -7,10 +7,7 @@ import android.graphics.BitmapFactory
 import android.os.Environment
 import android.util.Log
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.KonApplication.Companion.context
-import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.util.FileUtil
-import org.greenrobot.eventbus.EventBus
 import java.io.File
 
 /**

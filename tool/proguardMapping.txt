@@ -25458,13 +25458,13 @@ com.konstant.tool.lite.module.weather.fragment.WeatherPresenter$locationClient$2
     com.konstant.tool.lite.module.weather.fragment.WeatherPresenter this$0 -> b
     21:21:java.lang.Object invoke() -> b
     24:24:com.amap.api.location.AMapLocationClient invoke() -> b
-com.konstant.tool.lite.module.weather.param.SubTitleChanged -> com.konstant.tool.lite.module.weather.param.SubTitleChanged:
+com.konstant.tool.lite.base.SubTitleChanged -> com.konstant.tool.lite.base.SubTitleChanged:
     15:15:void <init>(java.lang.String) -> <init>
     15:15:java.lang.String getSubTitle() -> getSubTitle
-com.konstant.tool.lite.module.weather.param.TitleChanged -> com.konstant.tool.lite.module.weather.param.TitleChanged:
+com.konstant.tool.lite.base.TitleChanged -> com.konstant.tool.lite.base.TitleChanged:
     11:11:void <init>(java.lang.String) -> <init>
     11:11:java.lang.String getTitle() -> getTitle
-com.konstant.tool.lite.module.weather.param.WeatherStateChanged -> com.konstant.tool.lite.module.weather.param.WeatherStateChanged:
+com.konstant.tool.lite.base.WeatherStateChanged -> com.konstant.tool.lite.base.WeatherStateChanged:
     7:7:void <init>(boolean,int) -> <init>
     7:7:boolean getCityNumChange() -> getCityNumChange
     7:7:int getIndex() -> getIndex

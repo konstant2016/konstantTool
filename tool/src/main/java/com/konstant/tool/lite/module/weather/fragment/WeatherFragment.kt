@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.H5Activity
-import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
@@ -37,15 +36,15 @@ import java.text.SimpleDateFormat
 
 class WeatherFragment : BaseFragment() {
 
-    private val mPresenter by lazy { WeatherPresenter(mActivity, mDisposable) }
+    private val mPresenter by lazy { WeatherPresenter(getNotNullContext(), mDisposable) }
 
     private val mListHour = ArrayList<WeatherResponse.HourlyForecastBean>()
-    private val mAdapterHour by lazy { AdapterWeatherHourly(mActivity, mListHour) }
+    private val mAdapterHour by lazy { AdapterWeatherHourly(getNotNullContext(), mListHour) }
 
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
     private val mAdapterDay by lazy { AdapterWeatherDaily(mListDaily) }
 
-    private var mCurrentCity = "加载中"
+    private var mCurrentCity = "加载中..."
 
     companion object {
         private val PARAM = "directCode"
@@ -65,18 +64,18 @@ class WeatherFragment : BaseFragment() {
     override fun onLazyLoad() {
 
         recycler_weather_hour.apply {
-            layoutManager = LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(getNotNullContext(), RecyclerView.HORIZONTAL, false)
             adapter = mAdapterHour
         }
 
         recycler_weather_day.apply {
             isNestedScrollingEnabled = false
-            layoutManager = LinearLayoutManager(mActivity)
+            layoutManager = LinearLayoutManager(getNotNullContext())
             adapter = mAdapterDay
         }
 
         refresh_layout.apply {
-            setHeaderView(BezierLayout(mActivity))
+            setHeaderView(BezierLayout(getNotNullContext()))
             setEnableLoadmore(false)
             setOnRefreshListener(object : RefreshListenerAdapter() {
                 override fun onRefresh(refreshLayout: TwinklingRefreshLayout) {
@@ -91,7 +90,7 @@ class WeatherFragment : BaseFragment() {
 
     private fun requestPermission() {
         val permissions = mutableListOf(Manifest.permission.ACCESS_FINE_LOCATION)
-        PermissionRequester.requestPermission(mActivity, permissions, {
+        PermissionRequester.requestPermission(getNotNullContext(), permissions, {
             refresh_layout.startRefresh()
         }, {
             showToast("您拒绝了定位权限")
@@ -158,7 +157,7 @@ class WeatherFragment : BaseFragment() {
         mListHour.addAll(hourlyForecast)
         mListDaily.addAll(weatherList)
 
-        mActivity.runOnUiThread {
+        activity?.runOnUiThread {
 
             // 头部的信息
             tv_weather_direct.text = realTime.wind.direct
@@ -173,7 +172,7 @@ class WeatherFragment : BaseFragment() {
             if (alert != null && alert.size > 0) {
                 tv_weather_update_time.text = alert[0].content
                 tv_weather_update_time.setOnClickListener {
-                    val intent = Intent(mActivity, H5Activity::class.java)
+                    val intent = Intent(activity, H5Activity::class.java)
                     intent.putExtra(H5Activity.H5_URL, alert[0].originUrl)
                     startActivity(intent)
                 }
@@ -196,25 +195,16 @@ class WeatherFragment : BaseFragment() {
 
     // 停止刷新
     private fun stopRefreshAnim() {
-        mActivity.runOnUiThread { refresh_layout?.finishRefreshing() }
+        activity?.runOnUiThread { refresh_layout?.finishRefreshing() }
     }
 
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        if (isVisibleToUser) {
-            setTitle(mCurrentCity)
-        }
+    override fun onResume() {
+        super.onResume()
+        setTitle(mCurrentCity)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         mPresenter.onDestroy()
-    }
-
-    override fun setTitle(title: String) {
-        if (activity == null) return
-        if (activity is WeatherActivity) {
-            (activity as WeatherActivity).setTitle(title)
-        }
     }
 }

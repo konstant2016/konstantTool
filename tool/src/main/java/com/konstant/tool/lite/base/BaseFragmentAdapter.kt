@@ -1,6 +1,9 @@
 package com.konstant.tool.lite.base
 
+import android.annotation.SuppressLint
 import android.util.LongSparseArray
+import android.util.SparseArray
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -11,11 +14,13 @@ import androidx.fragment.app.FragmentPagerAdapter
  * 描述：
  */
 
+@SuppressLint("WrongConstant")
 class BaseFragmentAdapter(fm: FragmentManager, private val fragmentList: List<BaseFragment>, private val titleList: List<String> = listOf()) :
         FragmentPagerAdapter(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val mFragPosOldArray = LongSparseArray<String>()
     private val mFragPosNewArray = LongSparseArray<String>()
+    private val registeredFragments = SparseArray<Any>()
 
     init {
         setFragmentPositionOldMap()
@@ -72,4 +77,15 @@ class BaseFragmentAdapter(fm: FragmentManager, private val fragmentList: List<Ba
     }
 
     override fun getPageTitle(position: Int): CharSequence = titleList[position]
+
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val any = super.instantiateItem(container, position)
+        registeredFragments.put(position, any)
+        return any
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
+        registeredFragments.remove(position)
+        super.destroyItem(container, position, any)
+    }
 }

@@ -31,15 +31,10 @@ import com.konstant.tool.lite.module.qrcode.QRCodeActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
-import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
-import com.konstant.tool.lite.module.setting.param.ThemeChanged
-import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
-import com.konstant.tool.lite.module.weather.param.SubTitleChanged
-import com.konstant.tool.lite.module.weather.param.TitleChanged
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantPagerIndicator
@@ -52,7 +47,6 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 /**
  * 描述:所有activity的基类
@@ -212,18 +206,6 @@ abstract class BaseActivity : SwipeBackActivity() {
         } else {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onTitleChanged(msg: TitleChanged) {
-        if (!AppUtil.isTop(this)) return
-        setTitle(msg.title)
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onSubTitleChanged(msg: SubTitleChanged) {
-        if (!AppUtil.isTop(this)) return
-        setSubTitle(msg.subTitle)
     }
 
     // 隐藏软键盘

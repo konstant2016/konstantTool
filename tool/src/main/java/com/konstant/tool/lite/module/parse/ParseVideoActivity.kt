@@ -30,7 +30,7 @@ class ParseVideoActivity : BaseActivity() {
         view_segment.setUpWithViewPager(view_pager)
 
         view_pager.addOnPageChangeListener(object : BasePagerChangeListener() {
-            override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 hideSoftKeyboard()
             }
         })

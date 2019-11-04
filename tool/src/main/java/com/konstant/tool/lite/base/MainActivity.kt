@@ -20,7 +20,6 @@ import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
-import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.wallpaper.WallpaperActivity

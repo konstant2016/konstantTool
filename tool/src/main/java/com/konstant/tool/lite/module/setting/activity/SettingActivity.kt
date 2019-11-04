@@ -4,10 +4,10 @@ import android.Manifest
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.SwipeBackStatus
+import com.konstant.tool.lite.base.ThemeChanged
+import com.konstant.tool.lite.base.UserHeaderChanged
 import com.konstant.tool.lite.module.setting.SettingManager
-import com.konstant.tool.lite.module.setting.param.SwipeBackStatus
-import com.konstant.tool.lite.module.setting.param.ThemeChanged
-import com.konstant.tool.lite.module.setting.param.UserHeaderChanged
 import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog

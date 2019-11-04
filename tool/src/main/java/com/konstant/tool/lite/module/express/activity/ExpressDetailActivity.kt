@@ -5,10 +5,10 @@ import android.text.TextUtils
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.ExpressChanged
 import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressDetail
-import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*

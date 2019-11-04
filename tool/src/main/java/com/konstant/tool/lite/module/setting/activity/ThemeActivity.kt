@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.ThemeChanged
 import com.konstant.tool.lite.module.setting.SettingManager
-import com.konstant.tool.lite.module.setting.param.ThemeChanged
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_theme.*
 import org.greenrobot.eventbus.EventBus

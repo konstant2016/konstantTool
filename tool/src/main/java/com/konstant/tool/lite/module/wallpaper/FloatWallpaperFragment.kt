@@ -37,7 +37,7 @@ class FloatWallpaperFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view_seekbar.progress = SettingManager.getWallpaperTransparent(mActivity)
+        view_seekbar.progress = SettingManager.getWallpaperTransparent(getNotNullContext())
         view_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
 
@@ -48,34 +48,34 @@ class FloatWallpaperFragment : BaseFragment() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                SettingManager.saveWallpaperTransparent(mActivity, seekBar.progress)
-                FloatWallpaperService.startTransparentWallpaper(mActivity, seekBar.progress)
+                SettingManager.saveWallpaperTransparent(getNotNullContext(), seekBar.progress)
+                FloatWallpaperService.startTransparentWallpaper(getNotNullContext(), seekBar.progress)
             }
         })
         btn_enable.setOnClickListener { enableFloatWallpaper(view_seekbar.progress) }
-        btn_disable.setOnClickListener { FloatWallpaperService.stopTransparentWallpaper(mActivity) }
+        btn_disable.setOnClickListener { FloatWallpaperService.stopTransparentWallpaper(getNotNullContext()) }
     }
 
     private fun enableFloatWallpaper(transparent: Int = 70) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mActivity)) {
-            KonstantDialog(mActivity)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getNotNullContext())) {
+            KonstantDialog(getNotNullContext())
                     .setTitle("需要申请额外权限")
                     .setMessage("请在下一个页面开启'显示在其他应用的上层'权限开关")
                     .setNegativeListener { showToast("授权已取消") }
                     .setPositiveListener {
-                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(mActivity.packageName)}"))
-                        mActivity.startActivity(intent)
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(getNotNullContext().packageName)}"))
+                        getNotNullContext().startActivity(intent)
                         it.dismiss()
                     }
                     .createDialog()
             return
         }
-        ImageSelector.selectImg(mActivity, FloatWallpaperService.WALLPAPER_NAME, 540, 960) {
+        ImageSelector.selectImg(getNotNullContext(), FloatWallpaperService.WALLPAPER_NAME, 540, 960) {
             Log.d(TAG, "选择图片回调")
             if (!it) {
                 showToast("图片未选择")
             } else {
-                FloatWallpaperService.startTransparentWallpaper(mActivity, transparent)
+                FloatWallpaperService.startTransparentWallpaper(getNotNullContext(), transparent)
             }
         }
     }

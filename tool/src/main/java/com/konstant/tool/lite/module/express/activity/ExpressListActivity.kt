@@ -8,9 +8,9 @@ import android.view.View
 import android.widget.EditText
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.ExpressChanged
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
 import com.konstant.tool.lite.module.express.ExpressManager
-import com.konstant.tool.lite.module.express.param.ExpressChanged
 import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*

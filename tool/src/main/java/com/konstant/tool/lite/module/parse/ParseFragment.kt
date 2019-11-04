@@ -54,7 +54,7 @@ class ParseFragment : BaseFragment() {
             } else {
                 "http://" + edit_input.text
             }
-            with(Intent(mActivity, H5Activity::class.java)) {
+            with(Intent(getNotNullContext(), H5Activity::class.java)) {
                 putExtra(H5Activity.H5_URL, baseUrl + url)
                 putExtra(H5Activity.H5_BROWSER, true)
                 startActivity(this)

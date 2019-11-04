@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
@@ -34,14 +33,14 @@ class TransparentWallpaperFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_enable.setOnClickListener {
-            PermissionRequester.requestPermission(KonApplication.context,
+            PermissionRequester.requestPermission(getNotNullContext(),
                     mutableListOf(Manifest.permission.CAMERA),
                     { startCustomWallpaperPicker() },
                     { showToast("设置透明壁纸需要获取摄像头权限") })
         }
 
         btn_disable.setOnClickListener {
-            KonstantDialog(mActivity)
+            KonstantDialog(getNotNullContext())
                     .setMessage("手动更换桌面壁纸后，透明壁纸即自动关闭")
                     .setPositiveListener { it.dismiss() }
                     .createDialog()
@@ -56,10 +55,10 @@ class TransparentWallpaperFragment : BaseFragment() {
 
     // 启用指定的壁纸选择器
     private fun startCustomWallpaperPicker() {
-        SettingManager.saveKillProcess(mActivity, false)
+        SettingManager.saveKillProcess(getNotNullContext(), false)
         val intent = Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
-                ComponentName(mActivity, TransparentWallpaperService::class.java));
+                ComponentName(getNotNullContext(), TransparentWallpaperService::class.java));
         startActivity(intent)
     }
 

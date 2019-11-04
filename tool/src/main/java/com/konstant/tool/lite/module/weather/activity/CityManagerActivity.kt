@@ -8,7 +8,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.weather.adapter.AdapterCityList
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.module.weather.data.LocalCountry
-import com.konstant.tool.lite.module.weather.param.WeatherStateChanged
+import com.konstant.tool.lite.base.WeatherStateChanged
 import com.konstant.tool.lite.view.CityPickerView
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_city_manager.*

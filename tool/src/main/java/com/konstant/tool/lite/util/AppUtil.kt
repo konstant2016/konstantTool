@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.util
 
-import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
