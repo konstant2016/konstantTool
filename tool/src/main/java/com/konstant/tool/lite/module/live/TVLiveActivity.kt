@@ -8,6 +8,7 @@ import cn.jzvd.JzvdStd
 import com.google.gson.Gson
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.data.bean.live.LiveData
 import kotlinx.android.synthetic.main.activity_tv_live.*
 
 class TVLiveActivity : BaseActivity() {
@@ -15,23 +16,15 @@ class TVLiveActivity : BaseActivity() {
     private val url = "http://223.110.242.130:6610/cntv/live1/cctv-1/1.m3u8"
     private var mTimeStamp = System.currentTimeMillis()
 
-    private val mChannelList = ArrayList<String>()
-    private val mMap by lazy {
+    private val mLiveData by lazy {
         val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
-        Gson().fromJson(txt, HashMap::class.java)
+        Gson().fromJson(txt, LiveData::class.java)
     }
-    private val mAdapter = AdapterLive(mChannelList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_live)
         initBaseViews()
-        initData()
-    }
-
-    private fun initData() {
-        mMap.forEach { mChannelList.add(it.key.toString()) }
-        mAdapter.notifyDataSetChanged()
     }
 
     override fun initBaseViews() {
@@ -43,11 +36,12 @@ class TVLiveActivity : BaseActivity() {
         video_player.apply {
             setPlayUrl(url)
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
-            mAdapter.setOnItemClickListener { _, position -> setPlayUrl(mMap[mChannelList[position]].toString()) }
-            view_list.apply {
-                layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
-                adapter = mAdapter
-            }
+        }
+        val adapter = AdapterLive(mLiveData.channel)
+        adapter.setOnItemClickListener { _, position -> setPlayUrl(mLiveData.address[position]) }
+        view_list.apply {
+            layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
+            this.adapter = adapter
         }
     }
 
