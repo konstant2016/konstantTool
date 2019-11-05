@@ -58,6 +58,7 @@ import org.greenrobot.eventbus.Subscribe
 @SuppressLint("MissingSuperCall")
 abstract class BaseActivity : SwipeBackActivity() {
 
+    private val mToast by lazy { Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT) }
     protected val mDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -256,8 +257,12 @@ abstract class BaseActivity : SwipeBackActivity() {
     fun showToast(msg: String) {
         runOnUiThread {
             showLoading(state = false)
-            Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+            mToast.apply { setText(msg);show() }
         }
+    }
+
+    fun cancelToast() {
+        runOnUiThread { mToast.cancel() }
     }
 
     override fun onDestroy() {

@@ -12,12 +12,13 @@ import kotlinx.android.synthetic.main.activity_tv_live.*
 
 class TVLiveActivity : BaseActivity() {
 
-    val url = "http://223.110.242.130:6610/cntv/live1/cctv-1/1.m3u8";
+    private val url = "http://223.110.242.130:6610/cntv/live1/cctv-1/1.m3u8"
+    private var mTimeStamp = System.currentTimeMillis()
 
     private val mChannelList = ArrayList<String>()
     private val mMap by lazy {
         val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
-        Gson().fromJson(txt,HashMap::class.java)
+        Gson().fromJson(txt, HashMap::class.java)
     }
     private val mAdapter = AdapterLive(mChannelList)
 
@@ -44,7 +45,7 @@ class TVLiveActivity : BaseActivity() {
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
             mAdapter.setOnItemClickListener { _, position -> setPlayUrl(mMap[mChannelList[position]].toString()) }
             view_list.apply {
-                layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@TVLiveActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
+                layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = mAdapter
             }
         }
@@ -70,6 +71,19 @@ class TVLiveActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (view_list.visibility == View.VISIBLE) {
+            showRecyclerView(false)
+            return
+        }
+        if (System.currentTimeMillis() - mTimeStamp > 2000) {
+            showToast("再按一次退出播放")
+            mTimeStamp = System.currentTimeMillis()
+            return
+        }
+        super.onBackPressed()
+    }
+
     override fun onStart() {
         super.onStart()
         JzvdStd.goOnPlayOnResume()
@@ -82,6 +96,7 @@ class TVLiveActivity : BaseActivity() {
 
     override fun onDestroy() {
         JzvdStd.releaseAllVideos()
+        cancelToast()
         super.onDestroy()
     }
 }

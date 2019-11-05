@@ -116,7 +116,7 @@ object SettingManager {
     }
 
     // 读取：是否自动检查更新
-    fun getAutoCheckUpdate(context: Context) = FileUtil.readDataFromSp(context, NAME_AUTO_UPDATE, false)
+    fun getAutoCheckUpdate(context: Context) = FileUtil.readDataFromSp(context, NAME_AUTO_UPDATE, true)
 
     // 保存：是否自动检查更新
     fun saveAutoCheckUpdate(context: Context, status: Boolean) {
