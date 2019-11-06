@@ -62,7 +62,7 @@ object NetworkHelper {
     // 网速测试
     fun getSpeed(maxSize: Long, listener: FileDownloader.DownloadListener) {
         val path = "${KonApplication.context.externalCacheDir}${File.separator}fileStamp"
-        FileDownloader.downloadFile(maxSize, path, FileDownloader.MainThreadDownloadListener(listener))
+        FileDownloader.downloadFile(maxSize, path, listener)
     }
 
 }

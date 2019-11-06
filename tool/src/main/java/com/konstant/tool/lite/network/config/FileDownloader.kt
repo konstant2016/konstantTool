@@ -52,12 +52,13 @@ object FileDownloader {
         }
     }
 
-    fun downloadFile(maxSize: Long = -1, path: String, listener: MainThreadDownloadListener) {
+    fun downloadFile(maxSize: Long = -1, path: String, listener: DownloadListener) {
+        val mainThreadListener = MainThreadDownloadListener(listener)
         val call = RetrofitBuilder.getApi(SpeedApi.HOST, SpeedApi::class.java).getDownload()
         call.enqueue(object : retrofit2.Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 t.printStackTrace()
-                listener.onError("网络错误")
+                mainThreadListener.onError("网络错误")
             }
 
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -71,14 +72,14 @@ object FileDownloader {
                     while (inputStream.read(bytes).also { ch = it } != -1) {
                         outputStream.write(bytes)
                         process += ch
-                        listener.onProgress(process, length)
+                        mainThreadListener.onProgress(process, length)
                         if (maxSize != -1L && process >= maxSize) break
                     }
                     outputStream.flush()
                     outputStream.close()
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    listener.onError("骚瑞，挂了，我也不晓得为撒子")
+                    mainThreadListener.onError("骚瑞，挂了，我也不晓得为撒子")
                 }
             }
         })
