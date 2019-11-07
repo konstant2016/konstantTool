@@ -3,11 +3,10 @@ package com.konstant.tool.lite.module.extract
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.view.KonstantDialog
+import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_package.*
 import kotlinx.android.synthetic.main.layout_dialog_progress.view.*
@@ -27,7 +26,6 @@ class PackageActivity : BaseActivity() {
     private val mList = ArrayList<AppData>()
     private val mAdapter = AdapterPackage(mList)
     private val mPath by lazy { getExternalFilesDir(null)?.path + File.separator + "apks" }
-    private lateinit var mPop: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,17 +66,12 @@ class PackageActivity : BaseActivity() {
     private fun onMorePressed() {
         with(LayoutInflater.from(this).inflate(R.layout.pop_package, null)) {
             checkbox.isChecked = mIsChecked
-
             layout_filter.setOnClickListener { checkbox.isChecked = !checkbox.isChecked }
-
             checkbox.setOnCheckedChangeListener { _, isChecked ->
                 mIsChecked = isChecked
-                mPop.dismiss()
                 readAppList(mIsChecked)
             }
-
             tv_all_save.setOnClickListener {
-                mPop.dismiss()
                 KonstantDialog(this@PackageActivity)
                         .setMessage("批量保存到本地？")
                         .setPositiveListener {
@@ -87,8 +80,9 @@ class PackageActivity : BaseActivity() {
                         }
                         .createDialog()
             }
-            mPop = PopupWindow(this, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-            mPop.showAsDropDown(title_bar)
+            KonstantPopupWindow(this@PackageActivity)
+                    .addView(this)
+                    .showAsDropDown(title_bar)
         }
     }
 

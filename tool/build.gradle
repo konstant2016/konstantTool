@@ -25,10 +25,10 @@ android {
         }
 
         debug {
-            shrinkResources true    // 删除无用资源
-            minifyEnabled true      // 删除没用到的代码
-            useProguard true
-            zipAlignEnabled true
+            shrinkResources false    // 删除无用资源
+            minifyEnabled false      // 删除没用到的代码
+            useProguard false
+            zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

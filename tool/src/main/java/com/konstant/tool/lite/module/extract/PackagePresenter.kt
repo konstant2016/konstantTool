@@ -3,15 +3,17 @@ package com.konstant.tool.lite.module.extract
 import android.content.Context
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.AppUtil
+import java.text.Collator
+import java.util.*
 import kotlin.concurrent.thread
 
 object PackagePresenter {
 
     fun getAppList(withSystem: Boolean, context: Context, callback: (List<AppData>) -> Unit) {
-        if (withSystem){
+        if (withSystem) {
             getAllApp(callback)
-        }else{
-            getUserApp(context,callback)
+        } else {
+            getUserApp(context, callback)
         }
     }
 
@@ -23,10 +25,25 @@ object PackagePresenter {
                 val packageName = it.packageName
                 val appName = AppUtil.getAppName(it)
                 list.add(AppData(packageName, icon, appName))
-                list.sort()
             }
-            callback.invoke(list)
+            callback.invoke(sortList(list))
         }
+    }
+
+    private fun sortList(list: List<AppData>): List<AppData> {
+        val englishList = mutableListOf<AppData>()
+        val chineseList = mutableListOf<AppData>()
+        list.forEach {
+            val s = it.appName[0]
+            if ((s in 'A'..'Z') or (s in 'a'..'z')) {
+                englishList.add(it)
+            } else {
+                chineseList.add(it)
+            }
+        }
+        englishList.sort()
+        chineseList.sort()
+        return englishList.plus(chineseList)
     }
 
     private fun getUserApp(context: Context, callback: (List<AppData>) -> Unit) {
@@ -37,9 +54,8 @@ object PackagePresenter {
                 val packageName = it.activityInfo.packageName
                 val appName = it.loadLabel(context.packageManager).toString()
                 list.add(AppData(packageName, icon, appName))
-                list.sort()
             }
-            callback.invoke(list)
+            callback.invoke(sortList(list))
         }
     }
 

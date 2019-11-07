@@ -8,6 +8,12 @@ import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.layout_pop_konstant.view.*
 
+/**
+* 作者：konstant
+* 时间：2019/11/7 17:47
+* 描述：从上往下弹的那个弹窗
+*/
+
 class KonstantPopupWindow(context: Context) : PopupWindow(
         LayoutInflater.from(context).inflate(R.layout.layout_pop_konstant, null),
         WindowManager.LayoutParams.MATCH_PARENT,
