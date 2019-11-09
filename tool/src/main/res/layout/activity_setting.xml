@@ -1,228 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_theme"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:title="主题设置" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_header"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:title="头像设置" />
-
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_swipe"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:subTitle="(设置滑动返回的状态与方向)"
-        app:title="滑动返回" />
-
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_browser"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:subTitle="(因UC限制，选择UC时无法自动跳转网页)"
-        app:title="浏览器设置" />
-
-    <RelativeLayout
-        android:id="@+id/layout_exit"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
-
-        <TextView
-            android:id="@+id/tv_exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="8dp"
-            android:text="防止误退"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_exit"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="(连按两次返回键才能退出应用)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
-
-        <View
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_theme"
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+            android:layout_height="50dp"
+            app:title="主题设置" />
 
-
-    <RelativeLayout
-        android:id="@+id/layout_kill"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
-
-        <TextView
-            android:id="@+id/tv_kill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="8dp"
-            android:text="纯净后台"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_kill"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="(按返回键退出应用时，主动释放内存)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_kill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
-
-        <View
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_header"
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+            android:layout_height="50dp"
+            app:title="头像设置" />
 
-
-    <RelativeLayout
-        android:id="@+id/layout_update"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
-
-        <TextView
-            android:id="@+id/tv_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="8dp"
-            android:text="自动检查更新"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_update"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="(每次应用启动时，自动检查应用更新状态)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
-
-        <View
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_swipe"
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+            android:layout_height="50dp"
+            app:subTitle="(设置滑动返回的状态与方向)"
+            app:title="滑动返回" />
 
-    <RelativeLayout
-        android:id="@+id/layout_dark"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:selectableItemBackground">
-
-        <TextView
-            android:id="@+id/tv_dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="8dp"
-            android:text="适配 Android Q 深色模式"
-            android:textColor="?attr/tool_main_text_color"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_dark"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:text="(建议开启，关闭后可能会影响显示效果)"
-            android:textColor="?attr/tool_second_text_color"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:thumb="@drawable/selector_switch_thumb"
-            android:track="@drawable/selector_switch_track" />
-
-        <View
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_browser"
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="?attr/tool_divider_color" />
-    </RelativeLayout>
+            android:layout_height="50dp"
+            app:subTitle="(因UC限制，选择UC时无法自动跳转网页)"
+            app:title="浏览器设置" />
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_share"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:title="分享应用" />
+        <RelativeLayout
+            android:id="@+id/layout_exit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
 
-    <com.konstant.tool.lite.view.ItemView
-        android:id="@+id/layout_about"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:title="关于" />
+            <TextView
+                android:id="@+id/tv_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="防止误退"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_exit"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:text="(连按两次返回键才能退出应用)"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_kill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_kill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="纯净后台"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_kill"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:text="(按返回键退出应用时，主动释放内存)"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_kill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_update"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="自动检查更新"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_update"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:text="(每次应用启动时，自动检查应用更新状态)"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_collect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="默认显示收藏列表"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_collect"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:text="(只有收藏列表不为空时，此开关才有效)"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_dark"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="适配 Android Q 深色模式"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_dark"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:text="(建议开启，关闭后可能会影响显示效果)"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_share"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="分享应用" />
+
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_about"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="关于" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

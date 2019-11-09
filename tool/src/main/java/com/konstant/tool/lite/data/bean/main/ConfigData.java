@@ -1,42 +1,36 @@
 package com.konstant.tool.lite.data.bean.main;
 
-import java.util.List;
-
 public class ConfigData {
 
-    private List<ConfigsBean> configs;
+    /**
+     * title : 翻译
+     * type : 1
+     */
 
-    public List<ConfigsBean> getConfigs() {
-        return configs;
+    private String title;
+    private String type;
+
+    public ConfigData() {
     }
 
-    public void setConfigs(List<ConfigsBean> configs) {
-        this.configs = configs;
+    public ConfigData(String title, String type) {
+        this.title = title;
+        this.type = type;
     }
 
-    public static class ConfigsBean {
-        /**
-         * title : 翻译
-         * type : 1
-         */
+    public String getTitle() {
+        return title;
+    }
 
-        private String title;
-        private String type;
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public String getType() {
+        return type;
+    }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -21,6 +21,7 @@ import java.io.File
 object SettingManager {
 
     private const val NAME_SELECTED_THEME = "selectedTheme"
+    private const val NAME_SHOW_COLLECTION_FUNCTION = "showCollectionFunction"
     private const val NAME_WALLPAPER_TRANSPARENT = "wallpaperTransparent"
     private const val NAME_AUTO_UPDATE = "autoUpdate"
     private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
@@ -131,4 +132,11 @@ object SettingManager {
         FileUtil.saveDataToSp(context, NAME_WALLPAPER_TRANSPARENT, transparent)
     }
 
+    // 读取：是否默认显示收藏功能
+    fun getShowCollection(context: Context) = FileUtil.readDataFromSp(context, NAME_SHOW_COLLECTION_FUNCTION, false)
+
+    // 保存：是否显示收藏功能
+    fun saveShowCollection(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, NAME_SHOW_COLLECTION_FUNCTION, status)
+    }
 }

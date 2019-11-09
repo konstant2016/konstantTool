@@ -19,8 +19,10 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.main.FunctionCollectorManager
 import com.konstant.tool.lite.main.MainActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.concentration.ConcentrationActivity
@@ -42,6 +44,7 @@ import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.util.AppUtil
+import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPagerIndicator
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
@@ -66,10 +69,6 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     private val mToast by lazy { Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT) }
     protected val mDisposable = CompositeDisposable()
-    protected val mConfig by lazy {
-        val config = assets.open("MainConfig.json").bufferedReader().readText()
-        Gson().fromJson(config, ConfigData::class.java)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,6 +118,16 @@ abstract class BaseActivity : SwipeBackActivity() {
             finish()
         } else {
             recreate()
+        }
+    }
+
+    override fun recreate() {
+        if (AppUtil.isTop(this)) {
+            finish()
+            startActivity(javaClass)
+            overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
+        } else {
+            super.recreate()
         }
     }
 
@@ -300,14 +309,24 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 初始化侧边栏
     private fun initDrawLayout() {
-
-        val adapter = AdapterBase(mConfig.configs)
+        val config = assets.open("MainConfig.json").bufferedReader().readText()
+        val configs = Gson().fromJson<List<ConfigData>>(config, object : TypeToken<List<ConfigData>>() {}.type)
+        val adapter = AdapterBase(configs)
         adapter.setOnItemClickListener { _, position ->
-            val type = mConfig.configs[position].type
+            val type = configs[position].type
             startActivityWithType(type)
         }
+        adapter.setOnItemLongClickListener { _, position ->
+            KonstantDialog(this)
+                    .setMessage("收藏'${configs[position].title}'功能？")
+                    .setPositiveListener {
+                        FunctionCollectorManager.addCollectionFunction(configs[position])
+                        showToast("收藏成功，可在设置中切换显示")
+                    }
+                    .createDialog()
+        }
         recycler_view.apply {
-            setLayoutManager(LinearLayoutManager(this@BaseActivity,LinearLayoutManager.VERTICAL,false))
+            setLayoutManager(LinearLayoutManager(this@BaseActivity, LinearLayoutManager.VERTICAL, false))
             setAdapter(adapter)
         }
 
@@ -389,7 +408,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
     }
 
-    inner class AdapterBase(private val configs: List<ConfigData.ConfigsBean>) : BaseRecyclerAdapter<AdapterBase.Holder>() {
+    inner class AdapterBase(private val configs: List<ConfigData>) : BaseRecyclerAdapter<AdapterBase.Holder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_drawer_left, parent, false)
             return Holder(view)

@@ -9,7 +9,7 @@ import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.data.bean.main.ConfigData
 import kotlinx.android.synthetic.main.item_main_config.view.*
 
-class AdapterMainConfig(private val configs: List<ConfigData.ConfigsBean>) : BaseRecyclerAdapter<AdapterMainConfig.Holder>() {
+class AdapterMainConfig(private val configs: List<ConfigData>) : BaseRecyclerAdapter<AdapterMainConfig.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main_config, parent, false)

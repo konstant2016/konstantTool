@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Gravity
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.SwipeBackStatus
@@ -13,7 +12,6 @@ import com.konstant.tool.lite.base.UpdateManager
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_base.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -31,7 +29,6 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setTitle("菜籽工具箱")
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
     }
@@ -44,22 +41,28 @@ class MainActivity : BaseActivity() {
         img_drawer.visibility = View.VISIBLE
         img_setting.visibility = View.VISIBLE
 
-        val adapter = AdapterMainConfig(mConfig.configs)
-        adapter.setOnItemClickListener { _, position ->
-            val type = mConfig.configs[position].type
-            startActivityWithType(type)
-        }
-        recycler_main.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-            setAdapter(adapter)
-        }
-
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 
         img_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
 
         if (SettingManager.getAutoCheckUpdate(this)) UpdateManager.autoCheckoutUpdate()
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        FunctionCollectorManager.onDestroy(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (SettingManager.getShowCollection(this) && FunctionCollectorManager.getCollectionFunction().isNotEmpty()) {
+            setTitle("我的收藏列表")
+            supportFragmentManager.beginTransaction().replace(R.id.layout_main, FunctionCollectionFragment()).commit()
+        } else {
+            setTitle("菜籽工具箱")
+            supportFragmentManager.beginTransaction().replace(R.id.layout_main, AllFunctionFragment()).commit()
+        }
     }
 
     override fun onSwipeBackChanged(msg: SwipeBackStatus) {

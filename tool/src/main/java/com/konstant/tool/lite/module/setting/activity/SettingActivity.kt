@@ -11,8 +11,6 @@ import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
 import com.mylhyl.zxing.scanner.encode.QREncode
-import kotlinx.android.synthetic.main.activity_base.*
-import kotlinx.android.synthetic.main.activity_qrcode.*
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_dialog_share.view.*
 import org.greenrobot.eventbus.EventBus
@@ -70,6 +68,13 @@ class SettingActivity : BaseActivity() {
         switch_update.isChecked = SettingManager.getAutoCheckUpdate(this)
         switch_update.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveAutoCheckUpdate(this, isChecked) }
         layout_update.setOnClickListener { switch_update.isChecked = !switch_update.isChecked }
+
+        // 显示收藏列表
+        switch_collect.isChecked = SettingManager.getShowCollection(this)
+        switch_collect.setOnCheckedChangeListener { _, isChecked ->
+            SettingManager.saveShowCollection(this, isChecked)
+        }
+        layout_collect.setOnClickListener { switch_collect.isChecked = !switch_collect.isChecked }
 
         // 适配系统暗黑主题
         switch_dark.isChecked = SettingManager.getAdapterDarkMode(this)
