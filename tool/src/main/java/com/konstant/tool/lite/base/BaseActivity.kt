@@ -10,15 +10,18 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.TypedValue
-import android.view.Gravity
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.main.MainActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
 import com.konstant.tool.lite.module.concentration.ConcentrationActivity
 import com.konstant.tool.lite.module.date.DateCalculationActivity
@@ -26,8 +29,10 @@ import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
+import com.konstant.tool.lite.module.live.TVLiveActivity
 import com.konstant.tool.lite.module.parse.ParseVideoActivity
 import com.konstant.tool.lite.module.qrcode.QRCodeActivity
+import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
@@ -40,6 +45,7 @@ import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantPagerIndicator
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.item_drawer_left.view.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 import kotlinx.android.synthetic.main.title_layout.view.*
@@ -60,6 +66,10 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     private val mToast by lazy { Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT) }
     protected val mDisposable = CompositeDisposable()
+    protected val mConfig by lazy {
+        val config = assets.open("MainConfig.json").bufferedReader().readText()
+        Gson().fromJson(config, ConfigData::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -291,35 +301,15 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 初始化侧边栏
     private fun initDrawLayout() {
 
-        text_translate.setOnClickListener { startActivity(TranslateActivity::class.java) }
-
-        text_compass.setOnClickListener { startActivity(CompassActivity::class.java) }
-
-        text_qrcode.setOnClickListener { startActivity(QRCodeActivity::class.java) }
-
-        text_express.setOnClickListener { startActivity(ExpressListActivity::class.java) }
-
-        text_speed.setOnClickListener { startActivity(NetSpeedActivity::class.java) }
-
-        text_package.setOnClickListener { startActivity(PackageActivity::class.java) }
-
-        text_wechat.setOnClickListener { startActivity(WechatFakeActivity::class.java) }
-
-        text_decibel.setOnClickListener { startActivity(DecibelActivity::class.java) }
-
-        text_device_info.setOnClickListener { startActivity(DeviceInfoActivity::class.java) }
-
-        text_weather.setOnClickListener { startActivity(WeatherActivity::class.java) }
-
-        text_date.setOnClickListener { startActivity(DateCalculationActivity::class.java) }
-
-        text_wallpaper.setOnClickListener { startActivity(WallpaperActivity::class.java) }
-
-        text_concentration.setOnClickListener { startActivity(ConcentrationActivity::class.java) }
-
-        text_ruler.setOnClickListener { startActivity(RulerActivity::class.java) }
-
-        text_vip.setOnClickListener { startActivity(ParseVideoActivity::class.java) }
+        val adapter = AdapterBase(mConfig.configs)
+        adapter.setOnItemClickListener { _, position ->
+            val type = mConfig.configs[position].type
+            startActivityWithType(type)
+        }
+        recycler_view.apply {
+            setLayoutManager(LinearLayoutManager(this@BaseActivity,LinearLayoutManager.VERTICAL,false))
+            setAdapter(adapter)
+        }
 
         text_mian.setOnClickListener { startActivity(MainActivity::class.java) }
 
@@ -341,5 +331,78 @@ abstract class BaseActivity : SwipeBackActivity() {
             tv_state.text = msg
             layout_loading.visibility = if (state) View.VISIBLE else View.GONE
         }
+    }
+
+    fun startActivityWithType(type: String) {
+        when (type) {
+            "1" -> {
+                startActivity(TranslateActivity::class.java)
+            }
+            "2" -> {
+                startActivity(RulerActivity::class.java)
+            }
+            "3" -> {
+                startActivity(CompassActivity::class.java)
+            }
+            "4" -> {
+                startActivity(ExpressListActivity::class.java)
+            }
+            "5" -> {
+                startActivity(NetSpeedActivity::class.java)
+            }
+            "6" -> {
+                startActivity(WeatherActivity::class.java)
+            }
+            "7" -> {
+                startActivity(DateCalculationActivity::class.java)
+            }
+            "8" -> {
+                startActivity(WallpaperActivity::class.java)
+            }
+            "9" -> {
+                startActivity(ConcentrationActivity::class.java)
+            }
+            "10" -> {
+                startActivity(DecibelActivity::class.java)
+            }
+            "11" -> {
+                startActivity(TVLiveActivity::class.java)
+            }
+            "12" -> {
+                startActivity(PackageActivity::class.java)
+            }
+            "13" -> {
+                startActivity(WechatFakeActivity::class.java)
+            }
+            "14" -> {
+                startActivity(RollTextActivity::class.java)
+            }
+            "15" -> {
+                startActivity(DeviceInfoActivity::class.java)
+            }
+            "16" -> {
+                startActivity(QRCodeActivity::class.java)
+            }
+            "17" -> {
+                startActivity(ParseVideoActivity::class.java)
+            }
+        }
+    }
+
+    inner class AdapterBase(private val configs: List<ConfigData.ConfigsBean>) : BaseRecyclerAdapter<AdapterBase.Holder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_drawer_left, parent, false)
+            return Holder(view)
+        }
+
+        override fun onBindViewHolder(holder: Holder, position: Int) {
+            super.onBindViewHolder(holder, position)
+            val title = configs[position].title
+            holder.itemView.tv_title.text = title
+        }
+
+        override fun getItemCount() = configs.size
+
+        inner class Holder(view: View) : RecyclerView.ViewHolder(view)
     }
 }

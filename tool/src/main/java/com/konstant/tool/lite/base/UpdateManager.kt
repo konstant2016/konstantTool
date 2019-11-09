@@ -59,6 +59,17 @@ object UpdateManager {
         }
     }
 
+    // 获取更新链接
+    fun getUpdateUrl(result: (String) -> Unit) {
+        val disposable = NetworkHelper.getUpdate()
+                .subscribe({
+                    result.invoke(it.downloadUrl)
+                }, {
+                    result.invoke("http://www.pgyer.com/r6L4")
+                })
+    }
+
+
     // 展示更新提示框,用户点击确认后跳转到浏览器进行下载
     private fun showUpdateDialog(versionName: String, describe: String, url: String) {
         AppUtil.getTopActivity()?.let { activity ->

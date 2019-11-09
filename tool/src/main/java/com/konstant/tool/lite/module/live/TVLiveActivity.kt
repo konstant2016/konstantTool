@@ -17,7 +17,7 @@ class TVLiveActivity : BaseActivity() {
     private var mTimeStamp = System.currentTimeMillis()
 
     private val mLiveData by lazy {
-        val txt = resources.assets.open("liveSource.json").bufferedReader().readText()
+        val txt = resources.assets.open("LiveSource.json").bufferedReader().readText()
         Gson().fromJson(txt, LiveData::class.java)
     }
 

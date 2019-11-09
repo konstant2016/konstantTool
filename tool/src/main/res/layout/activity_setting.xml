@@ -214,6 +214,12 @@
     </RelativeLayout>
 
     <com.konstant.tool.lite.view.ItemView
+        android:id="@+id/layout_share"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:title="分享应用" />
+
+    <com.konstant.tool.lite.view.ItemView
         android:id="@+id/layout_about"
         android:layout_width="match_parent"
         android:layout_height="50dp"

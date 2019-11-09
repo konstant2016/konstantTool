@@ -6,10 +6,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.item_layout_main.view.*
 
-class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null, defStyleAtr: Int = 0) : RelativeLayout(context, attr, defStyleAtr) {
+class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null, defStyleAtr: Int = 0)
+    : RelativeLayout(context, attr, defStyleAtr) {
 
     private var mOnClickListener: OnClickListener? = null
 

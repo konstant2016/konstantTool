@@ -23996,7 +23996,7 @@ com.konstant.tool.lite.base.KonApplication$Companion -> com.konstant.tool.lite.b
     19:19:void <init>() -> <init>
     19:19:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
     20:20:android.app.Application getContext() -> a
-com.konstant.tool.lite.base.MainActivity -> com.konstant.tool.lite.base.MainActivity:
+com.konstant.tool.lite.main.MainActivity -> com.konstant.tool.lite.main.MainActivity:
     java.util.HashMap _$_findViewCache -> x
     long mLastTime -> w
     39:39:void <init>() -> <init>
@@ -24005,59 +24005,59 @@ com.konstant.tool.lite.base.MainActivity -> com.konstant.tool.lite.base.MainActi
     103:122:void onBackPressed() -> onBackPressed
     44:49:void onCreate(android.os.Bundle) -> onCreate
     52:95:void initBaseViews() -> q
-com.konstant.tool.lite.base.MainActivity$initBaseViews$1 -> com.konstant.tool.lite.base.MainActivity$i:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$1 -> com.konstant.tool.lite.main.MainActivity$i:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     59:59:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$10 -> com.konstant.tool.lite.base.MainActivity$a:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$10 -> com.konstant.tool.lite.main.MainActivity$a:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     77:77:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$11 -> com.konstant.tool.lite.base.MainActivity$b:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$11 -> com.konstant.tool.lite.main.MainActivity$b:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     79:79:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$12 -> com.konstant.tool.lite.base.MainActivity$c:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$12 -> com.konstant.tool.lite.main.MainActivity$c:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     81:81:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$13 -> com.konstant.tool.lite.base.MainActivity$d:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$13 -> com.konstant.tool.lite.main.MainActivity$d:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     83:83:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$14 -> com.konstant.tool.lite.base.MainActivity$e:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$14 -> com.konstant.tool.lite.main.MainActivity$e:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     85:85:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$15 -> com.konstant.tool.lite.base.MainActivity$f:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$15 -> com.konstant.tool.lite.main.MainActivity$f:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     87:87:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$16 -> com.konstant.tool.lite.base.MainActivity$g:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$16 -> com.konstant.tool.lite.main.MainActivity$g:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     89:89:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$17 -> com.konstant.tool.lite.base.MainActivity$h:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$17 -> com.konstant.tool.lite.main.MainActivity$h:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     91:91:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$2 -> com.konstant.tool.lite.base.MainActivity$j:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$2 -> com.konstant.tool.lite.main.MainActivity$j:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     61:61:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$3 -> com.konstant.tool.lite.base.MainActivity$k:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$3 -> com.konstant.tool.lite.main.MainActivity$k:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     63:63:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$4 -> com.konstant.tool.lite.base.MainActivity$l:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$4 -> com.konstant.tool.lite.main.MainActivity$l:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     65:65:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$5 -> com.konstant.tool.lite.base.MainActivity$m:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$5 -> com.konstant.tool.lite.main.MainActivity$m:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     67:67:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$6 -> com.konstant.tool.lite.base.MainActivity$n:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$6 -> com.konstant.tool.lite.main.MainActivity$n:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     69:69:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$7 -> com.konstant.tool.lite.base.MainActivity$o:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$7 -> com.konstant.tool.lite.main.MainActivity$o:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     71:71:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$8 -> com.konstant.tool.lite.base.MainActivity$p:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$8 -> com.konstant.tool.lite.main.MainActivity$p:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     73:73:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$initBaseViews$9 -> com.konstant.tool.lite.base.MainActivity$q:
-    com.konstant.tool.lite.base.MainActivity this$0 -> b
+com.konstant.tool.lite.main.MainActivity$initBaseViews$9 -> com.konstant.tool.lite.main.MainActivity$q:
+    com.konstant.tool.lite.main.MainActivity this$0 -> b
     75:75:void onClick(android.view.View) -> onClick
-com.konstant.tool.lite.base.MainActivity$onBackPressed$1 -> com.konstant.tool.lite.base.MainActivity$r:
-    com.konstant.tool.lite.base.MainActivity$onBackPressed$1 INSTANCE -> b
+com.konstant.tool.lite.main.MainActivity$onBackPressed$1 -> com.konstant.tool.lite.main.MainActivity$r:
+    com.konstant.tool.lite.main.MainActivity$onBackPressed$1 INSTANCE -> b
     114:114:void run() -> run
 com.konstant.tool.lite.base.SplashActivity -> com.konstant.tool.lite.base.SplashActivity:
     7:7:void <init>() -> <init>

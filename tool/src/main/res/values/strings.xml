@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">菜籽工具箱</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weather">天气查询</string>
+    <string name="tv_live">电视直播</string>
+    <string name="package_extra">应用提取</string>
+    <string name="qrcode_scan">二维码扫描</string>
 </resources>

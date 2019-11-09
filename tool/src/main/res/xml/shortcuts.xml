@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--二维码扫描与解析-->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/qrcode_scan"
+        android:shortcutId="shortcut4"
+        android:shortcutLongLabel="@string/qrcode_scan"
+        android:shortcutShortLabel="@string/qrcode_scan">
+        <intent
+            android:action="qrcode"
+            android:targetClass="com.konstant.tool.lite.module.qrcode.QRScanActivity"
+            android:targetPackage="com.konstant.tool.lite" />
+    </shortcut>
+
+    <!--天气查询-->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/weather"
+        android:shortcutId="shortcut1"
+        android:shortcutLongLabel="@string/weather"
+        android:shortcutShortLabel="@string/weather">
+        <intent
+            android:action="weather"
+            android:targetClass="com.konstant.tool.lite.module.weather.activity.WeatherActivity"
+            android:targetPackage="com.konstant.tool.lite" />
+    </shortcut>
+
+    <!--电视直播-->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/tv_live"
+        android:shortcutId="shortcut2"
+        android:shortcutLongLabel="@string/tv_live"
+        android:shortcutShortLabel="@string/tv_live">
+        <intent
+            android:action="live"
+            android:targetClass="com.konstant.tool.lite.module.live.TVLiveActivity"
+            android:targetPackage="com.konstant.tool.lite" />
+    </shortcut>
+
+    <!--应用提取-->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/package_extra"
+        android:shortcutId="shortcut3"
+        android:shortcutLongLabel="@string/package_extra"
+        android:shortcutShortLabel="@string/package_extra">
+        <intent
+            android:action="package"
+            android:targetClass="com.konstant.tool.lite.module.extract.PackageActivity"
+            android:targetPackage="com.konstant.tool.lite" />
+    </shortcut>
+
+</shortcuts>

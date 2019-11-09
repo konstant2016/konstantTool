@@ -13,8 +13,8 @@ object AreaManager {
 
     private lateinit var mChina: China
 
-    fun onCreate(context: Context) {
-        val text = context.assets.open("directdata.json").bufferedReader().readText()
+    fun onCreate(context: Context){
+        val text = context.assets.open("DirectdData.json").bufferedReader().readText()
         mChina = Gson().fromJson(text, China::class.java)
     }
 
