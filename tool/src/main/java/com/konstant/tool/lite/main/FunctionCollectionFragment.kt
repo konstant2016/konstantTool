@@ -12,6 +12,12 @@ import com.konstant.tool.lite.data.bean.main.ConfigData
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.layout_recycler_view.*
 
+/**
+* 作者：konstant
+* 时间：2019/11/10 10:16
+* 描述：我的功能收藏列表
+*/
+
 class FunctionCollectionFragment : BaseFragment() {
 
     private val mConfigs = ArrayList<ConfigData>()

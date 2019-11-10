@@ -15,6 +15,12 @@ import com.konstant.tool.lite.data.bean.main.ConfigData
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.layout_recycler_view.*
 
+/**
+* 作者：konstant
+* 时间：2019/11/10 10:16
+* 描述：全部功能列表
+*/
+
 class AllFunctionFragment() : BaseFragment() {
 
     companion object {

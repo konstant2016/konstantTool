@@ -9,6 +9,12 @@ import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.data.bean.main.ConfigData
 import kotlinx.android.synthetic.main.item_main_config.view.*
 
+/**
+* 作者：konstant
+* 时间：2019/11/10 10:23
+* 描述：首页功能列表的适配器
+*/
+
 class AdapterMainConfig(private val configs: List<ConfigData>) : BaseRecyclerAdapter<AdapterMainConfig.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
