@@ -4,10 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.util.Log
+import android.webkit.*
 import android.widget.Toast
 import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -16,9 +14,8 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private var mTitleChange: ((String) -> Unit)? = null
     private var mProgressChange: ((Int) -> Unit)? = null
-    private var mTimeStamp = 0L
 
-    private val mInterceptUrlList = listOf("youku", "tenvideo", "sohuvideo", "iqiyi", "pptv", "letvclient")
+    private val mInterceptUrlList = listOf("youku", "tenvideo", "sohuvideo", "iqiyi", "pptv", "letvclient", "tbopen", "openapp")
 
     init {
         settings.apply {
@@ -33,21 +30,15 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
         }
 
         webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                url?.let {
-                    mInterceptUrlList.forEach {
-                        if (url.startsWith(it)) {
-                            val millis = System.currentTimeMillis()
-                            if (millis - mTimeStamp > 5000) {
-                                Toast.makeText(KonApplication.context,"客户端跳转已拦截，如仍要跳转，请复制链接后在浏览器中打开",Toast.LENGTH_LONG).show()
-                                mTimeStamp = millis
-                            }
-                            return false
-                        }
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                mInterceptUrlList.forEach {
+                    if (url.startsWith(it)) {
+                        Toast.makeText(KonApplication.context, "客户端跳转已拦截，如仍要跳转，请复制链接后在浏览器中打开", Toast.LENGTH_LONG).show()
+                        return true
                     }
                 }
-                view?.loadUrl(url)
-                return true
+                view.loadUrl(url)
+                return false
             }
         }
 
