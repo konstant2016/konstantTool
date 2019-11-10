@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="提示：室内静音分贝为 30 DB"
+        android:text="@string/decibel_tips"
         android:textColor="?attr/tool_second_text_color" />
 
     <TextView

@@ -30,7 +30,7 @@ class QRScanActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrscan)
-        setTitle("二维码扫描")
+        setTitle(getString(R.string.qrcode_qr_scan))
         initBaseViews()
     }
 
@@ -42,7 +42,7 @@ class QRScanActivity : BaseActivity() {
         // 二维码扫描结果
         layout_scan.setOnScannerCompletionListener { rawResult, parsedResult, _ ->
             if (rawResult == null) {
-                showToast("未发现二维码")
+                showToast(getString(R.string.qrcode_unfind_qr_bitmap))
                 return@setOnScannerCompletionListener
             }
             if (intent.action == "com.google.zxing.client.android.SCAN") {
@@ -78,7 +78,7 @@ class QRScanActivity : BaseActivity() {
                     layout_scan.restartPreviewAfterDelay(500)
                     layout_scan.onResume()
                 },
-                { showToast("需要摄像头权限用以扫描二维码") })
+                { showToast(getString(R.string.qrcode_scan_permission_cancel)) })
     }
 
 
@@ -108,7 +108,7 @@ class QRScanActivity : BaseActivity() {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, data?.data)
             QRDecode.decodeQR(bitmap) { rawResult, parsedResult, _ ->
                 if (rawResult == null) {
-                    showToast("未发现二维码")
+                    showToast(getString(R.string.qrcode_unfind_qr_bitmap))
                     return@decodeQR
                 }
                 onScanResult(parsedResult.toString())

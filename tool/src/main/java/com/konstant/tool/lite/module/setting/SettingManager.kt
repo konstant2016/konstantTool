@@ -5,10 +5,10 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
-import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.util.FileUtil
 import java.io.File
+import java.util.*
 
 /**
  * 描述:保存用户设置
@@ -25,11 +25,14 @@ object SettingManager {
     private const val NAME_WALLPAPER_TRANSPARENT = "wallpaperTransparent"
     private const val NAME_AUTO_UPDATE = "autoUpdate"
     private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
+    private const val NAME_DEFAULT_LANGUAGE = "defaultLanguage"
     private const val NAME_BROWSER_TYPE = "browserStatus"
     private const val EXIT_TIPS_STATUS = "exitTipsStatus"
     private const val KILL_PROCESS_STATUS = "killProcessStatus"
     private const val ADAPTER_DARK_MODE = "adapterDarkMode"
     const val NAME_USER_HEADER = "header_big.jpg"
+
+    private var systemChinese = true
 
     // 保存用户选择的主题
     fun saveTheme(context: Context, theme: Int) {
@@ -52,7 +55,6 @@ object SettingManager {
 
     // 适配系统暗黑模式
     fun setAdapterDarkMode(context: Context, status: Boolean) {
-        Log.d("SettingManager", "黑暗模式：$status")
         FileUtil.saveDataToSp(context, ADAPTER_DARK_MODE, status)
     }
 
@@ -139,4 +141,32 @@ object SettingManager {
     fun saveShowCollection(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, NAME_SHOW_COLLECTION_FUNCTION, status)
     }
+
+    // 读取：用户选择的软件语言
+    fun getDefaultLanguage(context: Context) = FileUtil.readDataFromSp(context, NAME_DEFAULT_LANGUAGE, 0)
+
+    // 保存：用户选择的软件语言
+    fun saveDefaultLanguage(context: Context, language: Int) {
+        FileUtil.saveDataToSp(context, NAME_DEFAULT_LANGUAGE, language)
+    }
+
+    fun setSystemChinese(chinese: Boolean) {
+        systemChinese = chinese
+    }
+
+    // 读取当前应该显示什么语言
+    fun getShowChinese(context: Context): Boolean {
+        return when (getDefaultLanguage(context)) {
+            0 -> {
+                systemChinese
+            }
+            1 -> {
+                true
+            }
+            else -> {
+                false
+            }
+        }
+    }
+
 }

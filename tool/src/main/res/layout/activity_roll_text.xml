@@ -14,7 +14,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="在这里输入文字，文字太短的话，无法滚动哦"
+        android:hint="@string/scroll_describe"
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="14sp" />
 
@@ -27,6 +27,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
         android:background="@drawable/selector_btn"
-        android:text="生成滚动字体" />
+        android:text="@string/scroll_button_create" />
 
 </RelativeLayout>

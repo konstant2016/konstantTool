@@ -44,7 +44,7 @@ class WeatherFragment : BaseFragment() {
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
     private val mAdapterDay by lazy { AdapterWeatherDaily(mListDaily) }
 
-    private var mCurrentCity = "加载中..."
+    private var mCurrentCity = getString(R.string.base_loading)
 
     companion object {
         private val PARAM = "directCode"
@@ -93,7 +93,7 @@ class WeatherFragment : BaseFragment() {
         PermissionRequester.requestPermission(getNotNullContext(), permissions, {
             refresh_layout.startRefresh()
         }, {
-            showToast("您拒绝了定位权限")
+            showToast(getString(R.string.weather_permission_cancel))
         })
     }
 
@@ -121,16 +121,16 @@ class WeatherFragment : BaseFragment() {
                 val code = CountryManager.getCityCode()
                 if (code.isEmpty()) {
                     stopRefreshAnim()
-                    showToast("定位失败，请稍后重试")
+                    showToast(getString(R.string.weather_location_fail_01))
                     return
                 }
-                showToast("定位失败，将显示上次定位天气")
+                showToast(getString(R.string.weather_location_fail_02))
                 requestWeatherWithCode(code)
             }
 
             override fun onWeatherError() {
                 stopRefreshAnim()
-                showToast("获取天气信息失败")
+                showToast(getString(R.string.weather_date_error))
             }
         })
     }
@@ -140,7 +140,7 @@ class WeatherFragment : BaseFragment() {
         mPresenter.getWeatherWithCode(directCode) {
             stopRefreshAnim()
             if (it.weather == null) {
-                showToast("天气信息请求失败")
+                showToast(getString(R.string.weather_date_error))
             } else {
                 updateUI(it)
             }

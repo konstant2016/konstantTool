@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
-import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.base.KonApplication
+import com.konstant.tool.lite.data.bean.main.Function
+import com.konstant.tool.lite.module.setting.SettingManager
 import kotlinx.android.synthetic.main.item_main_config.view.*
 
 /**
@@ -15,7 +17,7 @@ import kotlinx.android.synthetic.main.item_main_config.view.*
 * 描述：首页功能列表的适配器
 */
 
-class AdapterMainConfig(private val configs: List<ConfigData>) : BaseRecyclerAdapter<AdapterMainConfig.Holder>() {
+class AdapterMainConfig(private val configs: List<Function>) : BaseRecyclerAdapter<AdapterMainConfig.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main_config, parent, false)
@@ -24,8 +26,7 @@ class AdapterMainConfig(private val configs: List<ConfigData>) : BaseRecyclerAda
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         super.onBindViewHolder(holder, position)
-        val title = configs[position].title
-        holder.itemView.item_title.text = title
+        holder.itemView.item_title.text = configs[position].title
     }
 
     override fun getItemCount() = configs.size

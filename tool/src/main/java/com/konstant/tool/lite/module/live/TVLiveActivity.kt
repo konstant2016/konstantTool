@@ -37,7 +37,7 @@ class TVLiveActivity : BaseActivity() {
             setPlayUrl(url)
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
         }
-        val adapter = AdapterLive(mLiveData.channel)
+        val adapter = AdapterLive(mLiveData)
         adapter.setOnItemClickListener { _, position -> setPlayUrl(mLiveData.address[position]) }
         view_list.apply {
             layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
@@ -71,7 +71,7 @@ class TVLiveActivity : BaseActivity() {
             return
         }
         if (System.currentTimeMillis() - mTimeStamp > 2000) {
-            showToast("再按一次退出播放")
+            showToast(getString(R.string.live_exit_toast))
             mTimeStamp = System.currentTimeMillis()
             return
         }

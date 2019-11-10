@@ -81,7 +81,7 @@ class FloatWallpaperService : Service() {
                 }
         removeFloatWallpaper()
         windowManager.addView(mView, params)
-        val notification = NotificationCreator.createForegroundNotification(this, msg = "关闭‘全局壁纸’后，此通知自动移除")
+        val notification = NotificationCreator.createForegroundNotification(this, msg = getString(R.string.wallpaper_float_create_notification))
         startForeground(1, notification)
     }
 

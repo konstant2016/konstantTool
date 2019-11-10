@@ -22,7 +22,7 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme)
-        setTitle("主题设置")
+        setTitle(getString(R.string.setting_theme_title))
         initBaseViews()
     }
 
@@ -55,7 +55,7 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
                 && (thme != R.style.tool_lite_dark)
                 && SettingManager.getDarkModeStatus(this)) {
             KonstantDialog(this)
-                    .setMessage("您当前已开启\"适配系统深色模式\"开关，需要关闭后才能修改主题，是否前往关闭？")
+                    .setMessage(getString(R.string.setting_theme_toast))
                     .setPositiveListener { finish() }
                     .setNegativeListener { return@setNegativeListener }
                     .createDialog()

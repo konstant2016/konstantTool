@@ -8,19 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
-import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.layout_recycler_view.*
 
 /**
-* 作者：konstant
-* 时间：2019/11/10 10:16
-* 描述：我的功能收藏列表
-*/
+ * 作者：konstant
+ * 时间：2019/11/10 10:16
+ * 描述：我的功能收藏列表
+ */
 
 class FunctionCollectionFragment : BaseFragment() {
 
-    private val mConfigs = ArrayList<ConfigData>()
+    private val mFunctionList = ArrayList<Function>()
+    private val mAdapter = AdapterMainConfig(mFunctionList)
 
     companion object {
         fun getInstance() = FunctionCollectionFragment()
@@ -32,24 +33,23 @@ class FunctionCollectionFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mConfigs.addAll(FunctionCollectorManager.getCollectionFunction())
-        val adapter = AdapterMainConfig(mConfigs)
-        adapter.setOnItemClickListener { _, position ->
+        mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
+        mAdapter.setOnItemClickListener { _, position ->
             activity?.let {
-                (activity as BaseActivity).startActivityWithType(mConfigs[position].type)
+                (activity as BaseActivity).startActivityWithType(mFunctionList[position].type)
             }
         }
 
-        adapter.setOnItemLongClickListener { _, position ->
+        mAdapter.setOnItemLongClickListener { _, position ->
             activity?.let {
                 KonstantDialog(activity!!)
-                        .setMessage("取消收藏'${mConfigs[position].title}'功能?")
+                        .setMessage("${getString(R.string.main_cancel_collection)}'${mFunctionList[position].title}'${getString(R.string.base_function)}?")
                         .setPositiveListener {
-                            FunctionCollectorManager.removeCollectionFunction(mConfigs[position])
-                            showToast("已取消收藏")
-                            mConfigs.clear()
-                            mConfigs.addAll(FunctionCollectorManager.getCollectionFunction())
-                            adapter.notifyDataSetChanged()
+                            FunctionCollectorManager.removeCollectionFunction(mFunctionList[position])
+                            showToast(getString(R.string.main_cancel_collection_success))
+                            mFunctionList.clear()
+                            mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
+                            mAdapter.notifyDataSetChanged()
                             it.dismiss()
                             if (FunctionCollectorManager.getCollectionFunction().isEmpty()) {
                                 activity?.recreate()
@@ -61,8 +61,15 @@ class FunctionCollectionFragment : BaseFragment() {
 
         recycler_main.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            setAdapter(adapter)
+            setAdapter(mAdapter)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mFunctionList.clear()
+        mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
+        mAdapter.notifyDataSetChanged()
     }
 
 }

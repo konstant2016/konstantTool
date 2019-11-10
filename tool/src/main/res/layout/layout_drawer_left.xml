@@ -23,18 +23,24 @@
             android:clickable="true"
             android:src="@drawable/ic_launcher" />
 
-        <TextView
+        <com.konstant.tool.lite.view.KonstantTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="业精于勤荒于嬉"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/base_text_01"
             android:textColor="@color/color_white" />
 
-        <TextView
+        <com.konstant.tool.lite.view.KonstantTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="行成于思毁于随"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/base_text_02"
             android:textColor="@color/color_white" />
     </LinearLayout>
 
@@ -54,7 +60,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="主页"
+            android:text="@string/base_main_page"
             android:textColor="?attr/tool_main_text_color" />
 
         <TextView
@@ -67,7 +73,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="设置"
+            android:text="@string/base_setting"
             android:textColor="?attr/tool_main_text_color" />
 
         <View

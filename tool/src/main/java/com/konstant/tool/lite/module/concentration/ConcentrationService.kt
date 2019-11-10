@@ -92,7 +92,7 @@ class ConcentrationService : Service() {
         object : CountDownTimer(minutes.toLong() * 60 * 1000, 1000) {
             override fun onFinish() {
                 removeView()
-                Toast.makeText(this@ConcentrationService, "专注模式已结束", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ConcentrationService, R.string.concentration_cancel_success, Toast.LENGTH_SHORT).show()
                 stopForeground(true)
             }
 

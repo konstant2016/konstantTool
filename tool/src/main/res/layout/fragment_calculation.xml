@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="计算日期前、后几天的日期"
+        android:text="@string/date_calculate_title"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp"
         android:textStyle="bold" />
@@ -20,7 +20,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="90dp"
         android:gravity="center_vertical"
-        android:text="开始日期"
+        android:text="@string/date_start_date"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
@@ -52,7 +52,7 @@
         android:layout_marginTop="155dp"
         android:background="@drawable/selector_btn"
         android:gravity="center"
-        android:text="往前推算"
+        android:text="@string/date_calculate_forward"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
@@ -67,7 +67,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="输入天数"
+        android:hint="@string/date_calculate_input_days"
         android:inputType="number" />
 
     <TextView
@@ -89,7 +89,7 @@
         android:layout_marginBottom="150dp"
         android:background="@drawable/selector_btn"
         android:gravity="center"
-        android:text="开始推算"
+        android:text="@string/date_calculate_button_start"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp"
         android:textStyle="bold" />

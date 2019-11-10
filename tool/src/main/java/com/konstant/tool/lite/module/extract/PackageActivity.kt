@@ -8,8 +8,8 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
-import kotlinx.android.synthetic.main.activity_package.*
 import kotlinx.android.synthetic.main.layout_dialog_progress.view.*
+import kotlinx.android.synthetic.main.layout_recycler_view.*
 import kotlinx.android.synthetic.main.pop_package.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import java.io.File
@@ -29,28 +29,28 @@ class PackageActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_package)
-        setTitle("安装包提取")
+        setContentView(R.layout.layout_recycler_view)
+        setTitle(getString(R.string.package_title))
         initBaseViews()
         readAppList()
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
-        with(layout_recycler) {
+        with(recycler_main) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PackageActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
         mAdapter.setOnItemClickListener { _, position ->
             val result = PackagePresenter.startApp(this, mList[position])
             if (!result) {
-                showToast("此应用不支持跳转")
+                showToast(getString(R.string.package_cannot_start))
             }
         }
         mAdapter.setOnItemLongClickListener { _, position ->
             val packageInfo = (mList[position])
             KonstantDialog(this)
-                    .setMessage("备份此应用？")
+                    .setMessage(getString(R.string.package_backup_app))
                     .setPositiveListener {
                         it.dismiss()
                         backupSingleApp(packageInfo)
@@ -73,7 +73,7 @@ class PackageActivity : BaseActivity() {
             }
             tv_all_save.setOnClickListener {
                 KonstantDialog(this@PackageActivity)
-                        .setMessage("批量保存到本地？")
+                        .setMessage(getString(R.string.package_save_all_to_local))
                         .setPositiveListener {
                             it.dismiss()
                             backupAllApp()
@@ -87,7 +87,7 @@ class PackageActivity : BaseActivity() {
     }
 
     private fun readAppList(withSystem: Boolean = false) {
-        showLoading(true,"正在扫描应用...")
+        showLoading(true,getString(R.string.package_app_scanning))
         PackagePresenter.getAppList(withSystem,this){
             runOnUiThread {
                 mList.clear()
@@ -102,13 +102,13 @@ class PackageActivity : BaseActivity() {
         val view = layoutInflater.inflate(R.layout.layout_progress, null)
         val dialog = KonstantDialog(this)
                 .addView(view)
-                .setMessage("正在提取中...")
+                .setMessage(getString(R.string.package_app_exporting))
                 .hideNavigation()
                 .createDialog()
 
         PackagePresenter.backApp(mPath, appData) {
             runOnUiThread { dialog.dismiss() }
-            val msg = if (it) "提取成功" else "备份失败，此应用不支持备份"
+            val msg = if (it) getString(R.string.package_export_success) else getString(R.string.package_export_fail)
             showToast(msg)
         }
     }
@@ -129,7 +129,7 @@ class PackageActivity : BaseActivity() {
 
     private fun backApp(index: Int, view: View, dialog: KonstantDialog) {
         val int = index + 1
-        view.text_progress.text = "提取中($int/${mList.size})"
+        view.text_progress.text = "${getString(R.string.package_app_exporting)}($int/${mList.size})"
         view.progress_horizontal.progress = index
         PackagePresenter.backApp(mPath, mList[index]) {
             runOnUiThread {

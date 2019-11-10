@@ -71,7 +71,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="输入对方文字"
+            android:text="@string/wxfake_input_other_txt"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -81,7 +81,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="输入我的文字"
+            android:text="@string/wxfake_input_mine_txt"
             android:textColor="?attr/tool_main_text_color" />
     </LinearLayout>
 

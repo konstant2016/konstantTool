@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="！-！-注意-！-！"
+        android:text="@string/concentration_attention"
         android:textColor="?attr/tool_main_text_color" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:text="此功能专为自控能力不足的用户开发，开启后手机会直接显示一个倒计时画面，在倒计时结束前无法使用手机，此功能需要开启'显示在其他应用上层权限'，若要强行结束，唯一的解决办法是强制重启手机（当然你也可以通过其他手段杀掉本进程）"
+        android:text="@string/concentration_attention_describe"
         android:textColor="?attr/tool_second_text_color" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="设置倒计时时间(当前30分钟)"
+        android:text="@string/concentration_progress_title"
         android:textColor="?attr/tool_main_text_color" />
 
     <androidx.appcompat.widget.AppCompatSeekBar
@@ -53,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/selector_btn"
-        android:text="我知道了，启用专注模式"
+        android:text="@string/concentration_enable_button"
         android:textColor="?attr/tool_main_text_color" />
 
 </LinearLayout>

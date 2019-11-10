@@ -31,7 +31,7 @@ class TranslateActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
-        setTitle("翻译")
+        setTitle(getString(R.string.translate_title))
         initBaseViews()
     }
 
@@ -80,7 +80,7 @@ class TranslateActivity : BaseActivity() {
         btn_translate.setOnClickListener {
             hideSoftKeyboard()
             if (TextUtils.isEmpty(et_query.text)) {
-                showToast("你想翻译啥？")
+                showToast(getString(R.string.base_input_empty_toast))
             } else {
                 doTranslate(et_query.text.toString())
             }
@@ -98,10 +98,9 @@ class TranslateActivity : BaseActivity() {
     private fun doTranslate(string: String) {
         val disposable = NetworkHelper.getTranslate(string, typeFrom, typeTo)
                 .subscribe({
-                    Log.d("TranslateActivity",Gson().toJson(it))
                     tv_result.text = it.trans_result[0].dst
                 }, {
-                    tv_result.text = "翻译出错";it.printStackTrace()
+                    tv_result.text = getString(R.string.translate_error);it.printStackTrace()
                 })
         mDisposable.add(disposable)
     }

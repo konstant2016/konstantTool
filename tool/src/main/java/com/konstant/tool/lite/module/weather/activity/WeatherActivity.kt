@@ -33,7 +33,6 @@ class WeatherActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        setTitle("天气查询")
         initBaseViews()
     }
 
@@ -64,7 +63,6 @@ class WeatherActivity : BaseActivity() {
         mFragmentList.add(WeatherFragment.newInstance(""))
         weatherCodeList.forEach { mFragmentList.add(WeatherFragment.newInstance(it.directCode)) }
         mAdapter.notifyDataSetChanged()
-        Log.i("mFragmentList size", "${mFragmentList.size}")
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -24,14 +24,14 @@ class ConcentrationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_concentration)
         initBaseViews()
-        setTitle("专注模式")
+        setTitle(getString(R.string.concentration_title))
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
         view_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                tv_progress.text = "设置倒计时时间(当前${progress + 5}分钟)"
+                tv_progress.text = "${getString(R.string.concentration_set_count_down_time)}(${getString(R.string.concentration_current)}${progress + 5}${getString(R.string.concentration_minute)})"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -45,9 +45,9 @@ class ConcentrationActivity : BaseActivity() {
         btn_start.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
                 KonstantDialog(this)
-                        .setTitle("需要申请额外权限")
-                        .setMessage("请在下一个页面中开启'显示在其他应用的上层'权限开关")
-                        .setNegativeListener { showToast("授权已取消") }
+                        .setTitle(getString(R.string.concentration_need_permission))
+                        .setMessage(getString(R.string.concentration_permission_message))
+                        .setNegativeListener { showToast(getString(R.string.base_permission_cancel)) }
                         .setPositiveListener {
                             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(packageName)}"))
                             startActivity(intent)
@@ -57,8 +57,8 @@ class ConcentrationActivity : BaseActivity() {
                 return@setOnClickListener
             }
             KonstantDialog(this)
-                    .setTitle("再次提示")
-                    .setMessage("专注模式开启后在倒计时结束前无法关闭，如需强制关闭，请长按电源键10秒以上以重启手机")
+                    .setTitle(getString(R.string.concentration_alert_again))
+                    .setMessage(getString(R.string.concentration_alert_again_message))
                     .setPositiveListener {
                         ConcentrationService.startCountDown(this, view_seekbar.progress + 5)
                         it.dismiss()

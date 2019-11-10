@@ -39,14 +39,14 @@ class ExpressDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_express_detail)
-        setTitle("物流详情")
+        setTitle(getString(R.string.express_detail))
         initBaseViews()
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
         mNumber = intent.getStringExtra("number")
-        mName = intent.getStringExtra("name") ?: "保密物件"
+        mName = intent.getStringExtra("name") ?: getString(R.string.express_name_unknown)
         updateStatus()
         with(layout_recycler) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@ExpressDetailActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
@@ -121,7 +121,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 右上角的更多按钮按下后
     private fun onMorePressed() {
         KonstantPopupWindow(this)
-                .setItemList(listOf("修改物流单号", "修改备注", "删除此物流"))
+                .setItemList(listOf(getString(R.string.express_rename_order_number), getString(R.string.express_rename_remark), getString(R.string.express_delete)))
                 .setOnItemClickListener {
                     when (it) {
                         0 -> {
@@ -144,11 +144,11 @@ class ExpressDetailActivity : BaseActivity() {
         view.edit_input.setText(mNumber)
         view.edit_input.selectAll()
         KonstantDialog(this)
-                .setMessage("输入运单号")
+                .setMessage(getString(R.string.express_input_order_number))
                 .addView(view)
                 .setPositiveListener {
                     if (TextUtils.isEmpty(view.edit_input.text)) {
-                        showToast("记得输入运单号哦")
+                        showToast(getString(R.string.express_input_order_toast))
                         return@setPositiveListener
                     }
                     it.dismiss()
@@ -170,12 +170,12 @@ class ExpressDetailActivity : BaseActivity() {
         edit.setText(mName)
         edit.selectAll()
         KonstantDialog(this)
-                .setMessage("输入备注")
+                .setMessage(getString(R.string.express_input_remark))
                 .addView(view)
                 .setPositiveListener {
                     it.dismiss()
                     if (TextUtils.isEmpty(edit.text)) {
-                        showToast("记得输入备注哦")
+                        showToast(getString(R.string.express_input_remark_toast))
                         return@setPositiveListener
                     }
                     mName = edit.text.toString()
@@ -190,7 +190,7 @@ class ExpressDetailActivity : BaseActivity() {
     // 删除运单
     private fun deleteOrder() {
         KonstantDialog(this)
-                .setMessage("确定要删除此运单号？")
+                .setMessage(getString(R.string.express_whether_delete))
                 .setPositiveListener {
                     it.dismiss()
                     ExpressManager.deleteExpress(number = mNumber)

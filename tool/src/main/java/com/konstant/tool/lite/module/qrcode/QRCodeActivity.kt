@@ -28,7 +28,7 @@ class QRCodeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
-        setTitle("二维码生成与扫描")
+        setTitle(getString(R.string.qrcode_title))
         initBaseViews()
     }
 
@@ -41,7 +41,7 @@ class QRCodeActivity : BaseActivity() {
         btn_create.setOnClickListener {
 
             if (TextUtils.isEmpty(et_qr.text)) {
-                showToast("记得输入内容哦")
+                showToast(getString(R.string.base_input_empty_toast))
                 return@setOnClickListener
             }
 
@@ -62,7 +62,7 @@ class QRCodeActivity : BaseActivity() {
             if (mBitmap == null) return@setOnLongClickListener true
 
             KonstantDialog(this)
-                    .setMessage("是否要保存到本地？")
+                    .setMessage(getString(R.string.qrcode_save_to_local))
                     .setPositiveListener {
                         it.dismiss()
                         requestWritePermission()
@@ -77,7 +77,7 @@ class QRCodeActivity : BaseActivity() {
         bitmap.let {
             val name = "${System.currentTimeMillis()}.jpg"
             val result = FileUtil.saveBitmapToAlbum(bitmap = bitmap, name = name)
-            showToast(if (result) "保存成功" else "保存失败")
+            showToast(if (result) getString(R.string.qrcode_save_success) else getString(R.string.qrcode_save_fail))
         }
     }
 
@@ -86,7 +86,7 @@ class QRCodeActivity : BaseActivity() {
         PermissionRequester.requestPermission(this,
                 mutableListOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 { writeToStorage(mBitmap) },
-                { showToast("您拒绝了权限申请") })
+                { showToast(getString(R.string.qrcode_permission_cancel)) })
     }
 
 }

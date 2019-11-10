@@ -11,25 +11,25 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.KonApplication
-import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.layout_recycler_view.*
 
 /**
-* 作者：konstant
-* 时间：2019/11/10 10:16
-* 描述：全部功能列表
-*/
+ * 作者：konstant
+ * 时间：2019/11/10 10:16
+ * 描述：全部功能列表
+ */
 
-class AllFunctionFragment() : BaseFragment() {
+class AllFunctionFragment : BaseFragment() {
 
     companion object {
         fun getInstance() = AllFunctionFragment()
     }
 
-    private val mConfigs by lazy {
-        val config = KonApplication.context.assets.open("MainConfig.json").bufferedReader().readText()
-        Gson().fromJson<List<ConfigData>>(config, object : TypeToken<List<ConfigData>>() {}.type)
+    private val mFunctionList by lazy {
+        val config = KonApplication.context.assets.open("MainFunction.json").bufferedReader().readText()
+        Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,20 +38,20 @@ class AllFunctionFragment() : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = AdapterMainConfig(mConfigs)
+        val adapter = AdapterMainConfig(mFunctionList)
         adapter.setOnItemClickListener { _, position ->
             activity?.let {
-                (activity as BaseActivity).startActivityWithType(mConfigs[position].type)
+                (activity as BaseActivity).startActivityWithType(mFunctionList[position].type)
             }
         }
 
         adapter.setOnItemLongClickListener { _, position ->
             activity?.let {
                 KonstantDialog(activity!!)
-                        .setMessage("收藏'${mConfigs[position].title}'功能?")
+                        .setMessage("${getString(R.string.base_collection)}'${mFunctionList[position].title}'${getString(R.string.base_function)}?")
                         .setPositiveListener {
-                            FunctionCollectorManager.addCollectionFunction(mConfigs[position])
-                            showToast("收藏成功")
+                            FunctionCollectorManager.addCollectionFunction(mFunctionList[position])
+                            showToast(getString(R.string.base_collection_success))
                             it.dismiss()
                         }
                         .createDialog()

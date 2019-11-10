@@ -24,13 +24,14 @@ import org.greenrobot.eventbus.EventBus
 
 class SettingActivity : BaseActivity() {
 
-    private val swipeStateList = listOf("全部关闭", "从左向右", "从右向左", "从下向上", "全部启用")
-    private val browserTypeList = listOf("默认设置", "Chrome Browser", "QQ浏览器", "UC浏览器", "系统浏览器")
+    private val mLanguageList by lazy { listOf(getString(R.string.setting_language_item_system), "简体中文", "ENGLISH") }
+    private val mSwipeStateList by lazy { listOf(getString(R.string.setting_swipe_item_close), getString(R.string.setting_swipe_item_left), getString(R.string.setting_swipe_item_right), getString(R.string.setting_swipe_item_bottom), getString(R.string.setting_swipe_item_open)) }
+    private val mBrowserTypeList by lazy { listOf(getString(R.string.setting_browser_item_default), "Chrome Browser", getString(R.string.setting_browser_item_QQ), getString(R.string.setting_browser_item_UC), getString(R.string.setting_browser_item_system)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
-        setTitle("设置")
+        setTitle(getString(R.string.setting_title))
         initBaseViews()
     }
 
@@ -58,11 +59,15 @@ class SettingActivity : BaseActivity() {
 
         // 滑动返回
         layout_swipe.setOnClickListener { onSwipeBackClick() }
-        layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
+        layout_swipe.setHintText(mSwipeStateList[SettingManager.getSwipeBackStatus(this)])
+
+        // 语言设置
+        layout_language.setOnClickListener { onLanguageClick() }
+        layout_language.setHintText(mLanguageList[SettingManager.getDefaultLanguage(this)])
 
         // 浏览器类型
         layout_browser.setOnClickListener { onBrowserClick() }
-        layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
+        layout_browser.setHintText(mBrowserTypeList[SettingManager.getBrowserType(this)])
 
         // 自动检查更新
         switch_update.isChecked = SettingManager.getAutoCheckUpdate(this)
@@ -96,26 +101,39 @@ class SettingActivity : BaseActivity() {
     private fun onSwipeBackClick() {
         KonstantDialog(this)
                 .hideNavigation()
-                .setItemList(swipeStateList)
+                .setItemList(mSwipeStateList)
                 .setOnItemClickListener { dialog, position ->
                     dialog.dismiss()
                     SettingManager.setSwipeBackStatus(this, position)
                     EventBus.getDefault().post(SwipeBackStatus(position))
-                    layout_swipe.setHintText(swipeStateList[SettingManager.getSwipeBackStatus(this)])
+                    layout_swipe.setHintText(mSwipeStateList[SettingManager.getSwipeBackStatus(this)])
                 }
                 .createDialog()
+    }
 
+    // 点击选择语言后的操作
+    private fun onLanguageClick() {
+        KonstantDialog(this)
+                .hideNavigation()
+                .setItemList(mLanguageList)
+                .setOnItemClickListener { dialog, position ->
+                    dialog.dismiss()
+                    SettingManager.saveDefaultLanguage(this, position)
+                    EventBus.getDefault().post(LanguageChanged())
+                    layout_language.setHintText(mLanguageList[SettingManager.getDefaultLanguage(this)])
+                }
+                .createDialog()
     }
 
     // 浏览器类型点击后的操作
     private fun onBrowserClick() {
         KonstantDialog(this)
                 .hideNavigation()
-                .setItemList(browserTypeList)
+                .setItemList(mBrowserTypeList)
                 .setOnItemClickListener { dialog, position ->
                     dialog.dismiss()
                     SettingManager.saveBrowserType(this, position)
-                    layout_browser.setHintText(browserTypeList[SettingManager.getBrowserType(this)])
+                    layout_browser.setHintText(mBrowserTypeList[SettingManager.getBrowserType(this)])
                 }
                 .createDialog()
     }
@@ -124,7 +142,7 @@ class SettingActivity : BaseActivity() {
     private fun headerSelector() {
         KonstantDialog(this)
                 .hideNavigation()
-                .setItemList(listOf("拍照", "相册", "恢复默认"))
+                .setItemList(listOf(getString(R.string.setting_header_item_camera), getString(R.string.setting_header_item_photo), getString(R.string.setting_header_item_recover)))
                 .setOnItemClickListener { dialog, position ->
                     dialog.dismiss()
                     when (position) {
@@ -136,18 +154,18 @@ class SettingActivity : BaseActivity() {
                                         ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
                                             if (it) {
                                                 EventBus.getDefault().post(UserHeaderChanged())
-                                                showToast("设置成功")
+                                                showToast(getString(R.string.setting_header_success))
                                             }
                                         }
                                     },
-                                    { showToast("您拒绝了相机权限") })
+                                    { showToast(getString(R.string.setting_header_permission_cancel)) })
                         }
                         // 相册
                         1 -> {
                             ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
                                 if (it) {
                                     EventBus.getDefault().post(UserHeaderChanged())
-                                    showToast("设置成功")
+                                    showToast(getString(R.string.setting_header_success))
                                 }
                             }
                         }
@@ -156,7 +174,7 @@ class SettingActivity : BaseActivity() {
                             dialog.dismiss()
                             SettingManager.deleteUserHeaderThumb(this)
                             EventBus.getDefault().post(UserHeaderChanged())
-                            showToast("已恢复默认")
+                            showToast(getString(R.string.setting_header_recover_success))
                         }
                     }
                 }

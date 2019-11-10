@@ -24,7 +24,7 @@ class ParseVideoActivity : BaseActivity() {
 
     override fun initBaseViews() {
         super.initBaseViews()
-        setSegmentalTitle("视频解析", "地址解析")
+        setSegmentalTitle(getString(R.string.parse_video), getString(R.string.parse_address))
         val list = listOf(ListFragment.newInstance(), ParseFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)
         view_segment.setUpWithViewPager(view_pager)

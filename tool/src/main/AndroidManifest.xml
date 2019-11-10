@@ -121,7 +121,7 @@
         <activity
             android:launchMode="singleTask"
             android:name=".module.extract.PackageActivity"
-            android:configChanges="uiMode" /> <!-- 高德定位相关 START -->
+            android:configChanges="uiMode|locale" /> <!-- 高德定位相关 START -->
         <activity
             android:name=".base.SplashActivity"
             android:configChanges="fontScale|uiMode"

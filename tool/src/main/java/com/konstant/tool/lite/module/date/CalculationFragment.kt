@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.fragment_calculation.*
 
 class CalculationFragment : BaseFragment() {
 
-    private val 往前推算 = "往前推算"
-    private val 往后推算 = "往后推算"
+    private val 往前推算 by lazy { context?.getString(R.string.date_calculate_forward) }
+    private val 往后推算 by lazy { context?.getString(R.string.date_calculate_backward) }
 
     companion object {
         @JvmStatic

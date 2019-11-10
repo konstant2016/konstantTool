@@ -20,7 +20,7 @@ class NetSpeedActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_net_speed)
-        setTitle("网速测试")
+        setTitle(getString(R.string.speed_title))
         initBaseViews()
     }
 
@@ -36,7 +36,7 @@ class NetSpeedActivity : BaseActivity() {
             }
             btn_start.isClickable = false
             val time = System.currentTimeMillis()
-            tv_result.text = "测试中..."
+            tv_result.text = getString(R.string.speed_testing)
 
             NetworkHelper.getSpeed(max, object : FileDownloader.DownloadListener {
                 override fun onProgress(current: Long, total: Long) {

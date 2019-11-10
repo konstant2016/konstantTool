@@ -3,7 +3,7 @@ package com.konstant.tool.lite.main
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.util.FileUtil
 
 /**
@@ -15,33 +15,33 @@ import com.konstant.tool.lite.util.FileUtil
 object FunctionCollectorManager {
 
     private const val FUNCTION_COLLECTION = "Function_Collection"
-    private val mConfigs = ArrayList<ConfigData>()
+    private val mFunctionList = ArrayList<Function>()
 
     fun onCreate(context: Context) {
         val config = FileUtil.readDataFromSp(context, FUNCTION_COLLECTION, "")
         if (config.isNotEmpty()) {
-            val configs = Gson().fromJson<List<ConfigData>>(config, object : TypeToken<List<ConfigData>>() {}.type)
-            mConfigs.addAll(configs)
+            val configs = Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
+            mFunctionList.addAll(configs)
         }
     }
 
     fun onDestroy(context: Context) {
-        val json = Gson().toJson(mConfigs)
+        val json = Gson().toJson(mFunctionList)
         FileUtil.saveDataToSp(context, FUNCTION_COLLECTION, json)
     }
 
-    fun getCollectionFunction() = mConfigs
+    fun getCollectionFunction() = mFunctionList
 
-    fun addCollectionFunction(data: ConfigData) {
-        if (!mConfigs.contains(data)) {
-            mConfigs.add(data)
+    fun addCollectionFunction(data: Function) {
+        if (!mFunctionList.contains(data)) {
+            mFunctionList.add(data)
         }
     }
 
-    fun removeCollectionFunction(data: ConfigData) {
-        mConfigs.remove(data)
+    fun removeCollectionFunction(data: Function) {
+        mFunctionList.remove(data)
     }
 
-    fun containsFunction(data: ConfigData) = mConfigs.contains(data)
+    fun containsFunction(data: Function) = mFunctionList.contains(data)
 
 }

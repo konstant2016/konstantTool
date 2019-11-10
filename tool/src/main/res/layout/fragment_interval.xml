@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="计算两个日期之间的间隔"
+        android:text="@string/date_interval_title"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp"
         android:textStyle="bold" />
@@ -20,7 +20,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="90dp"
         android:gravity="center_vertical"
-        android:text="开始日期"
+        android:text="@string/date_start_date"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 
@@ -49,7 +49,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="140dp"
         android:gravity="center_vertical"
-        android:text="结束日期"
+        android:text="@string/date_stop_date"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="15sp" />
 

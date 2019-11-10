@@ -23,7 +23,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:text="本应用完全遵守绿色公约！\n应用卸载后，除用户手动保存的图片外，没有任何残留数据"
+            android:text="@string/setting_about_describe"
             android:textColor="?attr/tool_main_text_color" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="项目地址"
+            android:text="@string/setting_about_source_code_address"
             android:textColor="?attr/tool_theme_text_color" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="检查更新"
+            android:text="@string/setting_about_checkout_update"
             android:textColor="?attr/tool_theme_text_color" />
     </LinearLayout>
 

@@ -59,9 +59,9 @@ class FloatWallpaperFragment : BaseFragment() {
     private fun enableFloatWallpaper(transparent: Int = 70) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getNotNullContext())) {
             KonstantDialog(getNotNullContext())
-                    .setTitle("需要申请额外权限")
-                    .setMessage("请在下一个页面开启'显示在其他应用的上层'权限开关")
-                    .setNegativeListener { showToast("授权已取消") }
+                    .setTitle(getString(R.string.wallpaper_need_permission))
+                    .setMessage(getString(R.string.wallpaper_permission_describe))
+                    .setNegativeListener { showToast(getString(R.string.base_permission_cancel)) }
                     .setPositiveListener {
                         val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${Uri.parse(getNotNullContext().packageName)}"))
                         getNotNullContext().startActivity(intent)
@@ -71,9 +71,8 @@ class FloatWallpaperFragment : BaseFragment() {
             return
         }
         ImageSelector.selectImg(getNotNullContext(), FloatWallpaperService.WALLPAPER_NAME, 540, 960) {
-            Log.d(TAG, "选择图片回调")
             if (!it) {
-                showToast("图片未选择")
+                showToast(getString(R.string.wallpaper_photo_unselect))
             } else {
                 FloatWallpaperService.startTransparentWallpaper(getNotNullContext(), transparent)
             }

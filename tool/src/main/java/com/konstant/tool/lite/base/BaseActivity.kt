@@ -9,6 +9,7 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.util.TypedValue
 import android.view.*
 import android.view.inputmethod.InputMethodManager
@@ -21,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.bean.main.ConfigData
+import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.main.FunctionCollectorManager
 import com.konstant.tool.lite.main.MainActivity
 import com.konstant.tool.lite.module.compass.CompassActivity
@@ -56,6 +57,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import java.util.*
 
 /**
  * 描述:所有activity的基类
@@ -72,6 +74,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setDefaultLanguage()
         AppUtil.addActivity(this)
     }
 
@@ -109,25 +112,48 @@ abstract class BaseActivity : SwipeBackActivity() {
         onUserHeaderChanged(UserHeaderChanged())
     }
 
+    private fun setDefaultLanguage() {
+        if (SettingManager.getShowChinese(this)) {
+            setChineseLanguage()
+        } else {
+            setEnglishLanguage()
+        }
+    }
+
+    private fun setChineseLanguage() {
+        Locale.setDefault(Locale("zh"))
+        val config = resources.configuration
+        config.locale = Locale.CHINESE
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
+    private fun setEnglishLanguage() {
+        Locale.setDefault(Locale("en"))
+        val config = resources.configuration
+        config.locale = Locale.ENGLISH
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
     // 更换主题，主题切换时，重新打开自身，避免界面闪烁
     @Subscribe
     open fun onThemeChanged(msg: ThemeChanged) {
         if (AppUtil.isTop(this)) {
+            finish()
             startActivity(javaClass)
             overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
-            finish()
         } else {
             recreate()
         }
     }
 
-    override fun recreate() {
+    @Subscribe
+    fun onLanguageChanged(msg: LanguageChanged) {
         if (AppUtil.isTop(this)) {
             finish()
             startActivity(javaClass)
             overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
         } else {
-            super.recreate()
+            recreate()
         }
     }
 
@@ -311,8 +337,8 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 初始化侧边栏
     private fun initDrawLayout() {
-        val config = assets.open("MainConfig.json").bufferedReader().readText()
-        val configs = Gson().fromJson<List<ConfigData>>(config, object : TypeToken<List<ConfigData>>() {}.type)
+        val config = assets.open("MainFunction.json").bufferedReader().readText()
+        val configs = Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
         val adapter = AdapterBase(configs)
         adapter.setOnItemClickListener { _, position ->
             val type = configs[position].type
@@ -320,10 +346,10 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
         adapter.setOnItemLongClickListener { _, position ->
             KonstantDialog(this)
-                    .setMessage("收藏'${configs[position].title}'功能？")
+                    .setMessage("${getString(R.string.base_collection)}'${configs[position].title}'${getString(R.string.base_function)}？")
                     .setPositiveListener {
                         FunctionCollectorManager.addCollectionFunction(configs[position])
-                        showToast("收藏成功，可在设置中切换显示")
+                        showToast(getString(R.string.base_collection_success))
                     }
                     .createDialog()
         }
@@ -347,7 +373,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 显示加载窗口
-    fun showLoading(state: Boolean, msg: String = "正在加载中...") {
+    fun showLoading(state: Boolean, msg: String = getString(R.string.base_loading)) {
         runOnUiThread {
             tv_state.text = msg
             layout_loading.visibility = if (state) View.VISIBLE else View.GONE
@@ -410,7 +436,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
     }
 
-    inner class AdapterBase(private val configs: List<ConfigData>) : BaseRecyclerAdapter<AdapterBase.Holder>() {
+    inner class AdapterBase(private val configs: List<Function>) : BaseRecyclerAdapter<AdapterBase.Holder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_drawer_left, parent, false)
             return Holder(view)
@@ -418,8 +444,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             super.onBindViewHolder(holder, position)
-            val title = configs[position].title
-            holder.itemView.tv_title.text = title
+            holder.itemView.tv_title.text = configs[position].title
         }
 
         override fun getItemCount() = configs.size

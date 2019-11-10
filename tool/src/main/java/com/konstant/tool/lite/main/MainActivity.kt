@@ -64,10 +64,10 @@ class MainActivity : BaseActivity() {
         if (SettingManager.getShowCollection(this) && FunctionCollectorManager.getCollectionFunction().isNotEmpty()) {
             mFragmentList.add(FunctionCollectionFragment())
             mFragmentList.add(AllFunctionFragment())
-            setSegmentalTitle("我的收藏", "全部功能")
+            setSegmentalTitle(getString(R.string.main_my_collection), getString(R.string.main_all_function))
         } else {
             mFragmentList.add(AllFunctionFragment())
-            setTitle("菜籽工具箱")
+            setTitle(getString(R.string.app_name))
         }
         mAdapter.notifyDataSetChanged()
     }
@@ -83,7 +83,7 @@ class MainActivity : BaseActivity() {
         }
         if (SettingManager.getExitTipsStatus(this) and (System.currentTimeMillis() - mLastTime > 2000)) {
             mLastTime = System.currentTimeMillis()
-            showToast("再按一次返回键退出应用")
+            showToast(getString(R.string.main_exit_toast))
             return
         }
         if (SettingManager.getKillProcess(this)) {

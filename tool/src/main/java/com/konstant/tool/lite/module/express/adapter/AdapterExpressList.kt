@@ -19,16 +19,16 @@ import kotlinx.android.synthetic.main.item_express_list.view.*
  * 备注:
  */
 
-class AdapterExpressList(val context: Context, val expresses: ArrayList<ExpressData>) : BaseAdapter() {
+class AdapterExpressList(val expresses: ArrayList<ExpressData>) : BaseAdapter() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
         val data = expresses[position]
-        return LayoutInflater.from(context).inflate(R.layout.item_express_list, parent, false)
+        return LayoutInflater.from(convertView.context).inflate(R.layout.item_express_list, parent, false)
                 .apply {
                     Picasso.get().load(getDrawableId(data.company)).transform(CircleTransform()).into(img_company)
                     tv_express_num.text = data.company + "：" + data.number
                     tv_name.text = data.name
-                    tv_state.text = if (TextUtils.isEmpty(data.status)) "暂无信息" else data.status
+                    tv_state.text = if (TextUtils.isEmpty(data.status)) "${convertView.context.getString(R.string.express_empty_state)}" else data.status
                 }
     }
 

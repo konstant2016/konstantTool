@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
-            android:text="取消"
+            android:text="@string/base_cancel"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -111,7 +111,7 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
-            android:text="确定"
+            android:text="@string/base_confirm"
             android:textColor="?attr/tool_main_text_color" />
 
     </LinearLayout>

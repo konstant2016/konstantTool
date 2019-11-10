@@ -30,7 +30,7 @@ class H5Activity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
-        setTitle("加载中...")
+        setTitle(getString(R.string.base_loading))
         initBaseViews()
         val url = intent.getStringExtra(H5_URL)
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
@@ -65,7 +65,7 @@ class H5Activity : BaseActivity() {
 
     private fun onMorePressed() {
         KonstantPopupWindow(this)
-                .setItemList(listOf("刷新页面", "用浏览器打开"))
+                .setItemList(listOf(getString(R.string.h5_activity_refresh_page), getString(R.string.h5_activity_open_with_browser)))
                 .setOnItemClickListener {
                     when (it) {
                         0 -> {

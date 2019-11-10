@@ -36,12 +36,12 @@ class TransparentWallpaperFragment : BaseFragment() {
             PermissionRequester.requestPermission(getNotNullContext(),
                     mutableListOf(Manifest.permission.CAMERA),
                     { startCustomWallpaperPicker() },
-                    { showToast("设置透明壁纸需要获取摄像头权限") })
+                    { showToast(getString(R.string.wallpaper_translate_need_permission)) })
         }
 
         btn_disable.setOnClickListener {
             KonstantDialog(getNotNullContext())
-                    .setMessage("手动更换桌面壁纸后，透明壁纸即自动关闭")
+                    .setMessage(getString(R.string.wallpaper_translate_close_describe))
                     .setPositiveListener { it.dismiss() }
                     .createDialog()
         }

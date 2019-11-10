@@ -45,13 +45,13 @@ class CompassActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compass)
-        setTitle("指南针")
+        setTitle(getString(R.string.compass_title))
         initBaseViews()
     }
 
     // 旋转图片动画
     private fun startRotate(degree: Float) {
-        val animation = RotateAnimation(currentDegree, -degree, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF,0.5f)
+        val animation = RotateAnimation(currentDegree, -degree, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         animation.duration = 50
         img_compass.startAnimation(animation)
         currentDegree = -degree

@@ -5,7 +5,10 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.Density
+import org.greenrobot.eventbus.EventBus
+import java.util.*
 
 /**
  * 描述:整个应用的application
@@ -23,7 +26,8 @@ class KonApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
-        Log.d("KonApplication","onCreate")
+        SettingManager.setSystemChinese(Locale.getDefault().toString().contains("zh"))
+        Log.d("KonApplication", "onCreate")
         Density.init(this)
         KonstantDataManager.onCreate(applicationContext)
     }
@@ -54,4 +58,13 @@ class KonApplication : Application() {
         return resources
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.locale.toString().contains("zh")) {
+            SettingManager.setSystemChinese(true)
+        } else {
+            SettingManager.setSystemChinese(false)
+        }
+        EventBus.getDefault().post(LanguageChanged())
+    }
 }

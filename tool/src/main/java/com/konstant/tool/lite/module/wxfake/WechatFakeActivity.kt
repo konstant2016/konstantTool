@@ -47,7 +47,7 @@ class WechatFakeActivity : BaseActivity() {
         tv_adverse.setOnClickListener { finish() }
         img_more_fake.setOnClickListener {
             KonstantPopupWindow(this)
-                    .setItemList(listOf("设置对方昵称", "设置对方头像", "设置我的头像", "切换输入框"))
+                    .setItemList(listOf(getString(R.string.wxfake_other_name), getString(R.string.wxfake_other_header), getString(R.string.wxfake_my_header), getString(R.string.wxfake_show_input)))
                     .setOnItemClickListener {
                         when (it) {
                             0 -> {
@@ -71,7 +71,7 @@ class WechatFakeActivity : BaseActivity() {
             val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
             KonstantDialog(this)
                     .addView(view)
-                    .setMessage("添加对方文字")
+                    .setMessage(getString(R.string.wxfake_input_other_txt))
                     .setPositiveListener {
                         if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
                         list.add(Conversion(view.edit_input.text.toString(), 0, ADVERSE_HEADER_NAME))
@@ -86,7 +86,7 @@ class WechatFakeActivity : BaseActivity() {
             val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
             KonstantDialog(this)
                     .addView(view)
-                    .setMessage("添加我方文字")
+                    .setMessage(getString(R.string.wxfake_input_mine_txt))
                     .setPositiveListener {
                         if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
                         list.add(Conversion(view.edit_input.text.toString(), 1, MINE_HEADER_NAME))
@@ -111,7 +111,7 @@ class WechatFakeActivity : BaseActivity() {
         val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
         KonstantDialog(this)
                 .addView(view)
-                .setMessage("设置对方名字")
+                .setMessage(getString(R.string.wxfake_set_other_name))
                 .setPositiveListener {
                     if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
                     tv_adverse.text = view.edit_input.text
@@ -124,7 +124,7 @@ class WechatFakeActivity : BaseActivity() {
     // 设置对方头像
     private fun setAdverseHeader() {
         ImageSelector.selectImg(this, ADVERSE_HEADER_NAME) {
-            val msg = "对方头像设置${if (it) "成功" else "失败"}"
+            val msg = "${getString(R.string.wxfake_other_header)}${if (it) getString(R.string.base_txt_success) else getString(R.string.base_txt_fail)}"
             showToast(msg)
             if (it) mAdapter.notifyDataSetChanged()
         }
@@ -133,7 +133,7 @@ class WechatFakeActivity : BaseActivity() {
     // 设置我的头像
     private fun setMyHeader() {
         ImageSelector.selectImg(this, MINE_HEADER_NAME) {
-            val msg = "我的头像设置${if (it) "成功" else "失败"}"
+            val msg = "${getString(R.string.wxfake_my_header)}${if (it) getString(R.string.base_txt_success) else getString(R.string.base_txt_fail)}"
             showToast(msg)
             if (it) mAdapter.notifyDataSetChanged()
         }

@@ -3,6 +3,8 @@ package com.konstant.tool.lite.module.express
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.konstant.tool.lite.R
+import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.util.FileUtil
 import java.util.concurrent.Executors
@@ -64,7 +66,7 @@ object ExpressManager {
     }
 
     // 添加新的物流
-    fun addExpress(number: String, company: String? = "物流单号", status: String? = "暂无信息", name: String? = "保密物件") {
+    fun addExpress(number: String, company: String? = KonApplication.context.resources.getString(R.string.express_order_number), status: String? = KonApplication.context.resources.getString(R.string.express_empty_state), name: String? = KonApplication.context.resources.getString(R.string.express_name_unknown)) {
         val expressData = ExpressData(company, number, status, name)
         if (!mExpressList.contains(expressData)) mExpressList.add(expressData)
     }

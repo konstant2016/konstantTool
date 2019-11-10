@@ -22,14 +22,14 @@ class RollTextActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_roll_text)
         initBaseViews()
-        setTitle("全屏滚动文字")
+        setTitle(getString(R.string.scroll_title))
         btn_create.setOnClickListener { onBtnPressed() }
         layout_roll.setOnClickListener { hideSoftKeyboard() }
     }
 
     private fun onBtnPressed() {
         if (TextUtils.isEmpty(et_input.text)) {
-            showToast("记得输入内容哦~")
+            showToast(getString(R.string.base_input_empty_toast))
             return
         }
         with(Intent(this, ScrollTxtActivity::class.java)) {

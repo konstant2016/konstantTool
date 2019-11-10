@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
+import com.konstant.tool.lite.base.KonApplication
 import kotlinx.android.synthetic.main.item_recycler_package_extra.view.*
 
 class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
@@ -25,8 +26,8 @@ class AdapterPackage(val list: List<AppData>) : BaseRecyclerAdapter<androidx.rec
         if (holder is CommonHolder) {
             with(holder.itemView) {
                 img_package.setImageDrawable(data.icon)
-                name_package.text = "应用名字：${data.appName}"
-                number_package.text = "应用标识：${data.packageName}"
+                name_package.text = "${KonApplication.context.getString(R.string.package_app_name)}：${data.appName}"
+                number_package.text = "${KonApplication.context.getString(R.string.package_app_package)}：${data.packageName}"
             }
         }
         if (holder is TopHolder) {

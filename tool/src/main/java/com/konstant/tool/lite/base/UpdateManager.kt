@@ -2,6 +2,7 @@ package com.konstant.tool.lite.base
 
 import android.content.Intent
 import android.text.TextUtils
+import com.konstant.tool.lite.R
 import com.konstant.tool.lite.network.NetworkHelper
 import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.view.KonstantDialog
@@ -48,11 +49,11 @@ object UpdateManager {
     fun checkoutUpdate() {
         checkUpdate { status, newVersion, versionName, describe, url ->
             if (!status) {
-                AppUtil.getTopActivity()?.showToast("检查失败，可能是网络或者服务器挂了")
+                AppUtil.getTopActivity()?.showToast(KonApplication.context.getString(R.string.update_manager_check_update_error))
                 return@checkUpdate
             }
             if (!newVersion) {
-                AppUtil.getTopActivity()?.showToast("当前已经是最新版本")
+                AppUtil.getTopActivity()?.showToast(KonApplication.context.getString(R.string.update_manager_new_version_already))
                 return@checkUpdate
             }
             showUpdateDialog(versionName, describe, url)
@@ -75,7 +76,7 @@ object UpdateManager {
         AppUtil.getTopActivity()?.let { activity ->
             activity.runOnUiThread {
                 KonstantDialog(activity)
-                        .setTitle("新版本：$versionName")
+                        .setTitle("${KonApplication.context.getString(R.string.update_manager_new_version)}：$versionName")
                         .setMessage(describe)
                         .setPositiveListener {
                             with(Intent(activity, H5Activity::class.java)) {

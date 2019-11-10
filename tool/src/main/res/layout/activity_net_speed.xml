@@ -11,7 +11,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:gravity="center"
-        android:text="提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，网络稳定时，下载文件数值越大，速度计算越精确"
+        android:text="@string/speed_describe"
         android:textColor="?attr/tool_second_text_color" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_marginTop="130dp"
         android:layout_marginRight="50dp"
         android:gravity="center"
-        android:text="输入消耗流量值，最大50MB"
+        android:text="@string/speed_input_size_describe"
         android:textColor="?attr/tool_second_text_color"
         android:textSize="13sp" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="160dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="默认10MB"
+        android:hint="@string/speed_input_hint"
         android:inputType="number"
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
@@ -79,7 +79,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
         android:background="@drawable/selector_btn"
-        android:text="开始"
+        android:text="@string/speed_button_start"
         android:textColor="?attr/tool_main_text_color"
         android:textStyle="bold" />
 

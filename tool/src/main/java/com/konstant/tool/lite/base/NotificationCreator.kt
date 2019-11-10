@@ -19,8 +19,8 @@ class NotificationCreator {
 
     companion object {
 
-        fun createForegroundNotification(context: Context, title: String = "菜籽工具箱-后台增强服务",
-                                         msg: String = "关闭'后台增强服务'后，此通知会自动移除"): Notification {
+        fun createForegroundNotification(context: Context, title: String = context.getString(R.string.notification_creator_title),
+                                         msg: String = context.getString(R.string.notification_creator_message)): Notification {
             val channelId = "${context.packageName}.channel"
             val intent = TaskStackBuilder.create(context)
                     .addNextIntent(Intent(context, SettingActivity::class.java))
@@ -37,7 +37,7 @@ class NotificationCreator {
                         setContentIntent(intent)
                     }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val channelName = "后台增强服务"
+                val channelName = context.getString(R.string.notification_creator_channel_name)
                 val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_MIN)
                 val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 manager.createNotificationChannel(channel)

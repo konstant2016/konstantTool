@@ -5,4 +5,291 @@
     <string name="tv_live">电视直播</string>
     <string name="package_extra">应用提取</string>
     <string name="qrcode_scan">二维码扫描</string>
+
+    <!--通用的文字-->
+    <string name="base_collection">收藏</string>
+    <string name="base_function">功能</string>
+    <string name="base_button_ok">确定</string>
+    <string name="base_txt_success">成功</string>
+    <string name="base_txt_fail">失败</string>
+    <string name="base_input_empty_toast">记得输入内容哦</string>
+    <string name="base_permission_cancel">授权已取消</string>
+    <string name="base_collection_success">收藏成功，可在设置中切换显示</string>
+    <string name="base_loading">正在加载中…</string>
+    <string name="base_main_page">主页</string>
+    <string name="base_setting">设置</string>
+    <string name="base_text_01">业精于勤荒于嬉</string>
+    <string name="base_text_02">行成于思毁于随</string>
+    <string name="base_confirm">确定</string>
+    <string name="base_cancel">取消</string>
+
+    <!--H5 Activity中的文字-->
+    <string name="h5_activity_refresh_page">刷新页面</string>
+    <string name="h5_activity_open_with_browser">用浏览器打开</string>
+
+    <!--创建前台通知中的默认文字-->
+    <string name="notification_creator_title">菜籽工具箱-后台增强服务</string>
+    <string name="notification_creator_message">关闭‘后台增强服务’后，此通知会自动移除</string>
+    <string name="notification_creator_channel_name">后台增强服务</string>
+
+    <!--检查更新中的文字-->
+    <string name="update_manager_check_update_error">检查失败，可能是网络或者服务器挂了</string>
+    <string name="update_manager_new_version_already">当前已经是最新版本</string>
+    <string name="update_manager_new_version">新版本</string>
+
+    <!--主页中的文字-->
+    <string name="main_my_collection">我的收藏</string>
+    <string name="main_all_function">全部功能</string>
+    <string name="main_exit_toast">再按一次返回键退出应用</string>
+    <string name="main_cancel_collection">取消收藏</string>
+    <string name="main_cancel_collection_success">取消收藏</string>
+
+    <!--指南针中的文字-->
+    <string name="compass_title">指南针</string>
+
+    <!--专注模式中的文字-->
+    <string name="concentration_title">专注模式</string>
+    <string name="concentration_set_count_down_time">设置倒计时时间</string>
+    <string name="concentration_current">当前</string>
+    <string name="concentration_minute">分钟</string>
+    <string name="concentration_need_permission">需要申请额外权限</string>
+    <string name="concentration_permission_message">请在下一个页面中开启‘显示在其他应用的上层’权限开关</string>
+    <string name="concentration_alert_again">再次提示</string>
+    <string name="concentration_alert_again_message">专注模式开启后在倒计时结束前无法关闭，如需强制关闭，请长按电源键10秒以上以重启手机</string>
+    <string name="concentration_attention">！-！-注意-！-！</string>
+    <string name="concentration_attention_describe">此功能专为自控能力不足的用户开发，开启后手机会直接显示一个倒计时画面，在倒计时结束前无法使用手机，此功能需要开启‘显示在其他应用上层权限’，若要强行结束，唯一的解决办法是强制重启手机（当然你也可以通过其他手段杀掉本进程）</string>
+    <string name="concentration_progress_title">设置倒计时时间(当前30分钟)</string>
+    <string name="concentration_enable_button">我知道了，启用专注模式</string>
+    <string name="concentration_cancel_success">专注模式已结束</string>
+
+
+    <!--日期推算中的文字-->
+    <string name="date_title">日期推算</string>
+    <string name="date_start_date">开始日期</string>
+    <string name="date_stop_date">结束日期</string>
+    <string name="date_date_interval">日期间隔</string>
+    <string name="date_calculate_forward">往前推算</string>
+    <string name="date_calculate_backward">往后推算</string>
+    <string name="date_calculate_title">计算日期前、后几天的日期</string>
+    <string name="date_calculate_input_days">输入天数</string>
+    <string name="date_calculate_button_start">开始推算</string>
+    <string name="date_interval_day">天</string>
+    <string name="date_interval_interval">间隔</string>
+    <string name="date_interval_title">计算两个日期之间的间隔</string>
+
+    <!--分贝测试仪中的文字-->
+    <string name="decibel_title">分贝测试仪</string>
+    <string name="decibel_permission_cancel">您拒绝了录音权限</string>
+    <string name="decibel_init_error">录音初始化失败</string>
+    <string name="decibel_max_decibel">当前最大分贝</string>
+    <string name="decibel_min_decibel">当前最大分贝</string>
+    <string name="decibel_tips">提示：室内静音分贝为 30 DB</string>
+
+    <!--设备信息中的文字-->
+    <string name="device_title">设备信息</string>
+    <string name="device_permission_cancel">权限申请已被拒绝，部分信息无法展示</string>
+    <string name="device_current_wifi_name">当前连接的WiFi名字</string>
+    <string name="device_current_wifi_mac_address">当前连接的WiFi的MAC地址</string>
+    <string name="device_phone_mac_address">本机MAC地址</string>
+    <string name="device_current_version_name">当前versionName</string>
+    <string name="device_current_version_code">当前versionCode</string>
+    <string name="device_cpu_model">CPU型号</string>
+    <string name="device_device_factory">设备厂商</string>
+    <string name="device_device_model">手机型号</string>
+    <string name="device_android_version">安卓版本</string>
+    <string name="device_system_api_version">系统API级别</string>
+    <string name="device_host_address">主机地址HOST</string>
+    <string name="device_uuid">设备唯一标识符</string>
+    <string name="device_current_iccid">当前ICCID</string>
+    <string name="device_sim_card_enable">是否存在实体SIM卡</string>
+    <string name="device_imei_card_one">IMEI(卡一)</string>
+    <string name="device_imei_card_two">IMEI(卡二)</string>
+    <string name="device_imsi_card_one">IMSI(卡一)</string>
+    <string name="device_imsi_card_two">IMSI(卡二)</string>
+    <string name="device_title_describe">这里展示设备信息\n</string>
+
+    <!--物流查询中的文字-->
+    <string name="express_title">物流查询</string>
+    <string name="express_detail">物流详情</string>
+    <string name="express_whether_delete">是否删除此物流？</string>
+    <string name="express_add_express">添加物流信息</string>
+    <string name="express_name_unknown">保密物件</string>
+    <string name="express_input_order_toast">记得输入运单号哦</string>
+    <string name="express_empty_message">点击右上角添加物流信息~</string>
+    <string name="express_rename_order_number">修改物流单号</string>
+    <string name="express_rename_remark">修改备注</string>
+    <string name="express_delete">删除此物流</string>
+    <string name="express_input_order_number">输入运单号</string>
+    <string name="express_input_remark">输入运单号</string>
+    <string name="express_input_remark_toast">记得输入备注哦</string>
+    <string name="express_empty_data">查询无数据，请检查：</string>
+    <string name="express_empty_01">1、运单号填写正确</string>
+    <string name="express_empty_02">2、网络正常</string>
+    <string name="express_button_retry">重试</string>
+    <string name="express_empty_state">暂无信息</string>
+    <string name="express_order_number">物流单号</string>
+
+
+    <!--安装包提取中的文字-->
+    <string name="package_title">安装包提取</string>
+    <string name="package_cannot_start">此应用不支持跳转</string>
+    <string name="package_backup_app">备份此应用？</string>
+    <string name="package_save_all_to_local">批量保存到本地？</string>
+    <string name="package_app_scanning">正在扫描应用…</string>
+    <string name="package_app_exporting">正在提取中…</string>
+    <string name="package_export_success">提取成功</string>
+    <string name="package_export_fail">备份失败，此应用不支持备份</string>
+    <string name="package_app_name">应用名字</string>
+    <string name="package_app_package">应用标识</string>
+
+    <!--电视台直播中的文字-->
+    <string name="live_title">安装包提取</string>
+    <string name="live_exit_toast">再按一次退出播放</string>
+
+    <!--视频解析中的文字-->
+    <string name="parse_title">影视VIP视频解析</string>
+    <string name="parse_video">视频解析</string>
+    <string name="parse_video_describe">使用说明</string>
+    <string name="parse_address">地址解析</string>
+    <string name="parse_address_describe">在下面的输入框内，填入你要播放的视频地址</string>
+    <string name="parse_input_address_toast">记得输入地址哦</string>
+    <string name="parse_refresh_current_page">刷新当前页面</string>
+    <string name="parse_copy_current_page">刷新当前页面</string>
+    <string name="parse_engine_select">选择解析引擎</string>
+    <string name="parse_engine_01">引擎一解析VIP视频(推荐)</string>
+    <string name="parse_engine_02">引擎二解析VIP视频</string>
+    <string name="parse_engine_03">引擎三解析VIP视频</string>
+    <string name="parse_engine_04">引擎四解析VIP视频</string>
+    <string name="parse_engine_05">引擎五解析VIP视频</string>
+    <string name="parse_save_clipboard_toast">当前地址已保存至剪切板</string>
+    <string name="parse_tencent_video">腾讯视频</string>
+    <string name="parse_youku_video">优酷视频</string>
+    <string name="parse_soho_video">搜狐视频</string>
+    <string name="parse_iqiyi_video">爱奇艺视频</string>
+    <string name="parse_pptv_video">PPTV视频</string>
+    <string name="parse_letv_video">乐视视频</string>
+
+    <!--视频解析中的文字-->
+    <string name="qrcode_title">二维码生成与扫描</string>
+    <string name="qrcode_input_content">记得输入内容哦</string>
+    <string name="qrcode_save_to_local">是否要保存到本地？</string>
+    <string name="qrcode_save_success">保存成功</string>
+    <string name="qrcode_save_fail">保存失败</string>
+    <string name="qrcode_permission_cancel">您拒绝了权限申请</string>
+    <string name="qrcode_input_text_hint">在此输入要生成二维码的文字</string>
+    <string name="qrcode_show_bitmap">这里展示生成的二维码：</string>
+    <string name="qrcode_create_bitmap">生成二维码</string>
+    <string name="qrcode_scan_bitmap">扫描二维码</string>
+    <string name="qrcode_qr_scan">二维码扫描</string>
+    <string name="qrcode_unfind_qr_bitmap">未发现二维码</string>
+    <string name="qrcode_scan_permission_cancel">需要摄像头权限用以扫描二维码</string>
+
+    <!--全屏滚动文字中的文字-->
+    <string name="scroll_title">全屏滚动文字</string>
+    <string name="scroll_describe">在这里输入文字，文字太短的话，无法滚动哦</string>
+    <string name="scroll_button_create">生成滚动字体</string>
+
+    <!--设置中的文字-->
+    <string name="setting_title">设置</string>
+    <string name="setting_about_title">关于</string>
+    <string name="setting_about_version">版本号</string>
+    <string name="setting_theme">主题设置</string>
+    <string name="setting_header">头像设置</string>
+    <string name="setting_swipe_back">滑动返回</string>
+    <string name="setting_swipe_back_describe">(设置滑动返回的状态与方向)</string>
+    <string name="setting_language">语言设置</string>
+    <string name="setting_language_describe">(设置软件的默认语言)</string>
+    <string name="setting_browser">浏览器设置</string>
+    <string name="setting_browser_describe">(因UC限制，选择UC时无法自动跳转网页)</string>
+    <string name="setting_prevent_exit">防止误退</string>
+    <string name="setting_prevent_exit_describe">(连按两次返回键才能退出应用)</string>
+    <string name="setting_kill">纯净后台</string>
+    <string name="setting_kill_describe">(按返回键退出应用时，主动释放内存)</string>
+    <string name="setting_update_auto">自动检查更新</string>
+    <string name="setting_update_auto_describe">(每次应用启动时，自动检查应用更新状态)</string>
+    <string name="setting_show_collection">首页显示收藏列表</string>
+    <string name="setting_show_collection_describe">(只有收藏列表不为空时，此开关才有效)</string>
+    <string name="setting_adapter_dark_mode">适配 Android Q 深色模式</string>
+    <string name="setting_adapter_dark_mode_describe">(建议开启，关闭后可能会影响显示效果)</string>
+    <string name="setting_share">分享应用</string>
+    <string name="setting_language_item_system">跟随系统</string>
+    <string name="setting_swipe_item_close">全部关闭</string>
+    <string name="setting_swipe_item_left">从左向右</string>
+    <string name="setting_swipe_item_right">从右向左</string>
+    <string name="setting_swipe_item_bottom">从下向上</string>
+    <string name="setting_swipe_item_open">全部启用</string>
+    <string name="setting_browser_item_default">默认设置</string>
+    <string name="setting_browser_item_QQ">QQ浏览器</string>
+    <string name="setting_browser_item_UC">UC浏览器</string>
+    <string name="setting_browser_item_system">系统浏览器</string>
+    <string name="setting_header_item_camera">拍照</string>
+    <string name="setting_header_item_photo">相册</string>
+    <string name="setting_header_item_recover">恢复默认</string>
+    <string name="setting_header_success">设置成功</string>
+    <string name="setting_header_permission_cancel">您拒绝了相机权限</string>
+    <string name="setting_header_recover_success">已恢复默认</string>
+    <string name="setting_theme_title">主题设置</string>
+    <string name="setting_theme_toast">您当前已开启"适配系统深色模式"开关，需要关闭后才能修改主题，是否前往关闭？</string>
+
+    <!--设置中的文字-->
+    <string name="speed_title">网速测试</string>
+    <string name="speed_testing">测试中…</string>
+    <string name="speed_describe">提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，网络稳定时，下载文件数值越大，速度计算越精确</string>
+    <string name="speed_input_size_describe">输入消耗流量值，最大50MB</string>
+    <string name="speed_input_hint">默认10MB</string>
+    <string name="speed_button_start">开始</string>
+    <string name="setting_about_describe">本应用完全遵守绿色公约！ 应用卸载后，除用户手动保存的图片外，没有任何残留数据</string>
+    <string name="setting_about_source_code_address">项目地址</string>
+    <string name="setting_about_checkout_update">检查更新</string>
+
+    <!--翻译中的文字-->
+    <string name="translate_title">网速测试</string>
+    <string name="translate_error">翻译出错</string>
+    <string name="translate_input_hint">在这里输入要翻译的内容，支持单词和句子</string>
+    <string name="translate_to">翻译成</string>
+    <string name="translate_show_result">这里展示翻译结果</string>
+    <string name="translate_button_clear">清空</string>
+    <string name="translate_button_translate">翻译</string>
+
+    <!--趣味壁纸中的文字-->
+    <string name="wallpaper_title">趣味壁纸</string>
+    <string name="wallpaper_translate">透明壁纸</string>
+    <string name="wallpaper_float">全局壁纸</string>
+    <string name="wallpaper_need_permission">需要申请额外权限</string>
+    <string name="wallpaper_permission_describe">请在下一个页面开启‘显示在其他应用的上层’权限开关</string>
+    <string name="wallpaper_photo_unselect">图片未选择</string>
+    <string name="wallpaper_float_describe">原理说明：</string>
+    <string name="wallpaper_float_describe_msg">本质上是启用了全局悬浮窗，在所有应用上层显示一张半透明的壁纸</string>
+    <string name="wallpaper_float_attention">注意：注意：为保证功能可用，此功能启用后‘纯净后台’选项将自动关闭</string>
+    <string name="wallpaper_float_degree">设置壁纸透明度</string>
+    <string name="wallpaper_float_button_enable">启用全局壁纸</string>
+    <string name="wallpaper_float_close">关闭全局壁纸</string>
+    <string name="wallpaper_float_create_notification">关闭‘全局壁纸’后，此通知自动移除</string>
+    <string name="wallpaper_translate_need_permission">设置透明壁纸需要获取摄像头权限</string>
+    <string name="wallpaper_translate_close_describe">手动更换桌面壁纸后，透明壁纸即自动关闭</string>
+    <string name="wallpaper_translate_describe">原理说明：</string>
+    <string name="wallpaper_translate_describe_msg">本质上是启用了摄像头的预览功能，由于摄像头一直是处于打开状态，开启此功能后会比较耗电，自行斟酌哦~</string>
+    <string name="wallpaper_translate_attention">注意：为保证功能可用，此功能启用后‘纯净后台’选项将自动关闭</string>
+    <string name="wallpaper_translate_button_enable">启用透明壁纸</string>
+    <string name="wallpaper_translate_button_close">关闭透明壁纸</string>
+
+
+    <!--天气查询中的文字-->
+    <string name="weather_title">天气查询</string>
+    <string name="weather_permission_cancel">您拒绝了定位权限</string>
+    <string name="weather_location_fail_01">定位失败，请稍后重试</string>
+    <string name="weather_location_fail_02">定位失败，将显示上次定位天气</string>
+    <string name="weather_date_error">获取天气信息失败</string>
+
+    <!--虚拟微信对话中的文字-->
+    <string name="wxfake_title">虚拟微信对话</string>
+    <string name="wxfake_other_name">设置对方昵称</string>
+    <string name="wxfake_other_header">设置对方头像</string>
+    <string name="wxfake_my_header">设置我的头像</string>
+    <string name="wxfake_show_input">切换输入框</string>
+    <string name="wxfake_input_other_txt">添加对方文字</string>
+    <string name="wxfake_input_mine_txt">添加我方文字</string>
+    <string name="wxfake_set_other_name">设置对方名字</string>
+
+
 </resources>

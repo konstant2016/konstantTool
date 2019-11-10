@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="这里展示设备信息\n" />
+        android:text="@string/device_title_describe" />
 
 </ScrollView>

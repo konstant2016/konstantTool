@@ -1,70 +1,87 @@
 [
   {
     "title": "翻译",
+    "title_en": "TRANSLATE",
     "type": "1"
   },
   {
     "title": "直尺",
+    "title_en": "RULER",
     "type": "2"
   },
   {
     "title": "指南针",
+    "title_en": "COMPASS",
     "type": "3"
   },
   {
     "title": "物流查询",
+    "title_en": "EXPRESS",
     "type": "4"
   },
   {
     "title": "网速测试",
+    "title_en": "NETWORK SPEED",
     "type": "5"
   },
   {
     "title": "天气查询",
+    "title_en": "WEATHER",
     "type": "6"
   },
   {
     "title": "日期推算",
+    "title_en": "DATE CALCULATE",
     "type": "7"
   },
   {
     "title": "趣味壁纸",
+    "title_en": "WALLPAPER",
     "type": "8"
   },
   {
     "title": "专注模式",
+    "title_en": "CONCENTRATION",
     "type": "9"
   },
   {
     "title": "分贝测试仪",
+    "title_en": "DECIBEL CALCULATOR",
     "type": "10"
   },
   {
     "title": "电视台直播",
+    "title_en": "TV LIVE",
     "type": "11"
   },
   {
     "title": "安装包提取",
+    "title_en": "PACKAGE EXPORT",
     "type": "12"
   },
   {
     "title": "虚拟微信对话",
+    "title_en": "WECHAT SIMULATION",
     "type": "13"
   },
   {
     "title": "全屏滚动文字",
+    "title_en": "SCROLL TEXT",
     "type": "14"
   },
   {
     "title": "查看设备信息",
+    "title_en": "DEVICE INFORMATION",
     "type": "15"
   },
   {
     "title": "二维码扫描解析",
+    "title_en": "QR SCAN & PARSE",
     "type": "16"
   },
   {
     "title": "影视VIP视频解析",
+    "title_en": "VIP VIDEO PARSE",
     "type": "17"
   }
 ]

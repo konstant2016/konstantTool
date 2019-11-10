@@ -39,7 +39,7 @@ class DecibelActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_decibel)
-        setTitle("分贝测试仪")
+        setTitle(getString(R.string.decibel_title))
         initBaseViews()
         requestPermission()
     }
@@ -52,7 +52,7 @@ class DecibelActivity : BaseActivity() {
                     startRecord()
                     view_wave.start()
                 },
-                { showToast("您拒绝了录音权限") })
+                { showToast(getString(R.string.decibel_permission_cancel)) })
     }
 
     private fun createRecodeAudio() {
@@ -68,7 +68,7 @@ class DecibelActivity : BaseActivity() {
         } catch (exception: Exception) {
             exception.printStackTrace()
             stopRecord()
-            showToast("录音初始化失败")
+            showToast(getString(R.string.decibel_init_error))
         }
     }
 
@@ -89,11 +89,11 @@ class DecibelActivity : BaseActivity() {
         current_value.text = "$value"
         if (value > big) {
             big = value
-            tv_big.text = "当前最大分贝：$value DB"
+            tv_big.text = "${getString(R.string.decibel_max_decibel)}：$value DB"
         }
         if (value < small) {
             small = value
-            tv_small.text = "当前最小分贝：$value DB"
+            tv_small.text = "${getString(R.string.decibel_min_decibel)}：$value DB"
         }
     }
 

@@ -26,7 +26,7 @@ class NetVideoActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
-        setTitle("加载中...")
+        setTitle(getString(R.string.base_loading))
         initBaseViews()
         intent?.getStringExtra("url")?.let { web_view.loadUrl(it) }
     }
@@ -48,7 +48,7 @@ class NetVideoActivity : BaseActivity() {
 
     private fun onMoreClick() {
         KonstantPopupWindow(this)
-                .setItemList(listOf("刷新当前页面", "复制页面地址", "引擎一解析VIP视频(推荐)", "引擎二解析VIP视频", "引擎三解析VIP视频", "引擎四解析VIP视频", "引擎五解析VIP视频"))
+                .setItemList(listOf(getString(R.string.parse_refresh_current_page), getString(R.string.parse_copy_current_page), getString(R.string.parse_engine_01), getString(R.string.parse_engine_02), getString(R.string.parse_engine_03), getString(R.string.parse_engine_04), getString(R.string.parse_engine_05)))
                 .setOnItemClickListener {
                     when (it) {
                         0 -> {
@@ -57,7 +57,7 @@ class NetVideoActivity : BaseActivity() {
                         1 -> {
                             val manger = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                             manger.text = web_view.url
-                            showToast("当前地址已保存至剪切板")
+                            showToast(getString(R.string.parse_save_clipboard_toast))
                         }
                         2, 3, 4, 5, 6 -> {
                             startHtmlActivity(mUrls[it - 2])

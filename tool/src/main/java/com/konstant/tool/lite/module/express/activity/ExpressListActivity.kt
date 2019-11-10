@@ -28,13 +28,13 @@ import org.greenrobot.eventbus.ThreadMode
 @SuppressLint("MissingSuperCall")
 class ExpressListActivity : BaseActivity() {
 
-    private val expressList = ArrayList<ExpressData>()
-    private val mAdapter by lazy { AdapterExpressList(this, expressList) }
+    private val mExpressList = ArrayList<ExpressData>()
+    private val mAdapter = AdapterExpressList(mExpressList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_express)
-        setTitle("物流查询")
+        setTitle(getString(R.string.express_title))
         readLocalExpress()
         initBaseViews()
         updateUI()
@@ -50,16 +50,16 @@ class ExpressListActivity : BaseActivity() {
         img_more.setOnClickListener { addExpress() }
 
         listview_express.setOnItemClickListener { _, _, position, _ ->
-            val data = expressList[position]
+            val data = mExpressList[position]
             expressQuery(data.number, data.name)
         }
 
         listview_express.setOnItemLongClickListener { _, _, position, _ ->
             KonstantDialog(this)
-                    .setMessage("是否删除此记录？")
+                    .setMessage(getString(R.string.express_whether_delete))
                     .setPositiveListener {
                         it.dismiss()
-                        val data = expressList[position]
+                        val data = mExpressList[position]
                         ExpressManager.deleteExpress(data)
                         readLocalExpress()
                         updateUI()
@@ -71,7 +71,7 @@ class ExpressListActivity : BaseActivity() {
 
     // 更新界面
     private fun updateUI() {
-        if (expressList.isEmpty()) {
+        if (mExpressList.isEmpty()) {
             tv_tips.visibility = View.VISIBLE
             listview_express.visibility = View.GONE
         } else {
@@ -82,7 +82,7 @@ class ExpressListActivity : BaseActivity() {
 
     // 读取本地保存的物流信息
     private fun readLocalExpress() {
-        expressList.apply {
+        mExpressList.apply {
             clear()
             addAll(ExpressManager.readExpress())
             mAdapter.notifyDataSetChanged()
@@ -97,15 +97,15 @@ class ExpressListActivity : BaseActivity() {
         val etName = viewDialog.findViewById(R.id.et_remark) as EditText
 
         KonstantDialog(this)
-                .setMessage("添加物流信息")
+                .setMessage(getString(R.string.express_add_express))
                 .addView(viewDialog)
                 .setPositiveListener {
-                    var name = "保密物件"
+                    var name = getString(R.string.express_name_unknown)
                     if (!TextUtils.isEmpty(etName.text)) {
                         name = etName.text.toString()
                     }
                     if (TextUtils.isEmpty(etNumber.text)) {
-                        showToast("记得输入运单号哦")
+                        showToast(getString(R.string.express_input_order_toast))
                         return@setPositiveListener
                     }
                     it.dismiss()

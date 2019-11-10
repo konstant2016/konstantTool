@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="点击右上角添加物流信息~"
+        android:text="@string/express_empty_message"
         android:textColor="?attr/tool_second_text_color"
         android:visibility="gone" />
 

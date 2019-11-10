@@ -23,7 +23,7 @@ class WallpaperActivity : BaseActivity() {
 
     override fun initBaseViews() {
         super.initBaseViews()
-        setSegmentalTitle("透明壁纸", "全局壁纸")
+        setSegmentalTitle(getString(R.string.wallpaper_translate), getString(R.string.wallpaper_float))
         val list = listOf(TransparentWallpaperFragment.newInstance(), FloatWallpaperFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)
         view_segment.setUpWithViewPager(view_pager)

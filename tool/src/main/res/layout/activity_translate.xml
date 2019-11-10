@@ -13,7 +13,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="在这里输入要翻译的内容，支持单词和句子"
+        android:hint="@string/translate_input_hint"
         android:padding="5dp"
         android:textColor="?attr/tool_main_text_color"
         android:textColorHint="?attr/tool_second_text_color"
@@ -56,7 +56,7 @@
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="翻译成" />
+            android:text="@string/translate_to" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -94,7 +94,7 @@
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:textColor="?attr/tool_main_text_color"
-        android:hint="这里展示翻译结果"
+        android:hint="@string/translate_show_result"
         android:textColorHint="?attr/tool_second_text_color"
         android:textIsSelectable="true" />
 
@@ -115,7 +115,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="清空" />
+            android:text="@string/translate_button_clear" />
 
         <Button
             android:textColor="?attr/tool_main_text_color"
@@ -126,7 +126,7 @@
             android:layout_marginLeft="30dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
-            android:text="翻译" />
+            android:text="@string/translate_button_translate" />
     </LinearLayout>
 </LinearLayout>
 

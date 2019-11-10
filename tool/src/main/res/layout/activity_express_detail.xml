@@ -21,7 +21,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
-            android:text="保密物件"
+            android:text="@string/express_name_unknown"
             android:textColor="?attr/tool_main_text_color"
             android:textSize="18sp" />
 
@@ -80,19 +80,19 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="查询无数据，请检查："
+            android:text="@string/express_empty_data"
             android:textColor="?attr/tool_second_text_color" />
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="1、运单号填写正确"
+            android:text="@string/express_empty_01"
             android:textColor="?attr/tool_second_text_color" />
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="2、网络正常"
+            android:text="@string/express_empty_02"
             android:textColor="?attr/tool_second_text_color" />
 
         <Button
@@ -101,7 +101,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_btn"
-            android:text="重试"
+            android:text="@string/express_button_retry"
             android:textColor="?attr/tool_main_text_color" />
     </LinearLayout>
 

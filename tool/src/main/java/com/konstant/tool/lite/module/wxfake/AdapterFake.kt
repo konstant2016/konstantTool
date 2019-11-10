@@ -37,7 +37,8 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         super.onBindViewHolder(holder, position)
         val conversion = list[position]
         with(holder.itemView) {
-            val bitmap = FileUtil.getBitmap(context, conversion.fileName)?: BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
+            val bitmap = FileUtil.getBitmap(context, conversion.fileName)
+                    ?: BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
             with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
                 paint.isAntiAlias = true
                 cornerRadius = 50F
@@ -47,7 +48,7 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         }
     }
 
-    class AdverseHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
+    class AdverseHolder(view: View) : RecyclerView.ViewHolder(view)
 
-    class MineHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
+    class MineHolder(view: View) : RecyclerView.ViewHolder(view)
 }

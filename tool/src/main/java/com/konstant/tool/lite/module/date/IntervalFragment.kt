@@ -42,7 +42,7 @@ class IntervalFragment : BaseFragment() {
                     tv_start.text = it
                     dialog.dismiss()
                     val days = DateUtil.calculateDateInterval(tv_start.text.toString(), tv_end.text.toString())
-                    tv_result.text = "$days 天"
+                    tv_result.text = "$days ${context?.getString(R.string.date_interval_day)}"
                 }
             }
             dialog.addView(pickerView).hideNavigation().createDialog()
@@ -56,7 +56,7 @@ class IntervalFragment : BaseFragment() {
                     tv_end.text = it
                     dialog.dismiss()
                     val days = DateUtil.calculateDateInterval(tv_start.text.toString(), tv_end.text.toString())
-                    tv_result.text = "间隔 $days 天"
+                    tv_result.text = "${context?.getString(R.string.date_interval_interval)} $days ${context?.getString(R.string.date_interval_day)}"
                 }
             }
             dialog.addView(pickerView).hideNavigation().createDialog()

@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
-        android:hint="在此输入要生成二维码的文字"
+        android:hint="@string/qrcode_input_text_hint"
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="12dp" />
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center"
-        android:text="这里展示生成的二维码：" />
+        android:text="@string/qrcode_show_bitmap" />
 
     <ImageView
         android:id="@+id/img_result"
@@ -42,7 +42,7 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:background="@drawable/selector_btn"
-        android:text="生成二维码" />
+        android:text="@string/qrcode_create_bitmap" />
 
     <Button
         android:textColor="?attr/tool_main_text_color"
@@ -52,7 +52,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_btn"
-        android:text="扫描二维码" />
-
+        android:text="@string/qrcode_scan_bitmap" />
 
 </LinearLayout>

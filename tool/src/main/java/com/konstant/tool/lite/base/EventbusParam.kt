@@ -14,3 +14,6 @@ class ThemeChanged
 
 // 用户头像发生变化
 class UserHeaderChanged
+
+// 软件语言发生变化
+class LanguageChanged

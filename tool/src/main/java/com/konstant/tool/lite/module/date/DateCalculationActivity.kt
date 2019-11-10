@@ -23,7 +23,7 @@ class DateCalculationActivity : BaseActivity() {
 
     override fun initBaseViews() {
         super.initBaseViews()
-        setSegmentalTitle("日期推算", "日期间隔")
+        setSegmentalTitle(getString(R.string.date_title), getString(R.string.date_date_interval))
         val list = listOf(CalculationFragment.newInstance(), IntervalFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)
         view_segment.setUpWithViewPager(view_pager)

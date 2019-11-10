@@ -21,14 +21,14 @@ class AboutActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
-        setTitle("关于")
+        setTitle(getString(R.string.setting_about_title))
         initBaseViews()
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
         val info = packageManager.getPackageInfo(this.packageName, 0)
-        tv_version.text = "版本号：${info.versionName}"
+        tv_version.text = "${getString(R.string.setting_about_version)}：${info.versionName}"
 
         tv_github.apply {
             paint.flags = Paint.UNDERLINE_TEXT_FLAG

@@ -12,7 +12,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="使用说明"
+        android:text="@string/parse_video_describe"
         android:textColor="?attr/tool_main_text_color"
         android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/selector_btn"
-            android:text="腾讯视频"
+            android:text="@string/parse_tencent_video"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/btn_tencent"
             android:background="@drawable/selector_btn"
-            android:text="优酷视频"
+            android:text="@string/parse_youku_video"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -62,7 +62,7 @@
             android:layout_below="@id/btn_tencent"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_btn"
-            android:text="搜狐视频"
+            android:text="@string/parse_soho_video"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -75,7 +75,7 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/btn_sohu"
             android:background="@drawable/selector_btn"
-            android:text="爱奇艺视频"
+            android:text="@string/parse_iqiyi_video"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -86,7 +86,7 @@
             android:layout_below="@id/btn_sohu"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_btn"
-            android:text="PPTV视频"
+            android:text="@string/parse_pptv_video"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button
@@ -99,7 +99,7 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/btn_pptv"
             android:background="@drawable/selector_btn"
-            android:text="乐视视频"
+            android:text="@string/parse_letv_video"
             android:textColor="?attr/tool_main_text_color" />
 
     </RelativeLayout>

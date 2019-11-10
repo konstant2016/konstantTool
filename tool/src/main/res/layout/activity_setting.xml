@@ -14,27 +14,34 @@
             android:id="@+id/layout_theme"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:title="主题设置" />
+            app:title="@string/setting_theme" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:title="头像设置" />
+            app:title="@string/setting_header" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_swipe"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:subTitle="(设置滑动返回的状态与方向)"
-            app:title="滑动返回" />
+            app:subTitle="@string/setting_swipe_back_describe"
+            app:title="@string/setting_swipe_back" />
+
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_language"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:subTitle="@string/setting_language_describe"
+            app:title="@string/setting_language" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_browser"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:subTitle="(因UC限制，选择UC时无法自动跳转网页)"
-            app:title="浏览器设置" />
+            app:subTitle="@string/setting_browser_describe"
+            app:title="@string/setting_browser" />
 
         <RelativeLayout
             android:id="@+id/layout_exit"
@@ -48,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="防止误退"
+                android:text="@string/setting_prevent_exit"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 
@@ -58,7 +65,7 @@
                 android:layout_below="@id/tv_exit"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
-                android:text="(连按两次返回键才能退出应用)"
+                android:text="@string/setting_prevent_exit_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -94,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="纯净后台"
+                android:text="@string/setting_kill"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 
@@ -104,7 +111,7 @@
                 android:layout_below="@id/tv_kill"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
-                android:text="(按返回键退出应用时，主动释放内存)"
+                android:text="@string/setting_kill_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -140,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="自动检查更新"
+                android:text="@string/setting_update_auto"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 
@@ -150,7 +157,7 @@
                 android:layout_below="@id/tv_update"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
-                android:text="(每次应用启动时，自动检查应用更新状态)"
+                android:text="@string/setting_update_auto_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -185,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="首页显示收藏列表"
+                android:text="@string/setting_show_collection"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 
@@ -195,7 +202,7 @@
                 android:layout_below="@id/tv_collect"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
-                android:text="(只有收藏列表不为空时，此开关才有效)"
+                android:text="@string/setting_show_collection_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -230,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="适配 Android Q 深色模式"
+                android:text="@string/setting_adapter_dark_mode"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 
@@ -240,7 +247,7 @@
                 android:layout_below="@id/tv_dark"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
-                android:text="(建议开启，关闭后可能会影响显示效果)"
+                android:text="@string/setting_adapter_dark_mode_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -267,12 +274,12 @@
             android:id="@+id/layout_share"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:title="分享应用" />
+            app:title="@string/setting_share" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_about"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:title="关于" />
+            app:title="@string/setting_about_title" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

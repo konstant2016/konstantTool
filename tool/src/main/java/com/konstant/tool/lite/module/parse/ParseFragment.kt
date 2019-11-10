@@ -47,7 +47,7 @@ class ParseFragment : BaseFragment() {
 
         btn_ok.setOnClickListener {
             if (TextUtils.isEmpty(edit_input.text)) {
-                showToast("记得输入地址哦");return@setOnClickListener
+                showToast(getString(R.string.parse_input_address_toast));return@setOnClickListener
             }
             val url = if (edit_input.text.startsWith("http://") || edit_input.text.startsWith("https://")) {
                 edit_input.text.toString()

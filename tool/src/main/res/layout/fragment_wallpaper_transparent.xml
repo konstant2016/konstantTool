@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="原理说明："
+        android:text="@string/wallpaper_translate_describe"
         android:textColor="?attr/tool_main_text_color" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:text="本质上是启用了摄像头的预览功能，由于摄像头一直是处于打开状态，开启此功能后会比较耗电，自行斟酌哦~"
+        android:text="@string/wallpaper_translate_describe_msg"
         android:textColor="?attr/tool_second_text_color" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:text="注意：为保证功能可用，此功能启用后'纯净后台'选项将自动关闭"
+        android:text="@string/wallpaper_translate_attention"
         android:textColor="?attr/tool_second_text_color" />
 
     <Button
@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/selector_btn"
-        android:text="启用透明壁纸"
+        android:text="@string/wallpaper_translate_button_enable"
         android:textColor="?attr/tool_main_text_color" />
 
     <Button
@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_btn"
-        android:text="关闭透明壁纸"
+        android:text="@string/wallpaper_translate_button_close"
         android:textColor="?attr/tool_main_text_color" />
 
 </LinearLayout>
