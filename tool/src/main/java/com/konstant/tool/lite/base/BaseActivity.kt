@@ -196,6 +196,8 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     // 设置主标题
     fun setTitle(title: String) {
+        main_title.visibility = View.VISIBLE
+        view_segment.visibility = View.GONE
         main_title.text = title
     }
 

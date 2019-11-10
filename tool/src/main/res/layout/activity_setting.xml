@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:text="默认显示收藏列表"
+                android:text="首页显示收藏列表"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="14sp" />
 

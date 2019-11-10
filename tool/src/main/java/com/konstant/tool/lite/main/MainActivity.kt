@@ -6,12 +6,11 @@ import android.os.Handler
 import android.view.Gravity
 import android.view.View
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.base.SwipeBackStatus
-import com.konstant.tool.lite.base.UpdateManager
+import com.konstant.tool.lite.base.*
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -25,10 +24,12 @@ import kotlinx.android.synthetic.main.title_layout.*
 class MainActivity : BaseActivity() {
 
     private var mLastTime = 0L
+    private val mFragmentList = ArrayList<BaseFragment>()
+    private val mAdapter by lazy { BaseFragmentAdapter(supportFragmentManager, mFragmentList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_viewpager)
         swipeBackLayout.setEnableGesture(false)
         initBaseViews()
     }
@@ -40,6 +41,9 @@ class MainActivity : BaseActivity() {
         img_more.visibility = View.GONE
         img_drawer.visibility = View.VISIBLE
         img_setting.visibility = View.VISIBLE
+
+        view_pager.adapter = mAdapter
+        view_segment.setUpWithViewPager(view_pager)
 
         img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
 
@@ -56,13 +60,16 @@ class MainActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
+        mFragmentList.clear()
         if (SettingManager.getShowCollection(this) && FunctionCollectorManager.getCollectionFunction().isNotEmpty()) {
-            setTitle("我的收藏列表")
-            supportFragmentManager.beginTransaction().replace(R.id.layout_main, FunctionCollectionFragment()).commit()
+            mFragmentList.add(FunctionCollectionFragment())
+            mFragmentList.add(AllFunctionFragment())
+            setSegmentalTitle("我的收藏", "全部功能")
         } else {
+            mFragmentList.add(AllFunctionFragment())
             setTitle("菜籽工具箱")
-            supportFragmentManager.beginTransaction().replace(R.id.layout_main, AllFunctionFragment()).commit()
         }
+        mAdapter.notifyDataSetChanged()
     }
 
     override fun onSwipeBackChanged(msg: SwipeBackStatus) {
