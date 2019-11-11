@@ -60,11 +60,18 @@ class KonApplication : Application() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
+        // 系统为中文，但是软件显示英文
         if (newConfig.locale.toString().contains("zh")) {
-            SettingManager.setSystemChinese(true)
+            if (!SettingManager.getSystemChinese()) {
+                SettingManager.setSystemChinese(true)
+                EventBus.getDefault().post(LanguageChanged())
+            }
+            // 系统为英文，但是软件显示中文
         } else {
-            SettingManager.setSystemChinese(false)
+            if (SettingManager.getSystemChinese()) {
+                SettingManager.setSystemChinese(false)
+                EventBus.getDefault().post(LanguageChanged())
+            }
         }
-        EventBus.getDefault().post(LanguageChanged())
     }
 }

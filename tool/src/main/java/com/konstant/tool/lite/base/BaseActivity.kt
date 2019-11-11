@@ -9,6 +9,7 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.util.Log
 import android.util.TypedValue
 import android.view.*
@@ -74,7 +75,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setDefaultLanguage()
+        setDefaultLanguage()
         AppUtil.addActivity(this)
     }
 
@@ -137,24 +138,22 @@ abstract class BaseActivity : SwipeBackActivity() {
     // 更换主题，主题切换时，重新打开自身，避免界面闪烁
     @Subscribe
     open fun onThemeChanged(msg: ThemeChanged) {
+        recreate()
+    }
+
+    override fun recreate() {
         if (AppUtil.isTop(this)) {
             finish()
             startActivity(javaClass)
             overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
         } else {
-            recreate()
+            super.recreate()
         }
     }
 
     @Subscribe
     fun onLanguageChanged(msg: LanguageChanged) {
-        if (AppUtil.isTop(this)) {
-            finish()
-            startActivity(javaClass)
-            overridePendingTransition(R.anim.anim_activity_enter, R.anim.activity_anim_exit)
-        } else {
-            recreate()
-        }
+        recreate()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
