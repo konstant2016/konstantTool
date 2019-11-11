@@ -66,7 +66,7 @@ class KonApplication : Application() {
                 SettingManager.setSystemChinese(true)
                 EventBus.getDefault().post(LanguageChanged())
             }
-            // 系统为英文，但是软件显示中文
+        // 系统为英文，但是软件显示中文
         } else {
             if (SettingManager.getSystemChinese()) {
                 SettingManager.setSystemChinese(false)

@@ -150,7 +150,7 @@
     <string name="scroll_button_create">Generating a rolling fonts</string>
     <string name="setting_title">Setting</string>
     <string name="setting_about_title">About</string>
-    <string name="setting_about_version">Version number</string>
+    <string name="setting_about_version">Version name</string>
     <string name="setting_theme">Theme Settings</string>
     <string name="setting_header">Head Settings</string>
     <string name="setting_swipe_back">SwipeBack Setting</string>
@@ -162,9 +162,9 @@
     <string name="setting_prevent_exit">Exit Toast</string>
     <string name="setting_prevent_exit_describe">(Double click back to exit)</string>
     <string name="setting_kill">No backgroundProcess</string>
-    <string name="setting_kill_describe">(Kill self when exit)</string>
+    <string name="setting_kill_describe">(Kill self once exit)</string>
     <string name="setting_update_auto">Check Update Auto</string>
-    <string name="setting_update_auto_describe">(Check update when app starting)</string>
+    <string name="setting_update_auto_describe">(Check update when App starting)</string>
     <string name="setting_show_collection">Show Collection Function</string>
     <string name="setting_show_collection_describe">(Show collection on homepage,if exist)</string>
     <string name="setting_adapter_dark_mode">Adaptive Android Q Dark Mode</string>
@@ -205,11 +205,11 @@
     <string name="wallpaper_translate">Transparent</string>
     <string name="wallpaper_float">Global</string>
     <string name="wallpaper_need_permission">We need additional permission</string>
-    <string name="wallpaper_permission_describe">Please enable ‘Allow display over other apps’ on next page</string>
+    <string name="wallpaper_permission_describe">Please enable ‘Allow display over other Apps’ on next page</string>
     <string name="wallpaper_photo_unselect">Unselected</string>
     <string name="wallpaper_float_describe">Rationale:</string>
-    <string name="wallpaper_float_describe_msg">Essentially a global floating window is enabled, showing a translucent wallpaper on top of all apps</string>
-    <string name="wallpaper_float_attention">Note: ‘No backgroundProcess’ will be take off once enable ‘Global Wallpaper’</string>
+    <string name="wallpaper_float_describe_msg">Essentially a global floating window is available, which is a translucent wallpaper on top of all Apps</string>
+    <string name="wallpaper_float_attention">Note: ‘No backgroundProcess’ will be taken off once enable ‘Global Wallpaper’</string>
     <string name="wallpaper_float_degree">Set wallpaper transparency </string>
     <string name="wallpaper_float_button_enable">Enable</string>
     <string name="wallpaper_float_close">Close</string>
@@ -218,7 +218,7 @@
     <string name="wallpaper_translate_close_describe">‘Transparent Wallpaper’ will close automatically after manual replacement desktop wallpapers</string>
     <string name="wallpaper_translate_describe">Rationale:</string>
     <string name="wallpaper_translate_describe_msg">In essence, the camera’s preview function is enabled. Since the camera is always on, it will consume more power when you turn it on.</string>
-    <string name="wallpaper_translate_attention">Note: ‘No backgroundProcess’ will be take off once enable ‘Transparent Wallpaper’</string>
+    <string name="wallpaper_translate_attention">Note: ‘No backgroundProcess’ will be taken off once enable ‘Transparent Wallpaper’</string>
     <string name="wallpaper_translate_button_enable">Enable</string>
     <string name="wallpaper_translate_button_close">Close</string>
     <string name="weather_title">Weather</string>
@@ -241,9 +241,9 @@
     <string name="base_cancel">Cancel</string>
     <string name="base_confirm">Action</string>
     <string name="setting_about_checkout_update">Check Update</string>
-    <string name="setting_about_describe">This app is fully compliant with the Green Convention! After the application is uninstalled, there is no residual data except the pictures saved manually by the user.</string>
+    <string name="setting_about_describe">This App is fully compliant with the Green Convention! Once the application is uninstalled, there is no residual data except the pictures saved by the users</string>
     <string name="setting_about_source_code_address">Visit the source code</string>
-    <string name="setting_share_message">Scan the QrCode to download</string>
+    <string name="setting_share_message">Scan the QR code to download</string>
     <string name="weather_city_manager_title">City Manager</string>
     <string name="weather_whether_delete">Delete</string>
     <string name="weather_city_manager_city_picker">City Picker</string>
