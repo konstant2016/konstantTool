@@ -25,7 +25,7 @@ class CityManagerActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_manager)
-        setTitle("城市管理")
+        setTitle(getString(R.string.weather_city_manager_title))
         initBaseViews()
     }
 
@@ -59,7 +59,7 @@ class CityManagerActivity : BaseActivity() {
     // 长按城市块后弹窗
     private fun onItemLongClick(direct: LocalCountry): Boolean {
         KonstantDialog(this)
-                .setMessage("是否要删除${direct.directName}?")
+                .setMessage("${getString(R.string.weather_whether_delete)}${direct.directName}?")
                 .setPositiveListener {
                     it.dismiss()
                     mCityList.remove(direct)

@@ -74,7 +74,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setDefaultLanguage()
+//        setDefaultLanguage()
         AppUtil.addActivity(this)
     }
 
@@ -112,7 +112,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         onUserHeaderChanged(UserHeaderChanged())
     }
 
-    private fun setDefaultLanguage() {
+    open fun setDefaultLanguage() {
         if (SettingManager.getShowChinese(this)) {
             setChineseLanguage()
         } else {

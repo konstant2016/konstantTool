@@ -1,8 +1,10 @@
 package com.konstant.tool.lite.module.live
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.jzvd.JzvdStd
 import com.google.gson.Gson
@@ -17,17 +19,18 @@ class TVLiveActivity : BaseActivity() {
     private var mTimeStamp = System.currentTimeMillis()
 
     private val mLiveData by lazy {
-        val txt = resources.assets.open("LiveSource.json").bufferedReader().readText()
+        val txt = assets.open("LiveSource.json").bufferedReader().readText()
         Gson().fromJson(txt, LiveData::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_live)
+        Log.d("TVLiveActivity","onCreate")
         initBaseViews()
     }
 
-    override fun initBaseViews() {
+     override fun initBaseViews() {
         setSwipeBackEnable(false)
         showTitleBar(false)
         showStatusBar(false)

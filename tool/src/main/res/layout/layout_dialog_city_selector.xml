@@ -26,7 +26,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:background="@drawable/selector_btn"
-            android:text="取消"
+            android:text="@string/base_cancel"
             android:textColor="?attr/tool_main_text_color" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="选择城市"
+            android:text="@string/weather_city_manager_city_picker"
             android:textColor="?attr/tool_main_text_color"
             android:textSize="15sp" />
 
@@ -46,7 +46,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:background="@drawable/selector_btn"
-            android:text="确定"
+            android:text="@string/base_confirm"
             android:textColor="?attr/tool_main_text_color" />
     </RelativeLayout>
 

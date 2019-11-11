@@ -71,7 +71,6 @@
             android:name=".module.date.DateCalculationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.live.TVLiveActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="sensorLandscape" />

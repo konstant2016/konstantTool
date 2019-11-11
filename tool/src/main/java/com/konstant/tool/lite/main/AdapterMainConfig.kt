@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
-import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.data.bean.main.Function
-import com.konstant.tool.lite.module.setting.SettingManager
 import kotlinx.android.synthetic.main.item_main_config.view.*
 
 /**

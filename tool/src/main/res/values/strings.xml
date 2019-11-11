@@ -106,7 +106,7 @@
     <string name="device_imei_card_two">IMEI(卡二)</string>
     <string name="device_imsi_card_one">IMSI(卡一)</string>
     <string name="device_imsi_card_two">IMSI(卡二)</string>
-    <string name="device_title_describe">这里展示设备信息\n</string>
+    <string name="device_title_describe">这里展示设备信息:</string>
 
     <!--物流查询中的文字-->
     <string name="express_title">物流查询</string>
@@ -229,7 +229,7 @@
     <string name="setting_header_permission_cancel">您拒绝了相机权限</string>
     <string name="setting_header_recover_success">已恢复默认</string>
     <string name="setting_theme_title">主题设置</string>
-    <string name="setting_theme_toast">您当前已开启"适配系统深色模式"开关，需要关闭后才能修改主题，是否前往关闭？</string>
+    <string name="setting_theme_dialog">您当前已开启"适配系统深色模式"开关，需要关闭后才能修改主题，是否前往关闭？</string>
 
     <!--设置中的文字-->
     <string name="speed_title">网速测试</string>
@@ -243,7 +243,7 @@
     <string name="setting_about_checkout_update">检查更新</string>
 
     <!--翻译中的文字-->
-    <string name="translate_title">网速测试</string>
+    <string name="translate_title">网速</string>
     <string name="translate_error">翻译出错</string>
     <string name="translate_input_hint">在这里输入要翻译的内容，支持单词和句子</string>
     <string name="translate_to">翻译成</string>
@@ -260,7 +260,7 @@
     <string name="wallpaper_photo_unselect">图片未选择</string>
     <string name="wallpaper_float_describe">原理说明：</string>
     <string name="wallpaper_float_describe_msg">本质上是启用了全局悬浮窗，在所有应用上层显示一张半透明的壁纸</string>
-    <string name="wallpaper_float_attention">注意：注意：为保证功能可用，此功能启用后‘纯净后台’选项将自动关闭</string>
+    <string name="wallpaper_float_attention">注意：为保证功能可用，此功能启用后‘纯净后台’选项将自动关闭</string>
     <string name="wallpaper_float_degree">设置壁纸透明度</string>
     <string name="wallpaper_float_button_enable">启用全局壁纸</string>
     <string name="wallpaper_float_close">关闭全局壁纸</string>
@@ -290,6 +290,11 @@
     <string name="wxfake_input_other_txt">添加对方文字</string>
     <string name="wxfake_input_mine_txt">添加我方文字</string>
     <string name="wxfake_set_other_name">设置对方名字</string>
+    <string name="setting_share_message">扫描二维码，下载《菜籽工具箱》</string>
+    <string name="weather_city_manager_title">城市管理</string>
+    <string name="weather_whether_delete">是否删除</string>
+    <string name="weather_city_manager_city_picker">选择城市</string>
+    <string name="setting_theme_describe">选择主题颜色</string>
 
 
 </resources>

@@ -1,87 +1,87 @@
 [
   {
     "title": "翻译",
-    "title_en": "TRANSLATE",
+    "title_en": "Translate",
     "type": "1"
   },
   {
     "title": "直尺",
-    "title_en": "RULER",
+    "title_en": "Ruler",
     "type": "2"
   },
   {
     "title": "指南针",
-    "title_en": "COMPASS",
+    "title_en": "Compass",
     "type": "3"
   },
   {
     "title": "物流查询",
-    "title_en": "EXPRESS",
+    "title_en": "Express",
     "type": "4"
   },
   {
     "title": "网速测试",
-    "title_en": "NETWORK SPEED",
+    "title_en": "Network Speed",
     "type": "5"
   },
   {
     "title": "天气查询",
-    "title_en": "WEATHER",
+    "title_en": "Weather",
     "type": "6"
   },
   {
     "title": "日期推算",
-    "title_en": "DATE CALCULATE",
+    "title_en": "Date Calculate",
     "type": "7"
   },
   {
     "title": "趣味壁纸",
-    "title_en": "WALLPAPER",
+    "title_en": "Wallpaper",
     "type": "8"
   },
   {
     "title": "专注模式",
-    "title_en": "CONCENTRATION",
+    "title_en": "Concentration",
     "type": "9"
   },
   {
     "title": "分贝测试仪",
-    "title_en": "DECIBEL CALCULATOR",
+    "title_en": "Decibel Calculator",
     "type": "10"
   },
   {
     "title": "电视台直播",
-    "title_en": "TV LIVE",
+    "title_en": "TV Live",
     "type": "11"
   },
   {
     "title": "安装包提取",
-    "title_en": "PACKAGE EXPORT",
+    "title_en": "Package Export",
     "type": "12"
   },
   {
     "title": "虚拟微信对话",
-    "title_en": "WECHAT SIMULATION",
+    "title_en": "Wechat Simulation",
     "type": "13"
   },
   {
     "title": "全屏滚动文字",
-    "title_en": "SCROLL TEXT",
+    "title_en": "Scroll Text",
     "type": "14"
   },
   {
     "title": "查看设备信息",
-    "title_en": "DEVICE INFORMATION",
+    "title_en": "Device Information",
     "type": "15"
   },
   {
     "title": "二维码扫描解析",
-    "title_en": "QR SCAN & PARSE",
+    "title_en": "QR Scan & Parse",
     "type": "16"
   },
   {
     "title": "影视VIP视频解析",
-    "title_en": "VIP VIDEO PARSE",
+    "title_en": "VIP Video Parse",
     "type": "17"
   }
 ]

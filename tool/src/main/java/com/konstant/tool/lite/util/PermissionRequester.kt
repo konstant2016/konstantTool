@@ -20,8 +20,8 @@ class PermissionRequester : AppCompatActivity() {
         private var mGrantedCallback: ((List<String>) -> Unit)? = null
         private var mDefinedCallback: ((List<String>) -> Unit)? = null
 
-        fun requestPermission(context: Context, permissions: List<String>, grantedCallback: (List<String>) -> Unit, definedCallback: (List<String>) -> Unit) {
-            mGrantedCallback = grantedCallback;mDefinedCallback = definedCallback
+        fun requestPermission(context: Context, permissions: List<String>, grantedCallback: (List<String>) -> Unit, deniedCallback: (List<String>) -> Unit) {
+            mGrantedCallback = grantedCallback;mDefinedCallback = deniedCallback
             with(Intent(context, PermissionRequester::class.java)) {
                 putExtra("permission", permissions.toTypedArray())
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK

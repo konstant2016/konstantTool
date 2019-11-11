@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.base.H5Activity
+import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherDaily
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherHourly
 import com.konstant.tool.lite.module.weather.data.CountryManager
@@ -44,7 +45,7 @@ class WeatherFragment : BaseFragment() {
     private val mListDaily = ArrayList<WeatherResponse.WeatherBean>()
     private val mAdapterDay by lazy { AdapterWeatherDaily(mListDaily) }
 
-    private var mCurrentCity = getString(R.string.base_loading)
+    private var mCurrentCity = KonApplication.context.getString(R.string.base_loading)
 
     companion object {
         private val PARAM = "directCode"

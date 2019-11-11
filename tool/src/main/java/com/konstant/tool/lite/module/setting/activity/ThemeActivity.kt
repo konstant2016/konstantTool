@@ -55,7 +55,7 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
                 && (thme != R.style.tool_lite_dark)
                 && SettingManager.getDarkModeStatus(this)) {
             KonstantDialog(this)
-                    .setMessage(getString(R.string.setting_theme_toast))
+                    .setMessage(getString(R.string.setting_theme_dialog))
                     .setPositiveListener { finish() }
                     .setNegativeListener { return@setNegativeListener }
                     .createDialog()

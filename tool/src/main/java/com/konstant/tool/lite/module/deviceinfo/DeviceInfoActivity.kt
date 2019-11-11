@@ -37,7 +37,7 @@ class DeviceInfoActivity : BaseActivity() {
         val wifiInfo = DeviceInfo.getWiFiInfo(this)
 
         device_info.apply {
-            append("\n${getString(R.string.device_current_wifi_name)}：" + wifiInfo?.ssid)
+            append("\n\n${getString(R.string.device_current_wifi_name)}：" + wifiInfo?.ssid)
             append("\n\n${getString(R.string.device_current_wifi_mac_address)}：" + wifiInfo?.bssid?.toUpperCase())
             append("\n\n${getString(R.string.device_phone_mac_address)}：" + DeviceInfo.getDeviceMACAddress())
 
