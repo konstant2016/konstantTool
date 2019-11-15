@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="提示：单击打开应用，长按导出安装包\n提取的安装包路径为：\nAndroid/data/com.konstant.tool.lite/files/apks"
+        android:text="@string/package_export_describe"
         android:textColor="?attr/tool_main_text_color" />
 
     <View

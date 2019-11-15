@@ -8,7 +8,6 @@ import android.os.Environment
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.util.FileUtil
 import java.io.File
-import java.util.*
 
 /**
  * 描述:保存用户设置
@@ -16,7 +15,6 @@ import java.util.*
  * 创建时间:2018/4/26 下午7:18
  * 备注:
  */
-
 
 object SettingManager {
 

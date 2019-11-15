@@ -15,7 +15,7 @@ import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.NotificationCreator
 import com.konstant.tool.lite.module.setting.SettingManager
-import kotlinx.android.synthetic.main.layout_concetration.view.*
+import kotlinx.android.synthetic.main.layout_concentration.view.*
 import java.lang.Exception
 
 class ConcentrationService : Service() {
@@ -38,7 +38,7 @@ class ConcentrationService : Service() {
         }
     }
 
-    private val mView by lazy { LayoutInflater.from(this).inflate(R.layout.layout_concetration, null) }
+    private val mView by lazy { LayoutInflater.from(this).inflate(R.layout.layout_concentration, null) }
 
     override fun onBind(intent: Intent): IBinder? = null
 

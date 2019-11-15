@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="专注模式已启用"
+        android:text="@string/concentration_started"
         android:textColor="@color/color_white"
         android:textSize="20sp" />
 
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="剩余时间"
+        android:text="@string/concentration_time_left"
         android:textColor="@color/color_white"
         android:textSize="20sp" />
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:gravity="center"
-        android:text="提示：如需强制关闭，请长按电源键10秒以上重启手机"
+        android:text="@string/concentration_tips"
         android:textColor="@color/color_white"
         android:textSize="10sp" />
 

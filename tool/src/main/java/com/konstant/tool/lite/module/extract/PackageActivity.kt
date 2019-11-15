@@ -64,14 +64,17 @@ class PackageActivity : BaseActivity() {
     }
 
     private fun onMorePressed() {
+        val popupWindow = KonstantPopupWindow(this@PackageActivity)
         with(LayoutInflater.from(this).inflate(R.layout.pop_package, null)) {
             checkbox.isChecked = mIsChecked
             layout_filter.setOnClickListener { checkbox.isChecked = !checkbox.isChecked }
             checkbox.setOnCheckedChangeListener { _, isChecked ->
                 mIsChecked = isChecked
                 readAppList(mIsChecked)
+                popupWindow.dismiss()
             }
             tv_all_save.setOnClickListener {
+                popupWindow.dismiss()
                 KonstantDialog(this@PackageActivity)
                         .setMessage(getString(R.string.package_save_all_to_local))
                         .setPositiveListener {
@@ -80,15 +83,13 @@ class PackageActivity : BaseActivity() {
                         }
                         .createDialog()
             }
-            KonstantPopupWindow(this@PackageActivity)
-                    .addView(this)
-                    .showAsDropDown(title_bar)
+            popupWindow.addView(this).showAsDropDown(title_bar)
         }
     }
 
     private fun readAppList(withSystem: Boolean = false) {
-        showLoading(true,getString(R.string.package_app_scanning))
-        PackagePresenter.getAppList(withSystem,this){
+        showLoading(true, getString(R.string.package_app_scanning))
+        PackagePresenter.getAppList(withSystem, this) {
             runOnUiThread {
                 mList.clear()
                 mList.addAll(it)

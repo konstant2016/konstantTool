@@ -24,7 +24,7 @@
     <string name="update_manager_new_version">new version</string>
     <string name="main_my_collection">My Collection</string>
     <string name="main_all_function">All Function</string>
-    <string name="main_exit_toast">Press the Return key to exit the application</string>
+    <string name="main_exit_toast">Press again to exit</string>
     <string name="main_cancel_collection">Cancel Collection</string>
     <string name="main_cancel_collection_success">Canceled</string>
     <string name="compass_title">Compass</string>
@@ -248,4 +248,8 @@
     <string name="weather_whether_delete">Delete</string>
     <string name="weather_city_manager_city_picker">City Picker</string>
     <string name="setting_theme_describe">Select theme color</string>
+    <string name="package_export_describe">Tips：Click to open \\n long click to export \\n export path：\\n Android/data/com.konstant.tool.lite/files/apks</string>
+    <string name="concentration_started">Concentration Mode Enabled</string>
+    <string name="concentration_time_left">Time Left</string>
+    <string name="concentration_tips">Tips: Please press on Power key about 10 seconds to reboot if you want to force stop Concentration Mode</string>
 </resources>
