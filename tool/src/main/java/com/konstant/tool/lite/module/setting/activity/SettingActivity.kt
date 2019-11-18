@@ -79,7 +79,10 @@ class SettingActivity : BaseActivity() {
         switch_collect.setOnCheckedChangeListener { _, isChecked ->
             SettingManager.saveShowCollection(this, isChecked)
         }
-        layout_collect.setOnClickListener { switch_collect.isChecked = !switch_collect.isChecked }
+        layout_collect.setOnClickListener {
+            switch_collect.isChecked = !switch_collect.isChecked
+            EventBus.getDefault().post(CollectionSettingChanged())
+        }
 
         // 适配系统暗黑主题
         switch_dark.isChecked = SettingManager.getAdapterDarkMode(this)

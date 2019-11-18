@@ -81,7 +81,8 @@ class FloatWallpaperService : Service() {
                 }
         removeFloatWallpaper()
         windowManager.addView(mView, params)
-        val notification = NotificationCreator.createForegroundNotification(this, msg = getString(R.string.wallpaper_float_create_notification))
+        val notification = NotificationCreator.createForegroundNotification(this, msg = getString(R.string.wallpaper_float_create_notification),
+                intent = Intent(this, WallpaperActivity::class.java))
         startForeground(1, notification)
     }
 

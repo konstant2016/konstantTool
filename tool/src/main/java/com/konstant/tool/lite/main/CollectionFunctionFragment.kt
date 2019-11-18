@@ -10,6 +10,7 @@ import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.view.KonstantDialog
+import kotlinx.android.synthetic.main.fragment_function_collection.*
 import kotlinx.android.synthetic.main.layout_recycler_view.*
 
 /**
@@ -18,22 +19,24 @@ import kotlinx.android.synthetic.main.layout_recycler_view.*
  * 描述：我的功能收藏列表
  */
 
-class FunctionCollectionFragment : BaseFragment() {
+class CollectionFunctionFragment : BaseFragment() {
 
     private val mFunctionList = ArrayList<Function>()
     private val mAdapter = AdapterMainConfig(mFunctionList)
 
     companion object {
-        fun getInstance() = FunctionCollectionFragment()
+        fun getInstance() = CollectionFunctionFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.layout_recycler_view, container, false)
+        return inflater.inflate(R.layout.fragment_function_collection, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mFunctionList.clear()
         mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
+
         mAdapter.setOnItemClickListener { _, position ->
             activity?.let {
                 (activity as BaseActivity).startActivityWithType(mFunctionList[position].type)
@@ -65,10 +68,21 @@ class FunctionCollectionFragment : BaseFragment() {
         }
     }
 
+    private fun updateView(){
+        if (mFunctionList.size == 0) {
+            collection_empty.visibility = View.VISIBLE
+            recycler_main.visibility = View.GONE
+        }else{
+            collection_empty.visibility = View.GONE
+            recycler_main.visibility = View.VISIBLE
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         mFunctionList.clear()
         mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
+        updateView()
         mAdapter.notifyDataSetChanged()
     }
 

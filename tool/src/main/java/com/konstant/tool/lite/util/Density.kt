@@ -3,8 +3,10 @@ package com.konstant.tool.lite.util
 import android.app.Activity
 import android.app.Application
 import android.content.ComponentCallbacks
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.DisplayMetrics
 
 
 /**
@@ -50,14 +52,13 @@ object Density {
     // 监听activity的生命周期
     private fun registerActivityCreated(application: Application) {
         application.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+            override fun onActivityPaused(activity: Activity) {}
+
+            override fun onActivityResumed(activity: Activity) {}
 
             override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
                 activity?.let { setActivityDensity(it) }
             }
-
-            override fun onActivityPaused(activity: Activity?) {}
-
-            override fun onActivityResumed(activity: Activity?) {}
 
             override fun onActivityStarted(activity: Activity?) {}
 
@@ -71,21 +72,30 @@ object Density {
 
     // 当activity被创建时，使用自定的dpi
     private fun setActivityDensity(activity: Activity) {
-        val widthPixels = activity.resources.displayMetrics.widthPixels
-        val heightPixels = activity.resources.displayMetrics.heightPixels
-        val targetDensity = if (heightPixels > widthPixels){
+        val metrics = getDisplayMetrics(activity)
+        val displayMetrics = activity.resources.displayMetrics
+        displayMetrics.density = metrics.density
+        displayMetrics.scaledDensity = metrics.scaledDensity
+        displayMetrics.densityDpi = metrics.densityDpi
+    }
+
+    fun getDisplayMetrics(context: Context): DisplayMetrics {
+        val widthPixels = context.resources.displayMetrics.widthPixels
+        val heightPixels = context.resources.displayMetrics.heightPixels
+        val targetDensity = if (heightPixels > widthPixels) {
             widthPixels / SIGN_DPI_WIDTH
-        }else{
+        } else {
             heightPixels / SIGN_DPI_WIDTH
         }
 
         val targetScaleDensity = targetDensity * (mAppScaleDensity / mAppDensity)
         val targetDensityDpi = targetScaleDensity * 160
 
-        val displayMetrics = activity.resources.displayMetrics
+        val displayMetrics = context.resources.displayMetrics
         displayMetrics.density = targetDensity.toFloat()
         displayMetrics.scaledDensity = targetScaleDensity
         displayMetrics.densityDpi = targetDensityDpi.toInt()
+        return displayMetrics
     }
 
 }

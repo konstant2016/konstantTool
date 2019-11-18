@@ -9,8 +9,6 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.*
 import android.view.inputmethod.InputMethodManager
@@ -46,6 +44,7 @@ import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.util.AppUtil
+import com.konstant.tool.lite.util.Density
 import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPagerIndicator
 import io.reactivex.disposables.CompositeDisposable
@@ -75,6 +74,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
         setDefaultLanguage()
         AppUtil.addActivity(this)
     }
@@ -87,7 +87,6 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     private fun initUserInterface() {
-        EventBus.getDefault().register(this)
         // 沉浸状态栏
         supportActionBar?.hide()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -125,14 +124,14 @@ abstract class BaseActivity : SwipeBackActivity() {
         Locale.setDefault(Locale("zh"))
         val config = resources.configuration
         config.locale = Locale.CHINESE
-        resources.updateConfiguration(config, resources.displayMetrics)
+        resources.updateConfiguration(config, Density.getDisplayMetrics(this))
     }
 
     private fun setEnglishLanguage() {
         Locale.setDefault(Locale("en"))
         val config = resources.configuration
         config.locale = Locale.ENGLISH
-        resources.updateConfiguration(config, resources.displayMetrics)
+        resources.updateConfiguration(config, Density.getDisplayMetrics(this))
     }
 
     // 更换主题，主题切换时，重新打开自身，避免界面闪烁

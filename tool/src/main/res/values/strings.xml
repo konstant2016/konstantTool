@@ -14,12 +14,10 @@
     <string name="base_txt_fail">失败</string>
     <string name="base_input_empty_toast">记得输入内容哦</string>
     <string name="base_permission_cancel">授权已取消</string>
-    <string name="base_collection_success">收藏成功，可在设置中切换显示</string>
+    <string name="base_collection_success">收藏成功</string>
     <string name="base_loading">正在加载中…</string>
     <string name="base_main_page">主页</string>
     <string name="base_setting">设置</string>
-    <string name="base_text_01">业精于勤荒于嬉</string>
-    <string name="base_text_02">行成于思毁于随</string>
     <string name="base_confirm">确定</string>
     <string name="base_cancel">取消</string>
 
@@ -43,6 +41,7 @@
     <string name="main_exit_toast">再按一次返回键退出应用</string>
     <string name="main_cancel_collection">取消收藏</string>
     <string name="main_cancel_collection_success">取消收藏</string>
+    <string name="main_msg_collection_empty">暂无收藏内容</string>
 
     <!--指南针中的文字-->
     <string name="compass_title">指南针</string>
@@ -63,7 +62,6 @@
     <string name="concentration_cancel_success">专注模式已结束</string>
     <string name="concentration_started">专注模式已启用</string>
     <string name="concentration_time_left">剩余时间</string>
-
 
     <!--日期推算中的文字-->
     <string name="date_title">日期推算</string>
@@ -131,7 +129,6 @@
     <string name="express_empty_state">暂无信息</string>
     <string name="express_order_number">物流单号</string>
 
-
     <!--安装包提取中的文字-->
     <string name="package_title">安装包提取</string>
     <string name="package_cannot_start">此应用不支持跳转</string>
@@ -171,7 +168,7 @@
     <string name="parse_pptv_video">PPTV视频</string>
     <string name="parse_letv_video">乐视视频</string>
 
-    <!--视频解析中的文字-->
+    <!--二维码中的文字-->
     <string name="qrcode_title">二维码生成与扫描</string>
     <string name="qrcode_input_content">记得输入内容哦</string>
     <string name="qrcode_save_to_local">是否要保存到本地？</string>
@@ -185,6 +182,9 @@
     <string name="qrcode_qr_scan">二维码扫描</string>
     <string name="qrcode_unfind_qr_bitmap">未发现二维码</string>
     <string name="qrcode_scan_permission_cancel">需要摄像头权限用以扫描二维码</string>
+    <string name="qrcode_open_light">开灯</string>
+    <string name="qrcode_scan_result">扫描结果：长按可复制</string>
+    <string name="qrcode_scan_result_tips">这里展示扫描结果</string>
 
     <!--全屏滚动文字中的文字-->
     <string name="scroll_title">全屏滚动文字</string>
@@ -209,8 +209,8 @@
     <string name="setting_kill_describe">(按返回键退出应用时，主动释放内存)</string>
     <string name="setting_update_auto">自动检查更新</string>
     <string name="setting_update_auto_describe">(每次应用启动时，自动检查应用更新状态)</string>
-    <string name="setting_show_collection">首页显示收藏列表</string>
-    <string name="setting_show_collection_describe">(只有收藏列表不为空时，此开关才有效)</string>
+    <string name="setting_show_collection">首页默认显示收藏列表</string>
+    <string name="setting_show_collection_describe">(开关开启时，首页默认显示收藏列表)</string>
     <string name="setting_adapter_dark_mode">适配 Android Q 深色模式</string>
     <string name="setting_adapter_dark_mode_describe">(建议开启，关闭后可能会影响显示效果)</string>
     <string name="setting_share">分享应用</string>
@@ -233,7 +233,7 @@
     <string name="setting_theme_title">主题设置</string>
     <string name="setting_theme_dialog">您当前已开启"适配系统深色模式"开关，需要关闭后才能修改主题，是否前往关闭？</string>
 
-    <!--设置中的文字-->
+    <!--网速测试中的文字-->
     <string name="speed_title">网速测试</string>
     <string name="speed_testing">测试中…</string>
     <string name="speed_describe">提示：测速原理是通过下载指定大小文件，统计下载时间，从而算出网速的，请注意流量消耗，网络稳定时，下载文件数值越大，速度计算越精确</string>
@@ -245,7 +245,7 @@
     <string name="setting_about_checkout_update">检查更新</string>
 
     <!--翻译中的文字-->
-    <string name="translate_title">网速</string>
+    <string name="translate_title">翻译</string>
     <string name="translate_error">翻译出错</string>
     <string name="translate_input_hint">在这里输入要翻译的内容，支持单词和句子</string>
     <string name="translate_to">翻译成</string>
@@ -275,7 +275,6 @@
     <string name="wallpaper_translate_button_enable">启用透明壁纸</string>
     <string name="wallpaper_translate_button_close">关闭透明壁纸</string>
 
-
     <!--天气查询中的文字-->
     <string name="weather_title">天气查询</string>
     <string name="weather_permission_cancel">您拒绝了定位权限</string>
@@ -301,5 +300,6 @@
     <!--应用导出中的文字-->
     <string name="package_export_describe">提示：单击打开应用，长按导出安装包\\n提取的安装包路径为：\\nAndroid/data/com.konstant.tool.lite/files/apks</string>
     <string name="concentration_tips">提示：如需强制关闭，请长按电源键10秒以上重启手机</string>
+    <string name="concentration_notification_describe">\'专注模式\'结束后，此通知自动移除</string>
 
 </resources>

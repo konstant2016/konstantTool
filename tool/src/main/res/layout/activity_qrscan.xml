@@ -16,7 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"
-        android:text="开灯"
+        android:text="@string/qrcode_open_light"
         android:textColor="@color/color_white"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="扫描结果：长按可复制" />
+            android:text="@string/qrcode_scan_result" />
 
         <TextView
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="这里展示扫描结果"
+                android:text="@string/qrcode_scan_result_tips"
                 android:textColor="?attr/tool_second_text_color"
                 android:textIsSelectable="true"
                 android:textSize="14sp" />

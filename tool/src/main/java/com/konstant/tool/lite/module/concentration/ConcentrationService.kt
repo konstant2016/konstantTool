@@ -74,7 +74,7 @@ class ConcentrationService : Service() {
         removeView()
         windowManager.addView(mView, params)
         updateCountdown(minutes, mView.tv_time)
-        val notification = NotificationCreator.createForegroundNotification(this, msg = "'专注模式'结束后，此通知自动移除")
+        val notification = NotificationCreator.createForegroundNotification(this, msg = getString(R.string.concentration_notification_describe))
         startForeground(1, notification)
     }
 

@@ -17,3 +17,6 @@ class UserHeaderChanged
 
 // 软件语言发生变化
 class LanguageChanged
+
+// 收藏开关发生了变化
+class CollectionSettingChanged

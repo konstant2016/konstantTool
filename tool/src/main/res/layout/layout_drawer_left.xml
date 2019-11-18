@@ -26,22 +26,14 @@
         <com.konstant.tool.lite.view.KonstantTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:text="@string/base_text_01"
-            android:textColor="@color/color_white" />
+            android:text="@string/app_name"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
 
-        <com.konstant.tool.lite.view.KonstantTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
-            android:text="@string/base_text_02"
-            android:textColor="@color/color_white" />
     </LinearLayout>
 
     <RelativeLayout

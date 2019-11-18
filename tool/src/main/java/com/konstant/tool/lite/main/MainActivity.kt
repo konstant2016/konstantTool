@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * 描述:主页
@@ -51,6 +53,8 @@ class MainActivity : BaseActivity() {
 
         if (SettingManager.getAutoCheckUpdate(this)) UpdateManager.autoCheckoutUpdate()
 
+        initViewPager()
+
     }
 
     override fun onPause() {
@@ -58,22 +62,28 @@ class MainActivity : BaseActivity() {
         FunctionCollectorManager.onDestroy(this)
     }
 
-    override fun onResume() {
-        super.onResume()
-        mFragmentList.clear()
-        if (SettingManager.getShowCollection(this) && FunctionCollectorManager.getCollectionFunction().isNotEmpty()) {
-            mFragmentList.add(FunctionCollectionFragment())
-            mFragmentList.add(AllFunctionFragment())
-            setSegmentalTitle(getString(R.string.main_my_collection), getString(R.string.main_all_function))
-        } else {
-            mFragmentList.add(AllFunctionFragment())
-            setTitle(getString(R.string.app_name))
-        }
-        mAdapter.notifyDataSetChanged()
+    // 收藏开关发生变化
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onCollectionSettingChanged(msg: CollectionSettingChanged) {
+        initViewPager()
     }
 
     override fun onSwipeBackChanged(msg: SwipeBackStatus) {
 
+    }
+
+    private fun initViewPager(){
+        mFragmentList.clear()
+        if (SettingManager.getShowCollection(this)) {
+            mFragmentList.add(CollectionFunctionFragment())
+            mFragmentList.add(AllFunctionFragment())
+            setSegmentalTitle(getString(R.string.main_my_collection), getString(R.string.main_all_function))
+        } else {
+            mFragmentList.add(AllFunctionFragment())
+            mFragmentList.add(CollectionFunctionFragment())
+            setSegmentalTitle(getString(R.string.main_all_function), getString(R.string.main_my_collection))
+        }
+        mAdapter.notifyDataSetChanged()
     }
 
     override fun onBackPressed() {
