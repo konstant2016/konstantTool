@@ -21,8 +21,8 @@ import java.lang.Exception
 class ConcentrationService : Service() {
 
     companion object {
-        val TYPE = "type"
-        val MINUTES = "minutes"
+        const val TYPE = "type"
+        const val MINUTES = "minutes"
 
         fun startCountDown(context: Context, minutes: Int) {
             val intent = Intent(context, ConcentrationService::class.java)

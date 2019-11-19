@@ -24202,10 +24202,10 @@ com.konstant.tool.lite.module.date.CalculationFragment -> com.konstant.tool.lite
     com.konstant.tool.lite.module.date.CalculationFragment$Companion Companion -> h0
     21:24:void <init>() -> <init>
     void onDestroyView() -> R
-    21:21:java.lang.String access$get往前推算$p(com.konstant.tool.lite.module.date.CalculationFragment) -> a
+    21:21:java.lang.String access$getMForward$p(com.konstant.tool.lite.module.date.CalculationFragment) -> a
     32:32:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     35:59:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    21:21:java.lang.String access$get往后推算$p(com.konstant.tool.lite.module.date.CalculationFragment) -> b
+    21:21:java.lang.String access$getMBackward$p(com.konstant.tool.lite.module.date.CalculationFragment) -> b
     android.view.View _$_findCachedViewById(int) -> c
     21:21:void access$hideSoftKeyboard(com.konstant.tool.lite.module.date.CalculationFragment) -> c
     21:21:void access$计算日期(com.konstant.tool.lite.module.date.CalculationFragment) -> d

@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.fragment_calculation.*
 
 class CalculationFragment : BaseFragment() {
 
-    private val 往前推算 by lazy { context?.getString(R.string.date_calculate_forward) }
-    private val 往后推算 by lazy { context?.getString(R.string.date_calculate_backward) }
+    private val mForward by lazy { context?.getString(R.string.date_calculate_forward) }
+    private val mBackward by lazy { context?.getString(R.string.date_calculate_backward) }
 
     companion object {
         @JvmStatic
@@ -48,23 +48,23 @@ class CalculationFragment : BaseFragment() {
             dialog.addView(pickerView).hideNavigation().createDialog()
         }
         btn_direction.setOnClickListener {
-            if (TextUtils.equals(btn_direction.text.toString(), 往前推算)) {
-                btn_direction.text = 往后推算
+            if (TextUtils.equals(btn_direction.text.toString(), mForward)) {
+                btn_direction.text = mBackward
             } else {
-                btn_direction.text = 往前推算
+                btn_direction.text = mForward
             }
-            计算日期()
+            calculateDate()
         }
-        btn_calculate.setOnClickListener { 计算日期() }
+        btn_calculate.setOnClickListener { calculateDate() }
     }
 
-    private fun 计算日期(){
+    private fun calculateDate(){
         val number: Int = try {
             et_input.text.toString().toInt()
         } catch (e: Exception) {
             0
         }
-        val days = if (TextUtils.equals(btn_direction.text.toString(), 往前推算)) 0 - number else number
+        val days = if (TextUtils.equals(btn_direction.text.toString(), mForward)) 0 - number else number
         val date = DateUtil.calculateLaterDate(tv_start.text.toString(), days)
         tv_result.text = date
     }

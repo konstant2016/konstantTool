@@ -8,7 +8,6 @@ import android.provider.Settings
 import android.widget.SeekBar
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_concentration.*
 

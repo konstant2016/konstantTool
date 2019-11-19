@@ -1,12 +1,9 @@
 package com.konstant.tool.lite.module.date
 
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.util.DateUtil
@@ -19,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_interval.*
  * 创建：菜籽
  * 描述：计算两个日期之间的间隔
  */
+
 class IntervalFragment : BaseFragment() {
 
     companion object {
@@ -34,6 +32,7 @@ class IntervalFragment : BaseFragment() {
         val date = DateUtil.getCurrentDate(DateUtil.FORMAT)
         tv_start.text = date
         tv_end.text = date
+        tv_result.text = "${context?.getString(R.string.date_interval_interval)} $0 ${context?.getString(R.string.date_interval_day)}"
         tv_start.setOnClickListener {
             val dialog = KonstantDialog(view.context)
             val pickerView = DatePickerView(view.context, date = tv_start.text.toString()).apply {
