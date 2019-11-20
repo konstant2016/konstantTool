@@ -20,3 +20,6 @@ class LanguageChanged
 
 // 收藏开关发生了变化
 class CollectionSettingChanged
+
+// 收藏内容发生了变化
+class CollectionFunctionChanged

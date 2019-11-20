@@ -1,5 +1,9 @@
 package com.konstant.tool.lite.data.bean.main;
 
+import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
+
 import com.konstant.tool.lite.base.KonApplication;
 import com.konstant.tool.lite.module.setting.SettingManager;
 
@@ -41,5 +45,13 @@ public class Function {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == null) return false;
+        if (!(obj instanceof Function)) return false;
+        Function other = (Function) obj;
+        return TextUtils.equals(title, other.title);
     }
 }

@@ -347,6 +347,7 @@ abstract class BaseActivity : SwipeBackActivity() {
                     .setMessage("${getString(R.string.base_collection)}'${configs[position].title}'${getString(R.string.base_function)}？")
                     .setPositiveListener {
                         FunctionCollectorManager.addCollectionFunction(configs[position])
+                        EventBus.getDefault().post(CollectionFunctionChanged())
                         it.dismiss()
                         showToast(getString(R.string.base_collection_success))
                     }

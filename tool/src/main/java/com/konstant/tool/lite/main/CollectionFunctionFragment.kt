@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
+import com.konstant.tool.lite.base.CollectionFunctionChanged
 import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.fragment_function_collection.*
 import kotlinx.android.synthetic.main.layout_recycler_view.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * 作者：konstant
@@ -26,6 +30,16 @@ class CollectionFunctionFragment : BaseFragment() {
 
     companion object {
         fun getInstance() = CollectionFunctionFragment()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        EventBus.getDefault().register(this)
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        EventBus.getDefault().unregister(this)
+        super.onDestroy()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -66,24 +80,26 @@ class CollectionFunctionFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             setAdapter(mAdapter)
         }
+
+        updateView()
     }
 
-    private fun updateView(){
-        if (mFunctionList.size == 0) {
-            collection_empty.visibility = View.VISIBLE
-            recycler_main.visibility = View.GONE
-        }else{
-            collection_empty.visibility = View.GONE
-            recycler_main.visibility = View.VISIBLE
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onCollectionFunctionChanged(msg: CollectionFunctionChanged) {
         mFunctionList.clear()
         mFunctionList.addAll(FunctionCollectorManager.getCollectionFunction())
         updateView()
         mAdapter.notifyDataSetChanged()
+    }
+
+    private fun updateView() {
+        if (mFunctionList.size == 0) {
+            collection_empty.visibility = View.VISIBLE
+            recycler_main.visibility = View.GONE
+        } else {
+            collection_empty.visibility = View.GONE
+            recycler_main.visibility = View.VISIBLE
+        }
     }
 
 }

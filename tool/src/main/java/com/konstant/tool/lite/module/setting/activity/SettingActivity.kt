@@ -78,10 +78,10 @@ class SettingActivity : BaseActivity() {
         switch_collect.isChecked = SettingManager.getShowCollection(this)
         switch_collect.setOnCheckedChangeListener { _, isChecked ->
             SettingManager.saveShowCollection(this, isChecked)
+            EventBus.getDefault().post(CollectionSettingChanged())
         }
         layout_collect.setOnClickListener {
             switch_collect.isChecked = !switch_collect.isChecked
-            EventBus.getDefault().post(CollectionSettingChanged())
         }
 
         // 适配系统暗黑主题

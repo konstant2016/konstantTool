@@ -40,7 +40,7 @@
     <string name="main_all_function">全部功能</string>
     <string name="main_exit_toast">再按一次返回键退出应用</string>
     <string name="main_cancel_collection">取消收藏</string>
-    <string name="main_cancel_collection_success">取消收藏</string>
+    <string name="main_cancel_collection_success">已取消</string>
     <string name="main_msg_collection_empty">暂无收藏内容</string>
 
     <!--指南针中的文字-->

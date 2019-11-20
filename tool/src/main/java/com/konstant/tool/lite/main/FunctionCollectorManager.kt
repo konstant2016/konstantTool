@@ -21,6 +21,7 @@ object FunctionCollectorManager {
         val config = FileUtil.readDataFromSp(context, FUNCTION_COLLECTION, "")
         if (config.isNotEmpty()) {
             val configs = Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
+            mFunctionList.clear()
             mFunctionList.addAll(configs)
         }
     }

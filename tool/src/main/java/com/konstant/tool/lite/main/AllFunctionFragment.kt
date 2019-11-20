@@ -10,10 +10,12 @@ import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.BaseFragment
+import com.konstant.tool.lite.base.CollectionFunctionChanged
 import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.layout_recycler_view.*
+import org.greenrobot.eventbus.EventBus
 
 /**
  * 作者：konstant
@@ -51,6 +53,7 @@ class AllFunctionFragment : BaseFragment() {
                         .setMessage("${getString(R.string.base_collection)}'${mFunctionList[position].title}'${getString(R.string.base_function)}?")
                         .setPositiveListener {
                             FunctionCollectorManager.addCollectionFunction(mFunctionList[position])
+                            EventBus.getDefault().post(CollectionFunctionChanged())
                             showToast(getString(R.string.base_collection_success))
                             it.dismiss()
                         }
