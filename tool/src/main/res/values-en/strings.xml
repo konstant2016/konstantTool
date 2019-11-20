@@ -170,7 +170,7 @@
     <string name="setting_adapter_dark_mode">Adaptive Android Q Dark Mode</string>
     <string name="setting_adapter_dark_mode_describe">(Recommended to open)</string>
     <string name="setting_share">Share Konstant Tool</string>
-    <string name="setting_language_item_system">With System</string>
+    <string name="setting_language_item_system">Auto</string>
     <string name="setting_swipe_item_close">All Off</string>
     <string name="setting_swipe_item_left">Left to Right</string>
     <string name="setting_swipe_item_right">Right to Left</string>
@@ -246,7 +246,7 @@
     <string name="weather_whether_delete">Delete</string>
     <string name="weather_city_manager_city_picker">City Picker</string>
     <string name="setting_theme_describe">Select theme color</string>
-    <string name="package_export_describe">Tips：Click to open \\n long click to export \\n export path：\\n Android/data/com.konstant.tool.lite/files/apks</string>
+    <string name="package_export_describe">Tips：Click to open , long click to export , export path： Android/data/com.konstant.tool.lite/files/apks</string>
     <string name="concentration_started">Concentration Mode Enabled</string>
     <string name="concentration_time_left">Time Left</string>
     <string name="concentration_tips">Tips: Please press on Power key about 10 seconds to reboot if you want to force stop Concentration Mode</string>

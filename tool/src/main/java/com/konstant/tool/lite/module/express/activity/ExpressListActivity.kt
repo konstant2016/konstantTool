@@ -29,7 +29,7 @@ import org.greenrobot.eventbus.ThreadMode
 class ExpressListActivity : BaseActivity() {
 
     private val mExpressList = ArrayList<ExpressData>()
-    private val mAdapter = AdapterExpressList(mExpressList)
+    private val mAdapter by lazy { AdapterExpressList(this, mExpressList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
