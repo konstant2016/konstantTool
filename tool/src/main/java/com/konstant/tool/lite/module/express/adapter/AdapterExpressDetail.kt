@@ -1,12 +1,14 @@
 package com.konstant.tool.lite.module.express.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.data.bean.express.ExpressData
+import com.konstant.tool.lite.util.Density
 import kotlinx.android.synthetic.main.item_express_detail.view.*
 
 /**
@@ -33,6 +35,7 @@ class AdapterExpressDetail(val context: Context, val datas: List<ExpressData.Mes
             line_top.visibility = if (position == 0) View.GONE else View.VISIBLE
             line_bottom.visibility = if (position == itemCount - 1) View.GONE else View.VISIBLE
         }
+        holder.itemView.layoutParams.height = Density.dpToPx(context, 15) * (data.context.length / 17 + 3)
     }
 
     class Holder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)

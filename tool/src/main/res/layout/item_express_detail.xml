@@ -40,13 +40,13 @@
         android:background="?attr/tool_second_text_color" />
 
     <TextView
+        android:autoLink="all"
         android:id="@+id/tv_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="130dp"
         android:layout_marginRight="15dp"
-        android:maxLines="4"
         android:text="北京市朝阳国，张晓明，已收件北京市朝阳国贸，张晓明，已收件"
         android:textColor="?attr/tool_main_text_color" />
 

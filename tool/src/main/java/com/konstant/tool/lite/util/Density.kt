@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
+import com.konstant.tool.lite.base.KonApplication
 
 
 /**
@@ -96,6 +97,17 @@ object Density {
         displayMetrics.scaledDensity = targetScaleDensity
         displayMetrics.densityDpi = targetDensityDpi.toInt()
         return displayMetrics
+    }
+
+    fun dpToPx(context: Context, dp: Int): Int {
+        val widthPixels = context.resources.displayMetrics.widthPixels
+        val heightPixels = context.resources.displayMetrics.heightPixels
+        val targetDensity = if (heightPixels > widthPixels) {
+            widthPixels / SIGN_DPI_WIDTH
+        } else {
+            heightPixels / SIGN_DPI_WIDTH
+        }
+        return targetDensity * dp
     }
 
 }
