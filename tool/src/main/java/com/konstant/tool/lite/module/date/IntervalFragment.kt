@@ -32,7 +32,7 @@ class IntervalFragment : BaseFragment() {
         val date = DateUtil.getCurrentDate(DateUtil.FORMAT)
         tv_start.text = date
         tv_end.text = date
-        tv_result.text = "${context?.getString(R.string.date_interval_interval)} $0 ${context?.getString(R.string.date_interval_day)}"
+        tv_result.text = "${context?.getString(R.string.date_interval_interval)} 0 ${context?.getString(R.string.date_interval_day)}"
         tv_start.setOnClickListener {
             val dialog = KonstantDialog(view.context)
             val pickerView = DatePickerView(view.context, date = tv_start.text.toString()).apply {
