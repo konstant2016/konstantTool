@@ -57,6 +57,7 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
                 tv_weather_update_time.setOnClickListener {
                     val intent = Intent(KonApplication.context, H5Activity::class.java)
                     intent.putExtra(H5Activity.H5_URL, current.alertUrl)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     KonApplication.context.startActivity(intent)
                 }
             }

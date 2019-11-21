@@ -125,7 +125,7 @@ class WeatherPresenter(private val context: Context, private val mDisposable: Co
         weatherList.add(hour)
 
         // 添加未来15天天气标题
-        weatherList.add(WeatherData().Title("未来15天天气预报:"))
+        weatherList.add(WeatherData().Title("最近15天天气预报:"))
         weather.weather.forEach {
             val dayWeather = WeatherData().Day(it.date,
                     it.info.day[1],
@@ -140,7 +140,7 @@ class WeatherPresenter(private val context: Context, private val mDisposable: Co
         }
 
         // 添加天气指数标题
-        weatherList.add(WeatherData().Title("天气指数:"))
+        weatherList.add(WeatherData().Title("(${weather.life?.date})天气指数："))
         // 添加天气指数数据
         weather.life?.info?.run {
             kongtiao?.let { weatherList.add(WeatherData().Life().LifeData("空调：${it[0]}", it[1])) }
