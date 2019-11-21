@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.view
 
 import android.content.Context
+import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -9,10 +10,10 @@ import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.layout_pop_konstant.view.*
 
 /**
-* 作者：konstant
-* 时间：2019/11/7 17:47
-* 描述：从上往下弹的那个弹窗
-*/
+ * 作者：konstant
+ * 时间：2019/11/7 17:47
+ * 描述：从上往下弹的那个弹窗
+ */
 
 class KonstantPopupWindow(context: Context) : PopupWindow(
         LayoutInflater.from(context).inflate(R.layout.layout_pop_konstant, null),
@@ -58,6 +59,11 @@ class KonstantPopupWindow(context: Context) : PopupWindow(
             contentView.layout_content.removeAllViews()
             contentView.layout_content.addView(mView)
         }
+        contentView.pop_root.setOnClickListener { dismiss() }
+        val rect = Rect()
+        anchor.getGlobalVisibleRect(rect)
+        val height = anchor.resources.displayMetrics.heightPixels - rect.bottom
+        setHeight(height)
         super.showAsDropDown(anchor)
     }
 

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/tool_main_bg_color"
+    android:background="@color/color_black_20"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/layout_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/tool_main_bg_color"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:gravity="center" />
@@ -17,6 +21,7 @@
         android:id="@+id/view_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/tool_main_bg_color"
         android:listSelector="@android:color/transparent"
         android:visibility="gone" />
 
