@@ -330,7 +330,7 @@ public class WeatherResponse {
 
         private WeatherBean weather;
         private String feelslike_c;
-        private String dataUptime;
+        private long dataUptime;
         private String date;
 
         public String getMslp() {
@@ -381,11 +381,11 @@ public class WeatherResponse {
             this.feelslike_c = feelslike_c;
         }
 
-        public String getDataUptime() {
+        public long getDataUptime() {
             return dataUptime;
         }
 
-        public void setDataUptime(String dataUptime) {
+        public void setDataUptime(long dataUptime) {
             this.dataUptime = dataUptime;
         }
 
@@ -433,7 +433,7 @@ public class WeatherResponse {
             private String humidity;
             private String img;
             private String info;
-            private String temperature;
+            private int temperature;
 
             public String getHumidity() {
                 return humidity;
@@ -459,11 +459,11 @@ public class WeatherResponse {
                 this.info = info;
             }
 
-            public String getTemperature() {
+            public int getTemperature() {
                 return temperature;
             }
 
-            public void setTemperature(String temperature) {
+            public void setTemperature(int temperature) {
                 this.temperature = temperature;
             }
         }
@@ -723,9 +723,9 @@ public class WeatherResponse {
     public static class HourlyForecastBean {
         private int img;
         private String wind_speed;
-        private String hour;
+        private int hour;
         private String wind_direct;
-        private String temperature;
+        private int temperature;
         private String info;
 
         public int getImg() {
@@ -744,11 +744,11 @@ public class WeatherResponse {
             this.wind_speed = wind_speed;
         }
 
-        public String getHour() {
+        public int getHour() {
             return hour;
         }
 
-        public void setHour(String hour) {
+        public void setHour(int hour) {
             this.hour = hour;
         }
 
@@ -760,11 +760,11 @@ public class WeatherResponse {
             this.wind_direct = wind_direct;
         }
 
-        public String getTemperature() {
+        public int getTemperature() {
             return temperature;
         }
 
-        public void setTemperature(String temperature) {
+        public void setTemperature(int temperature) {
             this.temperature = temperature;
         }
 

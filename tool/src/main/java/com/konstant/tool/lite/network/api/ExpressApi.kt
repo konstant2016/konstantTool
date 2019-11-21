@@ -14,7 +14,7 @@ import io.reactivex.Observable
 interface ExpressApi {
 
     companion object {
-        val HOST = "http://coldsong.cn/"
+        const val HOST = "http://coldsong.cn/"
     }
 
     @GET("letter/api/v1/kuaidi.php/")

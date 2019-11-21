@@ -14,7 +14,7 @@ import io.reactivex.Observable
 interface UpdateApi {
 
     companion object {
-        val HOST = "https://api2.bmob.cn/"
+        const val HOST = "https://api2.bmob.cn/"
     }
 
     @GET("1/classes/update_version/Ddwe3339/")

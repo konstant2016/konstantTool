@@ -14,7 +14,7 @@ import io.reactivex.Observable
 interface TranslateApi {
 
     companion object {
-        val HOST = "http://api.fanyi.baidu.com/"
+        const val HOST = "http://api.fanyi.baidu.com/"
     }
 
     @GET("api/trans/vip/translate/")

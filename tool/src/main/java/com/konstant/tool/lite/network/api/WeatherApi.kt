@@ -14,7 +14,7 @@ import retrofit2.http.Path
 interface WeatherApi {
 
     companion object {
-        val HOST = "http://tqapi.mobile.360.cn/"
+        const val HOST = "http://tqapi.mobile.360.cn/"
     }
 
     @GET("v4/{path}.json")

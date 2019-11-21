@@ -7,39 +7,9 @@
     android:overScrollMode="never"
     app:tr_head_height="100dp">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never">
+        android:layout_height="match_parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!--最上面的天气大图-->
-            <include layout="@layout/layout_weather_current" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="?attr/tool_divider_color" />
-
-            <!--中间的逐小时预报-->
-            <include layout="@layout/layout_weather_hours" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="?attr/tool_divider_color" />
-
-            <!--下面的最近几天预报-->
-            <include layout="@layout/layout_weather_days" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="?attr/tool_divider_color" />
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>

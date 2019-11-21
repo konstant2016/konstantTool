@@ -14,7 +14,7 @@ import retrofit2.http.Streaming
 interface SpeedApi {
 
     companion object {
-        val HOST = "https://dl.360safe.com/"
+        const val HOST = "https://dl.360safe.com/"
     }
 
     @GET("setup.exe")
