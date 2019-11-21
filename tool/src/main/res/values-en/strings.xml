@@ -22,8 +22,8 @@
     <string name="update_manager_check_update_error">Check fails, it may be linked to a network or server</string>
     <string name="update_manager_new_version_already">The current version is up to date</string>
     <string name="update_manager_new_version">new version</string>
-    <string name="main_my_collection">My Collection</string>
-    <string name="main_all_function">All Function</string>
+    <string name="main_my_collection">Collections</string>
+    <string name="main_all_function">Functions</string>
     <string name="main_exit_toast">Press again to exit</string>
     <string name="main_cancel_collection">Cancel Collection</string>
     <string name="main_cancel_collection_success">Canceled</string>
@@ -57,7 +57,7 @@
     <string name="decibel_permission_cancel">You refused permission to record</string>
     <string name="decibel_init_error">Recording failed to initialize</string>
     <string name="decibel_max_decibel">The current maximum decibel</string>
-    <string name="decibel_min_decibel">The current maximum decibel</string>
+    <string name="decibel_min_decibel">The current minimum decibel</string>
     <string name="decibel_tips">Tip: Indoor mute decibels 30 DB</string>
     <string name="device_title">Device Information</string>
     <string name="device_permission_cancel">Request for access has been denied, some information can not be demonstrated</string>
@@ -170,7 +170,7 @@
     <string name="setting_adapter_dark_mode">Adaptive Android Q Dark Mode</string>
     <string name="setting_adapter_dark_mode_describe">(Recommended to open)</string>
     <string name="setting_share">Share Konstant Tool</string>
-    <string name="setting_language_item_system">Auto</string>
+    <string name="setting_language_item_system">AUTO</string>
     <string name="setting_swipe_item_close">All Off</string>
     <string name="setting_swipe_item_left">Left to Right</string>
     <string name="setting_swipe_item_right">Right to Left</string>

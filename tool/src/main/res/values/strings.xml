@@ -82,7 +82,7 @@
     <string name="decibel_permission_cancel">您拒绝了录音权限</string>
     <string name="decibel_init_error">录音初始化失败</string>
     <string name="decibel_max_decibel">当前最大分贝</string>
-    <string name="decibel_min_decibel">当前最大分贝</string>
+    <string name="decibel_min_decibel">当前最小分贝</string>
     <string name="decibel_tips">提示：室内静音分贝为 30 DB</string>
 
     <!--设备信息中的文字-->

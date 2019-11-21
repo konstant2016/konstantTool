@@ -24,7 +24,6 @@ class RollTextActivity : BaseActivity() {
         initBaseViews()
         setTitle(getString(R.string.scroll_title))
         btn_create.setOnClickListener { onBtnPressed() }
-        layout_roll.setOnClickListener { hideSoftKeyboard() }
     }
 
     private fun onBtnPressed() {

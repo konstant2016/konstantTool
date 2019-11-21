@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="true"
-    android:orientation="vertical"
-    android:focusable="true">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/et_query"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:hint="@string/translate_input_hint"
@@ -19,70 +16,67 @@
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="14sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginTop="175dp"
+        android:layout_weight="1"
+        android:background="@drawable/layout_bg_spinner">
+
+        <Spinner
+            android:id="@+id/spinner_origin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_transport"
+            android:gravity="center" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:rotation="270"
+            android:src="@drawable/icon_arrows" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:text="@string/translate_to"
+        android:textColor="?attr/tool_second_text_color" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="40dp"
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="175dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/layout_bg_spinner">
+
+        <Spinner
+            android:id="@+id/spinner_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/layout_bg_spinner">
+            android:background="@color/color_transport"
+            android:gravity="center" />
 
-            <Spinner
-                android:id="@+id/spinner_origin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/color_transport"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="10dp"
-                android:rotation="270"
-                android:src="@drawable/icon_arrows" />
-        </RelativeLayout>
-
-        <TextView
-            android:textColor="?attr/tool_second_text_color"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:text="@string/translate_to" />
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/layout_bg_spinner">
-
-            <Spinner
-                android:id="@+id/spinner_result"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/color_transport"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="20dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:rotation="270"
-                android:src="@drawable/icon_arrows" />
-        </RelativeLayout>
-
-    </LinearLayout>
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:rotation="270"
+            android:src="@drawable/icon_arrows" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_result"
@@ -90,7 +84,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="230dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:textColor="?attr/tool_main_text_color"
@@ -98,36 +92,29 @@
         android:textColorHint="?attr/tool_second_text_color"
         android:textIsSelectable="true" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <Button
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="295dp"
+        android:textColor="?attr/tool_main_text_color"
+        android:id="@+id/btn_clean"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_btn"
+        android:text="@string/translate_button_clear" />
 
-        <Button
-            android:textColor="?attr/tool_main_text_color"
-            android:id="@+id/btn_clean"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/selector_btn"
-            android:text="@string/translate_button_clear" />
+    <Button
+        android:layout_alignParentEnd="true"
+        android:textColor="?attr/tool_main_text_color"
+        android:id="@+id/btn_translate"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="295dp"
+        android:background="@drawable/selector_btn"
+        android:text="@string/translate_button_translate" />
 
-        <Button
-            android:textColor="?attr/tool_main_text_color"
-            android:id="@+id/btn_translate"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="1"
-            android:background="@drawable/selector_btn"
-            android:text="@string/translate_button_translate" />
-    </LinearLayout>
-</LinearLayout>
+</merge>
 
 
