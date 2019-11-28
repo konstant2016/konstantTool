@@ -5,53 +5,57 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textColor="?attr/tool_main_text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
         android:gravity="center"
-        android:text="@string/setting_theme_describe" />
+        android:text="@string/setting_theme_describe"
+        android:textColor="?attr/tool_main_text_color" />
 
     <View
         android:id="@+id/selector_red"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="80dp"
         android:background="@color/color_red"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
     <View
-        android:layout_marginRight="30dp"
-        android:layout_alignParentRight="true"
         android:id="@+id/selector_class"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
         android:background="@color/color_green"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
     <View
         android:id="@+id/selector_blue"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="260dp"
         android:background="@color/color_blue"
+        android:focusable="true"
         android:clickable="true" />
 
     <View
         android:id="@+id/selector_dark"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="260dp"
+        android:layout_marginEnd="30dp"
         android:background="@color/color_black"
+        android:focusable="true"
         android:clickable="true" />
 
 </merge>

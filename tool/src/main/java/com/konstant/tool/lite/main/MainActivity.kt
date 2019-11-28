@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Gravity
 import android.view.View
+import androidx.core.view.GravityCompat
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.*
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -47,7 +48,7 @@ class MainActivity : BaseActivity() {
         view_pager.adapter = mAdapter
         view_segment.setUpWithViewPager(view_pager)
 
-        img_drawer.setOnClickListener { draw_layout.openDrawer(Gravity.LEFT) }
+        img_drawer.setOnClickListener { draw_layout.openDrawer(GravityCompat.START) }
 
         img_setting.setOnClickListener { startActivity(SettingActivity::class.java) }
 

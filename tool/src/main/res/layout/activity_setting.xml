@@ -53,7 +53,7 @@
                 android:id="@+id/tv_exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/setting_prevent_exit"
                 android:textColor="?attr/tool_main_text_color"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_exit"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/setting_prevent_exit_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
@@ -73,9 +73,9 @@
                 android:id="@+id/switch_exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
                 android:thumb="@drawable/selector_switch_thumb"
                 android:track="@drawable/selector_switch_track" />
 
@@ -99,7 +99,7 @@
                 android:id="@+id/tv_kill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/setting_kill"
                 android:textColor="?attr/tool_main_text_color"
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_kill"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/setting_kill_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
@@ -119,9 +119,9 @@
                 android:id="@+id/switch_kill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
                 android:thumb="@drawable/selector_switch_thumb"
                 android:track="@drawable/selector_switch_track" />
 
@@ -145,7 +145,7 @@
                 android:id="@+id/tv_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/setting_update_auto"
                 android:textColor="?attr/tool_main_text_color"
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_update"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/setting_update_auto_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
@@ -165,9 +165,9 @@
                 android:id="@+id/switch_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
                 android:thumb="@drawable/selector_switch_thumb"
                 android:track="@drawable/selector_switch_track" />
 
@@ -190,7 +190,7 @@
                 android:id="@+id/tv_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/setting_show_collection"
                 android:textColor="?attr/tool_main_text_color"
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_collect"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/setting_show_collection_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
@@ -210,9 +210,9 @@
                 android:id="@+id/switch_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
                 android:thumb="@drawable/selector_switch_thumb"
                 android:track="@drawable/selector_switch_track" />
 
@@ -235,7 +235,7 @@
                 android:id="@+id/tv_dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/setting_adapter_dark_mode"
                 android:textColor="?attr/tool_main_text_color"
@@ -246,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_dark"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/setting_adapter_dark_mode_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
@@ -255,9 +255,9 @@
                 android:id="@+id/switch_dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
                 android:thumb="@drawable/selector_switch_thumb"
                 android:track="@drawable/selector_switch_track" />
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:id="@+id/layout_content"
-    android:clickable="true"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -16,20 +17,20 @@
         android:textColor="?attr/tool_main_text_color" />
 
     <EditText
-        android:padding="5dp"
         android:id="@+id/edit_input"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/edit_bg" />
+        android:background="@drawable/edit_bg"
+        android:padding="5dp" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/parse_engine_select"
-        android:textColor="?attr/tool_main_text_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textColor="?attr/tool_main_text_color" />
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -39,70 +40,70 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/radio_01"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_radio"
+            android:button="@null"
             android:checked="true"
             android:gravity="center"
-            android:button="@null"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_radio"
-            android:text="1" />
+            android:text="1"
+            android:textColor="?attr/tool_main_text_color" />
 
         <RadioButton
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/radio_02"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:button="@null"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/selector_radio"
-            android:text="2" />
+            android:button="@null"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="?attr/tool_main_text_color" />
 
         <RadioButton
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/radio_03"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:button="@null"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/selector_radio"
-            android:text="3" />
+            android:button="@null"
+            android:gravity="center"
+            android:text="3"
+            android:textColor="?attr/tool_main_text_color" />
 
         <RadioButton
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/radio_04"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:button="@null"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/selector_radio"
-            android:text="4" />
+            android:button="@null"
+            android:gravity="center"
+            android:text="4"
+            android:textColor="?attr/tool_main_text_color" />
 
         <RadioButton
-            android:textColor="?attr/tool_main_text_color"
             android:id="@+id/radio_05"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:button="@null"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/selector_radio"
-            android:text="5" />
+            android:button="@null"
+            android:gravity="center"
+            android:text="5"
+            android:textColor="?attr/tool_main_text_color" />
 
     </RadioGroup>
 
     <Button
-        android:textColor="?attr/tool_main_text_color"
         android:id="@+id/btn_ok"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/selector_btn"
-        android:text="@string/base_button_ok" />
+        android:text="@string/base_button_ok"
+        android:textColor="?attr/tool_main_text_color" />
 
 </LinearLayout>

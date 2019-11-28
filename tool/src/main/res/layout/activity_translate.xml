@@ -19,7 +19,7 @@
     <RelativeLayout
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="175dp"
         android:layout_weight="1"
         android:background="@drawable/layout_bg_spinner">
@@ -28,16 +28,15 @@
             android:id="@+id/spinner_origin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="@color/color_transport"
             android:gravity="center" />
 
         <ImageView
             android:layout_width="10dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:rotation="270"
             android:src="@drawable/icon_arrows" />
     </RelativeLayout>
@@ -54,9 +53,9 @@
     <RelativeLayout
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="175dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_weight="1"
         android:background="@drawable/layout_bg_spinner">
 
@@ -64,16 +63,15 @@
             android:id="@+id/spinner_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="@color/color_transport"
             android:gravity="center" />
 
         <ImageView
             android:layout_width="10dp"
             android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:rotation="270"
             android:src="@drawable/icon_arrows" />
     </RelativeLayout>

@@ -63,11 +63,12 @@
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/selector_checkbox"
             android:button="@null"
             android:checked="false"
-            android:clickable="true" />
+            android:clickable="true"
+            android:focusable="true" />
     </LinearLayout>
 
     <RelativeLayout
@@ -92,9 +93,9 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"
@@ -107,7 +108,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:gravity="center"

@@ -18,7 +18,7 @@
         android:gravity="center"
         android:hint="@string/qrcode_input_text_hint"
         android:textColorHint="?attr/tool_second_text_color"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <TextView
         android:textColor="?attr/tool_second_text_color"

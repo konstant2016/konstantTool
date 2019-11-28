@@ -14,7 +14,7 @@
         android:id="@+id/img_package"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/ic_launcher" />
 
@@ -25,7 +25,7 @@
         android:id="@+id/name_package"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
         android:gravity="center_vertical"
         android:text="应用名字：微信"
         android:textSize="16sp" />
@@ -37,7 +37,7 @@
         android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
         android:gravity="center_vertical"
         android:text="应用ID：com/tencent/qq.com"
         android:textSize="14sp" />

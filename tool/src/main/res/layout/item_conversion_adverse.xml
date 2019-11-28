@@ -8,7 +8,7 @@
         android:id="@+id/img_header"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:src="@drawable/ic_launcher" />
 
     <TextView

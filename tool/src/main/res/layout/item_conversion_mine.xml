@@ -8,7 +8,7 @@
         android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/wechat_bg_right"
@@ -22,8 +22,8 @@
         android:id="@+id/img_header"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
         android:src="@drawable/ic_launcher" />
 
     <View

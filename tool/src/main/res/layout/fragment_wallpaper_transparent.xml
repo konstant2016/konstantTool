@@ -8,7 +8,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
         android:text="@string/wallpaper_translate_describe"
@@ -17,7 +16,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
@@ -27,7 +25,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
@@ -39,8 +36,6 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/selector_btn"
         android:text="@string/wallpaper_translate_button_enable"
@@ -51,8 +46,6 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_btn"
         android:text="@string/wallpaper_translate_button_close"

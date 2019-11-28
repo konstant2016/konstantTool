@@ -38,7 +38,7 @@
         android:id="@+id/text_mian"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1px"
         android:background="?android:selectableItemBackground"
@@ -52,7 +52,7 @@
         android:id="@+id/text_setting"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1px"
         android:background="?android:selectableItemBackground"
@@ -81,7 +81,7 @@
         android:layout_width="1px"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
         android:background="?attr/tool_divider_color" />
 
 </RelativeLayout>

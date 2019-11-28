@@ -16,7 +16,8 @@
         android:hint="输入运单号"
         android:inputType="number"
         android:padding="5dp"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:textColor="?attr/tool_main_text_color"
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
@@ -29,7 +30,8 @@
         android:background="@drawable/edit_bg"
         android:hint="货物名称(非必填)"
         android:padding="5dp"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:textColor="?attr/tool_main_text_color"
         android:textColorHint="?attr/tool_second_text_color"
         android:textSize="13sp" />
@@ -37,7 +39,7 @@
     <TextView
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:text="选择物流公司："
         android:visibility="gone" />
@@ -60,6 +62,7 @@
             android:clickable="true"
             android:clipChildren="false"
             android:clipToPadding="false"
+            android:focusable="true"
             android:gravity="center"
             android:spinnerMode="dropdown"
             android:text="自动选择" />
@@ -67,9 +70,9 @@
         <ImageView
             android:layout_width="10dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:rotation="270"
             android:src="@drawable/icon_arrows" />
     </RelativeLayout>
