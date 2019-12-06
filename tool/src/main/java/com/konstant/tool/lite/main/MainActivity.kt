@@ -89,7 +89,7 @@ class MainActivity : BaseActivity() {
 
     override fun onBackPressed() {
         if (draw_layout.isDrawerOpen(layout_left)) {
-            draw_layout.closeDrawer(Gravity.LEFT)
+            draw_layout.closeDrawer(GravityCompat.START)
             return
         }
         if (SettingManager.getExitTipsStatus(this) and (System.currentTimeMillis() - mLastTime > 2000)) {

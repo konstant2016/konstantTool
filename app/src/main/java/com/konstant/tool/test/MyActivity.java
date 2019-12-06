@@ -5,6 +5,10 @@ import android.os.PersistableBundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.konstant.tool.httpsender.NetworkHelper;
+import com.konstant.tool.httpsender.response.WeatherResponse;
+import com.konstant.tool.httpsender.sender.Requester;
+
 
 /**
  * 描述:activity的声明周期
@@ -53,5 +57,16 @@ public class MyActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        NetworkHelper.getInstance().getWeatherInfo("", new Requester.Callback<WeatherResponse>() {
+            @Override
+            public void onSuccess(WeatherResponse result) {
+
+            }
+
+            @Override
+            public void onError(Exception exception) {
+
+            }
+        });
     }
 }

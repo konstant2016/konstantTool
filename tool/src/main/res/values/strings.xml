@@ -153,7 +153,7 @@
     <string name="parse_address_describe">在下面的输入框内，填入你要播放的视频地址</string>
     <string name="parse_input_address_toast">记得输入地址哦</string>
     <string name="parse_refresh_current_page">刷新当前页面</string>
-    <string name="parse_copy_current_page">刷新当前页面</string>
+    <string name="parse_copy_current_page">复制当前页面地址</string>
     <string name="parse_engine_select">选择解析引擎</string>
     <string name="parse_engine_01">引擎一解析VIP视频(推荐)</string>
     <string name="parse_engine_02">引擎二解析VIP视频</string>

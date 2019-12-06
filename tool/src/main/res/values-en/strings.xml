@@ -118,7 +118,7 @@
     <string name="parse_address_describe">Input in the url you want to play into input box</string>
     <string name="parse_input_address_toast">Remember to enter address oh</string>
     <string name="parse_refresh_current_page">Refresh the current page</string>
-    <string name="parse_copy_current_page">Refresh the current page</string>
+    <string name="parse_copy_current_page">Copy current page address</string>
     <string name="parse_engine_select">Select the parsing engine</string>
     <string name="parse_engine_01">A VIP video analytic engine (recommended)</string>
     <string name="parse_engine_02">Two VIP video analytic engine</string>
