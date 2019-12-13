@@ -134,10 +134,10 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
                 14 -> {
                     Picasso.get().load(R.drawable.weather_img_15).into(img_weather_icon)
                 }
-                15 -> {
+                15, 18 -> {
                     Picasso.get().load(R.drawable.weather_img_16).into(img_weather_icon)
                 }
-                30 -> {
+                30, 33 -> {
                     Picasso.get().load(R.drawable.weather_img_17).into(img_weather_icon)
                 }
                 17 -> {

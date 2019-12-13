@@ -4,10 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.Toast
 import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.setting.SettingManager
@@ -29,17 +26,20 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
             loadsImagesAutomatically = true
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             displayZoomControls = false
+            domStorageEnabled = true
         }
 
         webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                val url = request?.url.toString()
                 mInterceptUrlList.forEach {
                     if (url.startsWith(it)) {
                         Toast.makeText(KonApplication.context, "客户端跳转已拦截，如仍要跳转，请复制链接后在浏览器中打开", Toast.LENGTH_LONG).show()
                         return true
                     }
                 }
-                view.loadUrl(url)
+                view?.loadUrl(url)
                 return false
             }
         }

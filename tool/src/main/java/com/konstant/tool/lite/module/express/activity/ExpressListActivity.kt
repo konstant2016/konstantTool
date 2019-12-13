@@ -9,9 +9,11 @@ import android.widget.EditText
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.ExpressChanged
+import com.konstant.tool.lite.base.H5Activity
 import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
 import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.data.bean.express.ExpressData
+import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -33,11 +35,22 @@ class ExpressListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_express)
-        setTitle(getString(R.string.express_title))
-        readLocalExpress()
-        initBaseViews()
-        updateUI()
+        init()
+    }
+
+    private fun init() {
+        if (SettingManager.getExpressWithHtml(this)) {
+            val intent = Intent(this, H5Activity::class.java)
+            intent.putExtra(H5Activity.H5_URL, "https://m.kuaidi100.com/index.jsp")
+            startActivitySafely(intent)
+            finish()
+        } else {
+            setContentView(R.layout.activity_express)
+            setTitle(getString(R.string.express_title))
+            readLocalExpress()
+            initBaseViews()
+            updateUI()
+        }
     }
 
     // 初始化基础控件

@@ -203,6 +203,8 @@
     <string name="setting_language_describe">(设置软件的默认语言)</string>
     <string name="setting_browser">浏览器设置</string>
     <string name="setting_browser_describe">(因UC限制，选择UC时无法自动跳转网页)</string>
+    <string name="setting_prevent_express">切换网页版快递查询</string>
+    <string name="setting_prevent_express_describe">(当快递查询无结果时，可尝试打开此开关)</string>
     <string name="setting_prevent_exit">防止误退</string>
     <string name="setting_prevent_exit_describe">(连按两次返回键才能退出应用)</string>
     <string name="setting_kill">纯净后台</string>

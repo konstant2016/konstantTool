@@ -74,6 +74,11 @@ class SettingActivity : BaseActivity() {
         switch_update.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveAutoCheckUpdate(this, isChecked) }
         layout_update.setOnClickListener { switch_update.isChecked = !switch_update.isChecked }
 
+        // 网页版快递查询
+        switch_express.isChecked = SettingManager.getExpressWithHtml(this)
+        switch_express.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveExpressWithHtml(this, isChecked) }
+        layout_express.setOnClickListener { switch_express.isChecked = !switch_express.isChecked }
+
         // 显示收藏列表
         switch_collect.isChecked = SettingManager.getShowCollection(this)
         switch_collect.setOnCheckedChangeListener { _, isChecked ->

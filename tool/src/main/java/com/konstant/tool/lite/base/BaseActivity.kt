@@ -16,6 +16,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -318,7 +319,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     protected fun startActivity(cls: Class<*>) {
-        if (draw_layout.isDrawerOpen(Gravity.LEFT)) {
+        if (draw_layout.isDrawerOpen(GravityCompat.START)) {
             draw_layout.closeDrawers()
         }
         startActivity(Intent(this, cls))

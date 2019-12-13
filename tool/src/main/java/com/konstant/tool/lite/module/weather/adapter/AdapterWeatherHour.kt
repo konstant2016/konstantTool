@@ -84,10 +84,10 @@ class AdapterWeatherHour(private val hours: List<WeatherData.Hour.HourData>) : R
                 14 -> {
                     Picasso.get().load(R.drawable.weather_img_15).into(img_weather)
                 }
-                15 -> {
+                15, 18 -> {
                     Picasso.get().load(R.drawable.weather_img_16).into(img_weather)
                 }
-                30 -> {
+                30, 33 -> {
                     Picasso.get().load(R.drawable.weather_img_17).into(img_weather)
                 }
                 17 -> {

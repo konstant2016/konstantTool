@@ -159,6 +159,8 @@
     <string name="setting_language_describe">(Some pages can’t show english because of server)</string>
     <string name="setting_browser">Browser settings</string>
     <string name="setting_browser_describe">(Select default browser when open H5)</string>
+    <string name="setting_prevent_express">Express with Html</string>
+    <string name="setting_prevent_express_describe">(Switch on if express useless)</string>
     <string name="setting_prevent_exit">Exit Toast</string>
     <string name="setting_prevent_exit_describe">(Double click back to exit)</string>
     <string name="setting_kill">No backgroundProcess</string>

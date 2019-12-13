@@ -181,6 +181,51 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/layout_express"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/setting_prevent_express"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_express"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:text="@string/setting_prevent_express_describe"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="25dp"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="?attr/tool_divider_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/layout_collect"
             android:layout_width="match_parent"
             android:layout_height="50dp"

@@ -24,6 +24,7 @@ object SettingManager {
     private const val NAME_AUTO_UPDATE = "autoUpdate"
     private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
     private const val NAME_DEFAULT_LANGUAGE = "defaultLanguage"
+    private const val NAME_EXPRESS_HTML = "expressHtml"
     private const val NAME_BROWSER_TYPE = "browserStatus"
     private const val EXIT_TIPS_STATUS = "exitTipsStatus"
     private const val KILL_PROCESS_STATUS = "killProcessStatus"
@@ -122,6 +123,14 @@ object SettingManager {
     // 保存：是否自动检查更新
     fun saveAutoCheckUpdate(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, NAME_AUTO_UPDATE, status)
+    }
+
+    // 读取：是否使用网页版快递查询
+    fun getExpressWithHtml(context: Context) = FileUtil.readDataFromSp(context, NAME_EXPRESS_HTML, false)
+
+    // 保存：是否使用网页版快递查询
+    fun saveExpressWithHtml(context: Context, status: Boolean) {
+        FileUtil.saveDataToSp(context, NAME_EXPRESS_HTML, status)
     }
 
     // 读取：悬浮壁纸的透明度
