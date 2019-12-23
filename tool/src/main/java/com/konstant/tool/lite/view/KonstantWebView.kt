@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
+import android.util.Log
 import android.webkit.*
 import android.widget.Toast
 import com.konstant.tool.lite.base.KonApplication
@@ -14,7 +15,7 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
     private var mTitleChange: ((String) -> Unit)? = null
     private var mProgressChange: ((Int) -> Unit)? = null
 
-    private val mInterceptUrlList = listOf("youku", "tenvideo", "sohuvideo", "iqiyi", "pptv", "letvclient", "tbopen", "openapp")
+    private val mInterceptUrlList = listOf("youku", "tenvideo", "sohuvideo", "iqiyi", "pptv", "letvclient", "tbopen", "openapp","kuaidi100","http://a.app.qq.com/")
 
     init {
         settings.apply {
@@ -33,6 +34,7 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 val url = request?.url.toString()
+                Log.d("KonstantWebView",url)
                 mInterceptUrlList.forEach {
                     if (url.startsWith(it)) {
                         Toast.makeText(KonApplication.context, "客户端跳转已拦截，如仍要跳转，请复制链接后在浏览器中打开", Toast.LENGTH_LONG).show()

@@ -193,8 +193,9 @@
     <string name="speed_title">Network Speed</string>
     <string name="speed_testing">Calculating</string>
     <string name="speed_describe">Tip: The speed measurement principle is to download the specified size file and count the download time to calculate the network speed. Please pay attention to the traffic consumption. When the network is stable, the larger the download file value, the more accurate the speed calculation.</string>
-    <string name="speed_input_size_describe">Enter the consumption flow value, Maximum 50MB</string>
-    <string name="speed_input_hint">The default 10MB</string>
+    <string name="speed_input_size_describe">Select the consumption flow value, Current 10 MB</string>
+    <string name="speed_input_hint_01">Select the consumption flow value, Current</string>
+    <string name="speed_input_hint_02">MB</string>
     <string name="speed_button_start">Start</string>
     <string name="translate_title">Translation</string>
     <string name="translate_error">Error</string>

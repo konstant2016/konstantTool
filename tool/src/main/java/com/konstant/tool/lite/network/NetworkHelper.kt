@@ -1,20 +1,19 @@
 package com.konstant.tool.lite.network
 
 import com.konstant.tool.lite.base.KonApplication
-import com.konstant.tool.lite.network.api.ExpressApi
-import com.konstant.tool.lite.network.api.TranslateApi
-import com.konstant.tool.lite.network.api.UpdateApi
-import com.konstant.tool.lite.network.api.WeatherApi
+import com.konstant.tool.lite.network.api.*
 import com.konstant.tool.lite.network.config.FileDownloader
 import com.konstant.tool.lite.network.config.RetrofitBuilder
 import com.konstant.tool.lite.network.response.ExpressResponse
 import com.konstant.tool.lite.network.response.TranslateResponse
 import com.konstant.tool.lite.network.response.UpdateResponse
 import com.konstant.tool.lite.network.response.WeatherResponse
-import com.konstant.tool.lite.util.MD5
+import com.konstant.tool.lite.util.KuaidiniaoMd5
+import com.konstant.tool.lite.util.TranslateMD5
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.json.JSONObject
 import java.io.File
 
 object NetworkHelper {
@@ -32,7 +31,7 @@ object NetworkHelper {
     fun getTranslate(originMsg: String, originType: String, resultType: String): Observable<TranslateResponse> {
         val appid = "20180112000114653"
         val secret = "DMDnCBX70pAOKY84Q7oB"
-        val sign = MD5.md5(appid + originMsg + System.currentTimeMillis() / 1000 + secret)
+        val sign = TranslateMD5.getMd5(appid + originMsg + System.currentTimeMillis() / 1000 + secret)
         val salt = System.currentTimeMillis() / 1000
         return RetrofitBuilder
                 .getApi(TranslateApi.HOST, TranslateApi::class.java)

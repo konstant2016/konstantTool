@@ -72,7 +72,7 @@ class WeatherFragment : BaseFragment() {
     private fun requestPermission() {
         val permissions = mutableListOf(Manifest.permission.ACCESS_FINE_LOCATION)
         PermissionRequester.requestPermission(getNotNullContext(), permissions, {
-            refresh_layout.startRefresh()
+            refresh_layout?.startRefresh()
         }, {
             showToast(getString(R.string.weather_permission_cancel))
         })

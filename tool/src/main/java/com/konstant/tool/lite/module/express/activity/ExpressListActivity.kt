@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import com.konstant.tool.lite.R
@@ -14,6 +15,7 @@ import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
 import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.network.NetworkHelper
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
 import kotlinx.android.synthetic.main.title_layout.*

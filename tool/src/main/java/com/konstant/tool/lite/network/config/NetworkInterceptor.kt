@@ -6,7 +6,12 @@ import android.net.NetworkInfo
 import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.util.zip.GZIPInputStream
+import okhttp3.ResponseBody.Companion.toResponseBody
+
 
 /**
  * 时间：2019/5/5 16:34
@@ -40,6 +45,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
         val response = chain.proceed(chain.request())
         if (response.isSuccessful) {
             return response.newBuilder()
+                    .removeHeader("Content-Encoding:  gzip")
                     .header("Cache-Control", "public, max-age=$time")
                     .build()
         }
@@ -47,8 +53,37 @@ class NetworkInterceptor(val context: Context) : Interceptor {
          * 网络不可用或者请求失败时，会走到这里，如果本地有缓存，则根据时间返回缓存，否则，返回失败
          */
         return response.newBuilder()
+                .removeHeader("Content-Encoding:  gzip")
                 .header("Cache-Control", "public, only-if-cached, max-stale=$time")
                 .build()
+    }
+
+    private fun gzipConvert(response: Response): Response {
+        if (response.isSuccessful) {
+            val bytes = response.body?.bytes()
+            val contentType = response.body?.contentType()
+            bytes?.let {
+                val outputStream = ByteArrayOutputStream()
+                for (pair in response.headers) {
+                    if ((pair.first.equals("Accept-Encoding", true) && pair.second.equals("gzip", true))
+                            || pair.first.equals("Content-Encoding", true) && pair.second.equals("gzip", true)) {
+
+                        val inputStream = ByteArrayInputStream(bytes)
+                        val gzipInputStream = GZIPInputStream(inputStream)
+                        val buffer = ByteArray(bytes.size)
+                        gzipInputStream.read(buffer)
+                        outputStream.write(buffer)
+                    }
+                }
+                if (outputStream.size() > 0) {
+                    val byteArray = outputStream.toByteArray()
+                    return response.newBuilder()
+                            .body(byteArray.toResponseBody(contentType))
+                            .build()
+                }
+            }
+        }
+        return response
     }
 
     // 判断网络是否可用

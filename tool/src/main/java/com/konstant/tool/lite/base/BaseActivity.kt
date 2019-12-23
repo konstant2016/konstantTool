@@ -285,7 +285,7 @@ abstract class BaseActivity : SwipeBackActivity() {
             val mainInvisibleHeight = main.rootView.height - rect.bottom
             val screenHeight = main.rootView.height//屏幕高度
             //3、不可见区域大于屏幕本身高度的1/4：说明键盘弹起了
-            if (mainInvisibleHeight > screenHeight / 4) {
+            if ((mainInvisibleHeight > screenHeight / 4) && (scroll.bottom > rect.bottom)) {
                 val location = IntArray(2)
                 scroll.getLocationInWindow(location)
                 // 4､获取Scroll的窗体坐标，算出main需要滚动的高度

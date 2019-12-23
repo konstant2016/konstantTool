@@ -126,6 +126,8 @@ class SettingActivity : BaseActivity() {
                 .setItemList(mLanguageList)
                 .setOnItemClickListener { dialog, position ->
                     dialog.dismiss()
+                    if (SettingManager.getDefaultLanguage(this) == position)
+                        return@setOnItemClickListener
                     SettingManager.saveDefaultLanguage(this, position)
                     EventBus.getDefault().post(LanguageChanged())
                     layout_language.setHintText(mLanguageList[SettingManager.getDefaultLanguage(this)])

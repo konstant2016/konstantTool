@@ -55,4 +55,12 @@
         <attr name="verticalGap" format="dimension|reference" />
     </declare-styleable>
 
+    <declare-styleable name="CircleView">
+        <attr name="upperColor" format="color|reference" />
+        <attr name="backgroundColor" format="color|reference" />
+        <attr name="current" format="integer|reference" />
+        <attr name="total" format="integer|reference" />
+        <attr name="lineWidth" format="reference|dimension" />
+    </declare-styleable>
+
 </resources>

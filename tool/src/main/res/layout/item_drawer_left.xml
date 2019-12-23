@@ -14,6 +14,7 @@
         android:paddingStart="40dp"
         android:paddingEnd="40dp"
         android:text="直尺"
-        android:textColor="?attr/tool_main_text_color" />
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="14sp" />
 
 </RelativeLayout>

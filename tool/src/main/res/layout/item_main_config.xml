@@ -11,7 +11,8 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="25dp"
         android:text="纯净后台"
-        android:textColor="?attr/tool_main_text_color" />
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/item_img"
