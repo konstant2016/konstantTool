@@ -8,12 +8,10 @@ import com.konstant.tool.lite.network.response.ExpressResponse
 import com.konstant.tool.lite.network.response.TranslateResponse
 import com.konstant.tool.lite.network.response.UpdateResponse
 import com.konstant.tool.lite.network.response.WeatherResponse
-import com.konstant.tool.lite.util.KuaidiniaoMd5
 import com.konstant.tool.lite.util.TranslateMD5
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.json.JSONObject
 import java.io.File
 
 object NetworkHelper {
