@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <!--留出系统状态栏的高度-->
-    <TextView
+    <View
         android:id="@+id/view_status_bar"
         android:layout_width="match_parent"
         android:layout_height="20dp" />

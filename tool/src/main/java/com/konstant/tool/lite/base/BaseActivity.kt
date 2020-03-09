@@ -10,9 +10,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.TypedValue
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
@@ -213,7 +217,8 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     protected open fun initBaseViews() {
-        view_status_bar.height = getStatusBarHeight()
+        val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
+        view_status_bar.layoutParams = params
         title_bar.setOnClickListener { hideSoftKeyboard() }
         title_bar.img_back.setOnClickListener { finish() }
         base_content.setOnClickListener { hideSoftKeyboard() }
@@ -370,7 +375,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
         return if (resourceId > 0) {
             resources.getDimensionPixelSize(resourceId)
-        } else 0
+        } else (resources.displayMetrics.density * 25).toInt()
     }
 
     // 显示加载窗口

@@ -42,7 +42,4 @@ public class LocalCountry {
         LocalCountry that = (LocalCountry) obj;
         return this.directCode.equals(that.directCode) && this.directName.equals(that.directName);
     }
-
-
-
 }

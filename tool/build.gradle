@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     // 二维码扫描
     implementation('com.mylhyl:zxingscanner:2.1.0') {
@@ -70,7 +70,7 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 高德定位
     implementation 'com.amap.api:location:4.7.2'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
     implementation files('libs/core-3.3.3.jar')
     implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.5'

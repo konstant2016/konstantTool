@@ -3,7 +3,6 @@ package com.konstant.tool.lite.module.weather.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
