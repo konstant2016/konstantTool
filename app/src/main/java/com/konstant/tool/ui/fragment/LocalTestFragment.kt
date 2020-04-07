@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import com.konstant.tool.R
 import com.konstant.tool.base.BaseFragment
 import com.konstant.tool.ui.activity.opengl.OpenGlActivity
+import com.konstant.tool.ui.activity.pdfreader.PdfReaderBitmapActivity
+import com.konstant.tool.ui.activity.pdfreader.PdfReaderH5Activity
 import com.konstant.tool.ui.activity.testactivity.*
 import kotlinx.android.synthetic.main.fragment_local_test.*
 
@@ -66,5 +68,11 @@ class LocalTestFragment : BaseFragment() {
 
         // 自定义的触摸控件
         layout_touch_view.setOnClickListener { startActivity(Intent(mActivity, TouchActivity::class.java)) }
+
+        // PDF阅读
+        layout_pdf.setOnClickListener { startActivity(Intent(mActivity, PdfReaderH5Activity::class.java)) }
+
+        // PDF阅读
+        layout_pdf_sdk.setOnClickListener { startActivity(Intent(mActivity, PdfReaderBitmapActivity::class.java)) }
     }
 }
