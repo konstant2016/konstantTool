@@ -69,7 +69,7 @@ open class BaseFragment : androidx.fragment.app.Fragment() {
 
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mActivity = context as Activity
     }

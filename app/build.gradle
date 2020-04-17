@@ -81,4 +81,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     // PDF阅读器
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    // Robust 热修复
+    implementation 'com.meituan.robust:robust:0.4.95'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 }

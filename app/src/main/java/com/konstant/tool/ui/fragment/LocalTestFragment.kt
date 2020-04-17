@@ -10,7 +10,9 @@ import com.konstant.tool.base.BaseFragment
 import com.konstant.tool.ui.activity.opengl.OpenGlActivity
 import com.konstant.tool.ui.activity.pdfreader.PdfReaderBitmapActivity
 import com.konstant.tool.ui.activity.pdfreader.PdfReaderH5Activity
+import com.konstant.tool.ui.activity.robust.RobustActivity
 import com.konstant.tool.ui.activity.testactivity.*
+import com.konstant.tool.ui.activity.viewpager2.ViewPager2Activity
 import kotlinx.android.synthetic.main.fragment_local_test.*
 
 /**
@@ -74,5 +76,11 @@ class LocalTestFragment : BaseFragment() {
 
         // PDF阅读
         layout_pdf_sdk.setOnClickListener { startActivity(Intent(mActivity, PdfReaderBitmapActivity::class.java)) }
+
+        // Robust 热更新
+        layout_robust.setOnClickListener { startActivity(Intent(mActivity, RobustActivity::class.java)) }
+
+        // ViewPager2+新Fragment测试
+        layout_viewpager2.setOnClickListener { startActivity(Intent(mActivity, ViewPager2Activity::class.java)) }
     }
 }
