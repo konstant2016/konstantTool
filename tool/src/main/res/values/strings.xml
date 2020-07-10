@@ -191,6 +191,11 @@
     <string name="scroll_describe">在这里输入文字，文字太短的话，无法滚动哦</string>
     <string name="scroll_button_create">生成滚动字体</string>
 
+    <!--语音合成-->
+    <string name="voice_title">语音合成</string>
+    <string name="voice_describe">在这里要合成为语音的文字</string>
+    <string name="voice_button_create">合成语音</string>
+
     <!--设置中的文字-->
     <string name="setting_title">设置</string>
     <string name="setting_about_title">关于</string>

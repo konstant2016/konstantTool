@@ -83,5 +83,10 @@
     "title": "影视VIP视频解析",
     "title_en": "VIP Video Parse",
     "type": "17"
+  },
+  {
+    "title": "语音合成",
+    "title_en": "Text to Speech",
+    "type": "18"
   }
 ]

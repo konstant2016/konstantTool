@@ -258,4 +258,7 @@
     <string name="qrcode_scan_result">Result：Long click for copy</string>
     <string name="qrcode_scan_result_tips">Show result here</string>
     <string name="concentration_notification_describe">The notification won’t be removed until Concentration Mode stop</string>
+    <string name="voice_title">语音合成</string>
+    <string name="voice_describe">在这里要合成为语音的文字</string>
+    <string name="voice_button_create">合成语音</string>
 </resources>

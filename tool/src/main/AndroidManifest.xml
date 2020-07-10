@@ -35,14 +35,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".module.voice.VoiceSpeechActivity"></activity>
+
         <service
             android:name=".module.concentration.ConcentrationService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
-            android:launchMode="singleTask"
             android:name=".module.concentration.ConcentrationActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
         <service
@@ -63,64 +65,64 @@
         </service>
 
         <activity
-            android:launchMode="singleTask"
             android:name=".module.wallpaper.WallpaperActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.date.DateCalculationActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.live.TVLiveActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.parse.NetVideoActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.parse.ParseVideoActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.rolltxt.ScrollTxtActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.rolltxt.RollTextActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.speed.NetSpeedActivity"
-            android:configChanges="uiMode" />
+            android:configChanges="uiMode"
+            android:launchMode="singleTask" />
         <activity
             android:name=".base.H5Activity"
             android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.decibel.DecibelActivity"
-            android:configChanges="uiMode" />
+            android:configChanges="uiMode"
+            android:launchMode="singleTask" />
         <activity
-            android:launchMode="singleTask"
             android:name=".util.ImageSelector"
             android:configChanges="uiMode"
+            android:launchMode="singleTask"
             android:theme="@style/TransparentTheme" />
         <activity
-            android:launchMode="singleTask"
             android:name=".util.PermissionRequester"
             android:configChanges="uiMode"
+            android:launchMode="singleTask"
             android:theme="@style/TransparentTheme" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.wxfake.WechatFakeActivity"
+            android:launchMode="singleTask"
             android:theme="@style/WechatFakeActivity" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.extract.PackageActivity"
-            android:configChanges="uiMode|locale" /> <!-- 高德定位相关 START -->
+            android:configChanges="uiMode|locale"
+            android:launchMode="singleTask" /> <!-- 高德定位相关 START -->
         <activity
             android:name=".base.SplashActivity"
             android:configChanges="fontScale|uiMode"
@@ -135,7 +137,6 @@
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
-
         </activity>
         <activity
             android:name=".main.MainActivity"
@@ -148,9 +149,9 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:launchMode="singleTask"
             android:name=".module.setting.activity.SettingActivity"
             android:configChanges="fontScale|uiMode"
+            android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity

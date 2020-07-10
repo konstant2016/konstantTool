@@ -45,6 +45,7 @@ import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
+import com.konstant.tool.lite.module.voice.VoiceSpeechActivity
 import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
 import com.konstant.tool.lite.module.weather.activity.WeatherActivity
 import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
@@ -438,6 +439,9 @@ abstract class BaseActivity : SwipeBackActivity() {
             }
             "17" -> {
                 startActivity(ParseVideoActivity::class.java)
+            }
+            "18" -> {
+                startActivity(VoiceSpeechActivity::class.java)
             }
         }
     }

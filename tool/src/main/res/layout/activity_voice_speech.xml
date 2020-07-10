@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".module.voice.VoiceSpeechActivity">
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_bg"
+        android:gravity="center"
+        android:hint="@string/voice_describe"
+        android:textColor="?attr/tool_main_text_color"
+        android:textColorHint="?attr/tool_second_text_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="设置语速"
+        android:textColor="?attr/tool_theme_text_color"
+        android:textSize="12sp" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/speed_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_speed"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:max="45"
+        android:progress="5" />
+
+    <TextView
+        android:id="@+id/tv_pitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speed_seekbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="设置音调"
+        android:textColor="?attr/tool_theme_text_color"
+        android:textSize="12sp" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/pitch_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pitch"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:max="45"
+        android:progress="5" />
+
+    <Button
+        android:id="@+id/btn_create"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_pitch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selector_btn"
+        android:text="@string/voice_button_create"
+        android:textColor="?attr/tool_main_text_color" />
+
+</LinearLayout>
