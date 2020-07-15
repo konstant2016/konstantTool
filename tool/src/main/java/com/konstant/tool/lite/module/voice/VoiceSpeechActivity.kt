@@ -2,27 +2,28 @@ package com.konstant.tool.lite.module.voice
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.text.TextUtils
 import android.widget.SeekBar
 import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_roll_text.*
 import kotlinx.android.synthetic.main.activity_roll_text.btn_create
 import kotlinx.android.synthetic.main.activity_roll_text.et_input
 import kotlinx.android.synthetic.main.activity_voice_speech.*
 import java.util.*
-import kotlin.math.roundToInt
+import kotlin.collections.ArrayList
 
 /**
  * 描述：语音合成
- * 创建者：吕卡
+ * 创建者：菜籽
  * 时间：2020/7/10:9:23 PM
  */
 
 class VoiceSpeechActivity : BaseActivity() {
 
     private var mSpeech: TextToSpeech? = null
+    private val mTextList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +42,7 @@ class VoiceSpeechActivity : BaseActivity() {
                         "0.${progress}x"
                     }
                     progress > 10 -> {
-                        "${progress-10}x"
+                        "${progress - 10}x"
                     }
                     else -> {
                         "1x"
@@ -61,7 +62,7 @@ class VoiceSpeechActivity : BaseActivity() {
                         "0.${progress}x"
                     }
                     progress > 10 -> {
-                        "${progress-10}x"
+                        "${progress - 10}x"
                     }
                     else -> {
                         "1x"
@@ -70,11 +71,9 @@ class VoiceSpeechActivity : BaseActivity() {
                 tv_pitch.text = "设置音调$pitch"
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
     }
 
@@ -108,9 +107,54 @@ class VoiceSpeechActivity : BaseActivity() {
             } else {
                 (pithProgress - 10) * 1.0f
             }
+            substringText(string)
             mSpeech?.setPitch(pitch)
             mSpeech?.setSpeechRate(speed)
-            mSpeech?.speak(string, TextToSpeech.QUEUE_FLUSH, null)
+            var currentPosition = 0
+            mSpeech?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+                override fun onDone(utteranceId: String?) {
+                    currentPosition++
+                    speakText(currentPosition)
+                }
+
+                override fun onError(utteranceId: String?) {
+                }
+
+                override fun onStart(utteranceId: String?) {
+                }
+
+            })
+            speakText(currentPosition)
         })
+    }
+
+    private fun substringText(text: String) {
+        mTextList.clear()
+        val count = if (text.length % 1000 == 0) {
+            text.length / 1000;
+        } else {
+            text.length / 1000 + 1;
+        }
+        var start = 0
+        for (i in 0 until count) {
+            val temp = if (i == count - 1) {
+                text.substring(start, start + text.length % 1000)
+            } else {
+                text.substring(start, start + 1000)
+            }
+            mTextList.add(temp)
+            start += 1000
+        }
+    }
+
+    private fun speakText(index: Int) {
+        if (index in 0 until mTextList.size) {
+            mSpeech?.speak(mTextList[index], TextToSpeech.QUEUE_FLUSH, null, "$index")
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mSpeech?.shutdown()
     }
 }
