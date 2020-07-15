@@ -128,6 +128,10 @@ class VoiceSpeechActivity : BaseActivity() {
         })
     }
 
+    /**
+     * 每次语音最多支持4000字，在这里做裁剪，分段存到list中，
+     * 监听一段语音播放完毕后，执行下一段文字的播放
+     */
     private fun substringText(text: String) {
         mTextList.clear()
         val count = if (text.length % 1000 == 0) {
