@@ -42,7 +42,7 @@ class VoiceSpeechActivity : BaseActivity() {
                         "0.${progress}x"
                     }
                     progress > 10 -> {
-                        "${progress - 10}x"
+                        "${progress - 9}x"
                     }
                     else -> {
                         "1x"
@@ -62,7 +62,7 @@ class VoiceSpeechActivity : BaseActivity() {
                         "0.${progress}x"
                     }
                     progress > 10 -> {
-                        "${progress - 10}x"
+                        "${progress - 9}x"
                     }
                     else -> {
                         "1x"

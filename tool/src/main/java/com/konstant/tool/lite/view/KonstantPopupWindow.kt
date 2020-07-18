@@ -74,6 +74,7 @@ class KonstantPopupWindow(private val context: Context) : PopupWindow(
         } else (context.resources.displayMetrics.density * 25).toInt()
         val position = IntArray(2)
         anchor.getLocationOnScreen(position)
+        // view上边缘距离屏幕顶部的高度 + view本身的高度 - 状态栏的高度，最终得到popupWindow距离屏幕顶部的高度
         val titleHeight = position[1] + anchor.measuredHeight - statusBarHeight
         contentView.view_title_space.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, titleHeight)
     }
