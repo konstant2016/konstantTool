@@ -85,10 +85,10 @@ abstract class BaseActivity : SwipeBackActivity() {
         AppUtil.addActivity(this)
     }
 
-    override fun setContentView(layoutResID: Int) {
+    override fun setContentView(layoutResId: Int) {
         setTheme(SettingManager.getTheme(this))
         super.setContentView(R.layout.activity_base)
-        layoutInflater.inflate(layoutResID, base_content, true)
+        layoutInflater.inflate(layoutResId, base_content, true)
         initUserInterface()
     }
 
@@ -372,7 +372,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 获取状态栏高度
-    private fun getStatusBarHeight(): Int {
+    protected fun getStatusBarHeight(): Int {
         val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
         return if (resourceId > 0) {
             resources.getDimensionPixelSize(resourceId)

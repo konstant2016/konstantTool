@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.RelativeLayout
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.ImageSelector
@@ -44,24 +45,19 @@ class WechatFakeActivity : BaseActivity() {
     }
 
     override fun initBaseViews() {
+        super.initBaseViews()
+        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
+        layout_status_bar.layoutParams = params
         tv_adverse.setOnClickListener { finish() }
         img_more_fake.setOnClickListener {
             KonstantPopupWindow(this)
                     .setItemList(listOf(getString(R.string.wxfake_other_name), getString(R.string.wxfake_other_header), getString(R.string.wxfake_my_header), getString(R.string.wxfake_show_input)))
                     .setOnItemClickListener {
                         when (it) {
-                            0 -> {
-                                setAdverseName()
-                            }
-                            1 -> {
-                                setAdverseHeader()
-                            }
-                            2 -> {
-                                setMyHeader()
-                            }
-                            3 -> {
-                                switchState()
-                            }
+                            0 -> setAdverseName()
+                            1 -> setAdverseHeader()
+                            2 -> setMyHeader()
+                            3 -> switchState()
                         }
                     }
                     .showAsDropDown(view_divider)

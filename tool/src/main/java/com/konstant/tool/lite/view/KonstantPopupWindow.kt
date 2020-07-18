@@ -1,10 +1,10 @@
 package com.konstant.tool.lite.view
 
 import android.content.Context
-import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.layout_pop_konstant.view.*
@@ -15,10 +15,10 @@ import kotlinx.android.synthetic.main.layout_pop_konstant.view.*
  * 描述：从上往下弹的那个弹窗
  */
 
-class KonstantPopupWindow(context: Context) : PopupWindow(
+class KonstantPopupWindow(private val context: Context) : PopupWindow(
         LayoutInflater.from(context).inflate(R.layout.layout_pop_konstant, null),
         WindowManager.LayoutParams.MATCH_PARENT,
-        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.MATCH_PARENT,
         true) {
 
     private var mView: View? = null           // 内部填充的布局
@@ -60,11 +60,22 @@ class KonstantPopupWindow(context: Context) : PopupWindow(
             contentView.layout_content.addView(mView)
         }
         contentView.pop_root.setOnClickListener { dismiss() }
-        val rect = Rect()
-        anchor.getGlobalVisibleRect(rect)
-        val height = anchor.resources.displayMetrics.heightPixels - rect.bottom
-        setHeight(height)
+        setViewHeight(anchor)
         super.showAsDropDown(anchor)
+    }
+
+    /**
+     * 计算出顶部需要留出多少高度，这个高度不需要设置半透明的效果
+     */
+    private fun setViewHeight(anchor: View) {
+        val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
+        val statusBarHeight = if (resourceId > 0) {
+            context.resources.getDimensionPixelSize(resourceId)
+        } else (context.resources.displayMetrics.density * 25).toInt()
+        val position = IntArray(2)
+        anchor.getLocationOnScreen(position)
+        val titleHeight = position[1] + anchor.measuredHeight - statusBarHeight
+        contentView.view_title_space.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, titleHeight)
     }
 
     override fun dismiss() {
