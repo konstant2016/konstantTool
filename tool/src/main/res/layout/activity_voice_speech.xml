@@ -29,7 +29,7 @@
         android:layout_below="@id/et_input"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="设置语速1x"
+        android:text="@string/voice_seek_speed"
         android:textColor="?attr/tool_theme_text_color"
         android:textSize="12sp" />
 
@@ -52,7 +52,7 @@
         android:layout_below="@id/speed_seekbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="设置音调1x"
+        android:text="@string/voice_seek_pitch"
         android:textColor="?attr/tool_theme_text_color"
         android:textSize="12sp" />
 
@@ -67,6 +67,16 @@
         android:max="15"
         android:min="1"
         android:progress="10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speed_seekbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/voice_pitch_no_support"
+        android:textColor="?attr/tool_theme_text_color"
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/btn_create"

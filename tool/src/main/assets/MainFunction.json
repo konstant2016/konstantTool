@@ -80,12 +80,12 @@
     "type": "16"
   },
   {
-    "title": "影视VIP视频解析",
-    "title_en": "VIP Video Parse",
+    "title": "影视视频解析",
+    "title_en": "Video Parse",
     "type": "17"
   },
   {
-    "title": "语音合成",
+    "title": "文字语音合成",
     "title_en": "Text to Speech",
     "type": "18"
   }

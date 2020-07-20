@@ -258,7 +258,13 @@
     <string name="qrcode_scan_result">Result：Long click for copy</string>
     <string name="qrcode_scan_result_tips">Show result here</string>
     <string name="concentration_notification_describe">The notification won’t be removed until Concentration Mode stop</string>
-    <string name="voice_title">语音合成</string>
-    <string name="voice_describe">在这里要合成为语音的文字</string>
-    <string name="voice_button_create">合成语音</string>
+    <string name="voice_title">Voice Speech</string>
+    <string name="voice_describe">Enter the text that needs to be converted</string>
+    <string name="voice_button_create">Convert</string>
+    <string name="voice_seek_speed">Speed</string>
+    <string name="voice_seek_pitch">Pitch</string>
+    <string name="voice_toast_create">Building…</string>
+    <string name="voice_toast_create_error">Build Error</string>
+    <string name="voice_toast_package_lost">No support current system language</string>
+    <string name="voice_pitch_no_support">No support current pitch on some devices</string>
 </resources>

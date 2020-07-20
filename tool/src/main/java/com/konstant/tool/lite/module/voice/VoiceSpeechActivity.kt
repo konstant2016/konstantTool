@@ -29,12 +29,13 @@ class VoiceSpeechActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voice_speech)
         initBaseViews()
-        setTitle("语音合成")
+        setTitle(resources.getString(R.string.voice_title))
         btn_create.setOnClickListener { onBtnPressed() }
     }
 
     override fun initBaseViews() {
         super.initBaseViews()
+        tv_speed.text = "${resources.getString(R.string.voice_seek_speed)} 1x"
         speed_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val speed = when {
@@ -48,13 +49,14 @@ class VoiceSpeechActivity : BaseActivity() {
                         "1x"
                     }
                 }
-                tv_speed.text = "设置语速$speed"
+                tv_speed.text = "${resources.getString(R.string.voice_seek_speed)} $speed"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+        tv_pitch.text = "${resources.getString(R.string.voice_seek_pitch)} 1x"
         pitch_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val pitch = when {
@@ -68,7 +70,7 @@ class VoiceSpeechActivity : BaseActivity() {
                         "1x"
                     }
                 }
-                tv_pitch.text = "设置音调$pitch"
+                tv_pitch.text = "${resources.getString(R.string.voice_seek_pitch)} $pitch"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -82,17 +84,17 @@ class VoiceSpeechActivity : BaseActivity() {
             showToast(getString(R.string.base_input_empty_toast))
             return
         }
-        showToast("正在合成中...")
+        showToast(getString(R.string.voice_toast_create))
         val string = et_input.text.toString()
         mSpeech?.shutdown()
         mSpeech = TextToSpeech(this, TextToSpeech.OnInitListener {
             if (it != TextToSpeech.SUCCESS) {
-                Toast.makeText(this, "合成失败", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getString(R.string.voice_toast_create_error), Toast.LENGTH_SHORT).show()
                 return@OnInitListener
             }
             val result = mSpeech?.setLanguage(Locale.CHINA)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(this, "语音包丢失或语音不支持", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getString(R.string.voice_toast_package_lost), Toast.LENGTH_SHORT).show()
                 return@OnInitListener
             }
             val speedProgress = speed_seekbar.progress

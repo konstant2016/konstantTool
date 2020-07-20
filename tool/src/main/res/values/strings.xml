@@ -193,8 +193,14 @@
 
     <!--语音合成-->
     <string name="voice_title">语音合成</string>
-    <string name="voice_describe">在这里要合成为语音的文字</string>
+    <string name="voice_describe">在这里输入需要合成为语音的文字</string>
     <string name="voice_button_create">合成语音</string>
+    <string name="voice_seek_speed">当前语速</string>
+    <string name="voice_seek_pitch">当前音调</string>
+    <string name="voice_pitch_no_support">部分设备不支持修改音调</string>
+    <string name="voice_toast_create">正在合成中…</string>
+    <string name="voice_toast_create_error">合成失败</string>
+    <string name="voice_toast_package_lost">语音包丢失或语音不支持</string>
 
     <!--设置中的文字-->
     <string name="setting_title">设置</string>

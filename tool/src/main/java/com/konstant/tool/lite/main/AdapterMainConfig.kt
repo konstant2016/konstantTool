@@ -24,7 +24,8 @@ class AdapterMainConfig(private val configs: List<Function>) : BaseRecyclerAdapt
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         super.onBindViewHolder(holder, position)
-        holder.itemView.item_title.text = configs[position].title
+        val title = "${position+1}、${configs[position].title}"
+        holder.itemView.item_title.text = title
     }
 
     override fun getItemCount() = configs.size

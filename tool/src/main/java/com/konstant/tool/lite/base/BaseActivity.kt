@@ -56,6 +56,7 @@ import com.konstant.tool.lite.view.KonstantPagerIndicator
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.item_drawer_left.view.*
+import kotlinx.android.synthetic.main.item_main_config.view.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 import kotlinx.android.synthetic.main.title_layout.view.*
@@ -454,7 +455,8 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             super.onBindViewHolder(holder, position)
-            holder.itemView.tv_title.text = configs[position].title
+            val title = "${position+1}、${configs[position].title}"
+            holder.itemView.tv_title.text = title
         }
 
         override fun getItemCount() = configs.size
