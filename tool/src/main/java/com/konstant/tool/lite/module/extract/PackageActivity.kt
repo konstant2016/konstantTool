@@ -1,15 +1,20 @@
 package com.konstant.tool.lite.module.extract
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.app.ShareCompat
+import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPopupWindow
 import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.activity_package_export.*
 import kotlinx.android.synthetic.main.layout_dialog_progress.view.*
-import kotlinx.android.synthetic.main.layout_recycler_view.*
 import kotlinx.android.synthetic.main.pop_package.view.*
 import kotlinx.android.synthetic.main.title_layout.*
 import java.io.File
@@ -22,14 +27,15 @@ import java.io.File
 
 class PackageActivity : BaseActivity() {
 
-    private var mIsChecked = false;
-    private val mList = ArrayList<AppData>()
-    private val mAdapter = AdapterPackage(mList)
+    private var mIsChecked = false
+    private val mAppList = ArrayList<AppData>()
+    private val mFilterList = ArrayList<AppData>()
+    private val mAdapter = AdapterPackage(mFilterList)
     private val mPath by lazy { getExternalFilesDir(null)?.path + File.separator + "apks" }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_recycler_view)
+        setContentView(R.layout.activity_package_export)
         setTitle(getString(R.string.package_title))
         initBaseViews()
         readAppList()
@@ -37,23 +43,36 @@ class PackageActivity : BaseActivity() {
 
     override fun initBaseViews() {
         super.initBaseViews()
-        with(recycler_main) {
+        hideSoftKeyboard()
+        with(recycler_view) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PackageActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
         mAdapter.setOnItemClickListener { _, position ->
-            val result = PackagePresenter.startApp(this, mList[position])
+            val result = PackagePresenter.startApp(this, mFilterList[position])
             if (!result) {
                 showToast(getString(R.string.package_cannot_start))
             }
         }
         mAdapter.setOnItemLongClickListener { _, position ->
-            val packageInfo = (mList[position])
+            val packageInfo = (mFilterList[position])
+            val itemList = listOf(getString(R.string.package_export), getString(R.string.package_export_share))
             KonstantDialog(this)
-                    .setMessage(getString(R.string.package_backup_app))
+                    .setItemList(itemList)
+                    .hideNavigation()
+                    .setOnItemClickListener { dialog, itemIndex ->
+                        dialog.dismiss()
+                        when (itemIndex) {
+                            0 -> backupApp(packageInfo)
+                            1 -> shareSingleApp(packageInfo)
+                        }
+                    }
                     .setPositiveListener {
                         it.dismiss()
-                        backupSingleApp(packageInfo)
+                        backupSingleApp(packageInfo) { status, _ ->
+                            val msg = if (status) getString(R.string.package_export_success) else getString(R.string.package_export_fail)
+                            showToast(msg)
+                        }
                     }
                     .createDialog()
         }
@@ -61,6 +80,25 @@ class PackageActivity : BaseActivity() {
             visibility = View.VISIBLE
             setOnClickListener { onMorePressed() }
         }
+        package_filter.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                mFilterList.clear()
+                if (s.isNullOrEmpty()) {
+                    mFilterList.addAll(mAppList)
+                } else {
+                    val list = mAppList.filter { it.appName.contains(s.toString(), true) }
+                    mFilterList.addAll(list)
+                }
+                mAdapter.notifyDataSetChanged()
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
     }
 
     private fun onMorePressed() {
@@ -88,18 +126,22 @@ class PackageActivity : BaseActivity() {
     }
 
     private fun readAppList(withSystem: Boolean = false) {
+        package_filter.setText("")
         showLoading(true, getString(R.string.package_app_scanning))
         PackagePresenter.getAppList(withSystem, this) {
             runOnUiThread {
-                mList.clear()
-                mList.addAll(it)
+                mAppList.clear()
+                mAppList.addAll(it)
+                mFilterList.clear()
+                mFilterList.addAll(it)
                 mAdapter.notifyDataSetChanged()
                 showLoading(false)
             }
         }
     }
 
-    private fun backupSingleApp(appData: AppData) {
+    // 备份应用到指定位置
+    private fun backupSingleApp(appData: AppData, result: (Boolean, File) -> Unit) {
         val view = layoutInflater.inflate(R.layout.layout_progress, null)
         val dialog = KonstantDialog(this)
                 .addView(view)
@@ -107,16 +149,41 @@ class PackageActivity : BaseActivity() {
                 .hideNavigation()
                 .createDialog()
 
-        PackagePresenter.backApp(mPath, appData) {
+        PackagePresenter.backApp(mPath, appData) { status, file ->
             runOnUiThread { dialog.dismiss() }
-            val msg = if (it) getString(R.string.package_export_success) else getString(R.string.package_export_fail)
+            result.invoke(status, file)
+        }
+    }
+
+    private fun backupApp(appData: AppData) {
+        backupSingleApp(appData) { status, _ ->
+            val msg = if (status) getString(R.string.package_export_success) else getString(R.string.package_export_fail)
             showToast(msg)
+        }
+    }
+
+    /**
+     * 分享应用
+     * 先备份，然后再调用系统分享面板进行分享
+     */
+    private fun shareSingleApp(appData: AppData) {
+        backupSingleApp(appData) { status, file ->
+            if (!status) {
+                showToast(getString(R.string.package_export_fail))
+                return@backupSingleApp
+            }
+            val fileUri = FileProvider.getUriForFile(this, "${packageName}.provider", file)
+            val intent = ShareCompat.IntentBuilder.from(this)
+                    .setType("application/apk")
+                    .intent
+            intent.putExtra(Intent.EXTRA_STREAM, fileUri)
+            startActivity(intent)
         }
     }
 
     private fun backupAllApp() {
         val view = layoutInflater.inflate(R.layout.layout_dialog_progress, null)
-        view.progress_horizontal.max = mList.size
+        view.progress_horizontal.max = mFilterList.size
         val dialog = KonstantDialog(this)
         with(dialog) {
             setCancelable(false)
@@ -130,11 +197,11 @@ class PackageActivity : BaseActivity() {
 
     private fun backApp(index: Int, view: View, dialog: KonstantDialog) {
         val int = index + 1
-        view.text_progress.text = "${getString(R.string.package_app_exporting)}($int/${mList.size})"
+        view.text_progress.text = "${getString(R.string.package_app_exporting)}($int/${mFilterList.size})"
         view.progress_horizontal.progress = index
-        PackagePresenter.backApp(mPath, mList[index]) {
+        PackagePresenter.backApp(mPath, mFilterList[index]) { _, _ ->
             runOnUiThread {
-                if (int == mList.size) {
+                if (int == mFilterList.size) {
                     dialog.dismiss()
                     return@runOnUiThread
                 }

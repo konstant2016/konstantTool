@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -20,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:text="@string/setting_about_describe"
@@ -28,16 +29,16 @@
 
         <TextView
             android:id="@+id/tv_version"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:text="版本号：1.0"
             android:textColor="?attr/tool_main_text_color" />
 
         <TextView
             android:id="@+id/tv_github"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
@@ -46,12 +47,29 @@
 
         <TextView
             android:id="@+id/tv_update"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/setting_about_checkout_update"
             android:textColor="?attr/tool_theme_text_color" />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/setting_share_message"
+            android:textColor="?attr/tool_second_text_color" />
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/img_view"
+            android:layout_width="195dp"
+            android:layout_height="195dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="visible" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

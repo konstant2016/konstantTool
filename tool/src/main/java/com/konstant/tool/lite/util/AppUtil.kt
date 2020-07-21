@@ -68,7 +68,7 @@ object AppUtil {
     fun getInstallPath(packageInfo: PackageInfo) = packageInfo.applicationInfo.sourceDir
 
     // 备份应用
-    fun backUserApp(path: String, packageInfo: PackageInfo, callback: (boolean: Boolean) -> Unit) {
+    fun backUserApp(path: String, packageInfo: PackageInfo, callback: (boolean: Boolean, file: File) -> Unit) {
         Thread {
             try {
                 if (!File(path).exists()) {
@@ -82,11 +82,11 @@ object AppUtil {
                 val outChannel = FileOutputStream(outFile).channel
                 outChannel.transferFrom(installChannel, 0, installChannel.size())
 
-                callback.invoke(true)
+                callback.invoke(true, outFile)
             } catch (e: Exception) {
                 Log.d("备份", "失败")
                 e.printStackTrace()
-                callback.invoke(false)
+                callback.invoke(false, File(""))
             }
         }.start()
     }

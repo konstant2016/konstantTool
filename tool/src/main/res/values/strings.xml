@@ -137,9 +137,11 @@
     <string name="package_app_scanning">正在扫描应用…</string>
     <string name="package_app_exporting">正在提取中…</string>
     <string name="package_export_success">提取成功</string>
-    <string name="package_export_fail">备份失败，此应用不支持备份</string>
+    <string name="package_export_fail">提取失败，此应用不支持提取</string>
     <string name="package_app_name">应用名字</string>
     <string name="package_app_package">应用标识</string>
+    <string name="package_export">应用提取</string>
+    <string name="package_export_share">提取并分享</string>
 
     <!--电视台直播中的文字-->
     <string name="live_title">安装包提取</string>
@@ -224,7 +226,7 @@
     <string name="setting_update_auto_describe">(每次应用启动时，自动检查应用更新状态)</string>
     <string name="setting_show_collection">首页默认显示收藏列表</string>
     <string name="setting_show_collection_describe">(开关开启时，首页默认显示收藏列表)</string>
-    <string name="setting_adapter_dark_mode">适配 Android Q 深色模式</string>
+    <string name="setting_adapter_dark_mode">适配系统深色模式</string>
     <string name="setting_adapter_dark_mode_describe">(建议开启，关闭后可能会影响显示效果)</string>
     <string name="setting_share">分享应用</string>
     <string name="setting_language_item_system">跟随系统</string>

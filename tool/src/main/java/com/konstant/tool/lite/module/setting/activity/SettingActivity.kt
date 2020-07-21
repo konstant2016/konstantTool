@@ -1,19 +1,23 @@
 package com.konstant.tool.lite.module.setting.activity
 
 import android.Manifest
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ShareCompat
+import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.*
+import com.konstant.tool.lite.module.extract.AppData
+import com.konstant.tool.lite.module.extract.PackagePresenter
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
-import com.mylhyl.zxing.scanner.encode.QREncode
 import kotlinx.android.synthetic.main.activity_setting.*
-import kotlinx.android.synthetic.main.layout_dialog_share.view.*
 import org.greenrobot.eventbus.EventBus
+import java.io.File
 
 /**
  * 描述:APP设置
@@ -192,23 +196,17 @@ class SettingActivity : BaseActivity() {
     }
 
     private fun shareApp() {
-        val view = layoutInflater.inflate(R.layout.layout_dialog_share, null)
-        KonstantDialog(this)
-                .hideNavigation()
-                .addView(view)
-                .createDialog()
-        UpdateManager.getUpdateUrl {
-            view.loading.visibility = View.GONE
-            view.tv_describe.visibility = View.VISIBLE
-            view.img_view.visibility = View.VISIBLE
-            val bitmap = QREncode.Builder(this)
-                    .setColor(Color.BLACK)
-                    .setMargin(2)
-                    .setContents(it)
-                    .setSize(1000)
-                    .build()
-                    .encodeAsBitmap()
-            view.img_view.setImageBitmap(bitmap)
+        val appData = AppData(packageName,getDrawable(R.drawable.ic_launcher)!!,getString(R.string.app_name))
+        val path = getExternalFilesDir(null)?.path + File.separator + "apks"
+        PackagePresenter.backApp(path, appData) { status, file ->
+            runOnUiThread {
+                val fileUri = FileProvider.getUriForFile(this, "${packageName}.provider", file)
+                val intent = ShareCompat.IntentBuilder.from(this)
+                        .setType("application/apk")
+                        .intent
+                intent.putExtra(Intent.EXTRA_STREAM, fileUri)
+                startActivity(intent)
+            }
         }
     }
 }

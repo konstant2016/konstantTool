@@ -3,8 +3,7 @@ package com.konstant.tool.lite.module.extract
 import android.content.Context
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.AppUtil
-import java.text.Collator
-import java.util.*
+import java.io.File
 import kotlin.concurrent.thread
 
 object PackagePresenter {
@@ -59,9 +58,9 @@ object PackagePresenter {
         }
     }
 
-    fun backApp(path: String, appData: AppData, callback: (Boolean) -> Unit) {
+    fun backApp(path: String, appData: AppData, callback: (Boolean,File) -> Unit) {
         val packageInfo = AppUtil.getPackageInfo(appData.packageName)
-        if (packageInfo == null) callback.invoke(false)
+        if (packageInfo == null) callback.invoke(false,File(""))
         AppUtil.backUserApp(path, packageInfo!!, callback::invoke)
     }
 

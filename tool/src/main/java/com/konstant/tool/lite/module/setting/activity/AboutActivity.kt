@@ -1,12 +1,14 @@
 package com.konstant.tool.lite.module.setting.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.H5Activity
 import com.konstant.tool.lite.base.UpdateManager
+import com.mylhyl.zxing.scanner.encode.QREncode
 import kotlinx.android.synthetic.main.activity_about.*
 
 /**
@@ -45,6 +47,17 @@ class AboutActivity : BaseActivity() {
             paint.flags = Paint.UNDERLINE_TEXT_FLAG
             paint.isAntiAlias = true
             setOnClickListener { UpdateManager.checkoutUpdate() }
+        }
+
+        UpdateManager.getUpdateUrl {
+            val bitmap = QREncode.Builder(this)
+                    .setColor(Color.BLACK)
+                    .setMargin(2)
+                    .setContents(it)
+                    .setSize(1000)
+                    .build()
+                    .encodeAsBitmap()
+            img_view.setImageBitmap(bitmap)
         }
     }
 
