@@ -44,7 +44,7 @@ class PackageActivity : BaseActivity() {
     override fun initBaseViews() {
         super.initBaseViews()
         hideSoftKeyboard()
-        with(recycler_view) {
+        with(recycler_package) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PackageActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
