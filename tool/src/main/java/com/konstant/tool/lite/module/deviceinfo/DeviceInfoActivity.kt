@@ -21,7 +21,6 @@ class DeviceInfoActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device_info)
-        initBaseViews()
         setTitle(getString(R.string.device_title))
         judgePermission()
     }
@@ -74,7 +73,5 @@ class DeviceInfoActivity : BaseActivity() {
 
             append("\n\n")
         }
-
-
     }
 }

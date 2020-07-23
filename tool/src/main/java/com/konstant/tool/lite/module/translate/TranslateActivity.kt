@@ -2,10 +2,8 @@ package com.konstant.tool.lite.module.translate
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import com.google.gson.Gson
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.network.NetworkHelper
@@ -32,11 +30,10 @@ class TranslateActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
         setTitle(getString(R.string.translate_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
 
         // 防止键盘遮挡布局
         addLayoutListener(base_content, btn_translate)

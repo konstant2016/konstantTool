@@ -88,5 +88,10 @@
     "title": "文字语音合成",
     "title_en": "Text to Speech",
     "type": "18"
+  },
+  {
+    "title": "自动跳过启屏广告",
+    "title_en": "Skip Splash Advertisement",
+    "type": "19"
   }
 ]

@@ -21,7 +21,6 @@ class RollTextActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_roll_text)
-        initBaseViews()
         setTitle(getString(R.string.scroll_title))
         btn_create.setOnClickListener { onBtnPressed() }
     }

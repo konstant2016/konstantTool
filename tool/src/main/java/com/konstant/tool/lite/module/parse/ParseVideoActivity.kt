@@ -19,11 +19,10 @@ class ParseVideoActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         setSegmentalTitle(getString(R.string.parse_video), getString(R.string.parse_address))
         val list = listOf(ListFragment.newInstance(), ParseFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)

@@ -29,11 +29,10 @@ class QRCodeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
         setTitle(getString(R.string.qrcode_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
 
         root_layout_qrcode.setOnClickListener { hideSoftKeyboard() }
 

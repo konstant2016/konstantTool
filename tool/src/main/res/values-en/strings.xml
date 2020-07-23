@@ -18,7 +18,7 @@
     <string name="h5_activity_open_with_browser">Open the browser</string>
     <string name="notification_creator_title">Rape Kits - Background enhanced services</string>
     <string name="notification_creator_message">After closing the ‘backstage enhanced services’, this notification will automatically be removed</string>
-    <string name="notification_creator_channel_name">Background enhanced services</string>
+    <string name="notification_creator_channel_name">Konstant Tool - Background enhanced services</string>
     <string name="update_manager_check_update_error">Check fails, it may be linked to a network or server</string>
     <string name="update_manager_new_version_already">The current version is up to date</string>
     <string name="update_manager_new_version">new version</string>

@@ -36,7 +36,7 @@ class WechatFakeActivity : BaseActivity() {
             window.statusBarColor = Color.BLACK
         }
         showTitleBar(false)
-        initBaseViews()
+        initViews()
     }
 
     // 微信对话界面 目前没有暗色主题，因此无需修改
@@ -44,8 +44,7 @@ class WechatFakeActivity : BaseActivity() {
         super.setTheme(R.style.tool_lite_class)
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
         layout_status_bar.layoutParams = params
         tv_adverse.setOnClickListener { finish() }

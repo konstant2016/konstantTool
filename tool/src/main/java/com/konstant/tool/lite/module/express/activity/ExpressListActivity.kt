@@ -50,14 +50,13 @@ class ExpressListActivity : BaseActivity() {
             setContentView(R.layout.activity_express)
             setTitle(getString(R.string.express_title))
             readLocalExpress()
-            initBaseViews()
+            initViews()
             updateUI()
         }
     }
 
     // 初始化基础控件
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         img_more.visibility = View.VISIBLE
 
         listview_express.adapter = mAdapter

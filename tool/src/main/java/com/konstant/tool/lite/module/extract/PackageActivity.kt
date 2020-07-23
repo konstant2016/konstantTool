@@ -37,12 +37,11 @@ class PackageActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_package_export)
         setTitle(getString(R.string.package_title))
-        initBaseViews()
+        initViews()
         readAppList()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         hideSoftKeyboard()
         with(recycler_package) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PackageActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)

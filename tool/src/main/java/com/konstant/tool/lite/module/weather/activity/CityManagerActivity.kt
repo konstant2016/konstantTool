@@ -26,11 +26,10 @@ class CityManagerActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_manager)
         setTitle(getString(R.string.weather_city_manager_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
 
         // 弹起城市选择页
         img_more.apply {

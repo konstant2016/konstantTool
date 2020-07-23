@@ -24,11 +24,10 @@ class AboutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         setTitle(getString(R.string.setting_about_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         val info = packageManager.getPackageInfo(this.packageName, 0)
         tv_version.text = "${getString(R.string.setting_about_version)}：${info.versionName}"
 

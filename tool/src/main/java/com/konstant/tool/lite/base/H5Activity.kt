@@ -31,7 +31,6 @@ class H5Activity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
         setTitle(getString(R.string.base_loading))
-        initBaseViews()
         val url = intent.getStringExtra(H5_URL)
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
         if (browser) {
@@ -39,12 +38,12 @@ class H5Activity : BaseActivity() {
             finish()
             return
         }
+        initViews()
         Log.d(TAG, url)
         web_view.loadUrl(url)
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         window.setFormat(PixelFormat.TRANSLUCENT)
         img_more.apply {
             visibility = View.VISIBLE

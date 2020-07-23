@@ -43,6 +43,7 @@ import com.konstant.tool.lite.module.rolltxt.RollTextActivity
 import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
+import com.konstant.tool.lite.module.skip.AutoSkipActivity
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.voice.VoiceSpeechActivity
@@ -56,7 +57,6 @@ import com.konstant.tool.lite.view.KonstantPagerIndicator
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.item_drawer_left.view.*
-import kotlinx.android.synthetic.main.item_main_config.view.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
 import kotlinx.android.synthetic.main.title_layout.*
 import kotlinx.android.synthetic.main.title_layout.view.*
@@ -81,14 +81,15 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(SettingManager.getTheme(this))
+        super.setContentView(R.layout.activity_base)
+        initBaseViews()
         EventBus.getDefault().register(this)
         setDefaultLanguage()
         AppUtil.addActivity(this)
     }
 
     override fun setContentView(layoutResId: Int) {
-        setTheme(SettingManager.getTheme(this))
-        super.setContentView(R.layout.activity_base)
         layoutInflater.inflate(layoutResId, base_content, true)
         initUserInterface()
     }
@@ -218,7 +219,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         }
     }
 
-    protected open fun initBaseViews() {
+    private fun initBaseViews() {
         val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
         view_status_bar.layoutParams = params
         title_bar.setOnClickListener { hideSoftKeyboard() }
@@ -362,7 +363,7 @@ abstract class BaseActivity : SwipeBackActivity() {
                     .createDialog()
         }
         recycler_view.apply {
-            setLayoutManager(LinearLayoutManager(this@BaseActivity, LinearLayoutManager.VERTICAL, false))
+            layoutManager = LinearLayoutManager(this@BaseActivity)
             setAdapter(adapter)
         }
 
@@ -443,6 +444,9 @@ abstract class BaseActivity : SwipeBackActivity() {
             }
             "18" -> {
                 startActivity(VoiceSpeechActivity::class.java)
+            }
+            "19" -> {
+                startActivity(AutoSkipActivity::class.java)
             }
         }
     }

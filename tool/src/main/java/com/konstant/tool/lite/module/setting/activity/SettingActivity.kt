@@ -2,9 +2,7 @@ package com.konstant.tool.lite.module.setting.activity
 
 import android.Manifest
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
@@ -36,11 +34,10 @@ class SettingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
         setTitle(getString(R.string.setting_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         setViewsStatus()
     }
 

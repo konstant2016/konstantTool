@@ -1,7 +1,6 @@
 package com.konstant.tool.lite.module.speed
 
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.SeekBar
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
@@ -10,7 +9,6 @@ import com.konstant.tool.lite.network.config.FileDownloader
 import kotlinx.android.synthetic.main.activity_net_speed.*
 import kotlinx.android.synthetic.main.activity_net_speed.btn_start
 import kotlinx.android.synthetic.main.activity_net_speed.view_seekbar
-import kotlinx.android.synthetic.main.activity_roll_text.*
 import java.text.DecimalFormat
 import kotlin.math.ceil
 
@@ -26,11 +24,10 @@ class NetSpeedActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_net_speed)
         setTitle(getString(R.string.speed_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         view_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 current_value.text = "${getString(R.string.speed_input_hint_01)} ${progress + 5} ${getString(R.string.speed_input_hint_02)}"

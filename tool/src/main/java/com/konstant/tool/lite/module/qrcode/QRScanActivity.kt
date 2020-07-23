@@ -31,11 +31,10 @@ class QRScanActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrscan)
         setTitle(getString(R.string.qrcode_qr_scan))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         img_more.visibility = View.VISIBLE
         initScanStyle()
         requestPermission()

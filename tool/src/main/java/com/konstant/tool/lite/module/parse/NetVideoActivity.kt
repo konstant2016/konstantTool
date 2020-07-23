@@ -27,12 +27,11 @@ class NetVideoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
         setTitle(getString(R.string.base_loading))
-        initBaseViews()
+        initViews()
         intent?.getStringExtra("url")?.let { web_view.loadUrl(it) }
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { onMoreClick() }
         web_view.registerTitleChanged(::setTitle)

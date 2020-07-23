@@ -18,6 +18,12 @@ import com.konstant.tool.lite.module.setting.SettingManager
 import kotlinx.android.synthetic.main.layout_concentration.view.*
 import java.lang.Exception
 
+/**
+ * 描述：专注模式的Service
+ * 创建者：吕卡
+ * 时间：2020/7/23:2:35 PM
+ */
+
 class ConcentrationService : Service() {
 
     companion object {

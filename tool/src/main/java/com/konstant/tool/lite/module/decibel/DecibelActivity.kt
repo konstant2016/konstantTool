@@ -40,7 +40,6 @@ class DecibelActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_decibel)
         setTitle(getString(R.string.decibel_title))
-        initBaseViews()
         requestPermission()
     }
 

@@ -18,11 +18,10 @@ class DateCalculationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         setSegmentalTitle(getString(R.string.date_title), getString(R.string.date_date_interval))
         val list = listOf(CalculationFragment.newInstance(), IntervalFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)

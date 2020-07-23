@@ -22,12 +22,11 @@ class ConcentrationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_concentration)
-        initBaseViews()
+        initViews()
         setTitle(getString(R.string.concentration_title))
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         view_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 tv_progress.text = "${getString(R.string.concentration_set_count_down_time)}(${getString(R.string.concentration_current)}${progress + 5}${getString(R.string.concentration_minute)})"

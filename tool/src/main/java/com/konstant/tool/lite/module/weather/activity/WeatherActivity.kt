@@ -32,14 +32,13 @@ class WeatherActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        initBaseViews()
+        initViews()
     }
 
     @SuppressLint("MissingSuperCall")
     override fun onSaveInstanceState(outState: Bundle) {}
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener { startActivity(Intent(this, CityManagerActivity::class.java)) }
         view_pager.offscreenPageLimit = 50

@@ -18,11 +18,10 @@ class WallpaperActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         setSegmentalTitle(getString(R.string.wallpaper_translate), getString(R.string.wallpaper_float))
         val list = listOf(TransparentWallpaperFragment.newInstance(), FloatWallpaperFragment.newInstance())
         view_pager.adapter = BaseFragmentAdapter(supportFragmentManager, list)

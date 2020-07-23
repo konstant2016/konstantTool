@@ -34,12 +34,10 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
         swipeBackLayout.setEnableGesture(false)
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
-
+    private fun initViews() {
         img_back.visibility = View.GONE
         img_more.visibility = View.GONE
         img_drawer.visibility = View.VISIBLE

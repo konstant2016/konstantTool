@@ -23,11 +23,10 @@ class ThemeActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme)
         setTitle(getString(R.string.setting_theme_title))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         selector_red.setOnClickListener(this)
         selector_class.setOnClickListener(this)
         selector_blue.setOnClickListener(this)

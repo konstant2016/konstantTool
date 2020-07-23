@@ -28,13 +28,12 @@ class VoiceSpeechActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voice_speech)
-        initBaseViews()
+        initViews()
         setTitle(resources.getString(R.string.voice_title))
         btn_create.setOnClickListener { onBtnPressed() }
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         tv_speed.text = "${resources.getString(R.string.voice_seek_speed)} 1x"
         speed_seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

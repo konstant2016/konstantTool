@@ -46,7 +46,6 @@ class CompassActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compass)
         setTitle(getString(R.string.compass_title))
-        initBaseViews()
     }
 
     // 旋转图片动画

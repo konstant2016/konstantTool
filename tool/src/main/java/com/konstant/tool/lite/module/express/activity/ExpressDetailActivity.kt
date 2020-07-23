@@ -40,11 +40,10 @@ class ExpressDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_express_detail)
         setTitle(getString(R.string.express_detail))
-        initBaseViews()
+        initViews()
     }
 
-    override fun initBaseViews() {
-        super.initBaseViews()
+    private fun initViews() {
         mNumber = intent.getStringExtra("number")
         mName = intent.getStringExtra("name") ?: getString(R.string.express_name_unknown)
         updateStatus()

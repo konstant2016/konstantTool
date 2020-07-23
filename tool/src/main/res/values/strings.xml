@@ -28,7 +28,7 @@
     <!--创建前台通知中的默认文字-->
     <string name="notification_creator_title">菜籽工具箱-后台增强服务</string>
     <string name="notification_creator_message">关闭‘后台增强服务’后，此通知会自动移除</string>
-    <string name="notification_creator_channel_name">后台增强服务</string>
+    <string name="notification_creator_channel_name">菜籽工具箱-后台增强服务</string>
 
     <!--检查更新中的文字-->
     <string name="update_manager_check_update_error">检查失败，可能是网络或者服务器挂了</string>
