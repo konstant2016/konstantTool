@@ -39,6 +39,7 @@ class AutoSkipService : AccessibilityService() {
         if (event == null) return
         if (event.eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return
         val packageName = event.packageName.toString()
+        if (packageName == this.packageName) return
         val className = event.className.toString()
         tryGetActivity(packageName, className) ?: return
         Handler().postDelayed({

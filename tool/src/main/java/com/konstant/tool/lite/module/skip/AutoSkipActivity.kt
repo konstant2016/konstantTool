@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
+import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.AppUtil
@@ -52,12 +53,23 @@ class AutoSkipActivity : BaseActivity() {
             AutoSkipManager.setMatch(this, isChecked)
         }
         // 电池优化
-        switch_battery.isChecked = getBatteryIgnore()
         layout_battery.setOnClickListener {
-            if (!switch_battery.isChecked) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                Toast.makeText(this, "此选项仅支持6.0以上设备", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            try {
+                val powerManager = getSystemService(POWER_SERVICE) as PowerManager
+                val batteryIgnore = powerManager.isIgnoringBatteryOptimizations(packageName)
+                if (batteryIgnore) {
+                    Toast.makeText(this, "电池忽略已启用", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
                 intent.data = Uri.parse("package:$packageName");
                 startActivity(intent)
+            } catch (e: Exception) {
+                //
             }
         }
         // 应用白名单
@@ -74,24 +86,11 @@ class AutoSkipActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        switch_battery.isChecked = getBatteryIgnore()
         val enable = AppUtil.isAccessibilityEnable(this)
         switch_skip.isChecked = enable
         if (enable) {
             val intent = Intent(this, AutoSkipService::class.java)
             startService(intent)
-        }
-    }
-
-    private fun getBatteryIgnore(): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true
-        }
-        return try {
-            val powerManager = getSystemService(POWER_SERVICE) as PowerManager
-            powerManager.isIgnoringBatteryOptimizations(packageName)
-        } catch (e: Exception) {
-            false
         }
     }
 }
