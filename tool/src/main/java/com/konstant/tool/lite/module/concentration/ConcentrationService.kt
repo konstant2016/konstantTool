@@ -78,6 +78,9 @@ class ConcentrationService : Service() {
                     height = WindowManager.LayoutParams.MATCH_PARENT
                 }
         removeView()
+        mView.layout_root_view.setOnClickListener {
+            Toast.makeText(this, R.string.concentration_can_not_operation, Toast.LENGTH_SHORT).show()
+        }
         windowManager.addView(mView, params)
         updateCountdown(minutes, mView.tv_time)
         val notification = NotificationCreator.createForegroundNotification(this, msg = getString(R.string.concentration_notification_describe))

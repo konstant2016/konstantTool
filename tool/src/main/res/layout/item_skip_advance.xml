@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/tv_package_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="包名"
+        android:textColor="?attr/tool_second_text_color"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_class_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="类名"
+        android:textColor="?attr/tool_second_text_color"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_resource_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="控件名"
+        android:textColor="?attr/tool_second_text_color"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="?attr/tool_divider_color" />
+
+</LinearLayout>

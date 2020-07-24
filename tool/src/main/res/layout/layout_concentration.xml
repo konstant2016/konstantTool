@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_black"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/layout_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_concentration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
         android:gravity="center"
         android:text="@string/concentration_started"
         android:textColor="@color/color_white"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/concentration_time_left"
-        android:textColor="@color/color_white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/layout_bg" />
 
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="50:30"
         android:textColor="@color/color_white"
-        android:textSize="70sp" />
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_bg"
+        app:layout_constraintTop_toTopOf="@id/layout_bg" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="125dp"
+        android:gravity="center"
+        android:text="@string/concentration_time_left"
+        android:textColor="@color/color_white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/layout_bg" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="90dp"
         android:gravity="center"
         android:text="@string/concentration_tips"
         android:textColor="@color/color_white"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_bg" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

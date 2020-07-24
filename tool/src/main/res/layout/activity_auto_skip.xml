@@ -24,7 +24,7 @@
             android:padding="15dp"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/layout_battery"
+            app:layout_constraintRight_toLeftOf="@id/layout_toast"
             app:layout_constraintTop_toTopOf="parent">
 
             <Switch
@@ -45,9 +45,8 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-
         <LinearLayout
-            android:id="@+id/layout_battery"
+            android:id="@+id/layout_toast"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="20dp"
@@ -64,7 +63,104 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/layout_status">
 
+            <Switch
+                android:id="@+id/switch_toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
             <TextView
+                android:id="@+id/tv_toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="跳过提示"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="当部分页面发生意外操作时，你可开启此选项用于定位是否又自动跳过引起"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_match"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/view_click_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/layout_status"
+            app:layout_constraintRight_toRightOf="@id/layout_status"
+            app:layout_constraintTop_toBottomOf="@id/layout_status">
+
+            <Switch
+                android:id="@+id/switch_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <TextView
+                android:id="@+id/tv_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="模糊匹配"
+                android:textColor="?attr/tool_main_text_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="如果匹配到页面上含有''跳过''文字，则执行点击操作，可能会有误操作的风险"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_battery"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/view_click_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/layout_toast"
+            app:layout_constraintRight_toRightOf="@id/layout_toast"
+            app:layout_constraintTop_toBottomOf="@id/layout_toast">
+
+            <Switch
+                android:clickable="false"
+                android:id="@+id/switch_battery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/selector_switch_thumb"
+                android:track="@drawable/selector_switch_track" />
+
+            <TextView
+                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="电池优化"
@@ -78,7 +174,8 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
                 android:text="点击请求系统忽略电池优化，用以保证服务在后台稳定运行"
-                android:textColor="?attr/tool_second_text_color" />
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -94,9 +191,9 @@
             android:orientation="vertical"
             android:padding="15dp"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintLeft_toLeftOf="@id/layout_status"
-            app:layout_constraintRight_toRightOf="@id/layout_status"
-            app:layout_constraintTop_toBottomOf="@id/layout_status">
+            app:layout_constraintLeft_toLeftOf="@id/layout_match"
+            app:layout_constraintRight_toRightOf="@id/layout_match"
+            app:layout_constraintTop_toBottomOf="@id/layout_match">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,7 +209,8 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
                 android:text="点击设置应用白名单，处于白名单中的应用不会触发自动跳过逻辑"
-                android:textColor="?attr/tool_second_text_color" />
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -130,7 +228,7 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="@id/layout_battery"
             app:layout_constraintRight_toRightOf="@id/layout_battery"
-            app:layout_constraintTop_toBottomOf="@id/layout_battery">
+            app:layout_constraintTop_toBottomOf="@+id/layout_match">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,8 +243,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
-                android:text="如果您不明白这些设置意味着什么，请勿随意修改"
-                android:textColor="?attr/tool_second_text_color" />
+                android:text="优先级高度应用白名单和模糊匹配，如果您不明白这些设置意味着什么，请勿点击"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="12sp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

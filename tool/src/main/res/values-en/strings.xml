@@ -269,4 +269,5 @@
     <string name="voice_pitch_no_support">No support current pitch on some devices</string>
     <string name="package_export">Export</string>
     <string name="package_export_share">Export and Share</string>
+    <string name="concentration_can_not_operation">Can not Operation</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="?android:selectableItemBackground">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/tool_divider_color" />
+
+    <CheckBox
+        android:id="@+id/view_check_box"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/selector_checkbox"
+        android:button="@null"
+        android:padding="15dp" />
+
+    <ImageView
+        android:id="@+id/img_package"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/name_package"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="120dp"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="微信"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="16sp" />
+
+</RelativeLayout>

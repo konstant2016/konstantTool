@@ -149,8 +149,13 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
             attributes.width = WindowManager.LayoutParams.MATCH_PARENT
             attributes.height = WindowManager.LayoutParams.WRAP_CONTENT
             setWindowAnimations(R.style.popwin_anim_style)
-            show()
+            super.show()
         }
+    }
+
+    @Deprecated("", ReplaceWith("createDialog()", "android.app.Dialog"))
+    override fun show() {
+        super.show()
     }
 
     override fun dismiss() {

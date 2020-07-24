@@ -61,6 +61,7 @@
     <string name="concentration_enable_button">我知道了，启用专注模式</string>
     <string name="concentration_cancel_success">专注模式已结束</string>
     <string name="concentration_started">专注模式已启用</string>
+    <string name="concentration_can_not_operation">当前不可操作</string>
     <string name="concentration_time_left">剩余时间</string>
 
     <!--日期推算中的文字-->
@@ -317,5 +318,8 @@
     <string name="package_export_describe">提示：单击打开应用，长按导出安装包,提取的安装包路径为：Android/data/com.konstant.tool.lite/files/apks</string>
     <string name="concentration_tips">提示：如需强制关闭，请长按电源键10秒以上重启手机</string>
     <string name="concentration_notification_describe">\'专注模式\'结束后，此通知自动移除</string>
+
+    <!-- 自动跳过开屏广告-->
+    <string name="auto_skip_title">自动跳过开屏广告</string>
 
 </resources>
