@@ -16,7 +16,6 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_bg"
         android:hint="输入包名"
-        android:inputType="number"
         android:padding="5dp"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"

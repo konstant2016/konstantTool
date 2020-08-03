@@ -11,7 +11,7 @@ import kotlin.concurrent.thread
 class WhiteListActivity : BaseActivity() {
 
     private val mAppList = mutableListOf<AppDataWrapper>()
-    private val mAdapter by lazy { WhiteListAdapter(mAppList) }
+    private val mAdapter by lazy { AdapterWhiteList(mAppList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +28,12 @@ class WhiteListActivity : BaseActivity() {
     private fun getAppDataList() {
         showLoading(true)
         thread {
-            val list = AppUtil.getPackageInfoList()
-                    .map { packageInfo ->
-                        val icon = AppUtil.getAppIcon(packageInfo)
-                        val appName = AppUtil.getAppName(packageInfo)
-                        val packageName = AppUtil.getPackageName(packageInfo)
-                        val checked = AutoSkipManager.getAppWhiteList().any { it == packageInfo.packageName }
+            val list = AppUtil.getUserAppList()
+                    .map {
+                        val icon = it.loadIcon(this.packageManager)
+                        val packageName = it.activityInfo.packageName
+                        val appName = it.loadLabel(this.packageManager).toString()
+                        val checked = AutoSkipManager.getAppWhiteList().any { it == packageName }
                         AppDataWrapper(checked, appName, packageName, icon)
                     }
             mAppList.clear()

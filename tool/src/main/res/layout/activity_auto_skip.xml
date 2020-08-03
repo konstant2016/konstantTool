@@ -151,14 +151,6 @@
             app:layout_constraintRight_toRightOf="@id/layout_toast"
             app:layout_constraintTop_toBottomOf="@id/layout_toast">
 
-            <Switch
-                android:clickable="false"
-                android:id="@+id/switch_battery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:thumb="@drawable/selector_switch_thumb"
-                android:track="@drawable/selector_switch_track" />
-
             <TextView
                 android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"

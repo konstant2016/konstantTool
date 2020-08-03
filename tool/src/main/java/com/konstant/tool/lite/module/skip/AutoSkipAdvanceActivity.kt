@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.title_layout.*
  * 创建者：吕卡
  * 时间：2020/7/24:5:42 PM
  */
-
 class AutoSkipAdvanceActivity : BaseActivity() {
 
     private val mCustomRules = AutoSkipManager.getCustomRules()
@@ -72,7 +71,7 @@ class AutoSkipAdvanceActivity : BaseActivity() {
                 .setMessage("添加自定义规则")
                 .addView(viewDialog)
                 .setPositiveListener {
-                    if (!TextUtils.isEmpty(etPackage.text)) {
+                    if (TextUtils.isEmpty(etPackage.text)) {
                         showToast("包名不能为空")
                         return@setPositiveListener
                     }
