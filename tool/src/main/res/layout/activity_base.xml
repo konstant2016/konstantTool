@@ -12,6 +12,7 @@
             android:id="@+id/title_bar"
             layout="@layout/title_layout" />
 
+        <!--展示实际内容的页面-->
         <RelativeLayout
             android:id="@+id/base_content"
             android:layout_width="match_parent"
@@ -40,6 +41,37 @@
                 android:textColor="?attr/tool_second_text_color" />
 
             <include layout="@layout/layout_progress" />
+
+        </LinearLayout>
+
+        <!--出错页面-->
+        <LinearLayout
+            android:id="@+id/layout_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-80dp"
+            android:background="?attr/tool_main_bg_color"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="不好意思，请求挂掉了"
+                android:textColor="?attr/tool_second_text_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_retry"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_btn"
+                android:text="@string/express_button_retry"
+                android:textColor="?attr/tool_main_text_color" />
 
         </LinearLayout>
 

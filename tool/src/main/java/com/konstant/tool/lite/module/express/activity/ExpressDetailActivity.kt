@@ -28,10 +28,10 @@ import java.util.*
 
 class ExpressDetailActivity : BaseActivity() {
 
-    var mState: String? = ""
-    var mNumber = ""
-    var mCompany: String? = ""
-    var mName: String? = ""
+    private var mState: String? = ""
+    private var mNumber = ""
+    private var mCompany: String? = ""
+    private var mName: String? = ""
 
     private val mList = ArrayList<ExpressData.Message>()
     private val mAdapter by lazy { AdapterExpressDetail(this, mList) }
@@ -51,8 +51,6 @@ class ExpressDetailActivity : BaseActivity() {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@ExpressDetailActivity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
-
-        btn_retry.setOnClickListener { queryExpress(mNumber) }
         ExpressManager.addExpress(mNumber)
         sendExpressChanged()
         img_more.visibility = View.VISIBLE
@@ -60,16 +58,20 @@ class ExpressDetailActivity : BaseActivity() {
         queryExpress(mNumber)
     }
 
+    override fun onRetryClick() {
+        queryExpress(mNumber)
+    }
+
     // 开始查询物流信息
     private fun queryExpress(number: String) {
-        onLoading()
+        showLoading(true)
         ExpressPresenter(mDisposable).getExpressDetail(number, object : ExpressPresenter.ExpressResult {
             override fun onSuccess(response: ExpressData) {
                 this@ExpressDetailActivity.onSuccess(response)
             }
 
             override fun onError() {
-                this@ExpressDetailActivity.onError()
+                this@ExpressDetailActivity.showError(true)
             }
         })
     }
@@ -81,24 +83,6 @@ class ExpressDetailActivity : BaseActivity() {
         tv_describe.text = "$mCompany：$mNumber"
     }
 
-    // 正在加载中
-    private fun onLoading() {
-        runOnUiThread {
-            showLoading(true)
-            base_content.layout_error.visibility = View.GONE
-            base_content.layout_success.visibility = View.GONE
-        }
-    }
-
-    // 加载失败
-    private fun onError() {
-        runOnUiThread {
-            showLoading(false)
-            base_content.layout_error.visibility = View.VISIBLE
-            base_content.layout_success.visibility = View.GONE
-        }
-    }
-
     // 加载成功
     private fun onSuccess(response: ExpressData) {
         showLoading(false)
@@ -107,7 +91,6 @@ class ExpressDetailActivity : BaseActivity() {
         ExpressManager.updateExpress(mNumber, mCompany, mName, mState)
         sendExpressChanged()
         runOnUiThread {
-            base_content.layout_error.visibility = View.GONE
             base_content.layout_success.visibility = View.VISIBLE
             tv_describe.text = "${response.company}:${response.number}"
             updateStatus()

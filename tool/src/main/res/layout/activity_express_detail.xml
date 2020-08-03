@@ -65,44 +65,4 @@
 
     </RelativeLayout>
 
-
-    <!--出错页面-->
-    <LinearLayout
-        android:id="@+id/layout_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="-80dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="@string/express_empty_data"
-            android:textColor="?attr/tool_second_text_color" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/express_empty_01"
-            android:textColor="?attr/tool_second_text_color" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/express_empty_02"
-            android:textColor="?attr/tool_second_text_color" />
-
-        <Button
-            android:id="@+id/btn_retry"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/selector_btn"
-            android:text="@string/express_button_retry"
-            android:textColor="?attr/tool_main_text_color" />
-    </LinearLayout>
-
 </merge>

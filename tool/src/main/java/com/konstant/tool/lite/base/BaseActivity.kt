@@ -220,11 +220,16 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     private fun initBaseViews() {
-        val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
+        val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, getStatusBarHeight())
         view_status_bar.layoutParams = params
         title_bar.setOnClickListener { hideSoftKeyboard() }
         title_bar.img_back.setOnClickListener { finish() }
         base_content.setOnClickListener { hideSoftKeyboard() }
+        btn_retry.setOnClickListener { onRetryClick() }
+    }
+
+    protected open fun onRetryClick() {
+
     }
 
     // 设置主标题
@@ -386,7 +391,14 @@ abstract class BaseActivity : SwipeBackActivity() {
         runOnUiThread {
             tv_state.text = msg
             layout_loading.visibility = if (state) View.VISIBLE else View.GONE
+            layout_error.visibility = View.GONE
         }
+    }
+
+    // 加载失败
+    protected fun showError(show: Boolean) {
+        layout_error.visibility = if (show) View.VISIBLE else View.GONE
+        layout_loading.visibility = View.GONE
     }
 
     fun startActivityWithType(type: String) {
@@ -459,7 +471,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             super.onBindViewHolder(holder, position)
-            val title = "${position+1}、${configs[position].title}"
+            val title = "${position + 1}、${configs[position].title}"
             holder.itemView.tv_title.text = title
         }
 

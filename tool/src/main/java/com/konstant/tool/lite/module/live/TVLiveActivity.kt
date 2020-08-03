@@ -1,46 +1,53 @@
 package com.konstant.tool.lite.module.live
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.jzvd.JZMediaSystem
 import cn.jzvd.JzvdStd
-import com.google.gson.Gson
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.data.bean.live.LiveData
+import com.konstant.tool.lite.network.response.TvLiveResponse
 import kotlinx.android.synthetic.main.activity_tv_live.*
 
 class TVLiveActivity : BaseActivity() {
 
-    private val url = "http://223.110.242.130:6610/cntv/live1/cctv-1/1.m3u8"
     private var mTimeStamp = System.currentTimeMillis()
-
-    private val mLiveData by lazy {
-        val txt = assets.open("LiveSource.json").bufferedReader().readText()
-        Gson().fromJson(txt, LiveData::class.java)
-    }
+    private val mPresenter = TvLivePresenter(mDisposable)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_live)
-        Log.d("TVLiveActivity","onCreate")
-        initViews()
-    }
-
-     private fun initViews() {
         setSwipeBackEnable(false)
         showTitleBar(false)
         showStatusBar(false)
         setDrawerLayoutStatus(false)
-        JzvdStd.setVideoImageDisplayType(JzvdStd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_PARENT);
+        getData()
+    }
+
+    private fun getData() {
+        showLoading(true)
+        mPresenter.getLiveList({
+            showLoading(false)
+            initViews(it)
+        }, {
+            showError(true)
+        })
+    }
+
+    override fun onRetryClick() {
+        getData()
+    }
+
+    private fun initViews(tvLiveList: List<TvLiveResponse.ResultsBean>) {
+        JzvdStd.setVideoImageDisplayType(JzvdStd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_PARENT)
         video_player.apply {
-            setPlayUrl(url)
+            setPlayUrl(tvLiveList[0].channelUrl)
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
         }
-        val adapter = AdapterLive(mLiveData)
-        adapter.setOnItemClickListener { _, position -> setPlayUrl(mLiveData.address[position]) }
+        val adapter = AdapterLive(tvLiveList)
+        adapter.setOnItemClickListener { _, position -> setPlayUrl(tvLiveList[position].channelUrl) }
         view_list.apply {
             layoutManager = LinearLayoutManager(this@TVLiveActivity, LinearLayoutManager.VERTICAL, false)
             this.adapter = adapter

@@ -4,10 +4,7 @@ import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.network.api.*
 import com.konstant.tool.lite.network.config.FileDownloader
 import com.konstant.tool.lite.network.config.RetrofitBuilder
-import com.konstant.tool.lite.network.response.ExpressResponse
-import com.konstant.tool.lite.network.response.TranslateResponse
-import com.konstant.tool.lite.network.response.UpdateResponse
-import com.konstant.tool.lite.network.response.WeatherResponse
+import com.konstant.tool.lite.network.response.*
 import com.konstant.tool.lite.util.TranslateMD5
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -60,6 +57,15 @@ object NetworkHelper {
     fun getSpeed(maxSize: Long, listener: FileDownloader.DownloadListener) {
         val path = "${KonApplication.context.externalCacheDir}${File.separator}fileStamp"
         FileDownloader.downloadFile(maxSize, path, listener)
+    }
+
+    // 获取直播列表
+    fun getTvLiveList(): Observable<TvLiveResponse> {
+        return RetrofitBuilder
+                .getApi(TvLiveApi.HOST, TvLiveApi::class.java)
+                .getTvLiveList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
 }
