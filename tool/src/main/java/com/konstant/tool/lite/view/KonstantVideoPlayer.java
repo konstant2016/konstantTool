@@ -1,18 +1,20 @@
 package com.konstant.tool.lite.view;
 
 import android.content.Context;
+
 import androidx.annotation.Nullable;
+
 import android.util.AttributeSet;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 
-import com.konstant.tool.lite.R;
 
 import cn.jzvd.JzvdStd;
 
 public class KonstantVideoPlayer extends JzvdStd {
 
     private OnClickListener mOnClickListener;
+    private OnClickListener mOnBackClickListener;
 
     public KonstantVideoPlayer(Context context) {
         super(context);
@@ -27,51 +29,77 @@ public class KonstantVideoPlayer extends JzvdStd {
         mOnClickListener = listener;
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        int id = v.getId();
-        if (id == R.id.surface_container && event.getAction() == MotionEvent.ACTION_UP) {
-            if (mOnClickListener != null) mOnClickListener.onClick(v);
-        }
-        return true;
+    public void setOnBackClickListener(@Nullable OnClickListener listener) {
+        mOnBackClickListener = listener;
     }
 
     @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.thumb) {
-            if (mOnClickListener != null) mOnClickListener.onClick(v);
-            return;
+    public void dissmissControlView() {
+        if (state != STATE_NORMAL
+                && state != STATE_ERROR
+                && state != STATE_AUTO_COMPLETE) {
+            post(() -> {
+                bottomContainer.setVisibility(View.INVISIBLE);
+                topContainer.setVisibility(View.INVISIBLE);
+                startButton.setVisibility(View.INVISIBLE);
+            });
         }
-        super.onClick(v);
     }
 
-    @Override
+    /**
+     * 播放出错的时候展示这个界面
+     */
     public void changeUiToError() {
-        switch (screen) {
-            case SCREEN_NORMAL:
-                setAllControlsVisiblity(View.INVISIBLE, View.INVISIBLE, View.VISIBLE,
-                        View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.VISIBLE);
-                updateStartImage();
-                break;
-            case SCREEN_FULLSCREEN:
-                setAllControlsVisiblity(View.GONE, View.GONE, View.GONE,
-                        View.GONE, View.GONE, View.GONE, View.VISIBLE);
-                updateStartImage();
-                break;
-            case SCREEN_TINY:
-                break;
-        }
+        setAllControlsVisiblity(View.VISIBLE, View.INVISIBLE, View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.VISIBLE);
+        updateStartImage();
     }
 
-    public void setAllControlsVisiblity(int topCon, int bottomCon, int startBtn, int loadingPro,
-                                        int thumbImg, int bottomPro, int retryLayout) {
-        topContainer.setVisibility(topCon);
-        bottomContainer.setVisibility(bottomCon);
-        startButton.setVisibility(startBtn);
-        loadingProgressBar.setVisibility(loadingPro);
-        thumbImageView.setVisibility(thumbImg);
-        bottomProgressBar.setVisibility(View.GONE);
-        mRetryLayout.setVisibility(retryLayout);
+
+    /**
+     * 正在播放的时候，点击屏幕，显示这个
+     */
+    public void changeUiToPlayingShow() {
+        setAllControlsVisiblity(View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE);
+
+    }
+
+    /**
+     * 点击了返回按钮
+     *
+     * @return
+     */
+    protected void clickBack() {
+        if (mOnBackClickListener != null) mOnBackClickListener.onClick(null);
+    }
+
+    /**
+     * 正在loading的时候显示这个
+     */
+    public void changeUIToPreparingPlaying() {
+        setAllControlsVisiblity(View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE);
+    }
+
+    public void onClickUiToggle() {//这是事件
+        super.onClickUiToggle();
+        if (mOnClickListener != null) mOnClickListener.onClick(null);
+    }
+
+    /**
+     * 滑动手势结束后
+     */
+    protected void touchActionUp() {
+        Log.i(TAG, "onTouch surfaceContainer actionUp [" + this.hashCode() + "] ");
+        mTouchingProgressBar = false;
+        dismissVolumeDialog();
+        dismissBrightnessDialog();
+        startProgressTimer();
+    }
+
+    /**
+     * 空实现进度滑动，因为直播不需要滑动进度
+     */
+    @Override
+    public void showProgressDialog(float deltaX, String seekTime, long seekTimePosition, String totalTime, long totalTimeDuration) {
+
     }
 }

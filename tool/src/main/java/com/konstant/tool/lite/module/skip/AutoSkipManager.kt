@@ -61,6 +61,8 @@ object AutoSkipManager {
 
     // 自定义规则
     fun getCustomRules(): List<CustomRule> {
+        val c = CustomRule("com.qiyi.video","android.widget.FrameLayout","com.qiyi.video:id/unused_res_a")
+        mCustomRules.add(c)
         return mCustomRules
     }
 

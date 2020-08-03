@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.jzvd.JZDataSource
 import cn.jzvd.JZMediaSystem
+import cn.jzvd.Jzvd
 import cn.jzvd.JzvdStd
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.network.response.TvLiveResponse
+import com.konstant.tool.lite.view.JZMediaIjk
 import kotlinx.android.synthetic.main.activity_tv_live.*
 
 class TVLiveActivity : BaseActivity() {
@@ -45,6 +48,7 @@ class TVLiveActivity : BaseActivity() {
         video_player.apply {
             setPlayUrl(tvLiveList[0].channelUrl)
             setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
+            setOnBackClickListener { finish() }
         }
         val adapter = AdapterLive(tvLiveList)
         adapter.setOnItemClickListener { _, position -> setPlayUrl(tvLiveList[position].channelUrl) }
@@ -69,7 +73,9 @@ class TVLiveActivity : BaseActivity() {
         url?.apply {
             showRecyclerView(false)
             video_player.apply {
-                reset(); setUp(url, "");setScreenFullscreen();startVideo()
+                setUp(url, "", Jzvd.SCREEN_FULLSCREEN, JZMediaIjk::class.java)
+                startVideo()
+                changeUiToPlayingClear()
             }
         }
     }

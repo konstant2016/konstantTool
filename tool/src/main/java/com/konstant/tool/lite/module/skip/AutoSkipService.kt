@@ -2,9 +2,6 @@ package com.konstant.tool.lite.module.skip
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.content.ComponentName
-import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.os.Handler
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
@@ -37,26 +34,36 @@ class AutoSkipService : AccessibilityService() {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event == null) return
-        if (event.eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return
-        val packageName = event.packageName.toString()
-        if (packageName == this.packageName) return
-        val className = event.className.toString()
-        tryGetActivity(packageName, className) ?: return
-        Handler().postDelayed({
-            val customRuleResult = handleCustomRules(packageName, className)
-            if (customRuleResult) return@postDelayed
-            val whiteListResult = handleWhiteList(packageName)
-            if (whiteListResult) return@postDelayed
-            handleMatch()
-        }, 500)
+        when (event.eventType) {
+            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED,
+            AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
+                Handler().postDelayed({
+                    val selfResult = exclusiveSelf(event)
+                    if (selfResult) return@postDelayed
+                    val customRuleResult = handleCustomRules(event)
+                    if (customRuleResult) return@postDelayed
+                    val whiteListResult = handleWhiteList(event)
+                    if (whiteListResult) return@postDelayed
+                    handleMatch()
+                }, 1000)
+            }
+        }
+    }
+
+    // 排除自身应用
+    private fun exclusiveSelf(event: AccessibilityEvent): Boolean {
+        if (event.packageName == packageName) return true
+        if (rootInActiveWindow.packageName == packageName) return true
+        return false
     }
 
     // 自定义规则
-    private fun handleCustomRules(packageName: String, className: String): Boolean {
-        val find = mCustomRules.find { it.packageName == packageName && it.className == className }
+    private fun handleCustomRules(event: AccessibilityEvent): Boolean {
+        val find = mCustomRules.find {
+            (it.packageName == event.packageName || it.packageName == rootInActiveWindow.packageName) }
         if (find != null) {
             val nodeInfoList = rootInActiveWindow?.findAccessibilityNodeInfosByViewId(find.resourceId)
-                    ?: return false
+            if (nodeInfoList.isNullOrEmpty()) return false
             for (info in nodeInfoList) {
                 val result = info.performAction(AccessibilityNodeInfo.ACTION_CLICK)
                 if (result) return true
@@ -66,18 +73,21 @@ class AutoSkipService : AccessibilityService() {
     }
 
     // 应用白名单
-    private fun handleWhiteList(packageName: String): Boolean {
+    private fun handleWhiteList(event: AccessibilityEvent): Boolean {
         val whiteList = AutoSkipManager.getAppWhiteList()
-        return whiteList.any { it == packageName }
+        return whiteList.any { it == event.packageName || it == rootInActiveWindow.packageName }
     }
 
     // 模糊匹配
     private fun handleMatch() {
         if (!AutoSkipManager.getMatch(this)) return
-        val nodeInfoList = rootInActiveWindow?.findAccessibilityNodeInfosByText("跳过") ?: return
+        val nodeInfoList = rootInActiveWindow?.findAccessibilityNodeInfosByText("跳过")
+                ?: rootInActiveWindow?.findAccessibilityNodeInfosByText("关闭") ?: return
         for (nodeInfo in nodeInfoList) {
             nodeInfo.text ?: continue
-            if (nodeInfo.text.contains("跳过") && AutoSkipManager.getMatch(this)) {
+            if (!nodeInfo.isEnabled) continue
+            val contains = nodeInfo.text.contains("跳过") || nodeInfo.text.contains("关闭")
+            if (contains && AutoSkipManager.getMatch(this)) {
                 val performAction = nodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK)
                 if (performAction) {
                     showSkipToast()
@@ -97,14 +107,4 @@ class AutoSkipService : AccessibilityService() {
             Toast.makeText(this, "自动跳过", Toast.LENGTH_SHORT).show()
         }
     }
-
-    private fun tryGetActivity(packageName: String, className: String): ActivityInfo? {
-        val componentName = ComponentName(packageName, className)
-        return try {
-            packageManager.getActivityInfo(componentName, 0);
-        } catch (e: PackageManager.NameNotFoundException) {
-            null
-        }
-    }
-
 }
