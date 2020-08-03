@@ -25,6 +25,7 @@ class AutoSkipAdvanceActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_skip_advance)
+        setTitle("高级设置")
         initViews()
     }
 
@@ -68,7 +69,7 @@ class AutoSkipAdvanceActivity : BaseActivity() {
         val etResource = viewDialog.findViewById(R.id.et_resource) as EditText
 
         KonstantDialog(this)
-                .setMessage("自定义规则")
+                .setMessage("添加自定义规则")
                 .addView(viewDialog)
                 .setPositiveListener {
                     if (!TextUtils.isEmpty(etPackage.text)) {

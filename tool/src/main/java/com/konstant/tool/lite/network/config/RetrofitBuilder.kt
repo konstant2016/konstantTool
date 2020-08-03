@@ -28,7 +28,7 @@ object RetrofitBuilder {
                 .build()
 
         val gson = GsonBuilder().setLenient().create()
-        mBuilder.addConverterFactory(ScalarsConverterFactory.create())  // 结果转换为string
+        mBuilder.addConverterFactory(ScalarsConverterFactory.create())      // 结果转换为string
                 .addConverterFactory(GsonConverterFactory.create(gson))     // 结果转换为JSON对象
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())  // 结果转换为Observable
                 .callbackExecutor(Executors.newSingleThreadExecutor())

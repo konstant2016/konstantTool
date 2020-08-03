@@ -88,7 +88,6 @@
 
     <!--设备信息中的文字-->
     <string name="device_title">设备信息</string>
-    <string name="device_permission_cancel">权限申请已被拒绝，部分信息无法展示</string>
     <string name="device_current_wifi_name">当前连接的WiFi名字</string>
     <string name="device_current_wifi_mac_address">当前连接的WiFi的MAC地址</string>
     <string name="device_phone_mac_address">本机MAC地址</string>
@@ -100,6 +99,7 @@
     <string name="device_android_version">安卓版本</string>
     <string name="device_system_api_version">系统API级别</string>
     <string name="device_host_address">主机地址HOST</string>
+    <string name="device_screen_pixels">设备分辨率</string>
     <string name="device_uuid">设备唯一标识符</string>
     <string name="device_current_iccid">当前ICCID</string>
     <string name="device_sim_card_enable">是否存在实体SIM卡</string>

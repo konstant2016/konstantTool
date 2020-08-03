@@ -7,6 +7,7 @@ import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.Density
+import com.tencent.bugly.crashreport.CrashReport
 import org.greenrobot.eventbus.EventBus
 import java.util.*
 
@@ -25,6 +26,7 @@ class KonApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        CrashReport.initCrashReport(applicationContext,"b3cb53863c",true)
         context = this
         SettingManager.setSystemChinese(Locale.getDefault().toString().contains("zh"))
         Log.d("KonApplication", "onCreate")

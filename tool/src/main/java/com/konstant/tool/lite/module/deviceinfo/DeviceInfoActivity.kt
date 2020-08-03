@@ -1,11 +1,12 @@
 package com.konstant.tool.lite.module.deviceinfo
 
-import android.Manifest
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import android.os.Bundle
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.DeviceInfo
-import com.konstant.tool.lite.util.PermissionRequester
 import kotlinx.android.synthetic.main.activity_device_info.*
 
 
@@ -22,14 +23,7 @@ class DeviceInfoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device_info)
         setTitle(getString(R.string.device_title))
-        judgePermission()
-    }
-
-    private fun judgePermission() {
-        PermissionRequester.requestPermission(this,
-                mutableListOf(Manifest.permission.READ_PHONE_STATE),
-                { readDeviceInfo() },
-                { showToast(getString(R.string.device_permission_cancel));readDeviceInfo() })
+        readDeviceInfo()
     }
 
     private fun readDeviceInfo() {
@@ -57,21 +51,26 @@ class DeviceInfoActivity : BaseActivity() {
 
             append("\n\n${getString(R.string.device_host_address)}：" + DeviceInfo.getDeviceHost())
 
-            append("\n\n${getString(R.string.device_uuid)}：" + DeviceInfo.getDeviceFingerprint(this@DeviceInfoActivity))
+            append("\n\n${getString(R.string.device_screen_pixels)}：" + DeviceInfo.getScreenPixels(this@DeviceInfoActivity))
 
-            append("\n\n${getString(R.string.device_current_iccid)}：${DeviceInfo.getCurrentIccid(this@DeviceInfoActivity)}")
+            append("\n\n${getString(R.string.device_uuid)}：" + DeviceInfo.getDeviceFingerprint(this@DeviceInfoActivity))
 
             append("\n\n${getString(R.string.device_sim_card_enable)}：${DeviceInfo.isSimExist(this@DeviceInfoActivity)}")
 
-            append("\n\n${getString(R.string.device_imei_card_one)}：" + DeviceInfo.getDeviceMEIBySlotId(this@DeviceInfoActivity, 0))
-
-            append("\n\n${getString(R.string.device_imei_card_two)}：" + DeviceInfo.getDeviceMEIBySlotId(this@DeviceInfoActivity, 1))
-
-            append("\n\n${getString(R.string.device_imsi_card_one)}：" + DeviceInfo.getDeviceIMSIBySlotId(this@DeviceInfoActivity, 0))
-
-            append("\n\n${getString(R.string.device_imsi_card_two)}：" + DeviceInfo.getDeviceIMSIBySlotId(this@DeviceInfoActivity, 1))
+            getSystemSensor()
 
             append("\n\n")
+        }
+    }
+
+    private fun getSystemSensor() {
+        val sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val sensorList = sensorManager.getSensorList(Sensor.TYPE_ALL)
+        device_info.append("\n\n\n设备传感器列表(共${sensorList.size}个传感器)：\n")
+        sensorList.forEach {
+            device_info.append("\n传感器名称：${it.name}")
+            device_info.append("\n传感器厂商：${it.vendor}")
+            device_info.append("\n传感器版本：${it.version}\n")
         }
     }
 }

@@ -6,9 +6,11 @@ import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
+import android.util.Log
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.AppUtil
+import com.tencent.bugly.crashreport.CrashReport
 import kotlinx.android.synthetic.main.activity_auto_skip.*
 
 /**

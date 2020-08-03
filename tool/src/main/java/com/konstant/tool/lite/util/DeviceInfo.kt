@@ -2,6 +2,7 @@ package com.konstant.tool.lite.util
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
@@ -53,17 +54,6 @@ object DeviceInfo {
     fun getAndroidVersion(): String {
         return Build.VERSION.RELEASE
     }
-
-    // 获取ICCID
-    fun getCurrentIccid(context: Context): String {
-        return try {
-            val service = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            service.simSerialNumber ?: ""
-        } catch (exception: Exception) {
-            ""
-        }
-    }
-
 
     // 获取SIM卡状态
     @SuppressLint("ServiceCast")
@@ -152,27 +142,12 @@ object DeviceInfo {
         return "02:00:00:00:00:00"
     }
 
-
-    // 获取设备指定卡槽的IMEI号码
-    @TargetApi(Build.VERSION_CODES.M)
-    fun getDeviceMEIBySlotId(context: Context, slotId: Int): String {
-        return try {
-            val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            manager.getDeviceId(slotId)
-        } catch (ex: Exception) {
-            ""
-        }
+    // 获取屏幕分辨率
+    fun getScreenPixels(activity: Activity):String{
+        val displayMetrics = activity.resources.displayMetrics
+        val widthPixels = displayMetrics.widthPixels
+        val heightPixels = displayMetrics.heightPixels
+        return "$heightPixels x $widthPixels"
     }
 
-    // 获取设备指定卡槽的IMSI号码
-    fun getDeviceIMSIBySlotId(context: Context, slotId: Int): String {
-        return try {
-            val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            val clazz: Class<*> = Class.forName("android.telephony.TelephonyManager")
-            val declaredMethod = clazz.getDeclaredMethod("getSubscriberId", Int::class.java)
-            declaredMethod.invoke(manager, slotId) as String
-        } catch (ex: Exception) {
-            ""
-        }
-    }
 }
