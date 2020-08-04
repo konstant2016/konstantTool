@@ -8,13 +8,18 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-
 import cn.jzvd.JzvdStd;
 
 public class KonstantVideoPlayer extends JzvdStd {
 
-    private OnClickListener mOnClickListener;
+    private boolean listViewStatus = false;
     private OnClickListener mOnBackClickListener;
+
+    public interface OnShowListView {
+        void showListView(boolean show);
+    }
+
+    private OnShowListView mShowListView;
 
     public KonstantVideoPlayer(Context context) {
         super(context);
@@ -25,8 +30,13 @@ public class KonstantVideoPlayer extends JzvdStd {
     }
 
     @Override
-    public void setOnClickListener(@Nullable OnClickListener listener) {
-        mOnClickListener = listener;
+    public void init(Context context) {
+        super.init(context);
+        bottomProgressBar.setVisibility(INVISIBLE);
+    }
+
+    public void setOnShowListView(OnShowListView showListView) {
+        this.mShowListView = showListView;
     }
 
     public void setOnBackClickListener(@Nullable OnClickListener listener) {
@@ -47,23 +57,6 @@ public class KonstantVideoPlayer extends JzvdStd {
     }
 
     /**
-     * 播放出错的时候展示这个界面
-     */
-    public void changeUiToError() {
-        setAllControlsVisiblity(View.VISIBLE, View.INVISIBLE, View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.VISIBLE);
-        updateStartImage();
-    }
-
-
-    /**
-     * 正在播放的时候，点击屏幕，显示这个
-     */
-    public void changeUiToPlayingShow() {
-        setAllControlsVisiblity(View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE);
-
-    }
-
-    /**
      * 点击了返回按钮
      *
      * @return
@@ -72,16 +65,18 @@ public class KonstantVideoPlayer extends JzvdStd {
         if (mOnBackClickListener != null) mOnBackClickListener.onClick(null);
     }
 
-    /**
-     * 正在loading的时候显示这个
-     */
-    public void changeUIToPreparingPlaying() {
-        setAllControlsVisiblity(View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.VISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE);
-    }
-
     public void onClickUiToggle() {//这是事件
         super.onClickUiToggle();
-        if (mOnClickListener != null) mOnClickListener.onClick(null);
+        Log.i(TAG, "onTouch onClickUiToggle actionUp [" + this.hashCode() + "] ");
+        listViewStatus = !listViewStatus;
+        if (listViewStatus){
+            topContainer.setVisibility(VISIBLE);
+        }else {
+            topContainer.setVisibility(INVISIBLE);
+        }
+        if (mShowListView != null) {
+            mShowListView.showListView(listViewStatus);
+        }
     }
 
     /**
@@ -101,5 +96,21 @@ public class KonstantVideoPlayer extends JzvdStd {
     @Override
     public void showProgressDialog(float deltaX, String seekTime, long seekTimePosition, String totalTime, long totalTimeDuration) {
 
+    }
+
+    public void updateStartImage() {
+        startButton.setVisibility(INVISIBLE);
+    }
+
+    public void setAllControlsVisiblity(int topCon, int bottomCon, int startBtn, int loadingPro,
+                                        int posterImg, int bottomPro, int retryLayout) {
+        topContainer.setVisibility(INVISIBLE);
+        batteryTimeLayout.setVisibility(INVISIBLE);
+        bottomContainer.setVisibility(INVISIBLE);
+        startButton.setVisibility(INVISIBLE);
+        loadingProgressBar.setVisibility(loadingPro);
+        posterImageView.setVisibility(posterImg);
+        bottomProgressBar.setVisibility(INVISIBLE);
+        mRetryLayout.setVisibility(retryLayout);
     }
 }

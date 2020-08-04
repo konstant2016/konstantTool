@@ -2,6 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@color/color_black"
+    android:animateLayoutChanges="true"
     android:layout_height="match_parent">
 
     <com.konstant.tool.lite.view.KonstantVideoPlayer
@@ -15,6 +16,7 @@
         android:visibility="gone"
         android:id="@+id/view_list"
         android:layout_width="200dp"
+        android:layout_alignParentRight="true"
         android:layout_height="match_parent" />
 
 </merge>

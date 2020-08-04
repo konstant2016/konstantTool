@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
-import cn.jzvd.JZDataSource
-import cn.jzvd.JZMediaSystem
 import cn.jzvd.Jzvd
 import cn.jzvd.JzvdStd
 import com.konstant.tool.lite.R
@@ -47,7 +45,7 @@ class TVLiveActivity : BaseActivity() {
         JzvdStd.setVideoImageDisplayType(JzvdStd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_PARENT)
         video_player.apply {
             setPlayUrl(tvLiveList[0].channelUrl)
-            setOnClickListener { showRecyclerView(view_list.visibility == View.GONE) }
+            setOnShowListView { showRecyclerView(it) }
             setOnBackClickListener { finish() }
         }
         val adapter = AdapterLive(tvLiveList)
@@ -62,10 +60,10 @@ class TVLiveActivity : BaseActivity() {
         showStatusBar(show)
         if (show) {
             view_list.visibility = View.VISIBLE
-            view_list.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_left_to_right))
+            view_list.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_right_to_left))
         } else {
             view_list.visibility = View.GONE
-            view_list.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_right_to_left))
+            view_list.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_left_to_right))
         }
     }
 
