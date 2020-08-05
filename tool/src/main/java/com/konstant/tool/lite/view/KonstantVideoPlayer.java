@@ -1,9 +1,7 @@
 package com.konstant.tool.lite.view;
 
 import android.content.Context;
-
 import androidx.annotation.Nullable;
-
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +10,13 @@ import cn.jzvd.JzvdStd;
 
 public class KonstantVideoPlayer extends JzvdStd {
 
+    // 判断是否正在显示侧边栏
     private boolean listViewStatus = false;
+
+    // 判断是否显示弹窗，如果是，则禁止点击回调
+    private boolean showDialog = false;
+
+    // 点击了顶部返回按钮的回调
     private OnClickListener mOnBackClickListener;
 
     public interface OnShowListView {
@@ -56,6 +60,18 @@ public class KonstantVideoPlayer extends JzvdStd {
         }
     }
 
+    @Override
+    public void showBrightnessDialog(int brightnessPercent) {
+        super.showBrightnessDialog(brightnessPercent);
+        showDialog = true;
+    }
+
+    @Override
+    public void showVolumeDialog(float deltaY, int volumePercent) {
+        super.showVolumeDialog(deltaY, volumePercent);
+        showDialog = true;
+    }
+
     /**
      * 点击了返回按钮
      *
@@ -68,6 +84,10 @@ public class KonstantVideoPlayer extends JzvdStd {
     public void onClickUiToggle() {//这是事件
         super.onClickUiToggle();
         Log.i(TAG, "onTouch onClickUiToggle actionUp [" + this.hashCode() + "] ");
+        if (showDialog){
+            showDialog = false;
+            return;
+        }
         listViewStatus = !listViewStatus;
         if (listViewStatus){
             topContainer.setVisibility(VISIBLE);
