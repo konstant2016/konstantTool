@@ -6,7 +6,9 @@ import android.os.Handler
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Toast
+import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.NotificationCreator
+import kotlinx.android.synthetic.main.activity_auto_skip.view.*
 
 /**
  * 描述：
@@ -104,7 +106,7 @@ class AutoSkipService : AccessibilityService() {
 
     private fun showSkipToast() {
         if (AutoSkipManager.getShowToast(this)) {
-            Toast.makeText(this, "自动跳过", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.skip_describe), Toast.LENGTH_SHORT).show()
         }
     }
 }

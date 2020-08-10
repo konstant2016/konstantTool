@@ -29,8 +29,8 @@ class AdapterAdvanceSkip(private val rulesList: List<AutoSkipManager.CustomRule>
     override fun onBindViewHolder(holder: SkipHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val customRule = rulesList[position]
-        holder.itemView.tv_package_name.text = "包名：${customRule.packageName}"
-        holder.itemView.tv_class_name.text = "类名：${customRule.className}"
-        holder.itemView.tv_resource_name.text = "资源名：${customRule.resourceId}"
+        holder.itemView.tv_package_name.text = "${holder.itemView.context.getString(R.string.skip_package_name)}：${customRule.packageName}"
+        holder.itemView.tv_class_name.text = "${holder.itemView.context.getString(R.string.skip_class_name)}：${customRule.className}"
+        holder.itemView.tv_resource_name.text = "${holder.itemView.context.getString(R.string.skip_resource_name)}：${customRule.resourceId}"
     }
 }

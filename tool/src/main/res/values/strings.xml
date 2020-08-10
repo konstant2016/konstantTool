@@ -20,6 +20,7 @@
     <string name="base_setting">设置</string>
     <string name="base_confirm">确定</string>
     <string name="base_cancel">取消</string>
+    <string name="base_tips">提示</string>
 
     <!--H5 Activity中的文字-->
     <string name="h5_activity_refresh_page">刷新页面</string>
@@ -320,6 +321,34 @@
     <string name="concentration_notification_describe">\'专注模式\'结束后，此通知自动移除</string>
 
     <!-- 自动跳过开屏广告-->
-    <string name="auto_skip_title">自动跳过开屏广告</string>
+    <string name="skip_title">自动跳过开屏广告</string>
+    <string name="skip_describe">自动跳过</string>
+    <string name="skip_white_list">应用白名单</string>
+    <string name="skip_package_name">包名</string>
+    <string name="skip_class_name">类名</string>
+    <string name="skip_resource_name">资源名</string>
+    <string name="skip_above_android_m">此选项仅支持6.0以上设备</string>
+    <string name="skip_battery_enable">电池忽略已启用</string>
+    <string name="skip_advance_setting">高级设置</string>
+    <string name="skip_delete_title">确定删除此条规则？</string>
+    <string name="skip_dialog_add_title">添加自定义规则</string>
+    <string name="skip_toast_package_empty">包名不能为空</string>
+    <string name="skip_toast_class_empty">类名不能为空</string>
+    <string name="skip_toast_resource_empty">资源Id不能为空</string>
+    <string name="skip_enable_status">启用状态</string>
+    <string name="skip_toast">跳过提示</string>
+    <string name="skip_toast_describe">当部分页面发生意外操作时，你可开启此选项用于定位是否由自动跳过引起</string>
+    <string name="skip_matching">模糊匹配</string>
+    <string name="skip_matching_describe">如果匹配到页面上含有\'\'跳过\'\'文字，则执行点击操作，可能会有误操作的风险</string>
+    <string name="skip_battery">电池优化</string>
+    <string name="skip_battery_describe">点击请求系统忽略电池优化，用以保证服务在后台稳定运行</string>
+    <string name="skip_white_list_describe">点击设置应用白名单，处于白名单中的应用不会触发自动跳过逻辑</string>
+    <string name="skip_advance_setting_describe">优先级高度应用白名单和模糊匹配，如果您不明白这些设置意味着什么，请勿点击</string>
+    <string name="skip_add_rules">暂无规则，点击右上角添加规则</string>
+    <string name="skip_filter_app">筛选应用</string>
+    <string name="skip_input_package">输入包名</string>
+    <string name="skip_input_class_name">输入类名</string>
+    <string name="skip_input_resource_id">输入资源名</string>
+    <string name="skip_un_complete">此功能尚不完善，请谨慎使用</string>
 
 </resources>

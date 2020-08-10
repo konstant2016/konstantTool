@@ -77,6 +77,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         return this
     }
 
+    // 是否可以点击外部取消
+    fun setOutsideCancelable(cancelable:Boolean): KonstantDialog{
+        setCancelable(cancelable)
+        return this
+    }
+
     // 根据builder创建dialog
     fun createDialog(): KonstantDialog {
         root = LayoutInflater.from(context).inflate(R.layout.layout_dialog_konstant, null)
@@ -118,7 +124,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         if (checkedChangeListener != null) {
             root.layout_checkbox.visibility = View.VISIBLE
             root.checkbox.setOnCheckedChangeListener { _, isChecked ->
-                checkedChangeListener!!.invoke(isChecked)
+                checkedChangeListener?.invoke(isChecked)
             }
         }
 

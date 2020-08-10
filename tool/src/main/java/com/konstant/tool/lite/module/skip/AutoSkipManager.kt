@@ -12,6 +12,7 @@ object AutoSkipManager {
     private const val SKIP_MATCH = "autoSkipMatch"
     private const val SKIP_RULES = "autoSkipRules"
     private const val SKIP_WHITE_LIST = "autoWhiteList"
+    private const val SKIP_DIALOG_SHOW = "skipDialogShow"
     private val mCustomRules = mutableListOf<CustomRule>()
     private val mWhitList = mutableListOf<String>()
 
@@ -61,8 +62,6 @@ object AutoSkipManager {
 
     // 自定义规则
     fun getCustomRules(): List<CustomRule> {
-        val c = CustomRule("com.qiyi.video","android.widget.FrameLayout","com.qiyi.video:id/unused_res_a")
-        mCustomRules.add(c)
         return mCustomRules
     }
 
@@ -82,6 +81,15 @@ object AutoSkipManager {
     fun addAppIntoWhiteList(list: List<String>) {
         mWhitList.clear()
         mWhitList.addAll(list)
+    }
+
+    // 是否显示实验性功能的提示
+    fun showDialogTips(context: Context): Boolean {
+        return FileUtil.readDataFromSp(context, SKIP_DIALOG_SHOW, true)
+    }
+
+    fun setShowDialogTips(context: Context,show: Boolean) {
+        FileUtil.saveDataToSp(context, SKIP_DIALOG_SHOW, show)
     }
 
 }

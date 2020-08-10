@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.util.AppUtil
+import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_auto_skip.*
 
 /**
@@ -22,8 +23,9 @@ class AutoSkipActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_skip)
-        setTitle(R.string.auto_skip_title)
+        setTitle(getString(R.string.skip_title))
         initViews()
+        showDialog()
     }
 
     private fun initViews() {
@@ -55,14 +57,14 @@ class AutoSkipActivity : BaseActivity() {
         // 电池优化
         layout_battery.setOnClickListener {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                Toast.makeText(this, "此选项仅支持6.0以上设备", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.skip_above_android_m), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             try {
                 val powerManager = getSystemService(POWER_SERVICE) as PowerManager
                 val batteryIgnore = powerManager.isIgnoringBatteryOptimizations(packageName)
                 if (batteryIgnore) {
-                    Toast.makeText(this, "电池忽略已启用", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.skip_battery_enable), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
                 val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
@@ -82,6 +84,24 @@ class AutoSkipActivity : BaseActivity() {
             val intent = Intent(this, AutoSkipAdvanceActivity::class.java)
             startActivitySafely(intent)
         }
+    }
+
+    private fun showDialog() {
+        val show = AutoSkipManager.showDialogTips(this)
+        if (!show) return
+        KonstantDialog(this)
+                .setTitle(getString(R.string.base_tips))
+                .setMessage(getString(R.string.skip_un_complete))
+                .setCheckedChangeListener {
+                    AutoSkipManager.setShowDialogTips(this, !it)
+                }
+                .setPositiveListener { it.dismiss() }
+                .setNegativeListener {
+                    AutoSkipManager.setShowDialogTips(this, true)
+                    finish()
+                }
+                .setOutsideCancelable(false)
+                .createDialog()
     }
 
     override fun onResume() {

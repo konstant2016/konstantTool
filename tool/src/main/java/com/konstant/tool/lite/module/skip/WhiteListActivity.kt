@@ -6,10 +6,7 @@ import android.text.TextWatcher
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
-import com.konstant.tool.lite.module.extract.AppData
 import com.konstant.tool.lite.util.AppUtil
-import kotlinx.android.synthetic.main.activity_package_export.*
-import kotlinx.android.synthetic.main.activity_white_list.*
 import kotlinx.android.synthetic.main.activity_white_list.package_filter
 import kotlinx.android.synthetic.main.activity_white_list.recycler_package
 import kotlin.concurrent.thread
@@ -23,6 +20,7 @@ class WhiteListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_white_list)
+        setTitle(getString(R.string.skip_white_list))
         init()
         getAppDataList()
     }

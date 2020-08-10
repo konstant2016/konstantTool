@@ -24,7 +24,7 @@ class AutoSkipAdvanceActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_skip_advance)
-        setTitle("高级设置")
+        setTitle(getString(R.string.skip_advance_setting))
         initViews()
     }
 
@@ -52,8 +52,9 @@ class AutoSkipAdvanceActivity : BaseActivity() {
     }
 
     private fun showRemoveDialog(position: Int) {
-        KonstantDialog(this).setTitle("确定删除此条规则？")
+        KonstantDialog(this).setTitle(getString(R.string.skip_delete_title))
                 .setPositiveListener {
+                    it.dismiss()
                     AutoSkipManager.removeRules(mCustomRules[position])
                     mAdapter.notifyItemRemoved(position)
                     updateViewStatus()
@@ -68,23 +69,23 @@ class AutoSkipAdvanceActivity : BaseActivity() {
         val etResource = viewDialog.findViewById(R.id.et_resource) as EditText
 
         KonstantDialog(this)
-                .setMessage("添加自定义规则")
+                .setMessage(getString(R.string.skip_dialog_add_title))
                 .addView(viewDialog)
                 .setPositiveListener {
                     if (TextUtils.isEmpty(etPackage.text)) {
-                        showToast("包名不能为空")
+                        showToast(getString(R.string.skip_toast_package_empty))
                         return@setPositiveListener
                     }
                     if (TextUtils.isEmpty(etClass.text)) {
-                        showToast("类名不能为空")
+                        showToast(getString(R.string.skip_toast_class_empty))
                         return@setPositiveListener
                     }
                     if (TextUtils.isEmpty(etResource.text)) {
-                        showToast("资源Id不能为空")
+                        showToast(getString(R.string.skip_toast_resource_empty))
                         return@setPositiveListener
                     }
                     val position = mCustomRules.size
-                    val customRule = AutoSkipManager.CustomRule(etPackage.toString(), etClass.toString(), etResource.toString())
+                    val customRule = AutoSkipManager.CustomRule(etPackage.text.toString(), etClass.text.toString(), etResource.text.toString())
                     AutoSkipManager.addCustomRules(customRule)
                     mAdapter.notifyItemInserted(position)
                     updateViewStatus()

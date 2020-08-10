@@ -13,6 +13,7 @@
         app:elevation="0dp">
 
         <EditText
+            android:hint="@string/skip_filter_app"
             android:id="@+id/package_filter"
             android:layout_width="match_parent"
             android:layout_height="45dp"

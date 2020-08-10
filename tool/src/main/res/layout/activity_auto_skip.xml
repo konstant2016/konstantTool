@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="启用状态"
+                android:text="@string/skip_enable_status"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="跳过提示"
+                android:text="@string/skip_toast"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="当部分页面发生意外操作时，你可开启此选项用于定位是否又自动跳过引起"
+                android:text="@string/skip_toast_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -119,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="模糊匹配"
+                android:text="@string/skip_matching"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="如果匹配到页面上含有''跳过''文字，则执行点击操作，可能会有误操作的风险"
+                android:text="@string/skip_matching_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -152,10 +152,11 @@
             app:layout_constraintTop_toBottomOf="@id/layout_toast">
 
             <TextView
+                android:gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="电池优化"
+                android:text="@string/skip_battery"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -165,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
-                android:text="点击请求系统忽略电池优化，用以保证服务在后台稳定运行"
+                android:text="@string/skip_battery_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -190,7 +191,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="应用白名单"
+                android:text="@string/skip_white_list"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -200,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
-                android:text="点击设置应用白名单，处于白名单中的应用不会触发自动跳过逻辑"
+                android:text="@string/skip_white_list_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
 
@@ -223,9 +224,10 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_match">
 
             <TextView
+                android:gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="高级设置"
+                android:text="@string/skip_advance_setting"
                 android:textColor="?attr/tool_main_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -235,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
-                android:text="优先级高度应用白名单和模糊匹配，如果您不明白这些设置意味着什么，请勿点击"
+                android:text="@string/skip_advance_setting_describe"
                 android:textColor="?attr/tool_second_text_color"
                 android:textSize="12sp" />
         </LinearLayout>
