@@ -18,7 +18,8 @@ import java.util.concurrent.Executors
 
 object ExpressManager {
 
-    private val NAME_LOCAL_EXPRESS = "localExpress"
+    private const val NAME_LOCAL_EXPRESS = "localExpress"
+    private const val NAME_EXPRESS_DIALOG = "showExpressDialog"
     private val mExpressList = ArrayList<ExpressData>()
 
     // 初始化的时候，读取本地保存的数据
@@ -69,6 +70,15 @@ object ExpressManager {
     fun addExpress(number: String, company: String? = KonApplication.context.resources.getString(R.string.express_order_number), status: String? = KonApplication.context.resources.getString(R.string.express_empty_state), name: String? = KonApplication.context.resources.getString(R.string.express_name_unknown)) {
         val expressData = ExpressData(company, number, status, name)
         if (!mExpressList.contains(expressData)) mExpressList.add(expressData)
+    }
+
+    // 是否显示弹窗提示
+    fun showDialog(context: Context): Boolean {
+        return FileUtil.readDataFromSp(context, NAME_EXPRESS_DIALOG, true)
+    }
+
+    fun setShowDialog(context: Context, show: Boolean) {
+        FileUtil.saveDataToSp(context, NAME_EXPRESS_DIALOG, show)
     }
 
 }

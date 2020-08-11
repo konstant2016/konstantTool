@@ -82,10 +82,10 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(SettingManager.getTheme(this))
+        setDefaultLanguage()
         super.setContentView(R.layout.activity_base)
         initBaseViews()
         EventBus.getDefault().register(this)
-        setDefaultLanguage()
         AppUtil.addActivity(this)
     }
 

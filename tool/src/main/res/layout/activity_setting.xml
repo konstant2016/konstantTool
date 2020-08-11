@@ -316,6 +316,12 @@
         </RelativeLayout>
 
         <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_reset"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="@string/setting_reset_tips" />
+
+        <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_share"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -327,4 +333,5 @@
             android:layout_height="50dp"
             app:title="@string/setting_about_title" />
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

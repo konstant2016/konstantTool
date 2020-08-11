@@ -9,8 +9,8 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 21400
-        versionName "2.14.0"
+        versionCode 21500
+        versionName "2.15.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
@@ -73,7 +73,7 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.2.0'
     // 高德定位
     implementation 'com.amap.api:location:4.9.0'
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0'
     implementation files('libs/core-3.3.3.jar')
     implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     implementation 'cn.jzvd:jiaozivideoplayer:7.4.2'

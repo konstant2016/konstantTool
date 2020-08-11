@@ -52,7 +52,26 @@ class ExpressListActivity : BaseActivity() {
             readLocalExpress()
             initViews()
             updateUI()
+            showDialog()
         }
+    }
+
+    private fun showDialog() {
+        val show = ExpressManager.showDialog(this)
+        if (!show) return
+        KonstantDialog(this)
+                .setTitle(getString(R.string.base_tips))
+                .setMessage(getString(R.string.express_interface_describe))
+                .setCheckedChangeListener {
+                    ExpressManager.setShowDialog(this, it)
+                }
+                .setOutsideCancelable(false)
+                .setPositiveListener { it.dismiss() }
+                .setNegativeListener {
+                    ExpressManager.setShowDialog(this, true)
+                    finish()
+                }
+                .createDialog()
     }
 
     // 初始化基础控件

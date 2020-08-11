@@ -163,7 +163,10 @@ object SettingManager {
 
     fun getSystemChinese() = systemChinese
 
-    // 读取当前应该显示什么语言
+    /**
+     * 读取当前应该显示什么语言
+     * 0:跟随系统、1:、显示中文、2:显示英文
+     */
     fun getShowChinese(context: Context): Boolean {
         return when (getDefaultLanguage(context)) {
             0 -> {

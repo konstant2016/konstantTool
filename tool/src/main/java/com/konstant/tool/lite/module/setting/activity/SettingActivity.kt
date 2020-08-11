@@ -7,9 +7,11 @@ import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.*
+import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.module.extract.AppData
 import com.konstant.tool.lite.module.extract.PackagePresenter
 import com.konstant.tool.lite.module.setting.SettingManager
+import com.konstant.tool.lite.module.skip.AutoSkipManager
 import com.konstant.tool.lite.util.ImageSelector
 import com.konstant.tool.lite.util.PermissionRequester
 import com.konstant.tool.lite.view.KonstantDialog
@@ -98,6 +100,8 @@ class SettingActivity : BaseActivity() {
                 EventBus.getDefault().post(ThemeChanged())
         }
         layout_dark.setOnClickListener { switch_dark.isChecked = !switch_dark.isChecked }
+
+        layout_reset.setOnClickListener { onResetClick() }
 
         // 分享应用
         layout_share.setOnClickListener { shareApp() }
@@ -188,6 +192,20 @@ class SettingActivity : BaseActivity() {
                             showToast(getString(R.string.setting_header_recover_success))
                         }
                     }
+                }
+                .createDialog()
+    }
+
+    // 点击重置所有提示
+    private fun onResetClick(){
+        KonstantDialog(this)
+                .setTitle(getString(R.string.base_tips))
+                .setMessage(getString(R.string.setting_reset_tips))
+                .setPositiveListener {
+                    ExpressManager.setShowDialog(this,true)
+                    AutoSkipManager.setShowDialogTips(this,true)
+                    it.dismiss()
+                    showToast(getString(R.string.base_txt_success))
                 }
                 .createDialog()
     }
