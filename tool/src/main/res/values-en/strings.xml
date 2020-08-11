@@ -305,5 +305,7 @@
     <string name="setting_reset_tips_describe">Reshow all alert dialog</string>
     <string name="base_not_show_again">Do not remind again</string>
     <string name="express_interface_describe">This function is not stable, switch to html is recommend</string>
+    <string name="setting_scale">Enable global scale</string>
+    <string name="setting_scale_describe">Try to fix some view bugs</string>
 
 </resources>

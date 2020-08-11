@@ -28,6 +28,7 @@ object SettingManager {
     private const val NAME_BROWSER_TYPE = "browserStatus"
     private const val EXIT_TIPS_STATUS = "exitTipsStatus"
     private const val KILL_PROCESS_STATUS = "killProcessStatus"
+    private const val FIX_VIEW_SCALE = "fixViewScale"
     private const val ADAPTER_DARK_MODE = "adapterDarkMode"
     const val NAME_USER_HEADER = "header_big.jpg"
 
@@ -155,6 +156,12 @@ object SettingManager {
     // 保存：用户选择的软件语言
     fun saveDefaultLanguage(context: Context, language: Int) {
         FileUtil.saveDataToSp(context, NAME_DEFAULT_LANGUAGE, language)
+    }
+
+    fun getViewScale(context: Context) = FileUtil.readDataFromSp(context, FIX_VIEW_SCALE, false)
+
+    fun saveViewScale(context: Context, enable: Boolean) {
+        FileUtil.saveDataToSp(context, FIX_VIEW_SCALE,enable)
     }
 
     fun setSystemChinese(chinese: Boolean) {

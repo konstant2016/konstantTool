@@ -148,6 +148,11 @@ abstract class BaseActivity : SwipeBackActivity() {
         recreate()
     }
 
+    @Subscribe
+    open fun onViewScaleChanged(msg: ViewScaleChanged) {
+        recreate()
+    }
+
     override fun recreate() {
         if (AppUtil.isTop(this)) {
             finish()

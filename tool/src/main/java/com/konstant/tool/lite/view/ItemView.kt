@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.item_layout_main.view.*
 
@@ -14,6 +13,7 @@ class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? =
     : RelativeLayout(context, attr, defStyleAtr) {
 
     private var mOnClickListener: OnClickListener? = null
+    private var mCheckedChangeListener: ((isChecked: Boolean) -> Unit)? = null
 
     private val mView: View = LayoutInflater.from(context).inflate(R.layout.item_layout_main, null)
 
@@ -23,6 +23,7 @@ class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? =
         val subTitle = array.getString(R.styleable.ItemView_subTitle)
         val hintState = array.getBoolean(R.styleable.ItemView_showHint, false)
         val moreState = array.getBoolean(R.styleable.ItemView_showMore, true)
+        val showSwitch = array.getBoolean(R.styleable.ItemView_showSwitch, false)
         mView.apply {
             item_title.text = title
             if (TextUtils.isEmpty(subTitle)) {
@@ -34,6 +35,17 @@ class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? =
             item_view.setOnClickListener { mOnClickListener?.onClick(it) }
             item_hint.visibility = if (hintState) View.VISIBLE else View.GONE
             item_img.visibility = if (moreState) View.VISIBLE else View.GONE
+            if (showSwitch) {
+                item_img.visibility = View.GONE
+                item_hint.visibility = View.GONE
+                switch_view.visibility = View.VISIBLE
+                switch_view.setOnCheckedChangeListener { _, isChecked -> mCheckedChangeListener?.invoke(isChecked) }
+                setOnClickListener { switch_view.isChecked = !switch_view.isChecked }
+            } else {
+                item_img.visibility = View.VISIBLE
+                item_hint.visibility = View.VISIBLE
+                switch_view.visibility = View.GONE
+            }
         }
         addView(mView)
         array.recycle()
@@ -46,6 +58,14 @@ class ItemView @JvmOverloads constructor(context: Context, attr: AttributeSet? =
     fun setHintText(txt: String) {
         mView.item_hint.text = txt
         mView.item_hint.visibility = View.VISIBLE
+    }
+
+    fun setChecked(checked: Boolean) {
+        mView.switch_view.isChecked = checked
+    }
+
+    fun setOnCheckedChangeListener(checkedChangeListener: (isChecked: Boolean) -> Unit) {
+        mCheckedChangeListener = checkedChangeListener
     }
 
 }

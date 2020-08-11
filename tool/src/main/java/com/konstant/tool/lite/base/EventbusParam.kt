@@ -23,3 +23,6 @@ class CollectionSettingChanged
 
 // 收藏内容发生了变化
 class CollectionFunctionChanged
+
+// 缩放开关发生变化
+class ViewScaleChanged

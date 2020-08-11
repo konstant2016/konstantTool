@@ -51,14 +51,12 @@ class SettingActivity : BaseActivity() {
         layout_header.setOnClickListener { headerSelector() }
 
         // 退出提示
-        switch_exit.isChecked = SettingManager.getExitTipsStatus(this)
-        switch_exit.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveExitTipsStatus(this, isChecked) }
-        layout_exit.setOnClickListener { switch_exit.isChecked = !switch_exit.isChecked }
+        layout_exit.setChecked(SettingManager.getExitTipsStatus(this))
+        layout_exit.setOnCheckedChangeListener { SettingManager.saveExitTipsStatus(this, it) }
 
         // 杀进程
-        switch_kill.isChecked = SettingManager.getKillProcess(this)
-        switch_kill.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveKillProcess(this, isChecked) }
-        layout_kill.setOnClickListener { switch_kill.isChecked = !switch_kill.isChecked }
+        layout_kill.setChecked(SettingManager.getKillProcess(this))
+        layout_kill.setOnCheckedChangeListener { SettingManager.saveKillProcess(this, it) }
 
         // 滑动返回
         layout_swipe.setOnClickListener { onSwipeBackClick() }
@@ -73,33 +71,34 @@ class SettingActivity : BaseActivity() {
         layout_browser.setHintText(mBrowserTypeList[SettingManager.getBrowserType(this)])
 
         // 自动检查更新
-        switch_update.isChecked = SettingManager.getAutoCheckUpdate(this)
-        switch_update.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveAutoCheckUpdate(this, isChecked) }
-        layout_update.setOnClickListener { switch_update.isChecked = !switch_update.isChecked }
+        layout_update.setChecked(SettingManager.getAutoCheckUpdate(this))
+        layout_update.setOnCheckedChangeListener { SettingManager.saveAutoCheckUpdate(this, it) }
 
         // 网页版快递查询
-        switch_express.isChecked = SettingManager.getExpressWithHtml(this)
-        switch_express.setOnCheckedChangeListener { _, isChecked -> SettingManager.saveExpressWithHtml(this, isChecked) }
-        layout_express.setOnClickListener { switch_express.isChecked = !switch_express.isChecked }
+        layout_express.setChecked(SettingManager.getExpressWithHtml(this))
+        layout_express.setOnCheckedChangeListener { SettingManager.saveExpressWithHtml(this, it) }
 
         // 显示收藏列表
-        switch_collect.isChecked = SettingManager.getShowCollection(this)
-        switch_collect.setOnCheckedChangeListener { _, isChecked ->
-            SettingManager.saveShowCollection(this, isChecked)
+        layout_collect.setChecked(SettingManager.getShowCollection(this))
+        layout_collect.setOnCheckedChangeListener {
+            SettingManager.saveShowCollection(this, it)
             EventBus.getDefault().post(CollectionSettingChanged())
-        }
-        layout_collect.setOnClickListener {
-            switch_collect.isChecked = !switch_collect.isChecked
         }
 
         // 适配系统暗黑主题
-        switch_dark.isChecked = SettingManager.getAdapterDarkMode(this)
-        switch_dark.setOnCheckedChangeListener { _, isChecked ->
-            SettingManager.setAdapterDarkMode(this, isChecked)
+        layout_dark.setChecked(SettingManager.getAdapterDarkMode(this))
+        layout_dark.setOnCheckedChangeListener {
+            SettingManager.setAdapterDarkMode(this, it)
             if (SettingManager.getDarkModeStatus(this))
                 EventBus.getDefault().post(ThemeChanged())
         }
-        layout_dark.setOnClickListener { switch_dark.isChecked = !switch_dark.isChecked }
+
+        // 强制全局缩放
+        layout_scale.setChecked(SettingManager.getViewScale(this))
+        layout_scale.setOnCheckedChangeListener {
+            SettingManager.saveViewScale(this,it)
+            EventBus.getDefault().post(ViewScaleChanged())
+        }
 
         layout_reset.setOnClickListener { onResetClick() }
 
@@ -197,12 +196,12 @@ class SettingActivity : BaseActivity() {
     }
 
     // 点击重置所有提示
-    private fun onResetClick(){
+    private fun onResetClick() {
         KonstantDialog(this)
                 .setMessage("${getString(R.string.setting_reset_tips)}?")
                 .setPositiveListener {
-                    ExpressManager.setShowDialog(this,true)
-                    AutoSkipManager.setShowDialogTips(this,true)
+                    ExpressManager.setShowDialog(this, true)
+                    AutoSkipManager.setShowDialogTips(this, true)
                     it.dismiss()
                     showToast(getString(R.string.base_txt_success))
                 }
@@ -210,7 +209,7 @@ class SettingActivity : BaseActivity() {
     }
 
     private fun shareApp() {
-        val appData = AppData(packageName,getDrawable(R.drawable.ic_launcher)!!,getString(R.string.app_name))
+        val appData = AppData(packageName, getDrawable(R.drawable.ic_launcher)!!, getString(R.string.app_name))
         val path = getExternalFilesDir(null)?.path + File.separator + "apks"
         PackagePresenter.backApp(path, appData) { status, file ->
             runOnUiThread {

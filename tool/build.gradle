@@ -15,9 +15,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters 'armeabi-v7a'
+//            ,'x86','x86_64'
         }
 
     }
+
+//    虚拟机中运行需要解开这个注释
+//    splits {
+//        abi {
+//            enable true
+//            reset()
+//            include 'x86', 'armeabi-v7a','x86_64'
+//            universalApk true
+//        }
+//    }
+
     buildTypes {
         release {
             shrinkResources true    // 删除无用资源

@@ -30,6 +30,18 @@
 
     </LinearLayout>
 
+    <com.konstant.tool.lite.view.KonstantTextView
+        android:id="@+id/item_hint"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="?attr/tool_second_text_color" />
+
     <ImageView
         android:id="@+id/item_img"
         android:layout_width="wrap_content"
@@ -39,17 +51,15 @@
         android:layout_marginEnd="15dp"
         android:src="@drawable/icon_right" />
 
-    <com.konstant.tool.lite.view.KonstantTextView
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:singleLine="true"
-        android:id="@+id/item_hint"
-        android:textColor="?attr/tool_second_text_color"
-        android:layout_marginEnd="40dp"
+    <Switch
+        android:id="@+id/switch_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:layout_width="70dp"
-        android:layout_height="match_parent" />
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="25dp"
+        android:thumb="@drawable/selector_switch_thumb"
+        android:track="@drawable/selector_switch_track" />
 
     <View
         android:layout_width="match_parent"

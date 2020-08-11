@@ -27,6 +27,7 @@
         <attr name="subTitle" format="string" />
         <attr name="showHint" format="boolean" />
         <attr name="showMore" format="boolean" />
+        <attr name="showSwitch" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DiffuseView">

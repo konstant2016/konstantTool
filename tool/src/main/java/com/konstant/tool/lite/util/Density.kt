@@ -7,7 +7,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
-import com.konstant.tool.lite.base.KonApplication
+import com.konstant.tool.lite.module.setting.SettingManager
 
 
 /**
@@ -24,6 +24,7 @@ object Density {
     private const val SIGN_DPI_HEIGHT = 640  // 设计图中的高度
 
     fun init(application: Application) {
+        if (!SettingManager.getViewScale(application)) return
         with(application.resources.displayMetrics) {
             mAppDensity = density
             mAppScaleDensity = scaledDensity
@@ -38,6 +39,7 @@ object Density {
         application.registerComponentCallbacks(object : ComponentCallbacks {
 
             override fun onConfigurationChanged(newConfig: Configuration?) {
+                if (!SettingManager.getViewScale(application)) return
                 if (newConfig != null && newConfig.fontScale > 0) {
                     mAppScaleDensity = application.resources.displayMetrics.scaledDensity
                 }
@@ -58,6 +60,7 @@ object Density {
             override fun onActivityResumed(activity: Activity) {}
 
             override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+                if (!SettingManager.getViewScale(application)) return
                 activity?.let { setActivityDensity(it) }
             }
 

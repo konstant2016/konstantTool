@@ -252,6 +252,8 @@
     <string name="setting_header_recover_success">已恢复默认</string>
     <string name="setting_theme_title">主题设置</string>
     <string name="setting_theme_dialog">您当前已开启"适配系统深色模式"开关，需要关闭后才能修改主题，是否前往关闭？</string>
+    <string name="setting_scale">强制全局缩放</string>
+    <string name="setting_scale_describe">尝试修复部分界面或文字过小的问题</string>
     <string name="setting_reset_tips">重置所有提示</string>
     <string name="setting_reset_tips_describe">重新显示所有勾选(不再提示)的弹窗</string>
     <string name="setting_reset_tips_success">已重置</string>
