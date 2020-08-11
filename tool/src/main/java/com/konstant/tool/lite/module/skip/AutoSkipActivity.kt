@@ -90,7 +90,6 @@ class AutoSkipActivity : BaseActivity() {
         val show = AutoSkipManager.showDialogTips(this)
         if (!show) return
         KonstantDialog(this)
-                .setTitle(getString(R.string.base_tips))
                 .setMessage(getString(R.string.skip_un_complete))
                 .setCheckedChangeListener {
                     AutoSkipManager.setShowDialogTips(this, !it)

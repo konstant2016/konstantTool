@@ -199,8 +199,7 @@ class SettingActivity : BaseActivity() {
     // 点击重置所有提示
     private fun onResetClick(){
         KonstantDialog(this)
-                .setTitle(getString(R.string.base_tips))
-                .setMessage(getString(R.string.setting_reset_tips))
+                .setMessage("${getString(R.string.setting_reset_tips)}?")
                 .setPositiveListener {
                     ExpressManager.setShowDialog(this,true)
                     AutoSkipManager.setShowDialogTips(this,true)
