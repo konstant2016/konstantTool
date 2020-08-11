@@ -131,7 +131,7 @@
     <string name="express_button_retry">重试</string>
     <string name="express_empty_state">暂无信息</string>
     <string name="express_order_number">物流单号</string>
-    <string name="express_interface_describe">此功能接口不稳定，若查询不到结果，请在设置页面开启网页版网页查询</string>
+    <string name="express_interface_describe">此功能接口不稳定，建议切换网页版快递查询</string>
 
 
     <!--安装包提取中的文字-->

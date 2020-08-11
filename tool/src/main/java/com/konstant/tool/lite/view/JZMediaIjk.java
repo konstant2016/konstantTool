@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.view.Surface;
 
+import androidx.annotation.Keep;
+
 import java.io.IOException;
 
 import cn.jzvd.JZMediaInterface;
@@ -20,6 +22,7 @@ import tv.danmaku.ijk.media.player.IjkTimedText;
  * ijk默认不支持https协议,需要的请自行下载so库
  */
 
+@Keep
 public class JZMediaIjk extends JZMediaInterface implements IMediaPlayer.OnPreparedListener, IMediaPlayer.OnVideoSizeChangedListener, IMediaPlayer.OnCompletionListener, IMediaPlayer.OnErrorListener, IMediaPlayer.OnInfoListener, IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.OnSeekCompleteListener, IMediaPlayer.OnTimedTextListener {
     IjkMediaPlayer ijkMediaPlayer;
 

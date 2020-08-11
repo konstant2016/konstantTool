@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import com.konstant.tool.lite.R
@@ -15,7 +14,6 @@ import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
 import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.data.bean.express.ExpressData
 import com.konstant.tool.lite.module.setting.SettingManager
-import com.konstant.tool.lite.network.NetworkHelper
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
 import kotlinx.android.synthetic.main.title_layout.*
@@ -37,39 +35,51 @@ class ExpressListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_express)
+        setTitle(getString(R.string.express_title))
         init()
     }
 
     private fun init() {
         if (SettingManager.getExpressWithHtml(this)) {
-            val intent = Intent(this, H5Activity::class.java)
-            intent.putExtra(H5Activity.H5_URL, "https://m.kuaidi100.com/index.jsp")
-            startActivitySafely(intent)
-            finish()
+            initHtml()
         } else {
-            setContentView(R.layout.activity_express)
-            setTitle(getString(R.string.express_title))
-            readLocalExpress()
-            initViews()
-            updateUI()
             showDialog()
         }
     }
 
+    private fun initHtml(){
+        val intent = Intent(this, H5Activity::class.java)
+        intent.putExtra(H5Activity.H5_URL, "https://m.kuaidi100.com/index.jsp")
+        startActivitySafely(intent)
+        finish()
+    }
+
+    private fun initNative(){
+        readLocalExpress()
+        initViews()
+        updateUI()
+    }
+
     private fun showDialog() {
         val show = ExpressManager.showDialog(this)
-        if (!show) return
+        if (!show) {
+            initNative()
+            return
+        }
         KonstantDialog(this)
-                .setTitle(getString(R.string.base_tips))
                 .setMessage(getString(R.string.express_interface_describe))
                 .setCheckedChangeListener {
-                    ExpressManager.setShowDialog(this, it)
+                    ExpressManager.setShowDialog(this, !it)
                 }
                 .setOutsideCancelable(false)
-                .setPositiveListener { it.dismiss() }
+                .setPositiveListener {
+                    SettingManager.saveExpressWithHtml(this,true)
+                    it.dismiss()
+                    initHtml()
+                }
                 .setNegativeListener {
-                    ExpressManager.setShowDialog(this, true)
-                    finish()
+                    initNative()
                 }
                 .createDialog()
     }

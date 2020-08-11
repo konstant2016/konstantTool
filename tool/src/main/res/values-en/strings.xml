@@ -304,6 +304,6 @@
     <string name="setting_reset_tips_success">Succeed</string>
     <string name="setting_reset_tips_describe">Reshow all alert dialog</string>
     <string name="base_not_show_again">Do not remind again</string>
-    <string name="express_interface_describe">This function is not stable, considering enable the Express with html in the Settings page</string>
+    <string name="express_interface_describe">This function is not stable, switch to html is recommend</string>
 
 </resources>
