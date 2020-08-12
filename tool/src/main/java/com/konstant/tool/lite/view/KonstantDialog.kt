@@ -18,6 +18,8 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     private var hideNavigation = false
     private var message: String = ""
     private var title: String = ""
+    private var cancelText: String = context.getString(R.string.base_cancel)
+    private var confirmText: String = context.getString(R.string.base_confirm)
     private var view: View? = null           // 内部填充的布局
     private val mList = ArrayList<String>()  // 内部填充的列表
 
@@ -47,13 +49,15 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     // 设置确认按钮的监听
-    fun setPositiveListener(listener: (KonstantDialog) -> Unit): KonstantDialog {
+    fun setPositiveListener(text: String = context.getString(R.string.base_confirm), listener: (KonstantDialog) -> Unit): KonstantDialog {
+        confirmText = text
         positiveListener = listener
         return this
     }
 
     // 设置取消按钮的监听
-    fun setNegativeListener(listener: (KonstantDialog) -> Unit): KonstantDialog {
+    fun setNegativeListener(text: String = context.getString(R.string.base_cancel),listener: (KonstantDialog) -> Unit): KonstantDialog {
+        cancelText = text
         negativeListener = listener
         return this
     }
@@ -78,7 +82,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     // 是否可以点击外部取消
-    fun setOutsideCancelable(cancelable:Boolean): KonstantDialog{
+    fun setOutsideCancelable(cancelable: Boolean): KonstantDialog {
         setCancelable(cancelable)
         return this
     }
@@ -90,10 +94,12 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
             root.layout_navigation.visibility = View.GONE
         }
 
+        root.btn_confirm.text = confirmText
         root.btn_confirm.setOnClickListener {
             positiveListener?.invoke(this)
         }
 
+        root.btn_cancel.text = cancelText
         root.btn_cancel.setOnClickListener {
             negativeListener?.invoke(this)
             this.dismiss()

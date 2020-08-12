@@ -67,18 +67,25 @@ class ExpressListActivity : BaseActivity() {
             initNative()
             return
         }
+        var isChecked = false
         KonstantDialog(this)
                 .setMessage(getString(R.string.express_interface_describe))
                 .setCheckedChangeListener {
                     ExpressManager.setShowDialog(this, !it)
+                    isChecked = it
                 }
                 .setOutsideCancelable(false)
-                .setPositiveListener {
-                    SettingManager.saveExpressWithHtml(this,true)
+                .setPositiveListener(getString(R.string.express_dialog_open_html)) {
+                    if (isChecked){
+                        SettingManager.saveExpressWithHtml(this,true)
+                    }
                     it.dismiss()
                     initHtml()
                 }
-                .setNegativeListener {
+                .setNegativeListener(getString(R.string.express_dialog_open_native)) {
+                    if (isChecked){
+                        SettingManager.saveExpressWithHtml(this,false)
+                    }
                     initNative()
                 }
                 .createDialog()

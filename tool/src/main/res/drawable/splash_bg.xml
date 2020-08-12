@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/color_white" />
-    <item android:gravity="center" android:width="60dp" android:height="60dp">
+    <item
+        android:gravity="center_horizontal"
+        android:width="100dp"
+        android:height="100dp"
+        android:top="250dp">
         <bitmap android:src="@drawable/ic_launcher" />
     </item>
 </layer-list>

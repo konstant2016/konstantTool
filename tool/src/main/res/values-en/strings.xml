@@ -307,5 +307,7 @@
     <string name="express_interface_describe">This function is not stable, switch to html is recommend</string>
     <string name="setting_scale">Enable global scale</string>
     <string name="setting_scale_describe">Try to fix some view bugs</string>
+    <string name="express_dialog_open_html">Switch</string>
+    <string name="express_dialog_open_native">Leave</string>
 
 </resources>

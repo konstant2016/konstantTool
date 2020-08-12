@@ -55,7 +55,7 @@ class AutoSkipService : AccessibilityService() {
     // 排除自身应用
     private fun exclusiveSelf(event: AccessibilityEvent): Boolean {
         if (event.packageName == packageName) return true
-        if (rootInActiveWindow.packageName == packageName) return true
+        if (rootInActiveWindow?.packageName == packageName) return true
         return false
     }
 

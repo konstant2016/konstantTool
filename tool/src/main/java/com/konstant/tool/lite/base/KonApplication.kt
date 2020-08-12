@@ -7,6 +7,7 @@ import android.util.Log
 import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.Density
+import com.konstant.tool.lite.util.FileUtil
 import com.tencent.bugly.crashreport.CrashReport
 import org.greenrobot.eventbus.EventBus
 import java.util.*
@@ -26,28 +27,27 @@ class KonApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        CrashReport.initCrashReport(applicationContext,"b3cb53863c",true)
         context = this
+        val show = FileUtil.readDataFromSp(this, SplashActivity.SHOW_DIALOG_KEY, true)
+        if (!show){
+            CrashReport.initCrashReport(applicationContext,"b3cb53863c",true)
+        }
         SettingManager.setSystemChinese(Locale.getDefault().toString().contains("zh"))
-        Log.d("KonApplication", "onCreate")
         Density.init(this)
         KonstantDataManager.onCreate(applicationContext)
     }
 
     override fun onTerminate() {
-        Log.d("KonApplication", "onTerminate")
         KonstantDataManager.onDestroy(applicationContext)
         super.onTerminate()
     }
 
     override fun onTrimMemory(level: Int) {
         KonstantDataManager.onDestroy(applicationContext)
-        Log.d("KonApplication", "onTrimMemory")
         super.onTrimMemory(level)
     }
 
     override fun onLowMemory() {
-        Log.d("KonApplication", "onLowMemory")
         KonstantDataManager.onDestroy(applicationContext)
         super.onLowMemory()
     }

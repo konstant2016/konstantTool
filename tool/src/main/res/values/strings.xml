@@ -132,7 +132,8 @@
     <string name="express_empty_state">暂无信息</string>
     <string name="express_order_number">物流单号</string>
     <string name="express_interface_describe">此功能接口不稳定，建议切换网页版快递查询</string>
-
+    <string name="express_dialog_open_html">打开网页版</string>
+    <string name="express_dialog_open_native">留在当前</string>
 
     <!--安装包提取中的文字-->
     <string name="package_title">安装包提取</string>
