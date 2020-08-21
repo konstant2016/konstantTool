@@ -50,7 +50,7 @@ class ExpressListActivity : BaseActivity() {
 
     private fun initHtml(){
         val intent = Intent(this, H5Activity::class.java)
-        intent.putExtra(H5Activity.H5_URL, "https://m.kuaidi100.com/index.jsp")
+        intent.putExtra(H5Activity.H5_URL, "https://expressh5.teddymobile.cn/#/")
         startActivitySafely(intent)
         finish()
     }
