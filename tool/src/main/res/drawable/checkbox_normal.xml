@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="ring"
-    android:thickness="2dp"
-    android:innerRadius="7dp"
-    android:useLevel="false">
+    android:shape="oval">
 
-    <solid android:color="?attr/tool_main_color" />
-    <size android:width="20dp" android:height="20dp"/>
-
+    <stroke
+        android:width="2dp"
+        android:color="?attr/tool_theme_text_color" />
+    <solid android:color="?attr/tool_main_bg_color" />
+    <size
+        android:width="20dp"
+        android:height="20dp" />
 </shape>

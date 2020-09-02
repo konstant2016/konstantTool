@@ -13,14 +13,17 @@
         app:elevation="0dp">
 
         <EditText
-            android:hint="@string/skip_filter_app"
+            android:textSize="14sp"
             android:id="@+id/package_filter"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_margin="5dp"
             android:background="@drawable/edit_bg"
+            android:hint="@string/skip_filter_app"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textColor="?attr/tool_main_text_color"
+            android:textColorHint="?attr/tool_second_text_color"
             app:layout_scrollFlags="scroll|enterAlways" />
 
     </com.google.android.material.appbar.AppBarLayout>

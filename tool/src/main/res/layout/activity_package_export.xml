@@ -11,24 +11,27 @@
         app:elevation="0dp">
 
         <LinearLayout
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <EditText
+                android:textSize="14sp"
                 android:id="@+id/package_filter"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/edit_bg"
+                android:hint="@string/skip_filter_app"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
+                android:paddingRight="10dp"
+                android:textColor="?attr/tool_main_text_color"
+                android:textColorHint="?attr/tool_second_text_color" />
 
             <TextView
-                android:textSize="12sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -36,12 +39,13 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp"
                 android:text="@string/package_export_describe"
-                android:textColor="?attr/tool_theme_text_color" />
+                android:textColor="?attr/tool_theme_text_color"
+                android:textSize="12sp" />
 
             <View
-                android:background="?attr/tool_divider_color"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"/>
+                android:layout_height="0.5dp"
+                android:background="?attr/tool_divider_color" />
 
         </LinearLayout>
 
