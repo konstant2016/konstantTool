@@ -121,6 +121,7 @@ class ImageSelector : AppCompatActivity() {
                 val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
                 if (!file.exists()) {
                     mCallback.invoke(false)
+                    finish()
                     return
                 }
                 val uri = FileUtil.getPictureUri(this, mFileName)
