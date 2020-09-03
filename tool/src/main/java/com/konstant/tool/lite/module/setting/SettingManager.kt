@@ -127,7 +127,7 @@ object SettingManager {
     }
 
     // 读取：是否使用网页版快递查询
-    fun getExpressWithHtml(context: Context) = FileUtil.readDataFromSp(context, NAME_EXPRESS_HTML, false)
+    fun getExpressWithHtml(context: Context) = FileUtil.readDataFromSp(context, NAME_EXPRESS_HTML, true)
 
     // 保存：是否使用网页版快递查询
     fun saveExpressWithHtml(context: Context, status: Boolean) {
