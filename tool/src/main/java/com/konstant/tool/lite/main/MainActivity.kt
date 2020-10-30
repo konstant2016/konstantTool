@@ -10,6 +10,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.*
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
+import com.konstant.tool.lite.util.choreographer.ChoreographerHelper
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_viewpager.*
 import kotlinx.android.synthetic.main.layout_drawer_left.*
@@ -33,6 +34,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
+        ChoreographerHelper.start(this)
         swipeBackLayout.setEnableGesture(false)
         initViews()
     }
