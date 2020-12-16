@@ -84,4 +84,7 @@ dependencies {
     // Robust 热修复
     implementation 'com.meituan.robust:robust:0.4.95'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // PAG动画库
+    implementation 'com.tencent.tav:libpag:3.2.5.1'
 }

@@ -9,6 +9,7 @@ import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -78,6 +79,7 @@ abstract class BaseActivity : SwipeBackActivity() {
 
     private val mToast by lazy { Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT) }
     protected val mDisposable = CompositeDisposable()
+    protected val mHandler by lazy { Handler(Looper.getMainLooper()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -333,6 +335,7 @@ abstract class BaseActivity : SwipeBackActivity() {
         EventBus.getDefault().unregister(this)
         AppUtil.removeActivity(this)
         mDisposable.dispose()
+        mHandler.removeCallbacksAndMessages(null)
         super.onDestroy()
     }
 

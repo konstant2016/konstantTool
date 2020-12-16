@@ -277,7 +277,7 @@
     <string name="skip_class_name">Class name</string>
     <string name="skip_resource_name">Resource id</string>
     <string name="skip_above_android_m">Only support device above Android M</string>
-    <string name="skip_battery_enable">Enabled</string>
+    <string name="tips_close_battery_enable">Find Konstant Tool to close on new page</string>
     <string name="skip_advance_setting">Advanced</string>
     <string name="skip_delete_title">Delete this rule ?</string>
     <string name="skip_dialog_add_title">Add rule</string>

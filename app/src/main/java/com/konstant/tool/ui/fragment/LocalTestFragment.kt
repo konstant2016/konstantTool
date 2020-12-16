@@ -12,6 +12,7 @@ import com.konstant.tool.ui.activity.pdfreader.PdfReaderBitmapActivity
 import com.konstant.tool.ui.activity.pdfreader.PdfReaderH5Activity
 import com.konstant.tool.ui.activity.robust.RobustActivity
 import com.konstant.tool.ui.activity.testactivity.*
+import com.konstant.tool.ui.activity.transition.TransitionFirstActivity
 import com.konstant.tool.ui.activity.viewpager2.ViewPager2Activity
 import kotlinx.android.synthetic.main.fragment_local_test.*
 
@@ -82,5 +83,8 @@ class LocalTestFragment : BaseFragment() {
 
         // ViewPager2+新Fragment测试
         layout_viewpager2.setOnClickListener { startActivity(Intent(mActivity, ViewPager2Activity::class.java)) }
+
+
+        layout_transition.setOnClickListener { startActivity(Intent(mActivity, TransitionFirstActivity::class.java)) }
     }
 }

@@ -64,10 +64,14 @@ class AutoSkipActivity : BaseActivity() {
                 val powerManager = getSystemService(POWER_SERVICE) as PowerManager
                 val batteryIgnore = powerManager.isIgnoringBatteryOptimizations(packageName)
                 if (batteryIgnore) {
-                    Toast.makeText(this, getString(R.string.skip_battery_enable), Toast.LENGTH_SHORT).show()
+                    showToast(getString(R.string.tips_close_battery_enable))
+                    mHandler.postDelayed({
+                        val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
+                        startActivity(intent)
+                    }, 1000)
                     return@setOnClickListener
                 }
-                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
                 intent.data = Uri.parse("package:$packageName");
                 startActivity(intent)
             } catch (e: Exception) {

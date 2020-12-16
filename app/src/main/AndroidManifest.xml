@@ -48,7 +48,9 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.viewpager2.ViewPager2Activity"></activity>
+        <activity android:name=".ui.activity.transition.TranslationSecondActivity"></activity>
+        <activity android:name=".ui.activity.transition.TransitionFirstActivity" />
+        <activity android:name=".ui.activity.viewpager2.ViewPager2Activity" />
         <activity android:name=".ui.activity.robust.RobustActivity" />
         <activity android:name=".ui.activity.pdfreader.PdfReaderBitmapActivity" />
         <activity android:name=".ui.activity.pdfreader.PdfReaderH5Activity" />

@@ -337,7 +337,7 @@
     <string name="skip_class_name">类名</string>
     <string name="skip_resource_name">资源名</string>
     <string name="skip_above_android_m">此选项仅支持6.0以上设备</string>
-    <string name="skip_battery_enable">电池忽略已启用</string>
+    <string name="tips_close_battery_enable">请在接下来的页面中找到‘菜籽工具箱’并点击关闭</string>
     <string name="skip_advance_setting">高级设置</string>
     <string name="skip_delete_title">确定删除此条规则？</string>
     <string name="skip_dialog_add_title">添加自定义规则</string>

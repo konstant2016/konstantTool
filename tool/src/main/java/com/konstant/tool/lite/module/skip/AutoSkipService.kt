@@ -26,7 +26,7 @@ class AutoSkipService : AccessibilityService() {
         config.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
         config.flags = AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS
         serviceInfo = config
-        val notification = NotificationCreator.createForegroundNotification(this, "")
+        val notification = NotificationCreator.createForegroundNotification(this)
         startForeground(1, notification)
     }
 
