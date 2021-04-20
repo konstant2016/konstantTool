@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.network
 
 import com.konstant.tool.lite.base.KonApplication
+import com.konstant.tool.lite.data.bean.stock.StockData
 import com.konstant.tool.lite.network.api.*
 import com.konstant.tool.lite.network.config.FileDownloader
 import com.konstant.tool.lite.network.config.RetrofitBuilder
@@ -64,6 +65,17 @@ object NetworkHelper {
         return RetrofitBuilder
                 .getApi(TvLiveApi.HOST, TvLiveApi::class.java)
                 .getTvLiveList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    // 查询股票价格
+    fun getStockDetail(stockData: StockData): Observable<StockData> {
+        return RetrofitBuilder.getApi(StockDetailApi.HOST, StockDetailApi::class.java)
+                .getTodayStockDetail(stockData.number)
+                .map {
+                    return@map StockData(stockData.name, stockData.number, it.p, stockData.count)
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

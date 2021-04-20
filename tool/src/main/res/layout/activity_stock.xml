@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/tool_main_bg_color"
+    tools:context=".module.stock.StockActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="名字"
+        android:textColor="?attr/tool_main_text_color"
+        app:layout_constraintEnd_toStartOf="@id/current_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="0dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toStartOf="@id/current_price"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/current_price"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="价格"
+        android:textColor="?attr/tool_main_text_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_count"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="0dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_count"
+        app:layout_constraintStart_toEndOf="@id/current_price"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="数量"
+        android:textColor="?attr/tool_main_text_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_total"
+        app:layout_constraintStart_toEndOf="@id/current_price"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="0dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_total"
+        app:layout_constraintStart_toEndOf="@id/tv_count"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="总价"
+        android:textColor="?attr/tool_main_text_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_count"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
