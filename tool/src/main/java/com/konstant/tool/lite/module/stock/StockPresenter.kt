@@ -10,23 +10,19 @@ class StockPresenter(private val dispose: CompositeDisposable) {
         return StockManager.getStockList()
     }
 
-    fun addStock(stockData: StockData, result: (StockData) -> Unit, error: (String) -> Unit) {
-        val addResult = StockManager.addStock(stockData)
-        if (!addResult) {
-            error.invoke("请勿重复添加")
-            return
-        }
-        getStockDetail(stockData, result, error)
+    fun addStock(stockData: StockData, result: (List<StockData>) -> Unit, error: (String) -> Unit) {
+        getStockDetail(listOf(stockData), result, error)
     }
 
     fun deleteStock(stockData: StockData) {
         StockManager.deleteStock(stockData)
     }
 
-    fun getStockDetail(stockData: StockData, result: (StockData) -> Unit, error: (String) -> Unit) {
-        val s = NetworkHelper.getStockDetail(stockData)
+    fun getStockDetail(stockList: List<StockData>, result: (List<StockData>) -> Unit, error: (String) -> Unit) {
+        val s = NetworkHelper.getStockDetail(stockList)
                 .subscribe({
                     result.invoke(it)
+                    StockManager.addStock(it)
                 }, {
                     it.printStackTrace()
                     error.invoke(it.message ?: "")

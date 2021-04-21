@@ -41,18 +41,16 @@ class StockActivity : BaseActivity() {
         val stockList = mPresenter.getStockList()
         if (stockList.isNotEmpty()) {
             tv_tips.visibility = View.GONE
-            stockList.forEach {
-                getStockDetail(it)
-            }
+            getStockDetail(stockList)
         } else {
             tv_tips.visibility = View.VISIBLE
         }
     }
 
-    private fun getStockDetail(stockData: StockData) {
-        mPresenter.getStockDetail(stockData, {
-            if (mStockList.contains(it)) return@getStockDetail
-            mStockList.add(it)
+    private fun getStockDetail(stockList: List<StockData>) {
+        mPresenter.getStockDetail(stockList, {
+            if (mStockList.containsAll(it)) return@getStockDetail
+            mStockList.addAll(it)
             mAdapter.notifyDataSetChanged()
         }, {
 
@@ -61,14 +59,20 @@ class StockActivity : BaseActivity() {
 
     private fun showAddDialog() {
         val view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_add_stock, null)
+        var type = "sh"
+        view.radio_type.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.radio_sh -> {
+                    type = "sh"
+                }
+                R.id.radio_sz -> {
+                    type = "sz"
+                }
+            }
+        }
         KonstantDialog(this)
                 .addView(view)
                 .setPositiveListener { dialog ->
-                    val name = view.et_name.text
-                    if (TextUtils.isEmpty(name)) {
-                        showToast("记得输入股票名称")
-                        return@setPositiveListener
-                    }
                     val number = view.et_number.text
                     if (TextUtils.isEmpty(number)) {
                         showToast("记得输入股票代码")
@@ -80,17 +84,18 @@ class StockActivity : BaseActivity() {
                         return@setPositiveListener
                     }
                     dialog.dismiss()
-                    val stockData = StockData(name.toString(), number.toString(), count.toString().toDouble())
+
+                    val stockData = StockData("$type${number}", count.toString().toDouble())
                     mPresenter.addStock(stockData, {
-                        if (mStockList.contains(it)) return@addStock
-                        mStockList.add(it)
+                        if (mStockList.containsAll(it)) return@addStock
+                        mStockList.addAll(it)
                         mAdapter.notifyDataSetChanged()
                     }, {
 
                     })
                 }
                 .createDialog()
-        showKeyboard(view.et_name)
+        showKeyboard(view.et_number)
     }
 
     private fun showDeleteDialog(position: Int) {

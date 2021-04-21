@@ -29,8 +29,12 @@ object StockManager {
                 }
     }
 
-    fun addStock(stockData: StockData): Boolean {
-        return mStockList.add(stockData)
+    fun addStock(stockList: List<StockData>) {
+        stockList.forEach {
+            if (!mStockList.contains(it)) {
+                mStockList.add(it)
+            }
+        }
     }
 
     fun deleteStock(stockData: StockData) {

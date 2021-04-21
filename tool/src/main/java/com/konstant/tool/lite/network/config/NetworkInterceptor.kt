@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
+import com.konstant.tool.lite.network.api.ExpressApi
+import com.konstant.tool.lite.network.api.StockDetailApi
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.ByteArrayInputStream
@@ -22,10 +24,10 @@ import okhttp3.ResponseBody.Companion.toResponseBody
 class NetworkInterceptor(val context: Context) : Interceptor {
 
     private val map = HashMap<String, Int>()
-    private val URL_EXPRESS_GUOGUO = "http://coldsong.cn/letter/api/v1/kuaidi.php"
 
     init {
-        map[URL_EXPRESS_GUOGUO] = 60 * 30
+        map[ExpressApi.HOST] = 60 * 30
+        map[StockDetailApi.HOST] = 30 * 60
     }
 
     @Throws(IOException::class)
@@ -41,7 +43,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
          */
         Log.d("请求链接", chain.request().url.toString())
         val cacheTime = getCacheTime(chain.request().url.host)
-        val time = if (cacheTime == 0) 60 * 60 * 12 else cacheTime
+        val time = if (cacheTime == 0) 60 * 60 * 2 else cacheTime
         val response = chain.proceed(chain.request())
         if (response.isSuccessful) {
             return response.newBuilder()

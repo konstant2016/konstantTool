@@ -22,6 +22,7 @@ object RetrofitBuilder {
                 .cache(Cache(context.externalCacheDir!!, 10 * 1024 * 1024))
                 .addInterceptor(interceptor)
                 .addNetworkInterceptor(interceptor)
+                .addNetworkInterceptor(LogInterceptor())
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(5, TimeUnit.SECONDS)
                 .writeTimeout(5, TimeUnit.SECONDS)

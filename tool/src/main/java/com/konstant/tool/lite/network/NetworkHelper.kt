@@ -11,6 +11,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.io.File
+import java.nio.charset.Charset
 
 object NetworkHelper {
 
@@ -70,12 +71,33 @@ object NetworkHelper {
     }
 
     // 查询股票价格
-    fun getStockDetail(stockData: StockData): Observable<StockData> {
+    fun getStockDetail(stockList: List<StockData>): Observable<List<StockData>> {
+        var params = ""
+        for (data in stockList) {
+            params += "${data.number},"
+        }
         return RetrofitBuilder.getApi(StockDetailApi.HOST, StockDetailApi::class.java)
-                .getTodayStockDetail(stockData.number)
+                .getTodayStockDetail(params)
                 .map {
-                    val increase = it.p >= it.yc
-                    return@map StockData(stockData.name, stockData.number, it.p, stockData.count, increase)
+                    val s = String(it.bytes(), Charset.forName("gb2312"))
+                    val split = s.split(";")
+                    split.forEach { item ->
+                        if (item.length > 20) {
+                            val result = item.split("\"")
+                            val number = result[0]
+                            val data = result[1].split(",")
+                            val name = data[0]
+                            val price = data[3].toDouble()
+                            val increase = price > data[2].toDouble()
+                            val stockData = stockList.find { number.contains(it.number) }
+                            if (stockData != null) {
+                                stockData.name = name
+                                stockData.isIncrease = increase
+                                stockData.price = price
+                            }
+                        }
+                    }
+                    return@map stockList
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -13,7 +13,7 @@ public class StockData {
     private double count;
     private boolean increase = true;
 
-    public StockData(String name, String number, double price, double count,boolean increase) {
+    public StockData(String name, String number, double price, double count, boolean increase) {
         this.name = name;
         this.number = number;
         this.price = price;
@@ -21,8 +21,7 @@ public class StockData {
         this.increase = increase;
     }
 
-    public StockData(String name, String number,double count) {
-        this.name = name;
+    public StockData(String number, double count) {
         this.number = number;
         this.count = count;
     }
@@ -47,7 +46,7 @@ public class StockData {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -63,16 +62,15 @@ public class StockData {
         return increase;
     }
 
+    public void setIncrease(boolean increase) {
+        this.increase = increase;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StockData stockData = (StockData) o;
         return Objects.equals(number, stockData.number);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(number);
     }
 }

@@ -50,7 +50,7 @@ class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter
 
     private fun onBindItem(holder: StockViewHolder, stock: StockData) {
         holder.itemView.apply {
-            tv_name.text = "${stock.name}\n${stock.number}"
+            tv_name.text = "${stock.name}\n${stock.number.replace("sh","").replace("sz","")}"
             tv_price.text = double2String(stock.price)
             tv_count.text = String.format("%.1f", stock.count)
             tv_total.text = double2String(stock.count * stock.price)

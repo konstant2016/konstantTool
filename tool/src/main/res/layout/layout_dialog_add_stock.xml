@@ -12,22 +12,45 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="输入股票名称"
+        android:text="选择证券交易所"
         android:textColor="?attr/tool_second_text_color" />
 
-    <EditText
-        android:id="@+id/et_name"
+    <RadioGroup
+        android:id="@+id/radio_type"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/edit_bg"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textColor="?attr/tool_main_text_color"
-        android:textSize="13sp" />
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/radio_sh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio"
+            android:button="@null"
+            android:gravity="center"
+            android:text="上海交易所"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <RadioButton
+            android:id="@+id/radio_sz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio"
+            android:button="@null"
+            android:gravity="center"
+            android:text="深圳交易所"
+            android:textColor="?attr/tool_main_text_color" />
+
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +59,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:inputType="number"
         android:text="输入股票代码"
         android:textColor="?attr/tool_second_text_color" />
 
