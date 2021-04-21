@@ -7,18 +7,12 @@
     android:background="?attr/tool_main_bg_color"
     tools:context=".module.stock.StockActivity">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/tool_divider_color"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="名字"
+        android:text="股票代码"
         android:textColor="?attr/tool_main_text_color"
         app:layout_constraintEnd_toStartOf="@id/current_price"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="价格"
+        android:text="当前价格"
         android:textColor="?attr/tool_main_text_color"
         app:layout_constraintBottom_toBottomOf="@id/tv_name"
         app:layout_constraintEnd_toStartOf="@id/tv_count"
@@ -59,7 +53,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="数量"
+        android:text="持股数量"
         android:textColor="?attr/tool_main_text_color"
         app:layout_constraintBottom_toBottomOf="@id/tv_name"
         app:layout_constraintEnd_toStartOf="@id/tv_total"
@@ -80,7 +74,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="总价"
+        android:text="持仓市值"
         android:textColor="?attr/tool_main_text_color"
         app:layout_constraintBottom_toBottomOf="@id/tv_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,10 +88,20 @@
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="1dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="点击右上角添加自定义股票"
+        android:textColor="?attr/tool_main_text_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

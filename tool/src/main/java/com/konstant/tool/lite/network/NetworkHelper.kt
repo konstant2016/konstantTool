@@ -74,7 +74,8 @@ object NetworkHelper {
         return RetrofitBuilder.getApi(StockDetailApi.HOST, StockDetailApi::class.java)
                 .getTodayStockDetail(stockData.number)
                 .map {
-                    return@map StockData(stockData.name, stockData.number, it.p, stockData.count)
+                    val increase = it.p >= it.yc
+                    return@map StockData(stockData.name, stockData.number, it.p, stockData.count, increase)
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

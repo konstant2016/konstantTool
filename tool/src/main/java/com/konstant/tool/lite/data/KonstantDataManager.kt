@@ -4,6 +4,7 @@ import android.content.Context
 import com.konstant.tool.lite.main.FunctionCollectorManager
 import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.module.skip.AutoSkipManager
+import com.konstant.tool.lite.module.stock.StockManager
 import com.konstant.tool.lite.module.weather.data.CountryManager
 
 /**
@@ -21,6 +22,7 @@ object KonstantDataManager {
         CountryManager.onCreate(context)
         FunctionCollectorManager.onCreate(context)
         AutoSkipManager.onCreate(context)
+        StockManager.onCreate(context)
     }
 
     fun onDestroy(context: Context){
@@ -28,6 +30,7 @@ object KonstantDataManager {
         CountryManager.onDestroy(context)
         FunctionCollectorManager.onDestroy(context)
         AutoSkipManager.onDestroy(context)
+        StockManager.onDestroy(context)
     }
 
 }

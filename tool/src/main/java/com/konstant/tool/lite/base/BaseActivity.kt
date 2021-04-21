@@ -292,7 +292,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     protected fun showKeyboard(editText: EditText) {
         editText.requestFocus()
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        Handler().postDelayed({ inputManager.showSoftInput(editText, 0) }, 50)
+        Handler().postDelayed({ inputManager.showSoftInput(editText, 0) }, 100)
     }
 
     // 滚动界面，防止输入法遮挡视图
@@ -375,7 +375,7 @@ abstract class BaseActivity : SwipeBackActivity() {
                     }
                     .createDialog()
         }
-        recycler_view.apply {
+        recycler_view_drawer_left.apply {
             layoutManager = LinearLayoutManager(this@BaseActivity)
             setAdapter(adapter)
         }
@@ -410,65 +410,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     fun startActivityWithType(type: String) {
-        when (type) {
-            "1" -> {
-                startActivity(TranslateActivity::class.java)
-            }
-            "2" -> {
-                startActivity(RulerActivity::class.java)
-            }
-            "3" -> {
-                startActivity(CompassActivity::class.java)
-            }
-            "4" -> {
-                startActivity(ExpressListActivity::class.java)
-            }
-            "5" -> {
-                startActivity(NetSpeedActivity::class.java)
-            }
-            "6" -> {
-                startActivity(WeatherActivity::class.java)
-            }
-            "7" -> {
-                startActivity(DateCalculationActivity::class.java)
-            }
-            "8" -> {
-                startActivity(WallpaperActivity::class.java)
-            }
-            "9" -> {
-                startActivity(ConcentrationActivity::class.java)
-            }
-            "10" -> {
-                startActivity(DecibelActivity::class.java)
-            }
-            "11" -> {
-                startActivity(TVLiveActivity::class.java)
-            }
-            "12" -> {
-                startActivity(PackageActivity::class.java)
-            }
-            "13" -> {
-                startActivity(WechatFakeActivity::class.java)
-            }
-            "14" -> {
-                startActivity(RollTextActivity::class.java)
-            }
-            "15" -> {
-                startActivity(DeviceInfoActivity::class.java)
-            }
-            "16" -> {
-                startActivity(QRCodeActivity::class.java)
-            }
-            "17" -> {
-                startActivity(ParseVideoActivity::class.java)
-            }
-            "18" -> {
-                startActivity(VoiceSpeechActivity::class.java)
-            }
-            "19" -> {
-                startActivity(AutoSkipActivity::class.java)
-            }
-        }
+        RouterManager.startActivity(this, type)
     }
 
     inner class AdapterBase(private val configs: List<Function>) : BaseRecyclerAdapter<AdapterBase.Holder>() {

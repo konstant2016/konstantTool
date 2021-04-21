@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="2326465"
-        android:textColor="?attr/tool_second_text_color"
+        android:textColor="?attr/tool_main_text_color"
         app:layout_constraintEnd_toStartOf="@id/tv_total"
         app:layout_constraintStart_toEndOf="@id/tv_price" />
 
@@ -40,8 +40,14 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="2326465"
-        android:textColor="?attr/tool_second_text_color"
+        android:textColor="?attr/tool_main_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_count" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/tool_divider_color"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

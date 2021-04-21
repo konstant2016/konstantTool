@@ -7,7 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 class StockPresenter(private val dispose: CompositeDisposable) {
 
     fun getStockList(): List<StockData> {
-        return emptyList()
+        return StockManager.getStockList()
     }
 
     fun addStock(stockData: StockData, result: (StockData) -> Unit, error: (String) -> Unit) {

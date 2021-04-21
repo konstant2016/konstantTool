@@ -63,7 +63,7 @@
         android:textColor="?attr/tool_main_text_color" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_drawer_left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="170dp"

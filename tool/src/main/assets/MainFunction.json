@@ -45,53 +45,58 @@
     "type": "9"
   },
   {
+    "title": "股票推算",
+    "title_en": "Stock Calculate",
+    "type": "10"
+  },
+  {
     "title": "分贝测试仪",
     "title_en": "Decibel Calculator",
-    "type": "10"
+    "type": "11"
   },
   {
     "title": "电视台直播",
     "title_en": "TV Live",
-    "type": "11"
+    "type": "12"
   },
   {
     "title": "安装包提取",
     "title_en": "Package Export",
-    "type": "12"
+    "type": "13"
   },
   {
     "title": "虚拟微信对话",
     "title_en": "Wechat Simulation",
-    "type": "13"
+    "type": "14"
   },
   {
     "title": "全屏滚动文字",
     "title_en": "Scroll Text",
-    "type": "14"
+    "type": "15"
   },
   {
     "title": "查看设备信息",
     "title_en": "Device Information",
-    "type": "15"
+    "type": "16"
   },
   {
     "title": "二维码扫描解析",
     "title_en": "QR Scan & Parse",
-    "type": "16"
+    "type": "17"
   },
   {
     "title": "影视视频解析",
     "title_en": "Video Parse",
-    "type": "17"
+    "type": "18"
   },
   {
     "title": "文字语音合成",
     "title_en": "Text to Speech",
-    "type": "18"
+    "type": "19"
   },
   {
     "title": "自动跳过启屏广告",
     "title_en": "Skip Splash Advertisement",
-    "type": "19"
+    "type": "20"
   }
 ]

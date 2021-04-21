@@ -10,18 +10,21 @@ public class StockData {
     private String name;
     private String number;
     private double price;
-    private int count;
+    private double count;
+    private boolean increase = true;
 
-    public StockData(String name, String number, double price, int count) {
+    public StockData(String name, String number, double price, double count,boolean increase) {
         this.name = name;
         this.number = number;
         this.price = price;
         this.count = count;
+        this.increase = increase;
     }
 
-    public StockData(String name, String number) {
+    public StockData(String name, String number,double count) {
         this.name = name;
         this.number = number;
+        this.count = count;
     }
 
     public String getName() {
@@ -48,12 +51,16 @@ public class StockData {
         this.price = price;
     }
 
-    public int getCount() {
+    public double getCount() {
         return count;
     }
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public boolean isIncrease() {
+        return increase;
     }
 
     @Override

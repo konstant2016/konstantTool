@@ -29,12 +29,14 @@ object StockManager {
                 }
     }
 
-    fun addStock(stockData: StockData):Boolean {
+    fun addStock(stockData: StockData): Boolean {
         return mStockList.add(stockData)
     }
 
-    fun deleteStock(stockData: StockData){
-        mStockList.remove(stockData)
+    fun deleteStock(stockData: StockData) {
+        val index = mStockList.indexOfFirst { it.number == stockData.number }
+        if (index < 0) return
+        mStockList.removeAt(index)
     }
 
     fun getStockList() = mStockList
