@@ -173,10 +173,17 @@ abstract class BaseActivity : SwipeBackActivity() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_YES, Configuration.UI_MODE_NIGHT_NO -> {
-                recreate()
+            Configuration.UI_MODE_NIGHT_YES,
+            Configuration.UI_MODE_NIGHT_NO -> {
+                if (recreateOnConfigChanged()){
+                    recreate()
+                }
             }
         }
+    }
+
+    open fun recreateOnConfigChanged(): Boolean {
+        return true
     }
 
     // 是否启用侧滑手势

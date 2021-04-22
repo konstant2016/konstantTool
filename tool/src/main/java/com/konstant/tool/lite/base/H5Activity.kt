@@ -1,17 +1,18 @@
 package com.konstant.tool.lite.base
 
-import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.graphics.PixelFormat
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.view.KonstantPopupWindow
+import com.konstant.tool.lite.view.KonstantWebView
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_h5.*
 import kotlinx.android.synthetic.main.title_layout.*
-
 
 /**
  * 时间：2019/5/5 12:10
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.title_layout.*
  * 描述：H5页面
  */
 
-class H5Activity : BaseActivity() {
+open class H5Activity : BaseActivity() {
 
     companion object {
         private val TAG = "H5Activity"
@@ -31,7 +32,7 @@ class H5Activity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
         setTitle(getString(R.string.base_loading))
-        val url = intent.getStringExtra(H5_URL)
+        val url = intent.getStringExtra(H5_URL)?:""
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
         if (browser) {
             web_view.openOnBrowser(url)
@@ -39,7 +40,10 @@ class H5Activity : BaseActivity() {
             return
         }
         initViews()
-        Log.d(TAG, url)
+        loadUrl(url)
+    }
+
+    fun loadUrl(url: String) {
         web_view.loadUrl(url)
     }
 
@@ -49,15 +53,41 @@ class H5Activity : BaseActivity() {
             visibility = View.VISIBLE
             setOnClickListener { onMorePressed() }
         }
-        web_view.apply {
-            registerTitleChanged(::setTitle)
-            registerProgressChanged {
-                if (it == 100) {
-                    view_progress.visibility = View.GONE
-                } else {
-                    view_progress.visibility = View.VISIBLE
-                    view_progress.progress = it
-                }
+        web_view.setStatusChangeListener(object : KonstantWebView.WebViewStatusChangeListener {
+            override fun onTitleChanged(title: String) {
+                setTitle(title)
+            }
+
+            override fun onShowLandscape() {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                showTitleBar(false)
+            }
+
+            override fun onShowPortrait() {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                showTitleBar(true)
+            }
+        })
+        img_back.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun recreateOnConfigChanged(): Boolean {
+        return false
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        when (newConfig.orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            }
+
+            Configuration.ORIENTATION_PORTRAIT -> {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
             }
         }
     }
@@ -80,12 +110,6 @@ class H5Activity : BaseActivity() {
 
     private fun onRefresh() {
         web_view.reload()
-    }
-
-    private fun withBrowser(url: String = web_view.url) {
-        val uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, uri)
-        startActivity(intent)
     }
 
     override fun onBackPressed() {
