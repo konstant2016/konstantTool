@@ -44,7 +44,7 @@ class ExpressDetailActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        mNumber = intent.getStringExtra("number")
+        mNumber = intent.getStringExtra("number") ?: ""
         mName = intent.getStringExtra("name") ?: getString(R.string.express_name_unknown)
         updateStatus()
         with(layout_recycler) {

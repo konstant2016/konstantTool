@@ -38,9 +38,9 @@ object Density {
     private fun registerFontChanged(application: Application) {
         application.registerComponentCallbacks(object : ComponentCallbacks {
 
-            override fun onConfigurationChanged(newConfig: Configuration?) {
+            override fun onConfigurationChanged(newConfig: Configuration) {
                 if (!SettingManager.getViewScale(application)) return
-                if (newConfig != null && newConfig.fontScale > 0) {
+                if (newConfig.fontScale > 0) {
                     mAppScaleDensity = application.resources.displayMetrics.scaledDensity
                 }
             }
@@ -59,18 +59,18 @@ object Density {
 
             override fun onActivityResumed(activity: Activity) {}
 
-            override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 if (!SettingManager.getViewScale(application)) return
-                activity?.let { setActivityDensity(it) }
+                setActivityDensity(activity)
             }
 
-            override fun onActivityStarted(activity: Activity?) {}
+            override fun onActivityStarted(activity: Activity) {}
 
-            override fun onActivityDestroyed(activity: Activity?) {}
+            override fun onActivityDestroyed(activity: Activity) {}
 
-            override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {}
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
 
-            override fun onActivityStopped(activity: Activity?) {}
+            override fun onActivityStopped(activity: Activity) {}
         })
     }
 

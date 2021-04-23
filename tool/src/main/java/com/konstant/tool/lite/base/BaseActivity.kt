@@ -80,6 +80,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     private val mToast by lazy { Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT) }
     protected val mDisposable = CompositeDisposable()
     protected val mHandler by lazy { Handler(Looper.getMainLooper()) }
+    protected val TAG = javaClass.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

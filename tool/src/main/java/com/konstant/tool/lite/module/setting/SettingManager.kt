@@ -86,9 +86,9 @@ object SettingManager {
 
     // 获取用户保存的头像
     fun getUserHeaderThumb(context: Context): Bitmap {
-        val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$NAME_USER_HEADER"
-        return if (File(path).exists()) {
-            BitmapFactory.decodeFile(path)
+        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), NAME_USER_HEADER)
+        return if (file.exists()) {
+            BitmapFactory.decodeFile(file.absolutePath)
         } else {
             BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
         }
@@ -161,7 +161,7 @@ object SettingManager {
     fun getViewScale(context: Context) = FileUtil.readDataFromSp(context, FIX_VIEW_SCALE, false)
 
     fun saveViewScale(context: Context, enable: Boolean) {
-        FileUtil.saveDataToSp(context, FIX_VIEW_SCALE,enable)
+        FileUtil.saveDataToSp(context, FIX_VIEW_SCALE, enable)
     }
 
     fun setSystemChinese(chinese: Boolean) {

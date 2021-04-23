@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.base
 
-import android.content.Intent
 import android.text.TextUtils
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.network.NetworkHelper
@@ -79,11 +78,7 @@ object UpdateManager {
                         .setTitle("${KonApplication.context.getString(R.string.update_manager_new_version)}：$versionName")
                         .setMessage(describe)
                         .setPositiveListener {
-                            with(Intent(activity, H5Activity::class.java)) {
-                                putExtra(H5Activity.H5_URL, url)
-                                putExtra(H5Activity.H5_BROWSER, true)
-                                activity.startActivity(this)
-                            }
+                            H5Activity.openWebView(activity, url, true)
                         }
                         .createDialog()
             }

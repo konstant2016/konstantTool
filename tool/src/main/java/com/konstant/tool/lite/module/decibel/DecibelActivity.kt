@@ -3,6 +3,7 @@ package com.konstant.tool.lite.module.decibel
 import android.media.MediaRecorder
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
@@ -28,9 +29,9 @@ class DecibelActivity : BaseActivity() {
     private var small = 100f
     private var big = 0f
 
-    class MyHandler(activity: DecibelActivity) : Handler() {
+    class MyHandler(activity: DecibelActivity) : Handler(Looper.getMainLooper()) {
         private val reference = WeakReference<DecibelActivity>(activity)
-        override fun handleMessage(msg: Message?) {
+        override fun handleMessage(msg: Message) {
             val activity = reference.get()
             activity?.updateViews()
         }

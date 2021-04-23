@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.KonApplication
@@ -121,13 +122,9 @@ object FileUtil {
                 put(MediaStore.Images.Media.TITLE, name)
                 val uri = KonApplication.context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this)
                         ?: return false
-                Log.d("FileUtil", uri.toString())
                 val stream = KonApplication.context.contentResolver.openOutputStream(uri)
                         ?: return false
-                Log.d("FileUtil", "*********")
-                if (bytes != null) {
-                    stream.write(bytes)
-                }
+                if (bytes != null) stream.write(bytes)
                 bitmap?.compress(Bitmap.CompressFormat.PNG, 100, stream)
                 stream.flush()
                 stream.close()
@@ -188,16 +185,16 @@ object FileUtil {
     }
 
     // 安卓7.0以上用的到这个
-    fun getPictureUri(context: Context, fileName: String): Uri {
-        val file = File("${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator} $fileName")
+    fun createUriWithFile(context: Context, fileName: String): Uri {
+        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), fileName)
         return FileProvider.getUriForFile(context, context.packageName + ".provider", file)
     }
 
     // 根据名字拿图片
-    fun getBitmap(context: Context, fileName: String): Bitmap? {
-        val path = "${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}${File.separator}$fileName"
-        return if (File(path).exists()) {
-            BitmapFactory.decodeFile(path)
+    fun getPrivateBitmap(context: Context, fileName: String): Bitmap? {
+        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), fileName)
+        return if (file.exists()) {
+            BitmapFactory.decodeFile(file.absolutePath)
         } else {
             null
         }

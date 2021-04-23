@@ -59,7 +59,7 @@ class FloatWallpaperService : Service() {
 
     private fun showFloatWallpaper(transparent: Int) {
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val bitmap = FileUtil.getBitmap(this, WALLPAPER_NAME) ?: return
+        val bitmap = FileUtil.getPrivateBitmap(this, WALLPAPER_NAME) ?: return
         SettingManager.saveKillProcess(this, false)
         val resource = getAlplaBitmap(bitmap, transparent)
         mView.setImageBitmap(resource)

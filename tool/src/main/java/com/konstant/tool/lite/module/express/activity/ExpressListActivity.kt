@@ -10,9 +10,9 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.base.ExpressChanged
 import com.konstant.tool.lite.base.H5Activity
-import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
-import com.konstant.tool.lite.module.express.ExpressManager
 import com.konstant.tool.lite.data.bean.express.ExpressData
+import com.konstant.tool.lite.module.express.ExpressManager
+import com.konstant.tool.lite.module.express.adapter.AdapterExpressList
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_express.*
@@ -48,14 +48,12 @@ class ExpressListActivity : BaseActivity() {
         }
     }
 
-    private fun initHtml(){
-        val intent = Intent(this, H5Activity::class.java)
-        intent.putExtra(H5Activity.H5_URL, "https://expressh5.teddymobile.cn/#/")
-        startActivitySafely(intent)
+    private fun initHtml() {
+        H5Activity.openWebView(this, "https://expressh5.teddymobile.cn/#/", false)
         finish()
     }
 
-    private fun initNative(){
+    private fun initNative() {
         readLocalExpress()
         initViews()
         updateUI()
@@ -76,15 +74,15 @@ class ExpressListActivity : BaseActivity() {
                 }
                 .setOutsideCancelable(false)
                 .setPositiveListener(getString(R.string.express_dialog_open_html)) {
-                    if (isChecked){
-                        SettingManager.saveExpressWithHtml(this,true)
+                    if (isChecked) {
+                        SettingManager.saveExpressWithHtml(this, true)
                     }
                     it.dismiss()
                     initHtml()
                 }
                 .setNegativeListener(getString(R.string.express_dialog_open_native)) {
-                    if (isChecked){
-                        SettingManager.saveExpressWithHtml(this,false)
+                    if (isChecked) {
+                        SettingManager.saveExpressWithHtml(this, false)
                     }
                     initNative()
                 }

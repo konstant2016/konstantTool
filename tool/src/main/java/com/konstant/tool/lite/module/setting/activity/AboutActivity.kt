@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.module.setting.activity
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
@@ -35,10 +34,7 @@ class AboutActivity : BaseActivity() {
             paint.flags = Paint.UNDERLINE_TEXT_FLAG
             paint.isAntiAlias = true
             setOnClickListener {
-                with(Intent(this@AboutActivity, H5Activity::class.java)) {
-                    putExtra(H5Activity.H5_URL, "https://github.com/konstant2016/konstantTool")
-                    startActivity(this)
-                }
+                H5Activity.openWebView(this@AboutActivity,"https://github.com/konstant2016/konstantTool")
             }
         }
 

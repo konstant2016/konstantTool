@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.module.parse
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -54,11 +53,7 @@ class ParseFragment : BaseFragment() {
             } else {
                 "http://" + edit_input.text
             }
-            with(Intent(getNotNullContext(), H5Activity::class.java)) {
-                putExtra(H5Activity.H5_URL, baseUrl + url)
-                putExtra(H5Activity.H5_BROWSER, true)
-                startActivity(this)
-            }
+            H5Activity.openWebView(getNotNullContext(), baseUrl + url, true)
         }
     }
 }

@@ -48,11 +48,15 @@ class NetVideoActivity : H5Activity() {
                         }
                         2, 3, 4, 5, 6 -> {
                             val param = "${mUrls[it - 2]}${web_view.getUrl()}"
-                            loadUrl(param)
+                            startParseActivity(param)
                         }
                     }
                 }
                 .showAsDropDown(title_bar)
+    }
+
+    private fun startParseActivity(url: String) {
+        openWebView(this, url)
     }
 
     override fun onBackPressed() {

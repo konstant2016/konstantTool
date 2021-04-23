@@ -3,6 +3,7 @@ package com.konstant.tool.lite.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -95,7 +96,7 @@ class ImageSelector : AppCompatActivity() {
         when (type) {
             CAMERA_REQUEST -> {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                val uri = FileUtil.getPictureUri(this, mFileName)
+                val uri = FileUtil.createUriWithFile(this, mFileName)
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
                 startActivityForResult(intent, CAMERA_REQUEST)
             }
@@ -106,7 +107,7 @@ class ImageSelector : AppCompatActivity() {
                 }
             }
             PHOTO_CLIP -> {
-                val uri = FileUtil.getPictureUri(this, mFileName)
+                val uri = FileUtil.createUriWithFile(this, mFileName)
                 clipPhoto(uri)
             }
         }
@@ -124,7 +125,7 @@ class ImageSelector : AppCompatActivity() {
                     finish()
                     return
                 }
-                val uri = FileUtil.getPictureUri(this, mFileName)
+                val uri = FileUtil.createUriWithFile(this, mFileName)
                 clipPhoto(uri)
             }
             PHOTO_REQUEST -> {
@@ -136,6 +137,7 @@ class ImageSelector : AppCompatActivity() {
                 }
             }
             PHOTO_CLIP -> {
+                Log.d(TAG, "data empty ?:${data?.data == null}")
                 mCallback.invoke(resultCode == RESULT_OK)
                 finish()
             }
@@ -149,12 +151,11 @@ class ImageSelector : AppCompatActivity() {
     private fun clipPhoto(uri: Uri) {
         val width = if (mWidth == 0) 300 else mWidth
         val height = if (mHeight == 0) 300 else mHeight
-        Log.d(TAG, "mWidth:" + mWidth)
-        Log.d(TAG, "mHeight:" + mHeight)
-        val cropPhoto = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
+        val outUri = FileUtil.createUriWithFile(this, mFileName)
+        grantCropPermission(outUri)
         with(Intent("com.android.camera.action.CROP")) {
             setDataAndType(uri, "image/*")
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
             // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
             putExtra("crop", "true")
             putExtra("scale", true)
@@ -167,10 +168,23 @@ class ImageSelector : AppCompatActivity() {
             putExtra("outputY", height)
 
             putExtra("return-data", false)
-            putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cropPhoto))
+            putExtra(MediaStore.EXTRA_OUTPUT, outUri)
             putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString())
             putExtra("noFaceDetection", true) // no face detection
             startActivityForResult(this, PHOTO_CLIP)
+        }
+    }
+
+    /**
+     * 对Uri进行临时授权，使它可以写入到应用内部目录中
+     */
+    private fun grantCropPermission(uri: Uri) {
+        val intent = Intent("com.android.camera.action.CROP")
+        intent.type = "image/*"
+        val infoList = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
+        infoList.forEach {
+            val packageName = it.activityInfo.packageName
+            grantUriPermission(packageName, uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
         }
     }
 

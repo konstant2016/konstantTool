@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
 
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 21530
         versionName "2.15.3"
 

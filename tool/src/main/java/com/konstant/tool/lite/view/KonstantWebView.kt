@@ -156,7 +156,7 @@ class KonstantWebView @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     fun getUrl(): String {
-        return getWebVew().url
+        return getWebVew().url ?: ""
     }
 
     fun onDestroy() {

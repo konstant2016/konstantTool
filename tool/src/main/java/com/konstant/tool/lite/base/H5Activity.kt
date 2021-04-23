@@ -1,5 +1,7 @@
 package com.konstant.tool.lite.base
 
+import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.PixelFormat
@@ -23,16 +25,24 @@ import kotlinx.android.synthetic.main.title_layout.*
 open class H5Activity : BaseActivity() {
 
     companion object {
-        private val TAG = "H5Activity"
-        val H5_URL = "url"
-        val H5_BROWSER = "browser"  // 是否用浏览器打开
+        private const val H5_URL = "url"
+        private const val H5_BROWSER = "browser"  // 是否用浏览器打开
+
+        fun openWebView(context: Context, url: String, openBrowser: Boolean = false) {
+            with(Intent(context, H5Activity::class.java)) {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                putExtra(H5_URL, url)
+                putExtra(H5_BROWSER, openBrowser)
+                context.startActivity(this)
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h5)
         setTitle(getString(R.string.base_loading))
-        val url = intent.getStringExtra(H5_URL)?:""
+        val url = intent.getStringExtra(H5_URL) ?: ""
         val browser = intent.getBooleanExtra(H5_BROWSER, false)
         if (browser) {
             web_view.openOnBrowser(url)

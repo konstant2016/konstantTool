@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.module.weather.adapter
 
-import android.content.Intent
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -55,10 +54,7 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
             } else {
                 tv_weather_update_time.text = current.alert
                 tv_weather_update_time.setOnClickListener {
-                    val intent = Intent(KonApplication.context, H5Activity::class.java)
-                    intent.putExtra(H5Activity.H5_URL, current.alertUrl)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    KonApplication.context.startActivity(intent)
+                    H5Activity.openWebView(context,current.alertUrl,false)
                 }
             }
             tv_current_direct.text = current.direction

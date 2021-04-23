@@ -37,7 +37,7 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         super.onBindViewHolder(holder, position)
         val conversion = list[position]
         with(holder.itemView) {
-            val bitmap = FileUtil.getBitmap(context, conversion.fileName)
+            val bitmap = FileUtil.getPrivateBitmap(context, conversion.fileName)
                     ?: BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
             with(RoundedBitmapDrawableFactory.create(resources, bitmap)) {
                 paint.isAntiAlias = true
