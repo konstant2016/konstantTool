@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="选择证券交易所"
+        android:text="@string/stock_dialog_select_company"
         android:textColor="?attr/tool_second_text_color" />
 
     <RadioGroup
@@ -36,7 +36,7 @@
             android:background="@drawable/selector_radio"
             android:button="@null"
             android:gravity="center"
-            android:text="上海交易所"
+            android:text="@string/stock_shanghai_stock_exchange"
             android:textColor="?attr/tool_main_text_color" />
 
         <RadioButton
@@ -47,7 +47,7 @@
             android:background="@drawable/selector_radio"
             android:button="@null"
             android:gravity="center"
-            android:text="深圳交易所"
+            android:text="@string/stock_shen_zhen_stock_exchange"
             android:textColor="?attr/tool_main_text_color" />
 
     </RadioGroup>
@@ -59,7 +59,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="输入股票代码"
+        android:text="@string/stock_dialog_input_stock_number"
         android:textColor="?attr/tool_second_text_color" />
 
     <EditText
@@ -82,7 +82,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="输入持仓数量"
+        android:text="@string/stock_dialog_input_stock_count"
         android:textColor="?attr/tool_second_text_color" />
 
     <EditText

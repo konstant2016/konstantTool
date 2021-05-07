@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_wechat_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:parentTag="RelativeLayout">
 
     <!--留出系统状态栏的高度-->
     <RelativeLayout
@@ -13,19 +15,19 @@
         android:orientation="vertical" />
 
     <ImageView
-        android:layout_below="@id/layout_status_bar"
         android:id="@+id/img_back_fake"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_below="@id/layout_status_bar"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/wechat_back" />
 
     <TextView
-        android:layout_below="@id/layout_status_bar"
         android:id="@+id/tv_adverse"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
+        android:layout_below="@id/layout_status_bar"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:focusable="true"
@@ -35,10 +37,10 @@
         android:textSize="16sp" />
 
     <ImageView
-        android:layout_below="@id/layout_status_bar"
         android:id="@+id/img_more_fake"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_below="@id/layout_status_bar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
@@ -47,10 +49,10 @@
         android:src="@drawable/wechat_more" />
 
     <View
-        android:layout_below="@id/layout_status_bar"
         android:id="@+id/view_divider"
         android:layout_width="match_parent"
         android:layout_height="2px"
+        android:layout_below="@id/layout_status_bar"
         android:layout_marginTop="50dp"
         android:background="@color/color_black_d9" />
 
@@ -65,8 +67,9 @@
     <ImageView
         android:id="@+id/view_bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
         android:src="@drawable/wechat_bottom" />
 
     <LinearLayout
@@ -84,6 +87,16 @@
             android:layout_weight="1"
             android:background="@drawable/selector_btn"
             android:text="@string/wxfake_input_other_txt"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <Button
+            android:id="@+id/btn_time"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn"
+            android:text="@string/wxfake_input_time_txt"
             android:textColor="?attr/tool_main_text_color" />
 
         <Button

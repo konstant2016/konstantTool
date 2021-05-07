@@ -69,7 +69,8 @@ class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter
         stockList.forEach {
             all += it.count * it.price
         }
-        holder.itemView.tv_all.text = "当前持仓总计市值：${double2String(all)} 元"
+        val s = holder.itemView.context.getString(R.string.stock_total)
+        holder.itemView.tv_all.text = "$s：￥${double2String(all)} "
     }
 
     private fun double2String(double: Double): String {

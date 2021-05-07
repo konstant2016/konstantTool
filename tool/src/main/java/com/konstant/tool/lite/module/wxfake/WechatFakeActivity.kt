@@ -24,8 +24,8 @@ class WechatFakeActivity : BaseActivity() {
     private val ADVERSE_HEADER_NAME = "adverse_header"
     private val MINE_HEADER_NAME = "mine_header"
 
-    private val list = arrayListOf<Conversion>()
-    private val mAdapter by lazy { AdapterFake(list) }
+    private val mConversionList = arrayListOf<Conversion>()
+    private val mAdapter by lazy { AdapterFake(mConversionList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,7 @@ class WechatFakeActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,getStatusBarHeight())
+        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, getStatusBarHeight())
         layout_status_bar.layoutParams = params
         tv_adverse.setOnClickListener { finish() }
         img_more_fake.setOnClickListener {
@@ -63,33 +63,15 @@ class WechatFakeActivity : BaseActivity() {
         }
 
         btn_adverse.setOnClickListener {
-            val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
-            KonstantDialog(this)
-                    .addView(view)
-                    .setMessage(getString(R.string.wxfake_input_other_txt))
-                    .setPositiveListener {
-                        if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
-                        list.add(Conversion(view.edit_input.text.toString(), 0, ADVERSE_HEADER_NAME))
-                        mAdapter.notifyDataSetChanged()
-                        it.dismiss()
-                    }
-                    .createDialog()
-            showKeyboard(view.edit_input)
+            showInputDialog(getString(R.string.wxfake_input_other_txt), ConversionType.TYPE_ADVERSE, ADVERSE_HEADER_NAME)
+        }
+
+        btn_time.setOnClickListener {
+            showInputDialog(getString(R.string.wxfake_input_time_txt), ConversionType.TYPE_TIME)
         }
 
         btn_mine.setOnClickListener {
-            val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
-            KonstantDialog(this)
-                    .addView(view)
-                    .setMessage(getString(R.string.wxfake_input_mine_txt))
-                    .setPositiveListener {
-                        if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
-                        list.add(Conversion(view.edit_input.text.toString(), 1, MINE_HEADER_NAME))
-                        mAdapter.notifyDataSetChanged()
-                        it.dismiss()
-                    }
-                    .createDialog()
-            showKeyboard(view.edit_input)
+            showInputDialog(getString(R.string.wxfake_input_mine_txt), ConversionType.TYPE_MINE, MINE_HEADER_NAME)
         }
 
         with(layout_recycler) {
@@ -99,6 +81,9 @@ class WechatFakeActivity : BaseActivity() {
 
         img_back_fake.setOnClickListener { finish() }
 
+        mAdapter.setOnItemLongClickListener { _, position ->
+            showRemoveDialog(position)
+        }
     }
 
     // 设置对方名字
@@ -141,5 +126,30 @@ class WechatFakeActivity : BaseActivity() {
         } else {
             layout_build.visibility = View.VISIBLE
         }
+    }
+
+    private fun showInputDialog(msg: String, conversionType: Int, fileName: String = "") {
+        val view = layoutInflater.inflate(R.layout.layout_dialog_input, null)
+        KonstantDialog(this)
+                .addView(view)
+                .setMessage(msg)
+                .setPositiveListener {
+                    if (view.edit_input.text.isNullOrEmpty()) return@setPositiveListener
+                    mConversionList.add(Conversion(view.edit_input.text.toString(), conversionType, fileName))
+                    mAdapter.notifyDataSetChanged()
+                    it.dismiss()
+                }
+                .createDialog()
+        showKeyboard(view.edit_input)
+    }
+
+    private fun showRemoveDialog(position: Int) {
+        KonstantDialog(this)
+                .setMessage(getString(R.string.wxfake_dialog_delete_conversion))
+                .setPositiveListener {
+                    mConversionList.removeAt(position)
+                    mAdapter.notifyItemRemoved(position)
+                }
+                .createDialog()
     }
 }

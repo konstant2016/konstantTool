@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.module.wxfake
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.RecyclerView
@@ -15,16 +14,16 @@ import com.konstant.tool.lite.util.FileUtil
 
 class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
 
-    lateinit var context: Context
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        context = viewGroup.context
         return when (viewType) {
-            0 -> {
+            ConversionType.TYPE_ADVERSE -> {
                 AdverseHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_conversion_adverse, viewGroup, false))
             }
-            else -> {
+            ConversionType.TYPE_MINE -> {
                 MineHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_conversion_mine, viewGroup, false))
+            }
+            else -> {
+                TimeHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_conversion_time, viewGroup, false))
             }
         }
     }
@@ -36,6 +35,18 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val conversion = list[position]
+        if (holder is TimeHolder) {
+            onConvertTimeHolder(holder, conversion)
+            return
+        }
+        onConvertHolder(holder, conversion)
+    }
+
+    private fun onConvertTimeHolder(holder: TimeHolder, conversion: Conversion) {
+        (holder.itemView as TextView).text = conversion.msg
+    }
+
+    private fun onConvertHolder(holder: RecyclerView.ViewHolder, conversion: Conversion) {
         with(holder.itemView) {
             val bitmap = FileUtil.getPrivateBitmap(context, conversion.fileName)
                     ?: BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher)
@@ -48,7 +59,12 @@ class AdapterFake(val list: List<Conversion>) : BaseRecyclerAdapter<RecyclerView
         }
     }
 
+    // 对方
     class AdverseHolder(view: View) : RecyclerView.ViewHolder(view)
 
+    // 我方
     class MineHolder(view: View) : RecyclerView.ViewHolder(view)
+
+    // 日期
+    class TimeHolder(view: View) : RecyclerView.ViewHolder(view)
 }

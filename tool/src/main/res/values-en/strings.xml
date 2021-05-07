@@ -235,6 +235,8 @@
     <string name="wxfake_show_input">Switch input state</string>
     <string name="wxfake_input_other_txt">Add other text</string>
     <string name="wxfake_input_mine_txt">Add my text</string>
+    <string name="wxfake_input_time_txt">Add time tag</string>
+    <string name="wxfake_dialog_delete_conversion">Delete this record?</string>
     <string name="wxfake_set_other_name">Set other name</string>
     <string name="base_main_page">Home</string>
     <string name="base_setting">Setting</string>
@@ -309,5 +311,19 @@
     <string name="setting_scale_describe">Try to fix some view bugs</string>
     <string name="express_dialog_open_html">Switch</string>
     <string name="express_dialog_open_native">Leave</string>
-
+    <string name="stock_title">Stock Calculate</string>
+    <string name="stock_remember_input_number">Remember input stock number</string>
+    <string name="stock_remember_input_count">Remember input stock count</string>
+    <string name="stock_delete_stock_tips">Delete？</string>
+    <string name="stock_title_stock_number">Stock Number</string>
+    <string name="stock_title_current_price">Single Price</string>
+    <string name="stock_title_current_count">Current Count</string>
+    <string name="stock_title_current_total">Current Price</string>
+    <string name="stock_add_stock_tips">Click on the top right corner to add a custom stock</string>
+    <string name="stock_total">Total</string>
+    <string name="stock_dialog_select_company">Select Stock exchange</string>
+    <string name="stock_shanghai_stock_exchange">Shang Hai</string>
+    <string name="stock_shen_zhen_stock_exchange">Shen Zhen</string>
+    <string name="stock_dialog_input_stock_number">Input Stock Number</string>
+    <string name="stock_dialog_input_stock_count">Input Stock Count</string>
 </resources>

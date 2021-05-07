@@ -21,7 +21,7 @@ class StockActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock)
-        setTitle("股票推算")
+        setTitle(getString(R.string.stock_title))
         initViews()
         getStockList()
     }
@@ -75,12 +75,12 @@ class StockActivity : BaseActivity() {
                 .setPositiveListener { dialog ->
                     val number = view.et_number.text
                     if (TextUtils.isEmpty(number)) {
-                        showToast("记得输入股票代码")
+                        showToast(getString(R.string.stock_remember_input_number))
                         return@setPositiveListener
                     }
                     val count = view.et_count.text
                     if (TextUtils.isEmpty(count)) {
-                        showToast("记得输入持仓数量哦")
+                        showToast(getString(R.string.stock_remember_input_count))
                         return@setPositiveListener
                     }
                     dialog.dismiss()
@@ -100,8 +100,8 @@ class StockActivity : BaseActivity() {
 
     private fun showDeleteDialog(position: Int) {
         KonstantDialog(this)
-                .setTitle("提示")
-                .setMessage("确认删除这支股票吗？")
+                .setTitle(getString(R.string.base_tips))
+                .setMessage(getString(R.string.stock_delete_stock_tips))
                 .setPositiveListener {
                     mPresenter.deleteStock(mStockList[position])
                     mStockList.removeAt(position)

@@ -317,7 +317,29 @@
     <string name="wxfake_show_input">切换输入框</string>
     <string name="wxfake_input_other_txt">添加对方文字</string>
     <string name="wxfake_input_mine_txt">添加我方文字</string>
+    <string name="wxfake_input_time_txt">添加时间标签</string>
     <string name="wxfake_set_other_name">设置对方名字</string>
+    <string name="wxfake_dialog_delete_conversion">确认删除此条记录？</string>
+
+    <!--股票统计中的文字-->
+    <string name="stock_title">股票推算</string>
+    <string name="stock_remember_input_number">记得输入股票代码</string>
+    <string name="stock_remember_input_count">记得输入持仓数量哦</string>
+    <string name="stock_delete_stock_tips">确认删除这支股票吗？</string>
+    <string name="stock_title_stock_number">股票代码</string>
+    <string name="stock_title_current_price">当前价格</string>
+    <string name="stock_title_current_count">持股数量</string>
+    <string name="stock_title_current_total">持仓市值</string>
+    <string name="stock_add_stock_tips">点击右上角添加自定义股票</string>
+    <string name="stock_total">当前持仓总计市值</string>
+    <string name="stock_dialog_select_company">选择证券交易所</string>
+    <string name="stock_shanghai_stock_exchange">上海交易所</string>
+    <string name="stock_shen_zhen_stock_exchange">深圳交易所</string>
+    <string name="stock_dialog_input_stock_number">输入股票代码</string>
+    <string name="stock_dialog_input_stock_count">输入持仓数量</string>
+
+
+
     <string name="setting_share_message">扫描二维码，下载《菜籽工具箱》</string>
     <string name="weather_city_manager_title">城市管理</string>
     <string name="weather_whether_delete">是否删除</string>

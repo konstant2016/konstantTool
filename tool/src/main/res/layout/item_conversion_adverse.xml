@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -19,7 +18,11 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/wechat_bg_left"
         android:gravity="center_vertical"
-        android:text="好候修改了改成root"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="15dp"
+        android:text="好候修改了改成root好候修改了改成root好候修改了改成root好候修改了改成root好候修改了改成root好候修改了改成root"
         android:textColor="?attr/tool_main_text_color"
         android:textSize="14sp" />
 
