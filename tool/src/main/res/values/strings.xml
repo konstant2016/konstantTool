@@ -330,14 +330,20 @@
     <string name="stock_title_current_price">当前价格</string>
     <string name="stock_title_current_count">持股数量</string>
     <string name="stock_title_current_total">持仓市值</string>
-    <string name="stock_add_stock_tips">点击右上角添加自定义股票</string>
+    <string name="stock_add_stock_tips">点击添加自定义股票</string>
     <string name="stock_total">当前持仓总计市值</string>
     <string name="stock_dialog_select_company">选择证券交易所</string>
     <string name="stock_shanghai_stock_exchange">上海交易所</string>
     <string name="stock_shen_zhen_stock_exchange">深圳交易所</string>
     <string name="stock_dialog_input_stock_number">输入股票代码</string>
     <string name="stock_dialog_input_stock_count">输入持仓数量</string>
-
+    <string name="stock_week_sunday">日</string>
+    <string name="stock_week_monday">一</string>
+    <string name="stock_week_tuesday">二</string>
+    <string name="stock_week_wednesday">三</string>
+    <string name="stock_week_thursday">四</string>
+    <string name="stock_week_friday">五</string>
+    <string name="stock_week_saturday">六</string>
 
 
     <string name="setting_share_message">扫描二维码，下载《菜籽工具箱》</string>

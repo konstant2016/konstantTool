@@ -29,10 +29,18 @@ class StockActivity : BaseActivity() {
     private fun initViews() {
         recycler_view.adapter = mAdapter
         img_more.visibility = View.VISIBLE
-        img_more.setOnClickListener { showAddDialog() }
+        img_more.setOnClickListener {
+            startActivity(StockHistoryActivity::class.java)
+        }
         mAdapter.setOnItemLongClickListener { _, position ->
             if (position in 0 until mStockList.size) {
                 showDeleteDialog(position)
+            }
+        }
+        mAdapter.setOnItemClickListener { _, position ->
+            // 点击的添加按钮
+            if (position == mAdapter.itemCount - 2) {
+                showAddDialog()
             }
         }
     }
@@ -40,10 +48,7 @@ class StockActivity : BaseActivity() {
     private fun getStockList() {
         val stockList = mPresenter.getStockList()
         if (stockList.isNotEmpty()) {
-            tv_tips.visibility = View.GONE
             getStockDetail(stockList)
-        } else {
-            tv_tips.visibility = View.VISIBLE
         }
     }
 

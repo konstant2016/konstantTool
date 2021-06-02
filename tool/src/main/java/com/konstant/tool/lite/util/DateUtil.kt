@@ -11,7 +11,7 @@ object DateUtil {
     val FORMAT = "yyyy年MM月dd日"
 
     // 获取当前日期
-    fun getCurrentDate(format: String) = SimpleDateFormat(format).format(Date())
+    fun getCurrentDate(format: String = FORMAT) = SimpleDateFormat(format).format(Date())
 
     // 获取指定年
     fun getYearWithDate(date: String): String {
@@ -47,4 +47,13 @@ object DateUtil {
         return format.format(calendar.time)
     }
 
+    // 获取指定月份有多少天
+    fun getDayCountWithMonth(year: Int, month: Int): Int {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month - 1)
+        calendar.set(Calendar.DATE, 1)
+        calendar.roll(Calendar.DATE, -1)
+        return calendar.get(Calendar.DATE)
+    }
 }

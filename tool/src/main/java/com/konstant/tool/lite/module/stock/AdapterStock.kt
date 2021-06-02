@@ -15,25 +15,35 @@ class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter
 
     private val TYPE_COMMON = 0x01
     private val TYPE_BOTTOM = 0x02
+    private val TYPE_ADD = 0x03
+
 
     class StockViewHolder(view: View) : RecyclerView.ViewHolder(view)
-
+    class AddViewHolder(view: View) : RecyclerView.ViewHolder(view)
     class TotalViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == TYPE_COMMON) {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_common, parent, false)
-            StockViewHolder(view)
-        } else {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_total, parent, false)
-            TotalViewHolder(view)
+        return when (viewType) {
+            TYPE_COMMON -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_common, parent, false)
+                StockViewHolder(view)
+            }
+            TYPE_ADD -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_add, parent, false)
+                AddViewHolder(view)
+            }
+            else -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_total, parent, false)
+                TotalViewHolder(view)
+            }
         }
     }
 
-    override fun getItemCount() = stockList.size + 1
+    override fun getItemCount() = stockList.size + 2
 
     override fun getItemViewType(position: Int): Int {
-        if (position == stockList.size) return TYPE_BOTTOM
+        if (position == itemCount - 1) return TYPE_BOTTOM
+        if (position == itemCount - 2) return TYPE_ADD
         return TYPE_COMMON
     }
 
@@ -50,7 +60,7 @@ class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter
 
     private fun onBindItem(holder: StockViewHolder, stock: StockData) {
         holder.itemView.apply {
-            tv_name.text = "${stock.name}\n${stock.number.replace("sh","").replace("sz","")}"
+            tv_name.text = "${stock.name}\n${stock.number.replace("sh", "").replace("sz", "")}"
             tv_price.text = double2String(stock.price)
             tv_count.text = String.format("%.1f", stock.count)
             tv_total.text = double2String(stock.count * stock.price)
@@ -71,6 +81,7 @@ class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter
         }
         val s = holder.itemView.context.getString(R.string.stock_total)
         holder.itemView.tv_all.text = "$s：￥${double2String(all)} "
+        StockManager.saveTodayTotal(all)
     }
 
     private fun double2String(double: Double): String {

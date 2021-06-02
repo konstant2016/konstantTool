@@ -319,11 +319,18 @@
     <string name="stock_title_current_price">Single Price</string>
     <string name="stock_title_current_count">Current Count</string>
     <string name="stock_title_current_total">Current Price</string>
-    <string name="stock_add_stock_tips">Click on the top right corner to add a custom stock</string>
+    <string name="stock_add_stock_tips">Top on to add a custom stock</string>
     <string name="stock_total">Total</string>
     <string name="stock_dialog_select_company">Select Stock exchange</string>
     <string name="stock_shanghai_stock_exchange">Shang Hai</string>
     <string name="stock_shen_zhen_stock_exchange">Shen Zhen</string>
     <string name="stock_dialog_input_stock_number">Input Stock Number</string>
     <string name="stock_dialog_input_stock_count">Input Stock Count</string>
+    <string name="stock_week_sunday">Sun</string>
+    <string name="stock_week_monday">Mon</string>
+    <string name="stock_week_tuesday">Tue</string>
+    <string name="stock_week_wednesday">Wed</string>
+    <string name="stock_week_thursday">Thu</string>
+    <string name="stock_week_friday">Fri</string>
+    <string name="stock_week_saturday">Sta</string>
 </resources>

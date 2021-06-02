@@ -49,7 +49,6 @@ class WeatherFragment : BaseFragment() {
     }
 
     override fun onLazyLoad() {
-
         refresh_layout.apply {
             setHeaderView(BezierLayout(getNotNullContext()))
             setEnableLoadmore(false)

@@ -4,20 +4,39 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.data.bean.stock.StockData
+import com.konstant.tool.lite.data.bean.stock.StockHistory
 import com.konstant.tool.lite.util.FileUtil
+import java.util.*
 import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
 
 object StockManager {
 
     private const val NAME_STOCK = "StockName"
+    private const val NAME_STOCK_HISTORY = "StockHistory"
     private val mStockList = ArrayList<StockData>()
+    private val mHistoryList = ArrayList<StockHistory>()
 
     fun onCreate(context: Context) {
+        createStock(context)
+        createHistory(context)
+    }
+
+    private fun createStock(context: Context) {
         val temp = FileUtil.readFileFromFile(context, NAME_STOCK)
         if (temp.isNotEmpty()) {
             val type = object : TypeToken<List<StockData>>() {}.type
             val array = Gson().fromJson<List<StockData>>(String(temp), type)
             mStockList.addAll(array)
+        }
+    }
+
+    private fun createHistory(context: Context) {
+        val temp = FileUtil.readFileFromFile(context, NAME_STOCK_HISTORY)
+        if (temp.isNotEmpty()) {
+            val type = object : TypeToken<List<StockHistory>>() {}.type
+            val array = Gson().fromJson<List<StockHistory>>(String(temp), type)
+            mHistoryList.addAll(array)
         }
     }
 
@@ -45,4 +64,25 @@ object StockManager {
 
     fun getStockList() = mStockList
 
+    fun saveTodayTotal(total: Double) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        mHistoryList.find { it.year == year && it.month == month && it.day == day }?.let {
+            it.total = total
+            return
+        }
+        val data = StockHistory(year, month, day, total)
+        mHistoryList.add(data)
+    }
+
+    /**
+     * 这样写的好处在于，外部修改数据不会导致内部数据发生变化
+     */
+    fun getStockHistory(): List<StockHistory> {
+        val list = mutableListOf<StockHistory>()
+        list.addAll(mHistoryList)
+        return list
+    }
 }
