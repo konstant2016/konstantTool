@@ -102,14 +102,16 @@ class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, priva
 
     private fun getTotalString(total: Double): String {
         if (total == 0.0) return ""
-        val s = String.format("%.1f", total)
         if (total > 100000000) {
+            val s = String.format("%.2f", total / 100000000)
             return "$s 亿"
         }
         if (total > 1000000) {
+            val s = String.format("%.2f", total / 1000000)
             return "$s 百万"
         }
         if (total > 10000) {
+            val s = String.format("%.2f", total / 10000)
             return "$s 万"
         }
         return "${total.toInt()}元"
