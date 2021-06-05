@@ -31,6 +31,7 @@ class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, priva
         val context = holder.itemView.context
         val tvDate = holder.itemView.tv_date
         val tvTotal = holder.itemView.tv_total
+        // 渲染上个月的几天
         if (position < getCurrentMonthStartWeek()) {
             tvDate.text = getLastMonthDayWithPosition(position).toString()
             tvTotal.text = ""
@@ -39,10 +40,12 @@ class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, priva
             tvDate.paint.isFakeBoldText = false
             return
         }
+        // 渲染本月的日历
         val date = position - getCurrentMonthStartWeek() + 1
         val total = mList.find { it.day == date }?.total ?: 0.0
         tvDate.text = "$date"
         tvTotal.text = getTotalString(total)
+        tvTotal.setTextColor(context.getThemColor(R.attr.tool_second_text_color))
         val color = context.getThemColor(R.attr.tool_main_text_color)
         tvDate.setTextColor(color)
         tvDate.paint.isFakeBoldText = true

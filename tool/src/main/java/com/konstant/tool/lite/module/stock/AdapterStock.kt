@@ -11,6 +11,12 @@ import com.konstant.tool.lite.data.bean.stock.StockData
 import kotlinx.android.synthetic.main.item_stock_common.view.*
 import kotlinx.android.synthetic.main.item_stock_total.view.*
 
+/**
+ * 时间：2021/6/5 20:43
+ * 作者：吕卡
+ * 备注：股票按月查看页面的适配器
+ */
+
 class AdapterStock(private val stockList: List<StockData>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>() {
 
     private val TYPE_COMMON = 0x01
