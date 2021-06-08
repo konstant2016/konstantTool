@@ -171,12 +171,20 @@ abstract class BaseActivity : SwipeBackActivity() {
         recreate()
     }
 
+    /**
+     * 右上角按钮的点击事件
+     */
+    fun setExtensionClickListener(listener: () -> Unit) {
+        img_more.visibility = View.VISIBLE
+        img_more.setOnClickListener { listener.invoke() }
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_YES,
             Configuration.UI_MODE_NIGHT_NO -> {
-                if (recreateOnConfigChanged()){
+                if (recreateOnConfigChanged()) {
                     recreate()
                 }
             }

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.stock
+package com.konstant.tool.lite.module.stock.horizontal
 
 import android.os.Build
 import android.os.Bundle
@@ -8,16 +8,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.module.stock.AdapterViewPager
+import com.konstant.tool.lite.module.stock.StockViewModel
 import kotlinx.android.synthetic.main.activity_stock_month.*
 import kotlinx.android.synthetic.main.title_layout.*
 
 /**
  * 时间：2021/6/5 20:42
  * 作者：吕卡
- * 备注：股票的历史记录页面
+ * 备注：股票的历史记录横屏页面
  */
 
-class StockHistoryActivity : BaseActivity() {
+class StockHorizontalHistoryActivity : BaseActivity() {
 
     private val mViewModel by lazy { ViewModelProvider(this).get(StockViewModel::class.java)}
 
@@ -41,7 +43,7 @@ class StockHistoryActivity : BaseActivity() {
             it.forEach {
                 val value = it.value
                 val data = value[0]
-                val fragment = StockHistoryFragment.getInstance(data.year, data.month)
+                val fragment = StockHorizontalHistoryFragment.getInstance(data.year, data.month)
                 fragmentList.add(fragment)
             }
             setUpViews(fragmentList)

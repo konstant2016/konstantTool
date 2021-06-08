@@ -1,5 +1,6 @@
-package com.konstant.tool.lite.module.stock
+package com.konstant.tool.lite.module.stock.view
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseRecyclerAdapter
 import com.konstant.tool.lite.base.getThemColor
+import com.konstant.tool.lite.base.isScreenHorizontal
 import com.konstant.tool.lite.data.bean.stock.StockHistory
 import com.konstant.tool.lite.util.DateUtil
 import kotlinx.android.synthetic.main.item_recycler_stock_history.view.*
@@ -18,7 +20,7 @@ import java.util.*
  * 备注：股票历史页面的日历适配器
  */
 
-class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, private val mList: List<StockHistory>) : BaseRecyclerAdapter<AdapterStockHistory.ViewHolder>() {
+class AdapterStockMonth(private val mYear: Int, private val mMonth: Int, private val mList: List<StockHistory>) : BaseRecyclerAdapter<AdapterStockMonth.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -44,7 +46,7 @@ class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, priva
         val date = position - getCurrentMonthStartWeek() + 1
         val total = mList.find { it.day == date }?.total ?: 0.0
         tvDate.text = "$date"
-        tvTotal.text = getTotalString(total)
+        tvTotal.text = getTotalString(holder.itemView.context, total)
         tvTotal.setTextColor(context.getThemColor(R.attr.tool_second_text_color))
         val color = context.getThemColor(R.attr.tool_main_text_color)
         tvDate.setTextColor(color)
@@ -103,8 +105,9 @@ class AdapterStockHistory(private val mYear: Int, private val mMonth: Int, priva
         return DateUtil.getDayCountWithMonth(year, month)
     }
 
-    private fun getTotalString(total: Double): String {
+    private fun getTotalString(context: Context, total: Double): String {
         if (total == 0.0) return ""
+        if (!context.isScreenHorizontal()) return "●"
         if (total > 100000000) {
             val s = String.format("%.2f", total / 100000000)
             return "$s 亿"

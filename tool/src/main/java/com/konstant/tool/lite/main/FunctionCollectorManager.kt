@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.util.FileUtil
+import java.util.concurrent.Executors
 
 /**
  * 作者：konstant
@@ -18,17 +19,21 @@ object FunctionCollectorManager {
     private val mFunctionList = ArrayList<Function>()
 
     fun onCreate(context: Context) {
-        val config = FileUtil.readDataFromSp(context, FUNCTION_COLLECTION, "")
-        if (config.isNotEmpty()) {
-            val configs = Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
-            mFunctionList.clear()
-            mFunctionList.addAll(configs)
+        Executors.newSingleThreadExecutor().execute {
+            val config = FileUtil.readDataFromSp(context, FUNCTION_COLLECTION, "")
+            if (config.isNotEmpty()) {
+                val configs = Gson().fromJson<List<Function>>(config, object : TypeToken<List<Function>>() {}.type)
+                mFunctionList.clear()
+                mFunctionList.addAll(configs)
+            }
         }
     }
 
     fun onDestroy(context: Context) {
-        val json = Gson().toJson(mFunctionList)
-        FileUtil.saveDataToSp(context, FUNCTION_COLLECTION, json)
+        Executors.newSingleThreadExecutor().execute {
+            val json = Gson().toJson(mFunctionList)
+            FileUtil.saveDataToSp(context, FUNCTION_COLLECTION, json)
+        }
     }
 
     fun getCollectionFunction() = mFunctionList

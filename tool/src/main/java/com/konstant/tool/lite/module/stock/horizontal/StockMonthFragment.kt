@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.stock
+package com.konstant.tool.lite.module.stock.horizontal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.konstant.tool.lite.R
+import com.konstant.tool.lite.module.stock.view.AdapterStockMonth
+import com.konstant.tool.lite.module.stock.StockViewModel
 import kotlinx.android.synthetic.main.fragment_stock_month.*
 
 /**
@@ -45,9 +47,7 @@ class StockMonthFragment : Fragment() {
         val month = arguments?.getInt(KEY_MONTH) ?: -1
         mViewModel.getStockMap().observe(this, Observer {
             val stockList = it["${year}-${month}"]?: mutableListOf()
-            val adapter = AdapterStockHistory(year, month, stockList)
-            recycler_view.layoutManager = GridLayoutManager(context, 7)
-            recycler_view.adapter = adapter
+            month_view.setData(year, month, stockList)
         })
     }
 }

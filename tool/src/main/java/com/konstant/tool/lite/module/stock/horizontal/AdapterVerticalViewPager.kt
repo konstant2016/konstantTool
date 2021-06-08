@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.module.stock
+package com.konstant.tool.lite.module.stock.horizontal
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

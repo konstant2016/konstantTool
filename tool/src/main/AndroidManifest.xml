@@ -39,7 +39,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".module.stock.StockHistoryActivity"
+            android:name=".module.stock.vertical.StockVerticalHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.stock.horizontal.StockHorizontalHistoryActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".module.stock.StockActivity"

@@ -18,8 +18,11 @@ object StockManager {
     private val mHistoryList = ArrayList<StockHistory>()
 
     fun onCreate(context: Context) {
-        createStock(context)
-        createHistory(context)
+        Executors.newSingleThreadExecutor()
+                .execute {
+                    createStock(context)
+                    createHistory(context)
+                }
     }
 
     private fun createStock(context: Context) {
@@ -41,9 +44,9 @@ object StockManager {
     }
 
     fun onDestroy(context: Context) {
-        val json = Gson().toJson(mStockList)
         Executors.newSingleThreadExecutor()
                 .execute {
+                    val json = Gson().toJson(mStockList)
                     FileUtil.saveFileToFile(context, NAME_STOCK, json.toByteArray())
                 }
     }

@@ -19,16 +19,19 @@ object AutoSkipManager {
     data class CustomRule(val packageName: String, val className: String, val resourceId: String)
 
     fun onCreate(context: Context) {
-        val rulesTemp = FileUtil.readFileFromFile(context, SKIP_RULES)
-        if (rulesTemp.isNotEmpty()) {
-            val array = Gson().fromJson<List<CustomRule>>(String(rulesTemp), object : TypeToken<List<CustomRule>>() {}.type)
-            mCustomRules.addAll(array)
-        }
-        val whiteListTemp = FileUtil.readFileFromFile(context, SKIP_WHITE_LIST)
-        if (rulesTemp.isNotEmpty()) {
-            val array = Gson().fromJson<List<String>>(String(whiteListTemp), object : TypeToken<List<String>>() {}.type)
-            mWhitList.addAll(array)
-        }
+        Executors.newSingleThreadExecutor()
+                .execute {
+                    val rulesTemp = FileUtil.readFileFromFile(context, SKIP_RULES)
+                    if (rulesTemp.isNotEmpty()) {
+                        val array = Gson().fromJson<List<CustomRule>>(String(rulesTemp), object : TypeToken<List<CustomRule>>() {}.type)
+                        mCustomRules.addAll(array)
+                    }
+                    val whiteListTemp = FileUtil.readFileFromFile(context, SKIP_WHITE_LIST)
+                    if (rulesTemp.isNotEmpty()) {
+                        val array = Gson().fromJson<List<String>>(String(whiteListTemp), object : TypeToken<List<String>>() {}.type)
+                        mWhitList.addAll(array)
+                    }
+                }
     }
 
     fun onDestroy(context: Context) {

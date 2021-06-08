@@ -7,6 +7,7 @@ import android.view.View
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.data.bean.stock.StockData
+import com.konstant.tool.lite.module.stock.vertical.StockVerticalHistoryActivity
 import com.konstant.tool.lite.view.KonstantDialog
 import kotlinx.android.synthetic.main.activity_stock.*
 import kotlinx.android.synthetic.main.layout_dialog_add_stock.view.*
@@ -30,7 +31,7 @@ class StockActivity : BaseActivity() {
         recycler_view.adapter = mAdapter
         img_more.visibility = View.VISIBLE
         img_more.setOnClickListener {
-            startActivity(StockHistoryActivity::class.java)
+            startActivity(StockVerticalHistoryActivity::class.java)
         }
         mAdapter.setOnItemLongClickListener { _, position ->
             if (position in 0 until mStockList.size) {
@@ -114,6 +115,12 @@ class StockActivity : BaseActivity() {
                     it.dismiss()
                 }
                 .createDialog()
+    }
+
+
+    override fun onDestroy() {
+        StockManager.onDestroy(this)
+        super.onDestroy()
     }
 
 }

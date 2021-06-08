@@ -26,11 +26,13 @@ object CountryManager {
     private var mCityCode = ""
 
     fun onCreate(context: Context) {
-        mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
-        val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
-        val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
-        if (array != null && array.isNotEmpty()) {
-            mLocalCityList.addAll(array)
+        Executors.newSingleThreadExecutor().execute {
+            mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
+            val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
+            val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
+            if (array != null && array.isNotEmpty()) {
+                mLocalCityList.addAll(array)
+            }
         }
     }
 

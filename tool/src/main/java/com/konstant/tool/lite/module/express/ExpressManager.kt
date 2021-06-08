@@ -24,17 +24,19 @@ object ExpressManager {
 
     // 初始化的时候，读取本地保存的数据
     fun onCreate(context: Context) {
-        val temp = FileUtil.readFileFromFile(context, NAME_LOCAL_EXPRESS)
-        if (temp.isNotEmpty()) {
-            val array = Gson().fromJson<List<ExpressData>>(String(temp), object : TypeToken<List<ExpressData>>() {}.type)
-            mExpressList.addAll(array)
+        Executors.newSingleThreadExecutor().execute {
+            val temp = FileUtil.readFileFromFile(context, NAME_LOCAL_EXPRESS)
+            if (temp.isNotEmpty()) {
+                val array = Gson().fromJson<List<ExpressData>>(String(temp), object : TypeToken<List<ExpressData>>() {}.type)
+                mExpressList.addAll(array)
+            }
         }
     }
 
     // APP退出的时候，把数据保存到本地
     fun onDestroy(context: Context) {
-        val json = Gson().toJson(mExpressList)
         Executors.newSingleThreadExecutor().execute {
+            val json = Gson().toJson(mExpressList)
             FileUtil.saveFileToFile(context, NAME_LOCAL_EXPRESS, json.toByteArray())
         }
     }

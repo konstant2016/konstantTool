@@ -27,7 +27,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
 
     init {
         map[ExpressApi.HOST] = 60 * 30
-        map[StockDetailApi.HOST] = 30 * 60
+        map[StockDetailApi.HOST] = 60
     }
 
     @Throws(IOException::class)
