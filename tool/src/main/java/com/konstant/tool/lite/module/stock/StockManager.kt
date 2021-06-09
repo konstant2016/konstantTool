@@ -46,9 +46,19 @@ object StockManager {
     fun onDestroy(context: Context) {
         Executors.newSingleThreadExecutor()
                 .execute {
-                    val json = Gson().toJson(mStockList)
-                    FileUtil.saveFileToFile(context, NAME_STOCK, json.toByteArray())
+                    saveStock(context)
+                    saveStockHistory(context)
                 }
+    }
+
+    private fun saveStock(context: Context){
+        val json = Gson().toJson(mStockList)
+        FileUtil.saveFileToFile(context, NAME_STOCK, json.toByteArray())
+    }
+
+    private fun saveStockHistory(context: Context){
+        val json = Gson().toJson(mHistoryList)
+        FileUtil.saveFileToFile(context, NAME_STOCK_HISTORY, json.toByteArray())
     }
 
     fun addStock(stockList: List<StockData>) {
