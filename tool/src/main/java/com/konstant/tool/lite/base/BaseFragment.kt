@@ -45,6 +45,12 @@ open class BaseFragment : Fragment() {
         (activity as BaseActivity).setSubTitle(title)
     }
 
+    protected fun showLoading(show: Boolean, msg: String = "") {
+        if (activity == null) return
+        if (activity !is BaseActivity) return
+        (activity as BaseActivity).showLoading(show, msg)
+    }
+
     // 隐藏软键盘
     protected fun hideSoftKeyboard() {
         if (activity!!.window?.attributes?.softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {

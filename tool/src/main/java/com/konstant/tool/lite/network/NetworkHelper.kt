@@ -2,6 +2,7 @@ package com.konstant.tool.lite.network
 
 import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.data.bean.stock.StockData
+import com.konstant.tool.lite.module.user.UserInfo
 import com.konstant.tool.lite.network.api.*
 import com.konstant.tool.lite.network.config.FileDownloader
 import com.konstant.tool.lite.network.config.RetrofitBuilder
@@ -64,7 +65,7 @@ object NetworkHelper {
     // 获取直播列表
     fun getTvLiveList(): Observable<TvLiveResponse> {
         return RetrofitBuilder
-                .getApi(TvLiveApi.HOST, TvLiveApi::class.java)
+                .getApi(BmobApi.HOST, BmobApi::class.java)
                 .getTvLiveList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -103,4 +104,20 @@ object NetworkHelper {
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
+    // 上传用户信息
+    fun uploadUserInfo(userInfo: UserInfo): Observable<Boolean> {
+        return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
+                .uploadUserInfo(userInfo)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map { it.code() == 200 }
+    }
+
+    // 获取用户信息
+    fun getUserInfo():Observable<UserInfo>{
+        return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
+                .getUserInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
 }

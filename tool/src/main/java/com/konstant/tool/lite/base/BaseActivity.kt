@@ -411,10 +411,11 @@ abstract class BaseActivity : SwipeBackActivity() {
     }
 
     // 显示加载窗口
-    fun showLoading(state: Boolean, msg: String = getString(R.string.base_loading)) {
+    fun showLoading(state: Boolean, msg: String = getString(R.string.base_loading), transparent: Boolean = false) {
         runOnUiThread {
             tv_state.text = msg
             layout_loading.visibility = if (state) View.VISIBLE else View.GONE
+            bg_loading.visibility = if (transparent) View.GONE else View.VISIBLE
             layout_error.visibility = View.GONE
         }
     }

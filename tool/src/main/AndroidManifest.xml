@@ -38,6 +38,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".module.user.UserActivity"></activity>
         <activity
             android:name=".module.stock.vertical.StockVerticalHistoryActivity"
             android:screenOrientation="portrait" />

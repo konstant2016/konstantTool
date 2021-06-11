@@ -51,12 +51,12 @@ object StockManager {
                 }
     }
 
-    private fun saveStock(context: Context){
+    private fun saveStock(context: Context) {
         val json = Gson().toJson(mStockList)
         FileUtil.saveFileToFile(context, NAME_STOCK, json.toByteArray())
     }
 
-    private fun saveStockHistory(context: Context){
+    private fun saveStockHistory(context: Context) {
         val json = Gson().toJson(mHistoryList)
         FileUtil.saveFileToFile(context, NAME_STOCK_HISTORY, json.toByteArray())
     }
@@ -90,12 +90,21 @@ object StockManager {
         mHistoryList.add(data)
     }
 
-    /**
-     * 这样写的好处在于，外部修改数据不会导致内部数据发生变化
-     */
-    fun getStockHistory(): List<StockHistory> {
-        val list = mutableListOf<StockHistory>()
-        list.addAll(mHistoryList)
-        return list
+    fun getStockHistory() = mHistoryList
+
+    fun saveSyncStockList(context: Context,string: String){
+        val type = object : TypeToken<List<StockData>>() {}.type
+        val array = Gson().fromJson<List<StockData>>(string, type)
+        mStockList.clear()
+        mStockList.addAll(array)
+        saveStock(context)
+    }
+
+    fun saveSyncStockHistory(context: Context,string: String){
+        val type = object : TypeToken<List<StockHistory>>() {}.type
+        val array = Gson().fromJson<List<StockHistory>>(string, type)
+        mHistoryList.clear()
+        mHistoryList.addAll(array)
+        saveStockHistory(context)
     }
 }

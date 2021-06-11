@@ -88,4 +88,14 @@ object CountryManager {
         }
         return ""
     }
+
+    fun saveSyncCountryList(context: Context,string: String){
+        val array = Gson().fromJson<List<LocalCountry>>(string, object : TypeToken<List<LocalCountry>>() {}.type)
+        if (array != null && array.isNotEmpty()) {
+            mLocalCityList.clear()
+            mLocalCityList.addAll(array)
+            val s1 = Gson().toJson(mLocalCityList)
+            FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
+        }
+    }
 }

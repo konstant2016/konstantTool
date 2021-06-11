@@ -50,4 +50,12 @@ object FunctionCollectorManager {
 
     fun containsFunction(data: Function) = mFunctionList.contains(data)
 
+    fun saveSyncCollection(context: Context, string: String) {
+        val configs = Gson().fromJson<List<Function>>(string, object : TypeToken<List<Function>>() {}.type)
+        mFunctionList.clear()
+        mFunctionList.addAll(configs)
+        val json = Gson().toJson(mFunctionList)
+        FileUtil.saveDataToSp(context, FUNCTION_COLLECTION, json)
+    }
+
 }
