@@ -4,13 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Color
 import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,31 +27,13 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.data.bean.main.Function
 import com.konstant.tool.lite.main.FunctionCollectorManager
 import com.konstant.tool.lite.main.MainActivity
-import com.konstant.tool.lite.module.compass.CompassActivity
-import com.konstant.tool.lite.module.concentration.ConcentrationActivity
-import com.konstant.tool.lite.module.date.DateCalculationActivity
-import com.konstant.tool.lite.module.decibel.DecibelActivity
-import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
-import com.konstant.tool.lite.module.express.activity.ExpressListActivity
-import com.konstant.tool.lite.module.extract.PackageActivity
-import com.konstant.tool.lite.module.live.TVLiveActivity
-import com.konstant.tool.lite.module.parse.ParseVideoActivity
-import com.konstant.tool.lite.module.qrcode.QRCodeActivity
-import com.konstant.tool.lite.module.rolltxt.RollTextActivity
-import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.setting.activity.SettingActivity
-import com.konstant.tool.lite.module.skip.AutoSkipActivity
-import com.konstant.tool.lite.module.speed.NetSpeedActivity
-import com.konstant.tool.lite.module.translate.TranslateActivity
-import com.konstant.tool.lite.module.voice.VoiceSpeechActivity
-import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
-import com.konstant.tool.lite.module.weather.activity.WeatherActivity
-import com.konstant.tool.lite.module.wxfake.WechatFakeActivity
 import com.konstant.tool.lite.util.AppUtil
 import com.konstant.tool.lite.util.Density
 import com.konstant.tool.lite.view.KonstantDialog
 import com.konstant.tool.lite.view.KonstantPagerIndicator
+import com.konstant.tool.lite.view.StatusBarUtil
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.item_drawer_left.view.*
@@ -100,22 +79,7 @@ abstract class BaseActivity : SwipeBackActivity() {
     private fun initUserInterface() {
         // 沉浸状态栏
         supportActionBar?.hide()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.apply {
-                clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                        or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-                decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // 隐藏导航栏
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
-                addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                statusBarColor = Color.TRANSPARENT
-                navigationBarColor = run {
-                    val value = TypedValue()
-                    theme.resolveAttribute(R.attr.tool_main_color, value, true)
-                    value.data
-                }
-            }
-        }
+        StatusBarUtil.setFullScreenWhite(this)
 
         // 滑动返回
         onSwipeBackChanged(SwipeBackStatus(SettingManager.getSwipeBackStatus(this)))

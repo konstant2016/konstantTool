@@ -1,9 +1,9 @@
 package com.konstant.tool.lite.module.ruler
 
 import android.os.Bundle
-import android.view.WindowManager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.view.StatusBarUtil
 
 /**
  * 描述:直尺
@@ -16,7 +16,8 @@ class RulerActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        StatusBarUtil.setFullScreen(this)
+        StatusBarUtil.setCutoutMode(this)
         setContentView(R.layout.activity_ruler)
         setSwipeBackEnable(false)
         showTitleBar(false)

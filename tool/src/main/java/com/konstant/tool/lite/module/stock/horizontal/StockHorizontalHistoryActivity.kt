@@ -1,8 +1,6 @@
 package com.konstant.tool.lite.module.stock.horizontal
 
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +8,7 @@ import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.stock.AdapterViewPager
 import com.konstant.tool.lite.module.stock.StockViewModel
+import com.konstant.tool.lite.view.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_stock_month.*
 import kotlinx.android.synthetic.main.title_layout.*
 
@@ -25,12 +24,7 @@ class StockHorizontalHistoryActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Build.VERSION.SDK_INT >= 28) {
-            val params = window.attributes
-            params.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.attributes = params
-        }
-
+        StatusBarUtil.setCutoutMode(this)
         setContentView(R.layout.activity_stock_month)
         initObservable()
     }
