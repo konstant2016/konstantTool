@@ -23,7 +23,9 @@ class StockChartView @JvmOverloads constructor(context: Context, attrs: Attribut
     fun setData(stockList: List<StockHistory>) {
         val list = mutableListOf<Entry>()
         stockList.forEach {
-            list.add(Entry(it.day.toFloat(), it.total.toFloat()))
+            if (it.total > 0){
+                list.add(Entry(it.day.toFloat(), it.total.toFloat()))
+            }
         }
         initBaseViews(list)
     }
