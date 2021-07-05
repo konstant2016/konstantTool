@@ -15,14 +15,16 @@ class SecondActivity : AppCompatActivity() {
 
     private fun initBaseViews() {
         new_task.setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
+            val context = this
+            val intent = Intent(context, ThirdActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            this.startActivity(intent)
+            context.startActivity(intent)
         }
         btn_app.setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
+            val context = this.application
+            val intent = Intent(context, ThirdActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            this.application.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 }

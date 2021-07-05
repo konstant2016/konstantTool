@@ -18,6 +18,11 @@ class StockViewModel : ViewModel() {
         return mStockHistoryMap
     }
 
+    /**
+     * 按照月份来分组，
+     * key为 year-month
+     * value 为该月份所包含的数据集合
+     */
     private fun getStockHistory() {
         thread {
             val stockList = StockManager.getStockHistory()
