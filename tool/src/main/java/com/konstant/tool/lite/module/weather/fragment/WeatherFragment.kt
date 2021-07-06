@@ -3,6 +3,7 @@ package com.konstant.tool.lite.module.weather.fragment
 import android.Manifest
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +14,12 @@ import com.konstant.tool.lite.base.KonApplication
 import com.konstant.tool.lite.module.weather.adapter.AdapterWeatherFragment
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.util.PermissionRequester
+import com.konstant.tool.lite.view.KonstantDialog
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.header.bezierlayout.BezierLayout
 import kotlinx.android.synthetic.main.fragment_weather.*
+import java.lang.StringBuilder
 
 /**
  * 描述:天气展示页
@@ -62,6 +65,21 @@ class WeatherFragment : BaseFragment() {
         recycler_view.apply {
             layoutManager = LinearLayoutManager(getNotNullContext(), LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
+        }
+
+        mAdapter.setOnAlertClick {
+            val content = StringBuilder()
+            it.forEachIndexed { index, alert ->
+                content.append("${alert.time}  ${alert.title}: \n${alert.content}")
+                if (index != it.size - 1) {
+                    content.append("\n\n")
+                }
+            }
+            KonstantDialog(requireContext())
+                    .setTitle("天气预警")
+                    .setMessage(content.toString(), Gravity.LEFT)
+                    .setPositiveListener { dialog -> dialog.dismiss() }
+                    .createDialog()
         }
 
         requestPermission()
@@ -117,10 +135,10 @@ class WeatherFragment : BaseFragment() {
 
     // 请求指定城市的数据
     private fun requestWeatherWithCode(directCode: String) {
-        mPresenter.getWeatherWithCode(directCode,object :WeatherPresenter.WeatherResult{
+        mPresenter.getWeatherWithCode(directCode, object : WeatherPresenter.WeatherResult {
             override fun onSuccess(weatherList: List<Any>, cityName: String, directCode: String) {
                 stopRefreshAnim()
-                updateUI(weatherList,cityName)
+                updateUI(weatherList, cityName)
             }
 
             override fun onLocationError() {

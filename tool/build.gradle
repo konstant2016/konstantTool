@@ -9,8 +9,8 @@ android {
         applicationId "com.konstant.tool.lite"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 21620
-        versionName "2.16.2"
+        versionCode 21630
+        versionName "2.16.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {

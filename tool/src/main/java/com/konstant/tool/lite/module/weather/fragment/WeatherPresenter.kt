@@ -93,18 +93,12 @@ class WeatherPresenter(private val context: Context, private val mDisposable: Co
     // 请求到的数据进行转换
     private fun buildWeatherData(weather: WeatherResponse): List<Any> {
         val weatherList = mutableListOf<Any>()
-        val alert = if (weather.alert != null && weather.alert.size > 0) {
-            weather.alert[0].content
-        } else {
-            ""
+        val alertList = mutableListOf<WeatherData.Alert>()
+        weather.alert?.forEach {
+            val title = "${it.alarmTp1}${it.alarmTp2}预警"
+            alertList.add(WeatherData.Alert(it.pubTime, title, it.content))
         }
-        val alertUrl = if (weather.alert != null && weather.alert.size > 0) {
-            weather.alert[0].originUrl
-        } else {
-            ""
-        }
-        val current = WeatherData().Current(alert,
-                alertUrl,
+        val current = WeatherData().Current(alertList,
                 weather.realtime.dataUptime,
                 weather.realtime.weather.temperature,
                 weather.realtime.wind.direct,

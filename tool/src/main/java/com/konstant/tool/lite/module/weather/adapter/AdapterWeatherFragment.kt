@@ -1,6 +1,5 @@
 package com.konstant.tool.lite.module.weather.adapter
 
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +22,8 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
     private val TYPE_DAY = 3
     private val TYPE_LIFE = 4
     private val TYPE_TITLE = 5
+
+    private var mAlertListener: ((List<WeatherData.Alert>) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -49,12 +50,12 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
 
     private fun setCurrent(holder: CurrentHolder, current: WeatherData.Current) {
         holder.itemView.apply {
-            if (TextUtils.isEmpty(current.alert)) {
+            if (current.alertList.isEmpty()) {
                 tv_weather_update_time.text = current.updateTime
             } else {
-                tv_weather_update_time.text = current.alert
+                tv_weather_update_time.text = current.alertList[0].content
                 tv_weather_update_time.setOnClickListener {
-                    H5Activity.openWebView(context,current.alertUrl,false)
+                    mAlertListener?.invoke(current.alertList)
                 }
             }
             tv_current_direct.text = current.direction
@@ -62,6 +63,10 @@ class AdapterWeatherFragment(private val mList: ArrayList<Any>) : RecyclerView.A
             tv_current_describe.text = current.weather
             tv_current_power.text = current.power
         }
+    }
+
+    fun setOnAlertClick(listener: (List<WeatherData.Alert>) -> Unit) {
+        mAlertListener = listener
     }
 
     private fun setTitle(holder: TitleHolder, title: WeatherData.Title) {

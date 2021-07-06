@@ -10,17 +10,15 @@ import java.util.List;
 public class WeatherData {
 
     public class Current {
-        private String alert;
-        private String alertUrl;
+        private List<Alert> alertList;
         private long updateTime;
         private int temperature;
         private String direction;
         private String power;
         private String weather;
 
-        public Current(String alert, String alertUrl, long updateTime, int temperature, String direction, String power, String weather) {
-            this.alert = alert;
-            this.alertUrl = alertUrl;
+        public Current(List<Alert> alertList,  long updateTime, int temperature, String direction, String power, String weather) {
+            this.alertList = alertList;
             this.updateTime = updateTime;
             this.temperature = temperature;
             this.direction = direction;
@@ -28,12 +26,8 @@ public class WeatherData {
             this.weather = weather;
         }
 
-        public String getAlert() {
-            return alert;
-        }
-
-        public String getAlertUrl() {
-            return alertUrl;
+        public List<Alert> getAlertList() {
+            return alertList;
         }
 
         public String getUpdateTime() {
@@ -54,6 +48,30 @@ public class WeatherData {
 
         public String getWeather() {
             return "天气：" + weather;
+        }
+    }
+
+    public static class Alert{
+        private String time;
+        private String title;
+        private String content;
+
+        public Alert(String time, String title, String content) {
+            this.time = time;
+            this.title = title;
+            this.content = content;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getContent() {
+            return content;
         }
     }
 

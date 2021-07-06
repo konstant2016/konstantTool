@@ -17,6 +17,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
 
     private var hideNavigation = false
     private var message: String = ""
+    private var messageGravity: Int = Gravity.CENTER
     private var title: String = ""
     private var cancelText: String = context.getString(R.string.base_cancel)
     private var confirmText: String = context.getString(R.string.base_confirm)
@@ -37,8 +38,9 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     // 设置信息
-    fun setMessage(msg: String): KonstantDialog {
+    fun setMessage(msg: String, gravity: Int = Gravity.CENTER): KonstantDialog {
         message = msg
+        messageGravity = gravity
         return this
     }
 
@@ -56,7 +58,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
     }
 
     // 设置取消按钮的监听
-    fun setNegativeListener(text: String = context.getString(R.string.base_cancel),listener: (KonstantDialog) -> Unit): KonstantDialog {
+    fun setNegativeListener(text: String = context.getString(R.string.base_cancel), listener: (KonstantDialog) -> Unit): KonstantDialog {
         cancelText = text
         negativeListener = listener
         return this
@@ -107,6 +109,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
 
         if (message.isNotEmpty()) {
             root.tv_message.text = message
+            root.tv_message.gravity = messageGravity
         } else {
             root.tv_message.visibility = View.GONE
         }
