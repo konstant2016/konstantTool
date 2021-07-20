@@ -2,6 +2,7 @@ package com.konstant.tool.lite.view
 
 import android.app.Dialog
 import android.content.Context
+import android.text.method.ScrollingMovementMethod
 import android.view.*
 import com.konstant.tool.lite.R
 import kotlinx.android.synthetic.main.layout_dialog_konstant.view.*
@@ -110,6 +111,7 @@ open class KonstantDialog(context: Context) : Dialog(context, R.style.KonstantDi
         if (message.isNotEmpty()) {
             root.tv_message.text = message
             root.tv_message.gravity = messageGravity
+            root.tv_message.movementMethod = ScrollingMovementMethod.getInstance()
         } else {
             root.tv_message.visibility = View.GONE
         }
