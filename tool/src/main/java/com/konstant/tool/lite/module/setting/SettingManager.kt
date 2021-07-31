@@ -28,6 +28,7 @@ object SettingManager {
     private const val NAME_BROWSER_TYPE = "browserStatus"
     private const val EXIT_TIPS_STATUS = "exitTipsStatus"
     private const val KILL_PROCESS_STATUS = "killProcessStatus"
+    private const val SHOW_MILL_SECOND = "showMillSecond"
     private const val FIX_VIEW_SCALE = "fixViewScale"
     private const val ADAPTER_DARK_MODE = "adapterDarkMode"
     const val NAME_USER_HEADER = "header_big.jpg"
@@ -108,6 +109,12 @@ object SettingManager {
     // 保存：退出后是否杀进程
     fun saveKillProcess(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, KILL_PROCESS_STATUS, status)
+    }
+
+    fun getShowMillSecond(context: Context) = FileUtil.readDataFromSp(context,SHOW_MILL_SECOND,true)
+
+    fun saveShowMillSecond(context: Context,status: Boolean){
+        FileUtil.saveDataToSp(context, SHOW_MILL_SECOND, status)
     }
 
     // 读取：用什么浏览器打开网页

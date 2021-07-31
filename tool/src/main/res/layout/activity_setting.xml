@@ -61,6 +61,14 @@
 
         <com.konstant.tool.lite.view.ItemView
             app:showSwitch="true"
+            android:id="@+id/layout_second"
+            app:title="@string/setting_mill_second"
+            app:subTitle="@string/setting_mill_second_describe"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <com.konstant.tool.lite.view.ItemView
+            app:showSwitch="true"
             android:id="@+id/layout_update"
             app:subTitle="@string/setting_update_auto_describe"
             app:title="@string/setting_update_auto"

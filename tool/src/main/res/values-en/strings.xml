@@ -163,7 +163,9 @@
     <string name="setting_prevent_exit">Exit Toast</string>
     <string name="setting_prevent_exit_describe">(Double click back to exit)</string>
     <string name="setting_kill">No backgroundProcess</string>
+    <string name="setting_mill_second">Show MillSecond</string>
     <string name="setting_kill_describe">(Kill self once exit)</string>
+    <string name="setting_mill_second_describe">(Show MillSecond in Digital Clock)</string>
     <string name="setting_update_auto">Check Update Auto</string>
     <string name="setting_update_auto_describe">(Check update when App starting)</string>
     <string name="setting_show_collection">Show Collection Function Default</string>

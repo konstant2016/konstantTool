@@ -227,7 +227,9 @@
     <string name="setting_prevent_exit">防止误退</string>
     <string name="setting_prevent_exit_describe">(连按两次返回键才能退出应用)</string>
     <string name="setting_kill">纯净后台</string>
+    <string name="setting_mill_second">显示毫秒</string>
     <string name="setting_kill_describe">(按返回键退出应用时，主动释放内存)</string>
+    <string name="setting_mill_second_describe">(电子时钟页面显示当前的毫秒时间)</string>
     <string name="setting_update_auto">自动检查更新</string>
     <string name="setting_update_auto_describe">(每次应用启动时，自动检查应用更新状态)</string>
     <string name="setting_show_collection">首页默认显示收藏列表</string>

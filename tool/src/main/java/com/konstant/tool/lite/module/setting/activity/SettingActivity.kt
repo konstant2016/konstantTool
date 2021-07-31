@@ -58,6 +58,10 @@ class SettingActivity : BaseActivity() {
         layout_kill.setChecked(SettingManager.getKillProcess(this))
         layout_kill.setOnCheckedChangeListener { SettingManager.saveKillProcess(this, it) }
 
+        // 显示毫秒
+        layout_second.setChecked(SettingManager.getShowMillSecond(this))
+        layout_second.setOnCheckedChangeListener { SettingManager.saveShowMillSecond(this, it) }
+
         // 滑动返回
         layout_swipe.setOnClickListener { onSwipeBackClick() }
         layout_swipe.setHintText(mSwipeStateList[SettingManager.getSwipeBackStatus(this)])
