@@ -8,6 +8,7 @@ import com.konstant.tool.lite.module.concentration.ConcentrationActivity
 import com.konstant.tool.lite.module.date.DateCalculationActivity
 import com.konstant.tool.lite.module.decibel.DecibelActivity
 import com.konstant.tool.lite.module.deviceinfo.DeviceInfoActivity
+import com.konstant.tool.lite.module.diary.DogDiaryActivity
 import com.konstant.tool.lite.module.express.activity.ExpressListActivity
 import com.konstant.tool.lite.module.extract.PackageActivity
 import com.konstant.tool.lite.module.live.TVLiveActivity
@@ -28,67 +29,70 @@ object RouterManager {
 
     fun startActivity(activity: Activity, type: String) {
         when (type) {
-            "1" -> {
+            "TYPE_TRANSLATE" -> {
                 activity.startActivity(Intent(activity, TranslateActivity::class.java))
             }
-            "2" -> {
+            "TYPE_RULER" -> {
                 activity.startActivity(Intent(activity, RulerActivity::class.java))
             }
-            "3" -> {
+            "TYPE_COMPASS" -> {
                 activity.startActivity(Intent(activity, CompassActivity::class.java))
             }
-            "4" -> {
+            "TYPE_EXPRESS" -> {
                 activity.startActivity(Intent(activity, ExpressListActivity::class.java))
             }
-            "5" -> {
+            "NETWORK_SPEED" -> {
                 activity.startActivity(Intent(activity, NetSpeedActivity::class.java))
             }
-            "6" -> {
+            "TYPE_WEATHER" -> {
                 activity.startActivity(Intent(activity, WeatherActivity::class.java))
             }
-            "7" -> {
+            "DATE_CALCULATE" -> {
                 activity.startActivity(Intent(activity, DateCalculationActivity::class.java))
             }
-            "8" -> {
+            "TYPE_WALLPAPER" -> {
                 activity.startActivity(Intent(activity, WallpaperActivity::class.java))
             }
-            "9" -> {
+            "TYPE_CONCENTRATION" -> {
                 activity.startActivity(Intent(activity, ConcentrationActivity::class.java))
             }
-            "10" -> {
+            "STOCK_CALCULATE" -> {
                 activity.startActivity(Intent(activity, StockActivity::class.java))
             }
-            "11" -> {
+            "DOG_DIARY" -> {
+                activity.startActivity(Intent(activity, DogDiaryActivity::class.java))
+            }
+            "DECIBEL_CALCULATOR" -> {
                 activity.startActivity(Intent(activity, DecibelActivity::class.java))
             }
-            "12" -> {
+            "TV_LIVE" -> {
                 activity.startActivity(Intent(activity, TVLiveActivity::class.java))
             }
-            "13" -> {
+            "PACKAGE_EXPORT" -> {
                 activity.startActivity(Intent(activity, PackageActivity::class.java))
             }
-            "14" -> {
+            "WECHAT_SIMULATION" -> {
                 activity.startActivity(Intent(activity, WechatFakeActivity::class.java))
             }
-            "15" -> {
+            "SCROLL_TEXT" -> {
                 activity.startActivity(Intent(activity, RollTextActivity::class.java))
             }
-            "16" -> {
+            "DEVICE_INFORMATION" -> {
                 activity.startActivity(Intent(activity, DeviceInfoActivity::class.java))
             }
-            "17" -> {
+            "DIGITAL_CLOCK" -> {
                 activity.startActivity(Intent(activity, DigitalClockActivity::class.java))
             }
-            "18" -> {
+            "TYPE_QR" -> {
                 activity.startActivity(Intent(activity, QRCodeActivity::class.java))
             }
-            "19" -> {
+            "VIDEO_PARSE" -> {
                 activity.startActivity(Intent(activity, ParseVideoActivity::class.java))
             }
-            "20" -> {
+            "TEXT_SPEECH" -> {
                 activity.startActivity(Intent(activity, VoiceSpeechActivity::class.java))
             }
-            "21" -> {
+            "SKIP_AD" -> {
                 activity.startActivity(Intent(activity, AutoSkipActivity::class.java))
             }
         }

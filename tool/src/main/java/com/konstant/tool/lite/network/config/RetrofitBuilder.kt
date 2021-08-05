@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitBuilder {
 
     private val mBuilder = Retrofit.Builder()
+    private val mRetrofitMap = mutableMapOf<String, Retrofit>()
 
     init {
         val context = KonApplication.context
@@ -37,6 +38,12 @@ object RetrofitBuilder {
 
     }
 
-    fun <T> getApi(baseUrl: String, clazz: Class<T>): T = mBuilder.baseUrl(baseUrl).build().create(clazz)
+    fun <T> getApi(baseUrl: String, clazz: Class<T>): T {
+        val retrofit = mRetrofitMap[baseUrl]
+        if (retrofit != null) return retrofit.create(clazz)
+        val retrofitInstance = mBuilder.baseUrl(baseUrl).build()
+        mRetrofitMap[baseUrl] = retrofitInstance
+        return retrofitInstance.create(clazz)
+    }
 
 }

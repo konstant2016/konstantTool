@@ -40,9 +40,11 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".module.clock.DigitalClockActivity"
-            android:exported="true"
             android:screenOrientation="landscape" />
         <activity android:name=".module.user.UserActivity" />
+        <activity
+            android:name=".module.diary.DogDiaryActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".module.stock.vertical.StockVerticalHistoryActivity"
             android:screenOrientation="portrait" />

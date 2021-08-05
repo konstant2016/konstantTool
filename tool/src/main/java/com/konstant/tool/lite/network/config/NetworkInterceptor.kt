@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
+import com.konstant.tool.lite.network.api.DogDiaryApi
 import com.konstant.tool.lite.network.api.ExpressApi
 import com.konstant.tool.lite.network.api.StockDetailApi
 import okhttp3.Interceptor
@@ -28,6 +29,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
     init {
         map[ExpressApi.HOST] = 60 * 30
         map[StockDetailApi.HOST] = 60
+        map[DogDiaryApi.HOST] = 0
     }
 
     @Throws(IOException::class)
@@ -38,12 +40,12 @@ class NetworkInterceptor(val context: Context) : Interceptor {
         /**
          * 直接发起网络请求，如果请求成功，则进行数据缓存
          * 缓存时间策略：
-         *      1、缓存时间为0，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
-         *      2、缓存时间不为0，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
+         *      1、缓存时间为-1，表示用户没有针对这次请求进行缓存，那么手动设置缓存为2小时(60*60*2)
+         *      2、缓存时间不为-1，表示用户已经手动设置了缓存时间，那么以用户手动设置的为准
          */
         Log.d("请求链接", chain.request().url.toString())
         val cacheTime = getCacheTime(chain.request().url.host)
-        val time = if (cacheTime == 0) 60 * 60 * 2 else cacheTime
+        val time = if (cacheTime == -1) 60 * 60 * 2 else cacheTime
         val response = chain.proceed(chain.request())
         if (response.isSuccessful) {
             return response.newBuilder()
@@ -106,7 +108,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
             if (hosts.contains(entry.key))
                 return entry.value
         }
-        return 0
+        return -1
     }
 }
 

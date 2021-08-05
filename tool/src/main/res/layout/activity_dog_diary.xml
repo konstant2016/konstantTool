@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:tr_head_height="100dp"
+    tools:context=".module.diary.DogDiaryActivity">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="18sp" />
+
+</com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>

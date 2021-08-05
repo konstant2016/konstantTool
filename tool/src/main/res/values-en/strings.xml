@@ -335,4 +335,8 @@
     <string name="stock_week_thursday">Thu</string>
     <string name="stock_week_friday">Fri</string>
     <string name="stock_week_saturday">Sta</string>
+    <string name="dog_title">Diary of Poor Boy</string>
+    <string name="dog_copy_success">Copy Success</string>
+    <string name="dog_copy_error">Permission Rejected</string>
+    <string name="dog_dialog_content">1、Long Press to Copy \n\n 2、Pull to Refresh</string>
 </resources>

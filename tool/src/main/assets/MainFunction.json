@@ -2,106 +2,111 @@
   {
     "title": "翻译",
     "title_en": "Translate",
-    "type": "1"
+    "type": "TYPE_TRANSLATE"
   },
   {
     "title": "直尺",
     "title_en": "Ruler",
-    "type": "2"
+    "type": "TYPE_RULER"
   },
   {
     "title": "指南针",
     "title_en": "Compass",
-    "type": "3"
+    "type": "TYPE_COMPASS"
   },
   {
     "title": "物流查询",
     "title_en": "Express",
-    "type": "4"
+    "type": "TYPE_EXPRESS"
   },
   {
     "title": "网速测试",
     "title_en": "Network Speed",
-    "type": "5"
+    "type": "NETWORK_SPEED"
   },
   {
     "title": "天气查询",
     "title_en": "Weather",
-    "type": "6"
+    "type": "TYPE_WEATHER"
   },
   {
     "title": "日期推算",
     "title_en": "Date Calculate",
-    "type": "7"
+    "type": "DATE_CALCULATE"
   },
   {
     "title": "趣味壁纸",
     "title_en": "Wallpaper",
-    "type": "8"
+    "type": "TYPE_WALLPAPER"
   },
   {
     "title": "专注模式",
     "title_en": "Concentration",
-    "type": "9"
+    "type": "TYPE_CONCENTRATION"
   },
   {
     "title": "股票推算",
     "title_en": "Stock Calculate",
-    "type": "10"
+    "type": "STOCK_CALCULATE"
+  },
+  {
+    "title": "舔狗日记",
+    "title_en": "Dog Diary",
+    "type": "DOG_DIARY"
   },
   {
     "title": "分贝测试仪",
     "title_en": "Decibel Calculator",
-    "type": "11"
+    "type": "DECIBEL_CALCULATOR"
   },
   {
     "title": "电视台直播",
     "title_en": "TV Live",
-    "type": "12"
+    "type": "TV_LIVE"
   },
   {
     "title": "安装包提取",
     "title_en": "Package Export",
-    "type": "13"
+    "type": "PACKAGE_EXPORT"
   },
   {
     "title": "虚拟微信对话",
     "title_en": "Wechat Simulation",
-    "type": "14"
+    "type": "WECHAT_SIMULATION"
   },
   {
     "title": "全屏滚动文字",
     "title_en": "Scroll Text",
-    "type": "15"
+    "type": "SCROLL_TEXT"
   },
   {
     "title": "查看设备信息",
     "title_en": "Device Information",
-    "type": "16"
+    "type": "DEVICE_INFORMATION"
   },
   {
     "title": "模拟电子时钟",
     "title_en": "Digital Clock",
-    "type": "17"
+    "type": "DIGITAL_CLOCK"
   },
   {
     "title": "二维码扫描解析",
     "title_en": "QR Scan & Parse",
-    "type": "18"
+    "type": "TYPE_QR"
   },
   {
     "title": "影视视频解析",
     "title_en": "Video Parse",
-    "type": "19"
+    "type": "VIDEO_PARSE"
   },
   {
     "title": "文字语音合成",
     "title_en": "Text to Speech",
-    "type": "20"
+    "type": "TEXT_SPEECH"
   },
   {
     "title": "自动跳过启屏广告",
     "title_en": "Skip Splash Advertisement",
-    "type": "21"
+    "type": "SKIP_AD"
   }
 ]

@@ -104,6 +104,15 @@ object NetworkHelper {
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
+    // 获取舔狗日记
+    fun getDogDiary(): Observable<String> {
+        return RetrofitBuilder
+                .getApi(DogDiaryApi.HOST, DogDiaryApi::class.java)
+                .getDogDiary()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
     // 上传用户信息
     fun uploadUserInfo(userInfo: UserInfo): Observable<Boolean> {
         return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
@@ -114,7 +123,7 @@ object NetworkHelper {
     }
 
     // 获取用户信息
-    fun getUserInfo():Observable<UserInfo>{
+    fun getUserInfo(): Observable<UserInfo> {
         return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
                 .getUserInfo()
                 .subscribeOn(Schedulers.io())

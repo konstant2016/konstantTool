@@ -78,7 +78,7 @@ class CollectionFunctionFragment : BaseFragment() {
 
         recycler_main.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            setAdapter(mAdapter)
+            adapter = mAdapter
         }
 
         updateView()

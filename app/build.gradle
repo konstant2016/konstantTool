@@ -87,4 +87,5 @@ dependencies {
 
     // PAG动画库
     implementation 'com.tencent.tav:libpag:3.2.5.1'
+    implementation 'com.github.mcxtzhang:all-base-adapter:V1.8.0'
 }

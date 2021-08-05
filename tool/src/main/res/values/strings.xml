@@ -176,6 +176,12 @@
     <string name="parse_pptv_video">PPTV视频</string>
     <string name="parse_letv_video">乐视视频</string>
 
+    <!--舔狗日记的文字-->
+    <string name="dog_title">舔狗日记</string>
+    <string name="dog_copy_success">内容已复制到剪切板</string>
+    <string name="dog_copy_error">剪切板权限被禁止，请在系统设置中打开剪切板权限后重试</string>
+    <string name="dog_dialog_content">1、长按可以复制\n\n2、下拉可以刷新</string>
+
     <!--二维码中的文字-->
     <string name="qrcode_title">二维码生成与扫描</string>
     <string name="qrcode_input_content">记得输入内容哦</string>
