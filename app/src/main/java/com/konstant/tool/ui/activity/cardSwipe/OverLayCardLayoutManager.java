@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class OverLayCardLayoutManager extends RecyclerView.LayoutManager {
+
     private static final String TAG = "swipecard";
 
     @Override

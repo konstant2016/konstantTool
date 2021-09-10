@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--旋转-->
+    <objectAnimator
+        android:duration="500"
+        android:propertyName="rotationY"
+        android:valueFrom="-180"
+        android:valueTo="0"/>
+
+<!--    <scale-->
+<!--        android:fromYScale="0%"-->
+<!--        android:pivotY="100%"-->
+<!--        android:toYScale="0%"/>-->
+
+</set>

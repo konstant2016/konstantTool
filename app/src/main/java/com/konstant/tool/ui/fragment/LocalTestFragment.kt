@@ -9,6 +9,8 @@ import com.konstant.tool.R
 import com.konstant.tool.base.BaseFragment
 import com.konstant.tool.ui.activity.cardSwipe.CardSwipeActivity
 import com.konstant.tool.ui.activity.cardSwipe.TanTanActivity
+import com.konstant.tool.ui.activity.cardSwipe.demo03.ViewPagerCardActivity
+import com.konstant.tool.ui.activity.cardSwipe.demo04.HorizontalRecyclerViewActivity
 import com.konstant.tool.ui.activity.opengl.OpenGlActivity
 import com.konstant.tool.ui.activity.pdfreader.PdfReaderBitmapActivity
 import com.konstant.tool.ui.activity.pdfreader.PdfReaderH5Activity
@@ -89,6 +91,8 @@ class LocalTestFragment : BaseFragment() {
 
         layout_transition.setOnClickListener { startActivity(Intent(mActivity, TransitionFirstActivity::class.java)) }
 
-        layout_swipe_card.setOnClickListener { startActivity(Intent(mActivity, TanTanActivity::class.java)) }
+        layout_swipe_card.setOnClickListener { startActivity(Intent(mActivity, CardSwipeActivity::class.java)) }
+
+        layout_recycler_swipe.setOnClickListener { startActivity(Intent(mActivity, HorizontalRecyclerViewActivity::class.java))  }
     }
 }

@@ -48,7 +48,11 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.cardSwipe.CardSwipeActivity"></activity>
+        <activity android:name=".ui.activity.cardSwipe.demo04.HorizontalRecyclerViewActivity"></activity>
+        <activity android:name=".ui.activity.cardSwipe.demo03.ViewPagerCardActivity" />
+        <activity
+            android:name=".ui.activity.cardSwipe.CardSwipeActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.transition.TranslationSecondActivity" />
         <activity android:name=".ui.activity.transition.TransitionFirstActivity" />
         <activity android:name=".ui.activity.cardSwipe.TanTanActivity" />

@@ -184,12 +184,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="OpenGl实战"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -201,12 +201,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="触摸控件"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -217,12 +217,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="PDF阅读器(JS形式)"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -233,12 +233,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="PDF阅读器(SDK形式)"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -249,12 +249,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="Robust热更新测试"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -265,12 +265,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="ViewPager2+新Fragment测试"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -281,12 +281,12 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="元素共享转场动画"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -297,14 +297,31 @@
             android:background="@drawable/selector_item_bg">
 
             <TextView
-                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center_vertical"
                 android:text="滑动卡片"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_recycler_swipe"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_item_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:text="recyclerview横滑"
+                android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

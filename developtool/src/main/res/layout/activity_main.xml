@@ -3,71 +3,154 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp">
+    android:id="@+id/layout_parent"
+    android:padding="10dp">
 
-    <Button
+    <TextView
         android:id="@+id/btn_teacher"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
         android:text="启动教师端"
         app:layout_constraintEnd_toStartOf="@id/setting_teacher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/setting_teacher"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
         android:text="教师端设置"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_teacher"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
+        android:id="@+id/btn_student"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="启动校园版"
+        app:layout_constraintEnd_toStartOf="@id/setting_student"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_teacher" />
+
+    <TextView
+        android:id="@+id/setting_student"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="校园版设置"
+        app:layout_constraintBottom_toBottomOf="@id/btn_student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_student"
+        app:layout_constraintTop_toTopOf="@id/btn_student" />
+
+    <TextView
+        android:id="@+id/btn_middle"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="启动次元二中"
+        app:layout_constraintEnd_toStartOf="@id/setting_middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_student" />
+
+    <TextView
+        android:id="@+id/setting_middle"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="次元二中设置"
+        app:layout_constraintBottom_toBottomOf="@id/btn_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_middle"
+        app:layout_constraintTop_toTopOf="@id/btn_middle" />
+
+    <TextView
         android:id="@+id/btn_public"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
         android:text="启动公众版"
         app:layout_constraintEnd_toEndOf="@id/btn_teacher"
         app:layout_constraintStart_toStartOf="@id/btn_teacher"
-        app:layout_constraintTop_toBottomOf="@id/btn_teacher" />
+        app:layout_constraintTop_toBottomOf="@id/btn_middle" />
 
-    <Button
+    <TextView
         android:id="@+id/setting_public"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
         android:text="公众版设置"
+        app:layout_constraintBottom_toBottomOf="@id/btn_public"
         app:layout_constraintEnd_toEndOf="@id/setting_teacher"
         app:layout_constraintStart_toStartOf="@id/setting_teacher"
-        app:layout_constraintTop_toBottomOf="@id/btn_teacher" />
+        app:layout_constraintTop_toTopOf="@id/btn_public" />
+
+    <TextView
+        android:id="@+id/btn_setting"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="打开系统设置"
+        app:layout_constraintEnd_toStartOf="@id/btn_wifi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_public" />
+
+    <TextView
+        android:id="@+id/btn_wifi"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="打开WIFI设置"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_setting"
+        app:layout_constraintTop_toTopOf="@id/btn_setting" />
 
     <EditText
         android:id="@+id/et_scheme"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@android:drawable/editbox_background"
+        android:background="@drawable/bg_btn_normal"
+        android:hint="这里是个输入框"
+        android:paddingStart="10dp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@id/btn_scheme"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_public" />
+        app:layout_constraintTop_toBottomOf="@id/btn_setting" />
 
-    <Button
+    <TextView
         android:id="@+id/btn_scheme"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
         android:text="确定"
+        app:layout_constraintBottom_toBottomOf="@id/et_scheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_public" />
-
-    <Button
-        android:id="@+id/btn_test"
-        android:text="启动测试页面"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="150dp"
-        android:layout_height="50dp"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_public"
+        app:layout_constraintTop_toTopOf="@id/et_scheme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

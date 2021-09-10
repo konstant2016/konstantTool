@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.konstant.tool.ui.activity.cardSwipe.demo02.SwipeTouchLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_fg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:text="第1张"
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#859642"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:visibility="gone"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/tv_content_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#850042"
+                android:gravity="center"
+                android:text="第1张"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</com.konstant.tool.ui.activity.cardSwipe.demo02.SwipeTouchLayout>

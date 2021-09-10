@@ -16,15 +16,13 @@ import android.util.TypedValue;
  */
 
 public class CardConfig {
-    //屏幕上最多同时显示几个Item
-    public static int MAX_SHOW_COUNT;
 
-    //每一级Scale相差0.05f，translationY相差7dp左右
-    public static float SCALE_GAP;
-    public static int TRANS_Y_GAP;
+    public static int MAX_SHOW_COUNT;   // 同时最多显示几层卡片
+    public static float SCALE_GAP;      // X 方向上的缩小比例，也就是第二层比最上层小0.05，也就是95%的大小
+    public static int TRANS_Y_GAP;      // Y 方向上的向下偏移量，15dp
 
     public static void initConfig(Context context) {
-        MAX_SHOW_COUNT = 4;
+        MAX_SHOW_COUNT = 2;
         SCALE_GAP = 0.05f;
         TRANS_Y_GAP = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15, context.getResources().getDisplayMetrics());
     }
