@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_parent"
     android:padding="10dp">
 
     <TextView
@@ -152,5 +152,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_public"
         app:layout_constraintTop_toTopOf="@id/et_scheme" />
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="打开平板登录页面"
+        app:layout_constraintEnd_toStartOf="@id/btn_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_scheme" />
+
+    <TextView
+        android:id="@+id/btn_launcher"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="打开平板launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_scheme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

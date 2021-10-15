@@ -6,16 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <Button
-        android:id="@+id/new_task"
-        android:text="NEW_TASK启动"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-
-    <Button
-        android:id="@+id/btn_app"
-        android:text="APPLICATION启动"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-
 </LinearLayout>

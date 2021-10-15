@@ -1,5 +1,6 @@
 package com.konstant.develop
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -66,6 +67,19 @@ class MainActivity : AppCompatActivity() {
         }
         layout_parent.setOnClickListener {
             hideSoftKeyboard()
+        }
+        btn_login.setOnClickListener {
+            val intent = Intent()
+            intent.action = "com.hz.hzlib.ACTION_LOGIN"
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+        btn_launcher.setOnClickListener {
+            val component = ComponentName("com.yangcong345.android.phone","com.yangcong345.pad.launcher.PadLauncherActivity")
+            val intent = Intent()
+            intent.component = component
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
 

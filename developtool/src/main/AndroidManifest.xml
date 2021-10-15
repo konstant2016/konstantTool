@@ -16,7 +16,9 @@
         <activity android:name=".ThirdActivity" />
         <activity
             android:name=".SecondActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask" >
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
