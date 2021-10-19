@@ -19,29 +19,24 @@ object AutoSkipManager {
     data class CustomRule(val packageName: String, val className: String, val resourceId: String)
 
     fun onCreate(context: Context) {
-        Executors.newSingleThreadExecutor()
-                .execute {
-                    val rulesTemp = FileUtil.readFileFromFile(context, SKIP_RULES)
-                    if (rulesTemp.isNotEmpty()) {
-                        val array = Gson().fromJson<List<CustomRule>>(String(rulesTemp), object : TypeToken<List<CustomRule>>() {}.type)
-                        mCustomRules.addAll(array)
-                    }
-                    val whiteListTemp = FileUtil.readFileFromFile(context, SKIP_WHITE_LIST)
-                    if (rulesTemp.isNotEmpty()) {
-                        val array = Gson().fromJson<List<String>>(String(whiteListTemp), object : TypeToken<List<String>>() {}.type)
-                        mWhitList.addAll(array)
-                    }
-                }
+        val rulesTemp = FileUtil.readFileFromFile(context, SKIP_RULES)
+        if (rulesTemp.isNotEmpty()) {
+            val array = Gson().fromJson<List<CustomRule>>(String(rulesTemp), object : TypeToken<List<CustomRule>>() {}.type)
+            mCustomRules.addAll(array)
+        }
+        val whiteListTemp = FileUtil.readFileFromFile(context, SKIP_WHITE_LIST)
+        if (rulesTemp.isNotEmpty()) {
+            val array = Gson().fromJson<List<String>>(String(whiteListTemp), object : TypeToken<List<String>>() {}.type)
+            mWhitList.addAll(array)
+        }
     }
 
     fun onDestroy(context: Context) {
-        Executors.newSingleThreadExecutor().execute {
-            val rulesJson = Gson().toJson(mCustomRules)
-            FileUtil.saveFileToFile(context, SKIP_RULES, rulesJson.toByteArray())
+        val rulesJson = Gson().toJson(mCustomRules)
+        FileUtil.saveFileToFile(context, SKIP_RULES, rulesJson.toByteArray())
 
-            val whiteListJson = Gson().toJson(mWhitList)
-            FileUtil.saveFileToFile(context, SKIP_WHITE_LIST, whiteListJson.toByteArray())
-        }
+        val whiteListJson = Gson().toJson(mWhitList)
+        FileUtil.saveFileToFile(context, SKIP_WHITE_LIST, whiteListJson.toByteArray())
     }
 
     // 跳过提示
@@ -91,7 +86,7 @@ object AutoSkipManager {
         return FileUtil.readDataFromSp(context, SKIP_DIALOG_SHOW, true)
     }
 
-    fun setShowDialogTips(context: Context,show: Boolean) {
+    fun setShowDialogTips(context: Context, show: Boolean) {
         FileUtil.saveDataToSp(context, SKIP_DIALOG_SHOW, show)
     }
 

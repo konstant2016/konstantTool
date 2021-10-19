@@ -24,6 +24,7 @@ class AutoSkipActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_skip)
         setTitle(getString(R.string.skip_title))
+        AutoSkipManager.onCreate(this)
         initViews()
         showDialog()
     }

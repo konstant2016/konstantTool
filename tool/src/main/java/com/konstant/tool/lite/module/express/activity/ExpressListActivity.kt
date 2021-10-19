@@ -37,6 +37,7 @@ class ExpressListActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_express)
         setTitle(getString(R.string.express_title))
+        ExpressManager.onCreate(this)
         init()
     }
 

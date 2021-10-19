@@ -23,6 +23,7 @@ class StockActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock)
         setTitle(getString(R.string.stock_title))
+        StockManager.onCreate(this)
         initViews()
         getStockList()
     }

@@ -3,9 +3,8 @@ package com.konstant.tool.lite.module.weather.data
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.konstant.tool.lite.data.AreaManager
+import com.konstant.tool.lite.data.bean.weather.China
 import com.konstant.tool.lite.util.FileUtil
-import java.util.concurrent.Executors
 
 /**
  * 描述:用于管理本地保存的城市列表
@@ -21,27 +20,26 @@ object CountryManager {
 
     // 本地保存的城市列表
     private val mLocalCityList = ArrayList<LocalCountry>()
+    private lateinit var mChina: China
 
     // 当前位置的cityCode
     private var mCityCode = ""
 
     fun onCreate(context: Context) {
-        Executors.newSingleThreadExecutor().execute {
-            mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
-            val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
-            val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
-            if (array != null && array.isNotEmpty()) {
-                mLocalCityList.addAll(array)
-            }
+        mCityCode = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY_ID, "")
+        val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
+        val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
+        if (array != null && array.isNotEmpty()) {
+            mLocalCityList.addAll(array)
         }
+        val text = context.assets.open("DirectdData.json").bufferedReader().readText()
+        mChina = Gson().fromJson(text, China::class.java)
     }
 
     fun onDestroy(context: Context) {
-        Executors.newSingleThreadExecutor().execute {
-            val s1 = Gson().toJson(mLocalCityList)
-            FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
-            FileUtil.saveDataToSp(context, NAME_LOCAL_CITY_ID, mCityCode)
-        }
+        val s1 = Gson().toJson(mLocalCityList)
+        FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
+        FileUtil.saveDataToSp(context, NAME_LOCAL_CITY_ID, mCityCode)
     }
 
 
@@ -70,7 +68,7 @@ object CountryManager {
 
     // 查找城市对应的天气代号
     fun queryWeatherCode(province: String, city: String, direct: String): String {
-        AreaManager.getChina().provinceList.map { prov ->
+        mChina.provinceList.map { prov ->
             if (province.contains(prov.name)) {
                 prov.cityList.map { cit ->
                     cit.countyList.map { dir ->
@@ -98,4 +96,6 @@ object CountryManager {
             FileUtil.saveDataToSp(context, NAME_LOCAL_CITY, s1)
         }
     }
+
+    fun getChina() = mChina
 }

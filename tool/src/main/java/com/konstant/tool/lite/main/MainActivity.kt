@@ -36,6 +36,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_viewpager)
         ChoreographerHelper.start(this)
         swipeBackLayout.setEnableGesture(false)
+        FunctionCollectorManager.onCreate(this)
         initViews()
     }
 

@@ -3,8 +3,6 @@ package com.konstant.tool.lite.base
 import android.app.Application
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.util.Log
-import com.konstant.tool.lite.data.KonstantDataManager
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.util.Density
 import com.konstant.tool.lite.util.FileUtil
@@ -34,22 +32,6 @@ class KonApplication : Application() {
         }
         SettingManager.setSystemChinese(Locale.getDefault().toString().contains("zh"))
         Density.init(this)
-        KonstantDataManager.onCreate(applicationContext)
-    }
-
-    override fun onTerminate() {
-        KonstantDataManager.onDestroy(applicationContext)
-        super.onTerminate()
-    }
-
-    override fun onTrimMemory(level: Int) {
-        KonstantDataManager.onDestroy(applicationContext)
-        super.onTrimMemory(level)
-    }
-
-    override fun onLowMemory() {
-        KonstantDataManager.onDestroy(applicationContext)
-        super.onLowMemory()
     }
 
     override fun getResources(): Resources {

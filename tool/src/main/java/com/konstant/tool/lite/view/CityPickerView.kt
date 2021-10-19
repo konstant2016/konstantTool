@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import com.konstant.tool.lite.R
-import com.konstant.tool.lite.data.AreaManager
 import com.konstant.tool.lite.data.bean.weather.China
+import com.konstant.tool.lite.module.weather.data.CountryManager
 import kotlinx.android.synthetic.main.layout_dialog_city_selector.view.*
 
 /**
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.layout_dialog_city_selector.view.*
 
 class CityPickerView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleStr: Int = 0) : RelativeLayout(context, attrs, defStyleStr) {
 
-    private val mChina = AreaManager.getChina()
+    private val mChina = CountryManager.getChina()
     private var mSelectedDirect = mChina.provinceList[0].cityList[0].countyList[0]
     private var mOnCancelClick: (() -> Unit)? = null
     private var mOnConfirmClick: ((direct: China.Province.City.County) -> Unit)? = null

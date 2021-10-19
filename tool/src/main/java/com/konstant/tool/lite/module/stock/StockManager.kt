@@ -18,11 +18,8 @@ object StockManager {
     private val mHistoryList = ArrayList<StockHistory>()
 
     fun onCreate(context: Context) {
-        Executors.newSingleThreadExecutor()
-                .execute {
-                    createStock(context)
-                    createHistory(context)
-                }
+        createStock(context)
+        createHistory(context)
     }
 
     private fun createStock(context: Context) {
@@ -44,11 +41,8 @@ object StockManager {
     }
 
     fun onDestroy(context: Context) {
-        Executors.newSingleThreadExecutor()
-                .execute {
-                    saveStock(context)
-                    saveStockHistory(context)
-                }
+        saveStock(context)
+        saveStockHistory(context)
     }
 
     private fun saveStock(context: Context) {
