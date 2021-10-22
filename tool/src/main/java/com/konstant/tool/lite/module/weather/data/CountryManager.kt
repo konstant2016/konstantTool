@@ -30,6 +30,7 @@ object CountryManager {
         val s = FileUtil.readDataFromSp(context, NAME_LOCAL_CITY, "")
         val array = Gson().fromJson<List<LocalCountry>>(s, object : TypeToken<List<LocalCountry>>() {}.type)
         if (array != null && array.isNotEmpty()) {
+            mLocalCityList.clear()
             mLocalCityList.addAll(array)
         }
         val text = context.assets.open("DirectdData.json").bufferedReader().readText()

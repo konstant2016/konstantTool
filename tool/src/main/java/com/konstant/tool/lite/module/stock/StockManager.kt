@@ -7,8 +7,6 @@ import com.konstant.tool.lite.data.bean.stock.StockData
 import com.konstant.tool.lite.data.bean.stock.StockHistory
 import com.konstant.tool.lite.util.FileUtil
 import java.util.*
-import java.util.concurrent.Executors
-import kotlin.collections.ArrayList
 
 object StockManager {
 
@@ -27,6 +25,7 @@ object StockManager {
         if (temp.isNotEmpty()) {
             val type = object : TypeToken<List<StockData>>() {}.type
             val array = Gson().fromJson<List<StockData>>(String(temp), type)
+            mStockList.clear()
             mStockList.addAll(array)
         }
     }
@@ -36,6 +35,7 @@ object StockManager {
         if (temp.isNotEmpty()) {
             val type = object : TypeToken<List<StockHistory>>() {}.type
             val array = Gson().fromJson<List<StockHistory>>(String(temp), type)
+            mHistoryList.clear()
             mHistoryList.addAll(array)
         }
     }
