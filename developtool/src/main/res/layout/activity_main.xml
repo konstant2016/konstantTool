@@ -160,7 +160,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_selector_btn"
         android:gravity="center"
-        android:text="打开平板SDK测试demo"
+        android:text="打开测试demo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_scheme" />

@@ -83,6 +83,10 @@ object FileUtil {
             saveBitmapToAlbumP(bytes, bitmap, name)
     }
 
+    private fun saveBitmap(bitmap: Bitmap,name: String){
+        MediaStore.Images.Media.insertImage(KonApplication.context.contentResolver,bitmap,name,"")
+    }
+
     private fun saveBitmapToAlbumP(bytes: ByteArray? = null, bitmap: Bitmap? = null, name: String): Boolean {
         val directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
         val file = File(directory, name)

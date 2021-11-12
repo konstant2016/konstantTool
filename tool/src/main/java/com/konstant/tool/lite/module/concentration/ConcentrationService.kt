@@ -73,7 +73,7 @@ class ConcentrationService : Service() {
                     }
                     format = PixelFormat.TRANSLUCENT
                     flags = (WindowManager.LayoutParams.FLAG_FULLSCREEN       // 全屏
-                            or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)    // 可放到状态栏上
+                            or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)    // 可放到状态栏上
                     width = WindowManager.LayoutParams.MATCH_PARENT
                     height = WindowManager.LayoutParams.MATCH_PARENT
                 }
