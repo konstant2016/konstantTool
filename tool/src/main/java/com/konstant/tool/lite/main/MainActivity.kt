@@ -3,6 +3,7 @@ package com.konstant.tool.lite.main
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.View
 import androidx.core.view.GravityCompat
@@ -100,7 +101,7 @@ class MainActivity : BaseActivity() {
         }
         if (SettingManager.getKillProcess(this)) {
             finish()
-            Handler().postDelayed({ android.os.Process.killProcess(android.os.Process.myPid()) }, 100)
+            Handler(Looper.getMainLooper()).postDelayed({ android.os.Process.killProcess(android.os.Process.myPid()) }, 100)
         } else {
             Intent(Intent.ACTION_MAIN).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK

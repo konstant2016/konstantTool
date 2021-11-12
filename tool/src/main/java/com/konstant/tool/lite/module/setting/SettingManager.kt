@@ -22,7 +22,7 @@ object SettingManager {
     private const val NAME_SHOW_COLLECTION_FUNCTION = "showCollectionFunction"
     private const val NAME_WALLPAPER_TRANSPARENT = "wallpaperTransparent"
     private const val NAME_AUTO_UPDATE = "autoUpdate"
-    private const val NAME_SWIPEBACK_STATUS = "swipeBackStatus"
+    private const val NAME_SWIPE_BACK_STATUS = "swipeBackStatus"
     private const val NAME_DEFAULT_LANGUAGE = "defaultLanguage"
     private const val NAME_EXPRESS_HTML = "expressHtml"
     private const val NAME_BROWSER_TYPE = "browserStatus"
@@ -31,6 +31,7 @@ object SettingManager {
     private const val SHOW_MILL_SECOND = "showMillSecond"
     private const val FIX_VIEW_SCALE = "fixViewScale"
     private const val ADAPTER_DARK_MODE = "adapterDarkMode"
+    private const val ADAPTER_SPLIT_SCREEN = "adapterSplitScreen"
     const val NAME_USER_HEADER = "header_big.jpg"
 
     private var systemChinese = true
@@ -42,12 +43,12 @@ object SettingManager {
 
     // 保存滑动返回的状态
     fun setSwipeBackStatus(context: Context, state: Int) {
-        FileUtil.saveDataToSp(context, NAME_SWIPEBACK_STATUS, state)
+        FileUtil.saveDataToSp(context, NAME_SWIPE_BACK_STATUS, state)
     }
 
     // 获取滑动返回的状态
     fun getSwipeBackStatus(context: Context) =
-            FileUtil.readDataFromSp(context, NAME_SWIPEBACK_STATUS, 0)
+            FileUtil.readDataFromSp(context, NAME_SWIPE_BACK_STATUS, 0)
 
     // 删除保存的用户头像（恢复默认）
     fun deleteUserHeaderThumb(context: Context) {
@@ -61,6 +62,12 @@ object SettingManager {
 
     // 读取：是否开启适配暗黑模式
     fun getAdapterDarkMode(context: Context) = FileUtil.readDataFromSp(context, ADAPTER_DARK_MODE, true)
+
+    fun setAdapterSplitScreen(context: Context, adapter: Boolean) {
+        FileUtil.saveDataToSp(context, ADAPTER_SPLIT_SCREEN, adapter)
+    }
+
+    fun getAdapterSplitScreen(context: Context) = FileUtil.readDataFromSp(context, ADAPTER_SPLIT_SCREEN, true)
 
     /**
      * 判断当前用户是否已开启系统暗黑模式适配
@@ -111,9 +118,9 @@ object SettingManager {
         FileUtil.saveDataToSp(context, KILL_PROCESS_STATUS, status)
     }
 
-    fun getShowMillSecond(context: Context) = FileUtil.readDataFromSp(context,SHOW_MILL_SECOND,true)
+    fun getShowMillSecond(context: Context) = FileUtil.readDataFromSp(context, SHOW_MILL_SECOND, true)
 
-    fun saveShowMillSecond(context: Context,status: Boolean){
+    fun saveShowMillSecond(context: Context, status: Boolean) {
         FileUtil.saveDataToSp(context, SHOW_MILL_SECOND, status)
     }
 

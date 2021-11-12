@@ -2,7 +2,6 @@ package com.konstant.tool.lite.network.config;
 
 import android.text.TextUtils;
 import android.util.Log;
-
 import java.io.IOException;
 import java.nio.charset.Charset;
 import okhttp3.Interceptor;
@@ -25,6 +24,9 @@ public class LogInterceptor implements Interceptor {
         Request request = chain.request();
         Response response = chain.proceed(request);
         String url = request.url().toString();
+        if (!shouldIntercept(url)){
+            return response;
+        }
         makeLog("请求链接：" + url);
         String method = request.method();
         makeLog("请求方法：" + method);
@@ -39,12 +41,29 @@ public class LogInterceptor implements Interceptor {
         }
         String responseHeaders = response.headers().toString();
         makeLog("返回头部：\n" + responseHeaders);
-        byte[] bytes = response.body().bytes();
-        makeLog("返回内容：\n状态码：" + response.code()+"，\n" + new String(bytes, "UTF-8"));
         MediaType mediaType = response.body().contentType();
+        byte[] bytes = response.body().bytes();
+        makeLog("返回内容：\n状态码：" + response.code() + "，\n返回内容：" + getResponseContent(mediaType, bytes));
         return response.newBuilder()
                 .body(ResponseBody.create(mediaType, bytes))
                 .build();
+    }
+
+    private String getResponseContent(MediaType mediaType, byte[] bytes) throws IOException {
+        if (mediaType == null) {
+            return "类型未知，无法打印具体内容";
+        }
+        String type = mediaType.type();
+        if (TextUtils.isEmpty(type)) {
+            return "类型未知，无法打印具体内容";
+        }
+        if (bytes.length > 1024 * 200) {
+            return "内容量太大，打印出来会导致崩溃";
+        }
+        if (type.contains("application") || type.contains("text")) {
+            return new String(bytes, "UTF-8");
+        }
+        return "返回的不是JSON，具体类型为：" + mediaType.type();
     }
 
     private void makeLog(String msg) {
@@ -54,20 +73,25 @@ public class LogInterceptor implements Interceptor {
 
     private static void longLog(String tag, String msg) {
         if (TextUtils.isEmpty(msg)) {
-            Log.i(tag, "内容为空");
+            Log.d(tag, "内容为空");
             return;
         }
         int segmentation = 3 * 1024;
         if (msg.length() < segmentation) {
-            Log.i(tag, msg);
+            Log.d(tag, msg);
             return;
         }
         // 内容过长时分段打印
         while (msg.length() > segmentation) {
             String substring = msg.substring(0, segmentation);
             msg = msg.replace(substring, "");
-            Log.i(tag, substring);
+            Log.d(tag, substring);
         }
-        Log.i(tag, msg);
+        Log.d(tag, msg);
     }
+
+    private boolean shouldIntercept(String url) {
+        return !TextUtils.equals("https://dl.360safe.com/", url);
+    }
+
 }

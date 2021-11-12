@@ -44,68 +44,76 @@
             app:title="@string/setting_browser" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_exit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_prevent_exit_describe"
-            app:title="@string/setting_prevent_exit"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_prevent_exit" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_kill"
-            app:title="@string/setting_kill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_kill_describe"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_kill" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_second"
-            app:title="@string/setting_mill_second"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_mill_second_describe"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_mill_second" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_update"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_update_auto_describe"
-            app:title="@string/setting_update_auto"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_update_auto" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_express"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_prevent_express_describe"
-            app:title="@string/setting_prevent_express"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_prevent_express" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_collect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
             app:subTitle="@string/setting_show_collection_describe"
-            app:title="@string/setting_show_collection"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            app:title="@string/setting_show_collection" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_dark"
-            app:subTitle="@string/setting_adapter_dark_mode_describe"
-            app:title="@string/setting_adapter_dark_mode"
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            app:showSwitch="true"
+            app:subTitle="@string/setting_adapter_dark_mode_describe"
+            app:title="@string/setting_adapter_dark_mode" />
 
         <com.konstant.tool.lite.view.ItemView
-            app:showSwitch="true"
             android:id="@+id/layout_scale"
-            app:title="@string/setting_scale"
-            app:subTitle="@string/setting_scale_describe"
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            app:showSwitch="true"
+            app:subTitle="@string/setting_scale_describe"
+            app:title="@string/setting_scale" />
+
+        <com.konstant.tool.lite.view.ItemView
+            android:id="@+id/layout_split"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSwitch="true"
+            app:subTitle="@string/setting_adapter_split_screen_describe"
+            app:title="@string/setting_adapter_split_screen" />
 
         <com.konstant.tool.lite.view.ItemView
             android:id="@+id/layout_reset"
@@ -124,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:title="@string/setting_about_title" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

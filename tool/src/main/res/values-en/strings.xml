@@ -339,4 +339,7 @@
     <string name="dog_copy_success">Copy Success</string>
     <string name="dog_copy_error">Permission Rejected</string>
     <string name="dog_dialog_content">1、Long Press to Copy \n\n 2、Pull to Refresh</string>
+    <string name="setting_adapter_split_screen">Adapter Multi-Screen</string>
+    <string name="setting_adapter_split_screen_describe">Only support Android N and above</string>
+
 </resources>

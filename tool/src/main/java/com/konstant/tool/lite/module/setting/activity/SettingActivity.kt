@@ -100,8 +100,14 @@ class SettingActivity : BaseActivity() {
         // 强制全局缩放
         layout_scale.setChecked(SettingManager.getViewScale(this))
         layout_scale.setOnCheckedChangeListener {
-            SettingManager.saveViewScale(this,it)
+            SettingManager.saveViewScale(this, it)
             EventBus.getDefault().post(ViewScaleChanged())
+        }
+
+        // 适配分屏模式
+        layout_split.setChecked(SettingManager.getAdapterSplitScreen(this))
+        layout_split.setOnCheckedChangeListener {
+            SettingManager.setAdapterSplitScreen(this, it)
         }
 
         layout_reset.setOnClickListener { onResetClick() }
