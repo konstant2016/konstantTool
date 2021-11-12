@@ -73,6 +73,9 @@ class ConcentrationService : Service() {
                     } else {
                         WindowManager.LayoutParams.TYPE_PHONE
                     }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                    }
                     format = PixelFormat.TRANSLUCENT
                     flags = (WindowManager.LayoutParams.FLAG_FULLSCREEN       // 全屏
                             or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)    // 可放到状态栏上
