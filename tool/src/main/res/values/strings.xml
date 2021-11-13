@@ -280,6 +280,7 @@
     <string name="setting_about_describe">本应用完全遵守绿色公约！应用卸载后，除用户手动保存的图片外，没有任何残留数据。除上报崩溃日志外，本应用承诺不收集任何用户信息！</string>
     <string name="setting_about_source_code_address">项目地址</string>
     <string name="setting_about_checkout_update">检查更新</string>
+    <string name="setting_about_update_history">更新历史</string>
 
     <!--翻译中的文字-->
     <string name="translate_title">翻译</string>

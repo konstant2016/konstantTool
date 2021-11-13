@@ -44,6 +44,14 @@ class AboutActivity : BaseActivity() {
             setOnClickListener { UpdateManager.checkoutUpdate() }
         }
 
+        tv_history.apply {
+            paint.flags = Paint.UNDERLINE_TEXT_FLAG
+            paint.isAntiAlias = true
+            setOnClickListener {
+                H5Activity.openWebView(this@AboutActivity, "https://docs.qq.com/doc/DTVBZTGdXZG5oT1ZI")
+            }
+        }
+
         UpdateManager.getUpdateUrl {
             val bitmap = QREncode.Builder(this)
                     .setColor(Color.BLACK)

@@ -1,7 +1,5 @@
 package com.konstant.tool.lite.module.wxfake
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
@@ -31,7 +29,7 @@ class WechatFakeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wechat_fake)
-        StatusBarUtil.setFullScreenBlack(this)
+        StatusBarUtil.setFullScreenBlack(window)
         showTitleBar(false)
         initViews()
     }

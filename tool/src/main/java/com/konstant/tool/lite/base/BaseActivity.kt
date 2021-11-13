@@ -79,7 +79,11 @@ abstract class BaseActivity : SwipeBackActivity() {
     private fun initUserInterface() {
         // 沉浸状态栏
         supportActionBar?.hide()
-        StatusBarUtil.setFullScreenWhite(this)
+        StatusBarUtil.setFullScreenWhite(window)
+
+        // 根据当前主题设置导航栏的颜色
+        val mainBgColor = getThemColor(R.attr.tool_main_bg_color)
+        StatusBarUtil.setNavigationBarColor(window, mainBgColor)
 
         // 滑动返回
         onSwipeBackChanged(SwipeBackStatus(SettingManager.getSwipeBackStatus(this)))

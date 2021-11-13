@@ -245,6 +245,7 @@
     <string name="base_cancel">Cancel</string>
     <string name="base_confirm">Action</string>
     <string name="setting_about_checkout_update">Check Update</string>
+    <string name="setting_about_update_history">Update History</string>
     <string name="setting_about_describe">This App is fully compliant with the Green Convention! Once the application is uninstalled, there is no residual data except the pictures saved by the users</string>
     <string name="setting_about_source_code_address">Visit the source code</string>
     <string name="setting_share_message">Scan the QR code to download</string>

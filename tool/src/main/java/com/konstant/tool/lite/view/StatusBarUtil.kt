@@ -3,10 +3,9 @@ package com.konstant.tool.lite.view
 import android.graphics.Color
 import android.os.Build
 import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.konstant.tool.lite.R
-import com.konstant.tool.lite.base.getThemColor
 
 /**
  * 时间：6/18/21 2:24 PM
@@ -17,10 +16,9 @@ import com.konstant.tool.lite.base.getThemColor
 object StatusBarUtil {
 
     /**
-     * 设置全屏，状态栏白色,导航栏取背景色
+     * 设置全屏，状态栏白色
      */
-    fun setFullScreenWhite(activity: AppCompatActivity) {
-        val window = activity.window
+    fun setFullScreenWhite(window: Window) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.apply {
                 clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
@@ -30,7 +28,6 @@ object StatusBarUtil {
                         or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
                 addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                 statusBarColor = Color.TRANSPARENT
-                navigationBarColor = Color.TRANSPARENT
             }
         }
     }
@@ -38,8 +35,7 @@ object StatusBarUtil {
     /**
      * 设置全屏，状态栏图标黑色
      */
-    fun setFullScreenBlack(activity: AppCompatActivity) {
-        val window = activity.window
+    fun setFullScreenBlack(window: Window) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         } else {
@@ -48,9 +44,16 @@ object StatusBarUtil {
     }
 
     /**
+     * 设置导航栏颜色
+     */
+    fun setNavigationBarColor(window: Window, color: Int) {
+        window.navigationBarColor = color
+    }
+
+    /**
      * 设置全屏，不显示状态栏
      */
-    fun setFullScreen(activity: AppCompatActivity){
+    fun setFullScreen(activity: AppCompatActivity) {
         val window = activity.window
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }

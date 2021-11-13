@@ -55,6 +55,15 @@
             android:textColor="?attr/tool_theme_text_color" />
 
         <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/setting_about_update_history"
+            android:textColor="?attr/tool_theme_text_color" />
+
+        <TextView
             android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
