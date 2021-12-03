@@ -63,8 +63,10 @@ class StockHorizontalHistoryActivity : BaseActivity() {
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH) + 1
         val index = keys.indexOfFirst { it == "$year-$month" }
-        if (index in 0 until viewPager.childCount){
+        try {
             viewPager.setCurrentItem(index,true)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }
