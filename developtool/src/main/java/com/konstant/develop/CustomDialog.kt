@@ -8,6 +8,12 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 
+/**
+ * 时间：2021/12/3 10:38 上午
+ * 作者：吕卡
+ * 备注：可以绘制到状态栏下面的dialog
+ */
+
 class CustomDialog : DialogFragment() {
 
     companion object {

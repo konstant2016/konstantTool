@@ -3,9 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.konstant.develop">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-sdk tools:overrideLibrary="com.hz.hzlib"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-sdk tools:overrideLibrary="com.hz.hzlib" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <queries>
+        <package android:name="com.yangcong345.teacher" />
+        <package android:name="com.yangcong345.onionschool" />
+        <package android:name="com.yangcong345.android.middle2" />
+        <package android:name="com.yangcong345.android.phone" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -14,14 +21,18 @@
         android:roundIcon="@drawable/icon_debug"
         android:supportsRtl="true"
         android:theme="@style/Theme.KonstantTool">
-        <activity android:name=".QRScanActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ThirdActivity" />
-        <activity
-            android:name=".SecondActivity"
-            android:launchMode="singleTask" >
 
-        </activity>
+        <activity
+            android:name=".QRScanActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ThirdActivity" />
+
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".SecondActivity"
+            android:launchMode="singleTask" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

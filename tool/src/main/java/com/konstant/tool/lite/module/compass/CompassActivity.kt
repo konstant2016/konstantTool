@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.activity_compass.*
  * 备注:
  */
 
-
 @SuppressLint("MissingSuperCall")
 class CompassActivity : BaseActivity() {
 

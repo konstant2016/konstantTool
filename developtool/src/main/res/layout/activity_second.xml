@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="100dp"
+    android:background="#483468"
     tools:context=".SecondActivity">
 
     <Button
-        android:id="@+id/btn_dialog"
+        android:id="@+id/btn_show_status_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:text="显示弹窗" />
+        android:text="显示状态栏" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_hide_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:text="隐藏状态栏" />
+
+    <Button
+        android:id="@+id/btn_show_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:text="显示导航栏" />
+
+    <Button
+        android:id="@+id/btn_hide_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:text="隐藏导航栏" />
+
+</LinearLayout>

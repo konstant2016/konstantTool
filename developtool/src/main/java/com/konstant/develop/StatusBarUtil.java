@@ -13,10 +13,12 @@ import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * @author liuxiaodong
- * @date 2019/4/3
- * @description
+ * 描述:状态栏栏处理工具
+ * 创建人:菜籽
+ * 创建时间:2018/4/5 下午9:11
+ * 备注:
  */
+
 public class StatusBarUtil {
 
     /**
@@ -142,5 +144,13 @@ public class StatusBarUtil {
         ActionBar actionBar = a.getSupportActionBar();
         if (actionBar == null) return;
         actionBar.setElevation(0f);
+    }
+
+    public static void hideNavigationBar(Window window) {
+        int option = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        window.getDecorView().setSystemUiVisibility(option);
     }
 }

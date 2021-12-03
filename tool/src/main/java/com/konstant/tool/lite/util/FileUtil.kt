@@ -53,7 +53,7 @@ import java.io.File
 
 object FileUtil {
 
-    private val SHARED_PREFERENCE_FILE_NAME = "information"
+    private const val SHARED_PREFERENCE_FILE_NAME = "information"
 
 
     // 保存文件到缓存目录下

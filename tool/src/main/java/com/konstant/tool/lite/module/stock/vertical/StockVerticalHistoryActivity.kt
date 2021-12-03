@@ -45,7 +45,7 @@ class StockVerticalHistoryActivity : BaseActivity() {
                 fragmentList.add(fragment)
             }
             setUpViews(fragmentList)
-            setUpCurrentMonth(it.keys, view_pager)
+            setUpCurrentMonth(it.keys)
         })
     }
 
@@ -59,13 +59,15 @@ class StockVerticalHistoryActivity : BaseActivity() {
     /**
      * 跳到当前月份
      */
-    private fun setUpCurrentMonth(keys: Set<String>, viewPager: ViewPager) {
+    private fun setUpCurrentMonth(keys: Set<String>) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH) + 1
         val index = keys.indexOfFirst { it == "$year-$month" }
-        if (index in 0 until viewPager.childCount) {
-            viewPager.setCurrentItem(index, true)
+        try {
+            view_pager.setCurrentItem(index, true)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

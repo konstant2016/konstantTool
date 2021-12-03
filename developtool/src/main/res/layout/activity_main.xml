@@ -134,7 +134,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_btn_normal"
-        android:hint="这里是个输入框"
+        android:hint="这里输入用来跳转的链接"
         android:paddingStart="10dp"
         android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@id/btn_scheme"
