@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import com.konstant.tool.lite.R
@@ -82,6 +83,10 @@ class QRCodeActivity : BaseActivity() {
 
     // 请求权限
     private fun requestWritePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            writeToStorage(mBitmap)
+            return
+        }
         PermissionRequester.requestPermission(this,
                 mutableListOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 { writeToStorage(mBitmap) },

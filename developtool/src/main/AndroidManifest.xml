@@ -29,9 +29,10 @@
         <activity android:name=".ThirdActivity" />
 
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".SecondActivity"
-            android:launchMode="singleTask" />
+            android:configChanges="screenSize|orientation|keyboard"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
             android:name=".MainActivity"

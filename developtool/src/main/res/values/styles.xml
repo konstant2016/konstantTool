@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CollapsibleTextView">
+        <attr name="suffixColor" format="color" />
+        <attr name="collapsedLines" format="integer" />
+        <attr name="collapsedText" format="string" />
+        <attr name="expandedText" format="string" />
+        <attr name="suffixTrigger" format="boolean" />
+        <attr name="min_collapse_lines" format="integer|reference" />
+        <attr name="collapsed_line_space" format="dimension|reference" />
+        <attr name="expanded_line_space" format="dimension|reference" />
+        <attr name="suffixRelativeSize" format="fraction" />
+        <attr name="suffixBoldText" format="boolean|reference" />
+        <attr name="showHideSuffix" format="boolean|reference" />
+        <attr name="doAnimator" format="boolean|reference" />
+        <attr name="suffixDrawableOpen" format="reference" />
+        <attr name="suffixDrawableClose" format="reference" />
+    </declare-styleable>
+</resources>

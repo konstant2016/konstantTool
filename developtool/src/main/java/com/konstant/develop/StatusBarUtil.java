@@ -2,12 +2,16 @@ package com.konstant.develop;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Build;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -153,4 +157,28 @@ public class StatusBarUtil {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         window.getDecorView().setSystemUiVisibility(option);
     }
+
+    public int getNavigationBarHeight(Context context) {
+        if (!(context instanceof Activity)) {
+            return 0;
+        }
+
+        int height;
+        Display display = ((Activity) context).getWindow().getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getRealSize(point);
+
+        View decorView = ((Activity) context).getWindow().getDecorView();
+        Configuration conf = context.getResources().getConfiguration();
+        if (Configuration.ORIENTATION_LANDSCAPE == conf.orientation) {
+            View contentView = decorView.findViewById(android.R.id.content);
+            height = Math.abs(point.x - contentView.getWidth());
+        } else {
+            Rect rect = new Rect();
+            decorView.getWindowVisibleDisplayFrame(rect);
+            height = Math.abs(rect.bottom - point.y);
+        }
+        return height;
+    }
+
 }
