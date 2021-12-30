@@ -35,7 +35,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewpager)
-        ChoreographerHelper.start(this)
+//        ChoreographerHelper.start(this)
         swipeBackLayout.setEnableGesture(false)
         FunctionCollectorManager.onCreate(this)
         initViews()

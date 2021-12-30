@@ -11,6 +11,6 @@ public class CreatorJust implements CreatorInterface {
 
     @Override
     public Observable<String> getObservable() {
-        return Observable.just("这是来自于Just发送的数据");
+        return Observable.just("这是来自于Just发送的数据","23","345");
     }
 }

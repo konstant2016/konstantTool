@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
@@ -130,7 +131,13 @@ class ImageSelector : AppCompatActivity() {
             }
             PHOTO_REQUEST -> {
                 if (data != null) {
-                    clipPhoto(data.data!!)
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, data.data)
+                    val stream = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                    val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), mFileName)
+                    file.writeBytes(stream.toByteArray())
+                    val uri = FileUtil.createUriWithFile(this, mFileName)
+                    clipPhoto(uri)
                 } else {
                     mCallback.invoke(false)
                     finish()
@@ -155,7 +162,8 @@ class ImageSelector : AppCompatActivity() {
         grantCropPermission(outUri)
         with(Intent("com.android.camera.action.CROP")) {
             setDataAndType(uri, "image/*")
-            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
             // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
             putExtra("crop", "true")
             putExtra("scale", true)
@@ -184,7 +192,7 @@ class ImageSelector : AppCompatActivity() {
         val infoList = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
         infoList.forEach {
             val packageName = it.activityInfo.packageName
-            grantUriPermission(packageName, uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            grantUriPermission(packageName, uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
     }
 

@@ -122,111 +122,111 @@ class SettingActivity : BaseActivity() {
     // 点击滑动返回状态后的操作
     private fun onSwipeBackClick() {
         KonstantDialog(this)
-                .hideNavigation()
-                .setItemList(mSwipeStateList)
-                .setOnItemClickListener { dialog, position ->
-                    dialog.dismiss()
-                    SettingManager.setSwipeBackStatus(this, position)
-                    EventBus.getDefault().post(SwipeBackStatus(position))
-                    layout_swipe.setHintText(mSwipeStateList[SettingManager.getSwipeBackStatus(this)])
-                }
-                .createDialog()
+            .hideNavigation()
+            .setItemList(mSwipeStateList)
+            .setOnItemClickListener { dialog, position ->
+                dialog.dismiss()
+                SettingManager.setSwipeBackStatus(this, position)
+                EventBus.getDefault().post(SwipeBackStatus(position))
+                layout_swipe.setHintText(mSwipeStateList[SettingManager.getSwipeBackStatus(this)])
+            }
+            .createDialog()
     }
 
     // 点击选择语言后的操作
     private fun onLanguageClick() {
         KonstantDialog(this)
-                .hideNavigation()
-                .setItemList(mLanguageList)
-                .setOnItemClickListener { dialog, position ->
-                    dialog.dismiss()
-                    if (SettingManager.getDefaultLanguage(this) == position)
-                        return@setOnItemClickListener
-                    SettingManager.saveDefaultLanguage(this, position)
-                    EventBus.getDefault().post(LanguageChanged())
-                    layout_language.setHintText(mLanguageList[SettingManager.getDefaultLanguage(this)])
-                }
-                .createDialog()
+            .hideNavigation()
+            .setItemList(mLanguageList)
+            .setOnItemClickListener { dialog, position ->
+                dialog.dismiss()
+                if (SettingManager.getDefaultLanguage(this) == position)
+                    return@setOnItemClickListener
+                SettingManager.saveDefaultLanguage(this, position)
+                EventBus.getDefault().post(LanguageChanged())
+                layout_language.setHintText(mLanguageList[SettingManager.getDefaultLanguage(this)])
+            }
+            .createDialog()
     }
 
     // 浏览器类型点击后的操作
     private fun onBrowserClick() {
         KonstantDialog(this)
-                .hideNavigation()
-                .setItemList(mBrowserTypeList)
-                .setOnItemClickListener { dialog, position ->
-                    dialog.dismiss()
-                    SettingManager.saveBrowserType(this, position)
-                    layout_browser.setHintText(mBrowserTypeList[SettingManager.getBrowserType(this)])
-                }
-                .createDialog()
+            .hideNavigation()
+            .setItemList(mBrowserTypeList)
+            .setOnItemClickListener { dialog, position ->
+                dialog.dismiss()
+                SettingManager.saveBrowserType(this, position)
+                layout_browser.setHintText(mBrowserTypeList[SettingManager.getBrowserType(this)])
+            }
+            .createDialog()
     }
 
     // 头像选择
     private fun headerSelector() {
         KonstantDialog(this)
-                .hideNavigation()
-                .setItemList(listOf(getString(R.string.setting_header_item_camera), getString(R.string.setting_header_item_photo), getString(R.string.setting_header_item_recover)))
-                .setOnItemClickListener { dialog, position ->
-                    dialog.dismiss()
-                    when (position) {
-                        // 拍照
-                        0 -> {
-                            PermissionRequester.requestPermission(this,
-                                    mutableListOf(Manifest.permission.CAMERA),
-                                    {
-                                        ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
-                                            if (it) {
-                                                EventBus.getDefault().post(UserHeaderChanged())
-                                                showToast(getString(R.string.setting_header_success))
-                                            }
-                                        }
-                                    },
-                                    { showToast(getString(R.string.setting_header_permission_cancel)) })
-                        }
-                        // 相册
-                        1 -> {
-                            ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
-                                if (it) {
-                                    EventBus.getDefault().post(UserHeaderChanged())
-                                    showToast(getString(R.string.setting_header_success))
+            .hideNavigation()
+            .setItemList(listOf(getString(R.string.setting_header_item_camera), getString(R.string.setting_header_item_photo), getString(R.string.setting_header_item_recover)))
+            .setOnItemClickListener { dialog, position ->
+                dialog.dismiss()
+                when (position) {
+                    // 拍照
+                    0 -> {
+                        PermissionRequester.requestPermission(this,
+                            mutableListOf(Manifest.permission.CAMERA), {
+                                ImageSelector.takePhoto(this, SettingManager.NAME_USER_HEADER) {
+                                    if (it) {
+                                        EventBus.getDefault().post(UserHeaderChanged())
+                                        showToast(getString(R.string.setting_header_success))
+                                    }
                                 }
+                            }, {
+                                showToast(getString(R.string.setting_header_permission_cancel))
+                            })
+                    }
+                    // 相册
+                    1 -> {
+                        ImageSelector.selectImg(this, SettingManager.NAME_USER_HEADER) {
+                            if (it) {
+                                EventBus.getDefault().post(UserHeaderChanged())
+                                showToast(getString(R.string.setting_header_success))
                             }
                         }
-                        // 恢复默认
-                        2 -> {
-                            dialog.dismiss()
-                            SettingManager.deleteUserHeaderThumb(this)
-                            EventBus.getDefault().post(UserHeaderChanged())
-                            showToast(getString(R.string.setting_header_recover_success))
-                        }
+                    }
+                    // 恢复默认
+                    2 -> {
+                        dialog.dismiss()
+                        SettingManager.deleteUserHeaderThumb(this)
+                        EventBus.getDefault().post(UserHeaderChanged())
+                        showToast(getString(R.string.setting_header_recover_success))
                     }
                 }
-                .createDialog()
+            }
+            .createDialog()
     }
 
     // 点击重置所有提示
     private fun onResetClick() {
         KonstantDialog(this)
-                .setMessage("${getString(R.string.setting_reset_tips)}?")
-                .setPositiveListener {
-                    ExpressManager.setShowDialog(this, true)
-                    AutoSkipManager.setShowDialogTips(this, true)
-                    it.dismiss()
-                    showToast(getString(R.string.base_txt_success))
-                }
-                .createDialog()
+            .setMessage("${getString(R.string.setting_reset_tips)}?")
+            .setPositiveListener {
+                ExpressManager.setShowDialog(this, true)
+                AutoSkipManager.setShowDialogTips(this, true)
+                it.dismiss()
+                showToast(getString(R.string.base_txt_success))
+            }
+            .createDialog()
     }
 
     private fun shareApp() {
         val appData = AppData(packageName, getDrawable(R.drawable.ic_launcher)!!, getString(R.string.app_name))
         val path = getExternalFilesDir(null)?.path + File.separator + "apks"
-        PackagePresenter.backApp(path, appData) { status, file ->
+        PackagePresenter.backApp(path, appData) { _, file ->
             runOnUiThread {
                 val fileUri = FileProvider.getUriForFile(this, "${packageName}.provider", file)
                 val intent = ShareCompat.IntentBuilder.from(this)
-                        .setType("application/apk")
-                        .intent
+                    .setType("application/apk")
+                    .intent
                 intent.putExtra(Intent.EXTRA_STREAM, fileUri)
                 startActivity(intent)
             }
