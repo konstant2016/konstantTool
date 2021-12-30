@@ -20,6 +20,8 @@
     <string name="base_setting">设置</string>
     <string name="base_confirm">确定</string>
     <string name="base_cancel">取消</string>
+    <string name="base_agree">同意</string>
+    <string name="base_reject">拒绝</string>
     <string name="base_tips">提示</string>
     <string name="base_not_show_again">不再提醒</string>
 

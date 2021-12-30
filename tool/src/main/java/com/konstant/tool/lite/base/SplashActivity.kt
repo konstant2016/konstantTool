@@ -29,13 +29,13 @@ class SplashActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
                 .setTitle(R.string.base_tips)
                 .setMessage(R.string.setting_about_describe)
-                .setPositiveButton(R.string.base_confirm) { _, _ ->
+                .setPositiveButton(R.string.base_agree) { _, _ ->
                     CrashReport.initCrashReport(applicationContext,"b3cb53863c",true)
                     jumpToMain()
                     FileUtil.saveDataToSp(this, SHOW_DIALOG_KEY, false)
                     finish()
                 }
-                .setNegativeButton(R.string.base_cancel) { _, _ -> finish() }
+                .setNegativeButton(R.string.base_reject) { _, _ -> finish() }
                 .create().show()
     }
 

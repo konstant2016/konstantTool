@@ -342,5 +342,7 @@
     <string name="dog_dialog_content">1、Long Press to Copy \n\n 2、Pull to Refresh</string>
     <string name="setting_adapter_split_screen">Adapter Multi-Screen</string>
     <string name="setting_adapter_split_screen_describe">Only support Android N and above</string>
+    <string name="base_agree">Agree</string>
+    <string name="base_reject">Reject</string>
 
 </resources>
