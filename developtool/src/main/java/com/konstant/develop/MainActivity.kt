@@ -6,13 +6,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.konstant.develop.x5.SystemWebActivity
+import com.konstant.develop.x5.TencentX5Activity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initBaseViews()
-        Log.d("7897987897",packageName)
     }
 
     private fun initBaseViews() {
@@ -69,8 +69,12 @@ class MainActivity : AppCompatActivity() {
         layout_parent.setOnClickListener {
             hideSoftKeyboard()
         }
-        btn_pad.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+        btn_x5.setOnClickListener {
+            val intent = Intent(this, TencentX5Activity::class.java)
+            startActivity(intent)
+        }
+        btn_system.setOnClickListener {
+            val intent = Intent(this, SystemWebActivity::class.java)
             startActivity(intent)
         }
     }
