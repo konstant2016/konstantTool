@@ -56,9 +56,7 @@ class StockActivity : BaseActivity() {
 
     private fun getStockDetail(stockList: List<StockData>) {
         mPresenter.getStockDetail(stockList, {
-            if (mStockList.containsAll(it)) return@getStockDetail
-            mStockList.addAll(it)
-            mAdapter.notifyDataSetChanged()
+            onResult(it)
         }, {
 
         })
@@ -78,44 +76,51 @@ class StockActivity : BaseActivity() {
             }
         }
         KonstantDialog(this)
-                .addView(view)
-                .setPositiveListener { dialog ->
-                    val number = view.et_number.text
-                    if (TextUtils.isEmpty(number)) {
-                        showToast(getString(R.string.stock_remember_input_number))
-                        return@setPositiveListener
-                    }
-                    val count = view.et_count.text
-                    if (TextUtils.isEmpty(count)) {
-                        showToast(getString(R.string.stock_remember_input_count))
-                        return@setPositiveListener
-                    }
-                    dialog.dismiss()
-
-                    val stockData = StockData("$type${number}", count.toString().toDouble())
-                    mPresenter.addStock(stockData, {
-                        if (mStockList.containsAll(it)) return@addStock
-                        mStockList.addAll(it)
-                        mAdapter.notifyDataSetChanged()
-                    }, {
-
-                    })
+            .addView(view)
+            .setPositiveListener { dialog ->
+                val number = view.et_number.text
+                if (TextUtils.isEmpty(number)) {
+                    showToast(getString(R.string.stock_remember_input_number))
+                    return@setPositiveListener
                 }
-                .createDialog()
+                val count = view.et_count.text
+                if (TextUtils.isEmpty(count)) {
+                    showToast(getString(R.string.stock_remember_input_count))
+                    return@setPositiveListener
+                }
+                dialog.dismiss()
+
+                val stockData = StockData("$type${number}", count.toString().toDouble())
+                mPresenter.addStock(stockData, {
+                    onResult(it)
+                }, {
+
+                })
+            }
+            .createDialog()
         showKeyboard(view.et_number)
+    }
+
+    private fun onResult(stockList: List<StockData>) {
+        stockList.forEach { data ->
+            if (!mStockList.any { it.number == data.number }) {
+                mStockList.add(data)
+                mAdapter.notifyDataSetChanged()
+            }
+        }
     }
 
     private fun showDeleteDialog(position: Int) {
         KonstantDialog(this)
-                .setTitle(getString(R.string.base_tips))
-                .setMessage(getString(R.string.stock_delete_stock_tips))
-                .setPositiveListener {
-                    mPresenter.deleteStock(mStockList[position])
-                    mStockList.removeAt(position)
-                    mAdapter.notifyDataSetChanged()
-                    it.dismiss()
-                }
-                .createDialog()
+            .setTitle(getString(R.string.base_tips))
+            .setMessage(getString(R.string.stock_delete_stock_tips))
+            .setPositiveListener {
+                mPresenter.deleteStock(mStockList[position])
+                mStockList.removeAt(position)
+                mAdapter.notifyDataSetChanged()
+                it.dismiss()
+            }
+            .createDialog()
     }
 
 

@@ -57,9 +57,9 @@ object StockManager {
     }
 
     fun addStock(stockList: List<StockData>) {
-        stockList.forEach {
-            if (!mStockList.contains(it)) {
-                mStockList.add(it)
+        stockList.forEach { data ->
+            if (!mStockList.any { it.number == data.number }) {
+                mStockList.add(data)
             }
         }
     }
@@ -87,7 +87,7 @@ object StockManager {
 
     fun getStockHistory() = mHistoryList
 
-    fun saveSyncStockList(context: Context,string: String){
+    fun saveSyncStockList(context: Context, string: String) {
         val type = object : TypeToken<List<StockData>>() {}.type
         val array = Gson().fromJson<List<StockData>>(string, type)
         mStockList.clear()
@@ -95,7 +95,7 @@ object StockManager {
         saveStock(context)
     }
 
-    fun saveSyncStockHistory(context: Context,string: String){
+    fun saveSyncStockHistory(context: Context, string: String) {
         val type = object : TypeToken<List<StockHistory>>() {}.type
         val array = Gson().fromJson<List<StockHistory>>(string, type)
         mHistoryList.clear()

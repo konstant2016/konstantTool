@@ -8,11 +8,19 @@ import java.io.Serializable
 
 interface StockDetailApi {
 
+//    companion object {
+//        const val HOST = "http://hq.sinajs.cn/"   // 新浪接口
+//    }
+//
+//    @GET("/list={list}")
+//    fun getTodayStockDetail(@Path("list") list: String): Observable<ResponseBody>
+
     companion object {
-        const val HOST = "http://hq.sinajs.cn/"
+        const val HOST = "http://sqt.gtimg.cn/"   // 腾讯接口
     }
 
-    @GET("/list={list}")
-    fun getTodayStockDetail(@Path("list") list: String): Observable<ResponseBody>
+
+    @GET("/")
+    fun getTodayStockDetail(@Query("q") string: String): Observable<ResponseBody>
 
 }

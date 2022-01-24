@@ -19,10 +19,10 @@ object NetworkHelper {
     // 获取物流信息
     fun getExpressInfo(expressNo: String): Observable<ExpressResponse> {
         return RetrofitBuilder
-                .getApi(ExpressApi.HOST, ExpressApi::class.java)
-                .getExpressInfo(expressNo)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(ExpressApi.HOST, ExpressApi::class.java)
+            .getExpressInfo(expressNo)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 百度翻译
@@ -32,28 +32,28 @@ object NetworkHelper {
         val sign = TranslateMD5.getMd5(appid + originMsg + System.currentTimeMillis() / 1000 + secret)
         val salt = System.currentTimeMillis() / 1000
         return RetrofitBuilder
-                .getApi(TranslateApi.HOST, TranslateApi::class.java)
-                .getTranslate(originMsg, originType, resultType, appid, salt.toString(), sign)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(TranslateApi.HOST, TranslateApi::class.java)
+            .getTranslate(originMsg, originType, resultType, appid, salt.toString(), sign)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 检查更新
     fun getUpdate(): Observable<UpdateResponse> {
         return RetrofitBuilder
-                .getApi(UpdateApi.HOST, UpdateApi::class.java)
-                .getUpdate()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(UpdateApi.HOST, UpdateApi::class.java)
+            .getUpdate()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 查询天气
     fun getWeatherWithCode(cityCode: String): Observable<WeatherResponse> {
         return RetrofitBuilder
-                .getApi(WeatherApi.HOST, WeatherApi::class.java)
-                .getWeatherWithCode(cityCode)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(WeatherApi.HOST, WeatherApi::class.java)
+            .getWeatherWithCode(cityCode)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 网速测试
@@ -65,10 +65,32 @@ object NetworkHelper {
     // 获取直播列表
     fun getTvLiveList(): Observable<TvLiveResponse> {
         return RetrofitBuilder
-                .getApi(BmobApi.HOST, BmobApi::class.java)
-                .getTvLiveList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(BmobApi.HOST, BmobApi::class.java)
+            .getTvLiveList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+
+    /**
+     * type：上海还是深圳（sh或者sz）
+     * code：股票代码
+     */
+    fun getStockDetail(data: StockData): Observable<StockData> {
+        return RetrofitBuilder.getApi(StockDetailApi.HOST,StockDetailApi::class.java)
+            .getTodayStockDetail(data.number)
+            .map {
+                val s = String(it.bytes(), Charset.forName("gb2312"))
+                val split = s.split("~")
+                val name = split[1]
+                val price = split[3].toDouble()
+                val increase = price > split[4].toDouble()
+                data.name = name
+                data.price = price
+                data.isIncrease = increase
+                return@map data
+            }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 查询股票价格
@@ -78,55 +100,55 @@ object NetworkHelper {
             params += "${data.number},"
         }
         return RetrofitBuilder.getApi(StockDetailApi.HOST, StockDetailApi::class.java)
-                .getTodayStockDetail(params)
-                .map {
-                    val s = String(it.bytes(), Charset.forName("gb2312"))
-                    val split = s.split(";")
-                    split.forEach { item ->
-                        if (item.length > 20) {
-                            val result = item.split("\"")
-                            val number = result[0]
-                            val data = result[1].split(",")
-                            val name = data[0]
-                            val price = data[3].toDouble()
-                            val increase = price > data[2].toDouble()
-                            val stockData = stockList.find { number.contains(it.number) }
-                            if (stockData != null) {
-                                stockData.name = name
-                                stockData.isIncrease = increase
-                                stockData.price = price
-                            }
+            .getTodayStockDetail(params)
+            .map {
+                val s = String(it.bytes(), Charset.forName("gb2312"))
+                val split = s.split(";")
+                split.forEach { item ->
+                    if (item.length > 20) {
+                        val result = item.split("\"")
+                        val number = result[0]
+                        val data = result[1].split(",")
+                        val name = data[0]
+                        val price = data[3].toDouble()
+                        val increase = price > data[2].toDouble()
+                        val stockData = stockList.find { number.contains(it.number) }
+                        if (stockData != null) {
+                            stockData.name = name
+                            stockData.isIncrease = increase
+                            stockData.price = price
                         }
                     }
-                    return@map stockList
                 }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                return@map stockList
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 获取舔狗日记
     fun getDogDiary(): Observable<String> {
         return RetrofitBuilder
-                .getApi(DogDiaryApi.HOST, DogDiaryApi::class.java)
-                .getDogDiary()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getApi(DogDiaryApi.HOST, DogDiaryApi::class.java)
+            .getDogDiary()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
     // 上传用户信息
     fun uploadUserInfo(userInfo: UserInfo): Observable<Boolean> {
         return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
-                .uploadUserInfo(userInfo)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { it.code() == 200 }
+            .uploadUserInfo(userInfo)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { it.code() == 200 }
     }
 
     // 获取用户信息
     fun getUserInfo(): Observable<UserInfo> {
         return RetrofitBuilder.getApi(BmobApi.HOST, BmobApi::class.java)
-                .getUserInfo()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            .getUserInfo()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 }

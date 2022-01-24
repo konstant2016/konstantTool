@@ -7,11 +7,11 @@ import java.util.Objects;
 @Keep
 public class StockData {
 
-    private String name;
-    private String number;
-    private double price;
-    private double count;
-    private boolean increase = true;
+    private String name;            // 股票名字
+    private String number;          // 股票编码：sz002007
+    private double price;           // 当前价格
+    private double count;           // 持股数量
+    private boolean increase = true;// 是否为涨
 
     public StockData(String name, String number, double price, double count, boolean increase) {
         this.name = name;
