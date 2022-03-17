@@ -3,6 +3,7 @@ package com.konstant.develop;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -158,27 +159,12 @@ public class StatusBarUtil {
         window.getDecorView().setSystemUiVisibility(option);
     }
 
-    public int getNavigationBarHeight(Context context) {
-        if (!(context instanceof Activity)) {
-            return 0;
+    public int getNavigationBarHeight(Context context){
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
         }
-
-        int height;
-        Display display = ((Activity) context).getWindow().getWindowManager().getDefaultDisplay();
-        Point point = new Point();
-        display.getRealSize(point);
-
-        View decorView = ((Activity) context).getWindow().getDecorView();
-        Configuration conf = context.getResources().getConfiguration();
-        if (Configuration.ORIENTATION_LANDSCAPE == conf.orientation) {
-            View contentView = decorView.findViewById(android.R.id.content);
-            height = Math.abs(point.x - contentView.getWidth());
-        } else {
-            Rect rect = new Rect();
-            decorView.getWindowVisibleDisplayFrame(rect);
-            height = Math.abs(rect.bottom - point.y);
-        }
-        return height;
+        return 0;
     }
-
 }

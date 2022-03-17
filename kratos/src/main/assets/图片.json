@@ -1,0 +1,16 @@
+{
+  "viewId": "thisaviewnumber12",
+  "viewType": "KTImageView",
+  "layoutStyle": {
+    "layoutWidth": "70%",
+    "layoutHeight": "11%",
+    "margin": {
+      "left": "15%",
+      "top": "47%"
+    }
+  },
+  "viewStyle": {
+    "image": "试炼场",
+    "contentMode": "scaleToFill"
+  }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/btn_object"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="对象注入" />
+
+    <TextView
+        android:id="@+id/btn_method"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="方法注入" />
+
+    <TextView
+        android:id="@+id/btn_file"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="文件加载" />
+
+</LinearLayout>

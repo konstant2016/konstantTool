@@ -3,4 +3,6 @@ include ':app'
 include ':tool'
 include ':retrofit'
 include ':JavaModule'
-include ':DSL-Android'
+include ':kratos'
+
+

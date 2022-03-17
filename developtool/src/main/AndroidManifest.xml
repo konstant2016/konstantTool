@@ -6,6 +6,7 @@
     <uses-sdk tools:overrideLibrary="com.hz.hzlib" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -28,23 +29,38 @@
         android:roundIcon="@drawable/icon_debug"
         android:supportsRtl="true"
         android:testOnly="false"
-        android:theme="@style/Theme.KonstantTool">
+        android:theme="@style/Theme.AppCompat.DayNight">
+        <activity
+            android:name=".dsl.DSLRenderResultActivity"
+            android:exported="false" />
+        <activity android:name=".yangcong.YangCongDebugActivity" />
+        <activity android:name=".bitmap.BitmapActivity" />
         <activity android:name=".x5.SystemWebActivity" />
         <activity android:name=".x5.TencentX5Activity" />
+        <activity android:name=".dsl.DSLActivity" />
         <activity
             android:name=".QRScanActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ThirdActivity" />
         <activity
-            android:resizeableActivity="true"
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <meta-data android:name="android.notch_support" android:value="true"/>
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <meta-data
+                android:name="android.notch_support"
+                android:value="true" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".utils.PermissionRequester"
+            android:configChanges="uiMode"
+            android:launchMode="singleTask"
+            android:theme="@style/TransparentTheme" />
     </application>
 
 </manifest>

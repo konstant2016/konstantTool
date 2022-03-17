@@ -11,19 +11,33 @@ import android.view.MenuItem
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import com.konstant.develop.bitmap.BitmapActivity
+import com.konstant.develop.dsl.DSLActivity
 import com.konstant.develop.x5.SystemWebActivity
 import com.konstant.develop.x5.TencentX5Activity
+import com.konstant.develop.yangcong.YangCongDebugActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val mToggle by lazy { ActionBarDrawerToggle(this, draw_layout, 0, 0) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        StatusBarUtil.setFullScreenStatusBarLightMode(this)
+        StatusBarUtil.setFullScreenStatusBarDarkMode(this)
         NotchModeUtil.setNotchMode(this)
+        setContentView(R.layout.activity_main)
+        setTitleBar()
         initBaseViews()
+    }
+
+    private fun setTitleBar(){
+        setSupportActionBar(tool_bar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mToggle.syncState()
+        draw_layout.addDrawerListener(mToggle)
     }
 
     private fun initBaseViews() {
@@ -79,6 +93,20 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SystemWebActivity::class.java)
             startActivity(intent)
         }
+        btn_bitmap.setOnClickListener {
+            val intent = Intent(this, BitmapActivity::class.java)
+            intent.putExtra("glide",false)
+            startActivity(intent)
+        }
+
+        btn_dsl.setOnClickListener {
+            val intent = Intent(this, DSLActivity::class.java)
+            startActivity(intent)
+        }
+        btn_yc_debug.setOnClickListener {
+            val intent = Intent(this, YangCongDebugActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun openApp(packageName: String) {
@@ -116,6 +144,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.icon_qr_scan){
             startActivity(Intent(this, QRScanActivity::class.java))
+        }
+        if (mToggle.onOptionsItemSelected(item)){
+            return true
         }
         return super.onOptionsItemSelected(item)
     }

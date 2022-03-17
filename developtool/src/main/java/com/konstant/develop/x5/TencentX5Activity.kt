@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.webkit.WebView
 import com.konstant.develop.R
+import com.konstant.develop.base.BaseActivity
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebViewClient
 import kotlinx.android.synthetic.main.activity_tencent_x5.*
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_tencent_x5.*
  * 离线加载腾讯的X5内核
  */
 
-class TencentX5Activity : AppCompatActivity() {
+class TencentX5Activity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tencent_x5)

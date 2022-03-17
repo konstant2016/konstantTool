@@ -1,0 +1,250 @@
+{
+  "viewId": "de238d93fdc3",
+  "layoutStyle": {
+    "layoutWidth": "100%",
+    "layoutHeight": "100%"
+  },
+  "viewStyle": {
+    "backgroundColor": "#FFFFFF"
+  },
+  "viewType": "KTFrameLayout",
+  "viewAction": [
+    "CLICK"
+  ],
+  "children": [
+    {
+      "viewId": "testFakeViewId",
+      "layoutStyle": {
+        "layoutWidth": "11.7%",
+        "layoutHeight": "11.7%",
+        "margin": {
+          "left": "0.053%",
+          "top": "0.053%"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewType": "KTImageView"
+    },
+    {
+      "viewId": "fdb34fh894yt0fj40",
+      "layoutStyle": {
+        "layoutWidth": "52%",
+        "layoutHeight": "7.5%",
+        "margin": {
+          "left": "6.4%",
+          "top": "27%"
+        }
+      },
+      "viewStyle": {
+        "text": "手机号登录注册",
+        "textColor": "#000000",
+        "fontSize": 56
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewType": "KTLabel"
+    },
+    {
+      "viewId": "fdb34fh894yt04681",
+      "layoutStyle": {
+        "layoutWidth": "26%",
+        "layoutHeight": "3.73%",
+        "position": "rightTop",
+        "margin": {
+          "left": "0",
+          "top": "9%",
+          "right": "4.2%",
+          "bottom": "0"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewStyle": {
+        "text": "手机号密码登录",
+        "textColor": "#000000",
+        "fontSize": 28
+      },
+      "viewType": "KTLabel"
+    },
+    {
+      "viewId": "fdb34fh894yt04682",
+      "layoutStyle": {
+        "layoutWidth": "48%",
+        "layoutHeight": "3.5%",
+        "margin": {
+          "left": "6.4%",
+          "top": "38.4%",
+          "right": "",
+          "bottom": "0"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewStyle": {
+        "text": "未注册的手机号会自动为您注册",
+        "textColor": "#000000",
+        "fontSize": 26
+      },
+      "viewType": "KTLabel"
+    },
+    {
+      "viewId": "fdb34fh894yt04683",
+      "layoutStyle": {
+        "layoutWidth": "7.7%",
+        "layoutHeight": "4.3%",
+        "margin": {
+          "left": "6.4%",
+          "top": "51.2%",
+          "right": "",
+          "bottom": "0"
+        }
+      },
+      "viewStyle": {
+        "text": "+86",
+        "textColor": "#16305B",
+        "fontSize": 32
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewType": "KTLabel"
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "23.7%",
+        "layoutHeight": "4.3%",
+        "margin": {
+          "left": "23.7%",
+          "top": "52%",
+          "right": "",
+          "bottom": "0"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewStyle": {
+        "text": "请输入手机号",
+        "textColor": "#CCCCCC",
+        "fontSize": 32
+      },
+      "viewId": "fdb34fh894yt04684",
+      "viewType": "KTLabel"
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "87.2%",
+        "layoutHeight": "3",
+        "margin": {
+          "left": "6.4%",
+          "top": "60%",
+          "right": "",
+          "bottom": "0"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewStyle": {
+        "backgroundColor": "#CCCCCC"
+      },
+      "viewId": "fdb34fh894yt04685",
+      "viewType": "KTLabel"
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "34.1%",
+        "layoutHeight": "4.3%",
+        "margin": {
+          "left": "6.4%",
+          "top": "67%",
+          "right": "0",
+          "bottom": "0"
+        }
+      },
+      "viewStyle": {
+        "text": "请输入图形验证码",
+        "textColor": "#CCCCCC",
+        "fontSize": 32
+      },
+      "viewId": "fdb34fh894yt04686",
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewType": "KTLabel"
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "87.2%",
+        "layoutHeight": "3",
+        "margin": {
+          "left": "6.4%",
+          "top": "74.7%",
+          "right": "0",
+          "bottom": "0"
+        }
+      },
+      "viewStyle": {
+        "backgroundColor": "#CCCCCC"
+      },
+      "viewId": "fdb34fh894yt04687",
+      "viewType": "KTLabel",
+      "viewAction": [
+        "CLICK"
+      ]
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "80.08%",
+        "layoutHeight": "9.6%",
+        "margin": {
+          "left": "6.4%",
+          "top": "78.1%",
+          "right": "0",
+          "bottom": "0"
+        }
+      },
+      "viewId": "fdb34fh894yt04688",
+      "viewStyle": {
+        "textColor": "#CCCCCC",
+        "fontSize": 36,
+        "text": "我已阅读并同意《用户协议》、《隐私协议》和《儿童隐私政策》"
+      },
+      "viewType": "KTLabel",
+      "viewAction": [
+        "CLICK"
+      ]
+    },
+    {
+      "layoutStyle": {
+        "layoutWidth": "87.2%",
+        "layoutHeight": "12%",
+        "margin": {
+          "left": "6.4%",
+          "top": "92%",
+          "right": "0",
+          "bottom": "0"
+        }
+      },
+      "viewAction": [
+        "CLICK"
+      ],
+      "viewId": "adb34fh894yt04691",
+      "viewStyle": {
+        "textColor": "#CCCCCC",
+        "fontSize": 52,
+        "text": "获取短信验证码",
+        "borderWidth": 3,
+        "borderColor": "#000000",
+        "cornerRadius": 10,
+        "textAlignment": "center"
+      },
+      "viewType": "KTLabel"
+    }
+  ]
+}

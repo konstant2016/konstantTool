@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yangcong345.kratos">
+
+    <application>
+        <activity android:name="com.yangcong345.kratos.container.KratosActivity" />
+    </application>
+
+</manifest>

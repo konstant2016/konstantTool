@@ -1,0 +1,16 @@
+{
+  "viewId": "thisaviewnumber16",
+  "viewType": "KTLabel",
+  "layoutStyle": {
+    "layoutWidth": "18%",
+    "layoutHeight": "12%",
+    "margin": {
+      "left": "2%"
+    }
+  },
+  "viewStyle": {
+    "text": "英语",
+    "fontSize": 15,
+    "textColor": "#222222"
+  }
+}

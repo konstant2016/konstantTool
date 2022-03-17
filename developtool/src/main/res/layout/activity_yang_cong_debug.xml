@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".yangcong.YangCongDebugActivity">
+
+    <TextView
+        android:id="@+id/btn_service"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="启动洋葱Service" />
+
+    <TextView
+        android:id="@+id/btn_launcher"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_service"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_selector_btn"
+        android:gravity="center"
+        android:text="启动洋葱中转页" />
+
+    <ProgressBar
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/btn_launcher"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+</RelativeLayout>
