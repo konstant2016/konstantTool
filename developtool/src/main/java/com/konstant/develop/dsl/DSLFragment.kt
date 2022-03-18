@@ -32,20 +32,5 @@ class DSLFragment : Fragment() {
         btn_default.setOnClickListener {
             DSLRenderResultActivity.startActivity(requireActivity(), "")
         }
-        btn_local.setOnClickListener {
-            PermissionRequester.requestPermission(requireContext(), listOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),{
-                if (it.any { it == android.Manifest.permission.READ_EXTERNAL_STORAGE }){
-                    readLocal()
-                }
-            },{
-                Toast.makeText(requireContext(),"授权失败",Toast.LENGTH_LONG).show()
-            })
-        }
-    }
-
-    private fun readLocal(){
-        val file = File(Environment.getExternalStorageDirectory(),"JSON.json")
-        val json = file.readText()
-        DSLRenderResultActivity.startActivity(requireActivity(), json)
     }
 }

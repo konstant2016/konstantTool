@@ -38,21 +38,9 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_selector_btn"
         android:gravity="center"
-        android:text="点击生成页面"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_local"
-        app:layout_constraintStart_toEndOf="@id/btn_default" />
-
-    <TextView
-        android:id="@+id/btn_local"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bg_selector_btn"
-        android:gravity="center"
-        android:text="读取本地文件"
+        android:text="识别输入文本"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_create" />
+        app:layout_constraintStart_toEndOf="@id/btn_default" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
