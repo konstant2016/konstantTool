@@ -1,0 +1,710 @@
+{
+  "viewId": "3rd3u498fg5489fj93001",
+  "viewType": "KTFlexLayout",
+  "layoutStyle": {
+    "layoutWidth": "100%",
+    "layoutHeight": "100%",
+    "flexDirection": "column"
+  },
+  "children": [
+    {
+      "viewId": "3rd3u498fg5489fj93002",
+      "viewType": "KTFrameLayout",
+      "layoutStyle": {
+        "layoutWidth": "100%",
+        "layoutHeight": "54%"
+      },
+      "children": [
+        {
+          "viewId": "3rd3u498fg5489fj93003",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "100%",
+            "layoutHeight": "54%"
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/middle/1.0.3/bg_header@3x.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93004",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "70%",
+            "layoutHeight": "11%",
+            "margin": {
+              "left": "15%",
+              "top": "6%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/middle/1.0.0/tab_community_title_friends@2x.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93005",
+          "viewType": "KTFlexLayout",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "44%",
+            "alignItems": "center",
+            "margin": {
+              "top": "22%",
+              "left": "4%"
+            }
+          },
+          "viewStyle": {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#222222",
+            "borderWidth": 1,
+            "cornerRadius": 2
+          },
+          "children": [
+            {
+              "viewId": "3rd3u498fg5489fj93006",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutHeight": "12%",
+                "layoutWidth": "12%",
+                "margin": {
+                  "left": "1%"
+                }
+              },
+              "viewStyle": {
+                "image": "https://fp.yangcong345.com/xcg4jattr5uvtvurfg91qz5zyq41rbg4.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93007",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutHeight": "-1",
+                "layoutWidth": "-1",
+                "margin": {
+                  "left": "2%"
+                }
+              },
+              "viewStyle": {
+                "text": "我的好友",
+                "fontSize": 15,
+                "textColor": "#222222"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93008",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutHeight": "0",
+                "layoutWidth": "0",
+                "flexGrow": 1
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93009",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutHeight": "4%",
+                "layoutWidth": "4%",
+                "margin": {
+                  "right": "2%"
+                }
+              },
+              "viewStyle": {
+                "image": "https://fp.yangcong345.com/middle/1.0.0/friend_ic_chevron@3x.png",
+                "contentMode": "scaleToFill"
+              }
+            }
+          ]
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93010",
+          "viewType": "KTFlexLayout",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "44%",
+            "alignItems": "center",
+            "margin": {
+              "top": "22%",
+              "right": "4%"
+            }
+          },
+          "viewStyle": {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#222222",
+            "borderWidth": 1,
+            "cornerRadius": 2
+          },
+          "children": [
+            {
+              "viewId": "3rd3u498fg5489fj93011",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutHeight": "12%",
+                "layoutWidth": "12%",
+                "margin": {
+                  "left": "1%"
+                }
+              },
+              "viewStyle": {
+                "image": "https://fp.yangcong345.com/yqk5u5vqjxj7j6chhaa8vaagz23gfuj0.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93012",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutHeight": "-1",
+                "layoutWidth": "-1",
+                "margin": {
+                  "left": "2%"
+                }
+              },
+              "viewStyle": {
+                "text": "好友申请",
+                "fontSize": 15,
+                "textColor": "#222222"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93013",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutHeight": "0",
+                "layoutWidth": "0",
+                "flexGrow": 1
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93014",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutHeight": "4%",
+                "layoutWidth": "4%",
+                "margin": {
+                  "right": "2%"
+                }
+              },
+              "viewStyle": {
+                "image": "https://fp.yangcong345.com/middle/1.0.0/friend_ic_chevron@3x.png",
+                "contentMode": "scaleToFill"
+              }
+            }
+          ]
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93015",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "70%",
+            "layoutHeight": "11%",
+            "margin": {
+              "left": "15%",
+              "top": "42%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/t6nehhejax0tfucb5e80edajfd6xy6pr.png",
+            "contentMode": "scaleToFill"
+          }
+        }
+      ]
+    },
+    {
+      "viewId": "3rd3u498fg5489fj93016",
+      "viewType": "KTFlexLayout",
+      "layoutStyle": {
+        "layoutHeight": "12%",
+        "layoutWidth": "100%",
+        "flexDirection": "row",
+        "padding": {
+          "left": "11%",
+          "right": "11%"
+        }
+      },
+      "children": [
+        {
+          "viewId": "3rd3u498fg5489fj93017",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "18%"
+          },
+          "viewStyle": {
+            "text": "数学",
+            "fontSize": 15,
+            "textColor": "#222222"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93018",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "18%",
+            "margin": {
+              "left": "2%"
+            }
+          },
+          "viewStyle": {
+            "text": "物理",
+            "fontSize": 15,
+            "textColor": "#222222"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93019",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "18%",
+            "margin": {
+              "left": "2%"
+            }
+          },
+          "viewStyle": {
+            "text": "化学",
+            "fontSize": 15,
+            "textColor": "#222222"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93020",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutHeight": "12%",
+            "layoutWidth": "18%",
+            "margin": {
+              "left": "2%"
+            }
+          },
+          "viewStyle": {
+            "text": "英语",
+            "fontSize": 15,
+            "textColor": "#222222"
+          }
+        }
+      ]
+    },
+    {
+      "viewId": "3rd3u498fg5489fj93021",
+      "viewType": "KTFrameLayout",
+      "layoutStyle": {
+        "layoutHeight": "58%",
+        "layoutWidth": "100%"
+      },
+      "children": [
+        {
+          "viewId": "3rd3u498fg5489fj93022",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "100%",
+            "layoutHeight": "58%"
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/dxhz3ez1jy3xphcygu9uz9bzfpwefxkq.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93023",
+          "viewType": "KTFlexLayout",
+          "layoutStyle": {
+            "layoutHeight": "4%",
+            "layoutWidth": "50%",
+            "flexDirection": "row",
+            "margin": {
+              "top": "5%",
+              "left": "4%"
+            }
+          },
+          "children": [
+            {
+              "viewId": "3rd3u498fg5489fj93024",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutWidth": "-1",
+                "layoutHeight": "-1",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "text": "当前版本：人教版八年级上",
+                "fontSize": 12,
+                "textColor": "#FFFFFF"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93025",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "3%",
+                "layoutHeight": "3%",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/ic_switch_grade_triangle.png",
+                "contentMode": "scaleToFill"
+              }
+            }
+          ]
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93026",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutHeight": "8%",
+            "layoutWidth": "25%",
+            "margin": {
+              "top": "0%",
+              "right": "0%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_history_entrance.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93027",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutHeight": "15%",
+            "layoutWidth": "15%",
+            "margin": {
+              "left": "4%",
+              "top": "13%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/f6gw1wvwpqfqnh4xb72605j6x70quyhf.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93028",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "86%",
+            "layoutHeight": "11%",
+            "margin": {
+              "left": "14%",
+              "top": "15%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/middle/1.0.0/img_text_study_room_bg@3x.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93029",
+          "viewType": "KTFlexLayout",
+          "layoutStyle": {
+            "layoutHeight": "10%",
+            "layoutWidth": "50%",
+            "flexDirection": "row",
+            "margin": {
+              "left": "21%",
+              "top": "15%"
+            }
+          },
+          "children": [
+            {
+              "viewId": "3rd3u498fg5489fj93030",
+              "viewType": "KTLabel",
+              "layoutStyle": {
+                "layoutHeight": "-1",
+                "layoutWidth": "-1",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "text": "学霸III",
+                "fontSize": 15,
+                "textColor": "#FFFFFF"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93031",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "4%",
+                "layoutHeight": "4%",
+                "alignSelf": "center",
+                "margin": {
+                  "left": "1%"
+                }
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_star_full.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93032",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "4%",
+                "layoutHeight": "4%",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_star_full.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93033",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "4%",
+                "layoutHeight": "4%",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_star_full.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93034",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "4%",
+                "layoutHeight": "4%",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_star_empty.png",
+                "contentMode": "scaleToFill"
+              }
+            },
+            {
+              "viewId": "3rd3u498fg5489fj93035",
+              "viewType": "KTImageView",
+              "layoutStyle": {
+                "layoutWidth": "4%",
+                "layoutHeight": "4%",
+                "alignSelf": "center"
+              },
+              "viewStyle": {
+                "image": "https://yc-m2.bj.bcebos.com/middle/1.0/arena_star_empty.png",
+                "contentMode": "scaleToFill"
+              }
+            }
+          ]
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93036",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "11%",
+            "layoutHeight": "5%",
+            "margin": {
+              "right": "19%",
+              "top": "16%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/pdc28k3b130zhxmafkqdnte702k8cz61.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93037",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutWidth": "-1",
+            "layoutHeight": "-1",
+            "margin": {
+              "right": "23%",
+              "top": "17%"
+            }
+          },
+          "viewStyle": {
+            "text": "12",
+            "fontSize": 13,
+            "textColor": "#FFFFFF"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93038",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutWidth": "-1",
+            "layoutHeight": "-1",
+            "margin": {
+              "right": "20%",
+              "top": "21%"
+            }
+          },
+          "viewStyle": {
+            "text": "当前排名",
+            "fontSize": 12,
+            "textColor": "#FFFFFF"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93039",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "11%",
+            "layoutHeight": "5%",
+            "margin": {
+              "right": "5%",
+              "top": "16%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/pdc28k3b130zhxmafkqdnte702k8cz61.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93040",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutWidth": "-1",
+            "layoutHeight": "-1",
+            "margin": {
+              "right": "9%",
+              "top": "17%"
+            }
+          },
+          "viewStyle": {
+            "text": "12",
+            "fontSize": 13,
+            "textColor": "#FFFFFF"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93041",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutWidth": "-1",
+            "layoutHeight": "-1",
+            "margin": {
+              "right": "6%",
+              "top": "21%"
+            }
+          },
+          "viewStyle": {
+            "text": "学校排名",
+            "fontSize": 12,
+            "textColor": "#FFFFFF"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93042",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "45%",
+            "layoutHeight": "26%",
+            "margin": {
+              "left": "4%",
+              "top": "29%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/0nvhb8taym2he7uk3u22bm85f643cuef.png",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93043",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "45%",
+            "layoutHeight": "26%",
+            "margin": {
+              "right": "4%",
+              "top": "29%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/6x98v9nqhkmpgqkztx0h8arca3n0a5nw.png",
+            "contentMode": "scaleToFill"
+          }
+        }
+      ]
+    },
+    {
+      "viewId": "3rd3u498fg5489fj93044",
+      "viewType": "KTImageView",
+      "layoutStyle": {
+        "layoutWidth": "70%",
+        "layoutHeight": "11%",
+        "margin": {
+          "left": "15%",
+          "top": "6%"
+        }
+      },
+      "viewStyle": {
+        "image": "https://fp.yangcong345.com/7wea3z47rn63r0q1um1nn51hjghmy882.png",
+        "contentMode": "scaleToFill"
+      }
+    },
+    {
+      "viewId": "3rd3u498fg5489fj93045",
+      "viewType": "KTFrameLayout",
+      "layoutStyle": {
+        "layoutWidth": "91%",
+        "layoutHeight": "49%",
+        "margin": {
+          "left": "4%",
+          "top": "3%"
+        }
+      },
+      "children": [
+        {
+          "viewId": "3rd3u498fg5489fj93046",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "91%",
+            "layoutHeight": "49%"
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/middle/1.0.0/tab_img_stduy_room@3x.jpg",
+            "contentMode": "scaleToFill"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93047",
+          "viewType": "KTLabel",
+          "layoutStyle": {
+            "layoutWidth": "91%",
+            "layoutHeight": "-1",
+            "margin": {
+              "left": "2%",
+              "top": "11%"
+            }
+          },
+          "viewStyle": {
+            "text": "和好友一起自习，磨炼专注力",
+            "fontSize": 15,
+            "textAlignment": "center",
+            "textColor": "#FFFFFF"
+          }
+        },
+        {
+          "viewId": "3rd3u498fg5489fj93048",
+          "viewType": "KTImageView",
+          "layoutStyle": {
+            "layoutWidth": "44%",
+            "layoutHeight": "12%",
+            "margin": {
+              "left": "24%",
+              "top": "20%"
+            }
+          },
+          "viewStyle": {
+            "image": "https://fp.yangcong345.com/middle/1.0.0/btn_main_enter_studyroom@2x.png",
+            "contentMode": "scaleToFill"
+          }
+        }
+      ]
+    }
+  ]
+}

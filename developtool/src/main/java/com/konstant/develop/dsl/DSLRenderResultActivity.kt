@@ -18,7 +18,7 @@ class DSLRenderResultActivity : BaseActivity() {
         private var mSource: String = ""
         fun startActivity(activity: FragmentActivity, resource: String) {
             mSource = if (TextUtils.isEmpty(resource)) {
-                String(activity.assets.open("共学页面.json").readBytes())
+                String(activity.assets.open("共学页面Flex.json").readBytes())
             } else {
                 resource
             }

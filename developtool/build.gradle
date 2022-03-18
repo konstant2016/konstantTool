@@ -52,4 +52,5 @@ dependencies {
     implementation 'com.eclipsesource.j2v8:j2v8:6.2.1@aar'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.yangcong345.platform:kratos:0.0.5-SNAPSHOT'
+    implementation 'com.yangcong345.x5offline:x5offline:0.0.3'
 }
