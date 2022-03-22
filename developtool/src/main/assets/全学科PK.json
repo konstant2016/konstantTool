@@ -1,0 +1,1022 @@
+[
+  {
+    "id": 1,
+    "name": "数学",
+    "stages": [
+      {
+        "id": 2,
+        "name": "初中",
+        "publishers": [
+          {
+            "id": 1,
+            "name": "人教版",
+            "fullName": "人民教育出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "北师大版",
+            "fullName": "北京师范大学出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "华师大版",
+            "fullName": "华东师范大学出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "湘教版",
+            "fullName": "湖南教育出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "冀教版",
+            "fullName": "河北教育出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "name": "苏科版",
+            "fullName": "江苏科学技术出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "name": "鲁教版",
+            "fullName": "山东教育出版社",
+            "semesters": [
+              {
+                "id": 11,
+                "name": "六年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 12,
+                "name": "六年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "name": "沪科版",
+            "fullName": "上海科学技术出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "name": "沪教版",
+            "fullName": "上海教育出版社",
+            "semesters": [
+              {
+                "id": 12,
+                "name": "六年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "name": "青岛版",
+            "fullName": "青岛出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "name": "浙教版",
+            "fullName": "浙江教育出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "name": "北京课改版",
+            "fullName": "北京出版社",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "name": "通用版",
+            "fullName": "",
+            "semesters": [
+              {
+                "id": 13,
+                "name": "七年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 14,
+                "name": "七年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 15,
+                "name": "八年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 16,
+                "name": "八年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 17,
+                "name": "九年级上册",
+                "includePractice": true,
+                "includeLadder": true
+              },
+              {
+                "id": 18,
+                "name": "九年级下册",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "高中",
+        "publishers": [
+          {
+            "id": 1,
+            "name": "人教版",
+            "fullName": "人民教育出版社",
+            "semesters": [
+              {
+                "id": 22,
+                "name": "必修四",
+                "includePractice": true,
+                "includeLadder": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "物理",
+    "stages": [{
+      "id": 2,
+      "name": "初中",
+      "publishers": [{
+        "id": 1,
+        "name": "人教版",
+        "fullName": "人民教育出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 2,
+        "name": "北师大版",
+        "fullName": "北京师范大学出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 6,
+        "name": "苏科版",
+        "fullName": "江苏科学技术出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 8,
+        "name": "沪科版",
+        "fullName": "上海科学技术出版社",
+        "semesters": [{
+          "id": 31,
+          "name": "八年级全一册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 9,
+        "name": "沪教版",
+        "fullName": "上海教育出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 11,
+        "name": "浙教版",
+        "fullName": "浙江教育出版社",
+        "semesters": [{
+          "id": 13,
+          "name": "七年级上册",
+          "includeLadder": true
+        }, {
+          "id": 14,
+          "name": "七年级下册",
+          "includeLadder": true
+        }, {
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 12,
+        "name": "北京课改版",
+        "fullName": "北京出版社",
+        "semesters": [{
+          "id": 31,
+          "name": "八年级全一册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 13,
+        "name": "通用版",
+        "fullName": "",
+        "semesters": [{
+          "id": 37,
+          "name": "电学实验专题",
+          "includeLadder": true
+        }, {
+          "id": 39,
+          "name": "力学实验专题",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 14,
+        "name": "鲁科版",
+        "fullName": "山东科学技术出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 16,
+        "name": "粤沪版",
+        "fullName": "广东教育出版社、上海科学技术出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 17,
+        "name": "教科版",
+        "fullName": "教育科学出版社",
+        "semesters": [{
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }]
+    }]
+  },
+  {
+    "id": 4,
+    "name": "化学",
+    "stages": [{
+      "id": 2,
+      "name": "初中",
+      "publishers": [{
+        "id": 1,
+        "name": "人教版",
+        "fullName": "人民教育出版社",
+        "semesters": [{
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 7,
+        "name": "鲁教版",
+        "fullName": "山东教育出版社",
+        "semesters": [{
+          "id": 31,
+          "name": "八年级全一册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 9,
+        "name": "沪教版",
+        "fullName": "上海教育出版社",
+        "semesters": [{
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 11,
+        "name": "浙教版",
+        "fullName": "浙江教育出版社",
+        "semesters": [{
+          "id": 13,
+          "name": "七年级上册",
+          "includeLadder": true
+        }, {
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 28,
+        "name": "沪教版（2012）",
+        "fullName": "上海教育出版社",
+        "semesters": [{
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 30,
+        "name": "科粤版",
+        "fullName": "科学和广东教育出版社",
+        "semesters": [{
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 31,
+        "name": "鲁教版（六三制）",
+        "fullName": "山东教育出版社",
+        "semesters": [{
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }]
+    }]
+  },
+  {
+    "id": 5,
+    "name": "英语",
+    "stages": [{
+      "id": 2,
+      "name": "初中",
+      "publishers": [{
+        "id": 1,
+        "name": "人教版",
+        "fullName": "人民教育出版社",
+        "semesters": [{
+          "id": 13,
+          "name": "七年级上册",
+          "includeLadder": true
+        }, {
+          "id": 14,
+          "name": "七年级下册",
+          "includeLadder": true
+        }, {
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 32,
+          "name": "九年级全一册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 33,
+        "name": "仁爱版",
+        "fullName": "科学普及出版社",
+        "semesters": [{
+          "id": 13,
+          "name": "七年级上册",
+          "includeLadder": true
+        }, {
+          "id": 14,
+          "name": "七年级下册",
+          "includeLadder": true
+        }, {
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }, {
+        "id": 34,
+        "name": "外研版",
+        "fullName": "外语教学与研究出版社",
+        "semesters": [{
+          "id": 13,
+          "name": "七年级上册",
+          "includeLadder": true
+        }, {
+          "id": 14,
+          "name": "七年级下册",
+          "includeLadder": true
+        }, {
+          "id": 15,
+          "name": "八年级上册",
+          "includeLadder": true
+        }, {
+          "id": 16,
+          "name": "八年级下册",
+          "includeLadder": true
+        }, {
+          "id": 17,
+          "name": "九年级上册",
+          "includeLadder": true
+        }, {
+          "id": 18,
+          "name": "九年级下册",
+          "includeLadder": true
+        }]
+      }]
+    }]
+  }
+]

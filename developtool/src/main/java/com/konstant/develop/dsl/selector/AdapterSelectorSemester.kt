@@ -42,7 +42,9 @@ class AdapterSelectorSemester : RecyclerView.Adapter<SemesterViewHolder>() {
 
     private fun updatePosition(view: View, position: Int) {
         view.post {
-            notifyItemChanged(position)
+            if (position in 0 .. this.itemCount){
+                notifyItemChanged(position)
+            }
         }
     }
 

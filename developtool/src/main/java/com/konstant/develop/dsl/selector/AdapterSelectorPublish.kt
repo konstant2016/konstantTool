@@ -1,6 +1,7 @@
 package com.konstant.develop.dsl.selector
 
 import android.graphics.Color
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +43,9 @@ class AdapterSelectorPublish() : RecyclerView.Adapter<PublishViewHolder>() {
 
     private fun updatePosition(view: View, position: Int) {
         view.post {
-            notifyItemChanged(position)
+            if (position in 0 .. this.itemCount){
+                notifyItemChanged(position)
+            }
         }
     }
 
@@ -57,7 +60,12 @@ class AdapterSelectorPublish() : RecyclerView.Adapter<PublishViewHolder>() {
         val bg = holder.itemView.publish_bg
         val data = mPublishList[position]
         name.text = data.name
-        fullName.text = data.fullName
+        if (TextUtils.isEmpty(data.fullName)){
+            fullName.visibility = View.GONE
+        }else{
+            fullName.visibility = View.VISIBLE
+            fullName.text = data.fullName
+        }
         if (data.selected) {
             bg.setBackgroundColor(Color.parseColor("#F7F7F7"))
         } else {

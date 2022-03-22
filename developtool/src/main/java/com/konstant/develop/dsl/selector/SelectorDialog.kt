@@ -120,7 +120,14 @@ class SelectorDialog : DialogFragment() {
         if (adapter is AdapterSelectorSemester) {
             adapter.setData(semesterList)
             adapter.setOnItemClickListener {
-                Toast.makeText(requireContext(), "选中了${semesterList[it].name}", Toast.LENGTH_LONG).show()
+                val stage = mStageList.find { it.selected }
+                val stageId = stage?.id
+                val publish = stage?.publishers?.find { it.selected }
+                val publishId = publish?.id
+                val semester = publish?.semesters?.find { it.selected}
+                val semesterId = semester?.id
+                val string = "$stageId-$publishId-$semesterId"
+                Toast.makeText(requireContext(), "选中了${string}", Toast.LENGTH_LONG).show()
             }
         }
     }
