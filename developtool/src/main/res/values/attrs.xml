@@ -779,4 +779,11 @@
         <attr name="shape_shadowOffsetY" />
     </declare-styleable>
 
+    <declare-styleable name="ZoomLayout">
+        <attr name="min_zoom" format="float"/>
+        <attr name="max_zoom" format="float"/>
+        <attr name="double_click_zoom" format="float"/>
+    </declare-styleable>
+
+
 </resources>

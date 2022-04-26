@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.konstant.develop.bitmap.BitmapActivity
 import com.konstant.develop.dsl.DSLActivity
+import com.konstant.develop.tree.TreeViewActivity
 import com.konstant.develop.x5.SystemWebActivity
 import com.konstant.develop.x5.TencentX5Activity
 import com.konstant.develop.yangcong.YangCongDebugActivity
@@ -105,6 +106,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_yc_debug.setOnClickListener {
             val intent = Intent(this, YangCongDebugActivity::class.java)
+            startActivity(intent)
+        }
+        btn_tree_view.setOnClickListener {
+            val intent = Intent(this, TreeViewActivity::class.java)
             startActivity(intent)
         }
     }

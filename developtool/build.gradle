@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.konstant.develop"
-        minSdkVersion 17
+        minSdkVersion 18
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -18,6 +18,10 @@ android {
         multiDexEnabled true
         ndk { abiFilters "armeabi" }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/library_release.kotlin_module'
     }
 
     buildTypes {
@@ -53,4 +57,5 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.yangcong345.platform:kratos:0.0.5-SNAPSHOT'
     implementation 'com.yangcong345.x5offline:x5offline:0.0.3'
+    implementation 'com.otaliastudios:zoomlayout:1.9.0'
 }

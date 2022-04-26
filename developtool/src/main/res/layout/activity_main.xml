@@ -230,6 +230,15 @@
                 android:gravity="center"
                 android:text="打开洋葱调试页面" />
 
+            <TextView
+                android:id="@+id/btn_tree_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_selector_btn"
+                android:gravity="center"
+                android:text="打开拓扑图页面" />
+
         </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
