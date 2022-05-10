@@ -16,7 +16,7 @@
         app:horizontalPanEnabled="true"
         app:maxZoom="2.5"
         app:maxZoomType="zoom"
-        app:minZoom="0.7"
+        app:minZoom="1"
         app:minZoomType="zoom"
         app:oneFingerScrollEnabled="true"
         app:overPinchable="true"
@@ -30,10 +30,11 @@
         app:verticalPanEnabled="true"
         app:zoomEnabled="true">
 
-        <com.konstant.develop.tree.TreeView
+        <com.konstant.develop.tree.TreeViewLayout
             android:id="@+id/tree_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </com.otaliastudios.zoom.ZoomLayout>
 
 </RelativeLayout>

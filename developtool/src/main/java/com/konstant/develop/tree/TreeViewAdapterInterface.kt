@@ -36,20 +36,27 @@ interface TreeViewAdapterInterface {
     /**
      * 每一个item的横向间距
      */
-    fun getHorizontalStep(): Int
+    fun getHorizontalStep(context: Context): Float
 
     /**
      * 每一个item的纵向间距
      */
-    fun getVerticalStep(): Int
+    fun getVerticalStep(context: Context): Float
+
+    /**
+     * 获取箭头对齐高度
+     * 产品要求箭头只能对齐到图片中心，而不是对齐到文字中心
+     * 因此这里返回的是图片一半的高度
+     */
+    fun getAlignHeight(context: Context): Float
 }
 
-open class TreeNode(
+data class TreeNode(
     val xIndex: Int,
     val yIndex: Int
 ) : Serializable
 
-open class TreeArrow(
+data class TreeArrow(
     val startX: Int,
     val startY: Int,
     val endX: Int,

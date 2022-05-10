@@ -40,8 +40,8 @@ class TreeViewActivity : BaseActivity() {
                 val readBytes = assets.open("JSON.json").readBytes()
                 val json = String(readBytes)
                 val data = Gson().fromJson(json, Response::class.java)
-                val adapter = TreeViewAdapter()
-                adapter.setData(data)
+                val adapter = AdapterTreeView()
+                adapter.setData()
                 tree_view.setAdapter(adapter)
             }
         }
