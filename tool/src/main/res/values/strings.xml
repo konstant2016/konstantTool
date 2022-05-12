@@ -400,5 +400,7 @@
     <string name="skip_input_class_name">输入类名</string>
     <string name="skip_input_resource_id">输入资源名</string>
     <string name="skip_un_complete">此功能尚不完善，请谨慎使用</string>
+    <string name="add_widget">Add widget</string>
+    <string name="calendar_widget_description">日历组件</string>
 
 </resources>

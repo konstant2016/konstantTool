@@ -56,6 +56,9 @@ android {
         sourceCompatibility '1.8'
         targetCompatibility '1.8'
     }
+    viewBinding {
+        enabled true
+    }
 }
 
 
@@ -87,6 +90,7 @@ dependencies {
     implementation 'com.amap.api:location:4.9.0'
     implementation 'com.google.android.material:material:1.2.0'
     implementation files('libs/core-3.3.3.jar')
+    provided files('libs/hutool-all-5.8.0.jar')
     implementation 'com.7heaven.widgets:segmentcontrol:1.17'
     implementation 'cn.jzvd:jiaozivideoplayer:7.4.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
