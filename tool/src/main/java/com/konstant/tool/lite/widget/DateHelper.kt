@@ -1,6 +1,7 @@
 package com.konstant.tool.lite.widget
 
 import android.text.TextUtils
+import androidx.annotation.Keep
 import cn.hutool.core.date.ChineseDate
 import com.konstant.tool.lite.util.DateUtil
 import java.io.Serializable
@@ -8,6 +9,7 @@ import java.util.*
 
 object DateHelper {
 
+    @Keep
     data class ChineseHoliday(
         val year: Int,
         val month: Int,

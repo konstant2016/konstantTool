@@ -41,9 +41,6 @@ class CalendarViewFactory(private val context: Context, private val intent: Inte
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#4CFFFFFF"))
         }
         remoteView.setTextViewText(R.id.tv_lunar, item.subTitle)
-        if (item.isHoliday) {
-            remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#D9FCD8"))
-        }
         if (item.currentDay) {
             remoteView.setTextColor(R.id.tv_date, Color.parseColor("#00FF00"))
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#00FF00"))
