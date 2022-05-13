@@ -3,22 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_widget"
-    android:orientation="vertical">
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="20dp">
 
     <TextView
         android:id="@+id/tv_time"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="15:09"
         android:textColor="@color/color_white"
-        android:textSize="55dp" />
+        android:textSize="40dp" />
 
     <TextView
         android:id="@+id/tv_date"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="周五/下午"
         android:textColor="@color/color_white"
-        android:textSize="30dp" />
+        android:textFontWeight="200"
+        android:textSize="25dp" />
 
 </LinearLayout>

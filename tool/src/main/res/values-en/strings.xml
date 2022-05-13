@@ -346,5 +346,6 @@
     <string name="base_reject">Reject</string>
     <string name="add_widget">Add widget</string>
     <string name="calendar_widget_description">Calendar Widget</string>
+    <string name="time_widget_description">Time Widget</string>
 
 </resources>

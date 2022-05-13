@@ -22,8 +22,9 @@ class CalendarWidgetProvider : AppWidgetProvider() {
      */
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
-        updateCalendarWidget(context, appWidgetManager, appWidgetIds[0])
-//        updateTimeWidget(context, appWidgetManager, appWidgetIds[1])
+        appWidgetIds.forEach {
+            updateCalendarWidget(context, appWidgetManager, it)
+        }
     }
 
     override fun onEnabled(context: Context) {
@@ -50,30 +51,4 @@ class CalendarWidgetProvider : AppWidgetProvider() {
         appWidgetManager.updateAppWidget(appWidgetId, remoteView)
     }
 
-    /**
-     *
-     */
-    private fun updateTimeWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
-        val remoteView = RemoteViews(context.packageName, R.layout.time_widget)
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-        val week = calendar.get(Calendar.DAY_OF_WEEK)
-        val weekString = when (week) {
-            Calendar.SUNDAY -> "周日"
-            Calendar.MONDAY -> "周一"
-            Calendar.TUESDAY -> "周二"
-            Calendar.WEDNESDAY -> "周三"
-            Calendar.THURSDAY -> "周四"
-            Calendar.FRIDAY -> "周五"
-            Calendar.SATURDAY -> "周六"
-            else -> ""
-        }
-
-        val period = when (hour) {
-            in 3..5 -> "凌晨"
-            in 0..3 -> "凌晨"
-            else->""
-        }
-    }
 }
