@@ -3,6 +3,7 @@ package com.konstant.tool.lite.widget
 import android.text.TextUtils
 import cn.hutool.core.date.ChineseDate
 import com.konstant.tool.lite.util.DateUtil
+import java.io.Serializable
 import java.util.*
 
 object DateHelper {
@@ -12,7 +13,7 @@ object DateHelper {
         val month: Int,
         val day: Int,
         val holiday: String,
-    )
+    ) : Serializable
 
     private val chineseHolidayList = mutableListOf<ChineseHoliday>()
 
