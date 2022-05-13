@@ -41,7 +41,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <receiver
-            android:name=".widget.CalendarWidgetProvider"
+            android:name=".widget.calendar.CalendarWidgetProvider"
+            android:label="@string/calendar_widget_description"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -53,7 +54,7 @@
         </receiver>
 
         <service
-            android:name=".widget.CalendarService"
+            android:name=".widget.calendar.CalendarService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity

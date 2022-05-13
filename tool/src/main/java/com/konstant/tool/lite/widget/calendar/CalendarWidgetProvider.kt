@@ -1,12 +1,15 @@
-package com.konstant.tool.lite.widget
+package com.konstant.tool.lite.widget.calendar
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.widget.RemoteViews
 import com.konstant.tool.lite.R
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.log
 
 /**
  * Implementation of App Widget functionality.
@@ -19,7 +22,8 @@ class CalendarWidgetProvider : AppWidgetProvider() {
      */
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
-        updateAppWidget(context, appWidgetManager, appWidgetIds[0])
+        updateCalendarWidget(context, appWidgetManager, appWidgetIds[0])
+//        updateTimeWidget(context, appWidgetManager, appWidgetIds[1])
     }
 
     override fun onEnabled(context: Context) {
@@ -30,7 +34,10 @@ class CalendarWidgetProvider : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    private fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
+    /**
+     * update
+     */
+    private fun updateCalendarWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
         val remoteView = RemoteViews(context.packageName, R.layout.calendar_widget)
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -41,5 +48,32 @@ class CalendarWidgetProvider : AppWidgetProvider() {
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         remoteView.setRemoteAdapter(R.id.grid_view, intent)
         appWidgetManager.updateAppWidget(appWidgetId, remoteView)
+    }
+
+    /**
+     *
+     */
+    private fun updateTimeWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
+        val remoteView = RemoteViews(context.packageName, R.layout.time_widget)
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+        val week = calendar.get(Calendar.DAY_OF_WEEK)
+        val weekString = when (week) {
+            Calendar.SUNDAY -> "周日"
+            Calendar.MONDAY -> "周一"
+            Calendar.TUESDAY -> "周二"
+            Calendar.WEDNESDAY -> "周三"
+            Calendar.THURSDAY -> "周四"
+            Calendar.FRIDAY -> "周五"
+            Calendar.SATURDAY -> "周六"
+            else -> ""
+        }
+
+        val period = when (hour) {
+            in 3..5 -> "凌晨"
+            in 0..3 -> "凌晨"
+            else->""
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.widget
+package com.konstant.tool.lite.widget.calendar
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.widget.RemoteViewsService
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.R
+import java.util.*
 
 class CalendarViewFactory(private val context: Context, private val intent: Intent) : RemoteViewsService.RemoteViewsFactory {
 
@@ -30,9 +31,10 @@ class CalendarViewFactory(private val context: Context, private val intent: Inte
     }
 
     override fun getViewAt(position: Int): RemoteViews {
-        val item = DateHelper.getStringWithPosition(position)
+        val calendar = Calendar.getInstance()
+        val item = DateHelper.getStringWithPosition(position, calendar)
         val remoteView = RemoteViews(context.packageName, R.layout.item_calendar_widget_date)
-        remoteView.setTextViewText(R.id.tv_date, item.title)
+        remoteView.setTextViewText(R.id.tv_date, item.publicDate)
         if (item.currentMonth) {
             remoteView.setTextColor(R.id.tv_date, Color.parseColor("#CCFFFFFF"))
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#CCFFFFFF"))
@@ -40,7 +42,7 @@ class CalendarViewFactory(private val context: Context, private val intent: Inte
             remoteView.setTextColor(R.id.tv_date, Color.parseColor("#4CFFFFFF"))
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#4CFFFFFF"))
         }
-        remoteView.setTextViewText(R.id.tv_lunar, item.subTitle)
+        remoteView.setTextViewText(R.id.tv_lunar, item.chineseDate)
         if (item.currentDay) {
             remoteView.setTextColor(R.id.tv_date, Color.parseColor("#00FF00"))
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#00FF00"))

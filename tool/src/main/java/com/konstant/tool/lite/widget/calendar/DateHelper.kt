@@ -1,8 +1,9 @@
-package com.konstant.tool.lite.widget
+package com.konstant.tool.lite.widget.calendar
 
 import android.text.TextUtils
 import androidx.annotation.Keep
 import cn.hutool.core.date.ChineseDate
+import cn.hutool.core.date.chinese.LunarFestival
 import com.konstant.tool.lite.util.DateUtil
 import java.io.Serializable
 import java.util.*
@@ -25,49 +26,40 @@ object DateHelper {
     }
 
     open class CalenderItem(
-        val currentMonth: Boolean,     // 类型：周，上个月，本月
-        val title: String,      // 日期
-        val subTitle: String,   // 农历
-        val currentDay: Boolean, // 是否是当天
-        val isHoliday: Boolean    // 是否是节气或者假期
+        val currentMonth: Boolean,      // 类型：周，上个月，本月
+        val publicDate: String,         // 日期
+        val chineseDate: String,        // 农历
+        val currentDay: Boolean,        // 是否是当天
+        val isHoliday: Boolean          // 是否是节气或者假期
     )
 
     /**
      * 第一行显示的周排列
      * 第二行开始显示日期
      */
-    fun getStringWithPosition(position: Int): CalenderItem {
+    fun getStringWithPosition(position: Int, calendar: Calendar): CalenderItem {
         /**
          * 计算第一行，开始的位置，这个地方显示的是上个月的最后几天
          */
-        if (position < getCurrentMonthStartWeek()) {
-            val date = getLastMonthDayWithPosition(position)
-            val calendar = Calendar.getInstance()
+        if (position < getCurrentMonthStartWeek(calendar)) {
+            val date = getLastMonthDayWithPosition(position, calendar)
             val month = calendar.get(Calendar.MONTH)
             calendar.set(Calendar.MONTH, month - 1)
             calendar.set(Calendar.DAY_OF_MONTH, date)
-            val holiday = getHolidayName(calendar)
-            val isHoliday = !TextUtils.isEmpty(holiday)
-            val lunar = if (isHoliday) holiday else getLunarDate(calendar)
-            return CalenderItem(false, date.toString(), lunar, false, isHoliday)
+            return buildCalendarItem(calendar, false)
         }
         /**
          * 显示本月的具体数据
          */
-        val date = position - getCurrentMonthStartWeek()
-        if (date <= getCurrentMonthTotalDay()) {
-            val calendar = Calendar.getInstance()
+        val date = position - getCurrentMonthStartWeek(calendar)
+        if (date <= getCurrentMonthTotalDay(calendar)) {
             calendar.set(Calendar.DAY_OF_MONTH, date + 1)
-            val holiday = getHolidayName(calendar)
-            val isHoliday = !TextUtils.isEmpty(holiday)
-            val lunar = if (isHoliday) holiday else getLunarDate(calendar)
-            return CalenderItem(true, (date + 1).toString(), lunar, isCurrentDay(calendar), isHoliday)
+            return buildCalendarItem(calendar, true)
         }
         /**
          * 显示下个月的日期
          */
-        val nextDate = position - getCurrentMonthTotalDay()
-        val calendar = Calendar.getInstance()
+        val nextDate = position - getCurrentMonthTotalDay(calendar)
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
         val nextMonth = if (month == 12) 1 else month + 1
@@ -75,14 +67,30 @@ object DateHelper {
         calendar.set(Calendar.YEAR, nextYear)
         calendar.set(Calendar.MONTH, nextMonth)
         calendar.set(Calendar.DAY_OF_MONTH, nextDate)
+        return buildCalendarItem(calendar, false)
+    }
+
+    /**
+     * 根据传入的时间来转换为我们需要时参数
+     */
+    private fun buildCalendarItem(calendar: Calendar, isCurrentMonth: Boolean): CalenderItem {
         val holiday = getHolidayName(calendar)
         val isHoliday = !TextUtils.isEmpty(holiday)
-        val lunar = if (isHoliday) holiday else getLunarDate(calendar)
-        return CalenderItem(false, nextDate.toString(), lunar, false, isHoliday)
+        val lunar = getHolidayName(calendar) ?: getLunarDate(calendar)
+        val date = calendar.get(Calendar.DAY_OF_MONTH).toString()
+        val isCurrentDay = isCurrentDay(calendar)
+        return CalenderItem(isCurrentMonth, date, lunar, isCurrentDay, isHoliday)
     }
 
     private fun getLunarDate(calendar: Calendar): String {
         val chineseDate = ChineseDate(Date(calendar.timeInMillis))
+        // 获取节日
+        val festivals = chineseDate.festivals
+        if (!TextUtils.isEmpty(festivals)) return festivals
+        // 获取节气
+        val term = chineseDate.term
+        if (!TextUtils.isEmpty(term)) return term
+        // 获取农历日
         val chineseDay = chineseDate.chineseDay
         if (TextUtils.equals("初一", chineseDay)) {
             return chineseDate.chineseMonthName
@@ -90,19 +98,17 @@ object DateHelper {
         return chineseDay
     }
 
-    private fun getHolidayName(calendar: Calendar): String {
+    private fun getHolidayName(calendar: Calendar): String? {
         return chineseHolidayList.find {
-            it.year == calendar.get(Calendar.YEAR)
-                    && it.month == (calendar.get(Calendar.MONTH) + 1)
+            it.month == (calendar.get(Calendar.MONTH) + 1)
                     && it.day == calendar.get(Calendar.DATE)
-        }?.holiday ?: ""
+        }?.holiday
     }
 
     /**
      * 计算上个月有多少天，用来展示上个月从几号开始倒数
      */
-    private fun getLastMonthTotalDay(): Int {
-        val calendar = Calendar.getInstance()
+    private fun getLastMonthTotalDay(calendar: Calendar): Int {
         val thisYear = calendar.get(Calendar.YEAR)
         val thisMonth = calendar.get(Calendar.MONTH) + 1
 
@@ -122,8 +128,7 @@ object DateHelper {
     /**
      * 获取当前月份总共多少天
      */
-    private fun getCurrentMonthTotalDay(): Int {
-        val calendar = Calendar.getInstance()
+    private fun getCurrentMonthTotalDay(calendar: Calendar): Int {
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         return DateUtil.getDayCountWithMonth(year, month)
@@ -135,8 +140,7 @@ object DateHelper {
      * 周日为第0天
      * 一行最多显示七天
      */
-    private fun getCurrentMonthStartWeek(): Int {
-        val calendar = Calendar.getInstance()
+    private fun getCurrentMonthStartWeek(calendar: Calendar): Int {
         calendar.set(Calendar.DATE, 1)
         return calendar.get(Calendar.DAY_OF_WEEK) - 1
     }
@@ -146,8 +150,8 @@ object DateHelper {
      * 先算出日历左上角的日期：用上个月的总天数 - 本月第一天的的 day of week
      * 再根据position，计算出应该显示天
      */
-    private fun getLastMonthDayWithPosition(position: Int): Int {
-        val startDay = getLastMonthTotalDay() - getCurrentMonthStartWeek()
+    private fun getLastMonthDayWithPosition(position: Int, calendar: Calendar): Int {
+        val startDay = getLastMonthTotalDay(calendar) - getCurrentMonthStartWeek(calendar)
         return startDay + position
     }
 
