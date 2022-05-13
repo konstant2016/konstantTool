@@ -5,11 +5,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.konstant.tool.lite.R
 
 class CalendarViewFactory(private val context: Context, private val intent: Intent) : RemoteViewsService.RemoteViewsFactory {
 
-    override fun onCreate() {}
+    override fun onCreate() {
+        val type = object : TypeToken<List<DateHelper.ChineseHoliday>>() {}.type
+        val json = String(context.assets.open("ChineseHoliday.json").readBytes())
+        val holidayList = Gson().fromJson<List<DateHelper.ChineseHoliday>>(json, type)
+        DateHelper.setChineseHoliday(holidayList)
+    }
 
     override fun onDataSetChanged() {}
 
@@ -34,6 +41,9 @@ class CalendarViewFactory(private val context: Context, private val intent: Inte
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#4CFFFFFF"))
         }
         remoteView.setTextViewText(R.id.tv_lunar, item.subTitle)
+        if (item.isHoliday) {
+            remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#D9FCD8"))
+        }
         if (item.currentDay) {
             remoteView.setTextColor(R.id.tv_date, Color.parseColor("#00FF00"))
             remoteView.setTextColor(R.id.tv_lunar, Color.parseColor("#00FF00"))

@@ -7,11 +7,26 @@ import java.util.*
 
 object DateHelper {
 
+    data class ChineseHoliday(
+        val year: Int,
+        val month: Int,
+        val day: Int,
+        val holiday: String,
+    )
+
+    private val chineseHolidayList = mutableListOf<ChineseHoliday>()
+
+    fun setChineseHoliday(list: List<ChineseHoliday>) {
+        chineseHolidayList.clear()
+        chineseHolidayList.addAll(list)
+    }
+
     open class CalenderItem(
         val currentMonth: Boolean,     // 类型：周，上个月，本月
         val title: String,      // 日期
         val subTitle: String,   // 农历
-        val currentDay: Boolean  // 是否是当天
+        val currentDay: Boolean, // 是否是当天
+        val isHoliday: Boolean    // 是否是节气或者假期
     )
 
     /**
@@ -28,7 +43,10 @@ object DateHelper {
             val month = calendar.get(Calendar.MONTH)
             calendar.set(Calendar.MONTH, month - 1)
             calendar.set(Calendar.DAY_OF_MONTH, date)
-            return CalenderItem(false, date.toString(), getLunarDate(calendar), false)
+            val holiday = getHolidayName(calendar)
+            val isHoliday = !TextUtils.isEmpty(holiday)
+            val lunar = if (isHoliday) holiday else getLunarDate(calendar)
+            return CalenderItem(false, date.toString(), lunar, false, isHoliday)
         }
         /**
          * 显示本月的具体数据
@@ -37,7 +55,10 @@ object DateHelper {
         if (date <= getCurrentMonthTotalDay()) {
             val calendar = Calendar.getInstance()
             calendar.set(Calendar.DAY_OF_MONTH, date + 1)
-            return CalenderItem(true, (date + 1).toString(), getLunarDate(calendar), isCurrentDay(calendar))
+            val holiday = getHolidayName(calendar)
+            val isHoliday = !TextUtils.isEmpty(holiday)
+            val lunar = if (isHoliday) holiday else getLunarDate(calendar)
+            return CalenderItem(true, (date + 1).toString(), lunar, isCurrentDay(calendar), isHoliday)
         }
         /**
          * 显示下个月的日期
@@ -51,7 +72,10 @@ object DateHelper {
         calendar.set(Calendar.YEAR, nextYear)
         calendar.set(Calendar.MONTH, nextMonth)
         calendar.set(Calendar.DAY_OF_MONTH, nextDate)
-        return CalenderItem(false, nextDate.toString(), getLunarDate(calendar), false)
+        val holiday = getHolidayName(calendar)
+        val isHoliday = !TextUtils.isEmpty(holiday)
+        val lunar = if (isHoliday) holiday else getLunarDate(calendar)
+        return CalenderItem(false, nextDate.toString(), lunar, false, isHoliday)
     }
 
     private fun getLunarDate(calendar: Calendar): String {
@@ -61,6 +85,14 @@ object DateHelper {
             return chineseDate.chineseMonthName
         }
         return chineseDay
+    }
+
+    private fun getHolidayName(calendar: Calendar): String {
+        return chineseHolidayList.find {
+            it.year == calendar.get(Calendar.YEAR)
+                    && it.month == (calendar.get(Calendar.MONTH) + 1)
+                    && it.day == calendar.get(Calendar.DATE)
+        }?.holiday ?: ""
     }
 
     /**
