@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.widget.calendar
+package com.konstant.widget.calendar
 
 import android.content.Intent
 import android.widget.RemoteViewsService

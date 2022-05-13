@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.widget.time
+package com.konstant.widget.time
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -8,8 +8,9 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
 import android.widget.RemoteViews
-import com.konstant.tool.lite.R
+import com.konstant.widget.R
 import java.util.*
 
 /**
@@ -26,24 +27,11 @@ class TimeWidgetProvider : AppWidgetProvider() {
         }
     }
 
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
-        // There may be multiple widgets active, so update all of them
-        this.mContext = context
-        updateTimeWidget()
-    }
-
-    override fun onEnabled(context: Context) {
-        this.mContext = context
-        updateTimeWidget()
-        // Enter relevant functionality for when the first widget is created
-    }
-
     override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
         handler.removeCallbacksAndMessages(null)
     }
 
-    override fun onReceive(context: Context?, intent: Intent?) {
+    override fun onReceive(context: Context, intent: Intent) {
         this.mContext = context
         super.onReceive(context, intent)
         updateTimeWidget()
@@ -57,6 +45,7 @@ class TimeWidgetProvider : AppWidgetProvider() {
         val minute = calendar.get(Calendar.MINUTE)
         val minuteString = if (minute > 9) minute.toString() else "0$minute"
         val week = calendar.get(Calendar.DAY_OF_WEEK)
+        val second = calendar.get(Calendar.SECOND)
         val weekString = when (week) {
             Calendar.SUNDAY -> "周日"
             Calendar.MONDAY -> "周一"
@@ -86,7 +75,7 @@ class TimeWidgetProvider : AppWidgetProvider() {
         val component = ComponentName(context, TimeWidgetProvider::class.java)
         AppWidgetManager.getInstance(context).updateAppWidget(component, remoteView)
         handler.removeCallbacksAndMessages(null)
-        handler.sendMessageDelayed(Message.obtain(), 60 * 1000L)
+        handler.sendMessageDelayed(Message.obtain(), (60 - second) * 1000L)
     }
 
 }

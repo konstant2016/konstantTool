@@ -6,3 +6,4 @@ include ':JavaModule'
 include ':kratos'
 
 
+include ':widget'

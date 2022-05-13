@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent()
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            intent.action = "android.settings.APPLICATION_DETAILS_SETTINGS"
+            intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
             intent.data = Uri.parse("package:$packageName")
             startActivity(intent)
         } catch (e: Exception) {

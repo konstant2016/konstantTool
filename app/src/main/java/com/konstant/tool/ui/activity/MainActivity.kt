@@ -1,12 +1,9 @@
 package com.konstant.tool.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.viewpager.widget.ViewPager
 import android.util.Log
 import com.konstant.tool.R
 import com.konstant.tool.base.BaseActivity
-import com.konstant.tool.test.ForegroundService
 import com.konstant.tool.ui.adapter.AdapterViewpager
 import com.konstant.tool.ui.fragment.LocalTestFragment
 import com.konstant.tool.ui.fragment.ToolsFragment

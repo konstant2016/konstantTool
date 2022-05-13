@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/color_white"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_date"
         android:gravity="center"
-        android:textColor="@color/color_white"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
 </RelativeLayout>

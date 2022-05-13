@@ -1,4 +1,4 @@
-package com.konstant.tool.lite.widget.calendar
+package com.konstant.widget.calendar
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.konstant.tool.lite.R
+import com.konstant.widget.R
 import java.util.*
 
 class CalendarViewFactory(private val context: Context, private val intent: Intent) : RemoteViewsService.RemoteViewsFactory {

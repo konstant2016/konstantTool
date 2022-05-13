@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/calendar_parent"
     android:background="@drawable/bg_widget"
     android:orientation="vertical"
     android:padding="10dp">
@@ -10,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/color_white"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -24,7 +25,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="日"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -34,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="一"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="二"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -54,7 +55,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="三"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -64,7 +65,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="四"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -74,7 +75,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="五"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -84,7 +85,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="六"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 

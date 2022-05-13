@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="15:09"
-        android:textColor="@color/color_white"
+        android:textColor="@color/white"
         android:textSize="40dp" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="周五/下午"
-        android:textColor="@color/color_white"
+        android:textColor="@color/white"
         android:textFontWeight="200"
         android:textSize="25dp" />
 

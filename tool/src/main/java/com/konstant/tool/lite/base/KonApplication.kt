@@ -27,8 +27,8 @@ class KonApplication : Application() {
         super.onCreate()
         context = this
         val show = FileUtil.readDataFromSp(this, SplashActivity.SHOW_DIALOG_KEY, true)
-        if (!show){
-            CrashReport.initCrashReport(applicationContext,"b3cb53863c",true)
+        if (!show) {
+            CrashReport.initCrashReport(applicationContext, "b3cb53863c", true)
         }
         SettingManager.setSystemChinese(Locale.getDefault().toString().contains("zh"))
         Density.init(this)
@@ -50,7 +50,7 @@ class KonApplication : Application() {
                 SettingManager.setSystemChinese(true)
                 EventBus.getDefault().post(LanguageChanged())
             }
-        // 系统为英文，但是软件显示中文
+            // 系统为英文，但是软件显示中文
         } else {
             if (SettingManager.getSystemChinese()) {
                 SettingManager.setSystemChinese(false)

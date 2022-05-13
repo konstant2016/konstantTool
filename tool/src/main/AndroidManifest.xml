@@ -40,33 +40,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <receiver
-            android:name=".widget.time.TimeWidgetProvider"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/time_widget_provider_info" />
-        </receiver>
-        <receiver
-            android:name=".widget.calendar.CalendarWidgetProvider"
-            android:exported="true"
-            android:label="@string/calendar_widget_description">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/calendar_widget_info" />
-        </receiver>
-
-        <service
-            android:name=".widget.calendar.CalendarService"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
             android:name=".module.clock.DigitalClockActivity"

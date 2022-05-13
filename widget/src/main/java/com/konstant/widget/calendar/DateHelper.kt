@@ -1,10 +1,9 @@
-package com.konstant.tool.lite.widget.calendar
+package com.konstant.widget.calendar
 
 import android.text.TextUtils
 import androidx.annotation.Keep
 import cn.hutool.core.date.ChineseDate
-import cn.hutool.core.date.chinese.LunarFestival
-import com.konstant.tool.lite.util.DateUtil
+import cn.hutool.core.util.StrUtil
 import java.io.Serializable
 import java.util.*
 
@@ -86,7 +85,19 @@ object DateHelper {
         val chineseDate = ChineseDate(Date(calendar.timeInMillis))
         // 获取节日
         val festivals = chineseDate.festivals
-        if (!TextUtils.isEmpty(festivals)) return festivals
+        val javaClass = chineseDate.javaClass
+        val yearField = javaClass.getDeclaredField("year")
+        yearField.isAccessible = true
+        val year = yearField.getInt(chineseDate)
+        val monthField = javaClass.getDeclaredField("month")
+        monthField.isAccessible = true
+        val month = monthField.getInt(chineseDate)
+        val dayField = javaClass.getDeclaredField("day")
+        dayField.isAccessible = true
+        val day = dayField.getInt(chineseDate)
+        val festival = StrUtil.join(",", LunarFestival.getFestivals(year, month, day))
+
+        if (!TextUtils.isEmpty(festival)) return festival
         // 获取节气
         val term = chineseDate.term
         if (!TextUtils.isEmpty(term)) return term
@@ -122,7 +133,7 @@ object DateHelper {
         } else {
             thisMonth
         }
-        return DateUtil.getDayCountWithMonth(year, month)
+        return getDayCountWithMonth(year, month)
     }
 
     /**
@@ -131,7 +142,17 @@ object DateHelper {
     private fun getCurrentMonthTotalDay(calendar: Calendar): Int {
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
-        return DateUtil.getDayCountWithMonth(year, month)
+        return getDayCountWithMonth(year, month)
+    }
+
+
+    private fun getDayCountWithMonth(year: Int, month: Int): Int {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month - 1)
+        calendar.set(Calendar.DATE, 1)
+        calendar.roll(Calendar.DATE, -1)
+        return calendar.get(Calendar.DATE)
     }
 
     /**

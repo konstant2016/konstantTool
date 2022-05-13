@@ -1,14 +1,11 @@
-package cn.hutool.core.date.chinese;
+package com.konstant.widget.calendar;
 
-import cn.hutool.core.lang.Pair;
-import cn.hutool.core.map.TableMap;
+import android.util.Pair;
+
 import java.util.List;
 
-/**
- * 时间：2022/5/13 16:12
- * 作者：吕卡
- * 备注：为了替换hutool里面的类，才这么定义的包名，包名不能替换掉，否则会有显示问题
- */
+import cn.hutool.core.date.chinese.LunarInfo;
+import cn.hutool.core.map.TableMap;
 
 public class LunarFestival {
     private static final TableMap<Pair<Integer, Integer>, String> L_FTV = new TableMap(16);
@@ -33,11 +30,11 @@ public class LunarFestival {
         L_FTV.put(new Pair(1, 2), "犬日");
         L_FTV.put(new Pair(1, 3), "猪日");
         L_FTV.put(new Pair(1, 4), "羊日");
-        L_FTV.put(new Pair(1, 5), "牛日 破五日");
-        L_FTV.put(new Pair(1, 6), "马日 送穷日");
-        L_FTV.put(new Pair(1, 7), "人日 人胜节");
-        L_FTV.put(new Pair(1, 8), "谷日 八仙日");
-        L_FTV.put(new Pair(1, 9), "天日 九皇会");
+        L_FTV.put(new Pair(1, 5), "牛日");
+        L_FTV.put(new Pair(1, 6), "马日");
+        L_FTV.put(new Pair(1, 7), "人日");
+        L_FTV.put(new Pair(1, 8), "谷日");
+        L_FTV.put(new Pair(1, 9), "天日");
         L_FTV.put(new Pair(1, 10), "地日");
         L_FTV.put(new Pair(1, 12), "火日");
         L_FTV.put(new Pair(1, 13), "上灯日");
@@ -54,10 +51,9 @@ public class LunarFestival {
         L_FTV.put(new Pair(5, 5), "端午节");
         L_FTV.put(new Pair(6, 6), "晒衣节");
         L_FTV.put(new Pair(6, 6), "天贶节");
-        L_FTV.put(new Pair(6, 24), "彝族火把节");
+        L_FTV.put(new Pair(6, 24), "火把节");
         L_FTV.put(new Pair(7, 7), "七夕");
         L_FTV.put(new Pair(7, 14), "鬼节(南方)");
-        L_FTV.put(new Pair(7, 15), "中元节");
         L_FTV.put(new Pair(7, 15), "中元节");
         L_FTV.put(new Pair(7, 30), "地藏节");
         L_FTV.put(new Pair(8, 15), "中秋节");

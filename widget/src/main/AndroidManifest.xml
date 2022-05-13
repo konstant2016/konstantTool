@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.konstant.widget">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".WidgetApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/TransParentTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <receiver
+            android:name=".time.TimeWidgetProvider"
+            android:exported="true"
+            android:label="时钟小部件">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/time_widget_provider_info" />
+        </receiver>
+        <receiver
+            android:name=".calendar.CalendarWidgetProvider"
+            android:exported="true"
+            android:label="日历小部件">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/calendar_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".storage.StorageWidgetProvider"
+            android:exported="true"
+            android:label="内存小部件">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/storage_widget_provider_info" />
+        </receiver>
+
+        <service
+            android:name=".calendar.CalendarService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <service android:name=".WidgetForegroundService" />
+
+    </application>
+
+</manifest>
