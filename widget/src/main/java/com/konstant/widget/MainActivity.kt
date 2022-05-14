@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         ) {
             Toast.makeText(this, "请先添加桌面部件", Toast.LENGTH_LONG).show()
         } else {
+            WidgetForegroundService.startForegroundService(this)
             Toast.makeText(this, "桌面部件已刷新", Toast.LENGTH_LONG).show()
         }
         finish()

@@ -69,11 +69,26 @@ class StorageWidgetProvider : AppWidgetProvider() {
             val totalString = Formatter.formatFileSize(context, totalSize)
             val availableString = Formatter.formatFileSize(context, availableSize)
             val describe = "可用$availableString / 共计$totalString"
+
+            if (percent == getLastPercent(context)) return
+            updateLastPercent(context, percent)
+
             remoteView.setTextViewText(R.id.tv_percent, "$percent")
             remoteView.setTextViewText(R.id.tv_describe, describe)
             val component = ComponentName(context, StorageWidgetProvider::class.java)
             AppWidgetManager.getInstance(context).updateAppWidget(component, remoteView)
         }
+
+        private fun getLastPercent(context: Context): Int {
+            val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
+            return sp.getInt("LastPercent", 0)
+        }
+
+        private fun updateLastPercent(context: Context, percent: Int) {
+            val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
+            sp.edit().putInt("LastPercent", percent)
+        }
+
     }
 
 }

@@ -6,7 +6,6 @@ class WidgetApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        WidgetForegroundService.startForegroundService(this)
     }
 
 }
