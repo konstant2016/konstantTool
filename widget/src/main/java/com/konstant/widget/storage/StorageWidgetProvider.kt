@@ -61,7 +61,7 @@ class StorageWidgetProvider : AppWidgetProvider() {
 
             val intent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            remoteView.setOnClickPendingIntent(R.id.view_parent, PendingIntent.getActivity(context, 0, intent, 0))
+            remoteView.setOnClickPendingIntent(R.id.view_parent, PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
 
             val totalSize = totalBlocks * blockSize
             val availableSize = availableBlocks * blockSize

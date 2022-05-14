@@ -18,7 +18,7 @@ class NotificationCreator {
             val channelId = "${context.packageName}.channel"
             val targetIntent = TaskStackBuilder.create(context)
                 .addNextIntent(intent)
-                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+                .getPendingIntent(0, PendingIntent.FLAG_IMMUTABLE)
             val notificationBuilder = NotificationCompat.Builder(context, channelId)
                 .apply {
                     setSmallIcon(R.mipmap.ic_launcher)
