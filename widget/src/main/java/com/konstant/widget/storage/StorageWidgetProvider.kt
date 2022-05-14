@@ -65,10 +65,11 @@ class StorageWidgetProvider : AppWidgetProvider() {
 
             val totalSize = totalBlocks * blockSize
             val availableSize = availableBlocks * blockSize
+            val usedSize = totalSize - availableSize
             val percent = ((totalSize - availableSize).toFloat() / totalSize * 100).toInt()
             val totalString = Formatter.formatFileSize(context, totalSize)
-            val availableString = Formatter.formatFileSize(context, availableSize)
-            val describe = "可用$availableString / 共计$totalString"
+            val usedString = Formatter.formatFileSize(context, usedSize)
+            val describe = "已用$usedString / 共计$totalString"
 
             if (percent == getLastPercent(context)) return
             updateLastPercent(context, percent)

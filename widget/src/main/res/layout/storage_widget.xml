@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_percent"
             android:layout_marginTop="5dp"
-            android:text="剩余10GB / 共计 128GB"
+            android:text="已用10GB / 共计 128GB"
             android:textColor="@color/white"
             android:textSize="15sp" />
 

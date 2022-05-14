@@ -3,8 +3,10 @@ package com.konstant.widget.calendar
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
+import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.text.TextUtils
 import android.widget.RemoteViews
 import com.konstant.widget.R
@@ -62,6 +64,8 @@ class CalendarWidgetProvider : AppWidgetProvider() {
             val remoteView = RemoteViews(context.packageName, R.layout.calendar_widget)
             remoteView.setTextViewText(R.id.tv_current_month, string)
             val intent = Intent(context, CalendarService::class.java)
+            // 解决日历部件不刷新，https://code-examples.net/zh-CN/q/dd0d68
+            intent.data = Uri.fromParts(ContentResolver.SCHEME_CONTENT, Math.random().toString(), null)
             remoteView.setRemoteAdapter(R.id.grid_view, intent)
             val component = ComponentName(context, CalendarWidgetProvider::class.java)
             AppWidgetManager.getInstance(context).updateAppWidget(component, remoteView)
