@@ -7,6 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.IBinder
+import com.konstant.widget.calendar.CalendarService
+import com.konstant.widget.calendar.CalendarWidgetProvider
+import com.konstant.widget.storage.StorageWidgetProvider
+import com.konstant.widget.time.TimeWidgetProvider
 
 /**
  * 时间：2022/5/13 23:43
@@ -24,17 +28,23 @@ class WidgetForegroundService : Service() {
     }
 
     private val receiver = object : BroadcastReceiver() {
-        override fun onReceive(p0: Context?, p1: Intent?) {
-            val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
-            this@WidgetForegroundService.sendBroadcast(intent)
+        override fun onReceive(context: Context, intent: Intent) {
+            updateWidget(context)
         }
+    }
+
+    private fun updateWidget(context: Context){
+        CalendarWidgetProvider.updateCalendarWidget(context)
+        StorageWidgetProvider.updateStorage(context)
+        TimeWidgetProvider.updateTimeWidget(context)
     }
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        updateWidget(this)
         sendNotification()
         val intentFilter = IntentFilter(Intent.ACTION_TIME_TICK)
         registerReceiver(receiver, intentFilter)

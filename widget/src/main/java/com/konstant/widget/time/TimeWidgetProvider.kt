@@ -11,6 +11,7 @@ import android.os.Message
 import android.util.Log
 import android.widget.RemoteViews
 import com.konstant.widget.R
+import com.konstant.widget.calendar.CalendarWidgetProvider
 import java.util.*
 
 /**
@@ -18,64 +19,69 @@ import java.util.*
  */
 class TimeWidgetProvider : AppWidgetProvider() {
 
-    private var mContext: Context? = null
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) {
+        super.onUpdate(context, appWidgetManager, appWidgetIds)
+        updateTimeWidget(context)
+    }
 
-    private val handler = object : Handler(Looper.getMainLooper()) {
-        override fun handleMessage(msg: Message) {
-            super.handleMessage(msg)
-            updateTimeWidget()
-        }
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
+        sp.edit().putBoolean(KEY_TIME, true).commit()
     }
 
     override fun onDisabled(context: Context) {
-        handler.removeCallbacksAndMessages(null)
+        super.onDisabled(context)
+        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
+        sp.edit().putBoolean(KEY_TIME, false).commit()
     }
 
-    override fun onReceive(context: Context, intent: Intent) {
-        this.mContext = context
-        super.onReceive(context, intent)
-        updateTimeWidget()
-    }
+    companion object {
 
-    private fun updateTimeWidget() {
-        val context = this.mContext ?: return
-        val remoteView = RemoteViews(context.packageName, R.layout.time_widget)
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-        val minuteString = if (minute > 9) minute.toString() else "0$minute"
-        val week = calendar.get(Calendar.DAY_OF_WEEK)
-        val second = calendar.get(Calendar.SECOND)
-        val weekString = when (week) {
-            Calendar.SUNDAY -> "周日"
-            Calendar.MONDAY -> "周一"
-            Calendar.TUESDAY -> "周二"
-            Calendar.WEDNESDAY -> "周三"
-            Calendar.THURSDAY -> "周四"
-            Calendar.FRIDAY -> "周五"
-            Calendar.SATURDAY -> "周六"
-            else -> ""
+        private const val KEY_TIME = "TimeWidget"
+
+        fun isEnabled(context: Context): Boolean {
+            val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
+            return sp.getBoolean(KEY_TIME, false)
         }
-        val period = when (hour) {
-            in 1..2 -> "丑时"
-            in 3..4 -> "寅时"
-            in 5..6 -> "卯时"
-            in 7..8 -> "辰时"
-            in 9..10 -> "巳时"
-            in 11..12 -> "午时"
-            in 13..14 -> "未时"
-            in 15..16 -> "申时"
-            in 17..18 -> "酉时"
-            in 19..20 -> "戌时"
-            in 21..22 -> "亥时"
-            else -> "子时"
+
+        fun updateTimeWidget(context: Context) {
+            if (!isEnabled(context)) return
+            val remoteView = RemoteViews(context.packageName, R.layout.time_widget)
+            val calendar = Calendar.getInstance()
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+            val minute = calendar.get(Calendar.MINUTE)
+            val minuteString = if (minute > 9) minute.toString() else "0$minute"
+            val week = calendar.get(Calendar.DAY_OF_WEEK)
+            val weekString = when (week) {
+                Calendar.SUNDAY -> "周日"
+                Calendar.MONDAY -> "周一"
+                Calendar.TUESDAY -> "周二"
+                Calendar.WEDNESDAY -> "周三"
+                Calendar.THURSDAY -> "周四"
+                Calendar.FRIDAY -> "周五"
+                Calendar.SATURDAY -> "周六"
+                else -> ""
+            }
+            val period = when (hour) {
+                in 1..2 -> "丑时"
+                in 3..4 -> "寅时"
+                in 5..6 -> "卯时"
+                in 7..8 -> "辰时"
+                in 9..10 -> "巳时"
+                in 11..12 -> "午时"
+                in 13..14 -> "未时"
+                in 15..16 -> "申时"
+                in 17..18 -> "酉时"
+                in 19..20 -> "戌时"
+                in 21..22 -> "亥时"
+                else -> "子时"
+            }
+            remoteView.setTextViewText(R.id.tv_time, "${hour}:$minuteString")
+            remoteView.setTextViewText(R.id.tv_date, "${weekString}/${period}")
+            val component = ComponentName(context, TimeWidgetProvider::class.java)
+            AppWidgetManager.getInstance(context).updateAppWidget(component, remoteView)
         }
-        remoteView.setTextViewText(R.id.tv_time, "${hour}:$minuteString")
-        remoteView.setTextViewText(R.id.tv_date, "${weekString}/${period}")
-        val component = ComponentName(context, TimeWidgetProvider::class.java)
-        AppWidgetManager.getInstance(context).updateAppWidget(component, remoteView)
-        handler.removeCallbacksAndMessages(null)
-        handler.sendMessageDelayed(Message.obtain(), (60 - second) * 1000L)
     }
 
 }
