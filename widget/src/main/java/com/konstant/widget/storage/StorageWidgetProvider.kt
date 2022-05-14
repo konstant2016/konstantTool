@@ -29,29 +29,16 @@ class StorageWidgetProvider : AppWidgetProvider() {
         updateStorage(context)
     }
 
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-        sp.edit().putBoolean(KEY_STORAGE, true).commit()
-    }
-
-    override fun onDisabled(context: Context) {
-        super.onDisabled(context)
-        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-        sp.edit().putBoolean(KEY_STORAGE, false).commit()
-    }
-
     companion object {
 
-        private const val KEY_STORAGE = "StorageWidget"
-
         fun isEnabled(context: Context): Boolean {
-            val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-            return sp.getBoolean(KEY_STORAGE, false)
+            val storageName = ComponentName(context, StorageWidgetProvider::class.java)
+            val storageWidget = AppWidgetManager.getInstance(context).getAppWidgetIds(storageName)
+            return storageWidget.isNotEmpty()
         }
 
         fun updateStorage(context: Context) {
-            if (!TimeWidgetProvider.isEnabled(context)) return
+            if (!isEnabled(context)) return
             val remoteView = RemoteViews(context.packageName, R.layout.storage_widget)
             val path = Environment.getDataDirectory()
             val stat = StatFs(path.path)

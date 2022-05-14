@@ -24,25 +24,12 @@ class TimeWidgetProvider : AppWidgetProvider() {
         updateTimeWidget(context)
     }
 
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-        sp.edit().putBoolean(KEY_TIME, true).commit()
-    }
-
-    override fun onDisabled(context: Context) {
-        super.onDisabled(context)
-        val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-        sp.edit().putBoolean(KEY_TIME, false).commit()
-    }
-
     companion object {
 
-        private const val KEY_TIME = "TimeWidget"
-
         fun isEnabled(context: Context): Boolean {
-            val sp = context.getSharedPreferences("Widget", Context.MODE_PRIVATE)
-            return sp.getBoolean(KEY_TIME, false)
+            val timeName = ComponentName(context, TimeWidgetProvider::class.java)
+            val timeWidget = AppWidgetManager.getInstance(context).getAppWidgetIds(timeName)
+            return timeWidget.isNotEmpty()
         }
 
         fun updateTimeWidget(context: Context) {

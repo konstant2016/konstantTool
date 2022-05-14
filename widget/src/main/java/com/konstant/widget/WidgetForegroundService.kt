@@ -29,12 +29,12 @@ class WidgetForegroundService : Service() {
 
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            updateWidget(context)
+            updateWidget(context, false)
         }
     }
 
-    private fun updateWidget(context: Context){
-        CalendarWidgetProvider.updateCalendarWidget(context)
+    private fun updateWidget(context: Context, forceRefresh: Boolean) {
+        CalendarWidgetProvider.updateCalendarWidget(context, forceRefresh)
         StorageWidgetProvider.updateStorage(context)
         TimeWidgetProvider.updateTimeWidget(context)
     }
@@ -44,7 +44,7 @@ class WidgetForegroundService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        updateWidget(this)
+        updateWidget(this, true)
         sendNotification()
         val intentFilter = IntentFilter(Intent.ACTION_TIME_TICK)
         registerReceiver(receiver, intentFilter)

@@ -1,7 +1,10 @@
 package com.konstant.widget
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.konstant.widget.calendar.CalendarWidgetProvider
 import com.konstant.widget.storage.StorageWidgetProvider
@@ -22,4 +25,21 @@ class MainActivity : AppCompatActivity() {
         }
         finish()
     }
+
+    /**
+     * 判断是否在桌面上添加了小部件
+     */
+    private fun isHasWidgetOnLauncher(): Boolean {
+        val calendarName = ComponentName(this, CalendarWidgetProvider::class.java)
+        val calendarWidget = AppWidgetManager.getInstance(this).getAppWidgetIds(calendarName)
+
+        val timeName = ComponentName(this, TimeWidgetProvider::class.java)
+        val timeWidget = AppWidgetManager.getInstance(this).getAppWidgetIds(timeName)
+
+        val storageName = ComponentName(this, StorageWidgetProvider::class.java)
+        val storageWidget = AppWidgetManager.getInstance(this).getAppWidgetIds(storageName)
+
+        return calendarWidget.size + timeWidget.size + storageWidget.size > 0
+    }
+
 }
