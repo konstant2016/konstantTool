@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +17,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.konstant.develop.bitmap.BitmapActivity
 import com.konstant.develop.dsl.DSLActivity
+import com.konstant.develop.jetpack.paging3.Paging3Activity
 import com.konstant.develop.tree.TreeViewActivity
 import com.konstant.develop.x5.SystemWebActivity
 import com.konstant.develop.x5.TencentX5Activity
@@ -32,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setTitleBar()
         initBaseViews()
+
+        tv_multi.setText("前面已经讲过，一个文字在界面中，往往需要占用比他的实际显示宽度更多一点的宽度，以此来让文字和文字之间保留一些间距，不会显得过于拥挤",18f)
+        tv_multi.isSelected = true
+        tv_multi.setOnClickListener {
+            tv_multi.isSelected = !tv_multi.isSelected
+        }
     }
 
     private fun setTitleBar(){
@@ -110,6 +119,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_tree_view.setOnClickListener {
             val intent = Intent(this, TreeViewActivity::class.java)
+            startActivity(intent)
+        }
+        btn_paging3.setOnClickListener {
+            val intent = Intent(this, Paging3Activity::class.java)
             startActivity(intent)
         }
     }

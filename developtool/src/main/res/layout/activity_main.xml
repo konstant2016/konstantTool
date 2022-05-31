@@ -176,6 +176,12 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_public"
                 app:layout_constraintTop_toTopOf="@id/et_scheme" />
 
+            <com.konstant.develop.view.MultiSelectTextView
+                android:id="@+id/tv_multi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_scheme" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
@@ -238,6 +244,15 @@
                 android:background="@drawable/bg_selector_btn"
                 android:gravity="center"
                 android:text="打开拓扑图页面" />
+
+            <TextView
+                android:id="@+id/btn_paging3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_selector_btn"
+                android:gravity="center"
+                android:text="打开分页加载页面" />
 
         </LinearLayout>
 

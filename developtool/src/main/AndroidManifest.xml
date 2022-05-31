@@ -31,6 +31,9 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
+            android:name=".jetpack.paging3.Paging3Activity"
+            android:exported="false" />
+        <activity
             android:name=".tree.TreeViewActivity"
             android:exported="false" />
         <activity
