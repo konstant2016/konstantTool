@@ -17,6 +17,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.konstant.develop.bitmap.BitmapActivity
 import com.konstant.develop.dsl.DSLActivity
+import com.konstant.develop.jetpack.animation.JetpackAnimationActivity
 import com.konstant.develop.jetpack.paging3.Paging3Activity
 import com.konstant.develop.tree.TreeViewActivity
 import com.konstant.develop.x5.SystemWebActivity
@@ -36,8 +37,6 @@ class MainActivity : AppCompatActivity() {
         setTitleBar()
         initBaseViews()
 
-        tv_multi.setText("前面已经讲过，一个文字在界面中，往往需要占用比他的实际显示宽度更多一点的宽度，以此来让文字和文字之间保留一些间距，不会显得过于拥挤",18f)
-        tv_multi.isSelected = true
         tv_multi.setOnClickListener {
             tv_multi.isSelected = !tv_multi.isSelected
         }
@@ -123,6 +122,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_paging3.setOnClickListener {
             val intent = Intent(this, Paging3Activity::class.java)
+            startActivity(intent)
+        }
+        btn_motion.setOnClickListener {
+            val intent = Intent(this, JetpackAnimationActivity::class.java)
             startActivity(intent)
         }
     }

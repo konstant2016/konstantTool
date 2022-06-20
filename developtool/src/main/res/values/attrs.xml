@@ -58,7 +58,7 @@
         <!-- 径向渐变 -->
         <enum name="radial" value="1" />
         <!-- 扫描渐变 -->
-        <enum name="sweep"  value="2" />
+        <enum name="sweep" value="2" />
     </attr>
     <!-- 渐变中心 X 点坐标的相对位置（默认值为 0.5）-->
     <attr name="shape_centerX" format="float|fraction" />
@@ -780,10 +780,16 @@
     </declare-styleable>
 
     <declare-styleable name="ZoomLayout">
-        <attr name="min_zoom" format="float"/>
-        <attr name="max_zoom" format="float"/>
-        <attr name="double_click_zoom" format="float"/>
+        <attr name="min_zoom" format="float" />
+        <attr name="max_zoom" format="float" />
+        <attr name="double_click_zoom" format="float" />
     </declare-styleable>
 
+
+    <declare-styleable name="DrawableTextView">
+        <attr name="selectedDrawable" format="reference" />
+        <attr name="unSelectedDrawable" format="reference" />
+        <attr name="selectedText" format="reference|string" />
+    </declare-styleable>
 
 </resources>

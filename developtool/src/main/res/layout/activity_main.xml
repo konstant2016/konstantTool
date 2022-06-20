@@ -176,11 +176,14 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_public"
                 app:layout_constraintTop_toTopOf="@id/et_scheme" />
 
-            <com.konstant.develop.view.MultiSelectTextView
+            <com.konstant.develop.DrawableTextView
                 android:id="@+id/tv_multi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/btn_scheme" />
+                android:layout_height="100dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_scheme"
+                app:selectedDrawable="@drawable/icon_weixuanzhong"
+                app:selectedText="数学"
+                app:unSelectedDrawable="@drawable/icon_xuanzhong" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -253,6 +256,15 @@
                 android:background="@drawable/bg_selector_btn"
                 android:gravity="center"
                 android:text="打开分页加载页面" />
+
+            <TextView
+                android:id="@+id/btn_motion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_selector_btn"
+                android:gravity="center"
+                android:text="打开MotionLayout页面" />
 
         </LinearLayout>
 
