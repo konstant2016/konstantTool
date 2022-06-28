@@ -11,17 +11,15 @@ import kotlin.properties.Delegates
 
 class DrawableTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private var textView: TextView by Delegates.notNull()
-    private var imageView: ImageView by Delegates.notNull()
-
+    private val textView by lazy { findViewById<TextView>(R.id.btn_title) }
+    private val imageView by lazy { findViewById<ImageView>(R.id.btn_img) }
     private var selectedImg: Drawable? = null
     private var unSelectedImg: Drawable? = null
     private var title = ""
 
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.layout_drawable_text_view, this, true)
-        textView = view.findViewById(R.id.btn_title)
-        imageView = view.findViewById(R.id.btn_img)
+        orientation = HORIZONTAL
+        LayoutInflater.from(context).inflate(R.layout.layout_drawable_text_view, this, true)
         val attr = context.obtainStyledAttributes(attrs, R.styleable.DrawableTextView)
         selectedImg = attr.getDrawable(R.styleable.DrawableTextView_selectedDrawable)
         unSelectedImg = attr.getDrawable(R.styleable.DrawableTextView_unSelectedDrawable)
@@ -31,13 +29,16 @@ class DrawableTextView @JvmOverloads constructor(context: Context, attrs: Attrib
 
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
-        textView.setText(title)
+        textView.text = title
         if (selected) {
-            imageView?.setImageDrawable(selectedImg!!)
+            selectedImg?.let {
+                imageView?.setImageDrawable(it)
+            }
         } else {
-            imageView?.setImageDrawable(unSelectedImg!!)
+            unSelectedImg?.let {
+                imageView?.setImageDrawable(it)
+            }
         }
     }
-
 
 }

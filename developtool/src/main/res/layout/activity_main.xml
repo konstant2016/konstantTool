@@ -179,6 +179,7 @@
             <com.konstant.develop.DrawableTextView
                 android:id="@+id/tv_multi"
                 android:layout_width="match_parent"
+                android:gravity="center"
                 android:layout_height="100dp"
                 app:layout_constraintTop_toBottomOf="@id/btn_scheme"
                 app:selectedDrawable="@drawable/icon_weixuanzhong"
