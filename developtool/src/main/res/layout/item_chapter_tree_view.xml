@@ -1,75 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="122dp"
-    android:layout_height="166dp">
+    android:layout_width="384px"
+    android:layout_height="227px"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_line"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+    <com.konstant.develop.view.ShadowYouSheTextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56px"
+        android:layout_marginBottom="5px"
+        android:includeFontPadding="false"
+        android:orientation="horizontal"
+        android:text="未开始"
+        android:textColor="@color/white"
+        android:textSize="36px"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/view_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shadowAroundColor="@color/black"
+        app:shadowAroundRadio="3" />
+
+    <ImageView
+        android:layout_width="342px"
+        android:layout_height="72px"
+        android:layout_marginBottom="20px"
+        android:src="@drawable/img_touying"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_percent="0.3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view_border"
+        android:layout_width="266px"
+        android:layout_height="138px"
+        android:layout_marginStart="56px"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="11px"
+        android:background="@drawable/bg_shape_tree_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="271px"
+        android:layout_height="123px"
+        android:layout_marginLeft="66px"
+        android:layout_marginBottom="20px"
+        android:background="@drawable/bg_shape_tree_step"
+        android:paddingStart="15px"
+        android:paddingTop="25px"
+        android:paddingRight="15px"
+        android:paddingBottom="25px"
+        android:text="数据收集、整理与描述这里看下最大的字"
+        android:textColor="@color/white"
+        android:textSize="24px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_width="102px"
+        android:layout_height="49px"
+        android:layout_marginEnd="30px"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/img_last_learn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/tag_last_learn"
-        app:layout_constraintDimensionRatio="9:3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guide_line"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RelativeLayout
-        android:id="@+id/bg_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/bg_item_tree_view"
-        android:padding="1.5dp"
-        app:layout_constraintDimensionRatio="122:85.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_last_learn">
-
-        <ImageView
-            android:id="@+id/img_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_cover_default" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tvScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="1.5dp"
-        android:layout_marginTop="1.5dp"
-        android:background="@drawable/bg_item_tree_score_1"
-        android:textColor="@color/white"
-        android:paddingLeft="4dp"
-        android:paddingTop="1dp"
-        android:paddingRight="4dp"
-        android:textSize="10sp"
-        android:paddingBottom="2dp"
-        android:text="未开始"
-        app:layout_constraintLeft_toLeftOf="@id/bg_image"
-        app:layout_constraintTop_toTopOf="@id/bg_image" />
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="数据收集、整理与描述"
-        android:textColor="#FF1C3058"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/tag_last_learn"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bg_image" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="47px"
+        android:layout_marginBottom="11px"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/view_border"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/img_start_01"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:src="@drawable/arena_star_full" />
+
+        <ImageView
+            android:id="@+id/img_start_01"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:src="@drawable/arena_star_full" />
+
+        <ImageView
+            android:id="@+id/img_start_01"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:src="@drawable/arena_star_empty" />
+
+        <ImageView
+            android:id="@+id/img_start_01"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:src="@drawable/arena_star_empty" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

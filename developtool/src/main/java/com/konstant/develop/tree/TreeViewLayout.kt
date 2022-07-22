@@ -6,9 +6,12 @@ import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import kotlin.math.atan
+import androidx.core.view.size
+import com.konstant.develop.utils.SizeUtil
+import kotlin.math.*
 import kotlin.properties.Delegates
 
 /**
@@ -31,10 +34,11 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
 
     // 箭头图标
     private var mArrow: Bitmap by Delegates.notNull()
+    private val sizeUtil by lazy { SizeUtil(context) }
 
     private val mArrowPaint by lazy {
         Paint().apply {
-            strokeWidth = 2f
+            strokeWidth = 1f
             isAntiAlias = true
         }
     }
@@ -85,7 +89,6 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun addView(adapter: TreeViewAdapterInterface) {
-
         val list = adapter.getNodeList()
         var maxX = 0
         var maxY = 0
@@ -123,75 +126,41 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     /**
-     * 归类为斜箭头和垂直的线头
+     * 归类为斜线、垂线、横线
      */
     private fun sortArrow(canvas: Canvas, arrowList: List<TreeArrow>) {
         val verticalList = mutableListOf<TreeArrow>()
         val sideList = mutableListOf<TreeArrow>()
+        val horizontalList = mutableListOf<TreeArrow>()
         arrowList.forEach { relation ->
-            if (relation.startX == relation.endX) {
-                verticalList.add(relation)
-            } else {
-                sideList.add(relation)
+            when {
+                relation.startX == relation.endX -> {
+                    verticalList.add(relation)
+                }
+                relation.startY == relation.endY -> {
+                    horizontalList.add(relation)
+                }
+                else -> {
+                    sideList.add(relation)
+                }
             }
         }
         drawVerticalArrow(canvas, verticalList)
         drawSideArrow(canvas, sideList)
+        drawHorizontalArrow(canvas, horizontalList)
     }
 
     /**
      * 画斜线
-     * 斜线需要区分多个箭头怼到一个重点的情况，这种情况需要把箭头分开
      */
     private fun drawSideArrow(canvas: Canvas, arrowList: List<TreeArrow>) {
         val adapter = mAdapter ?: return
-        val map = mutableMapOf<TreeNode, MutableList<TreeNode>>()
         arrowList.forEach { relation ->
-            val startNode = TreeNode(relation.startX, relation.startY)
-            val endNode = TreeNode(relation.endX, relation.endY)
-            if (map.contains(endNode)) {
-                val list = map[endNode]
-                list?.add(startNode)
-            } else {
-                val list = mutableListOf<TreeNode>()
-                list.add(startNode)
-                map[endNode] = list
-            }
-        }
-        map.forEach { item ->
-            val endNode = item.key
-            val startNodeList = item.value
-            val height = mArrow.height
-            val horizontalCount = startNodeList.count { it.yIndex == endNode.yIndex }
-            val upperList = startNodeList.filter { it.yIndex > endNode.yIndex }
-            val downList = startNodeList.filter { it.yIndex < endNode.yIndex }
-            startNodeList.forEach { startNode ->
-                val startX = (startNode.xIndex + 1) * mItemWidth + startNode.xIndex * adapter.getHorizontalStep(context)
-                val startY = startNode.yIndex * mItemHeight + startNode.yIndex * adapter.getVerticalStep(context) + adapter.getAlignHeight(context)
-                val endX = endNode.xIndex * mItemWidth + endNode.xIndex * adapter.getHorizontalStep(context)
-                val y = endNode.yIndex * mItemHeight + endNode.yIndex * adapter.getVerticalStep(context) + adapter.getAlignHeight(context)
-
-                val endY1 = when {
-                    // 如果只有一条线，直接居中绘制即可
-                    startNodeList.size == 1 -> y
-                    // 如果从下往上绘制，则判断当前箭头属于从下往上绘制的第几条，用来计算偏移量
-                    // 第一条偏移一个箭头高度，第二条，偏移两个箭头高度，以此类推
-                    startNode.yIndex > endNode.yIndex -> {
-                        val count = upperList.indexOfFirst { it.yIndex == startNode.yIndex }
-                        y + (count + horizontalCount) * height
-                    }
-                    // 如果是从上往下绘制，则根据偏移量进行减计算
-                    startNode.yIndex < endNode.yIndex -> {
-                        val count = downList.indexOfFirst { it.yIndex == startNode.yIndex }
-                        y - (count + horizontalCount) * height
-                    }
-                    // 如果是水平绘制，则不需要加减
-                    else -> {
-                        y
-                    }
-                }
-                drawArrow(canvas, startX, startY, endX, endY1)
-            }
+            val startX = (relation.startX + 1) * mItemWidth + relation.startX * adapter.getHorizontalStep(context) - adapter.getRightPadding()
+            val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context) + adapter.getTopPadding() + (mItemHeight - adapter.getTopPadding() - adapter.getBottomPadding()) / 2
+            val endX = relation.endX * mItemWidth + relation.endX * adapter.getHorizontalStep(context) + adapter.getLeftPadding()
+            val endY = relation.endY * mItemHeight + relation.endY * adapter.getVerticalStep(context) + +adapter.getTopPadding() + (mItemHeight - adapter.getTopPadding() - adapter.getBottomPadding()) / 2
+            drawSideArrow(canvas, startX, startY, endX, endY)
         }
     }
 
@@ -203,16 +172,16 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
         arrowList.forEach { relation ->
             // 从上往下画线
             if (relation.endY > relation.startY) {
-                val startX = (relation.startX + 1) * mItemWidth + relation.startX * adapter.getHorizontalStep(context) - (mItemWidth / 2).toInt()
-                val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context) + adapter.getAlignHeight(context) * 2
+                val startX = relation.startX * mItemWidth + relation.startX * adapter.getHorizontalStep(context) + adapter.getLeftPadding() + (mItemWidth - adapter.getLeftPadding() - adapter.getRightPadding()) / 2
+                val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context) + mItemHeight - adapter.getBottomPadding()
                 val endX = startX
-                val endY = relation.endY * mItemHeight + relation.endY * adapter.getVerticalStep(context)
+                val endY = relation.endY * mItemHeight + relation.endY * adapter.getVerticalStep(context) + adapter.getTopPadding()
                 drawVerticalArrow(canvas, startX, startY, endX, endY)
             } else {  // 从下往上画线
-                val startX = (relation.startX + 1) * mItemWidth + relation.startX * adapter.getHorizontalStep(context) - (mItemWidth / 2).toInt()
-                val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context)
+                val startX = relation.startX * mItemWidth + relation.startX * adapter.getHorizontalStep(context) + adapter.getLeftPadding() + (mItemWidth - adapter.getLeftPadding() - adapter.getRightPadding()) / 2
+                val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context) + adapter.getTopPadding()
                 val endX = startX
-                val endY = (relation.endY + 1) * mItemHeight + relation.endY * adapter.getVerticalStep(context) - (mItemHeight - adapter.getAlignHeight(context) * 2)
+                val endY = (relation.endY + 1) * mItemHeight + relation.endY * adapter.getVerticalStep(context) - adapter.getBottomPadding()
                 drawVerticalArrow(canvas, startX, startY, endX, endY)
             }
         }
@@ -229,48 +198,213 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     /**
-     * x1,y1,x2,y2 代表的是开始和结束的坐标
-     * 绘制箭头时，需要把线的长度裁掉一段，再绘制箭头，否则箭头会覆盖到后面的view
-     * 因为是从左往右排布的，因此只需要x方向裁掉一部分即可
-     *
-     * 根据裁掉后的终点坐标，计算箭头中心点的坐标
-     * 利用三角函数计算xy方向的偏移量，然后用上面计算的终点坐标减掉这个偏移量，即可得到箭头的起始左上角坐标
-     */
-    private fun drawArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
-        val dx = endX - startX
-        val dy = endY - startY
-        val arrowDx = mArrow.width.toFloat() / 2
-        // 画线
-        canvas?.drawLine(startX, startY, endX - arrowDx, endY, mArrowPaint)
-        // 旋转生成新图片
-        val matrix = Matrix()
-        val tan = dy.toDouble() / dx
-        val angle = atan(tan) / Math.PI * 180
-        matrix.setRotate(angle.toFloat(), mArrow.width.toFloat() / 2, mArrow.height.toFloat() / 2)
-        val bitmap = Bitmap.createBitmap(mArrow, 0, 0, mArrow.width, mArrow.height, matrix, true)
-        // 计算新图片的左上角坐标，然后绘制
-        canvas?.drawBitmap(bitmap, endX - arrowDx - bitmap.width / 2, endY - bitmap.height / 2, mArrowPaint)
-    }
-
-    /**
      * 垂直方向画线，不需要x方向给箭头留位置，但是需要Y方向给箭头留位置
      * 需要区分从下往上画和从上往下画
      *      从上往下话，则终点的Y值需要减去预留高度
      *      反之，则需要添加预留高度
      */
     private fun drawVerticalArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
-        val height = mArrow.height.toFloat() / 2
-        val matrix = Matrix()
+        val height = mArrow.height.toFloat()
         if (endY > startY) {    // 从上往下画
             canvas?.drawLine(startX, startY, endX, endY - height, mArrowPaint)
-            matrix.setRotate(90f, mArrow.width.toFloat() / 2, mArrow.height.toFloat() / 2)
-            val bitmap = Bitmap.createBitmap(mArrow, 0, 0, mArrow.width, mArrow.height, matrix, true)
-            canvas?.drawBitmap(bitmap, endX - bitmap.width / 2, endY - bitmap.height, mArrowPaint)
+            canvas?.drawBitmap(mArrow, endX - mArrow.width.toFloat() / 2, endY - mArrow.height, mArrowPaint)
         } else {    // 从下往上画
             canvas?.drawLine(startX, startY, endX, endY + height, mArrowPaint)
-            matrix.setRotate(-90f, mArrow.width.toFloat() / 2, mArrow.height.toFloat() / 2)
-            val bitmap = Bitmap.createBitmap(mArrow, 0, 0, mArrow.width, mArrow.height, matrix, true)
-            canvas?.drawBitmap(bitmap, endX - bitmap.width / 2, endY, mArrowPaint)
+            canvas?.drawBitmap(mArrow, endX - mArrow.width.toFloat() / 2, endY, mArrowPaint)
+        }
+    }
+
+    /**
+     * 画斜线
+     * 这个地方需要用到三角函数来计算各个坐标，需要对着设计图理解，否则无法看懂逻辑
+     * 设计图：https://lanhuapp.com/web/#/item/project/detailDetach?pid=d8532a1c-268c-42fd-ac2d-25616f2a9379&image_id=7948e49e-e680-4171-96b8-5150df3b8918&project_id=d8532a1c-268c-42fd-ac2d-25616f2a9379&fromEditor=true&type=image
+     *
+     * point 3    point 5
+     */
+    private fun drawSideArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
+        canvas?.drawBitmap(mArrow, endX - mArrow.width, endY - mArrow.height.toFloat() / 2, mArrowPaint)
+        if (endY > startY) {
+            drawSideDownArrow(canvas, startX, startY, endX, endY)
+        } else {
+            drawSideUpArrow(canvas, startX, startY, endX, endY)
+        }
+    }
+
+    /**
+     * 绘制向上走的斜线
+     */
+    private fun drawSideUpArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
+        // x1与x6的值是写死的，x3 、x4 、x5 的值是变化的，需要计算
+        val x1 = sizeUtil.resetValue(45f)
+
+        val line2 = sizeUtil.resetValue(150f)
+        val lineSpace = sizeUtil.resetValue(50f)
+        val line4 = sizeUtil.resetValue(100f)
+
+        // x 方向上的偏移量
+        val dx = endX - x1 - startX
+        // y方向上的偏移量
+        val dy = startY - endY
+        val tan = dy.toDouble() / dx
+        // 整个走势的旋转角度 , toRadians弧度转角度
+        val angleWhole = Math.toDegrees(atan(tan))
+
+        // 线条的旋转角度
+        val x2 = line2 * cos(Math.toRadians(angleWhole))
+        val y2 = line2 * sin(Math.toRadians(angleWhole))
+
+        val angle = 135
+        val angle1 = 90 - angleWhole + 90 + angle
+        val x3 = lineSpace * cos(Math.toRadians(angle1))
+        val y3 = lineSpace * sin(Math.toRadians(angle1))
+
+        val x4 = line4 * cos(Math.toRadians(angleWhole))
+        val y4 = line4 * sin(Math.toRadians(angleWhole))
+
+        val angle2 = 360 - (angle - (90 - angleWhole) - 90)
+        val x5 = lineSpace * cos(Math.toRadians(angle2))
+        val y5 = lineSpace * sin(Math.toRadians(angle2))
+
+        val point0X = startX
+        val point0Y = startY
+
+        val point1X = startX + x1
+        val point1Y = startY + 0
+
+        val point2X = point1X + x2
+        val point2Y = point1Y - y2
+
+        val point3X = point2X + x3
+        val point3Y = point2Y + y3
+
+        val point4X = point3X + x4
+        val point4Y = point3Y - y4
+
+        val point5X = point4X + x5
+        val point5Y = point4Y + y5
+
+        val point6X = endX - mArrow.width
+        val point6Y = endY
+
+        Log.d("angleWhole", "ArcAngle:$angleWhole----ArcAngleDegree:${atan(tan)}" + " \n" +
+                "angle1:" + angle1 + " \n" +
+                "angle2:" + angle2 + " \n" +
+                "arcAngle1:" + Math.toRadians(angle1) + " \n" +
+                "arcAngle2:" + Math.toRadians(angle1) + " \n" +
+                "x1:" + x1 + " \n" +
+                "x2:" + x2 + " \n" +
+                "x3:" + x3 + " \n" +
+                "x4:" + x4 + " \n" +
+                "x5:" + x5 + " \n" +
+                "-----" + " \n" +
+                "y2:" + y2 + " \n" +
+                "y3:" + y3 + " \n" +
+                "y4:" + y4 + " \n" +
+                "y5:" + y5
+        )
+
+        canvas?.drawLine(point0X, point0Y, point1X, point1Y, mArrowPaint)
+        canvas?.drawLine(point1X, point1Y, point2X.toFloat(), point2Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point2X.toFloat(), point2Y.toFloat(), point3X.toFloat(), point3Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point3X.toFloat(), point3Y.toFloat(), point4X.toFloat(), point4Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point4X.toFloat(), point4Y.toFloat(), point5X.toFloat(), point5Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point5X.toFloat(), point5Y.toFloat(), point6X, point6Y, mArrowPaint)
+    }
+
+    /**
+     * 绘制向下走的斜线
+     */
+    private fun drawSideDownArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
+        // x1与x6的值是写死的，x3 、x4 、x5 的值是变化的，需要计算
+        val x1 = sizeUtil.resetValue(45f)
+
+        val line2 = sizeUtil.resetValue(150f)
+        val lineSpace = sizeUtil.resetValue(50f)
+        val line4 = sizeUtil.resetValue(100f)
+
+        // x 方向上的偏移量
+        val dx = endX - x1 - startX
+        // y方向上的偏移量
+        val dy = endY - startY
+        val tan = dy.toDouble() / dx
+        // 整个走势的旋转角度 , toRadians弧度转角度
+        val angleWhole = Math.toDegrees(atan(tan))
+
+        // 线条的旋转角度
+        val x2 = line2 * cos(Math.toRadians(angleWhole))
+        val y2 = line2 * sin(Math.toRadians(angleWhole))
+
+        val angle = 135
+        val angle1 = 90 - angleWhole + 90 + angle
+        val x3 = lineSpace * cos(Math.toRadians(angle1))
+        val y3 = lineSpace * sin(Math.toRadians(angle1))
+
+        val x4 = line4 * cos(Math.toRadians(angleWhole))
+        val y4 = line4 * sin(Math.toRadians(angleWhole))
+
+        val angle2 = 360 - (angle - (90 - angleWhole) - 90)
+        val x5 = lineSpace * cos(Math.toRadians(angle2))
+        val y5 = lineSpace * sin(Math.toRadians(angle2))
+
+        val point0X = startX
+        val point0Y = startY
+
+        val point1X = startX + x1
+        val point1Y = startY + 0
+
+        val point2X = point1X + x2
+        val point2Y = point1Y + y2
+
+        val point3X = point2X + x3
+        val point3Y = point2Y - y3
+
+        val point4X = point3X + x4
+        val point4Y = point3Y + y4
+
+        val point5X = point4X + x5
+        val point5Y = point4Y - y5
+
+        val point6X = endX - mArrow.width
+        val point6Y = endY
+
+        Log.d("angleWhole", "ArcAngle:$angleWhole----ArcAngleDegree:${atan(tan)}" + " \n" +
+                "angle1:" + angle1 + " \n" +
+                "angle2:" + angle2 + " \n" +
+                "arcAngle1:" + Math.toRadians(angle1) + " \n" +
+                "arcAngle2:" + Math.toRadians(angle1) + " \n" +
+                "x1:" + x1 + " \n" +
+                "x2:" + x2 + " \n" +
+                "x3:" + x3 + " \n" +
+                "x4:" + x4 + " \n" +
+                "x5:" + x5 + " \n" +
+                "-----" + " \n" +
+                "y2:" + y2 + " \n" +
+                "y3:" + y3 + " \n" +
+                "y4:" + y4 + " \n" +
+                "y5:" + y5
+        )
+
+        canvas?.drawLine(point0X, point0Y, point1X, point1Y, mArrowPaint)
+        canvas?.drawLine(point1X, point1Y, point2X.toFloat(), point2Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point2X.toFloat(), point2Y.toFloat(), point3X.toFloat(), point3Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point3X.toFloat(), point3Y.toFloat(), point4X.toFloat(), point4Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point4X.toFloat(), point4Y.toFloat(), point5X.toFloat(), point5Y.toFloat(), mArrowPaint)
+        canvas?.drawLine(point5X.toFloat(), point5Y.toFloat(), point6X, point6Y, mArrowPaint)
+    }
+
+
+    /**
+     * 画横线
+     */
+    private fun drawHorizontalArrow(canvas: Canvas?, arrowList: List<TreeArrow>) {
+        val adapter = mAdapter ?: return
+        arrowList.forEach { relation ->
+            val startX = (relation.startX + 1) * mItemWidth + relation.startX * adapter.getHorizontalStep(context) - adapter.getRightPadding()
+            val startY = relation.startY * mItemHeight + relation.startY * adapter.getVerticalStep(context) + adapter.getTopPadding() + (mItemHeight - adapter.getTopPadding() - adapter.getBottomPadding()) / 2
+            val endX = relation.endX * mItemWidth + relation.endX * adapter.getHorizontalStep(context) + adapter.getLeftPadding()
+            val endY = relation.endY * mItemHeight + relation.endY * adapter.getVerticalStep(context) + +adapter.getTopPadding() + (mItemHeight - adapter.getTopPadding() - adapter.getBottomPadding()) / 2
+            canvas?.drawLine(startX, startY, endX - mArrow.width, endY, mArrowPaint)
+            canvas?.drawBitmap(mArrow, endX - mArrow.width, endY - mArrow.height.toFloat() / 2, mArrowPaint)
         }
     }
 

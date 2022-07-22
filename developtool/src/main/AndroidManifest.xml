@@ -37,6 +37,7 @@
             android:name=".jetpack.paging3.Paging3Activity"
             android:exported="false" />
         <activity
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize|screenLayout"
             android:name=".tree.TreeViewActivity"
             android:exported="false" />
         <activity

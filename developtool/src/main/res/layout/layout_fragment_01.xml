@@ -14,7 +14,7 @@
         app:flingEnabled="true"
         app:hasClickableChildren="true"
         app:horizontalPanEnabled="true"
-        app:maxZoom="1.5"
+        app:maxZoom="50"
         app:maxZoomType="realZoom"
         app:minZoom="0.5"
         app:minZoomType="realZoom"

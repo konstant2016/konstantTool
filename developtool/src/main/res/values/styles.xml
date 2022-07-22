@@ -16,4 +16,10 @@
         <attr name="suffixDrawableOpen" format="reference" />
         <attr name="suffixDrawableClose" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="ShadowTextView">
+        <attr name="shadowAroundRadio" format="integer" />
+        <attr name="shadowAroundColor" format="color|reference" />
+    </declare-styleable>
+
 </resources>

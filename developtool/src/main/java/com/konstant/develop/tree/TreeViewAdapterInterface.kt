@@ -44,11 +44,37 @@ interface TreeViewAdapterInterface {
     fun getVerticalStep(context: Context): Float
 
     /**
+     * 获取卡片上间距
+     */
+    fun getTopPadding(): Float
+
+    /**
+     * 获取卡片下间距
+     */
+    fun getBottomPadding(): Float
+
+    /**
+     * 获取卡片左间距
+     */
+    fun getLeftPadding(): Float
+
+    /**
+     * 获取卡片右间距
+     */
+    fun getRightPadding(): Float
+
+    /**
      * 获取箭头对齐高度
      * 产品要求箭头只能对齐到图片中心，而不是对齐到文字中心
      * 因此这里返回的是图片一半的高度
      */
     fun getAlignHeight(context: Context): Float
+
+    /**
+     * 获取标签的高度
+     * 在二级页面时，会添加一个上次学到这儿的标签
+     */
+    fun getTagHeight(context: Context): Float
 }
 
 data class TreeNode(
