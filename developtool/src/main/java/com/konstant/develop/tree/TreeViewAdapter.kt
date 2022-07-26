@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import com.konstant.develop.R
 import com.konstant.develop.getScreenWidth
 import com.konstant.develop.utils.SizeUtil
@@ -75,6 +74,8 @@ class AdapterTreeView : TreeViewAdapterInterface {
                 mItemClickListener?.invoke(index)
             }
         }
+        view.findViewById<StarLayoutView>(R.id.star_view).setTotalCount(4)
+        view.findViewById<StarLayoutView>(R.id.star_view).setStarCount(2)
         return view
     }
 

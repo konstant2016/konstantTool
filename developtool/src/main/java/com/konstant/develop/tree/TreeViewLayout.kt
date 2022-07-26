@@ -223,85 +223,74 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
      */
     private fun drawSideArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
         canvas?.drawBitmap(mArrow, endX - mArrow.width, endY - mArrow.height.toFloat() / 2, mArrowPaint)
-        if (endY > startY) {
-            drawSideDownArrow(canvas, startX, startY, endX, endY)
+        val isUp = endY < startY
+        // x1与x6的值是写死的，x3 、x4 、x5 的值是变化的，需要计算
+        val x1 = sizeUtil.resetValue(45f)
+
+        val line2 = sizeUtil.resetValue(208f)
+        val lineSpace = sizeUtil.resetValue(22f)
+        val line4 = sizeUtil.resetValue(68f)
+
+        // x 方向上的偏移量
+        val dx = endX - x1 - startX
+        // y方向上的偏移量
+        val dy = abs(startY - endY)
+        val tan = dy.toDouble() / dx
+        // 整个走势的旋转角度 , toRadians弧度转角度
+        val angleWhole = Math.toDegrees(atan(tan))
+
+        // 线条的旋转角度
+        val x2 = line2 * cos(Math.toRadians(angleWhole))
+        val y2 = line2 * sin(Math.toRadians(angleWhole))
+
+        val angle = 135
+        val angle1 = 90 - angleWhole + 90 + angle
+        val x3 = lineSpace * cos(Math.toRadians(angle1))
+        val y3 = lineSpace * sin(Math.toRadians(angle1))
+
+        val x4 = line4 * cos(Math.toRadians(angleWhole))
+        val y4 = line4 * sin(Math.toRadians(angleWhole))
+
+        val angle2 = 360 - (angle - (90 - angleWhole) - 90)
+        val x5 = lineSpace * cos(Math.toRadians(angle2))
+        val y5 = lineSpace * sin(Math.toRadians(angle2))
+
+        val point0X = startX
+        val point0Y = startY
+
+        val point1X = startX + x1
+        val point1Y = startY + 0
+
+        val point2X = point1X + x2
+        val point2Y = if (isUp) {
+            point1Y - y2
         } else {
-            drawSideUpArrow(canvas, startX, startY, endX, endY)
+            point1Y + y2
         }
-    }
-
-    /**
-     * 绘制向上走的斜线
-     */
-    private fun drawSideUpArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
-        // x1与x6的值是写死的，x3 、x4 、x5 的值是变化的，需要计算
-        val x1 = sizeUtil.resetValue(45f)
-
-        val line2 = sizeUtil.resetValue(150f)
-        val lineSpace = sizeUtil.resetValue(50f)
-        val line4 = sizeUtil.resetValue(100f)
-
-        // x 方向上的偏移量
-        val dx = endX - x1 - startX
-        // y方向上的偏移量
-        val dy = startY - endY
-        val tan = dy.toDouble() / dx
-        // 整个走势的旋转角度 , toRadians弧度转角度
-        val angleWhole = Math.toDegrees(atan(tan))
-
-        // 线条的旋转角度
-        val x2 = line2 * cos(Math.toRadians(angleWhole))
-        val y2 = line2 * sin(Math.toRadians(angleWhole))
-
-        val angle = 135
-        val angle1 = 90 - angleWhole + 90 + angle
-        val x3 = lineSpace * cos(Math.toRadians(angle1))
-        val y3 = lineSpace * sin(Math.toRadians(angle1))
-
-        val x4 = line4 * cos(Math.toRadians(angleWhole))
-        val y4 = line4 * sin(Math.toRadians(angleWhole))
-
-        val angle2 = 360 - (angle - (90 - angleWhole) - 90)
-        val x5 = lineSpace * cos(Math.toRadians(angle2))
-        val y5 = lineSpace * sin(Math.toRadians(angle2))
-
-        val point0X = startX
-        val point0Y = startY
-
-        val point1X = startX + x1
-        val point1Y = startY + 0
-
-        val point2X = point1X + x2
-        val point2Y = point1Y - y2
 
         val point3X = point2X + x3
-        val point3Y = point2Y + y3
+        val point3Y = if (isUp) {
+            point2Y + y3
+        } else {
+            point2Y - y3
+        }
 
         val point4X = point3X + x4
-        val point4Y = point3Y - y4
+        val point4Y = if (isUp) {
+            point3Y - y4
+        } else {
+            point3Y + y4
+        }
 
         val point5X = point4X + x5
-        val point5Y = point4Y + y5
+        val point5Y = if (isUp) {
+            point4Y + y5
+        } else {
+            point4Y - y5
+        }
 
         val point6X = endX - mArrow.width
         val point6Y = endY
-
-        Log.d("angleWhole", "ArcAngle:$angleWhole----ArcAngleDegree:${atan(tan)}" + " \n" +
-                "angle1:" + angle1 + " \n" +
-                "angle2:" + angle2 + " \n" +
-                "arcAngle1:" + Math.toRadians(angle1) + " \n" +
-                "arcAngle2:" + Math.toRadians(angle1) + " \n" +
-                "x1:" + x1 + " \n" +
-                "x2:" + x2 + " \n" +
-                "x3:" + x3 + " \n" +
-                "x4:" + x4 + " \n" +
-                "x5:" + x5 + " \n" +
-                "-----" + " \n" +
-                "y2:" + y2 + " \n" +
-                "y3:" + y3 + " \n" +
-                "y4:" + y4 + " \n" +
-                "y5:" + y5
-        )
 
         canvas?.drawLine(point0X, point0Y, point1X, point1Y, mArrowPaint)
         canvas?.drawLine(point1X, point1Y, point2X.toFloat(), point2Y.toFloat(), mArrowPaint)
@@ -310,88 +299,6 @@ class TreeViewLayout @JvmOverloads constructor(context: Context, attrs: Attribut
         canvas?.drawLine(point4X.toFloat(), point4Y.toFloat(), point5X.toFloat(), point5Y.toFloat(), mArrowPaint)
         canvas?.drawLine(point5X.toFloat(), point5Y.toFloat(), point6X, point6Y, mArrowPaint)
     }
-
-    /**
-     * 绘制向下走的斜线
-     */
-    private fun drawSideDownArrow(canvas: Canvas?, startX: Float, startY: Float, endX: Float, endY: Float) {
-        // x1与x6的值是写死的，x3 、x4 、x5 的值是变化的，需要计算
-        val x1 = sizeUtil.resetValue(45f)
-
-        val line2 = sizeUtil.resetValue(150f)
-        val lineSpace = sizeUtil.resetValue(50f)
-        val line4 = sizeUtil.resetValue(100f)
-
-        // x 方向上的偏移量
-        val dx = endX - x1 - startX
-        // y方向上的偏移量
-        val dy = endY - startY
-        val tan = dy.toDouble() / dx
-        // 整个走势的旋转角度 , toRadians弧度转角度
-        val angleWhole = Math.toDegrees(atan(tan))
-
-        // 线条的旋转角度
-        val x2 = line2 * cos(Math.toRadians(angleWhole))
-        val y2 = line2 * sin(Math.toRadians(angleWhole))
-
-        val angle = 135
-        val angle1 = 90 - angleWhole + 90 + angle
-        val x3 = lineSpace * cos(Math.toRadians(angle1))
-        val y3 = lineSpace * sin(Math.toRadians(angle1))
-
-        val x4 = line4 * cos(Math.toRadians(angleWhole))
-        val y4 = line4 * sin(Math.toRadians(angleWhole))
-
-        val angle2 = 360 - (angle - (90 - angleWhole) - 90)
-        val x5 = lineSpace * cos(Math.toRadians(angle2))
-        val y5 = lineSpace * sin(Math.toRadians(angle2))
-
-        val point0X = startX
-        val point0Y = startY
-
-        val point1X = startX + x1
-        val point1Y = startY + 0
-
-        val point2X = point1X + x2
-        val point2Y = point1Y + y2
-
-        val point3X = point2X + x3
-        val point3Y = point2Y - y3
-
-        val point4X = point3X + x4
-        val point4Y = point3Y + y4
-
-        val point5X = point4X + x5
-        val point5Y = point4Y - y5
-
-        val point6X = endX - mArrow.width
-        val point6Y = endY
-
-        Log.d("angleWhole", "ArcAngle:$angleWhole----ArcAngleDegree:${atan(tan)}" + " \n" +
-                "angle1:" + angle1 + " \n" +
-                "angle2:" + angle2 + " \n" +
-                "arcAngle1:" + Math.toRadians(angle1) + " \n" +
-                "arcAngle2:" + Math.toRadians(angle1) + " \n" +
-                "x1:" + x1 + " \n" +
-                "x2:" + x2 + " \n" +
-                "x3:" + x3 + " \n" +
-                "x4:" + x4 + " \n" +
-                "x5:" + x5 + " \n" +
-                "-----" + " \n" +
-                "y2:" + y2 + " \n" +
-                "y3:" + y3 + " \n" +
-                "y4:" + y4 + " \n" +
-                "y5:" + y5
-        )
-
-        canvas?.drawLine(point0X, point0Y, point1X, point1Y, mArrowPaint)
-        canvas?.drawLine(point1X, point1Y, point2X.toFloat(), point2Y.toFloat(), mArrowPaint)
-        canvas?.drawLine(point2X.toFloat(), point2Y.toFloat(), point3X.toFloat(), point3Y.toFloat(), mArrowPaint)
-        canvas?.drawLine(point3X.toFloat(), point3Y.toFloat(), point4X.toFloat(), point4Y.toFloat(), mArrowPaint)
-        canvas?.drawLine(point4X.toFloat(), point4Y.toFloat(), point5X.toFloat(), point5Y.toFloat(), mArrowPaint)
-        canvas?.drawLine(point5X.toFloat(), point5Y.toFloat(), point6X, point6Y, mArrowPaint)
-    }
-
 
     /**
      * 画横线
