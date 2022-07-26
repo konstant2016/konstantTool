@@ -28,13 +28,12 @@
         app:transformationGravity="auto"
         app:twoFingersScrollEnabled="true"
         app:verticalPanEnabled="true"
-        app:zoomEnabled="true">
+        app:zoomEnabled="true" />
 
-        <com.konstant.develop.tree.TreeViewLayout
-            android:id="@+id/tree_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </com.otaliastudios.zoom.ZoomLayout>
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="刷新" />
 
 </RelativeLayout>

@@ -2,6 +2,8 @@ package com.konstant.develop.tree
 
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.gson.Gson
 import com.konstant.develop.R
 import com.konstant.develop.base.BaseActivity
+import com.otaliastudios.zoom.ZoomApi
 import kotlinx.android.synthetic.main.activity_tree_view.*
 import kotlinx.android.synthetic.main.layout_fragment_01.*
 
@@ -37,13 +40,33 @@ class TreeViewActivity : BaseActivity() {
 
             override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
                 super.onViewCreated(view, savedInstanceState)
+                btn_refresh.setOnClickListener { refreshTreeView() }
+            }
+
+            private fun refreshTreeView(){
                 val readBytes = assets.open("JSON.json").readBytes()
                 val json = String(readBytes)
                 val data = Gson().fromJson(json, Response::class.java)
+
+                zoom_layout.removeAllViews()
+                zoom_layout.engine.clear()
+                zoom_layout.engine.setMaxZoom(0.7f, ZoomApi.TYPE_REAL_ZOOM)
+                zoom_layout.engine.setMinZoom(0.7f, ZoomApi.TYPE_REAL_ZOOM)
+
+                val treeView = TreeViewLayout(view!!.context)
+                val layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                zoom_layout.addView(treeView, layoutParams)
+
                 val adapter = AdapterTreeView()
                 adapter.setData()
-                tree_view.setAdapter(adapter)
+                treeView.setAdapter(adapter)
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    zoom_layout.engine.setMaxZoom(30f, ZoomApi.TYPE_REAL_ZOOM)
+//                    zoom_layout.engine.setMinZoom(0.1f, ZoomApi.TYPE_REAL_ZOOM)
+                }, 1000)
             }
+
         }
 
         val fragment1 = Fragment1()
