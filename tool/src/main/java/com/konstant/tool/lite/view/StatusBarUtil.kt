@@ -47,7 +47,17 @@ object StatusBarUtil {
      * 设置导航栏颜色
      */
     fun setNavigationBarColor(window: Window, color: Int) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         window.navigationBarColor = color
+        val darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255
+        // 大于 0.5 表示亮
+        if (darkness < 0.5) {
+            val flag = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+            window.decorView.systemUiVisibility = flag
+        } else {
+            val flag = View.SYSTEM_UI_FLAG_VISIBLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+            window.decorView.systemUiVisibility = flag
+        }
     }
 
     /**
