@@ -267,6 +267,15 @@
                 android:gravity="center"
                 android:text="打开MotionLayout页面" />
 
+            <TextView
+                android:id="@+id/btn_status"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_selector_btn"
+                android:gravity="center"
+                android:text="打开状态栏测试页面" />
+
         </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

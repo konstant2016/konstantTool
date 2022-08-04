@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f0"
+    android:orientation="vertical"
+    android:paddingStart="50dp">
+
+    <CheckBox
+        android:id="@+id/btn_status_color"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置状态栏图标颜色（选中则为白色）" />
+
+    <CheckBox
+        android:id="@+id/btn_status_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置状态栏背景色(选中则为绿色)" />
+
+    <CheckBox
+        android:id="@+id/btn_navigation_color"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置导航栏颜色(选中则为白色)" />
+
+    <CheckBox
+        android:id="@+id/btn_navigation_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置导航栏背景色（选中则为绿色）" />
+
+    <CheckBox
+        android:id="@+id/btn_full_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置全屏（同时隐藏状态栏和导航栏）" />
+
+    <CheckBox
+        android:id="@+id/btn_fit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="设置沉浸(选中则会往下顶)" />
+
+    <CheckBox
+        android:id="@+id/btn_draw_background"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="绘制到状态栏里面" />
+
+    <Button
+        android:id="@+id/btn_status_height"
+        android:text="获取状态栏高度"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/btn_navigation_height"
+        android:text="获取导航栏高度"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
+
+</LinearLayout>

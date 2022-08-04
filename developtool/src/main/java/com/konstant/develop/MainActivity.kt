@@ -128,6 +128,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, JetpackAnimationActivity::class.java)
             startActivity(intent)
         }
+        btn_status.setOnClickListener {
+            val intent = Intent(this, StatusBarActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun openApp(packageName: String) {

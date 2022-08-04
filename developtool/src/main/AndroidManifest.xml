@@ -31,14 +31,18 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".StatusBarActivity"
+            android:exported="false" />
+        <activity
             android:name=".jetpack.animation.JetpackAnimationActivity"
             android:exported="false" />
         <activity
             android:name=".jetpack.paging3.Paging3Activity"
             android:exported="false" />
         <activity
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize|screenLayout"
             android:name=".tree.TreeViewActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize|screenLayout"
             android:exported="false" />
         <activity
             android:name=".dsl.DSLRenderResultActivity"
