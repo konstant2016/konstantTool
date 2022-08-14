@@ -63,4 +63,8 @@ dependencies {
     // 分页加载
     implementation 'androidx.paging:paging-runtime:3.1.1'
     implementation "androidx.paging:paging-rxjava2:3.1.1"
+
+    // workManager
+    implementation "androidx.work:work-runtime-ktx:2.3.4"//kotlin 选这个
+    implementation "androidx.work:work-rxjava2:2.3.4"//配合rxjava2 使用
 }
