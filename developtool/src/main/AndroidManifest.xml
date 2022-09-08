@@ -31,9 +31,17 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:name=".StatusBarActivity"
+            android:name=".cache.GlideCacheActivity"
             android:exported="false" />
+        <activity
+            android:name=".quickstep.QuickStepActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".StatusBarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".jetpack.animation.JetpackAnimationActivity"
             android:exported="false" />

@@ -224,31 +224,31 @@
                 android:textSize="14sp" />
 
             <ImageView
-                android:id="@+id/img_star"
+                android:id="@+id/img_star0"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/arena_star_full" />
 
             <ImageView
-                android:id="@+id/img_star"
+                android:id="@+id/img_star1"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/arena_star_full" />
 
             <ImageView
-                android:id="@+id/img_star"
+                android:id="@+id/img_star2"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/arena_star_full" />
 
             <ImageView
-                android:id="@+id/img_star"
+                android:id="@+id/img_star3"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/arena_star_empty" />
 
             <ImageView
-                android:id="@+id/img_star"
+                android:id="@+id/img_star4"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/arena_star_empty" />

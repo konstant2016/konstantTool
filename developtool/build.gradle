@@ -64,7 +64,13 @@ dependencies {
     implementation 'androidx.paging:paging-runtime:3.1.1'
     implementation "androidx.paging:paging-rxjava2:3.1.1"
 
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
     // workManager
-    implementation "androidx.work:work-runtime-ktx:2.3.4"//kotlin 选这个
-    implementation "androidx.work:work-rxjava2:2.3.4"//配合rxjava2 使用
+    implementation('androidx.work:work-runtime-ktx:2.3.4')
+    //配合rxjava2 使用
+    implementation('androidx.work:work-rxjava2:2.3.4')
+
+    // 为了解决guava冲突，专门引入的
+    implementation 'com.google.guava:guava:27.0.1-android'
 }

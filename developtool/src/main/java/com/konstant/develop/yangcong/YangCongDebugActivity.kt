@@ -42,6 +42,14 @@ class YangCongDebugActivity : BaseActivity() {
             startActivity(intent)
         }
 
+        btn_launcher_b.setOnClickListener {
+            val component = ComponentName("com.yangcong345.onionschool", "com.yangcong345.main.phone.presentation.activity.pad_launcher.PadLauncherActivity")
+            val intent = Intent()
+            intent.component = component
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+
         registerBroadCast()
     }
 

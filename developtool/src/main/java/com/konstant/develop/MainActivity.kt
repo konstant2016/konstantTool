@@ -5,8 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.text.SpannableString
-import android.text.Spanned
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
@@ -16,9 +14,11 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.konstant.develop.bitmap.BitmapActivity
+import com.konstant.develop.cache.GlideCacheActivity
 import com.konstant.develop.dsl.DSLActivity
 import com.konstant.develop.jetpack.animation.JetpackAnimationActivity
 import com.konstant.develop.jetpack.paging3.Paging3Activity
+import com.konstant.develop.quickstep.QuickStepActivity
 import com.konstant.develop.tree.TreeViewActivity
 import com.konstant.develop.x5.SystemWebActivity
 import com.konstant.develop.x5.TencentX5Activity
@@ -130,6 +130,14 @@ class MainActivity : AppCompatActivity() {
         }
         btn_status.setOnClickListener {
             val intent = Intent(this, StatusBarActivity::class.java)
+            startActivity(intent)
+        }
+        btn_quick.setOnClickListener {
+            val intent = Intent(this, QuickStepActivity::class.java)
+            startActivity(intent)
+        }
+        btn_cache.setOnClickListener {
+            val intent = Intent(this, GlideCacheActivity::class.java)
             startActivity(intent)
         }
     }

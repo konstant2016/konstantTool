@@ -179,8 +179,8 @@
             <com.konstant.develop.DrawableTextView
                 android:id="@+id/tv_multi"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="100dp"
+                android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/btn_scheme"
                 app:selectedDrawable="@drawable/icon_weixuanzhong"
                 app:selectedText="数学"
@@ -188,95 +188,120 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:background="@color/white">
 
-            <TextView
-                android:id="@+id/btn_x5"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开X5内核" />
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
 
-            <TextView
-                android:id="@+id/btn_system"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开系统内核" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/btn_bitmap"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="Bitmap调试页面" />
+                <TextView
+                    android:id="@+id/btn_x5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开X5内核" />
 
-            <TextView
-                android:id="@+id/btn_dsl"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开DSL页面" />
+                <TextView
+                    android:id="@+id/btn_system"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开系统内核" />
 
-            <TextView
-                android:id="@+id/btn_yc_debug"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开洋葱调试页面" />
+                <TextView
+                    android:id="@+id/btn_bitmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="Bitmap调试页面" />
 
-            <TextView
-                android:id="@+id/btn_tree_view"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开拓扑图页面" />
+                <TextView
+                    android:id="@+id/btn_dsl"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开DSL页面" />
 
-            <TextView
-                android:id="@+id/btn_paging3"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开分页加载页面" />
+                <TextView
+                    android:id="@+id/btn_yc_debug"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开洋葱调试页面" />
 
-            <TextView
-                android:id="@+id/btn_motion"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开MotionLayout页面" />
+                <TextView
+                    android:id="@+id/btn_tree_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开拓扑图页面" />
 
-            <TextView
-                android:id="@+id/btn_status"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bg_selector_btn"
-                android:gravity="center"
-                android:text="打开状态栏测试页面" />
+                <TextView
+                    android:id="@+id/btn_paging3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开分页加载页面" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/btn_motion"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开MotionLayout页面" />
+
+                <TextView
+                    android:id="@+id/btn_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开状态栏测试页面" />
+
+                <TextView
+                    android:id="@+id/btn_quick"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开快进动画页面" />
+
+                <TextView
+                    android:id="@+id/btn_cache"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开图片缓存页面" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

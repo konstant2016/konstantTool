@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.konstant.develop.quickstep.LeftQuickWave
+        android:id="@+id/layout_left"
+        android:layout_width="300dp"
+        android:layout_height="match_parent" />
+
+    <com.konstant.develop.quickstep.RightQuickWave
+        android:id="@+id/layout_right"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
