@@ -123,9 +123,13 @@ class StockActivity : BaseActivity() {
             .createDialog()
     }
 
+    override fun onPause() {
+        super.onPause()
+        StockManager.saveToLocal(this)
+    }
 
     override fun onDestroy() {
-        StockManager.onDestroy(this)
+        StockManager.saveToLocal(this)
         super.onDestroy()
     }
 

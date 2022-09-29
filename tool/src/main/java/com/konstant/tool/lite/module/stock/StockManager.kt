@@ -41,7 +41,7 @@ object StockManager {
         }
     }
 
-    fun onDestroy(context: Context) {
+    fun saveToLocal(context: Context) {
         saveStock(context)
         saveStockHistory(context)
     }
