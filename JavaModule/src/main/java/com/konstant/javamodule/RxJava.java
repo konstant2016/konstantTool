@@ -1,12 +1,13 @@
 package com.konstant.javamodule;
 
-import com.konstant.javamodule.function.YCFormatter;
-
-import java.util.Locale;
-
 public class RxJava {
+
     public static void main(String[] args) {
-        String S = YCFormatter.formatFileSize(8161068L, Locale.US);
-        System.out.println(S);
+        String abc = "a|b|c|defg";
+        String[] split = abc.split("");
+        System.out.println(split.length);
+        for (int i = 0; i < split.length; i++) {
+            System.out.println(split[i]);
+        }
     }
 }

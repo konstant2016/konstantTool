@@ -2,11 +2,8 @@ package com.yangcong345.kratos.render
 
 import com.google.android.flexbox.*
 import com.google.gson.Gson
-import com.google.gson.internal.LinkedTreeMap
 import com.google.gson.reflect.TypeToken
-import com.yangcong345.kratos.utils.GsonUtil
 import java.io.Serializable
-import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 data class RenderStyle(
     val viewId: String,
@@ -20,8 +17,8 @@ data class RenderStyle(
 
     fun <T> getViewStyle(clazz: Class<T>): T? {
         if (viewStyle == null) return null
-        val dataStr= GsonUtil.safeGson.toJson(viewStyle)
-        return GsonUtil.safeGson.fromJson(dataStr, clazz)
+        val dataStr= Gson().toJson(viewStyle)
+        return Gson().fromJson(dataStr, clazz)
     }
 
     fun <T> getDataSource(clazz: Class<T>): T? {

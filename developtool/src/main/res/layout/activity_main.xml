@@ -299,6 +299,24 @@
                     android:gravity="center"
                     android:text="打开图片缓存页面" />
 
+                <TextView
+                    android:id="@+id/btn_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开PAGE-START页面" />
+
+                <TextView
+                    android:id="@+id/btn_lottie"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开Lottie测试页面" />
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

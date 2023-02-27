@@ -31,13 +31,22 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
+            android:name=".LottieDebugActivity"
+            android:exported="false" />
+        <activity
+            android:name=".debug.PageStartDebugActivity"
+            android:exported="false" />
+        <activity
+            android:name=".coroutine.CoroutineActivity"
+            android:exported="false" />
+        <activity
             android:name=".cache.GlideCacheActivity"
             android:exported="false" />
         <activity
             android:name=".quickstep.QuickStepActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".StatusBarActivity"
             android:exported="false"

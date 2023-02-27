@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
+import com.konstant.tool.lite.module.stock.StockManager
 import kotlinx.android.synthetic.main.fragment_stock_history_horizontal.*
 
 /**
@@ -51,6 +52,7 @@ class StockHorizontalHistoryFragment : BaseFragment() {
         super.onResume()
         val year = arguments?.getInt(KEY_YEAR) ?: -1
         val month = arguments?.getInt(KEY_MONTH) ?: -1
+        StockManager.setCurrentDate("$year-$month")
         val title = "$year - $month "
         setTitle(title)
     }

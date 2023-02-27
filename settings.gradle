@@ -7,3 +7,5 @@ include ':kratos'
 
 
 include ':widget'
+include ':tinkerfix'
+include ':videoplayerdebug'

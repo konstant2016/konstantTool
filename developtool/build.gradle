@@ -73,4 +73,6 @@ dependencies {
 
     // 为了解决guava冲突，专门引入的
     implementation 'com.google.guava:guava:27.0.1-android'
+
+    implementation 'com.airbnb.android:lottie:3.4.0'
 }

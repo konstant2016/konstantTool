@@ -7,6 +7,8 @@ import com.konstant.tool.lite.data.bean.stock.StockData
 import com.konstant.tool.lite.data.bean.stock.StockHistory
 import com.konstant.tool.lite.util.FileUtil
 import java.util.*
+import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
 import kotlin.collections.ArrayList
 
 object StockManager {
@@ -15,6 +17,7 @@ object StockManager {
     private const val NAME_STOCK_HISTORY = "StockHistory"
     private val mStockList = ArrayList<StockData>()
     private val mHistoryList = ArrayList<StockHistory>()
+    private val currentDate = AtomicReference("")
 
     fun onCreate(context: Context) {
         createStock(context)
@@ -102,4 +105,13 @@ object StockManager {
         mHistoryList.addAll(array)
         saveStockHistory(context)
     }
+
+    fun getCurrentDate(): String {
+        return currentDate.get()
+    }
+
+    fun setCurrentDate(date: String) {
+        currentDate.set(date)
+    }
+
 }

@@ -8,11 +8,11 @@ import androidx.viewpager.widget.ViewPager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.module.stock.AdapterViewPager
+import com.konstant.tool.lite.module.stock.StockManager
 import com.konstant.tool.lite.module.stock.StockViewModel
 import com.konstant.tool.lite.view.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_stock_month.*
 import kotlinx.android.synthetic.main.title_layout.*
-import java.util.*
 
 /**
  * 时间：2021/6/5 20:42
@@ -56,14 +56,12 @@ class StockHorizontalHistoryActivity : BaseActivity() {
     }
 
     /**
-     * 跳到当前月份
+     * 跳到传过来的月份
      */
     private fun setUpCurrentMonth(keys: Set<String>,viewPager: ViewPager) {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val index = keys.indexOfFirst { it == "$year-$month" }
         try {
+            val currentDate = StockManager.getCurrentDate()
+            val index = keys.indexOfFirst { it == currentDate }
             viewPager.setCurrentItem(index,true)
         } catch (e: Exception) {
             e.printStackTrace()
