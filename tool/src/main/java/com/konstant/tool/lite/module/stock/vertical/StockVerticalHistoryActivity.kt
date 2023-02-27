@@ -13,7 +13,9 @@ import com.konstant.tool.lite.module.stock.AdapterViewPager
 import com.konstant.tool.lite.module.stock.StockManager
 import com.konstant.tool.lite.module.stock.StockViewModel
 import com.konstant.tool.lite.module.stock.horizontal.StockHorizontalHistoryActivity
+import kotlinx.android.synthetic.main.activity_stock_month.*
 import kotlinx.android.synthetic.main.activity_stock_vertical_history.*
+import kotlinx.android.synthetic.main.activity_stock_vertical_history.view_pager
 import kotlinx.android.synthetic.main.title_layout.*
 import java.util.*
 
@@ -74,6 +76,10 @@ class StockVerticalHistoryActivity : BaseActivity() {
         showLoading(false)
         val fragmentAdapter = AdapterViewPager(supportFragmentManager, fragmentList)
         view_pager.adapter = fragmentAdapter
+        if (fragmentList.size < 15){
+            title_indicator.setViewPager(view_pager)
+            return
+        }
         view_pager.addOnPageChangeListener(object :BasePagerChangeListener(){
             override fun onPageSelected(position: Int) {
                 val total = fragmentList.size

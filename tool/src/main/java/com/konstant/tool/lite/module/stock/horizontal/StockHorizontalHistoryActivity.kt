@@ -55,6 +55,10 @@ class StockHorizontalHistoryActivity : BaseActivity() {
         showLoading(false)
         val fragmentAdapter = AdapterViewPager(supportFragmentManager, fragmentList)
         view_pager.adapter = fragmentAdapter
+        if (fragmentList.size < 15){
+            title_indicator.setViewPager(view_pager)
+            return
+        }
         view_pager.addOnPageChangeListener(object : BasePagerChangeListener(){
             override fun onPageSelected(position: Int) {
                 val total = fragmentList.size
