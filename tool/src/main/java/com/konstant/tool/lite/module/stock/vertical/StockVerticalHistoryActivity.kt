@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseActivity
+import com.konstant.tool.lite.base.BasePagerChangeListener
 import com.konstant.tool.lite.module.stock.AdapterViewPager
 import com.konstant.tool.lite.module.stock.StockManager
 import com.konstant.tool.lite.module.stock.StockViewModel
@@ -73,7 +74,13 @@ class StockVerticalHistoryActivity : BaseActivity() {
         showLoading(false)
         val fragmentAdapter = AdapterViewPager(supportFragmentManager, fragmentList)
         view_pager.adapter = fragmentAdapter
-        title_indicator.setViewPager(view_pager)
+        view_pager.addOnPageChangeListener(object :BasePagerChangeListener(){
+            override fun onPageSelected(position: Int) {
+                val total = fragmentList.size
+                val current = view_pager.currentItem + 1
+                setSubTitle("$current / $total")
+            }
+        })
     }
 
     /**
