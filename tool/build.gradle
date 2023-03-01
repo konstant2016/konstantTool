@@ -4,6 +4,20 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
 
+    signingConfigs {
+        debug {
+            storeFile file('/Users/konstant/StudioProjects/KonstantTools/konstantkey.keystore')
+            storePassword 'konstant'
+            keyAlias 'konstant'
+            keyPassword 'konstant'
+        }
+        release {
+            storeFile file('/Users/konstant/StudioProjects/KonstantTools/konstantkey.keystore')
+            storePassword 'konstant'
+            keyAlias 'konstant'
+            keyPassword 'konstant'
+        }
+    }
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.konstant.tool.lite"

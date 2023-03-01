@@ -7,6 +7,7 @@ import com.konstant.tool.lite.data.bean.stock.StockData
 import com.konstant.tool.lite.data.bean.stock.StockHistory
 import com.konstant.tool.lite.util.FileUtil
 import java.util.*
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.collections.ArrayList
@@ -18,6 +19,8 @@ object StockManager {
     private val mStockList = ArrayList<StockData>()
     private val mHistoryList = ArrayList<StockHistory>()
     private val currentDate = AtomicReference("")
+    // 用来控制横屏时，每个item走到resume时，显示上面的月份还是下面的图表
+    private val showMoth = AtomicBoolean(true)
 
     fun onCreate(context: Context) {
         createStock(context)
@@ -112,6 +115,14 @@ object StockManager {
 
     fun setCurrentDate(date: String) {
         currentDate.set(date)
+    }
+
+    fun setShowMonth(show:Boolean){
+        showMoth.set(show)
+    }
+
+    fun getShowMonth():Boolean{
+        return showMoth.get()
     }
 
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.konstant.tool.lite.R
 import com.konstant.tool.lite.base.BaseFragment
 import com.konstant.tool.lite.module.stock.StockManager
@@ -32,6 +33,12 @@ class StockHorizontalHistoryFragment : BaseFragment() {
         }
     }
 
+    private val pageChangeCallback = object :OnPageChangeCallback(){
+        override fun onPageSelected(position: Int) {
+            StockManager.setShowMonth(position == 0)
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_stock_history_horizontal, container, false)
     }
@@ -55,5 +62,12 @@ class StockHorizontalHistoryFragment : BaseFragment() {
         StockManager.setCurrentDate("$year-$month")
         val title = "$year - $month "
         setTitle(title)
+        if (StockManager.getShowMonth()){
+            view_pager2.setCurrentItem(0,true)
+        }else{
+            view_pager2.setCurrentItem(1,true)
+        }
+        view_pager2.unregisterOnPageChangeCallback(pageChangeCallback)
+        view_pager2.registerOnPageChangeCallback(pageChangeCallback)
     }
 }
