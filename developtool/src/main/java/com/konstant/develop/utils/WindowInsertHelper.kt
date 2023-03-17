@@ -1,6 +1,5 @@
 package com.konstant.develop.utils
 
-import android.app.Activity
 import android.graphics.Color
 import android.view.View
 import android.view.Window
@@ -16,9 +15,8 @@ object WindowInsertHelper {
      * invadeStatusBar：true 侵入到状态栏，false不侵入
      * invadeNavigationBar：true 侵入到导航栏，false不侵入
      */
-    fun setInvadeSystemBar(activity: Activity, invadeStatusBar: Boolean, invadeNavigationBar: Boolean) {
-        WindowCompat.setDecorFitsSystemWindows(activity.window, false)
-        val window = activity.window
+    fun setInvadeSystemBar(window: Window, invadeStatusBar: Boolean, invadeNavigationBar: Boolean) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         val topPadding = if (invadeStatusBar) {
             setStatusBarBackgroundColor(window, Color.TRANSPARENT)
             0
@@ -31,9 +29,29 @@ object WindowInsertHelper {
         } else {
             getNavigationBarHeight(window)
         }
-        val content = activity.findViewById<View>(android.R.id.content) ?: return
+        val content = window.findViewById<View>(android.R.id.content) ?: return
         content.post {
             content.setPadding(0, topPadding, 0, bottomPadding)
+        }
+    }
+
+    /**
+     * 已验证
+     * 显示状态栏和导航栏
+     */
+    fun showWindowControl(window: Window, showStatus: Boolean, showNavigation: Boolean) {
+        val controller = WindowCompat.getInsetsController(window, window.decorView) ?: return
+        if (showStatus) {
+            controller.show(WindowInsetsCompat.Type.statusBars())
+        } else {
+            controller.hide(WindowInsetsCompat.Type.statusBars())
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+        if (showNavigation) {
+            controller.show(WindowInsetsCompat.Type.navigationBars())
+        } else {
+            controller.hide(WindowInsetsCompat.Type.navigationBars())
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 
@@ -76,26 +94,6 @@ object WindowInsertHelper {
         controller.isAppearanceLightNavigationBars = isWhite
     }
 
-    /**
-     * 已验证
-     * 显示状态栏和导航栏
-     */
-    fun showWindowControl(window: Window, showStatus: Boolean, showNavigation: Boolean) {
-        val controller = WindowCompat.getInsetsController(window, window.decorView) ?: return
-        if (showStatus) {
-            controller.show(WindowInsetsCompat.Type.statusBars())
-        } else {
-            controller.hide(WindowInsetsCompat.Type.statusBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-        if (showNavigation) {
-            controller.show(WindowInsetsCompat.Type.navigationBars())
-        } else {
-            controller.hide(WindowInsetsCompat.Type.navigationBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-    }
-
 
     /**
      * 已验证
@@ -103,8 +101,7 @@ object WindowInsertHelper {
      * 状态栏显示时，才会返回正常值，不显示时，返回高度为0
      */
     fun getStatusBarHeight(window: Window): Int {
-        val content = window.findViewById<View>(android.R.id.content)
-        val insetsCompat = ViewCompat.getRootWindowInsets(content)
+        val insetsCompat = ViewCompat.getRootWindowInsets(window.decorView)
         val windowInsetsCompat = insetsCompat ?: return 0
         return windowInsetsCompat.getInsets(WindowInsetsCompat.Type.statusBars()).top
     }
@@ -115,9 +112,9 @@ object WindowInsertHelper {
      * 导航栏显示时，才会返回正常值，不显示时，返回高度为0
      */
     fun getNavigationBarHeight(window: Window): Int {
-        val content = window.findViewById<View>(android.R.id.content)
-        val insetsCompat = ViewCompat.getRootWindowInsets(content)
+        val insetsCompat = ViewCompat.getRootWindowInsets(window.decorView)
         val windowInsetsCompat = insetsCompat ?: return 0
         return windowInsetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
     }
+
 }

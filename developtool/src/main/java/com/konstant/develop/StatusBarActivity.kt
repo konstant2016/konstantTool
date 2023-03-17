@@ -47,12 +47,12 @@ class StatusBarActivity : AppCompatActivity() {
         var navigationDraw = false
         btn_draw_status.setOnCheckedChangeListener { _, isChecked ->
             statusBarDraw = isChecked
-            WindowInsertHelper.setInvadeSystemBar(this, statusBarDraw, navigationDraw)
+            WindowInsertHelper.setInvadeSystemBar(window, statusBarDraw, navigationDraw)
         }
 
         btn_draw_navigation.setOnCheckedChangeListener { _, isChecked ->
             navigationDraw = isChecked
-            WindowInsertHelper.setInvadeSystemBar(this, statusBarDraw, navigationDraw)
+            WindowInsertHelper.setInvadeSystemBar(window, statusBarDraw, navigationDraw)
         }
 
         btn_status_height.setOnClickListener {
