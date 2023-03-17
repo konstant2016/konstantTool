@@ -50,6 +50,11 @@
     "type": "STOCK_CALCULATE"
   },
   {
+    "title": "涨停预警",
+    "title_en": "Stock Harden Alert",
+    "type": "STOCK_HARDEN_ALERT"
+  },
+  {
     "title": "舔狗日记",
     "title_en": "Dog Diary",
     "type": "DOG_DIARY"

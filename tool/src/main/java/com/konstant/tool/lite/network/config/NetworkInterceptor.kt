@@ -28,7 +28,7 @@ class NetworkInterceptor(val context: Context) : Interceptor {
 
     init {
         map[ExpressApi.HOST] = 60 * 30
-        map[StockDetailApi.HOST] = 60
+        map[StockDetailApi.DETAIL_HOST] = 60
         map[DogDiaryApi.HOST] = 0
     }
 

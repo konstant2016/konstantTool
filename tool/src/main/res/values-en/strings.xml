@@ -347,5 +347,6 @@
     <string name="add_widget">Add widget</string>
     <string name="calendar_widget_description">Calendar Widget</string>
     <string name="time_widget_description">Time Widget</string>
+    <string name="stock_harden_alert_title">Stock Harden Alert</string>
 
 </resources>

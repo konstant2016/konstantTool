@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn_lottie.setOnClickListener {
-            val intent = Intent(this, LottieDebugActivity::class.java)
+            val intent = Intent(this, SizeDebugActivity::class.java)
             startActivity(intent)
         }
     }

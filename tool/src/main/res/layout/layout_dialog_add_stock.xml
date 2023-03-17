@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
@@ -52,7 +52,7 @@
 
     </RadioGroup>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
@@ -75,7 +75,7 @@
         android:textColor="?attr/tool_main_text_color"
         android:textSize="13sp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="20dp"

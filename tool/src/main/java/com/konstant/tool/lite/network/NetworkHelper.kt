@@ -77,7 +77,7 @@ object NetworkHelper {
      * code：股票代码
      */
     fun getStockDetail(data: StockData): Observable<StockData> {
-        return RetrofitBuilder.getApi(StockDetailApi.HOST,StockDetailApi::class.java)
+        return RetrofitBuilder.getApi(StockDetailApi.DETAIL_HOST, StockDetailApi::class.java)
             .getTodayStockDetail(data.number)
             .map {
                 val s = String(it.bytes(), Charset.forName("gb2312"))
@@ -93,36 +93,17 @@ object NetworkHelper {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    // 查询股票价格
-    fun getStockDetail(stockList: List<StockData>): Observable<List<StockData>> {
-        var params = ""
-        for (data in stockList) {
-            params += "${data.number},"
-        }
-        return RetrofitBuilder.getApi(StockDetailApi.HOST, StockDetailApi::class.java)
-            .getTodayStockDetail(params)
+    /**
+     * 获取股票当前的涨跌情况
+     */
+    fun getStockBrief(number: String): Observable<Double> {
+        return RetrofitBuilder.getApi(StockDetailApi.BRIEF_HOST, StockDetailApi::class.java)
+            .getTodayStockBrief(number)
             .map {
                 val s = String(it.bytes(), Charset.forName("gb2312"))
-                val split = s.split(";")
-                split.forEach { item ->
-                    if (item.length > 20) {
-                        val result = item.split("\"")
-                        val number = result[0]
-                        val data = result[1].split(",")
-                        val name = data[0]
-                        val price = data[3].toDouble()
-                        val increase = price > data[2].toDouble()
-                        val stockData = stockList.find { number.contains(it.number) }
-                        if (stockData != null) {
-                            stockData.name = name
-                            stockData.isIncrease = increase
-                            stockData.price = price
-                        }
-                    }
-                }
-                return@map stockList
-            }
-            .subscribeOn(Schedulers.io())
+                val split = s.split("~")
+                return@map split[5].toDouble()
+            }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 

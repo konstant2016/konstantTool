@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".module.stock.alert.StockHardenAlertActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/stock_dialog_select_company"
+        android:textColor="?attr/tool_second_text_color" />
+
+    <RadioGroup
+        android:id="@+id/radio_type"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_sh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/stock_shanghai_stock_exchange"
+            android:textColor="?attr/tool_main_text_color" />
+
+        <RadioButton
+            android:id="@+id/radio_sz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio"
+            android:gravity="center"
+            android:text="@string/stock_shen_zhen_stock_exchange"
+            android:textColor="?attr/tool_main_text_color" />
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/stock_dialog_input_stock_number"
+        android:textColor="?attr/tool_second_text_color" />
+
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edit_bg"
+        android:inputType="number"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="?attr/tool_main_text_color"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btn_retry"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_btn"
+        android:text="@string/base_confirm"
+        android:textColor="?attr/tool_main_text_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="下次刷新在10秒后开始"
+        android:textColor="?attr/tool_second_text_color" />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:indeterminateTint="?attr/tool_theme_text_color"
+        android:max="30"
+        android:progress="20" />
+
+</LinearLayout>

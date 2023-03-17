@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/tool_main_bg_color"
-    tools:context=".module.stock.StockActivity">
+    tools:context=".module.stock.history.StockActivity">
 
     <TextView
         android:id="@+id/tv_name"

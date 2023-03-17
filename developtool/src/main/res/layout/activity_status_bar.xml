@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0f0"
+    android:background="#689199"
     android:orientation="vertical"
     android:paddingStart="50dp">
 
@@ -37,16 +37,16 @@
         android:text="设置全屏（同时隐藏状态栏和导航栏）" />
 
     <CheckBox
-        android:id="@+id/btn_fit"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="设置沉浸(选中则会往下顶)" />
-
-    <CheckBox
-        android:id="@+id/btn_draw_background"
+        android:id="@+id/btn_draw_status"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="绘制到状态栏里面" />
+
+    <CheckBox
+        android:id="@+id/btn_draw_navigation"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="绘制到导航栏里面" />
 
     <Button
         android:id="@+id/btn_status_height"

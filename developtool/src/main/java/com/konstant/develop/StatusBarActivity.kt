@@ -13,12 +13,6 @@ class StatusBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status_bar)
 
-        var fit = false
-        btn_fit.setOnCheckedChangeListener { _, isChecked ->
-            fit = isChecked
-            WindowInsertHelper.setFitWindow(window, fit)
-        }
-
         var statusIconLight = false
         btn_status_color.setOnCheckedChangeListener { _, isChecked ->
             statusIconLight = isChecked
@@ -34,7 +28,7 @@ class StatusBarActivity : AppCompatActivity() {
         var navigationColor = false
         btn_navigation_color.setOnCheckedChangeListener { _, isChecked ->
             navigationColor = isChecked
-            WindowInsertHelper.setNavigationBarColor(window, navigationColor)
+            WindowInsertHelper.setNavigationBarLight(window, navigationColor)
         }
 
         var navigationbgColor = Color.GREEN
@@ -45,24 +39,30 @@ class StatusBarActivity : AppCompatActivity() {
 
         var full = false
         btn_full_screen.setOnCheckedChangeListener { _, isChecked ->
-            full = isChecked
-            WindowInsertHelper.setFullScreen(window, full)
+            full = !isChecked
+            WindowInsertHelper.showWindowControl(window, full, full)
         }
 
-        var draw = false
-        btn_draw_background.setOnCheckedChangeListener { _, isChecked ->
-            draw = isChecked
-            WindowInsertHelper.drawIntoStatusBar(window, draw)
+        var statusBarDraw = false
+        var navigationDraw = false
+        btn_draw_status.setOnCheckedChangeListener { _, isChecked ->
+            statusBarDraw = isChecked
+            WindowInsertHelper.setInvadeSystemBar(this, statusBarDraw, navigationDraw)
+        }
+
+        btn_draw_navigation.setOnCheckedChangeListener { _, isChecked ->
+            navigationDraw = isChecked
+            WindowInsertHelper.setInvadeSystemBar(this, statusBarDraw, navigationDraw)
         }
 
         btn_status_height.setOnClickListener {
             val statusBarHeight = WindowInsertHelper.getStatusBarHeight(window)
-            Toast.makeText(this,"高度:$statusBarHeight",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "高度:$statusBarHeight", Toast.LENGTH_LONG).show()
         }
 
         btn_navigation_height.setOnClickListener {
-             val navigationBarHeight = WindowInsertHelper.getNavigationBarHeight(window)
-            Toast.makeText(this,"高度:$navigationBarHeight",Toast.LENGTH_LONG).show()
+            val navigationBarHeight = WindowInsertHelper.getNavigationBarHeight(window)
+            Toast.makeText(this, "高度:$navigationBarHeight", Toast.LENGTH_LONG).show()
         }
 
     }

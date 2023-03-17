@@ -358,6 +358,8 @@
     <string name="stock_week_friday">五</string>
     <string name="stock_week_saturday">六</string>
 
+    <!--股票涨停预警中的文字-->
+    <string name="stock_harden_alert_title">股票涨停预警</string>
 
     <string name="setting_share_message">扫描二维码，下载《菜籽工具箱》</string>
     <string name="weather_city_manager_title">城市管理</string>

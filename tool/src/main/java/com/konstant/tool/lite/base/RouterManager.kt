@@ -20,7 +20,7 @@ import com.konstant.tool.lite.module.ruler.RulerActivity
 import com.konstant.tool.lite.module.setting.SettingManager
 import com.konstant.tool.lite.module.skip.AutoSkipActivity
 import com.konstant.tool.lite.module.speed.NetSpeedActivity
-import com.konstant.tool.lite.module.stock.StockActivity
+import com.konstant.tool.lite.module.stock.history.StockActivity
 import com.konstant.tool.lite.module.translate.TranslateActivity
 import com.konstant.tool.lite.module.voice.VoiceSpeechActivity
 import com.konstant.tool.lite.module.wallpaper.WallpaperActivity
@@ -41,6 +41,7 @@ object RouterManager {
             "TYPE_WALLPAPER" -> Intent(activity, WallpaperActivity::class.java)
             "TYPE_CONCENTRATION" -> Intent(activity, ConcentrationActivity::class.java)
             "STOCK_CALCULATE" -> Intent(activity, StockActivity::class.java)
+            "STOCK_HARDEN_ALERT" -> Intent(activity, StockActivity::class.java)
             "DOG_DIARY" -> Intent(activity, DogDiaryActivity::class.java)
             "DECIBEL_CALCULATOR" -> Intent(activity, DecibelActivity::class.java)
             "TV_LIVE" -> Intent(activity, TVLiveActivity::class.java)

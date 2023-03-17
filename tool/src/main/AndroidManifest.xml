@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.konstant.tool.lite">
+    package="com.konstant.tool.lite" >
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -39,8 +39,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-
+        tools:ignore="GoogleAppIndexingWarning" >
+        <activity
+            android:name=".StockHardenAlertActivity"
+            android:exported="false" />
         <activity
             android:name=".module.clock.DigitalClockActivity"
             android:screenOrientation="landscape" />
@@ -49,13 +51,13 @@
             android:name=".module.diary.DogDiaryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".module.stock.vertical.StockVerticalHistoryActivity"
+            android:name=".module.stock.history.vertical.StockVerticalHistoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".module.stock.horizontal.StockHorizontalHistoryActivity"
+            android:name=".module.stock.history.horizontal.StockHorizontalHistoryActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".module.stock.StockActivity"
+            android:name=".module.stock.history.StockActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.skip.WhiteListActivity"
@@ -138,7 +140,7 @@
             android:name=".base.SplashActivity"
             android:configChanges="fontScale|uiMode"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashActivity">
+            android:theme="@style/SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -183,7 +185,7 @@
             android:name=".module.qrcode.QRScanActivity"
             android:configChanges="fontScale|uiMode"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
 
@@ -238,7 +240,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
@@ -251,7 +253,7 @@
         <service
             android:name=".module.wallpaper.TransparentWallpaperService"
             android:label="@string/app_name"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
@@ -267,7 +269,7 @@
         <service android:name="com.amap.api.location.APSService" />
         <service
             android:name=".module.skip.AutoSkipService"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.konstant.tool.lite.module.stock.view.StockChartView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.konstant.tool.lite.module.stock.history.view.StockChartView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_chart"
     android:layout_width="0dp"

@@ -5,7 +5,7 @@ import android.text.TextUtils
 import com.google.gson.Gson
 import com.konstant.tool.lite.base.BaseActivity
 import com.konstant.tool.lite.main.FunctionCollectorManager
-import com.konstant.tool.lite.module.stock.StockManager
+import com.konstant.tool.lite.module.stock.history.StockManager
 import com.konstant.tool.lite.module.weather.data.CountryManager
 import com.konstant.tool.lite.network.NetworkHelper
 import com.konstant.tool.lite.util.FileUtil

@@ -18,11 +18,12 @@ import com.konstant.tool.lite.module.skip.AutoSkipService
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.lang.ref.WeakReference
 import java.util.*
 
 object AppUtil {
 
-    private val activityStack = Stack<BaseActivity>()
+    private val activityStack = Stack<WeakReference<BaseActivity>>()
 
     // 获取应用列表
     fun getPackageInfoList(): List<PackageInfo> {
@@ -97,16 +98,19 @@ object AppUtil {
     }
 
     fun addActivity(activity: BaseActivity) {
-        activityStack.add(activity)
+        activityStack.add(WeakReference(activity))
     }
 
     fun removeActivity(activity: BaseActivity) {
-        activityStack.remove(activity)
+        val find = activityStack.find {
+            it.get()?.localClassName == activity.localClassName
+        }?:return
+        activityStack.remove(find)
     }
 
     fun getTopActivity(): BaseActivity? {
         if (activityStack.size == 0) return null
-        return activityStack.peek()
+        return activityStack.peek().get()
     }
 
     // 系统辅助功能是否已开启

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.konstant.tool.lite.module.stock.view.StockMonthView
+    <com.konstant.tool.lite.module.stock.history.view.StockMonthView
         android:id="@+id/month_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.konstant.tool.lite.module.stock.view.StockChartView
+    <com.konstant.tool.lite.module.stock.history.view.StockChartView
         android:id="@+id/chart_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
