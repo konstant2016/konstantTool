@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.yangcong345.kratos.render.view.common.builder.ShapeDrawableBuilder;
 import com.yangcong345.kratos.render.view.common.styleable.ShapeImageViewStyleable;
-import com.yangcong345.kratos.R;;
+import com.yangcong345.kratos.R;
 
 
 /**

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/app_name"
+    android:accessibilityEventTypes="typeViewClicked|typeViewLongClicked|typeViewSelected|typeViewFocused|typeViewTextChanged|typeWindowStateChanged|typeNotificationStateChanged|typeViewHoverEnter|typeViewHoverExit|typeTouchExplorationGestureStart|typeTouchExplorationGestureEnd|typeWindowContentChanged|typeViewScrolled|typeViewTextSelectionChanged|typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="100"
+    android:packageNames="com.miui.packageinstaller,com.android.systemui,com.android.packageinstaller,com.vivo.secime.service,com.oplus.appdetail,com.oplus.notificationmanager,om.vivo.upslide,"
+    android:canRetrieveWindowContent="true"/>

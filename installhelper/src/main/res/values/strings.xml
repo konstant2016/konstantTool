@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">辅助安装工具</string>
+    <string name="app_describe">使用无障碍权限，自动点击安装过程中的各种[允许],[继续],[同意],[下一步]等按钮</string>
+</resources>

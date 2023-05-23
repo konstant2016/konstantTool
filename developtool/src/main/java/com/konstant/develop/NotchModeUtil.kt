@@ -78,7 +78,7 @@ object NotchModeUtil {
         }
         window.attributes = layoutParams
     }
-    
+
     /**
      * 获取状态栏高度
      *
@@ -175,7 +175,7 @@ object NotchModeUtil {
     private fun hasNotchWithDefault(activity: Activity): Boolean {
         if (Build.VERSION.SDK_INT >= 28) {
             return activity.window.decorView.rootWindowInsets?.displayCutout?.boundingRects?.isNotEmpty()
-                    ?: false
+                ?: false
         }
         return false
     }
