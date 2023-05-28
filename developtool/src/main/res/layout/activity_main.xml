@@ -317,6 +317,15 @@
                     android:gravity="center"
                     android:text="打开Lottie测试页面" />
 
+                <TextView
+                    android:id="@+id/btn_touch"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_selector_btn"
+                    android:gravity="center"
+                    android:text="打开触摸事件调试页面" />
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

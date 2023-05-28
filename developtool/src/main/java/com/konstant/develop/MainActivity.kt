@@ -20,6 +20,7 @@ import com.konstant.develop.dsl.DSLActivity
 import com.konstant.develop.jetpack.animation.JetpackAnimationActivity
 import com.konstant.develop.jetpack.paging3.Paging3Activity
 import com.konstant.develop.quickstep.QuickStepActivity
+import com.konstant.develop.touchdemo.TouchDemoActivity
 import com.konstant.develop.tree.TreeViewActivity
 import com.konstant.develop.x5.SystemWebActivity
 import com.konstant.develop.x5.TencentX5Activity
@@ -147,6 +148,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_lottie.setOnClickListener {
             val intent = Intent(this, SizeDebugActivity::class.java)
+            startActivity(intent)
+        }
+        btn_touch.setOnClickListener {
+            val intent = Intent(this, TouchDemoActivity::class.java)
             startActivity(intent)
         }
     }

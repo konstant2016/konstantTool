@@ -31,6 +31,9 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
+            android:name=".touchdemo.TouchDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".SizeDebugActivity"
             android:exported="false" />
         <activity
