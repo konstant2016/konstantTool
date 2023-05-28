@@ -31,6 +31,12 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
+            android:name=".contract.ContractActivity"
+            android:exported="false" />
+        <activity
+            android:name=".contract.BranchActivity"
+            android:exported="false" />
+        <activity
             android:name=".touchdemo.TouchDemoActivity"
             android:exported="false" />
         <activity

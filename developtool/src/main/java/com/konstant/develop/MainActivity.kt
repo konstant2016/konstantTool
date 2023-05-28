@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.konstant.develop.bitmap.BitmapActivity
 import com.konstant.develop.cache.GlideCacheActivity
+import com.konstant.develop.contract.ContractActivity
 import com.konstant.develop.debug.PageStartDebugActivity
 import com.konstant.develop.dsl.DSLActivity
 import com.konstant.develop.jetpack.animation.JetpackAnimationActivity
@@ -152,6 +153,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_touch.setOnClickListener {
             val intent = Intent(this, TouchDemoActivity::class.java)
+            startActivity(intent)
+        }
+        btn_result.setOnClickListener {
+            val intent = Intent(this, ContractActivity::class.java)
             startActivity(intent)
         }
     }

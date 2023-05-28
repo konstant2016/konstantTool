@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/btn_open"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="#33000000"
+        android:gravity="center"
+        android:text="打开分支视频"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/btn_result"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#33000000"
+        android:gravity="center"
+        android:text="这里显示回调结果"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</LinearLayout>
